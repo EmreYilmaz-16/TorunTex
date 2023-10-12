@@ -36,6 +36,8 @@
    <cfset PROJECT_ID="">
    <cfset PROJECT_ID_IN="">
    <cfset lot_no="">
+   <cfset AMOUNT_OTHER ="">
+   <cfset unit_other="">
   <cfinclude template="StokFisQuery.cfm">
  
 
