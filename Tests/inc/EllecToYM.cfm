@@ -17,18 +17,21 @@
 </cfoutput>
 </cf_grid_list>
 </div>
-<div style="height:60vh;overflow-y: scroll;overflow-x: none;">
+
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=4">
+    
 <cf_box title="Sepetim">
-  
+    <div style="height:50vh;overflow-y: scroll;overflow-x: none;">
     <cf_grid_list>
         <tbody id="basket"></tbody>
     </cf_grid_list>
+</div>
 </cf_box>
+
 <input type="submit">
 <input type="hidden" name="is_submit" value="1">
 </cfform>
-</div>
+
 
 <cfif isDefined("attributes.is_submit")>
     
