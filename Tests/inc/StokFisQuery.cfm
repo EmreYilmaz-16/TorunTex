@@ -48,7 +48,7 @@
       <cfelse>
       
       </cfif>
-      <cfif isDefined(isShelfed) and isShelfed.recordCount>
+      <cfif isDefined("isShelfed") and isShelfed.recordCount>
         <cfset 'attributes.SHELF_NUMBER_TXT_#ix#' = SHELF_NUMBER_TXT> 
         <cfset 'attributes.SHELF_NUMBER_#ix#' = SHELF_NUMBER>
         <cfset 'attributes.shelf_number#ix#' = SHELF_NUMBER>
