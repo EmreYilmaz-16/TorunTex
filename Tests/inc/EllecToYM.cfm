@@ -74,9 +74,27 @@
         <CFSET attributes.ROWW="#currentrow#,">
         <CFSET "attributes.STOCK_ID#currentrow#"="#STOCK_ID#">
         <CFSET "attributes.QUANTITY#currentrow#"="#AMOUNT#">
+        <CFSET "attributes.row_unique_relation_id#currentrow#"="">
     </cfloop>
     <cfdump var="#attributes#">
     <cfdump var="#output_struct#">
+    <cfset attributes.LOCATION_IN="">
+    <cfset attributes.LOCATION_OUT=3>
+    <cfset attributes.department_out=7>
+    <cfset attributes.department_in ="">
+    <cfset form.process_cat=89>
+    <cfset attributes.process_cat = form.process_cat>
+   <cfset PROJECT_HEAD="">
+   <cfset PROJECT_HEAD_IN="">
+   <cfset PROJECT_ID="">
+   <cfset PROJECT_ID_IN="">
+   <cfset lot_no="">
+   <cfset AMOUNT_OTHER ="">
+   <cfset unit_other="">
+
+ <cfinclude template="StokFisQuery.cfm">
+
+
 </cfif>
 <script src="/AddOns/Partner/js/Sepet.js"></script>,
 
