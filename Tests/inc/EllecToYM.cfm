@@ -26,6 +26,7 @@
 
 
 <cfif isDefined("attributes.is_submit")>
+    <CFSET output_struct=attributes>
     <cfset QQ=queryNew("SID,PID,AMOUNT,STOCK_ID,PRODUCT_ID","INTEGER,INTEGER,DECIMAL,INTEGER,INTEGER")>
     <cfloop list="#attributes.ROWW#" item="li" index="ix">
         <cfquery name="getRel" datasource="#dsn3#">
@@ -60,14 +61,22 @@
                 #evaluate("attributes.PRODUCT_NAME#li#")# Ürününün Elleçleme Depoda Hammaddesi Bulunmamaktadır
             </cfoutput>
         </cfif>
-    </cfloop>    
+    </cfloop>  
+      
     <cfquery name="QQ_2" dbtype="query">
-        SELECT SUM(AMOUNT),STOCK_ID,PRODUCT_ID FROM QQ GROUP BY  STOCK_ID,PRODUCT_ID
+        SELECT SUM(AMOUNT) AS AMOUNT,STOCK_ID,PRODUCT_ID FROM QQ GROUP BY  STOCK_ID,PRODUCT_ID
     </cfquery>
 
     <cfdump var="#QQ#">
     <cfdump var="#QQ_2#">
-    
+    <CFSET attributes.ROWW="">
+    <cfloop query="QQ_2">
+        <CFSET attributes.ROWW="#currentrow#,">
+        <CFSET "attributes.STOCK_ID#currentrow#"="#STOCK_ID#">
+        <CFSET "attributes.QUANTITY#currentrow#"="#AMOUNT#">
+    </cfloop>
+    <cfdump var="#attributes#">
+    <cfdump var="#output_struct#">
 </cfif>
 <script src="/AddOns/Partner/js/Sepet.js"></script>,
 
