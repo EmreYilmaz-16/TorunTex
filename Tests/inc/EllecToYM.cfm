@@ -23,8 +23,35 @@
 <input type="submit">
 <input type="hidden" name="is_submit" value="1">
 </cfform>
+
+
 <cfif isDefined("attributes.is_submit")>
-    <cfdump var="#attributes#">
+    <cfloop list="#attributes.ROWW#" item="li" index="ix">
+        <cfquery name="getRel" datasource="#dsn3#">
+            SELECT sum(STOCK_IN - STOCK_OUT)
+                ,STOCK_ID
+                ,PRODUCT_ID
+            FROM w3Toruntex_2023_1.STOCKS_ROW
+            WHERE PRODUCT_ID IN (
+                    SELECT RELATED_PRODUCT_ID
+                    FROM w3Toruntex_1.RELATED_PRODUCT
+                    WHERE PRODUCT_ID = #evaluate("attributes.PRODUCT_ID#li#")#
+                    )
+                AND STORE = 7
+                AND STORE_LOCATION = 3
+            GROUP BY STOCK_ID
+                ,PRODUCT_ID
+        </cfquery>    
+        <cfdump var="#getRel#">
+    </cfloop>    
+</cfif>
+<script src="/AddOns/Partner/js/Sepet.js"></script>,
+
+
+
+<!------
+
+     <cfdump var="#attributes#">
     <cfset attributes.LOCATION_IN="">
     <cfset attributes.LOCATION_OUT=3>
     <cfset attributes.department_out=7>
@@ -38,10 +65,21 @@
    <cfset lot_no="">
    <cfset AMOUNT_OTHER ="">
    <cfset unit_other="">
-  <cfinclude template="StokFisQuery.cfm">
+  <!---<cfinclude template="StokFisQuery.cfm">---->
  
+
+<cfset MyStruct=attributes>
+<cfloop list="#attributes.ROWW#" item="li" index="ix">
+    <cfset STOCK_ID=evaluate("attributes.STOCK_ID#li#")>
+    <cfset PRODUCT_ID=evaluate("attributes.PRODUCT_ID#li#")>
+    <cfset AMOUNT=evaluate("attributes.QUANTITY#li#")>
 
 
     
-</cfif>
-<script src="/AddOns/Partner/js/Sepet.js"></script>
+
+
+</cfloop>
+
+
+<cfdump var="#MyStruct#">
+<cfdump var="#attributes#">----->
