@@ -23,4 +23,4 @@
 
 
 
-<script href="/AddOns/Partner/js/Sepet.js"></script>
+<script src="/AddOns/Partner/js/Sepet.js"></script>
