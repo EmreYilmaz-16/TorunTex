@@ -10,6 +10,7 @@ errorvariable="local.err">
 <cfoutput>
  <cfset st=left(local.out,findNoCase("it_is_runing", local.out))>
  <cfdump var="#local.out#">
+ <cfdump var="#local.err#">
 <cfset git =findNoCase("pull",st)>
 <cfset stlen =len(st)>
 <cfset stgit=stlen-git >
