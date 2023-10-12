@@ -21,7 +21,7 @@
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=4">
     
 <cf_box title="Sepetim">
-    <div style="height:50vh;overflow-y: scroll;overflow-x: none;">
+    <div style="height:40vh;overflow-y: scroll;overflow-x: none;">
     <cf_grid_list>
         <tbody id="basket"></tbody>
     </cf_grid_list>
