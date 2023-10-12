@@ -48,9 +48,9 @@
         <cfset QS={
             SID=evaluate("attributes.STOCK_ID#li#"),
             PID=evaluate("attributes.PRODUCT_ID#li#"),
-            AMOUNT=evaluate("attributes.QUANTITY#li#")
+            AMOUNT=evaluate("attributes.QUANTITY#li#"),
             STOCK_ID=getRel.STOCK_ID,
-            PRODUCT_ID=getRel.PRODUCT_ID,
+            PRODUCT_ID=getRel.PRODUCT_ID
         }>
         <cfscript>
             queryAddRow(QQ,QS);
