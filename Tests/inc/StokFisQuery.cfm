@@ -32,8 +32,8 @@
     <cfset STOCK_ID=evaluate("attributes.STOCK_ID#li#")>
     <cfset AMOUNT=evaluate("attributes.QUANTITY#li#")>
     <cfif isDefined(trim("attributes.PRODUCT_PLACE_ID#li#")) and len(evaluate("attributes.PRODUCT_PLACE_ID#li#"))><cfset SHELF_NUMBER=evaluate("attributes.PRODUCT_PLACE_ID#li#")><cfelse><cfset SHELF_NUMBER=""></cfif>
-  <cfif isDefined("attributes.SHELFCODE#li#") and len(evaluate("attributes.SHELFCODE#li#"))><cfset SHELF_NUMBER_TXT=evaluate("attributes.SHELFCODE#li#")><cfelse><cfset SHELF_NUMBER_TXT="YOK_ARTIK_ARKADAS"></cfif>
-    <cfif not isDefined("attributes.uniq_relation_id_#li#")>
+  <cfif isDefined(trim("attributes.SHELFCODE#li#")) and len(evaluate("attributes.SHELFCODE#li#"))><cfset SHELF_NUMBER_TXT=evaluate("attributes.SHELFCODE#li#")><cfelse><cfset SHELF_NUMBER_TXT="YOK_ARTIK_ARKADAS"></cfif>
+    <cfif not isDefined(trim("attributes.uniq_relation_id_#li#"))>
       <cfset "attributes.uniq_relation_id_#li#"="">
     </cfif>
     <cfset ROW_UNIQ_RELATION=evaluate("attributes.uniq_relation_id_#li#")>
