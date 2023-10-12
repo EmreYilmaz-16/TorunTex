@@ -39,11 +39,14 @@
         left join #dsn3#.PRODUCT_UNIT on PRODUCT_UNIT.PRODUCT_ID=STOCKS.PRODUCT_ID and IS_MAIN=1                            
         where STOCK_ID=#STOCK_ID#
     </cfquery>
-    
+    <cfif len(attributes.department_out)>
       <cfset attributes.rows_=attributes.rows_+1>
       <cfquery name="isShelfed" datasource="#dsn3#">
         SELECT * FROM #DSN3#.PRODUCT_PLACE WHERE SHELF_CODE='#SHELF_NUMBER_TXT#' AND STORE_ID=#attributes.department_out# AND LOCATION_ID=#attributes.LOCATION_OUT#
       </cfquery>
+      <cfelse>
+        <cfset isShelfed.recordCount=0>
+      </cfif>
       <cfif isShelfed.recordCount>
         <cfset 'attributes.SHELF_NUMBER_TXT_#ix#' = SHELF_NUMBER_TXT> 
         <cfset 'attributes.SHELF_NUMBER_#ix#' = SHELF_NUMBER>
