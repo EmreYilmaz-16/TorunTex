@@ -93,7 +93,7 @@
 
  <cfinclude template="StokFisQuery.cfm">
  <cfdump var="#attributes#">
-<cfset attributes.output_struct>
+<cfset attributes=output_struct>
 <cfdump var="#attributes#">
 </cfif>
 <script src="/AddOns/Partner/js/Sepet.js"></script>,
