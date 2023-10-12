@@ -60,7 +60,7 @@
         </cfif>
     </cfloop>    
     <cfquery name="QQ_2" dbtype="query">
-        SELECT SUM(AMOUNT),PRODUCT_ID,STOCK_ID GROUP BY  PRODUCT_ID,STOCK_ID
+        SELECT SUM(AMOUNT),PRODUCT_ID,STOCK_ID FROM QQ GROUP BY  PRODUCT_ID,STOCK_ID
     </cfquery>
 
     <cfdump var="#QQ#">
