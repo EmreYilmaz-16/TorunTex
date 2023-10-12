@@ -3,7 +3,7 @@
 <cfquery name="GetYmOrg" datasource="#dsn2#">
     SELECT * FROM w3Toruntex_1.STOCKS WHERE STOCK_CODE LIKE '#YM_CAT#%'
 </cfquery>
-<div style="height:30vh;overflow-x: scroll">
+<div style="height:30vh;overflow-x: none;overflow-y: scroll;">
 <cf_grid_list>
 <cfoutput query="GetYmOrg">
 <tr>
@@ -17,7 +17,7 @@
 </cfoutput>
 </cf_grid_list>
 </div>
-<div style="height:60vh;overflow-x: scroll">
+<div style="height:60vh;overflow-y: scroll;overflow-x: none;">
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=4">
 <cf_box title="Sepetim">
   
