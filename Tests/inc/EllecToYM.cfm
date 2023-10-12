@@ -23,3 +23,4 @@
 
 
 
+<script href="/AddOns/Partner/js/Sepet.js"></script>
