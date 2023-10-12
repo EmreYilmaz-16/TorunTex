@@ -26,7 +26,7 @@
 
 
 <cfif isDefined("attributes.is_submit")>
-    <cfset QQ=queryNew("SID,PID,AMOUNT","INTEGER,INTEGER,DECIMAL")>
+    <cfset QQ=queryNew("SID,PID,AMOUNT,STOCK_ID,PRODUCT_ID","INTEGER,INTEGER,DECIMAL,INTEGER,INTEGER")>
     <cfloop list="#attributes.ROWW#" item="li" index="ix">
         <cfquery name="getRel" datasource="#dsn3#">
             SELECT sum(STOCK_IN - STOCK_OUT)
@@ -49,6 +49,8 @@
             SID=evaluate("attributes.STOCK_ID#li#"),
             PID=evaluate("attributes.PRODUCT_ID#li#"),
             AMOUNT=evaluate("attributes.QUANTITY#li#")
+            STOCK_ID=getRel.STOCK_ID,
+            PRODUCT_ID=getRel.PRODUCT_ID,
         }>
         <cfscript>
             queryAddRow(QQ,QS);
@@ -60,7 +62,7 @@
         </cfif>
     </cfloop>    
     <cfquery name="QQ_2" dbtype="query">
-        SELECT SUM(AMOUNT),PID,SID FROM QQ GROUP BY  PID,SID
+        SELECT SUM(AMOUNT),STOCK_ID,PRODUCT_ID FROM QQ GROUP BY  STOCK_ID,PRODUCT_ID
     </cfquery>
 
     <cfdump var="#QQ#">
