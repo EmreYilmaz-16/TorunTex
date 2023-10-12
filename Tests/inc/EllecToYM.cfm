@@ -26,6 +26,7 @@
 
 
 <cfif isDefined("attributes.is_submit")>
+    <cfset QQ=queryNew("SID,PID,AMOUNT","INTEGER,INTEGER,DECIMAL")>
     <cfloop list="#attributes.ROWW#" item="li" index="ix">
         <cfquery name="getRel" datasource="#dsn3#">
             SELECT sum(STOCK_IN - STOCK_OUT)
@@ -43,7 +44,28 @@
                 ,PRODUCT_ID
         </cfquery>    
         <cfdump var="#getRel#">
+        <cfif getRel.recordCount>
+        <cfset QS={
+            SID=evaluate("attributes.STOCK_ID#li#"),
+            PID=evaluate("attributes.PRODUCT_ID#li#"),
+            AMOUNT=evaluate("attributes.QUANTITY#li#")
+        }>
+        <cfscript>
+            queryAddRow(QQ,QS);
+        </cfscript>
+        <cfelse>
+            <cfoutput>
+                #evaluate("attributes.PRODUCT_NAME#li#")# Ürününün Elleçleme Depoda Hammaddesi Bulunmamaktadır
+            </cfoutput>
+        </cfif>
     </cfloop>    
+    <cfquery name="QQ_2" dbtype="query">
+        SELECT SUM(AMOUNT),PRODUCT_ID,STOCK_ID GROUP BY  PRODUCT_ID,STOCK_ID
+    </cfquery>
+
+    <cfdump var="#QQ#">
+    <cfdump var="#QQ_2#">
+    
 </cfif>
 <script src="/AddOns/Partner/js/Sepet.js"></script>,
 
