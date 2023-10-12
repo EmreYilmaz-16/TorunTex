@@ -18,8 +18,8 @@ function SepeteEkle(PRODUCT_ID,STOCK_ID,PRODUCT_NAME){
     var td=document.createElement("td");
     var in1=document.createElement("input");
     in1.setAttribute("type","text");
-    in1.setAttribute("name","AMOUNT");
-    in1.setAttribute("id","AMOUNT");
+    in1.setAttribute("name","AMOUNT_"+PRODUCT_ID);
+    in1.setAttribute("id","AMOUNT_"+PRODUCT_ID);
     in1.value=prompt("Miktar (KG)");
     td.appendChild(in1);
     tr.appendChild(td);

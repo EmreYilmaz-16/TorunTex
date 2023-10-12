@@ -21,8 +21,9 @@
     </cf_grid_list>
 </cf_box>
 <input type="submit">
+<input type="hidden" name="is_submit" value="1">
 </cfform>
-
-
-
+<cfif isDefined("attributes.is_submit")>
+    <cfdump var="#attributes#">
+</cfif>
 <script src="/AddOns/Partner/js/Sepet.js"></script>
