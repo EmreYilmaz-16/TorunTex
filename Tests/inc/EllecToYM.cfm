@@ -28,7 +28,7 @@
 </div>
 </cf_box>
 
-<input type="submit">
+<button type="submit" class="btn btn-success">Kaydet</button>
 <input type="hidden" name="is_submit" value="1">
 </cfform>
 
