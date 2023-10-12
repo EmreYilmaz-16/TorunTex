@@ -45,9 +45,9 @@
         SELECT * FROM #DSN3#.PRODUCT_PLACE WHERE SHELF_CODE='#SHELF_NUMBER_TXT#' AND STORE_ID=#attributes.department_out# AND LOCATION_ID=#attributes.LOCATION_OUT#
       </cfquery>
       <cfelse>
-        <cfset isShelfed.recordCount=0>
+      
       </cfif>
-      <cfif isShelfed.recordCount>
+      <cfif isDefined(isShelfed) and isShelfed.recordCount>
         <cfset 'attributes.SHELF_NUMBER_TXT_#ix#' = SHELF_NUMBER_TXT> 
         <cfset 'attributes.SHELF_NUMBER_#ix#' = SHELF_NUMBER>
         <cfset 'attributes.shelf_number#ix#' = SHELF_NUMBER>
