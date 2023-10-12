@@ -7,10 +7,10 @@
 <cf_grid_list>
 <cfoutput query="GetYmOrg">
 <tr>
-    <td>
+    <td style="width:90%">
         #PRODUCT_NAME#
     </td>
-    <td>
+    <td style="width:10%;text-align:center">
         <button class="btn btn-sm btn-warning"  onclick="SepeteEkle(#PRODUCT_ID#,#STOCK_ID#,'#PRODUCT_NAME#')"><span class="icn-md icon-download"></span></button>
     </td>
 </tr>
