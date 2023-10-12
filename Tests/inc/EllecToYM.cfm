@@ -67,8 +67,7 @@
         SELECT SUM(AMOUNT) AS AMOUNT,STOCK_ID,PRODUCT_ID FROM QQ GROUP BY  STOCK_ID,PRODUCT_ID
     </cfquery>
 
-    <cfdump var="#QQ#">
-    <cfdump var="#QQ_2#">
+    
     <CFSET attributes.ROWW="">
     <cfloop query="QQ_2">
         <CFSET attributes.ROWW="#currentrow#,">
@@ -93,8 +92,9 @@
    <cfset unit_other="">
 
  <cfinclude template="StokFisQuery.cfm">
-
-
+ <cfdump var="#attributes#">
+<cfset attributes.output_struct>
+<cfdump var="#attributes#">
 </cfif>
 <script src="/AddOns/Partner/js/Sepet.js"></script>,
 
