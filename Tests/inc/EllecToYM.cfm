@@ -100,8 +100,8 @@
 
 
 <cfset attributes.LOCATION_IN="7">
-<cfset attributes.LOCATION_OUT="">
-<cfset attributes.department_out="">
+<cfset attributes.LOCATION_OUT="0">
+<cfset attributes.department_out="0">
 <cfset attributes.department_in ="7">
 <cfset form.process_cat=87>
 <cfset attributes.process_cat = form.process_cat>
