@@ -11,8 +11,8 @@ function SepeteEkle(PRODUCT_ID,STOCK_ID,PRODUCT_NAME){
     td.appendChild(in1);
     var in1=document.createElement("input");
     in1.setAttribute("type","hidden");
-    in1.setAttribute("name","ROW");
-    in1.setAttribute("id","ROW");
+    in1.setAttribute("name","ROWW");
+    in1.setAttribute("id","ROWW");
     in1.value=currentRow;
     td.appendChild(in1);
     var in1=document.createElement("input");
