@@ -9,17 +9,19 @@
         #PRODUCT_NAME#
     </td>
     <td>
-        <button onclick="SepeteEkle(#PRODUCT_ID#,#STOCK_ID#)">Sepete Ekle</button>
+        <button onclick="SepeteEkle(#PRODUCT_ID#,#STOCK_ID#,'#PRODUCT_NAME#')">Sepete Ekle</button>
     </td>
 </tr>
 </cfoutput>
 </cf_grid_list>
+<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=4">
 <cf_box title="Sepetim">
     <cf_grid_list>
         <tbody id="basket"></tbody>
     </cf_grid_list>
 </cf_box>
-
+<input type="submit">
+</cfform>
 
 
 
