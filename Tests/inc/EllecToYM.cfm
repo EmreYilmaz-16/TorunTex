@@ -1,7 +1,9 @@
+<cf_box title="YM-DEPO Fişi">
 <cfparam name="YM_CAT" default="Original-YM.%">
 <cfquery name="GetYmOrg" datasource="#dsn2#">
     SELECT * FROM w3Toruntex_1.STOCKS WHERE STOCK_CODE LIKE '#YM_CAT#%'
 </cfquery>
+<div style="height:30vh;overflow-x: scroll">
 <cf_grid_list>
 <cfoutput query="GetYmOrg">
 <tr>
@@ -14,8 +16,11 @@
 </tr>
 </cfoutput>
 </cf_grid_list>
+</div>
+<div style="height:60vh;overflow-x: scroll">
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=4">
 <cf_box title="Sepetim">
+  
     <cf_grid_list>
         <tbody id="basket"></tbody>
     </cf_grid_list>
@@ -23,10 +28,12 @@
 <input type="submit">
 <input type="hidden" name="is_submit" value="1">
 </cfform>
-
+</div>
 
 <cfif isDefined("attributes.is_submit")>
-    <CFSET output_struct=attributes>
+    
+    <cfset OutputStr=serializeJSON(attributes)>
+    
     <cfset QQ=queryNew("SID,PID,AMOUNT,STOCK_ID,PRODUCT_ID","INTEGER,INTEGER,DECIMAL,INTEGER,INTEGER")>
     <cfloop list="#attributes.ROWW#" item="li" index="ix">
         <cfquery name="getRel" datasource="#dsn3#">
@@ -67,7 +74,9 @@
         SELECT SUM(AMOUNT) AS AMOUNT,STOCK_ID,PRODUCT_ID FROM QQ GROUP BY  STOCK_ID,PRODUCT_ID
     </cfquery>
 
-    
+    <cfscript>
+        structClear(attributes);
+    </cfscript>
     <CFSET attributes.ROWW="">
     <cfloop query="QQ_2">
         <CFSET attributes.ROWW="#currentrow#,">
@@ -76,8 +85,7 @@
         <CFSET "attributes.QUANTITY#currentrow#"="#AMOUNT#">
         <CFSET "attributes.row_unique_relation_id#currentrow#"="">
     </cfloop>
-    <cfdump var="#attributes#">
-    <cfdump var="#output_struct#">
+    
     <cfset attributes.LOCATION_IN="">
     <cfset attributes.LOCATION_OUT=3>
     <cfset attributes.department_out=7>
@@ -93,12 +101,18 @@
    <cfset unit_other="">
 
  <cfinclude template="StokFisQuery.cfm">
- <cfdump var="#attributes#">
- <cfset PreSt=attributes>
-<cfset attributes=output_struct>
+ 
+ <cfset PreSt=serializeJSON(attributes)>
+ <br>PREST=<br>
+ <cfdump var="#PreSt#">
+<cfscript>
+    structClear(attributes);
+</cfscript>
+<cfset attributes=deserializeJSON(OutputStr)>
+
 <cfdump var="#attributes#">
 
-
+<cfset pra=deserializeJSON(PreSt)>
 <cfset attributes.LOCATION_IN="7">
 <cfset attributes.LOCATION_OUT="0">
 <cfset attributes.department_out="0">
@@ -112,12 +126,13 @@
 <cfset lot_no="">
 <cfset AMOUNT_OTHER ="">
 <cfset unit_other="">
-<cfset attributes.ref_no=PreSt.FIS_NO>
+<cfset attributes.ref_no=pra.FIS_NO>
 <cfinclude template="StokFisQuery.cfm">
 </cfif>
+</cf_box>
 <script src="/AddOns/Partner/js/Sepet.js"></script>,
 
-87
+
 
 <!------
 

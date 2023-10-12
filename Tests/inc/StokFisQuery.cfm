@@ -33,6 +33,9 @@
     <cfset AMOUNT=evaluate("attributes.QUANTITY#li#")>
     <cfif isDefined("attributes.PRODUCT_PLACE_ID#li#") and len(evaluate("attributes.PRODUCT_PLACE_ID#li#"))><cfset SHELF_NUMBER=evaluate("attributes.PRODUCT_PLACE_ID#li#")><cfelse><cfset SHELF_NUMBER=""></cfif>
   <cfif isDefined("attributes.SHELFCODE#li#") and len(evaluate("attributes.SHELFCODE#li#"))><cfset SHELF_NUMBER_TXT=evaluate("attributes.SHELFCODE#li#")><cfelse><cfset SHELF_NUMBER_TXT="YOK_ARTIK_ARKADAS"></cfif>
+    <cfif not isDefined("attributes.uniq_relation_id_#li#")>
+      <cfset "attributes.uniq_relation_id_#li#"="">
+    </cfif>
     <cfset ROW_UNIQ_RELATION=evaluate("attributes.uniq_relation_id_#li#")>
     <cfquery name="getSinfo" datasource="#dsn3#">                            
         select PRODUCT_UNIT.MAIN_UNIT,STOCKS.PRODUCT_UNIT_ID,STOCKS.TAX,STOCKS.PRODUCT_ID,STOCKS.IS_INVENTORY from #dsn3#.STOCKS 
@@ -48,6 +51,7 @@
       <cfelse>
       
       </cfif>
+      
       <cfif isDefined("isShelfed") and isShelfed.recordCount>
         <cfset 'attributes.SHELF_NUMBER_TXT_#ix#' = SHELF_NUMBER_TXT> 
         <cfset 'attributes.SHELF_NUMBER_#ix#' = SHELF_NUMBER>
