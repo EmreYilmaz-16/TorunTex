@@ -25,5 +25,20 @@
 </cfform>
 <cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
+    <cfset attributes.LOCATION_IN="">
+    <cfset attributes.LOCATION_OUT=3>
+    <cfset attributes.department_out=7>
+    <cfset attributes.department_in ="">
+    <cfset form.process_cat=89>
+    <cfset attributes.process_cat = form.process_cat>
+   <cfset PROJECT_HEAD="">
+   <cfset PROJECT_HEAD_IN="">
+   <cfset PROJECT_ID="">
+   <cfset PROJECT_ID_IN="">
+  
+ 
+
+
+    
 </cfif>
 <script src="/AddOns/Partner/js/Sepet.js"></script>
