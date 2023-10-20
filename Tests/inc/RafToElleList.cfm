@@ -3,6 +3,7 @@
 <cfquery name="getS2" datasource="#dsn3#">
     select * from w3Toruntex_1.PRODUCT_PLACE where SHELF_CODE='#listgetAt(attributes.RAF,3,"-")#'
 </cfquery>
+<cfdump var="#getS2#">
 <cfabort>
 <cfif getS2.recordCount>
     <cfquery name="gets" datasource="#dsn2#">
