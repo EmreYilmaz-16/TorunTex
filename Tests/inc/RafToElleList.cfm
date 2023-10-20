@@ -51,7 +51,7 @@ HAVING SUM(AMOUNT2) >0
                 <td>
                     #PROJECT_HEAD#
                 </td>
-                <td><button class="btn btn-primary" onclick="windowopen('index.cfm?fuseaction=#attributes.fuseaction#&SAYFA=3&PRODUCT_PLACE_ID=#getS2.PRODUCT_PLACE_ID#&SHELFCODE=#attributes.RAF#&lot=#LOT_NO#&DEF_A=#A2#&DEF=#A#&CV=#CV#&PROJECT_ID=#PROJECT_ID#&STOCK_ID=#STOCK_ID#','PAGE')" type="button"><span class="icn-md icon-check"></span></button></td>
+                <td><button class="btn btn-primary" onclick="windowopen('index.cfm?fuseaction=#attributes.fuseaction#&SAYFA=3&PRODUCT_PLACE_ID=#getS2.PRODUCT_PLACE_ID#&SHELFCODE=#listgetAt(attributes.RAF,3,"-")#&lot=#LOT_NO#&DEF_A=#A2#&DEF=#A#&CV=#CV#&PROJECT_ID=#PROJECT_ID#&STOCK_ID=#STOCK_ID#','PAGE')" type="button"><span class="icn-md icon-check"></span></button></td>
             </tr>
         </cfoutput>
     </thead>
