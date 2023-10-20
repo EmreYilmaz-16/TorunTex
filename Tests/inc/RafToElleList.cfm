@@ -4,7 +4,7 @@
     select * from w3Toruntex_1.PRODUCT_PLACE where SHELF_CODE='#listgetAt(attributes.RAF,3,"-")#' and STORE_ID =#listgetAt(attributes.RAF,1,"-")# and LOCATION_ID =#listgetAt(attributes.RAF,2,"-")#
 </cfquery>
 <cfdump var="#getS2#">
-<cfabort>
+
 <cfif getS2.recordCount>
     <cfquery name="gets" datasource="#dsn2#">
 
