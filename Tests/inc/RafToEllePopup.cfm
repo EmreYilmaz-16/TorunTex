@@ -32,9 +32,14 @@
 </cfform>
 
 <cfif isDefined("attributes.is_submit")>
+    <cfquery name="getS2" datasource="#dsn3#">
+        select * from w3Toruntex_1.PRODUCT_PLACE where PRODUCT_PLACE_ID=#attributes.PRODUCT_PLACE_ID#
+    </cfquery>
+
+
     <cfset attributes.LOCATION_IN=3>
-    <cfset attributes.LOCATION_OUT=1>
-    <cfset attributes.department_out=7>
+    <cfset attributes.LOCATION_OUT=getS2.LOCATION_ID>
+    <cfset attributes.department_out=getS2.STORE_ID>
     <cfset attributes.department_in =7>
     <cfset form.process_cat=90>
     <cfset attributes.process_cat = form.process_cat>
