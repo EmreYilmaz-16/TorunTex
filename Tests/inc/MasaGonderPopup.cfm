@@ -63,6 +63,7 @@
             PRODUCT_PLACE_ID:PRODUCT_PLACE_ID,
             LOCATION_ID:LOCATION_ID
         }
+        $("#Raf").val(raf.innerText);
         SelectedRaf=O
     }
     function KaydetCanim(STOCK_ID) {
