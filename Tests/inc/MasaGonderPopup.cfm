@@ -27,7 +27,10 @@
             </cfoutput>
         ]
         console.log(Masalar);
-    function SearchRaf(keyword) {
+    $(document).ready(function(){
+        createRafElem(Masalar);
+    })
+        function SearchRaf(keyword) {
         var YeniArr=null
         if(keyword.length>3){
              YeniArr=Masalar.filter(p=>p.SHELF_CODE.indexOf(keyword) !=-1)}else if(keyword.length==0){
