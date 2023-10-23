@@ -7,4 +7,15 @@
 
     </cfquery>
     <cfdump var="#getShelwes#">
+    <script>
+        var Masalar=[
+            <cfoutput query="getShelwes">
+                {
+                    PRODUCT_PLACE_ID:#PRODUCT_PLACE_ID#,
+                    SHELF_CODE:'#STORE_ID#-#LOCATION_ID#-#SHELF_CODE#'
+                },
+            </cfoutput>
+        ]
+        console.log(Masalar);
+    </script>
 </cf_box>

@@ -15,7 +15,7 @@
             #PRODUCT_NAME#
         </td>
         <td>
-            <button type="button" onclick="SendMasa(#STOCK_ID#)"></button>
+            <button class="btn btn-outline-primary" type="button" onclick="SendMasa(#STOCK_ID#)"><span class="icn-md fa fa-upload"></span></button>
         </td>
     </tr>
 </cfoutput>
