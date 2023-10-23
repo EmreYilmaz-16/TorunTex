@@ -17,6 +17,14 @@
         </div>
         
     </div>
+    <div class="form-group">
+        <label>Ağırlık</label>
+        <div class="input-group">
+            <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important">
+            <button class="btn btn-outline-warning" onclick="lookUpW()" type="button" id="button-addon2"><span class="icn-md icon-search"></span></button>
+        </div>
+        
+    </div>
         <br>
         <input type="text" name="Search" class="form-control form-control-sm" id="Search" placeholder="Ara" onkeyup="SearchRaf(this.value)">
         <div id="resultDiv" class="list-group" style="heigth:20vh">
