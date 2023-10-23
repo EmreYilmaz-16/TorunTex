@@ -32,7 +32,7 @@
     })
         function SearchRaf(keyword) {
         var YeniArr=null
-        if(keyword.length>3){
+        if(keyword.length>2){
              YeniArr=Masalar.filter(p=>p.SHELF_CODE.indexOf(keyword) !=-1)}else if(keyword.length==0){
                 YeniArr=Masalar; 
         }
