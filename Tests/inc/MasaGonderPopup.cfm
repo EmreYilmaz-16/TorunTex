@@ -88,6 +88,13 @@
             STOCK_ID:STOCK_ID
         };
         console.table(O)
+        $.ajax({
+            url:"/AddOns/Partner/Servis/MasaServis.cfc?method=SendMasa",
+            data:O,
+            success:function (retDat) {
+                
+            }
+        })
     }
     function clearMasa() {
         $("#Raf").val("");
