@@ -9,9 +9,10 @@
         <input type="hidden" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID">
         <input type="hidden" name="STORE_ID" id="STORE_ID">
         <input type="hidden" name="LOCATION_ID" id="LOCATION_ID">
-        <input type="text" name="Search" id="Search">
-        <div id="resultDiv">
+        <input type="text" name="Search" id="Search" onkeyup="SearchRaf(this.value)">
+        <div id="resultDiv" class="list-group" style="heigth:20vh">
         </div>
+    <button class="btn btn-outline-success" onclick="KaydetCanim(<cfoutput>#attributes.STOCK_ID#</cfoutput>)">Gönder</button>
     <cfdump var="#getShelwes#">
     <script>
         var Masalar=[
@@ -21,6 +22,7 @@
                     SHELF_CODE:'<cfif len(STORE_ID) eq 1>0#STORE_ID#<cfelse>#STORE_ID#</cfif>-<cfif len(LOCATION_ID) eq 1>0#LOCATION_ID#<cfelse>#LOCATION_ID#</cfif>-#SHELF_CODE#',
                     STORE_ID:#STORE_ID#,
                     LOCATION_ID:#LOCATION_ID#
+                    
                 },
             </cfoutput>
         ]
@@ -33,8 +35,38 @@
         }
         createRafElem(YeniArr)
     }
-    function createRafElem(){
-
+    function createRafElem(arr){
+        $("#resultDiv").html("");
+        for(let i=0;i<arr.length;i++){
+            var a=document.createElement("a");
+            a.setAttribute("class","list-group-item");
+            a.innerText=arr[i].SHELF_CODE
+            a.setAttribute("data-PRODUCT_PLACE_ID",arr[i].PRODUCT_PLACE_ID)
+            a.setAttribute("data-STORE_ID",arr[i].STORE_ID)
+            a.setAttribute("data-LOCATION_ID",arr[i].LOCATION_ID)
+            a.setAttribute("onclick","SelectRaf(this)")
+            document.getElementById("resultDiv").appendChild(a);            
+        }
+    }
+    var SelectedRaf=null;
+    function SelectRaf(raf,STOCK_ID){
+        var STORE_ID=raf.getAttribute("data-STORE_ID");
+        var PRODUCT_PLACE_ID=raf.getAttribute("data-PRODUCT_PLACE_ID");
+        var LOCATION_ID=raf.getAttribute("data-LOCATION_ID");        
+        var O={
+            STORE_ID:STORE_ID,
+            PRODUCT_PLACE_ID:PRODUCT_PLACE_ID,
+            LOCATION_ID:LOCATION_ID
+        }
+        SelectedRaf=O
+    }
+    function KaydetCanim(STOCK_ID) {
+        
+        var O={
+            RAF_DATA=SelectedRaf,
+            STOCK_ID:STOCK_ID
+        };
+        console.table(O)
     }
     </script>
 
