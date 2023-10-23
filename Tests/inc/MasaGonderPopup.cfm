@@ -12,7 +12,7 @@
             <cfoutput query="getShelwes">
                 {
                     PRODUCT_PLACE_ID:#PRODUCT_PLACE_ID#,
-                    SHELF_CODE:'#STORE_ID#-#LOCATION_ID#-#SHELF_CODE#'
+                    SHELF_CODE:'<cfif len(STORE_ID) eq 1>0#STORE_ID#<cfelse>#STORE_ID#</cfif>-<cfif len(LOCATION_ID) eq 1>0#LOCATION_ID#<cfelse>#LOCATION_ID#</cfif>-#SHELF_CODE#'
                 },
             </cfoutput>
         ]
