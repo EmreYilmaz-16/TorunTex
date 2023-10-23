@@ -21,7 +21,7 @@
         <label>Ağırlık</label>
         <div class="input-group">
             <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important">
-            <button class="btn btn-outline-warning" onclick="lookUpW()" type="button" id="button-addon2"><span class="icn-md icon-search"></span></button>
+            <button class="btn btn-outline-primary" onclick="lookUpW()" type="button" id="button-addon2"><span class="icn-md icon-search"></span></button>
         </div>
         
     </div>
