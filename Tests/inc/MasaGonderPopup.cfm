@@ -20,9 +20,9 @@
     </div>
 </div>
     <div class="form-group">
-        <label>Ağırlık</label>
+        <label>Miktar</label>
         <div class="input-group">
-            <input type="text" name="We" id="We" placeholder="Ağırlık" class="form-control form-control-sm" style="color:green !important">
+            <input type="text" name="We" id="We" placeholder="Miktar" class="form-control form-control-sm" style="color:green !important">
             <button class="btn btn-outline-primary" onclick="lookUpW()" type="button" id="button-addon2"><span class="icn-md icon-search"></span></button>
         </div>
         
@@ -90,7 +90,8 @@
 if(ss==true){
         var O={
             RAF_DATA:SelectedRaf,
-            STOCK_ID:STOCK_ID
+            STOCK_ID:STOCK_ID,
+            AMOUNT:Agirlik,            
         };
         console.table(O)
         $.ajax({
