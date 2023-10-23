@@ -6,6 +6,8 @@
         <cfdump var="#FormData#">
         <cfif isDefined("FormData.RAF_DATA")>
             merhaba
+        <cfelse>
+            NO MERHABA
         </cfif>
 
 
