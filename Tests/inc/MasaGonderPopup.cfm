@@ -9,8 +9,14 @@
         <input type="hidden" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID">
         <input type="hidden" name="STORE_ID" id="STORE_ID">
         <input type="hidden" name="LOCATION_ID" id="LOCATION_ID">
+        <div class="form-group">
         <label>Seçili Raf
-        <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important"></label>
+        <div class="input-group">
+            <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important">
+            <button class="btn btn-outline-warning" onclick="clearMasa()" type="button" id="button-addon2"><span class="icn-md icon-remove"></span></button>
+        </div>
+        </label>
+    </div>
         <br>
         <input type="text" name="Search" class="form-control form-control-sm" id="Search" placeholder="Ara" onkeyup="SearchRaf(this.value)">
         <div id="resultDiv" class="list-group" style="heigth:20vh">
@@ -45,7 +51,7 @@
         $("#resultDiv").html("");
         for(let i=0;i<arr.length;i++){
             var a=document.createElement("a");
-            a.setAttribute("class","list-group-item");
+            a.setAttribute("class","list-group-item list-group-item-action");
             a.innerText=arr[i].SHELF_CODE
             a.setAttribute("data-PRODUCT_PLACE_ID",arr[i].PRODUCT_PLACE_ID)
             a.setAttribute("data-STORE_ID",arr[i].STORE_ID)
@@ -74,6 +80,10 @@
             STOCK_ID:STOCK_ID
         };
         console.table(O)
+    }
+    function clearMasa() {
+        $("#Raf").val("");
+        SelectedRaf=null;
     }
     </script>
 
