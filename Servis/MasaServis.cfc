@@ -1,8 +1,8 @@
 <cfcomponent>
     <cfset dsn3="w3Toruntex_1">
     <cfset dsn3_alias="w3Toruntex_1">
-    <cfset dsn2="weToruntex_2023_1">
-    <cfset dsn2_alias="weToruntex_2023_1">
+    <cfset dsn2="w3Toruntex_2023_1">
+    <cfset dsn2_alias="w3Toruntex_2023_1">
     <cffunction name="SendMasa" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfdump var="#arguments#">
         <cfset F=structKeyArray(arguments)>
