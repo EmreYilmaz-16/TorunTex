@@ -4,5 +4,12 @@
         <cfset F=structKeyArray(arguments)>
         <cfset FormData=deserializeJSON(f[1])>
         <cfdump var="#FormData#">
+        <cfif isDefined("FormData.RAF_DATA")>
+            merhaba
+        </cfif>
+
+
+
+
     </cffunction>
 </cfcomponent>
