@@ -7,6 +7,8 @@
 
     </cfquery>
         <input type="hidden" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID">
+        <input type="hidden" name="STORE_ID" id="STORE_ID">
+        <input type="hidden" name="LOCATION_ID" id="LOCATION_ID">
         <input type="text" name="Search" id="Search">
         <div id="resultDiv">
         </div>
