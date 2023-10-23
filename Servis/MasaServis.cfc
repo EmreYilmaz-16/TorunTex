@@ -26,6 +26,8 @@
    <cfset PROJECT_ID_IN="">
    <cfset attributes.QUANTITY=FormData.AMOUNT>
    <cfset attributes.uniq_relation_id_="">
+   <cfset amount_other="">
+   <cfset unit_other="">
    <cfset lot_no="">
    <cfset attributes.ROWW=" ,">
 <CFSET attributes.STOCK_ID=FormData.STOCK_ID>
