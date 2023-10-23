@@ -63,7 +63,7 @@
     function KaydetCanim(STOCK_ID) {
         
         var O={
-            RAF_DATA=SelectedRaf,
+            RAF_DATA:SelectedRaf,
             STOCK_ID:STOCK_ID
         };
         console.table(O)
