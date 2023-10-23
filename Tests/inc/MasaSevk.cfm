@@ -5,3 +5,26 @@
 </cfquery>
 
 <cfdump var="#gets#">
+<table>
+<cfoutput query="gets">
+    <tr>
+        <td>
+            #PRODUCT_CODE#
+        </td>
+        <td>
+            #PRODUCT_NAME#
+        </td>
+        <td>
+            <button type="button" onclick="SendMasa(#STOCK_ID#)"></button>
+        </td>
+    </tr>
+</cfoutput>
+</table>
+<script>
+function SendMasa(STOCK_ID) {
+    openBoxDraggable("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=7&stok_id="+STOCK_ID);
+    
+
+}
+
+</script>
