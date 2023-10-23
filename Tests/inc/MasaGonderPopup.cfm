@@ -9,7 +9,9 @@
         <input type="hidden" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID">
         <input type="hidden" name="STORE_ID" id="STORE_ID">
         <input type="hidden" name="LOCATION_ID" id="LOCATION_ID">
-        <input type="text" name="Search" id="Search" onkeyup="SearchRaf(this.value)">
+        <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important">
+        <br>
+        <input type="text" name="Search" class="form-control form-control-sm" id="Search" placeholder="Ara" onkeyup="SearchRaf(this.value)">
         <div id="resultDiv" class="list-group" style="heigth:20vh">
         </div>
     <button class="btn btn-outline-success" onclick="KaydetCanim(<cfoutput>#attributes.STOCK_ID#</cfoutput>)">Gönder</button>
