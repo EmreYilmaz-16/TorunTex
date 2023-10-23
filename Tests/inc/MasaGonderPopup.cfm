@@ -9,7 +9,8 @@
         <input type="hidden" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID">
         <input type="hidden" name="STORE_ID" id="STORE_ID">
         <input type="hidden" name="LOCATION_ID" id="LOCATION_ID">
-        <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important">
+        <label>Seçili Raf
+        <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important"></label>
         <br>
         <input type="text" name="Search" class="form-control form-control-sm" id="Search" placeholder="Ara" onkeyup="SearchRaf(this.value)">
         <div id="resultDiv" class="list-group" style="heigth:20vh">
