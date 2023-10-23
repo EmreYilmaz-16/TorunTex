@@ -30,6 +30,7 @@
    <cfset unit_other="">
    <cfset lot_no="">
    <cfset attributes.ROWW=" ,">
+   <cfset attributes.wodate="1">
 <CFSET attributes.STOCK_ID=FormData.STOCK_ID>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 

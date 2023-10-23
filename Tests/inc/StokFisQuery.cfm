@@ -77,8 +77,16 @@
       <cfset "attributes.lot_no#ix#"=lot_no>
       <cfset ix=ix+1>   
 </cfloop>
-<cfinclude template="/v16/stock/query/add_ship_fis_1_PBS.cfm">    
-<cfinclude template="/v16/stock/query/add_ship_fis_2_PBS.cfm">
+<cfif isDefined("attributes.wodate")>
+  
+  <cfinclude template="/v16/stock/query/add_ship_fis_1_PBSWoDate.cfm">    
+  <cfinclude template="/v16/stock/query/add_ship_fis_2_PBSWoDate.cfm">
+<cfelse>
+  <cfinclude template="/v16/stock/query/add_ship_fis_1_PBS.cfm">    
+  <cfinclude template="/v16/stock/query/add_ship_fis_2_PBS.cfm">
+</cfif>
+
+
 <cfif isdefined("attributes.rows_")>            
     <cfinclude template="/v16/stock/query/add_ship_fis_3.cfm">
     <cfinclude template="/v16/stock/query/add_ship_fis_4_PBS.cfm">                    
