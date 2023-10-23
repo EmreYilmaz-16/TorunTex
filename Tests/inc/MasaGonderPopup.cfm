@@ -10,12 +10,12 @@
         <input type="hidden" name="STORE_ID" id="STORE_ID">
         <input type="hidden" name="LOCATION_ID" id="LOCATION_ID">
         <div class="form-group">
-        <label>Seçili Raf
+        <label>Seçili Raf</label>
         <div class="input-group">
             <input type="Text" name="Raf" id="Raf" readonly placeholder="Seçili Raf" class="form-control form-control-sm" style="color:green !important">
             <button class="btn btn-outline-warning" onclick="clearMasa()" type="button" id="button-addon2"><span class="icn-md icon-remove"></span></button>
         </div>
-        </label>
+        
     </div>
         <br>
         <input type="text" name="Search" class="form-control form-control-sm" id="Search" placeholder="Ara" onkeyup="SearchRaf(this.value)">
