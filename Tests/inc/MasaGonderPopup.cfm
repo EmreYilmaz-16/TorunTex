@@ -90,7 +90,7 @@
         console.table(O)
         $.ajax({
             url:"/AddOns/Partner/Servis/MasaServis.cfc?method=SendMasa",
-            data:O,
+            data:JSON.stringify(O),
             success:function (retDat) {
                 
             }
