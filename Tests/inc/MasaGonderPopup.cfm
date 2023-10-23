@@ -1,4 +1,4 @@
-<cf_box title="Üretim Ağacı" scroll="1" collapsable="1" resize="1" popup_box="1">
+<cf_box title="Masaya Gönder" scroll="1" collapsable="1" resize="1" popup_box="1">
     
     <cfquery name="getShelwes" datasource="#dsn3#">
         select * from PRODUCT_PLACE_ROWS AS PPR 
@@ -6,6 +6,7 @@
         WHERE PPR.STOCK_ID=#attributes.STOCK_ID#
 
     </cfquery>
+    <div style="display:none">
         <input type="hidden" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID">
         <input type="hidden" name="STORE_ID" id="STORE_ID">
         <input type="hidden" name="LOCATION_ID" id="LOCATION_ID">
@@ -17,6 +18,7 @@
         </div>
         
     </div>
+</div>
     <div class="form-group">
         <label>Ağırlık</label>
         <div class="input-group">
@@ -26,8 +28,8 @@
         
     </div>
         <br>
-        <input type="text" name="Search" class="form-control form-control-sm" id="Search" placeholder="Ara" onkeyup="SearchRaf(this.value)">
-        <div id="resultDiv" class="list-group" style="heigth:20vh">
+        <input type="hidden" name="Search" class="form-control form-control-sm" id="Search" placeholder="Ara" onkeyup="SearchRaf(this.value)">
+        <div id="resultDiv" class="list-group" style="heigth:20vh;display:none">
         </div>
     <button class="btn btn-outline-success" onclick="KaydetCanim(<cfoutput>#attributes.STOCK_ID#</cfoutput>)">Gönder</button>
     
