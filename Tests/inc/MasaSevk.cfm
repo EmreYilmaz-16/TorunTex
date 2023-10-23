@@ -22,8 +22,8 @@
 </table>
 <script>
 function SendMasa(STOCK_ID) {
-    openBoxDraggable("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=7&stok_id="+STOCK_ID);
-    
+    openBoxDraggable("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=7&STOCK_ID="+STOCK_ID);
+
 
 }
 
