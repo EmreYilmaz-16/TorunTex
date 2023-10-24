@@ -1,6 +1,6 @@
 <style>
     .tableFixHead          { overflow: auto; height: 100px; }
-.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+    .tableFixHead thead th { position: sticky; top: 0; z-index: 1;background:whitesmoke; }
 </style>
 <div class="row">
     <div class="col col-12"></div>
@@ -53,7 +53,7 @@
                 </tr>
             </tbody>
         </table>
-        <div style="height:30vh" id="OrderData">
+        <div style="height:30vh;overflow-y: scroll;" id="OrderData">
             <table class="table tableFixHead">
                 <thead>
                   <tr>
