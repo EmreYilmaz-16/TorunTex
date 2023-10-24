@@ -1,3 +1,7 @@
+<style>
+    .tableFixHead          { overflow: auto; height: 100px; }
+.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+</style>
 <div class="row">
     <div class="col col-12"></div>
 </div>
@@ -50,7 +54,7 @@
             </tbody>
         </table>
         <div style="height:30vh" id="OrderData">
-            <table class="table">
+            <table class="table tableFixHead">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -65,6 +69,28 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
