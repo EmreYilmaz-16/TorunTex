@@ -37,14 +37,49 @@
         </div>
     </div>
     <div class="col col-3">
-        <table>
-            <tr>
-                <td>
-                    <button type="button" class="btn btn-outline-secondary" onclick="ShowStations()">KLB</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="LogIn()">Kullanıcı Girişi</button>
-                </td>
-            </tr>
+        <table style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">
+                        <button type="button" class="btn btn-lg btn-outline-secondary" onclick="ShowStations()">KLB</button>                        
+                    </td>
+                    <td style="text-align: center;">                        
+                        <button type="button" class="btn btn-lg btn-outline-primary" onclick="LogIn()">Kullanıcı Girişi</button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
+        <div style="height:30vh" id="OrderData">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
     </div>
 </div>
 
