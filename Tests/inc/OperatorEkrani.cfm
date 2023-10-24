@@ -53,8 +53,9 @@
                 </tr>
             </tbody>
         </table>
+        <hr>
         <div style="height:30vh;overflow-y: scroll;" id="OrderData">
-            <table class="table tableFixHead">
+            <table class="table table-striped table-lg tableFixHead">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
