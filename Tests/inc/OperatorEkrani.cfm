@@ -18,19 +18,34 @@
         </div>
         <div class="row">
             <div class="col col-12">                
-                <table style="width:100%">
+                <cf_grid_list style="width:100%">
                     <tr>
                         <td id="Location">KLB</td>
                         <td id="Complate">%80</td>
                         <td id="Customer">Emre Cooop</td>
                         <td id="Country">Türkiye</td>
-                        <td id="Color"><span>Şeffaf-Kırmızı</span> <span id="color1" style="display:block;">&nbsp;&nbsp;&nbsp;</span><span id="color2" style="display:block;">&nbsp;&nbsp;&nbsp;</span> </td>
+                        <td id="Color">
+                            <div style="display: flex;">
+                                <span style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
+                                <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
+                                <span id="color1" style="display:block;border: solid 0.5px black;background: red;width: 25%;">&nbsp;&nbsp;&nbsp;</span>
+                            </div>
+                        </td>
                     </tr>
-                </table>
+                </cf_grid_list>
             </div>
         </div>
     </div>
-    <div class="col col-3"></div>
+    <div class="col col-3">
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-outline-secondary" onclick="ShowStations()">KLB</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="LogIn()">Kullanıcı Girişi</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <script>
