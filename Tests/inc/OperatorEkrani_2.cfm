@@ -112,8 +112,8 @@
                     </tr>
                     <tr>
                         <td onclick="Yaz(0)" class="bg-dark text-white" colspan="2" style="font-size: 30pt;width: 50%;text-align: center;">0</td>            
-                        <td onclick="Yaz(',')" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">,</td>
-                        <td onclick="Yaz(-4)" class="bg-success text-white" style="font-size: 30pt;width: 25%;text-align: center;">&#x2713;</td>
+                        <td onclick="Yaz(-4)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">,</td>
+                        <td onclick="Yaz(-5)" class="bg-success text-white" style="font-size: 30pt;width: 25%;text-align: center;">&#x2713;</td>
                     </tr>
                 </tbody>
             </table>
@@ -246,6 +246,17 @@ function wrk_query(str_query,data_source,maxrows)
 	//alert(new_query);
 	
 	return new_query;
+}
+function Yaz(sayi){
+    if(sayi>0){
+        TxResult.value+=sayi
+    }else if(sayi<0){
+        if(sayi==-1) TxResult.value =TxResult.value.substr(0, TxResult.value.length-1);
+        if(sayi==-2) TxResult.value ="";
+        if(sayi==-3) TxResult.value ="";
+        if(sayi==-4) TxResult.value ="";
+        if(sayi==-5) TxResult.value +=",";
+    }
 }
 </script>
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
