@@ -44,3 +44,94 @@
         </cf_grid_list>
     </div>
 </div>
+<div class="row">
+    <div class="col col-3">
+        
+    </div>
+    <div class="col col-6">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+          </select>
+
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+            <option value="3">Three</option>
+          </select>
+    </div>
+    <div class="col col-3">
+        <div style="height:30vh;overflow-y: scroll;" id="OrderData">
+            <table class="table table-striped table-lg tableFixHead">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+    document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
+})
+</script>
+<script src="/JS/selectize.js-master/src/selectize.js"></script>
