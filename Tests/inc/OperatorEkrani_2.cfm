@@ -143,4 +143,4 @@
 })
 </script>
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
-<link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.css">
+<link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.bootstrap5.css">
