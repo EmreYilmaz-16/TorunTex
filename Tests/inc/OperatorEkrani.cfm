@@ -2,6 +2,7 @@
     .tableFixHead          { overflow: auto; height: 100px; }
     .tableFixHead thead th { position: sticky; top: 0; z-index: 1;background:whitesmoke; }
 </style>
+<link rel="stylesheet" href="/JS/selectize.js-master/dist/css/selectize.css">
 <div class="row">
     <div class="col col-12"></div>
 </div>
@@ -115,3 +116,4 @@
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
 })
 </script>
+<script src="/JS/selectize.js-master/src/selectize.js"></script>
