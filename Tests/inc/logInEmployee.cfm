@@ -33,7 +33,7 @@
             EMPLOYEE_NAME:R.EMPLOYEE_NAME[0],
             EMPLOYEE_SURNAME:R.EMPLOYEE_SURNAME[0]
         };
-            lcalStorage.setItem("LoginnedEmployee",JSON.stringify(LoginnedEmployee))
+            localStorage.setItem("LoginnedEmployee",JSON.stringify(LoginnedEmployee))
         }else{
             document.getElementById("ResArea").text="Kullanıcı Bulunamadı / Şifre Hatalı"
         }
