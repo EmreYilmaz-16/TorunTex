@@ -1,3 +1,4 @@
+<cf_box>
 <div class="form-group">
     <label>Şifre</label>
     <div class="input-group">
@@ -17,3 +18,5 @@
         console.log(ev);
     }
 </script>
+
+</cf_box>
