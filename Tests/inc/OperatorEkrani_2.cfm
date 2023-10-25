@@ -47,8 +47,7 @@
 <div class="row">
     <div class="col col-3">
         
-    </div>
-    <div class="col col-6">
+    
         <select class="form-select sel" id="select_1" aria-label="Default select example">
             <option selected>Open this select menu</option>
             <option value="1">One</option>
@@ -72,6 +71,9 @@
             <option value="3">Three</option>
           </select>
     </div>
+
+<div class="col col-6">
+</div>
     <div class="col col-3">
         <div style="height:30vh;overflow-y: scroll;" id="OrderData">
             <table class="table table-striped table-lg tableFixHead">
@@ -129,10 +131,12 @@
     </div>
 </div>
 
+
 <script>
     $(document).ready(function(){
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
     $(".sel").selectize();
 })
 </script>
-<script src="/JS/selectize.js-master/src/selectize.js"></script>
+<script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
+<link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.css">
