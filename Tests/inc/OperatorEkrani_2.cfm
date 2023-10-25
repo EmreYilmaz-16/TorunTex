@@ -76,7 +76,50 @@
         </div>
     </div>
 
-<div class="col col-6">
+<div class="col-6">
+    <div class="form-group">
+        <label>Paket İçerik</label>
+        <input type="text" class="form-control" readonly="" id="paketIcerik">
+    </div>
+    <div class="form-group">
+        <label>Paket KG</label>
+        <input type="text" class="form-control" id="paketKG">
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col col-3"></div>
+        <div class="col col-6">
+            <input type="text" class="form-control" id="TxResult" style="text-align: right;font-size: 25pt;">
+            <table class="table table-bordered" style="font-size: 14pt;width: 100%;">
+                <tbody>
+                    <tr>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">9</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">8</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">7</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">&lt;=</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">4</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">5</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">6</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">C</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">1</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">2</td>
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">3</td>
+                        <td class="bg-danger text-white" style="font-size: 30pt;width: 25%;text-align: center;">N</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-dark text-white" colspan="2" style="font-size: 30pt;width: 50%;text-align: center;">0</td>            
+                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">,</td>
+                        <td class="bg-success text-white" style="font-size: 30pt;width: 25%;text-align: center;">K</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col col-3"></div>
+    </div>
 </div>
     <div class="col col-3">
         <div style="height:30vh;overflow-y: scroll;" id="OrderData">
@@ -134,7 +177,11 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col col-12">
 
+    </div>
+</div>
 
 <script>
     $(document).ready(function(){

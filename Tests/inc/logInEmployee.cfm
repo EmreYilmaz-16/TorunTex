@@ -33,7 +33,7 @@
             EMPLOYEE_NAME:R.EMPLOYEE_NAME[0],
             EMPLOYEE_SURNAME:R.EMPLOYEE_SURNAME[0]
         };
-            localStorage.setItem("EMRE",JSON.stringify(LoginnedEmployee))
+            localStorage.setItem("ACTIVE_USER",JSON.stringify(LoginnedEmployee))
             CreateStation(R.EMPLOYEE_ID[0])
             document.getElementById("ResArea").innerText=""
         }else{
@@ -43,13 +43,13 @@
     function CreateStation(EMP_ID) {
        var ResA= wrk_query("SELECT STATION_NAME,STATION_ID FROM WORKSTATIONS WHERE EMP_ID LIKE '%"+EMP_ID+"%'","DSN3")
        $(document.getElementById("Stations")).html("")
-for(let i=0;i<ResA.STATION_ID.length;i++){
-    var btn=document.createElement("button")
-    btn.setAttribute("class","btn btn-lg btn-outline-primary")
-    btn.innerText=ResA.STATION_NAME[i]
-    btn.setAttribute("style","margin-right:7px")
-    document.getElementById("Stations").appendChild(btn)
-}
+    for(let i=0;i<ResA.STATION_ID.length;i++){
+        var btn=document.createElement("button")
+        btn.setAttribute("class","btn btn-lg btn-outline-primary")
+        btn.innerText=ResA.STATION_NAME[i]
+        btn.setAttribute("style","margin-right:7px")
+        document.getElementById("Stations").appendChild(btn)
+    }
     }
 </script>
 
