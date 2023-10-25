@@ -48,8 +48,8 @@
     <div class="col col-3">
         
     
-        <select class="form-select sel" id="select_1" aria-label="Default select example">
-            <option selected>Open this select menu</option>
+        <select class="form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example">
+            
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -59,8 +59,8 @@
             <option value="3">Three</option>
           </select>
 
-          <select class="form-select sel" id="select_2" aria-label="Default select example">
-            <option selected>Open this select menu</option>
+          <select class="form-select sel" id="select_2" placeholder="Sipariş Seçiniz" aria-label="Default select example">
+            
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
