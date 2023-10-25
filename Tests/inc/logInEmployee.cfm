@@ -6,8 +6,8 @@
         <button class="btn btn-outline-success" onclick="LogIn(event)" type="button" id="button-addon2"><span class="icn-md icon-remove"></span></button>
     </div>
 </div>
-<div id="ResArea" style="color:red"></div>
-<div id="Stations">
+<div id="ResArea" style="color:red;height:3vh"></div>
+<div id="Stations" style="height:10vh">
 
 </div>
 
@@ -33,9 +33,9 @@
             EMPLOYEE_NAME:R.EMPLOYEE_NAME[0],
             EMPLOYEE_SURNAME:R.EMPLOYEE_SURNAME[0]
         };
-            localStorage.setItem("LoginnedEmployee",JSON.stringify(LoginnedEmployee))
+            localStorage.setItem("EMRE",JSON.stringify(LoginnedEmployee))
         }else{
-            document.getElementById("ResArea").text="Kullanıcı Bulunamadı / Şifre Hatalı"
+            document.getElementById("ResArea").innerText="Kullanıcı Bulunamadı / Şifre Hatalı"
         }
     }
 </script>
