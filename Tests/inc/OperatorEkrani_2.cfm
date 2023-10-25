@@ -144,27 +144,9 @@
 function OpenLogIn() {
     openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10');
 }
+
 function wrk_query(str_query,data_source,maxrows)
 {
-	/*console.log(str_query);
-	alert('Bu sayfada wrk_query kullanılmıştır. İlgili kontrolü ajax yapısına çeviriniz.');
-	return false;
-	*/
-	/*
-	by  Workcube
-	Created 20060315
-	Modified 20060324
-	Usage:
-		my_query = query('SELECT COL1,COL2 FROM TABLE1 WHERE COL2=1');
-		veya
-		my_query = query('SELECT COL1,COL2 FROM TABLE1 WHERE COL2=1','dsn2');
-		veya
-		my_query = query('SELECT COL1,COL2 FROM TABLE1 WHERE COL2=1 ORDER BY COL2 DESC','dsn2',1);
-		ifadesi ile my_query degiskeni cfquery ile donen sonucun tamamen aynisi bir javascript query degeri alir
-		data_source : optional , default olarak 'dsn' kullaniliyor
-		maxrows : optional , default olarak 0 ataniyor, 0 olunca query sonucundaki tum kayitlar gelir
-	*/
-	
 	var new_query=new Object();
 	var req;
 	if(!data_source) data_source='dsn';
@@ -217,7 +199,7 @@ function wrk_query(str_query,data_source,maxrows)
 	//alert(new_query);
 	
 	return new_query;
-})
+}
 </script>
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
 <link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.bootstrap5.css">
