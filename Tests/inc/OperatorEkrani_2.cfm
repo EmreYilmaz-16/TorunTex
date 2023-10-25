@@ -93,27 +93,27 @@
             <table class="table table-bordered" style="font-size: 14pt;width: 100%;">
                 <tbody>
                     <tr>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">9</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">8</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">7</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">&lt;=</td>
+                        <td onclick="Yaz(9)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">9</td>
+                        <td onclick="Yaz(8)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">8</td>
+                        <td onclick="Yaz(7)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">7</td>
+                        <td onclick="Yaz(-1)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">&lt;=</td>
                     </tr>
                     <tr>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">4</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">5</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">6</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">C</td>
+                        <td onclick="Yaz(4)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">4</td>
+                        <td onclick="Yaz(5)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">5</td>
+                        <td onclick="Yaz(6)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">6</td>
+                        <td onclick="Yaz(-2)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">C</td>
                     </tr>
                     <tr>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">1</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">2</td>
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">3</td>
-                        <td class="bg-danger text-white" style="font-size: 30pt;width: 25%;text-align: center;">N</td>
+                        <td onclick="Yaz(1)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">1</td>
+                        <td onclick="Yaz(2)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">2</td>
+                        <td onclick="Yaz(3)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">3</td>
+                        <td onclick="Yaz(-3)" class="bg-danger text-white" style="font-size: 30pt;width: 25%;text-align: center;">N</td>
                     </tr>
                     <tr>
-                        <td class="bg-dark text-white" colspan="2" style="font-size: 30pt;width: 50%;text-align: center;">0</td>            
-                        <td class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">,</td>
-                        <td class="bg-success text-white" style="font-size: 30pt;width: 25%;text-align: center;">K</td>
+                        <td onclick="Yaz(0)" class="bg-dark text-white" colspan="2" style="font-size: 30pt;width: 50%;text-align: center;">0</td>            
+                        <td onclick="Yaz(',')" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;">,</td>
+                        <td onclick="Yaz(-4)" class="bg-success text-white" style="font-size: 30pt;width: 25%;text-align: center;">&#x2713;</td>
                     </tr>
                 </tbody>
             </table>
