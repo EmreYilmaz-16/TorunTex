@@ -49,7 +49,7 @@
         
     </div>
     <div class="col col-6">
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select sel" id="select_1" aria-label="Default select example">
             <option selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -60,7 +60,7 @@
             <option value="3">Three</option>
           </select>
 
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select sel" id="select_2" aria-label="Default select example">
             <option selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -132,6 +132,7 @@
 <script>
     $(document).ready(function(){
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
+    $(".sel").selectize();
 })
 </script>
 <script src="/JS/selectize.js-master/src/selectize.js"></script>
