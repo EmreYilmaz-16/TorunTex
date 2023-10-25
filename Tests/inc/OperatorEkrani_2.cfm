@@ -47,9 +47,10 @@
 <div class="row">
     <div class="col col-3">
         
-    
-        <select class="form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example">
-            
+    <div class="form-group">
+        <label>Ürün</label>
+        <select class="form-control form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example">
+            <option selected>Ürün</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -58,9 +59,11 @@
             <option value="3">Three</option>
             <option value="3">Three</option>
           </select>
-
-          <select class="form-select sel" id="select_2" placeholder="Sipariş Seçiniz" aria-label="Default select example">
-            
+        </div>
+        <div class="form-group">
+            <label>Sipariş</label>
+          <select class="form-control form-select sel" id="select_2" placeholder="Sipariş Seçiniz" aria-label="Default select example">
+            <option selected>Sipariş</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -70,6 +73,7 @@
             <option value="3">Three</option>
             <option value="3">Three</option>
           </select>
+        </div>
     </div>
 
 <div class="col col-6">
