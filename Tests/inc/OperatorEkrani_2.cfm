@@ -90,7 +90,7 @@
     <div class="row">
         <div class="col col-3"></div>
         <div class="col col-6">
-            <input type="text" class="form-control" id="TxResult" style="text-align: right;font-size: 25pt;">
+            <input type="text" class="form-control" id="TxResult" value="0" style="text-align: right;font-size: 25pt;">
             <table class="table table-bordered" style="font-size: 14pt;width: 100%;">
                 <tbody>
                     <tr>
@@ -249,6 +249,7 @@ function wrk_query(str_query,data_source,maxrows)
 	return new_query;
 }
 function Yaz(sayi){
+    if(TxResult.value != "0"){
     if(sayi>0){
         TxResult.value+=sayi
     }else if(sayi<0){
@@ -257,6 +258,10 @@ function Yaz(sayi){
         if(sayi==-3) TxResult.value ="";
         if(sayi==-4) TxResult.value +=",";
         if(sayi==-5) TxResult.value +="";
+    }else if(sayi=="0"){
+        TxResult.value+=sayi
+    }}else{
+        TxResult.value=sayi
     }
 }
 </script>
