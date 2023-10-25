@@ -254,8 +254,8 @@ function Yaz(sayi){
         if(sayi==-1) TxResult.value =TxResult.value.substr(0, TxResult.value.length-1);
         if(sayi==-2) TxResult.value ="";
         if(sayi==-3) TxResult.value ="";
-        if(sayi==-4) TxResult.value ="";
-        if(sayi==-5) TxResult.value +=",";
+        if(sayi==-4) TxResult.value +=",";
+        if(sayi==-5) TxResult.value +="";
     }
 }
 </script>
