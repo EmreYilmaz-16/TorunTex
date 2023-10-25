@@ -28,3 +28,22 @@
         </table>
     </div>
 </div>
+<div class="row">
+    <div class="col col-12">                
+        <cf_grid_list style="width:100%">
+            <tr>
+                <td id="Location">KLB</td>
+                <td id="Complate">%80</td>
+                <td id="Customer">Emre Cooop</td>
+                <td id="Country">Türkiye</td>
+                <td id="Color">
+                    <div style="display: flex;">
+                        <span style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
+                        <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
+                        <span id="color1" style="display:block;border: solid 0.5px black;background: red;width: 25%;">&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                </td>
+            </tr>
+        </cf_grid_list>
+    </div>
+</div>
