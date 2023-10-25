@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col col-12">
+    <div class="col col-9">
         <cf_seperator id="getP2" header="Duyurukar"  style="display:none;">
             <div id="getP2"  style="display:none;">
                 <ul>
@@ -9,10 +9,6 @@
                 </ul>
             </div>
     </div>
-</div>
-<div class="row">
-    
-    <div class="col col-9"></div>
     <div class="col col-3">
         <table style="width: 100%;">
             <tbody>
@@ -28,6 +24,7 @@
         </table>
     </div>
 </div>
+
 <div class="row">
     <div class="col col-12">                
         <cf_grid_list style="width:100%">
