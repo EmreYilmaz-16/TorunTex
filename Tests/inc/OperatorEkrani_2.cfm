@@ -17,7 +17,7 @@
                         <button type="button" class="btn btn-lg btn-outline-secondary" onclick="ShowStations()">KLB</button>                        
                     </td>
                     <td style="text-align: center;">                        
-                        <button type="button" class="btn btn-lg btn-outline-primary" onclick="LogIn()">Kullanıcı Girişi</button>
+                        <button type="button" class="btn btn-lg btn-outline-primary" onclick="OpenLogIn()">Kullanıcı Girişi</button>
                     </td>
                 </tr>
             </tbody>
@@ -141,6 +141,9 @@
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
     $(".sel").selectize();
 })
+function OpenLogIn() {
+    openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10');
+}
 </script>
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
 <link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.bootstrap5.css">
