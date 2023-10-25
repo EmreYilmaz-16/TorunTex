@@ -30,7 +30,10 @@
             EMPLOYEE_NAME:R.EMPLOYEE_NAME[0],
             EMPLOYEE_SURNAME:R.EMPLOYEE_SURNAME[0]
         };
-        localStorage.setItem("LoginnedEmployee",JSON.stringify(LoginnedEmployee))
+        if(R.recordcount>0){
+        localStorage.setItem("LoginnedEmployee",JSON.stringify(LoginnedEmployee))}else{
+            document.getElementById("ResArea").text="Kullanıcı Bulunamadı / Şifre Hatalı"
+        }
     }
 </script>
 
