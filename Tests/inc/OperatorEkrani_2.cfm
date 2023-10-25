@@ -11,7 +11,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col col-3"></div>
+    
     <div class="col col-9"></div>
     <div class="col col-3">
         <table style="width: 100%;">
