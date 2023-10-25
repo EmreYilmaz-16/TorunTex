@@ -45,36 +45,37 @@
     </div>
 </div>
 <div class="row">
-    <div class="col col-3">
-        
-    <div class="form-group">
-        <label>Ürün</label>
-        <select class="form-control form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example">
-            
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-          </select>
+    <div class="col col-3">        
+        <div class="form-group">
+            <label>Ürün</label>
+            <select class="form-control form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example">            
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+            </select>
         </div>
         <div class="form-group">
             <label>Sipariş</label>
-          <select class="form-control form-select sel" id="select_2" placeholder="Sipariş Seçiniz" aria-label="Default select example">
-            
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-            <option value="3">Three</option>
-          </select>
+            <select class="form-control form-select sel" id="select_2" placeholder="Sipariş Seçiniz" aria-label="Default select example">            
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+            </select>
         </div>
-    </div>
+        <div style="display:flex;flex-direction: column;">
+            <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;">Yazdir/Üret</button>
+            <button type="button" class="btn btn-danger" onclick="Iptal()">İptal</button>
+        </div>
+</div>
 
 <div class="col-6">
     <div class="form-group">
