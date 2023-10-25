@@ -27,15 +27,16 @@
         }
      
         console.log(R);
-      /*  if(R.recordcount>0){
+        if(R.recordcount>0){
            var LoginnedEmployee={
             EMPLOYEE_ID:R.EMPLOYEE_ID[0],
             EMPLOYEE_NAME:R.EMPLOYEE_NAME[0],
             EMPLOYEE_SURNAME:R.EMPLOYEE_SURNAME[0]
         };
-        localStorage.setItem("LoginnedEmployee",JSON.stringify(LoginnedEmployee))}else{
+            lcalStorage.setItem("LoginnedEmployee",JSON.stringify(LoginnedEmployee))
+        }else{
             document.getElementById("ResArea").text="Kullanıcı Bulunamadı / Şifre Hatalı"
-        }*/
+        }
     }
 </script>
 
