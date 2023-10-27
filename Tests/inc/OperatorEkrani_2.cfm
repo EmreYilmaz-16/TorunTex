@@ -193,10 +193,10 @@
 <script>
     $(document).ready(function(){
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
-    $(".select_1").selectize({
+    $("#select_1").selectize({
         onChange:eventHandler('onChange'),
     });
-    $(".select_2").selectize();
+    $("#select_2").selectize();
 })
 var eventHandler_1 = function(name) {
   return function() {
