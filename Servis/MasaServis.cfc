@@ -37,7 +37,7 @@
 
     </cffunction>
 
-    <cffunction name="getOrders" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
+<cffunction name="getOrders" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="PRODUCT_ID">
         <cfquery name="GETDATA" datasource="#DSN3#">
             SELECT ORR.WRK_ROW_ID,ORR.ORDER_ROW_ID,ORR.PRODUCT_ID,O.ORDER_ID,C.COMPANY_ID,O.PRIORITY_ID,O.ORDER_HEAD,O.ORDER_NUMBER,C.NICKNAME,CONVERT(INT,SP.PRIORITY) AS PP FROM ORDER_ROW AS ORR
@@ -64,5 +64,77 @@
     </cfscript>
 </cfloop>
 <cfreturn replace(serializeJSON(RETURNARR),"//","")>
+    </cffunction>
+    <cffunction name="getAOrder" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
+        <cfargument name="ORDER_ROW_ID">
+        <cfquery name="GETDATA" datasource="#DSN3#">
+           select QUANTITY,UNIT,BASKET_EXTRA_INFO_ID,AMOUNT2,UNIT2,DETAIL_INFO_EXTRA,PROPERTY1,PROPERTY2,PROPERTY3,PROPERTY4,PROPERTY5,PROPERTY6,ORDER_ROW_ID,WRK_ROW_ID,PRODUCT_ID,STOCK_ID,PRODUCT_NAME,PRODUCT_CODE
+            from w3Toruntex_1.ORDER_ROW 
+            LEFT JOIN w3Toruntex_1.ORDER_INFO_PLUS ON ORDER_ROW.ORDER_ID=ORDER_INFO_PLUS.ORDER_ID
+            LEFT JOIN w3Toruntex_1.STOCKS ON STOCKS.STOCK_ID=ORDER_ROW.STOCK_ID
+            where ORDER_ROW.ORDER_ROW_ID=#arguments.ORDER_ROW_ID#
+        </cfquery>
+   <cfquery name="GETDATA2" datasource="#DSN3#">
+    select QUANTITY,UNIT,BASKET_EXTRA_INFO_ID,AMOUNT2,UNIT2,DETAIL_INFO_EXTRA,PROPERTY1,PROPERTY2,PROPERTY3,PROPERTY4,PROPERTY5,PROPERTY6,ORDER_ROW_ID,WRK_ROW_ID,PRODUCT_ID,STOCK_ID,PRODUCT_NAME,PRODUCT_CODE
+     from w3Toruntex_1.ORDER_ROW 
+     LEFT JOIN w3Toruntex_1.ORDER_INFO_PLUS ON ORDER_ROW.ORDER_ID=ORDER_INFO_PLUS.ORDER_ID
+     LEFT JOIN w3Toruntex_1.STOCKS ON STOCKS.STOCK_ID=ORDER_ROW.STOCK_ID
+     where ORDER_ROW.ORDER_ROW_ID=#GETDATA.ORDER_ID#
+ </cfquery>
+ <CFSET ALL_ROWS=arrayNew(1)>
+ <cfloop query="GETDATA2">
+    <CFSET ITEM={
+        QUANTITY=QUANTITY,
+        UNIT=UNIT,
+        BASKET_EXTRA_INFO_ID=BASKET_EXTRA_INFO_ID,
+        AMOUNT2=AMOUNT2,
+        UNIT2=UNIT2,
+        DETAIL_INFO_EXTRA=DETAIL_INFO_EXTRA,
+        PROPERTY1=PROPERTY1,
+        PROPERTY2=PROPERTY2,
+        PROPERTY3=PROPERTY3,
+        PROPERTY4=PROPERTY4,
+        PROPERTY5=PROPERTY5,
+        PROPERTY6=PROPERTY6,
+        ORDER_ROW_ID=ORDER_ROW_ID,
+        WRK_ROW_ID=WRK_ROW_ID,
+        PRODUCT_ID=PRODUCT_ID,
+        STOCK_ID=STOCK_ID,
+        PRODUCT_NAME=PRODUCT_NAME,
+        PRODUCT_CODE=PRODUCT_CODE,
+        
+    }>
+    <cfscript>
+        arrayAppend(ALL_ROWS,ITEM);
+    </cfscript>
+ </cfloop>
+<cfloop query="GETDATA">
+    
+    <CFSET RETURN_ITEM={
+        QUANTITY=QUANTITY,
+        UNIT=UNIT,
+        BASKET_EXTRA_INFO_ID=BASKET_EXTRA_INFO_ID,
+        AMOUNT2=AMOUNT2,
+        UNIT2=UNIT2,
+        DETAIL_INFO_EXTRA=DETAIL_INFO_EXTRA,
+        PROPERTY1=PROPERTY1,
+        PROPERTY2=PROPERTY2,
+        PROPERTY3=PROPERTY3,
+        PROPERTY4=PROPERTY4,
+        PROPERTY5=PROPERTY5,
+        PROPERTY6=PROPERTY6,
+        ORDER_ROW_ID=ORDER_ROW_ID,
+        WRK_ROW_ID=WRK_ROW_ID,
+        PRODUCT_ID=PRODUCT_ID,
+        STOCK_ID=STOCK_ID,
+        PRODUCT_NAME=PRODUCT_NAME,
+        PRODUCT_CODE=PRODUCT_CODE,
+        ALL_ROWS=ALL_ROWS
+    }>
+    <cfscript>
+        
+    </cfscript>
+</cfloop>
+<cfreturn replace(serializeJSON(RETURN_ITEM),"//","")>
     </cffunction>
 </cfcomponent>

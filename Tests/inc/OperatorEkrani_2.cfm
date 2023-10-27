@@ -242,6 +242,16 @@ function getOrders(product_id){
     }
 })
 }
+function getAOrder(ORDER_ROW_ID){
+    $.ajax({
+    url:"/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID="+ORDER_ROW_ID,
+    success:function (retDat){
+        console.log(retDat)
+        var arr=JSON.parse(retDat)
+        console.log(arr)       
+    }
+})
+}
 function wrk_query(str_query,data_source,maxrows)
 {
 	var new_query=new Object();
