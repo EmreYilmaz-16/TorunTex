@@ -194,7 +194,7 @@
     $(document).ready(function(){
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
     $("#select_1").selectize({
-        onChange:eventHandler('onChange'),
+        onChange:eventHandler_1('onChange'),
     });
     $("#select_2").selectize();
 })
