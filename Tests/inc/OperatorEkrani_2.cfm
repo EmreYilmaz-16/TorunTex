@@ -225,6 +225,7 @@ function getOrders(product_id){
         var arr=JSON.parse(retDat)
         console.log(arr)
         var control = $select[0].selectize;
+        control.clearOptions();
        for(let i=0;i<arr.length;i++){
            /* var opt=document.createElement("option");
             opt.setAttribute("value",arr[i].ORDER_ROW_ID);
