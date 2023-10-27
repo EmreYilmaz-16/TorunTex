@@ -219,7 +219,7 @@ function getOrders(product_id){
             var opt=document.createElement("option");
             opt.setAttribute("value",arr[i].ORDER_ROW_ID);
             opt.innerText=arr[i].ORDER_NUMBER;
-            $("#select_2").appendChild(opt);
+            document.getElementById("select_2").appendChild(opt);
         }
     }
 })
