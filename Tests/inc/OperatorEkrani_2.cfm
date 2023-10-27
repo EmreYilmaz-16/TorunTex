@@ -215,12 +215,18 @@ function getOrders(product_id){
         console.log(retDat)
         var arr=JSON.parse(retDat)
         console.log(arr)
-        for(let i=0;i<arr.length;i++){
+      /*  for(let i=0;i<arr.length;i++){
             var opt=document.createElement("option");
             opt.setAttribute("value",arr[i].ORDER_ROW_ID);
             opt.innerText=arr[i].ORDER_NUMBER;
             document.getElementById("select_2").appendChild(opt);
-        }
+        }*/
+        $("#select_2").selectize(
+            valueField: 'ORDER_ROW_ID',
+            labelField: 'ORDER_NUMBER',
+            searchField: 'ORDER_NUMBER',
+            options:arr
+        );
     }
 })
 }
