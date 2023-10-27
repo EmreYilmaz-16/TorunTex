@@ -67,14 +67,7 @@
         <div class="form-group">
             <label>Sipariş</label>
             <select class="form-control form-select sel" id="select_2" placeholder="Sipariş Seçiniz" aria-label="Default select example">            
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
+                
             </select>
         </div>
         <div style="display:flex;flex-direction: column;">
@@ -191,12 +184,20 @@
 </div>
 
 <script>
+var $select=null;
     $(document).ready(function(){
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
     $("#select_1").selectize({
         onChange:eventHandler_1('onChange'),
     });
-    $("#select_2").selectize();
+     $select = $('#select_2').selectize({
+  maxItems: null,
+  valueField: 'ORDER_ROW_ID',
+  labelField: 'ORDER_NUMBER',
+  searchField: 'ORDER_NUMBER',  
+  create: false
+});
+ //   $("#select_2").selectize();
 })
 var eventHandler_1 = function(name) {
   return function() {
@@ -215,18 +216,18 @@ function getOrders(product_id){
         console.log(retDat)
         var arr=JSON.parse(retDat)
         console.log(arr)
-      /*  for(let i=0;i<arr.length;i++){
-            var opt=document.createElement("option");
+        var control = $select[0].selectize;
+       for(let i=0;i<arr.length;i++){
+           /* var opt=document.createElement("option");
             opt.setAttribute("value",arr[i].ORDER_ROW_ID);
             opt.innerText=arr[i].ORDER_NUMBER;
-            document.getElementById("select_2").appendChild(opt);
-        }*/
-        $("#select_2").selectize({
-            valueField: 'ORDER_ROW_ID',
-            labelField: 'ORDER_NUMBER',
-            searchField: 'ORDER_NUMBER',
-            options:arr
-    });
+            document.getElementById("select_2").appendChild(opt);*/
+            control.addOption({
+            ORDER_ROW_ID: arr[i].ORDER_ROW_ID,
+            ORDER_NUMBER: arr[i].ORDER_NUMBER,
+  })
+        }
+       
     }
 })
 }
