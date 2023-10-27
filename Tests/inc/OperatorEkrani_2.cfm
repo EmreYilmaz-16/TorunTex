@@ -247,8 +247,8 @@ function getAOrder(ORDER_ROW_ID){
     url:"/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID="+ORDER_ROW_ID,
     success:function (retDat){
         console.log(retDat)
-        var arr=JSON.parse(retDat)
-        console.log(arr)       
+        var Obj=JSON.parse(retDat)
+        console.log(Obj)       
     }
 })
 }
