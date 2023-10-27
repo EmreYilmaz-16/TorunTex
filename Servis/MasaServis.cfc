@@ -101,7 +101,7 @@
         PRODUCT_ID=PRODUCT_ID,
         STOCK_ID=STOCK_ID,
         PRODUCT_NAME=PRODUCT_NAME,
-        PRODUCT_CODE=PRODUCT_CODE,
+        PRODUCT_CODE=PRODUCT_CODE
         
     }>
     <cfscript>
