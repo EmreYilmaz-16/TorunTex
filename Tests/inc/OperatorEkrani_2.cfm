@@ -210,7 +210,7 @@ var eventHandler_2 = function(name) {
   return function() {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
-    //getOrders(arguments[0]);
+    getAOrder(arguments[0]);
   };
 };
 function OpenLogIn() {
