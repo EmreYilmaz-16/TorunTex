@@ -191,11 +191,11 @@ var $select=null;
         onChange:eventHandler_1('onChange'),
     });
      $select = $('#select_2').selectize({
-  maxItems: null,
+  
   valueField: 'ORDER_ROW_ID',
   labelField: 'ORDER_NUMBER',
   searchField: 'ORDER_NUMBER',  
-  create: false,
+  
   onChange:eventHandler_2('onChange'),
 });
  //   $("#select_2").selectize();
