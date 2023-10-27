@@ -194,8 +194,7 @@ var $select=null;
   
   valueField: 'ORDER_ROW_ID',
   labelField: 'ORDER_NUMBER',
-  searchField: 'ORDER_NUMBER',  
-  
+  searchField: 'ORDER_NUMBER',    
   onChange:eventHandler_2('onChange'),
 });
  //   $("#select_2").selectize();
