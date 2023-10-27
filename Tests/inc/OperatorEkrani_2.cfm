@@ -4,7 +4,7 @@
             <div id="getP2"  style="display:none;">
                 <cfquery name="getDuyuru" datasource="#dsn#">
                     select CONT_HEAD,CONTENT_ID,* from CONTENT where ISNULL(CONVERT(DATE,VIEW_DATE_START),CONVERT(DATE,GETDATE()))<=CONVERT(DATE,getdate())  AND 
-ISNULL(CONVERT(DATE,VIEW_DATE_FINISH),CONVERT(DATE,GETDATE()))>=CONVERT(DATE,getdate())
+                        ISNULL(CONVERT(DATE,VIEW_DATE_FINISH),CONVERT(DATE,GETDATE()))>=CONVERT(DATE,getdate())
                 </cfquery>
                 <div class="list-group">
                     <cfoutput query="getDuyuru">
@@ -52,14 +52,16 @@ ISNULL(CONVERT(DATE,VIEW_DATE_FINISH),CONVERT(DATE,GETDATE()))>=CONVERT(DATE,get
     <div class="col col-3">        
         <div class="form-group">
             <label>Ürün</label>
-            <select class="form-control form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example">            
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
-                <option value="3">Three</option>
+            <select class="form-control form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example"> 
+                <cfquery name="GetProducts" datasource="#dsn3#">
+                    SELECT PRODUCT_NAME,PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS WHERE PRODUCT_CATID NOT IN (26) ORDER BY STOCK_CODE
+                </cfquery>    
+                <option value="">Ürün Seçiniz</option>
+                <cfoutput query="GetProducts">
+                    <option value="#PRODUCT_ID#">#PRODUCT_NAME#</option>
+                </cfoutput>    
+                
+            
             </select>
         </div>
         <div class="form-group">
@@ -191,8 +193,17 @@ ISNULL(CONVERT(DATE,VIEW_DATE_FINISH),CONVERT(DATE,GETDATE()))>=CONVERT(DATE,get
 <script>
     $(document).ready(function(){
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
-    $(".sel").selectize();
+    $(".select_1").selectize({
+        onChange:eventHandler('onChange'),
+    });
+    $(".select_2").selectize();
 })
+var eventHandler_1 = function(name) {
+  return function() {
+    console.log(name, arguments);
+    //$('#log').append('<div><span class="name">' + name + '</span></div>');
+  };
+};
 function OpenLogIn() {
     openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10');
 }
