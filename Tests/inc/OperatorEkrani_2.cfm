@@ -234,6 +234,8 @@ function getOrders(product_id){
             control.addOption({
             ORDER_ROW_ID: arr[i].ORDER_ROW_ID,
             ORDER_NUMBER: arr[i].ORDER_NUMBER,
+            NICKNAME: arr[i].NICKNAME,
+            ORDER_HEAD: arr[i].ORDER_HEAD,
         })
         }
        
