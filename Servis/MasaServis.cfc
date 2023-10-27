@@ -47,7 +47,7 @@
             WHERE ORR.PRODUCT_ID=#arguments.PRODUCT_ID#
         </cfquery>
 <CFSET RETURNARR=arrayNew(1)>
-<cfloop query="getOrders">
+<cfloop query="GETDATA">
     <CFSET ITEM={
         WRK_ROW_ID=WRK_ROW_ID,
         ORDER_ROW_ID=ORDER_ROW_ID,
