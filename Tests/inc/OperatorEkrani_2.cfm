@@ -221,12 +221,12 @@ function getOrders(product_id){
             opt.innerText=arr[i].ORDER_NUMBER;
             document.getElementById("select_2").appendChild(opt);
         }*/
-        $("#select_2").selectize(
+        $("#select_2").selectize({
             valueField: 'ORDER_ROW_ID',
             labelField: 'ORDER_NUMBER',
             searchField: 'ORDER_NUMBER',
             options:arr
-        );
+    });
     }
 })
 }
