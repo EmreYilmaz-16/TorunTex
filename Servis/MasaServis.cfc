@@ -135,7 +135,7 @@
         
     </cfscript>
 </cfloop>
-<cfset ITEM.ALL_ROWS=ALL_ROWS>
+<cfset RETURN_ITEM.ALL_ROWS=ALL_ROWS>
 <cfreturn replace(serializeJSON(RETURN_ITEM),"//","")>
     </cffunction>
 </cfcomponent>
