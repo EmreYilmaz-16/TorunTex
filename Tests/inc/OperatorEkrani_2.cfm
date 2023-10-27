@@ -3,11 +3,12 @@
         <cf_seperator id="getP2" header="Duyurukar"  style="display:none;">
             <div id="getP2"  style="display:none;">
                 <cfquery name="getDuyuru" datasource="#dsn#">
-                    select CONT_HEAD,CONTENT_ID from CONTENT where ISNULL(VIEW_DATE_START,GETDATE())>=getdate()  AND ISNULL(VIEW_DATE_FINISH,GETDATE())<=getdate() 
+                    select CONT_HEAD,CONTENT_ID,* from CONTENT where ISNULL(CONVERT(DATE,VIEW_DATE_START),CONVERT(DATE,GETDATE()))<=CONVERT(DATE,getdate())  AND 
+ISNULL(CONVERT(DATE,VIEW_DATE_FINISH),CONVERT(DATE,GETDATE()))>=CONVERT(DATE,getdate())
                 </cfquery>
                 <div class="list-group">
                     <cfoutput query="getDuyuru">
-                    <a class="list-group-item-action">#CONT_HEAD#</a>                    
+                    <a onclick="windowopen('/index.cfm?fuseaction=rule.dsp_rule&cntid=#CONTENT_ID#')" class="list-group-item-action">#CONT_HEAD#</a>                    
                 </cfoutput>
             </div>
             </div>
