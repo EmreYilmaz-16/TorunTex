@@ -1,6 +1,6 @@
 <cfcomponent>
     <cfset dsn3="w3Toruntex_1">
-    <cfset dsn="w3Toruntex_1">
+    <cfset dsn="w3Toruntex">
     <cfset dsn3_alias="w3Toruntex_1">
     <cfset dsn2="w3Toruntex_2023_1">
     <cfset dsn2_alias="w3Toruntex_2023_1">
