@@ -195,7 +195,8 @@ var $select=null;
   valueField: 'ORDER_ROW_ID',
   labelField: 'ORDER_NUMBER',
   searchField: 'ORDER_NUMBER',  
-  create: false
+  create: false,
+  onChange:eventHandler_2('onChange'),
 });
  //   $("#select_2").selectize();
 })
@@ -204,6 +205,13 @@ var eventHandler_1 = function(name) {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
     getOrders(arguments[0]);
+  };
+};
+var eventHandler_2 = function(name) {
+  return function() {
+    console.log(name, arguments);
+    //$('#log').append('<div><span class="name">' + name + '</span></div>');
+    //getOrders(arguments[0]);
   };
 };
 function OpenLogIn() {
@@ -225,7 +233,7 @@ function getOrders(product_id){
             control.addOption({
             ORDER_ROW_ID: arr[i].ORDER_ROW_ID,
             ORDER_NUMBER: arr[i].ORDER_NUMBER,
-  })
+        })
         }
        
     }
