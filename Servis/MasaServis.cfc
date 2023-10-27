@@ -129,12 +129,13 @@
         STOCK_ID=STOCK_ID,
         PRODUCT_NAME=PRODUCT_NAME,
         PRODUCT_CODE=PRODUCT_CODE,
-        ALL_ROWS=ALL_ROWS
+        
     }>
     <cfscript>
         
     </cfscript>
 </cfloop>
+<cfset ITEM.ALL_ROWS=ALL_ROWS>
 <cfreturn replace(serializeJSON(RETURN_ITEM),"//","")>
     </cffunction>
 </cfcomponent>
