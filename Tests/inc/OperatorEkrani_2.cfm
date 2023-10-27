@@ -9,7 +9,7 @@
                     <cfoutput query="getDuyuru">
                     <a class="list-group-item-action">#CONT_HEAD#</a>                    
                 </cfoutput>
-                </ul>
+            </div>
             </div>
     </div>
     <div class="col col-3">
