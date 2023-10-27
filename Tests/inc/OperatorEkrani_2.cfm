@@ -202,12 +202,28 @@ var eventHandler_1 = function(name) {
   return function() {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
+    getOrders(name);
   };
 };
 function OpenLogIn() {
     openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10');
 }
-
+function getOrders(product_id){
+    $.ajax({
+    url:"/AddOns/Partner/servis/MasaServis.cfc?method=getOrders&PRODUCT_ID="+product_id,
+    success:function (retDat){
+        console.log(retDat)
+        var arr=JSON.parse(retDat)
+        console.log(arr)
+        for(let i=0;i<arr.length;i++){
+            var opt=document.createElement("option");
+            opt.setAttribute("value",arr[i].ORDER_ROW_ID);
+            opt.innerText=arr[i].ORDER_NUMBER;
+            $("#select_2").appendChild(opt);
+        }
+    }
+})
+}
 function wrk_query(str_query,data_source,maxrows)
 {
 	var new_query=new Object();
