@@ -77,7 +77,7 @@
 </div>
 
 <div class="col-6">
-   <div style="display:flex">
+   <div style="display:flex;justify-content: space-between;">
     <div class="form-group">
         <label>Paket İçerik</label>
         <input style="font-size:20pt" type="text" class="form-control" readonly="" id="paketIcerik">
