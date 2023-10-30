@@ -255,7 +255,7 @@ function getAOrder(ORDER_ROW_ID){
           var Renk1=""
           var Renk2=""
           if(Renk1_=="BEYAZ"){ Renk1="white";}else if(Renk1_=="SARI"){ Renk1="yellow";}else if(Renk1_=="YEŞİL"){ Renk1="green";}else {Renk1="antiquewhite"};
-          if(Renk2_=="BEYAZ"){ Renk2="white";}else if(Renk2_=="SARI"){ Renk2="yellow";}else if(Renk2_=="YEŞİL"){ Renk2="green";} else if(Renk2_=="MAVİ"){ Renk2="blue";} else {Renk2_="antiquewhite"};
+          if(Renk2_=="BEYAZ"){ Renk2="white";}else if(Renk2_=="SARI"){ Renk2="yellow";}else if(Renk2_=="YEŞİL"){ Renk2="green";} else if(Renk2_=="MAVİ"){ Renk2="blue";} else {Renk2="antiquewhite"};
           $("#color1").attr("style",'display:block;border: solid 0.5px black;background: '+Renk1+';width: 25%;')
           $("#color2").attr("style",'display:block;border: solid 0.5px black;background: '+Renk2+';width: 25%;')
     }
