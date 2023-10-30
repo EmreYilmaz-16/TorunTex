@@ -187,7 +187,7 @@
 var $select=null;
     $(document).ready(function(){
     document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
-    $("#select_1").selectize({
+   $sipSelect= $("#select_1").selectize({
         onChange:eventHandler_1('onChange'),
     });
      $select = $('#select_2').selectize({
@@ -260,6 +260,9 @@ function getAOrder(ORDER_ROW_ID){
           $("#color2").attr("style",'display:block;border: solid 0.5px black;background: '+Renk2+';width: 25%;')
           $("#Country").text(Obj.COUNTRY_NAME);
           $("#Customer").text(Obj.NICKNAME);
+          for(let i=0;i<Obj.ALL_ROWS.length;i++){
+
+          }
     }
 })
 }
@@ -331,6 +334,17 @@ function Yaz(sayi){
         TxResult.value+=sayi
     }
 }
+var str = "";
+$("body").on("keyup",function(event){
+    //console.log(event)
+     str += event.key
+    console.log(str)
+    if(event.keyCode==13){
+       var control = $sipSelect[0].selectize; 
+         control.setValue(str)
+        str=""
+    }
+})
 </script>
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
 <link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.bootstrap5.css">

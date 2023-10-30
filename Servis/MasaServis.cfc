@@ -95,6 +95,7 @@
             LEFT JOIN w3Toruntex_1.ORDERS AS O ON O.ORDER_ID = ORDER_ROW.ORDER_ID
             LEFT JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID=O.COMPANY_ID
             LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=O.COUNTRY_ID
+            LEFT JOIN w3Toruntex_1.SETUP_BASKET_INFO_TYPES  AS SBI_1 ON SBI_1.
             WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#        
         </cfquery>
    <cfquery name="GETDATA2" datasource="#DSN3#">
