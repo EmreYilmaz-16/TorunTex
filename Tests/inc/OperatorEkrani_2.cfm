@@ -337,12 +337,14 @@ function Yaz(sayi){
 var str = "";
 $("body").on("keyup",function(event){
     //console.log(event)
-     str += event.key
+    
     console.log(str)
     if(event.keyCode==13){
        var control = $sipSelect[0].selectize; 
          control.setValue(str)
         str=""
+    }else{
+        str += event.key
     }
 })
 </script>
