@@ -73,6 +73,7 @@
         <div style="display:flex;flex-direction: column;">
             <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;">Yazdir/Üret</button>
             <button type="button" class="btn btn-danger" onclick="Iptal()">İptal</button>
+            <input type="hidden" name="WRK_ROW_ID" id="WRK_ROW_ID">
         </div>
 </div>
 

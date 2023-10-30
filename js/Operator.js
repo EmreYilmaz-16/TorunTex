@@ -110,6 +110,7 @@ function getAOrder(ORDER_ROW_ID) {
       $("#Customer").text(Obj.NICKNAME);
       $("#paketIcerik").val(Obj.A1);
       $("#paketKG").val(Obj.A2);
+      $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID)
       $("#sipres").html("");
       for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
         var OO=Obj.ALL_ROWS[i]
@@ -239,3 +240,8 @@ $("body").on("keyup", function (event) {
     str += event.key;
   }
 });
+
+function Yazdir(){
+var AMOUNT=document.getElementById("TxResult").value;
+var WRK_ROW_ID=document.getElementById("WRK_ROW_ID").value;
+}
