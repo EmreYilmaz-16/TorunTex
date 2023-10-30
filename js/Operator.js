@@ -110,7 +110,21 @@ function getAOrder(ORDER_ROW_ID) {
       $("#Customer").text(Obj.NICKNAME);
       $("#paketIcerik").val(Obj.A1);
       $("#paketKG").val(Obj.A2);
-      for (let i = 0; i < Obj.ALL_ROWS.length; i++) {}
+      $("#sipres").htm("");
+      for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
+        var OO=Obj.ALL_ROWS[i]
+        var tr=document.createElement("tr");
+        var td=document.createElement("td");
+        td.innerText=OO.PRODUCT_NAME;
+        tr.appendChild(td)
+        var td=document.createElement("td");
+        td.innerText=OO.QUANTITY;
+        tr.appendChild(td)
+        var td=document.createElement("td");
+        td.innerText=OO.R_AMOUNT;
+        tr.appendChild(td)
+        document.getElementById("sipres").appendChild(tr);
+      }
     },
   });
 }
