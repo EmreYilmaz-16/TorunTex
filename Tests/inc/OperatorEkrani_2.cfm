@@ -258,6 +258,8 @@ function getAOrder(ORDER_ROW_ID){
           if(Renk2_=="BEYAZ"){ Renk2="white";}else if(Renk2_=="SARI"){ Renk2="yellow";}else if(Renk2_=="YEŞİL"){ Renk2="green";} else if(Renk2_=="MAVİ"){ Renk2="blue";} else {Renk2="antiquewhite"};
           $("#color1").attr("style",'display:block;border: solid 0.5px black;background: '+Renk1+';width: 25%;')
           $("#color2").attr("style",'display:block;border: solid 0.5px black;background: '+Renk2+';width: 25%;')
+          $("#Country").text(Obj.COUNTRY_NAME);
+          $("#Customer").text(Obj.NICKNAME);
     }
 })
 }
