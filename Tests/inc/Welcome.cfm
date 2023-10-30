@@ -11,6 +11,7 @@
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9'">Operator Ekrani</button>
     <cfif session.ep.userid eq 144>
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=git'">Git Pull</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=vt'">VT Sorgu</button>
     </cfif>
 </div>
 </cf_box>
