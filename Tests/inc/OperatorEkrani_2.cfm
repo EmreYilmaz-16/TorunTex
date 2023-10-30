@@ -265,7 +265,7 @@ function getAOrder(ORDER_ROW_ID){
           $("#paketIcerik").val(Obj.A1)
           $("#paketKG").val(Obj.A2)
           for(let i=0;i<Obj.ALL_ROWS.length;i++){
-
+            
           }
     }
 })
