@@ -77,14 +77,16 @@
 </div>
 
 <div class="col-6">
+   <div style="display:flex">
     <div class="form-group">
         <label>Paket İçerik</label>
-        <input type="text" class="form-control" readonly="" id="paketIcerik">
+        <input style="font-size:20pt" type="text" class="form-control" readonly="" id="paketIcerik">
     </div>
     <div class="form-group">
         <label>Paket KG</label>
-        <input type="text" class="form-control" id="paketKG">
+        <input style="font-size:20pt" type="text" class="form-control" id="paketKG">
     </div>
+</div>
     <hr>
     <div class="row">
         <div class="col col-3"></div>
