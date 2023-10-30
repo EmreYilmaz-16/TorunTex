@@ -341,8 +341,15 @@ $("body").on("keyup",function(event){
     console.log(str)
     if(event.keyCode==13){
        var Control = $sipSelect[0].selectize; 
-      var num= wrk_query("SELECT PRODUCT_ID FROM STOCKS WHERE PRODUCT_NAME='"+str+"'","DSN3").PRODUCT_ID[0]
-        Control.setValue([num])
+      var numa= wrk_query("SELECT PRODUCT_ID FROM STOCKS WHERE PRODUCT_NAME='"+str+"'","DSN3")
+      if (numa.recordcount>0){
+       var num= numa.PRODUCT_ID[0]
+      }else{
+        alert("ürün bulunamadı";)
+        str="";
+        return false;
+      }
+      Control.setValue([num])
         str=""
     }else{
         str += event.key
