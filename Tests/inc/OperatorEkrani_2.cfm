@@ -33,13 +33,13 @@
     <div class="col col-12">                
         <cf_grid_list style="width:100%">
             <tr>
-                <td id="Location">KLB</td>
-                <td id="Complate">%80</td>
-                <td id="Customer">Emre Cooop</td>
-                <td id="Country">Türkiye</td>
-                <td id="Color">
+                <td style="font-size: 20px" id="Location">KLB</td>
+                <td style="font-size: 20px" id="Complate">%80</td>
+                <td style="font-size: 20px" id="Customer">Emre Cooop</td>
+                <td style="font-size: 20px" id="Country">Türkiye</td>
+                <td style="font-size: 20px" id="Color">
                     <div style="display: flex;">
-                        <span id="RenkYazi" style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
+                        <span style="font-size: 20px" id="RenkYazi" style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
                         <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
                         <span id="color2" style="display:block;border: solid 0.5px black;background: red;width: 25%;">&nbsp;&nbsp;&nbsp;</span>
                     </div>
