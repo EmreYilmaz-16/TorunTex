@@ -345,7 +345,7 @@ $("body").on("keyup",function(event){
       if (numa.recordcount>0){
        var num= numa.PRODUCT_ID[0]
       }else{
-        alert("ürün bulunamadı";)
+        alert("ürün bulunamadı")
         str="";
         return false;
       }
