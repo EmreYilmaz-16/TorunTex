@@ -340,8 +340,9 @@ $("body").on("keyup",function(event){
     
     console.log(str)
     if(event.keyCode==13){
-       var control = $sipSelect[0].selectize; 
-         control.setValue(str)
+       var Control = $sipSelect[0].selectize; 
+      var num= wrk_query("SELECT PRODUCT_ID FROM STOCKS WHERE PRODUCT_NAME='"+str+"'","DSN3").PRODUCT_ID[0]
+        Control.setValue([num])
         str=""
     }else{
         str += event.key
