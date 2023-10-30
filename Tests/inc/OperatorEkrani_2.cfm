@@ -39,9 +39,9 @@
                 <td id="Country">Türkiye</td>
                 <td id="Color">
                     <div style="display: flex;">
-                        <span style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
+                        <span id="RenkYazi" style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
                         <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
-                        <span id="color1" style="display:block;border: solid 0.5px black;background: red;width: 25%;">&nbsp;&nbsp;&nbsp;</span>
+                        <span id="color2" style="display:block;border: solid 0.5px black;background: red;width: 25%;">&nbsp;&nbsp;&nbsp;</span>
                     </div>
                 </td>
             </tr>
@@ -248,7 +248,16 @@ function getAOrder(ORDER_ROW_ID){
     success:function (retDat){
         console.log(retDat)
         var Obj=JSON.parse(retDat)
-        console.log(Obj)       
+        console.log(Obj) 
+          $("#RenkYazi").text(Obj.PROPERTY5);
+          var Renk1_=list_getat(Obj.PROPERTY5,1,"-")
+          var Renk2_=list_getat(Obj.PROPERTY5,2,"-")
+          var Renk1=""
+          var Renk2=""
+          if(Renk1_=="BEYAZ"){ Renk1="white";}else if(Renk1_=="SARI"){ Renk1="yellow";}else if(Renk1_=="YEŞİL"){ Renk1="green";}else {Renk1="antiquewhite"};
+          if(Renk2_=="BEYAZ"){ Renk2="white";}else if(Renk2_=="SARI"){ Renk2="yellow";}else if(Renk2_=="YEŞİL"){ Renk2="green";} else if(Renk2_=="MAVİ"){ Renk2="blue";} else {Renk2_="antiquewhite"};
+          $("#color1").attr("style",'display:block;border: solid 0.5px black;background: '+Renk1+';width: 25%;')
+          $("#color2").attr("style",'display:block;border: solid 0.5px black;background: '+Renk2+';width: 25%;')
     }
 })
 }
