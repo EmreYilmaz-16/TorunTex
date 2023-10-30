@@ -260,6 +260,8 @@ function getAOrder(ORDER_ROW_ID){
           $("#color2").attr("style",'display:block;border: solid 0.5px black;background: '+Renk2+';width: 25%;')
           $("#Country").text(Obj.COUNTRY_NAME);
           $("#Customer").text(Obj.NICKNAME);
+          $("#paketIcerik").val(Obj.A1)
+          $("#paketKG").val(Obj.A2)
           for(let i=0;i<Obj.ALL_ROWS.length;i++){
 
           }
