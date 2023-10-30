@@ -110,7 +110,7 @@ function getAOrder(ORDER_ROW_ID) {
       $("#Customer").text(Obj.NICKNAME);
       $("#paketIcerik").val(Obj.A1);
       $("#paketKG").val(Obj.A2);
-      $("#sipres").htm("");
+      $("#sipres").html("");
       for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
         var OO=Obj.ALL_ROWS[i]
         var tr=document.createElement("tr");
