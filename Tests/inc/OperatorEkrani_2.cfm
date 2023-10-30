@@ -38,7 +38,7 @@
                 <td style="font-size: 20px" id="Customer">Emre Cooop</td>
                 <td style="font-size: 20px" id="Country">Türkiye</td>
                 <td style="font-size: 20px" id="Color">
-                    <div style="display: flex;">
+                    <div style="display: flex;justify-content: space-between;">
                         <span style="font-size: 20px" id="RenkYazi" style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
                         <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
                         <span id="color2" style="display:block;border: solid 0.5px black;background: red;width: 25%;">&nbsp;&nbsp;&nbsp;</span>
