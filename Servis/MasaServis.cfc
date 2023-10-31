@@ -185,6 +185,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
         <cfargument name="WRK_ROW_ID">        
         <CFSET MIKTARIM=arguments.AMOUNT>
         <CFSET MESSAGE="">
+        <CFSET O=structNew()>
         <cftry>
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
@@ -286,5 +287,6 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfset O.STATUS=0>
 </cfcatch>
 </cftry>
+<cfreturn replace(serializeJSON(O),"//","")>
     </cffunction>
 </cfcomponent>
