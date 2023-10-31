@@ -238,7 +238,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 </cfloop>
 
     <cfset attributes.department_out=7>
-    <cfset attributes.department_in =4>
+    <cfset attributes.LOCATION_OUT =4>
     <cfset form.process_cat=88>
     <cfset attributes.process_cat = form.process_cat>
    <cfset PROJECT_HEAD="">
