@@ -183,6 +183,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
     <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="AMOUNT">
         <cfargument name="WRK_ROW_ID">
+        <CFSET MIKTARIM=arguments.AMOUNT>
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
         </cfquery>
@@ -267,7 +268,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfset PROJECT_HEAD_IN="">
 <cfset PROJECT_ID="">
 <cfset PROJECT_ID_IN="">
-<cfset attributes.QUANTITY=arguments.AMOUNT>
+<cfset attributes.QUANTITY=MIKTARIM>
 <cfset attributes.uniq_relation_id_="#arguments.WRK_ROW_ID#">
 <cfset amount_other="">
 <cfset unit_other="">
