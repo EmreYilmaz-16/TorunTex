@@ -45,7 +45,7 @@
             <cfif getInsProduct.recordCount>
                 <cfquery name="Ins" datasource="#dsn3#">
                     INSERT INTO w3Toruntex_1.RELATED_PRODUCT ( PRODUCT_ID,RELATED_PRODUCT_ID,RELATED_PRODUCT_NO) 
-                    VALUES #getMainProduct.PRODUCT_ID#,#getInsProduct.PRODUCT_ID#,#i#
+                    VALUES (#getMainProduct.PRODUCT_ID#,#getInsProduct.PRODUCT_ID#,#i#)
                 </cfquery>
             <cfelse>
                 Ürün Bulunamadı <cfoutput>#ColData#</cfoutput> <br>        
