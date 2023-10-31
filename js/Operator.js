@@ -119,10 +119,10 @@ function getAOrder(ORDER_ROW_ID) {
         td.innerText=OO.PRODUCT_NAME;
         tr.appendChild(td)
         var td=document.createElement("td");
-        td.innerText=OO.QUANTITY;
+        td.innerText=commaSplit(OO.QUANTITY);
         tr.appendChild(td)
         var td=document.createElement("td");
-        td.innerText=OO.R_AMOUNT;
+        td.innerText=commaSplit(OO.R_AMOUNT);
         tr.appendChild(td)
         document.getElementById("sipres").appendChild(tr);
       }
@@ -249,6 +249,8 @@ $.ajax({
   success:function(returnData){
     var Obj = JSON.parse(returnData);
     alert(Obj.MESSAGE);
+
+
   }
 })
 }
