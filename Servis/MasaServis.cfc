@@ -219,5 +219,13 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
             STOK YETERSİZ
         </cfif>
 <cfdump var="#attributes#">
+<CFSET attributes.SARF_STOCK_ID_LIST=mid(attributes.SARF_STOCK_ID_LIST,2,len(attributes.SARF_STOCK_ID_LIST)-1)>
+<CFSET attributes.SARF_AMOUNT_LIST=mid(attributes.SARF_AMOUNT_LIST,2,len(attributes.SARF_AMOUNT_LIST)-1)>
+<cfloop list="#SARF_STOCK_ID_LIST#" index="i" item="it">
+    <cfoutput>
+        ix=#i#<br>
+        it=#it#<br>
+    </cfoutput>
+</cfloop>
     </cffunction>
 </cfcomponent>
