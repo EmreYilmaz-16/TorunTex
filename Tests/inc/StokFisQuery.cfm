@@ -50,7 +50,7 @@
       <cfelse>
       
       </cfif>
-      
+      <cfset ROW_UNIQ_RELATION="">
       <cfif isDefined("isShelfed") and isShelfed.recordCount>
         <cfset 'attributes.SHELF_NUMBER_TXT_#ix#' = SHELF_NUMBER_TXT> 
         <cfset 'attributes.SHELF_NUMBER_#ix#' = SHELF_NUMBER>
