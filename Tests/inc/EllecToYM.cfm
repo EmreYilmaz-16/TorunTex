@@ -102,6 +102,7 @@
    <cfset lot_no="">
    <cfset AMOUNT_OTHER ="">
    <cfset unit_other="">
+   <cfset attributes.PBS_RELATION_ID="">
 
  <cfinclude template="StokFisQuery.cfm">
  
@@ -129,6 +130,7 @@
 <cfset lot_no="">
 <cfset AMOUNT_OTHER ="">
 <cfset unit_other="">
+<cfset attributes.PBS_RELATION_ID="">
 <cfset attributes.ref_no=pra.FIS_NO>
 <cfinclude template="StokFisQuery.cfm">
 </cfif>
