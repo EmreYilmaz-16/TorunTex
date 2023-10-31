@@ -1,5 +1,5 @@
 <cf_box title="YM-DEPO Fişi">
-<cfparam name="YM_CAT" default="Original-YM.%">
+<cfparam name="YM_CAT" default="OYM.%">
 <cfquery name="GetYmOrg" datasource="#dsn2#">
     SELECT * FROM w3Toruntex_1.STOCKS WHERE STOCK_CODE LIKE '#YM_CAT#%'
 </cfquery>
