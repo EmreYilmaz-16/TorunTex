@@ -185,7 +185,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
         </cfquery>
-        <cfquery name="GETRELATEDPRODUCT">
+        <cfquery name="GETRELATEDPRODUCT" datasource="#DSN3#">
             SELECT * FROM w3Toruntex_1.RELATED_PRODUCT WHERE PRODUCT_ID=#getOI.PRODUCT_ID# ORDER BY RELATED_PRODUCT_NO
         </cfquery>
         <CFSET SARF_STOCK_ID=0>
