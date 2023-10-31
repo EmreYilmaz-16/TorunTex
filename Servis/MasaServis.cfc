@@ -206,6 +206,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
                 <CFELSEIF GETS.BAKIYE GTE HesapAmount> 
                     <CFSET attributes.SARF_STOCK_ID_LIST="#attributes.SARF_STOCK_ID_LIST#,#GETS.STOCK_ID#">
                     <CFSET attributes.SARF_AMOUNT_LIST="#attributes.SARF_AMOUNT_LIST#,#HesapAmount#">
+                    <CFSET HesapAmount=0>
                 </CFIF>
             </CFIF>
         <CFIF HesapAmount EQ 0>
