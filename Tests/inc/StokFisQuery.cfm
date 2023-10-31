@@ -33,12 +33,9 @@
     <cfset AMOUNT=evaluate("attributes.QUANTITY#li#")>
     <cfif isDefined(trim("attributes.PRODUCT_PLACE_ID#li#")) and len(evaluate("attributes.PRODUCT_PLACE_ID#li#"))><cfset SHELF_NUMBER=evaluate("attributes.PRODUCT_PLACE_ID#li#")><cfelse><cfset SHELF_NUMBER=""></cfif>
   <cfif isDefined(trim("attributes.SHELFCODE#li#")) and len(evaluate("attributes.SHELFCODE#li#"))><cfset SHELF_NUMBER_TXT=evaluate("attributes.SHELFCODE#li#")><cfelse><cfset SHELF_NUMBER_TXT="YOK_ARTIK_ARKADAS"></cfif>
-    <cfif not isDefined(trim("attributes.uniq_relation_id_#li#")) and len(evaluate("attributes.uniq_relation_id_#li#")) eq 0>
-      <cfset 'attributes.row_unique_relation_id#ix#'="#round(rand()*65)##dateformat(now(),'YYYYMMDD')##timeformat(now(),'HHmmssL')##session.ep.userid##round(rand()*100)#">
-    <CFELSE>
-      <cfset ROW_UNIQ_RELATION=evaluate("attributes.uniq_relation_id_#li#")>
-    </cfif>
-    
+  
+  
+    <cfset 'attributes.row_unique_relation_id#ix#'="#round(rand()*65)##dateformat(now(),'YYYYMMDD')##timeformat(now(),'HHmmssL')##session.ep.userid##round(rand()*100)#">
     <cfquery name="getSinfo" datasource="#dsn3#">                            
         select PRODUCT_UNIT.MAIN_UNIT,STOCKS.PRODUCT_UNIT_ID,STOCKS.TAX,STOCKS.PRODUCT_ID,STOCKS.IS_INVENTORY from #dsn3#.STOCKS 
         left join #dsn3#.PRODUCT_UNIT on PRODUCT_UNIT.PRODUCT_ID=STOCKS.PRODUCT_ID and IS_MAIN=1                            
