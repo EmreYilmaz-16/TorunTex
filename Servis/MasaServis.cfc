@@ -15,10 +15,11 @@
         <cfelse>
             
         </cfif>
-    <cfset attributes.LOCATION_IN=4>
+    
     <cfset attributes.LOCATION_OUT=7>
     <cfset attributes.department_out=7>
     <cfset attributes.department_in =7>
+    <cfset attributes.LOCATION_IN=4>
     <cfset form.process_cat=255>
     <cfset attributes.process_cat = form.process_cat>
    <cfset PROJECT_HEAD="">
@@ -236,7 +237,8 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
         it=#it#<br>
     </cfoutput>
 </cfloop>
-
+<cfset attributes.department_in ="">
+    <cfset attributes.LOCATION_IN="">
     <cfset attributes.department_out=7>
     <cfset attributes.LOCATION_OUT =4>
     <cfset form.process_cat=88>
