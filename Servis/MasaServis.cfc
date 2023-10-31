@@ -183,6 +183,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
     <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="AMOUNT">
         <cfargument name="WRK_ROW_ID">
+        <cfdump var="#arguments#">
         <CFSET MIKTARIM=arguments.AMOUNT>
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
@@ -258,6 +259,8 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfscript>
     structClear(attributes);
 </cfscript>
+<cfdump var="#attributes#">
+
 <cfset attributes.LOCATION_OUT="">
 <cfset attributes.department_out="">
 <cfset attributes.department_in =7>
