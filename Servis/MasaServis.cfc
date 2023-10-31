@@ -257,7 +257,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfscript>
     structClear(attributes);
 </cfscript>
-<cfdump var="#attributes#">
+
 
 <cfset attributes.LOCATION_OUT="">
 <cfset attributes.department_out="">
