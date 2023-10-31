@@ -284,7 +284,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfset O.MESSAGE=MESSAGE>
 <cfset O.STATUS=1>
 <cfcatch>
-    <CFSET MESSAGE=cfcatch.detail>
+    <CFSET MESSAGE=cfcatch>
     <cfset O.MESSAGE=MESSAGE>
 <cfset O.STATUS=0>
 </cfcatch>
