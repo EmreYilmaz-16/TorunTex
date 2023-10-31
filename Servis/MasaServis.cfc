@@ -90,6 +90,8 @@
                 ,ORDER_ROW.ORDER_ID
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
+                ,(100*ISNULL((
+SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATION_ID=ORDER_ROW.WRK_ROW_ID and STORE=7 and STORE_LOCATION=5),0)/QUANTITY) AS TAMAMLANMA
                 ,SBI_1.BASKET_INFO_TYPE AS A1
                 ,SBI_2.BASKET_INFO_TYPE AS A2
             FROM w3Toruntex_1.ORDER_ROW
@@ -166,6 +168,7 @@
         STOCK_ID=STOCK_ID,
         PRODUCT_NAME=PRODUCT_NAME,
         PRODUCT_CODE=PRODUCT_CODE,
+        TAMAMLANMA=TAMAMLANMA,
         A1=A1,
         A2=A2
         

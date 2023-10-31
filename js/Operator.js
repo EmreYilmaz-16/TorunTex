@@ -112,6 +112,7 @@ function getAOrder(ORDER_ROW_ID) {
       $("#paketKG").val(Obj.A2);
       $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID)
       $("#sipres").html("");
+      $("#Complate").text(Obj.TAMAMLANMA)
       for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
         var OO=Obj.ALL_ROWS[i]
         var tr=document.createElement("tr");
