@@ -1,4 +1,6 @@
 var $select = null;
+var $sipSelect = null;
+var MainOrderRowID=0>
 $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
@@ -61,6 +63,7 @@ function getOrders(product_id) {
   });
 }
 function getAOrder(ORDER_ROW_ID) {
+  MainOrderRowID=ORDER_ROW_ID;
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
@@ -250,7 +253,7 @@ $.ajax({
   success:function(returnData){
     var Obj = JSON.parse(returnData);
     alert(Obj.MESSAGE);
-
+    getAOrder(MainOrderRowID);
 
   }
 })
