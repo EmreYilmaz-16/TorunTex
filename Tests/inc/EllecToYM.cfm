@@ -86,6 +86,7 @@
         <CFSET "attributes.STOCK_ID#currentrow#"="#STOCK_ID#">
         <CFSET "attributes.PRODUCT_ID#currentrow#"="#PRODUCT_ID#">
         <CFSET "attributes.QUANTITY#currentrow#"="#AMOUNT#">
+        <cfset "attributes.PBS_RELATION_ID#currentrow#"="">
         <CFSET "attributes.row_unique_relation_id#currentrow#"="">
     </cfloop>
     
@@ -102,7 +103,7 @@
    <cfset lot_no="">
    <cfset AMOUNT_OTHER ="">
    <cfset unit_other="">
-   <cfset attributes.PBS_RELATION_ID="">
+   
 
  <cfinclude template="StokFisQuery.cfm">
  
