@@ -26,7 +26,7 @@
 <cfset ATTRIBUTES.FIS_DATE_H  ="00">
 <cfset ATTRIBUTES.FIS_DATE_M  ="0">
 <cfset attributes.rows_=0>
-<cfdump var="#attributes#">
+
 
 <cfloop list="#attributes.ROWW#" item="li" index="ix">
     <cfset STOCK_ID=evaluate("attributes.STOCK_ID#li#")>

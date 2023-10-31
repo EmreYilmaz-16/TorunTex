@@ -182,9 +182,10 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 
     <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="AMOUNT">
-        <cfargument name="WRK_ROW_ID">
-        <cfdump var="#arguments#">
+        <cfargument name="WRK_ROW_ID">        
         <CFSET MIKTARIM=arguments.AMOUNT>
+        <CFSET MESSAGE="">
+        <cftry>
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
         </cfquery>
@@ -199,10 +200,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
         <cfloop query="GETRELATEDPRODUCT">
             <cfquery name="GETS" datasource="#dsn2#">
                 SELECT SUM(STOCK_IN-STOCK_OUT) AS BAKIYE,STOCK_ID,PRODUCT_ID FROM w3Toruntex_2023_1.STOCKS_ROW WHERE STORE=7 AND STORE_LOCATION=4 AND PRODUCT_ID=#GETRELATEDPRODUCT.RELATED_PRODUCT_ID# GROUP BY STOCK_ID,PRODUCT_ID
-            </cfquery>
-            <cfdump var="#GETS#">
-            Sarf Stok Id List =<cfoutput>#attributes.SARF_STOCK_ID_LIST#</cfoutput><br>        
-            
+            </cfquery>                        
                 <CFIF GETS.recordCount AND  (GETS.BAKIYE LT HesapAmount AND GETS.BAKIYE NEQ 0)>
                     <CFSET HesapAmount=HesapAmount-GETS.BAKIYE>
                     <CFSET attributes.SARF_STOCK_ID_LIST="#attributes.SARF_STOCK_ID_LIST#,#GETS.STOCK_ID#">
@@ -219,9 +217,10 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
         </CFIF>
         </cfloop>
         <cfif HesapAmount neq 0>
-            STOK YETERSİZ
+            <CFSET MESSAGE="STOK YETERSİZ">
+            <cfset O.MESSAGE=MESSAGE>
+            <cfset O.STATUS=0>
         </cfif>
-<cfdump var="#attributes#">88
 <cfset attributes.ROWW="">
 <CFSET attributes.SARF_STOCK_ID_LIST=mid(attributes.SARF_STOCK_ID_LIST,2,len(attributes.SARF_STOCK_ID_LIST)-1)>
 <CFSET attributes.SARF_AMOUNT_LIST=mid(attributes.SARF_AMOUNT_LIST,2,len(attributes.SARF_AMOUNT_LIST)-1)>
@@ -235,8 +234,6 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
         <cfset "attributes.QUANTITY#i#"=qty>
         <cfset "attributes.uniq_relation_id_#i#"=arguments.WRK_ROW_ID>
         <cfset attributes.ROWW="#attributes.ROWW#,#i#">
-        ix=#i#<br>
-        it=#it#<br>
     </cfoutput>
 </cfloop>
 <cfset attributes.department_in ="">
@@ -280,7 +277,14 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfset attributes.wodate="1">
 <CFSET attributes.STOCK_ID=getOI.STOCK_ID>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
-
-
+<CFSET MESSAGE="Kayıt Başarılı">
+<cfset O.MESSAGE=MESSAGE>
+<cfset O.STATUS=1>
+<cfcatch>
+    <CFSET MESSAGE=cfcatch.detail>
+    <cfset O.MESSAGE=MESSAGE>
+<cfset O.STATUS=0>
+</cfcatch>
+</cftry>
     </cffunction>
 </cfcomponent>
