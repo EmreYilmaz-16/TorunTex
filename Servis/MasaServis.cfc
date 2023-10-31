@@ -279,10 +279,14 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfset attributes.ROWW=" ,">
 <cfset attributes.wodate="1">
 <CFSET attributes.STOCK_ID=getOI.STOCK_ID>
+<cfset O.ATTR=attributes>
+<cfset O.ARGSSS=arguments>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
+
 <CFSET MESSAGE="Kayıt Başarılı">
 <cfset O.MESSAGE=MESSAGE>
 <cfset O.STATUS=1>
+
 <cfcatch>
     <CFSET MESSAGE=cfcatch>
     <cfset O.MESSAGE=MESSAGE>
