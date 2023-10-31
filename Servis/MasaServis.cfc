@@ -234,6 +234,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
         <cfset "attributes.lot_no#i#"="">
         <cfset "attributes.QUANTITY#i#"=qty>
         <cfset "attributes.uniq_relation_id_#i#"=arguments.WRK_ROW_ID>
+        <cfset "attributes.PBS_RELATION_ID#i#"=arguments.WRK_ROW_ID>
         <cfset attributes.ROWW="#attributes.ROWW#,#i#">
     </cfoutput>
 </cfloop>
@@ -271,6 +272,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfset PROJECT_ID_IN="">
 <cfset attributes.QUANTITY=MIKTARIM>
 <cfset attributes.uniq_relation_id_="#arguments.WRK_ROW_ID#">
+<cfset attributes.PBS_RELATION_ID=arguments.WRK_ROW_ID>
 <cfset amount_other="">
 <cfset unit_other="">
 <cfset lot_no="">
