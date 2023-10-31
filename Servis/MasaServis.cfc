@@ -222,6 +222,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
             <CFSET MESSAGE="STOK YETERSİZ">
             <cfset O.MESSAGE=MESSAGE>
             <cfset O.STATUS=0>
+            <cfreturn replace(serializeJSON(O),"//","")>
         </cfif>
 <cfset attributes.ROWW="">
 <CFSET attributes.SARF_STOCK_ID_LIST=mid(attributes.SARF_STOCK_ID_LIST,2,len(attributes.SARF_STOCK_ID_LIST)-1)>
