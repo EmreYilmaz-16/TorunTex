@@ -215,6 +215,9 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
             <cfbreak>
         </CFIF>
         </cfloop>
+        <cfif HesapAmount neq 0>
+            STOK YETERSİZ
+        </cfif>
 <cfdump var="#attributes#">
     </cffunction>
 </cfcomponent>
