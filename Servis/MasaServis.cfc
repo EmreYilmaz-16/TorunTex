@@ -179,5 +179,36 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfreturn replace(serializeJSON(RETURN_ITEM),"//","")>
     </cffunction>
 
-    <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json"></cffunction>
+    <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
+        <cfargument name="AMOUNT">
+        <cfargument name="WRK_ROW_ID">
+        <cfquery name="getOI" datasource="#dsn3#">
+            SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
+        </cfquery>
+        <cfquery name="GETRELATEDPRODUCT">
+            SELECT * FROM w3Toruntex_1.RELATED_PRODUCT WHERE PRODUCT_ID=#getOI.PRODUCT_ID# ORDER BY RELATED_PRODUCT_NO
+        </cfquery>
+        <CFSET SARF_STOCK_ID=0>
+        <CFSET attributes.SARF_STOCK_ID_LIST="">
+        <CFSET attributes.SARF_AMOUNT_LIST="">
+        <cfset T_AMOUNT=0>
+        <cfset HesapAmount=arguments.AMOUNT>
+        <cfloop query="GETRELATEDPRODUCT">
+            <cfquery name="GETS" datasource="#dsn2#">
+                SELECT SUM(STOCK_IN-STOCK_OUT) AS BAKIYE,STOCK_ID,PRODUCT_ID FROM w3Toruntex_2023_1.STOCKS_ROW WHERE STORE=7 AND STORE_LOCATION=4 AND PRODUCT_ID=#GETRELATEDPRODUCT.RELATED_PRODUCT_ID#
+            </cfquery>
+            <CFIF listLen(SARF_STOCK_ID_LIST)>
+                <CFIF GETS.BAKIYE LT HesapAmount AND GETS.BAKIYE NEQ 0>
+                    <CFSET HesapAmount=HesapAmount-GETS.BAKIYE>
+                    <CFSET attributes.SARF_STOCK_ID_LIST="#attributes.SARF_STOCK_ID_LIST#,#GETS.STOCK_ID#">
+                    <CFSET attributes.SARF_AMOUNT_LIST="#attributes.SARF_AMOUNT_LIST#,#GETS.BAKIYE#">
+                <CFELSEIF GETS.BAKIYE GTE HesapAmount> 
+                    <CFSET attributes.SARF_STOCK_ID_LIST="#attributes.SARF_STOCK_ID_LIST#,#GETS.STOCK_ID#">
+                    <CFSET attributes.SARF_AMOUNT_LIST="#attributes.SARF_AMOUNT_LIST#,#GETS.BAKIYE#">
+                </CFIF>
+            </CFIF>
+        
+        </cfloop>
+<cfdump var="#attributes#">
+    </cffunction>
 </cfcomponent>

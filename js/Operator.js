@@ -244,4 +244,11 @@ $("body").on("keyup", function (event) {
 function Yazdir(){
 var AMOUNT=document.getElementById("TxResult").value;
 var WRK_ROW_ID=document.getElementById("WRK_ROW_ID").value;
+$.ajax({
+  url:"/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT="+AMOUNT+"&WRK_ROW_ID="+WRK_ROW_ID,
+  success:function(returnData){
+    var Obj = JSON.parse(returnData);
+    alert(Obj.MESSAGE);
+  }
+})
 }
