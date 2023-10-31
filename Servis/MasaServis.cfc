@@ -19,7 +19,7 @@
     <cfset attributes.LOCATION_OUT=7>
     <cfset attributes.department_out=7>
     <cfset attributes.department_in =7>
-    <cfset form.process_cat=90>
+    <cfset form.process_cat=255>
     <cfset attributes.process_cat = form.process_cat>
    <cfset PROJECT_HEAD="">
    <cfset PROJECT_HEAD_IN="">
