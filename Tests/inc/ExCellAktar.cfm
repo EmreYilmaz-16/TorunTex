@@ -30,9 +30,26 @@
 		    FROM
 			    res     
 	    </cfquery>
-        <cfloop from="2" to="16" index="i">
+        <cfloop query="get_invoice_no">
+        <cfquery name="getMainProduct" datasource="#dsn3#">
+            SELECT PRODUCT_ID FROM STOCKS WHERE PRODUCT_NAME='#col_1#'
+        </cfquery>
+        <cfif getMainProduct.recordCount eq 0>
+            Ürün Bulunamadı <cfoutput>#col_1#</cfoutput> <br>
+        <cfelse>
+            <cfloop from="2" to="16" index="i">
             <cfset ColData=evaluate("get_invoice_no.col_#i#")>
-        </cfloop>
+            <cfquery name="getInsProduct" datasource="#dsn3#">
+                SELECT PRODUCT_ID FROM STOCKS WHERE PRODUCT_NAME='#ColData#'
+            </cfquery>
+            <cfif getInsProduct.recordCount>
+            <cfelse>
+                Ürün Bulunamadı <cfoutput>#ColData#</cfoutput> <br>        
+            </cfif>
+            
+        </cfloop>    
+    </cfif>
+    </cfloop>
     </cfif>
     <cfdump var="#get_invoice_no#">
 </cfif>
