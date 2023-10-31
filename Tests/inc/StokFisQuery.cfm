@@ -65,6 +65,7 @@
         <cfset 'attributes.shelf_number#ix#' = ''>
         
     </cfif>
+    <cfset 'attributes.PBS_RELATION_ID#ix#'=evaluate("attributes.PBS_RELATION_ID#ix#")>
       <cfset 'attributes.stock_id#ix#' = STOCK_ID>
       <cfset 'attributes.amount#ix#' = AMOUNT>
       <cfset 'attributes.unit#ix#' = getSinfo.MAIN_UNIT>
