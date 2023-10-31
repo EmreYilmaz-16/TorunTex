@@ -41,7 +41,7 @@
     <cfset attributes.LOCATION_OUT=getS2.LOCATION_ID>
     <cfset attributes.department_out=getS2.STORE_ID>
     <cfset attributes.department_in =7>
-    <cfset form.process_cat=90>
+    <cfset form.process_cat=255>
     <cfset attributes.process_cat = form.process_cat>
    <cfset PROJECT_HEAD=attributes.PROJECT_ID>
    <cfset PROJECT_HEAD_IN=attributes.PROJECT_ID>
