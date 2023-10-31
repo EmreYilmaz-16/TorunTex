@@ -199,7 +199,7 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
             </cfquery>
             <cfdump var="#GETS#">
             Sarf Stok Id List =<cfoutput>#attributes.SARF_STOCK_ID_LIST#</cfoutput><br>        
-            <CFIF listLen(attributes.SARF_STOCK_ID_LIST)>
+            
                 <CFIF GETS.recordCount AND  (GETS.BAKIYE LT HesapAmount AND GETS.BAKIYE NEQ 0)>
                     <CFSET HesapAmount=HesapAmount-GETS.BAKIYE>
                     <CFSET attributes.SARF_STOCK_ID_LIST="#attributes.SARF_STOCK_ID_LIST#,#GETS.STOCK_ID#">
@@ -209,7 +209,8 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
                     <CFSET attributes.SARF_AMOUNT_LIST="#attributes.SARF_AMOUNT_LIST#,#HesapAmount#">
                     <CFSET HesapAmount=0>
                 </CFIF>
-            </CFIF>
+
+            
         <CFIF HesapAmount EQ 0>
             <cfbreak>
         </CFIF>
