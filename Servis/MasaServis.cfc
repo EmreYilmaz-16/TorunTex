@@ -178,4 +178,6 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
 <cfset RETURN_ITEM.ALL_ROWS=ALL_ROWS>
 <cfreturn replace(serializeJSON(RETURN_ITEM),"//","")>
     </cffunction>
+
+    <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json"></cffunction>
 </cfcomponent>
