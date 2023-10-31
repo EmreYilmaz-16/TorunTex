@@ -254,6 +254,29 @@ WHERE SFR.WRK_ROW_RELATION_ID=ORDER_ROW.WRK_ROW_ID AND  SF.LOCATION_IN=O.DELIVER
    <cfset attributes.wodate="1">
 
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
+<cfscript>
+    structClear(attributes);
+</cfscript>
+<cfset attributes.LOCATION_OUT="">
+<cfset attributes.department_out="">
+<cfset attributes.department_in =7>
+<cfset attributes.LOCATION_IN=5>
+<cfset form.process_cat=87>
+<cfset attributes.process_cat = form.process_cat>
+<cfset PROJECT_HEAD="">
+<cfset PROJECT_HEAD_IN="">
+<cfset PROJECT_ID="">
+<cfset PROJECT_ID_IN="">
+<cfset attributes.QUANTITY=arguments.AMOUNT>
+<cfset attributes.uniq_relation_id_="#arguments.WRK_ROW_ID#">
+<cfset amount_other="">
+<cfset unit_other="">
+<cfset lot_no="">
+<cfset attributes.ROWW=" ,">
+<cfset attributes.wodate="1">
+<CFSET attributes.STOCK_ID=getOI.STOCK_ID>
+<cfinclude template="../Tests/inc/StokFisQuery.cfm">
+
 
     </cffunction>
 </cfcomponent>
