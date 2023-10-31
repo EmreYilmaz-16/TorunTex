@@ -1,4 +1,4 @@
-<cfform method="post"  enctype="multipart/form-data">
+<cfform method="post"  enctype="multipart/form-data" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=ex">
     <input type="file" name="file_11" id="file_11">
     <input type="hidden"  name="FileName" id="FileName">
     <input type="hidden"  name="is_submitted" id="is_submitted">
@@ -34,6 +34,7 @@
             <cfset ColData=evaluate("get_invoice_no.col_#i#")>
         </cfloop>
     </cfif>
+    <cfdump var="#get_invoice_no#">
 </cfif>
 
 <script>
