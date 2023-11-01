@@ -274,6 +274,7 @@ function Yazdir() {
 }
 function setStation(DEPARTMENT_ID, LOCATION_ID, STATION) {
   localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
+  $("#Location").text(STATION)
   getProducts(STATION);
 }
 
