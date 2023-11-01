@@ -284,6 +284,7 @@ function getProducts(STATION) {
     "%'  ORDER BY STOCK_CODE";
   var q = wrk_query(qstr, "dsn3");
   var Control = $sipSelect[0].selectize;
+  Control.clearOptions();
   for (let index = 0; index < q.PRODUCT_NAME.length; index++) {
     Control.addOption({
       PRODUCT_NAME: q.PRODUCT_NAME[index],
