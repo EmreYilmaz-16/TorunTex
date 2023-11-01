@@ -24,7 +24,7 @@ order by st.schema_id
     <div style="width:74%">
         <cf_box title="Veritabanı">
         <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=vt"> 
-            <textarea name="sql_sorgu" id="sql_sorgu"><cfoutput>#attributes.sql_sorgu#</cfoutput></textarea>
+            <textarea class="form-control" name="sql_sorgu" id="sql_sorgu"><cfoutput>#attributes.sql_sorgu#</cfoutput></textarea>
             <input type="hidden" name="is_submit" value="1">
             <input type="submit">
         </cfform>
