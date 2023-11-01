@@ -1,21 +1,23 @@
+
 var $select = null;
 var $sipSelect = null;
-var MainOrderRowID=0>
-$(document).ready(function () {
-  document
-    .getElementById("wrk_main_layout")
-    .setAttribute("class", "container-fluid");
-  $sipSelect = $("#select_1").selectize({
-    onChange: eventHandler_1("onChange"),
+var MainOrderRowID =
+  0 >
+  $(document).ready(function () {
+    document
+      .getElementById("wrk_main_layout")
+      .setAttribute("class", "container-fluid");
+    $sipSelect = $("#select_1").selectize({
+      onChange: eventHandler_1("onChange"),
+    });
+    $select = $("#select_2").selectize({
+      valueField: "ORDER_ROW_ID",
+      labelField: "ORDER_NUMBER",
+      searchField: "ORDER_NUMBER",
+      onChange: eventHandler_2("onChange"),
+    });
+    //   $("#select_2").selectize();
   });
-  $select = $("#select_2").selectize({
-    valueField: "ORDER_ROW_ID",
-    labelField: "ORDER_NUMBER",
-    searchField: "ORDER_NUMBER",
-    onChange: eventHandler_2("onChange"),
-  });
-  //   $("#select_2").selectize();
-});
 var eventHandler_1 = function (name) {
   return function () {
     console.log(name, arguments);
@@ -36,34 +38,39 @@ function OpenLogIn() {
   );
 }
 function getOrders(product_id) {
-  $.ajax({
-    url:
-      "/AddOns/Partner/servis/MasaServis.cfc?method=getOrders&PRODUCT_ID=" +
-      product_id,
-    success: function (retDat) {
-      console.log(retDat);
-      var arr = JSON.parse(retDat);
-      console.log(arr);
-      var control = $select[0].selectize;
-      control.clear();
-      control.clearOptions();
-      for (let i = 0; i < arr.length; i++) {
-        /* var opt=document.createElement("option");
+  if (localStorage.getItem("ACTIVE_STATION") != null) {
+   var RS=localStorage.getItem("ACTIVE_STATION");
+    $.ajax({
+      url:
+        "/AddOns/Partner/servis/MasaServis.cfc?method=getOrders&PRODUCT_ID=" +
+        product_id+"STATION="+RS,
+      success: function (retDat) {
+        console.log(retDat);
+        var arr = JSON.parse(retDat);
+        console.log(arr);
+        var control = $select[0].selectize;
+        control.clear();
+        control.clearOptions();
+        for (let i = 0; i < arr.length; i++) {
+          /* var opt=document.createElement("option");
             opt.setAttribute("value",arr[i].ORDER_ROW_ID);
             opt.innerText=arr[i].ORDER_NUMBER;
             document.getElementById("select_2").appendChild(opt);*/
-        control.addOption({
-          ORDER_ROW_ID: arr[i].ORDER_ROW_ID,
-          ORDER_NUMBER: arr[i].ORDER_NUMBER,
-          NICKNAME: arr[i].NICKNAME,
-          ORDER_HEAD: arr[i].ORDER_HEAD,
-        });
-      }
-    },
-  });
+          control.addOption({
+            ORDER_ROW_ID: arr[i].ORDER_ROW_ID,
+            ORDER_NUMBER: arr[i].ORDER_NUMBER,
+            NICKNAME: arr[i].NICKNAME,
+            ORDER_HEAD: arr[i].ORDER_HEAD,
+          });
+        }
+      },
+    });
+  }else{
+    alert("Giriş Yapınız");
+  }
 }
 function getAOrder(ORDER_ROW_ID) {
-  MainOrderRowID=ORDER_ROW_ID;
+  MainOrderRowID = ORDER_ROW_ID;
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
@@ -113,21 +120,21 @@ function getAOrder(ORDER_ROW_ID) {
       $("#Customer").text(Obj.NICKNAME);
       $("#paketIcerik").val(Obj.A1);
       $("#paketKG").val(Obj.A2);
-      $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID)
+      $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
       $("#sipres").html("");
-      $("#Complate").text(wrk_round(Obj.TAMAMLANMA)+" %")
+      $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
       for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
-        var OO=Obj.ALL_ROWS[i]
-        var tr=document.createElement("tr");
-        var td=document.createElement("td");
-        td.innerText=OO.PRODUCT_NAME;
-        tr.appendChild(td)
-        var td=document.createElement("td");
-        td.innerText=commaSplit(OO.QUANTITY);
-        tr.appendChild(td)
-        var td=document.createElement("td");
-        td.innerText=commaSplit(OO.R_AMOUNT);
-        tr.appendChild(td)
+        var OO = Obj.ALL_ROWS[i];
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        td.innerText = OO.PRODUCT_NAME;
+        tr.appendChild(td);
+        var td = document.createElement("td");
+        td.innerText = commaSplit(OO.QUANTITY);
+        tr.appendChild(td);
+        var td = document.createElement("td");
+        td.innerText = commaSplit(OO.R_AMOUNT);
+        tr.appendChild(td);
         document.getElementById("sipres").appendChild(tr);
       }
     },
@@ -245,16 +252,22 @@ $("body").on("keyup", function (event) {
   }
 });
 
-function Yazdir(){
-var AMOUNT=document.getElementById("TxResult").value;
-var WRK_ROW_ID=document.getElementById("WRK_ROW_ID").value;
-$.ajax({
-  url:"/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT="+AMOUNT+"&WRK_ROW_ID="+WRK_ROW_ID,
-  success:function(returnData){
-    var Obj = JSON.parse(returnData);
-    alert(Obj.MESSAGE);
-    getAOrder(MainOrderRowID);
-
-  }
-})
+function Yazdir() {
+  var AMOUNT = document.getElementById("TxResult").value;
+  var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
+  $.ajax({
+    url:
+      "/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT=" +
+      AMOUNT +
+      "&WRK_ROW_ID=" +
+      WRK_ROW_ID,
+    success: function (returnData) {
+      var Obj = JSON.parse(returnData);
+      alert(Obj.MESSAGE);
+      getAOrder(MainOrderRowID);
+    },
+  });
+}
+function setStation(DEPARTMENT_ID, LOCATION_ID) {
+  localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
 }
