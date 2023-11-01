@@ -7,6 +7,9 @@ var MainOrderRowID =
       .getElementById("wrk_main_layout")
       .setAttribute("class", "container-fluid");
     $sipSelect = $("#select_1").selectize({
+      valueField: "PRODUCT_ID",
+      labelField: "PRODUCT_NAME",
+      searchField: "PRODUCT_NAME",
       onChange: eventHandler_1("onChange"),
     });
     $select = $("#select_2").selectize({
@@ -269,8 +272,26 @@ function Yazdir() {
     },
   });
 }
-function setStation(DEPARTMENT_ID, LOCATION_ID) {
+function setStation(DEPARTMENT_ID, LOCATION_ID, STATION) {
   localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
+  getProducts(STATION);
+}
+
+function getProducts(STATION) {
+  var qstr =
+    "SELECT PRODUCT_NAME,PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS LEFT JOIN w3Toruntex_1.PRODUCT_INFO_PLUS ON PRODUCT_INFO_PLUS.PRODUCT_ID=STOCKS.PRODUCT_ID WHERE PRODUCT_CATID NOT IN (26) AND PROPERTY1 LIKE '%" +
+    STATION +
+    "%'  ORDER BY STOCK_CODE";
+  var q = wrk_query(qstr, "dsn3");
+  var Control = $sipSelect[0].selectize;
+  for (let index = 0; index < q.PRODUCT_NAME.length; index++) {
+    Control.addOption({
+      PRODUCT_NAME: q.PRODUCT_NAME[i],
+      PRODUCT_ID: q.PRODUCT_ID[i],
+      STOCK_ID: q.STOCK_ID[i],
+      PRODUCT_DETAIL: q.PRODUCT_DETAIL[i],
+    });
+  }
 }
 
 /**

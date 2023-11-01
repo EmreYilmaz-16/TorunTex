@@ -53,13 +53,9 @@
         <div class="form-group">
             <label>Ürün</label>
             <select class="form-control form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example"> 
-                <cfquery name="GetProducts" datasource="#dsn3#">
-                    SELECT PRODUCT_NAME,PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS WHERE PRODUCT_CATID NOT IN (26) ORDER BY STOCK_CODE
-                </cfquery>    
+                 
                 <option value="">Ürün Seçiniz</option>
-                <cfoutput query="GetProducts">
-                    <option value="#PRODUCT_ID#">#PRODUCT_NAME#</option>
-                </cfoutput>    
+                   
                 
             
             </select>

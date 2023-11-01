@@ -47,7 +47,7 @@
         var btn=document.createElement("button")
         btn.setAttribute("class","btn btn-lg btn-outline-primary")
         btn.innerText=ResA.COMMENT[i]
-        btn.setAttribute("onclick","setStation("+ResA.DEPARTMENT_ID[i]+","+ResA.LOCATION_ID[i]+")")
+        btn.setAttribute("onclick","setStation("+ResA.DEPARTMENT_ID[i]+","+ResA.LOCATION_ID[i]+",'"+list_getat(ResA.COMMENT[i],1,"-")+"')")
         btn.setAttribute("style","margin-right:7px")
         document.getElementById("Stations").appendChild(btn)
     }
