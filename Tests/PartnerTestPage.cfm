@@ -4,6 +4,7 @@
 <cfif attributes.sayfa eq "vt"><cfinclude template="inc/VtSorgu.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "git"><cfinclude template="inc/git_puller.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "ex"><cfinclude template="inc/ExCellAktar.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq "pu"><cfinclude template="inc/importProductUnit.cfm"><cfabort></cfif>
 
 
 
