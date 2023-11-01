@@ -1,4 +1,3 @@
-
 var $select = null;
 var $sipSelect = null;
 var MainOrderRowID =
@@ -39,11 +38,13 @@ function OpenLogIn() {
 }
 function getOrders(product_id) {
   if (localStorage.getItem("ACTIVE_STATION") != null) {
-   var RS=localStorage.getItem("ACTIVE_STATION");
+    var RS = localStorage.getItem("ACTIVE_STATION");
     $.ajax({
       url:
         "/AddOns/Partner/servis/MasaServis.cfc?method=getOrders&PRODUCT_ID=" +
-        product_id+"STATION="+RS,
+        product_id +
+        "&STATION=" +
+        RS,
       success: function (retDat) {
         console.log(retDat);
         var arr = JSON.parse(retDat);
@@ -65,7 +66,7 @@ function getOrders(product_id) {
         }
       },
     });
-  }else{
+  } else {
     alert("Giriş Yapınız");
   }
 }
@@ -271,3 +272,40 @@ function Yazdir() {
 function setStation(DEPARTMENT_ID, LOCATION_ID) {
   localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
 }
+
+/**
+ * TC Kimlik No Kontrolü :)
+ */
+/* 
+function tck() {
+  var tc = prompt("Tc Kimlik No Gir");
+  var tca = tc.split("");
+  var t1 = 0;
+  var t2 = 0;
+  var t3 = 0;
+  var hata = true;
+
+  for (let i = 0; i < tca.length; i++) {
+    if (i == 0 || i == 2 || i == 4 || i == 6 || i == 8) t1 += parseInt(tca[i]);
+
+    if (i == 1 || i == 3 || i == 5 || i == 7) t2 += parseInt(tca[i]);
+
+    if (i < tca.length - 1) t3 += parseInt(tca[i]);
+  }
+  var t1_ = (t1 * 7 - t2) % 10;
+  var k1 = tc.substring(9, 10);
+
+  if (t1_.toString() == k1) hata = false;
+  else hata = true;
+
+  var t2_ = t3.toString().charAt(t3.toString().length - 1);
+
+  var k2 = tc.substring(10, 11);
+  if (t2_.toString() == k2) hata = false;
+  else hata = true;
+
+  if (hata) {
+    alert("Hatalı TC");
+  } else alert("Giriş Başarılı");
+  
+}*/
