@@ -286,10 +286,10 @@ function getProducts(STATION) {
   var Control = $sipSelect[0].selectize;
   for (let index = 0; index < q.PRODUCT_NAME.length; index++) {
     Control.addOption({
-      PRODUCT_NAME: q.PRODUCT_NAME[i],
-      PRODUCT_ID: q.PRODUCT_ID[i],
-      STOCK_ID: q.STOCK_ID[i],
-      PRODUCT_DETAIL: q.PRODUCT_DETAIL[i],
+      PRODUCT_NAME: q.PRODUCT_NAME[index],
+      PRODUCT_ID: q.PRODUCT_ID[index],
+      STOCK_ID: q.STOCK_ID[index],
+      PRODUCT_DETAIL: q.PRODUCT_DETAIL[index],
     });
   }
 }
