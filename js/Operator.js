@@ -272,9 +272,9 @@ function Yazdir() {
     },
   });
 }
-function setStation(DEPARTMENT_ID, LOCATION_ID, STATION) {
+function setStation(DEPARTMENT_ID, LOCATION_ID, STATION,FULL_STATION) {
   localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
-  $("#Location").text(STATION)
+  $("#Location").text(FULL_STATION)
   getProducts(STATION);
 }
 
