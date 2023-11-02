@@ -82,7 +82,7 @@
       <cfif isDefined("arguments.LOT_NUMARASI") and attributes.clot eq 1>
       <cfset "attributes.lot_no#ix#"=arguments.LOT_NUMARASI>
       <cfelse>
-        <cfset "attributes.lot_no#ix#"=lot_no>
+        <cfset "attributes.lot_no#ix#"="">
     </cfif>
       <cfset ix=ix+1>   
 </cfloop>
