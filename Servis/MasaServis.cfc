@@ -256,7 +256,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
    <cfset attributes.lot_no="">
    
    <cfset attributes.wodate="1">
-
+   <cfset attributes.clot=0>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 <cfscript>
     structClear(attributes);
@@ -284,6 +284,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
 <CFSET attributes.STOCK_ID=getOI.STOCK_ID>
 <cfset O.ATTR=attributes>
 <cfset O.ARGSSS=arguments>
+<cfset attributes.clot=1>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 <cfset O.ATTR_AFTT=attributes>
 <CFSET MESSAGE="Kayıt Başarılı">

@@ -1,3 +1,4 @@
+<cfparam name="attributes.clot" default="0">
 <cfset attributes.ACTIVE_PERIOD =session.ep.period_id>
 <cfquery name="SS" datasource="#DSN3#">
     UPDATE GENERAL_PAPERS SET STOCK_FIS_NUMBER=STOCK_FIS_NUMBER+1 WHERE STOCK_FIS_NUMBER IS NOT NULL
@@ -78,7 +79,7 @@
       <cfset 'attributes.row_unique_relation_id#ix#'=ROW_UNIQ_RELATION>
       <cfset "attributes.amount_other#ix#"=amount_other>
       <cfset "attributes.unit_other#ix#"=unit_other>
-      <cfif isDefined("arguments.LOT_NUMARASI")>
+      <cfif isDefined("arguments.LOT_NUMARASI") and attributes.clot eq 1>
       <cfset "attributes.lot_no#ix#"=arguments.LOT_NUMARASI>
       <cfelse>
         <cfset "attributes.lot_no#ix#"=lot_no>
