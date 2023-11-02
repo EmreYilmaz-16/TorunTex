@@ -97,7 +97,7 @@
 
 
 <cfif isdefined("attributes.rows_")>            
-    <cfinclude template="/v16/stock/query/add_ship_fis_3.cfm">
+    <cfinclude template="/v16/stock/query/add_ship_fis_3_PBS.cfm">
     <cfinclude template="/v16/stock/query/add_ship_fis_4_PBS.cfm">                    
 <cfelse>
     <cfquery name="ADD_STOCK_FIS_ROW" datasource="#dsn2#">
