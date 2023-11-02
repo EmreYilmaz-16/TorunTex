@@ -297,4 +297,10 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
 </cftry>
 <cfreturn replace(serializeJSON(O),"//","")>
     </cffunction>
+
+<cffunction name="UpLot" access="remote" httpMethod="Post">
+    <cfquery name="Upd" datasource="#dsn3#">
+        UPDATE w3Toruntex_1.PBS_LOT_NUMBER  SET LOT_NO=LOT_NO+1
+    </cfquery>
+</cffunction>
 </cfcomponent>

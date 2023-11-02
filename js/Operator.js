@@ -1,7 +1,7 @@
 var $select = null;
 var $sipSelect = null;
-var MainOrderRowID =
-  0 >
+var MainOrderRowID =0;
+var CurrentStation=null;
   $(document).ready(function () {
     document
       .getElementById("wrk_main_layout")
@@ -127,6 +127,7 @@ function getAOrder(ORDER_ROW_ID) {
       $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
       $("#sipres").html("");
       $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
+      $("#LotNo").val(LotVer(CurrentStation));
       for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
         var OO = Obj.ALL_ROWS[i];
         var tr = document.createElement("tr");
@@ -272,9 +273,10 @@ function Yazdir() {
     },
   });
 }
-function setStation(DEPARTMENT_ID, LOCATION_ID, STATION,FULL_STATION) {
+function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
-  $("#Location").text(FULL_STATION)
+  $("#Location").text(FULL_STATION);
+  CurrentStation=STATION;
   getProducts(STATION);
 }
 
@@ -295,7 +297,33 @@ function getProducts(STATION) {
     });
   }
 }
+function LotVer(STATION) {
+  var d = new Date();
+  var Sdate = d.toLocaleString();
+  var Sda = list_getat(Sdate, 1, " ");
+  var ReturnValue = "";
+  var Qstr = wrk_query("SELECT * FROM  PBS_LOT_NUMBER", "dsn3");
+  console.log(Qstr);
+  var Lot = Qstr.LOT_NO[0];
+  var SifirSay = "";
+  if (Lot.length == 1) SifirSay = "00000";
+  else if (Lot.length == 2) SifirSay = "0000";
+  else if (Lot.length == 3) SifirSay = "000";
+  else if (Lot.length == 4) SifirSay = "00";
+  else if (Lot.length == 5) SifirSay = "0";
+  var KLB = "1";
+  var SCK = "2";
+  var GRB = "3";
 
+  ReturnValue += eval(STATION);
+  ReturnValue += list_getat(Sda, 1, ".");
+  ReturnValue += list_getat(Sda, 2, ".");
+  ReturnValue += list_getat(Sda, 3, ".");
+  ReturnValue += SifirSay;
+  ReturnValue += Lot;
+  $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot")
+  return ReturnValue;
+}
 /**
  * TC Kimlik No Kontrolü :)
  */
