@@ -234,7 +234,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
         <cfset "attributes.STOCK_ID#i#"=it>
         <cfset "attributes.amount_other#i#"="">
         <cfset "attributes.unit_other#i#"="">
-        <cfset "attributes.lot_no#i#"="">
+        <cfset "attributes.lot_no#i#"=arguments.LOT_NO>
         <cfset "attributes.QUANTITY#i#"=qty>
         <cfset "attributes.uniq_relation_id_#i#"=arguments.WRK_ROW_ID>
         <cfset "attributes.PBS_RELATION_ID#i#"=arguments.WRK_ROW_ID>
