@@ -267,7 +267,7 @@ function Yazdir() {
       AMOUNT +
       "&WRK_ROW_ID=" +
       WRK_ROW_ID +
-      "&LOT_NO=" +
+      "&LOT_NUMARASI=" +
       LOT_NO,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);

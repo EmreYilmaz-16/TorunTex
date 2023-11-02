@@ -78,7 +78,7 @@
       <cfset 'attributes.row_unique_relation_id#ix#'=ROW_UNIQ_RELATION>
       <cfset "attributes.amount_other#ix#"=amount_other>
       <cfset "attributes.unit_other#ix#"=unit_other>
-      <cfset "attributes.lot_no#ix#"=lot_no>
+     <cfif isDefined("attributes.lot_no")> <cfset "attributes.lot_no#ix#"=attributes.lot_no></cfif>
       <cfset ix=ix+1>   
 </cfloop>
 <cfif isDefined("attributes.wodate")>
