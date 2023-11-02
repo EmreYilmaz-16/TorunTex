@@ -1,25 +1,25 @@
 var $select = null;
 var $sipSelect = null;
-var MainOrderRowID =0;
-var CurrentStation=null;
-  $(document).ready(function () {
-    document
-      .getElementById("wrk_main_layout")
-      .setAttribute("class", "container-fluid");
-    $sipSelect = $("#select_1").selectize({
-      valueField: "PRODUCT_ID",
-      labelField: "PRODUCT_NAME",
-      searchField: "PRODUCT_NAME",
-      onChange: eventHandler_1("onChange"),
-    });
-    $select = $("#select_2").selectize({
-      valueField: "ORDER_ROW_ID",
-      labelField: "ORDER_NUMBER",
-      searchField: "ORDER_NUMBER",
-      onChange: eventHandler_2("onChange"),
-    });
-    //   $("#select_2").selectize();
+var MainOrderRowID = 0;
+var CurrentStation = null;
+$(document).ready(function () {
+  document
+    .getElementById("wrk_main_layout")
+    .setAttribute("class", "container-fluid");
+  $sipSelect = $("#select_1").selectize({
+    valueField: "PRODUCT_ID",
+    labelField: "PRODUCT_NAME",
+    searchField: "PRODUCT_NAME",
+    onChange: eventHandler_1("onChange"),
   });
+  $select = $("#select_2").selectize({
+    valueField: "ORDER_ROW_ID",
+    labelField: "ORDER_NUMBER",
+    searchField: "ORDER_NUMBER",
+    onChange: eventHandler_2("onChange"),
+  });
+  //   $("#select_2").selectize();
+});
 var eventHandler_1 = function (name) {
   return function () {
     console.log(name, arguments);
@@ -259,13 +259,16 @@ $("body").on("keyup", function (event) {
 
 function Yazdir() {
   var AMOUNT = document.getElementById("TxResult").value;
+  var LotNo = document.getElementById("LotNo").value;
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT=" +
       AMOUNT +
       "&WRK_ROW_ID=" +
-      WRK_ROW_ID,
+      WRK_ROW_ID +
+      "&LotNo=" +
+      LotNo,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
       alert(Obj.MESSAGE);
@@ -276,7 +279,7 @@ function Yazdir() {
 function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
   $("#Location").text(FULL_STATION);
-  CurrentStation=STATION;
+  CurrentStation = STATION;
   getProducts(STATION);
 }
 
@@ -321,7 +324,7 @@ function LotVer(STATION) {
   ReturnValue += list_getat(Sda, 3, ".");
   ReturnValue += SifirSay;
   ReturnValue += Lot;
-  $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot")
+  $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
   return ReturnValue;
 }
 /**
