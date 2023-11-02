@@ -183,7 +183,8 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
 
     <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="AMOUNT">
-        <cfargument name="WRK_ROW_ID">        
+        <cfargument name="WRK_ROW_ID">
+        <cfargument name="LOT_NO">        
         <CFSET MIKTARIM=arguments.AMOUNT>
         <CFSET MESSAGE="">
         <CFSET O=structNew()>
