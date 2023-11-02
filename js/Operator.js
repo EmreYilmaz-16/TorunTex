@@ -259,7 +259,7 @@ $("body").on("keyup", function (event) {
 
 function Yazdir() {
   var AMOUNT = document.getElementById("TxResult").value;
-  var LotNo = document.getElementById("LotNo").value;
+  var LOT_NO = document.getElementById("LotNo").value;
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   $.ajax({
     url:
@@ -267,8 +267,8 @@ function Yazdir() {
       AMOUNT +
       "&WRK_ROW_ID=" +
       WRK_ROW_ID +
-      "&LotNo=" +
-      LotNo,
+      "&LOT_NO=" +
+      LOT_NO,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
       alert(Obj.MESSAGE);
