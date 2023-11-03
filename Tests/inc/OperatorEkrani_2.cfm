@@ -73,7 +73,7 @@
             <input type="hidden" name="LotNo" id="LotNo">
         </div>
 <hr>
-        <div style="height:25vh;overflow-y: scroll;" id="DigerSiparis">
+        <div class="alert alert-success" style="height:25vh;overflow-y: scroll;padding:3px" id="DigerSiparis">
             
         </div>
 </div>
