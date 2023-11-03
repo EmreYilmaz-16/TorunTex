@@ -22,6 +22,7 @@ $(document).ready(function () {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
     getProducts(CurrentStation);
+    getProductionInfo(Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
   } else {
     OpenLogIn();
   }
