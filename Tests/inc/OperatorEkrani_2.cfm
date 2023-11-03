@@ -72,7 +72,7 @@
             <input type="hidden" name="WRK_ROW_ID" id="WRK_ROW_ID">
             <input type="hidden" name="LotNo" id="LotNo">
         </div>
-
+<hr>
         <div style="height:25vh;overflow-y: scroll;" id="DigerSiparis">
             
         </div>

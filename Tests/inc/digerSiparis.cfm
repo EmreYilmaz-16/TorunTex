@@ -12,7 +12,7 @@ SL.LOCATION_ID=O.LOCATION_ID
 LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=O.COUNTRY_ID
 WHERE STOCK_ID =#attributes.STOCK_ID#
 </cfquery>
-<table class="table table-sm table-info">
+<table class="table table-sm">
   <thead>
     <tr>
         <th>
