@@ -1,3 +1,9 @@
+<style>
+    #digerSiparisTbl>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  
+    FONT-SIZE: x-small;
+}
+</style>
 <div class="row">
     <div class="col col-9">
         <cf_seperator id="getP2" header="Duyurukar"  style="display:none;">
@@ -73,7 +79,7 @@
             <input type="hidden" name="LotNo" id="LotNo">
         </div>
 <hr>
-        <div class="alert alert-success" style="height:25vh;overflow-y: scroll;padding:3px" id="DigerSiparis">
+        <div  class="alert alert-success" style="height:25vh;overflow-y: scroll;padding:3px" id="DigerSiparis">
             
         </div>
 </div>
