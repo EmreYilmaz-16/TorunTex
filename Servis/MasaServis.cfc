@@ -287,6 +287,8 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
 <cfset O.ARGSSS=arguments>
 <cfset attributes.clot=1>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
+<cfset attributes.FIS_ID=PBS_FIS_ID>
+<cfinclude template="../Tests/inc/etiketYap.cfm">
 <cfset O.ATTR_AFTT=attributes>
 <CFSET MESSAGE="Kayıt Başarılı">
 <cfset O.MESSAGE=MESSAGE>
