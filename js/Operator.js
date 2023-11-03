@@ -2,7 +2,7 @@ var $select = null;
 var $sipSelect = null;
 var MainOrderRowID = 0;
 var CurrentStation = null;
-var ActiveStockId=0;
+var ActiveStockId = 0;
 $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
@@ -24,7 +24,6 @@ $(document).ready(function () {
     CurrentStation = Obj.STATION;
     getProducts(CurrentStation);
     getProductionInfo(Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
-    
   } else {
     OpenLogIn();
   }
@@ -34,7 +33,7 @@ var eventHandler_1 = function (name) {
   return function () {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
-    ActiveStockId=arguments[0];
+    ActiveStockId = arguments[0];
     getOtherOrdersInfo(arguments[0]);
     getOrders(arguments[0]);
   };
@@ -201,7 +200,9 @@ function Yazdir() {
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
-  getProductionInfo(Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
+  var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
+  var LOCATION_ID = Obj.LOCATION_ID;
+
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT=" +
@@ -217,6 +218,7 @@ function Yazdir() {
       alert(Obj.MESSAGE);
       getAOrder(MainOrderRowID);
       getOtherOrdersInfo(ActiveStockId);
+      getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
     },
   });
 }
