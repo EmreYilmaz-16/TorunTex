@@ -6,18 +6,22 @@ $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
     .setAttribute("class", "container-fluid");
-  $sipSelect = $("#select_1").selectize({
-    valueField: "PRODUCT_ID",
-    labelField: "PRODUCT_NAME",
-    searchField: "PRODUCT_NAME",
-    onChange: eventHandler_1("onChange"),
-  });
-  $select = $("#select_2").selectize({
-    valueField: "ORDER_ROW_ID",
-    labelField: "ORDER_NUMBER",
-    searchField: "ORDER_NUMBER",
-    onChange: eventHandler_2("onChange"),
-  });
+  if (localStorage.getItem("ACTIVE_STATION") != null) {
+    $sipSelect = $("#select_1").selectize({
+      valueField: "PRODUCT_ID",
+      labelField: "PRODUCT_NAME",
+      searchField: "PRODUCT_NAME",
+      onChange: eventHandler_1("onChange"),
+    });
+    $select = $("#select_2").selectize({
+      valueField: "ORDER_ROW_ID",
+      labelField: "ORDER_NUMBER",
+      searchField: "ORDER_NUMBER",
+      onChange: eventHandler_2("onChange"),
+    });
+  } else {
+    OpenLogIn();
+  }
   //   $("#select_2").selectize();
 });
 var eventHandler_1 = function (name) {
@@ -261,6 +265,7 @@ function Yazdir() {
   var AMOUNT = document.getElementById("TxResult").value;
   var LOT_NO = document.getElementById("LotNo").value;
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
+  var Depo = localStorage.getItem("ACTIVE_STATION");
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT=" +
@@ -268,7 +273,9 @@ function Yazdir() {
       "&WRK_ROW_ID=" +
       WRK_ROW_ID +
       "&LOT_NUMARASI=" +
-      LOT_NO,
+      LOT_NO +
+      "&DEPO=" +
+      Depo,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
       alert(Obj.MESSAGE);
@@ -277,9 +284,16 @@ function Yazdir() {
   });
 }
 function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
-  localStorage.setItem("ACTIVE_STATION", DEPARTMENT_ID + "-" + LOCATION_ID);
+  var StationObject = {
+    DEPARTMENT_ID: DEPARTMENT_ID,
+    LOCATION_ID: LOCATION_ID,
+    STATION: STATION,
+    FULL_STATION: FULL_STATION,
+  };
+  localStorage.setItem("ACTIVE_STATION", JSON.stringify(StationObject));
+
   $("#Location").text(FULL_STATION);
-  CurrentStation = STATION;
+  CurrentStation = StationObject.STATION;
   getProducts(STATION);
 }
 
