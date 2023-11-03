@@ -11,7 +11,7 @@ WHERE SR.PROCESS_TYPE=110 AND SFR.PBS_RELATION_ID IS NOT NULL
 AND SL.DEPARTMENT_ID=#attributes.DEPARTMENT_ID# AND SL.LOCATION_ID=#attributes.LOCATION_ID#
 </cfquery>
 
-<cf_grid_list>
+<table class="table table-sm table-stripped">
   <thead>
     <tr>
         <th>
@@ -36,4 +36,4 @@ AND SL.DEPARTMENT_ID=#attributes.DEPARTMENT_ID# AND SL.LOCATION_ID=#attributes.L
         </tr>
     </cfoutput>
 </tbody>
-</cf_grid_list>
+</table>
