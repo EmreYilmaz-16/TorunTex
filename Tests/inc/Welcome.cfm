@@ -17,4 +17,4 @@
     </cfif>
 </div>
 </cf_box>
-<cf_pbs_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE" show="1" height="50">
+<cf_pbs_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE"  height="50">
