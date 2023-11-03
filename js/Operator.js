@@ -32,6 +32,7 @@ var eventHandler_1 = function (name) {
   return function () {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
+    getOtherOrdersInfo(arguments[0]);
     getOrders(arguments[0]);
   };
 };
@@ -240,7 +241,15 @@ function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
     "Yükleniyor"
   );
 }
-
+function getOtherOrdersInfo(STOCK_ID) {
+  AjaxPageLoad(
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=12&STOCK_ID=" +
+      STOCK_ID,
+    "DigerSiparis",
+    1,
+    "Yükleniyor"
+  );
+}
 function getProducts(STATION) {
   var qstr =
     "SELECT PRODUCT_NAME,STOCKS.PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS LEFT JOIN w3Toruntex_1.PRODUCT_INFO_PLUS ON PRODUCT_INFO_PLUS.PRODUCT_ID=STOCKS.PRODUCT_ID WHERE PRODUCT_CATID NOT IN (26) AND PROPERTY1 LIKE '%" +
