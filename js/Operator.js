@@ -2,6 +2,7 @@ var $select = null;
 var $sipSelect = null;
 var MainOrderRowID = 0;
 var CurrentStation = null;
+var ActiveStockId=0;
 $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
@@ -23,6 +24,7 @@ $(document).ready(function () {
     CurrentStation = Obj.STATION;
     getProducts(CurrentStation);
     getProductionInfo(Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
+    
   } else {
     OpenLogIn();
   }
@@ -32,6 +34,7 @@ var eventHandler_1 = function (name) {
   return function () {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
+    ActiveStockId=arguments[0];
     getOtherOrdersInfo(arguments[0]);
     getOrders(arguments[0]);
   };
@@ -213,6 +216,7 @@ function Yazdir() {
       var Obj = JSON.parse(returnData);
       alert(Obj.MESSAGE);
       getAOrder(MainOrderRowID);
+      getOtherOrdersInfo(ActiveStockId);
     },
   });
 }
