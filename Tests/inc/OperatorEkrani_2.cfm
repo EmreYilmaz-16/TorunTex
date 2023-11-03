@@ -175,6 +175,9 @@
                 </tbody>
               </table>
         </div>
+        <div style="height:20vh;overflow-y: scroll;" id="ProductionData">
+            
+        </div>
     </div>
 </div>
 <div class="row">

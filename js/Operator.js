@@ -196,6 +196,7 @@ function Yazdir() {
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
+  getProductionInfo(Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT=" +
@@ -225,6 +226,18 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   $("#Location").text(FULL_STATION);
   CurrentStation = StationObject.STATION;
   getProducts(STATION);
+  getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+}
+function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
+  AjaxPageLoad(
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=11&DEPARTMENT_ID=" +
+      DEPARTMENT_ID +
+      "&LOCATION_ID=" +
+      LOCATION_ID,
+    "ProductionData",
+    1,
+    "Yükleniyor"
+  );
 }
 
 function getProducts(STATION) {
@@ -271,8 +284,6 @@ function LotVer(STATION) {
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
   return ReturnValue;
 }
-
-
 
 /*
 WRK QUERY

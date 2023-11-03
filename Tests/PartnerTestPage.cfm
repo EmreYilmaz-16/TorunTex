@@ -21,6 +21,7 @@
 <cfif attributes.sayfa eq 8><cfinclude template="inc/OperatorEkrani.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 9><cfinclude template="inc/OperatorEkrani_2.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 10><cfinclude template="inc/logInEmployee.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 11><cfinclude template="inc/istasyonUretim.cfm"><cfabort></cfif>
 
 
 
