@@ -266,8 +266,8 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
 
 <cfset attributes.LOCATION_OUT="">
 <cfset attributes.department_out="">
-<cfset attributes.department_in =7>
-<cfset attributes.LOCATION_IN=5>
+<cfset attributes.department_in =listGetAt(arguments.DEPO,1,"-")>
+<cfset attributes.LOCATION_IN=listGetAt(arguments.DEPO,2,"-")>
 <cfset form.process_cat=87>
 <cfset attributes.process_cat = form.process_cat>
 <cfset PROJECT_HEAD="">
