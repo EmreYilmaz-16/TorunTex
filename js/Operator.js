@@ -6,23 +6,22 @@ $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
     .setAttribute("class", "container-fluid");
+  $sipSelect = $("#select_1").selectize({
+    valueField: "PRODUCT_ID",
+    labelField: "PRODUCT_NAME",
+    searchField: "PRODUCT_NAME",
+    onChange: eventHandler_1("onChange"),
+  });
+  $select = $("#select_2").selectize({
+    valueField: "ORDER_ROW_ID",
+    labelField: "ORDER_NUMBER",
+    searchField: "ORDER_NUMBER",
+    onChange: eventHandler_2("onChange"),
+  });
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
     getProducts(CurrentStation);
-
-    $sipSelect = $("#select_1").selectize({
-      valueField: "PRODUCT_ID",
-      labelField: "PRODUCT_NAME",
-      searchField: "PRODUCT_NAME",
-      onChange: eventHandler_1("onChange"),
-    });
-    $select = $("#select_2").selectize({
-      valueField: "ORDER_ROW_ID",
-      labelField: "ORDER_NUMBER",
-      searchField: "ORDER_NUMBER",
-      onChange: eventHandler_2("onChange"),
-    });
   } else {
     OpenLogIn();
   }
