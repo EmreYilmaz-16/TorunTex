@@ -18,3 +18,4 @@
 </div>
 </cf_box>
 <cf_pbs_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE"  height="50">
+    <cf_workcube_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE"  height="50">
