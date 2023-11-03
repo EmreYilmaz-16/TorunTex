@@ -7,6 +7,10 @@ $(document).ready(function () {
     .getElementById("wrk_main_layout")
     .setAttribute("class", "container-fluid");
   if (localStorage.getItem("ACTIVE_STATION") != null) {
+    var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+    CurrentStation = Obj.STATION;
+    getProducts(CurrentStation);
+
     $sipSelect = $("#select_1").selectize({
       valueField: "PRODUCT_ID",
       labelField: "PRODUCT_NAME",
@@ -351,7 +355,7 @@ function tck() {
   var t1 = 0;
   var t2 = 0;
   var t3 = 0;
-  var hata = true;
+  var hata = true; 
 
   for (let i = 0; i < tca.length; i++) {
     if (i == 0 || i == 2 || i == 4 || i == 6 || i == 8) t1 += parseInt(tca[i]);
