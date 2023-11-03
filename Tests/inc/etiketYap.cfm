@@ -24,6 +24,7 @@
                 <td>
                     <cfset CALLER.UPLOAD_FOLDER ="/documents">
                     <cfset UPLOAD_FOLDER ="/documents">
+                    <cfset DIR_SEPERATOR="/">
                     <cf_workcube_barcode format="code128" type="qrcode" value="#GETD.PRODUCT_CODE_2#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="50">
                 </td>
             </tr>
