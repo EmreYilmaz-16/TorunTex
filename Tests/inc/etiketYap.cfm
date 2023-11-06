@@ -12,7 +12,7 @@
 <cfset GuiP=CreateUUID()>
 <cfset fileName=replace(replace("C:/ETIKET/#GuiP#.pdf","\","/","all"),"//","/")>
 <!----<cfdocument format="PDF" marginBottom="0" marginLeft="0" marginRight ="0" marginTop="0"  pageType="custom" pageheight="10" pagewidth="10" unit="cm" filename="#fileName#">---->
-    <table border="1" cellspacing="0" cellpadding="0" style="width: 100%;">
+    <table border="1" cellspacing="0" cellpadding="0" style="width: 100%;font-family:sans-serif">
         <tbody>
             <tr>
                 <td rowspan="6" style="width:1cm;vertical-align:bottom">
