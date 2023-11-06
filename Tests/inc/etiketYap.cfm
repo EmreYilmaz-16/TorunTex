@@ -16,14 +16,14 @@
         <tbody>
             <tr>
                 <td rowspan="6" style="width:1cm">
-                    <img src="/AddOns/Partner/imgs/GLVBA.jpg">
+                    <img style="width:0.7cm" src="/AddOns/Partner/imgs/GLVBA.jpg">
                 </td>
                 <td style="width: 3cm;text-align: center;">
                     <div style="font-size: 30pt;">KLB</div>
                     <div>SA-05</div>
                 </td>
                 <td></td>
-                <td rowspan="6" style="width:1cm"><img src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
+                <td rowspan="6" style="width:1cm"><img  style="width:0.7cm" src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
             </tr>
             <tr>            
                 <td colspan="2" style="font-size: 30pt;text-align: center;background: black;color: white;">GLV</td>
