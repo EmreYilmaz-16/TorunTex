@@ -19,7 +19,7 @@
                     <img style="height:99%" src="/AddOns/Partner/imgs/GLVBAS.jpg">
                 </td>
                 <td style="width: 3cm;text-align: center;border-right: solid 1px black;">
-                    <div style="font-size: 26pt;">KLB</div>
+                    <div style="font-size: 30pt;">KLB</div>
                     <div>SA-05</div>
                 </td>
                 <td style="text-align:center">                    
@@ -28,7 +28,7 @@
                 <td rowspan="6" style="width:1cm;vertical-align:top;border-left: solid 1px black;"><img style="height:99%" src="/AddOns/Partner/imgs/GLVUAS.jpg"></td>
             </tr>
             <tr>            
-                <td colspan="2" style="font-size: 26pt;text-align: center;background: black;color: white;border: solid 1px black;">GLV</td>
+                <td colspan="2" style="font-size: 30pt;text-align: center;background: black;color: white;border: solid 1px black;">GLV</td>
             </tr>
             <tr>            
                 <td colspan="2" style="border: solid 1px;"><span style="font-size:16pt">30</span>1210460</td>
@@ -37,7 +37,7 @@
                 <td colspan="2" style="border: solid 1px black;">Gloves</td>
             </tr>
             <tr>            
-                <td colspan="2" style="font-size: 26pt;text-align: center;border: solid 1px black;">45 Kg</td>
+                <td colspan="2" style="font-size: 30pt;text-align: center;border: solid 1px black;">45 Kg</td>
             </tr>
             <tr>                
                 <td colspan="2" style="border: solid 1px black;">1109452T</td>
