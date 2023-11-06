@@ -20,6 +20,7 @@
 
 <cf_pbs_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE" show="1"  height="50">
 <cf_workcube_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE"  show="1"  height="50">
+    <script src="/AddOns/Partner/js/qrcode.js"></script>
     <div id="qrcode" style="text-align:-webkit-center"></div>
     <div id="qrvalue" style="visibility: hidden;display:none">EMRE|EMREEEE||EMREEEEEE</div>
     <script type="text/javascript">
@@ -36,4 +37,3 @@
         makeCode(document.getElementById("qrvalue").innerHTML);
     </script>
 
-<script src="/AddOns/Partner/js/qrcode.js"></script>
