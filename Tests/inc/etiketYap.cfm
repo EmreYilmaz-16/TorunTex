@@ -11,7 +11,7 @@
 </cfquery>
 <cfset GuiP=CreateUUID()>
 <cfset fileName=replace(replace("C:/ETIKET/#GuiP#.pdf","\","/","all"),"//","/")>
-<cfdocument format="PDF" pageheight="10" pagewidth="10" unit="cm" filename="#fileName#">
+<cfdocument format="PDF" formsType = "PDF" pageType="custom" pageheight="10" pagewidth="10" unit="cm" filename="#fileName#">
     <cfoutput>  
         <table>
             <tr>
@@ -25,7 +25,7 @@
                     <cfset CALLER.UPLOAD_FOLDER ="/documents">
                     <cfset UPLOAD_FOLDER ="/documents">
                     <cfset DIR_SEPERATOR="/">
-                    <cf_pbs_barcode format="code128" type="qrcode" value="#GETD.PRODUCT_CODE_2#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="50">
+                    <cf_pbs_barcode format="code128" type="qrcode" value="#GETD.PRODUCT_CODE_2#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="200">
                         
                 </td>
             </tr>
