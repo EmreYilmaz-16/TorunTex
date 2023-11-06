@@ -19,23 +19,25 @@
                     <img style="width:0.7cm" src="/AddOns/Partner/imgs/GLVBA.jpg">
                 </td>
                 <td style="width: 3cm;text-align: center;">
-                    <div style="font-size: 30pt;">KLB</div>
+                    <div style="font-size: 26pt;">KLB</div>
                     <div>SA-05</div>
                 </td>
-                <td></td>
+                <td>
+                    <cf_pbs_barcode type="ean13" value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="50">
+                </td>
                 <td rowspan="6" style="width:1cm"><img  style="width:0.7cm" src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
             </tr>
             <tr>            
-                <td colspan="2" style="font-size: 30pt;text-align: center;background: black;color: white;">GLV</td>
+                <td colspan="2" style="font-size: 26pt;text-align: center;background: black;color: white;">GLV</td>
             </tr>
             <tr>            
-                <td colspan="2"><span style="font-size:20pt">30</span>1210460</td>
+                <td colspan="2"><span style="font-size:16pt">30</span>1210460</td>
             </tr>
             <tr>            
                 <td colspan="2">Gloves</td>
             </tr>
             <tr>            
-                <td colspan="2" style="font-size: 30pt;text-align: center;">45 Kg</td>
+                <td colspan="2" style="font-size: 26pt;text-align: center;">45 Kg</td>
             </tr>
             <tr>                
                 <td colspan="2">1109452T</td>
