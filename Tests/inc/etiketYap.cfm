@@ -11,7 +11,7 @@
 </cfquery>
 <cfset GuiP=CreateUUID()>
 <cfset fileName=replace(replace("C:/ETIKET/#GuiP#.pdf","\","/","all"),"//","/")>
-<cfdocument format="PDF"  pageType="custom" pageheight="10" pagewidth="10" unit="cm" filename="#fileName#">
+<cfdocument format="PDF" marginBottom="0" marginLeft="0" marginRight ="0" marginTop="0"  pageType="custom" pageheight="10" pagewidth="10" unit="cm" filename="#fileName#">
     <cfoutput>  
         <table>
             <tr>
