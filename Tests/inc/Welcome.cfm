@@ -17,5 +17,23 @@
     </cfif>
 </div>
 </cf_box>
+
 <cf_pbs_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE" show="1"  height="50">
-    <cf_workcube_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE"  show="1"  height="50">
+<cf_workcube_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE"  show="1"  height="50">
+    <div id="qrcode" style="text-align:-webkit-center"></div>
+    <div id="qrvalue" style="visibility: hidden;display:none"></div>
+    <script type="text/javascript">
+        var qrcode = new
+        QRCode(document.getElementById("qrcode"), {
+        width:175,
+        height : 175
+        });
+
+        function makeCode (msg) {
+        var elText = document.getElementById("text");
+        qrcode.makeCode(msg);
+        }
+        makeCode(document.getElementById("qrvalue").innerHTML);
+    </script>
+
+<script src="/AddOns/Partner/js/qrcode.js"></script>
