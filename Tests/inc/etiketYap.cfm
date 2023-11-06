@@ -23,7 +23,8 @@
                     <div>SA-05</div>
                 </td>
                 <td>
-                    <cf_pbs_barcode type="ean13" value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="90">
+                    
+                    <cf_pbs_barcode format="code128" type="qrcode"  value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="90">
                 </td>
                 <td rowspan="6" style="width:1cm"><img  style="width:0.7cm" src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
             </tr>
