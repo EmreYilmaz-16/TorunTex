@@ -22,10 +22,23 @@
                     #GETD.ORDER_NUMBER#
                 </td>
                 <td>
-                    <cfset CALLER.UPLOAD_FOLDER ="/documents">
-                    <cfset UPLOAD_FOLDER ="/documents">
-                    <cfset DIR_SEPERATOR="/">
-                    <cf_pbs_barcode type="code128" value="#GETD.PRODUCT_CODE_2#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="50">
+                    <script src="/AddOns/Partner/js/qrcode.js"></script>
+                    <div id="qrcode" style="text-align:-webkit-center"></div>
+                    <div id="qrvalue" style="visibility: hidden;display:none">EMRE|EMREEEE||EMREEEEEE</div>
+                    <script type="text/javascript">
+                        var qrcode = new
+                        QRCode(document.getElementById("qrcode"), {
+                        width:175,
+                        height : 175
+                        });
+                
+                        function makeCode (msg) {
+                        var elText = document.getElementById("text");
+                        qrcode.makeCode(msg);
+                        }
+                        makeCode(document.getElementById("qrvalue").innerHTML);
+                    </script>
+                
                 </td>
             </tr>
             <tr>
