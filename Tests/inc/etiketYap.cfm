@@ -12,37 +12,38 @@
 <cfset GuiP=CreateUUID()>
 <cfset fileName=replace(replace("C:/ETIKET/#GuiP#.pdf","\","/","all"),"//","/")>
 <cfdocument format="PDF" marginBottom="0" marginLeft="0" marginRight ="0" marginTop="0"  pageType="custom" pageheight="10" pagewidth="10" unit="cm" filename="#fileName#">
-    <table border="1" cellspacing="0" cellpadding="0" style="width: 100%;font-family:sans-serif">
+    <table style="width: 100%;font-family:sans-serif;border: solid 1px black;border-spacing: 0;">
         <tbody>
             <tr>
-                <td rowspan="6" style="width:1cm;vertical-align:bottom">
-                    <img style="height:90%" src="/AddOns/Partner/imgs/GLVBAS.jpg">
+                <td rowspan="6" style="width:1cm;vertical-align:bottom;border-right: solid 1px black;">
+                    <img style="height:99%" src="/AddOns/Partner/imgs/GLVBAS.jpg">
                 </td>
-                <td style="width: 3cm;text-align: center;">
+                <td style="width: 3cm;text-align: center;border-right: solid 1px black;">
                     <div style="font-size: 26pt;">KLB</div>
                     <div>SA-05</div>
                 </td>
-                <td style="text-align:center">
-                    
-                    <cf_pbs_barcode format="code128" type="qrcode" shape="SQUARE"  value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="120" width="120">
+                <td style="text-align:center">                    
+                    <cf_pbs_barcode format="code128" type="qrcode" shape="SQUARE" value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="120" width="120">
                 </td>
-                <td rowspan="6" style="width:1cm;vertical-align:top"><img  style="height:90%" src="/AddOns/Partner/imgs/GLVUAS.jpg"></td>
+                <td rowspan="6" style="width:1cm;vertical-align:top;border-left: solid 1px black;"><img style="height:99%" src="/AddOns/Partner/imgs/GLVUAS.jpg"></td>
             </tr>
             <tr>            
-                <td colspan="2" style="font-size: 26pt;text-align: center;background: black;color: white;">GLV</td>
+                <td colspan="2" style="font-size: 26pt;text-align: center;background: black;color: white;border: solid 1px black;">GLV</td>
             </tr>
             <tr>            
-                <td colspan="2"><span style="font-size:16pt">30</span>1210460</td>
+                <td colspan="2" style="border: solid 1px;"><span style="font-size:16pt">30</span>1210460</td>
             </tr>
             <tr>            
-                <td colspan="2">Gloves</td>
+                <td colspan="2" style="border: solid 1px black;">Gloves</td>
             </tr>
             <tr>            
-                <td colspan="2" style="font-size: 26pt;text-align: center;">45 Kg</td>
+                <td colspan="2" style="font-size: 26pt;text-align: center;border: solid 1px black;">45 Kg</td>
             </tr>
             <tr>                
-                <td colspan="2">1109452T</td>
+                <td colspan="2" style="border: solid 1px black;">1109452T</td>
             </tr>
         </tbody>
     </table>
+
+
 </cfdocument>
