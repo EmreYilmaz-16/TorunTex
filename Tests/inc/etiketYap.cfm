@@ -1,5 +1,5 @@
 <cfparam name="attributes.FIS_ID" default="195">
-
+<cfset dsn2="w3Toruntex_2023_1">
 <cfquery name="GETD" datasource="#DSN2#">
     SELECT SFR.LOT_NO,SFR.AMOUNT,S.PRODUCT_NAME,S.PRODUCT_DETAIL,S.PRODUCT_CODE_2,SL.COMMENT,O.ORDER_NUMBER FROM w3Toruntex_2023_1.STOCK_FIS AS SF 
     INNER JOIN w3Toruntex_2023_1.STOCK_FIS_ROW AS SFR ON SF.FIS_ID=SFR.FIS_ID
