@@ -15,7 +15,7 @@
     <table border="1" cellspacing="0" cellpadding="0" style="width: 10cm;">
         <tbody>
             <tr>
-                <td rowspan="6">
+                <td rowspan="6" style="width:1cm">
                     <img src="/AddOns/Partner/imgs/GLVBA.jpg">
                 </td>
                 <td style="width: 15px;text-align: center;">
@@ -23,7 +23,7 @@
                     <span>SA-05</span>
                 </td>
                 <td></td>
-                <td rowspan="6"><img src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
+                <td rowspan="6" style="width:1cm"><img src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
             </tr>
             <tr>            
                 <td colspan="2" style="font-size: 30pt;text-align: center;background: black;color: white;">GLV</td>
