@@ -15,18 +15,18 @@
     <table border="1" cellspacing="0" cellpadding="0" style="width: 100%;">
         <tbody>
             <tr>
-                <td rowspan="6" style="width:1cm">
-                    <img style="width:0.7cm" src="/AddOns/Partner/imgs/GLVBA.jpg">
+                <td rowspan="6" style="width:1cm;vertical-align:bottom">
+                    <img style="height:90%" src="/AddOns/Partner/imgs/GLVBA.jpg">
                 </td>
                 <td style="width: 3cm;text-align: center;">
                     <div style="font-size: 26pt;">KLB</div>
                     <div>SA-05</div>
                 </td>
-                <td>
+                <td style="text-align:center">
                     
-                    <cf_pbs_barcode format="code128" type="qrcode" shape="SQUARE"  value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="90">
+                    <cf_pbs_barcode format="code128" type="qrcode" shape="SQUARE"  value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="120" width="120">
                 </td>
-                <td rowspan="6" style="width:1cm"><img  style="width:0.7cm" src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
+                <td rowspan="6" style="width:1cm;vertical-align:top"><img  style="height:90%" src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
             </tr>
             <tr>            
                 <td colspan="2" style="font-size: 26pt;text-align: center;background: black;color: white;">GLV</td>
