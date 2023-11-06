@@ -16,7 +16,7 @@
         <tbody>
             <tr>
                 <td rowspan="6" style="width:1cm;vertical-align:bottom">
-                    <img style="height:90%" src="/AddOns/Partner/imgs/GLVBA.jpg">
+                    <img style="height:90%" src="/AddOns/Partner/imgs/GLVBAS.jpg">
                 </td>
                 <td style="width: 3cm;text-align: center;">
                     <div style="font-size: 26pt;">KLB</div>
@@ -26,7 +26,7 @@
                     
                     <cf_pbs_barcode format="code128" type="qrcode" shape="SQUARE"  value="#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#" show="1" height="120" width="120">
                 </td>
-                <td rowspan="6" style="width:1cm;vertical-align:top"><img  style="height:90%" src="/AddOns/Partner/imgs/GLVUA.jpg"></td>
+                <td rowspan="6" style="width:1cm;vertical-align:top"><img  style="height:90%" src="/AddOns/Partner/imgs/GLVUAS.jpg"></td>
             </tr>
             <tr>            
                 <td colspan="2" style="font-size: 26pt;text-align: center;background: black;color: white;">GLV</td>
