@@ -18,7 +18,7 @@
 </div>
 </cf_box>
 
-<cf_pbs_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE" show="1"  height="50">
+<cf_pbs_barcode format="jpg" type="code128" value="EMRE|EMREEEE||EMREEEEEE" show="1"  height="50">
 <cf_workcube_barcode type="code128" value="EMRE|EMREEEE||EMREEEEEE"  show="1"  height="50">
     <script src="/AddOns/Partner/js/qrcode.js"></script>
     <div id="qrcode" style="text-align:-webkit-center"></div>

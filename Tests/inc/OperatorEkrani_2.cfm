@@ -76,6 +76,7 @@
             <button type="button" class="btn btn-danger" onclick="Iptal()">İptal</button>
             <input type="hidden" name="WRK_ROW_ID" id="WRK_ROW_ID">
             <input type="hidden" name="LotNo" id="LotNo">
+            <input type="hidden" name="SIP_DEPO" id="SIP_DEPO">
         </div>
 <hr>
         <div  class="alert alert-success" style="height:25vh;overflow-y: scroll;padding:3px" id="DigerSiparis">

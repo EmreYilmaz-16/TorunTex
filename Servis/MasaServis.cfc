@@ -90,6 +90,8 @@
                 ,ORDER_ROW.ORDER_ID
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
+                ,O.DELIVER_DEPT_ID
+                ,O.LOCATION_ID 
                 ,(100*ISNULL((
 SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATION_ID=ORDER_ROW.WRK_ROW_ID and STORE=7 and STORE_LOCATION>20),0)/QUANTITY) AS TAMAMLANMA
                 ,SBI_1.BASKET_INFO_TYPE AS A1
@@ -169,6 +171,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
         PRODUCT_NAME=PRODUCT_NAME,
         PRODUCT_CODE=PRODUCT_CODE,
         TAMAMLANMA=TAMAMLANMA,
+        SIP_DEPO="#DELIVER_DEPT_ID#-#LOCATION_ID#",
         A1=A1,
         A2=A2
         
@@ -289,10 +292,47 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 <cfset attributes.FIS_ID=PBS_FIS_ID>
 <cfinclude template="../Tests/inc/etiketYap.cfm">
+
+<cfscript>
+    structClear(attributes);    
+</cfscript>
+
+<cfset attributes.LOCATION_OUT="#listGetAt(arguments.DEPO,2,"-")#">
+<cfset attributes.department_out="#listGetAt(arguments.DEPO,1,"-")#">
+
+<cfset attributes.department_in =listGetAt(arguments.SIP_DEPO,1,"-")>
+<cfset attributes.LOCATION_IN=listGetAt(arguments.SIP_DEPO,2,"-")>
+
+<cfset form.process_cat=255>
+<cfset attributes.process_cat = form.process_cat>
+<cfset PROJECT_HEAD="">
+<cfset PROJECT_HEAD_IN="">
+<cfset PROJECT_ID="">
+<cfset PROJECT_ID_IN="">
+<cfset attributes.QUANTITY=MIKTARIM>
+<cfset attributes.uniq_relation_id_="#arguments.WRK_ROW_ID#">
+<cfset attributes.PBS_RELATION_ID=arguments.WRK_ROW_ID>
+<cfset amount_other="">
+<cfset unit_other="">
+<cfset lot_no=arguments.LOT_NUMARASI>
+<cfset attributes.ROWW=" ,">
+<cfset attributes.wodate="1">
+<CFSET attributes.STOCK_ID=getOI.STOCK_ID>
+<cfset O.ATTR=attributes>
+<cfset O.ARGSSS=arguments>
+<cfset attributes.clot=1>
+<cfinclude template="../Tests/inc/StokFisQuery.cfm">
+<cfset attributes.FIS_ID=PBS_FIS_ID>
+<cfinclude template="../Tests/inc/etiketYap.cfm">
+
+
 <cfset O.ATTR_AFTT=attributes>
 <CFSET MESSAGE="Kayıt Başarılı">
 <cfset O.MESSAGE=MESSAGE>
 <cfset O.STATUS=1>
+
+
+
 
 <cfcatch>
     <CFSET MESSAGE=cfcatch>

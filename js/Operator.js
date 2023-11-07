@@ -127,6 +127,7 @@ function getAOrder(ORDER_ROW_ID) {
       $("#paketIcerik").val(Obj.A1);
       $("#paketKG").val(Obj.A2);
       $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
+      $("#SIP_DEPO").val(Obj.SIP_DEPO);
       $("#sipres").html("");
       $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
       $("#LotNo").val(LotVer(CurrentStation));
@@ -196,6 +197,7 @@ $("body").on("keyup", function (event) {
 
 function Yazdir() {
   var AMOUNT = document.getElementById("TxResult").value;
+  var SIP_DEPO = document.getElementById("SIP_DEPO").value;
   var LOT_NO = document.getElementById("LotNo").value;
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
@@ -212,7 +214,9 @@ function Yazdir() {
       "&LOT_NUMARASI=" +
       LOT_NO +
       "&DEPO=" +
-      Depo,
+      Depo +
+      "&SIP_DEPO=" +
+      SIP_DEPO,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
       alert(Obj.MESSAGE);

@@ -47,3 +47,15 @@
 
 
 </cfdocument>
+
+<cfscript>
+    thesheet=spreadsheetNew("TheSheet");
+    row=1;
+    col=1;
+    spreadsheetSetCellValue(thesheet,"Produced In Germany",row,col);
+    col=col+1;
+    spreadsheetSetCellValue(thesheet,"KLB",row,col);
+    col=col+1;
+    
+
+</cfscript>
