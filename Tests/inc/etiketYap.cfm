@@ -13,6 +13,7 @@
 <cfset fileName=replace(replace("C:/ETIKET/#GuiP#.pdf","\","/","all"),"//","/")>
 <cfdocument format="PDF" marginBottom="0" marginLeft="0" marginRight ="0" marginTop="0"  pageType="custom" pageheight="10" pagewidth="10" unit="cm" filename="#fileName#">
     <table style="width: 100%;font-family:sans-serif;border: solid 1px black;border-spacing: 0px;border-collapse: collapse;" cellspacing="0" cellpadding="0">
+        <cfset UPLOAD_FOLDER="C:/Workcube/PROD/documents/">
         <tbody>
             <tr>
                 <td rowspan="6" style="width:1cm;vertical-align:bottom;border-right: solid 1px black;">
