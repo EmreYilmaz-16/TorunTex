@@ -53,7 +53,7 @@
    <cfset unit_other="Çuval">
    <cfset attributes.clot=1>
    <cfset lot_no=attributes.LOT>
- 
+ <cfset arguments.LOT_NUMARASI=attributes.LOT>
 <cfset attributes.ROWW=" ,">
 <cfdump var="#listLen(attributes.ROWW)#">
 <cfinclude template="StokFisQuery.cfm">
