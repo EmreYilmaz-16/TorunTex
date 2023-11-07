@@ -33,7 +33,7 @@
         </table>
     </div>
 </div>
-
+<cfdump var="#UPLOAD_FOLDER#">
 <div class="row">
     <div class="col col-12">                
         <cf_grid_list style="width:100%">
