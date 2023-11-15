@@ -96,7 +96,9 @@ function getAOrder(ORDER_ROW_ID) {
       var Obj = JSON.parse(retDat);
       console.log(Obj);
       if(Obj.ORDER_ROW_CURRENCY != -5){
-        
+        alert("Üretim Durdurulmuştur");
+        var Control = $sipSelect[0].selectize;
+        Control.clearOptions();
         TemizleCanim();
         
       }else{
