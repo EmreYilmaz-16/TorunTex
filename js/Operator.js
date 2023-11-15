@@ -96,10 +96,10 @@ function getAOrder(ORDER_ROW_ID) {
       var Obj = JSON.parse(retDat);
       console.log(Obj);
       if(Obj.ORDER_ROW_CURRENCY != -5){
-        alert("Üretim Durdurulmuştur");
+        
         TemizleCanim();
-        return false;
-      }
+        
+      }else{
       $("#RenkYazi").text(Obj.PROPERTY5);
       var Renk1_ = list_getat(Obj.PROPERTY5, 1, "-");
       var Renk2_ = list_getat(Obj.PROPERTY5, 2, "-");
@@ -150,7 +150,7 @@ function getAOrder(ORDER_ROW_ID) {
         td.innerText = commaSplit(OO.R_AMOUNT);
         tr.appendChild(td);
         document.getElementById("sipres").appendChild(tr);
-      }
+      }}
     },
   });
 }
