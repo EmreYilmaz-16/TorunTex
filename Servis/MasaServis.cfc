@@ -206,7 +206,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
         <cfset HesapAmount=arguments.AMOUNT>
         <cfloop query="GETRELATEDPRODUCT">
             <cfquery name="GETS" datasource="#dsn2#">
-                SELECT SUM(STOCK_IN-STOCK_OUT) AS BAKIYE,STOCK_ID,PRODUCT_ID FROM w3Toruntex_2023_1.STOCKS_ROW WHERE STORE=7 AND STORE_LOCATION=4 AND PRODUCT_ID=#GETRELATEDPRODUCT.RELATED_PRODUCT_ID# GROUP BY STOCK_ID,PRODUCT_ID
+                SELECT SUM(STOCK_IN-STOCK_OUT) AS BAKIYE,STOCK_ID,PRODUCT_ID FROM w3Toruntex_2023_1.STOCKS_ROW WHERE STORE=7 AND STORE_LOCATION=3 AND PRODUCT_ID=#GETRELATEDPRODUCT.RELATED_PRODUCT_ID# GROUP BY STOCK_ID,PRODUCT_ID
             </cfquery>                        
                 <CFIF GETS.recordCount AND  (GETS.BAKIYE LT HesapAmount AND GETS.BAKIYE NEQ 0)>
                     <CFSET HesapAmount=HesapAmount-GETS.BAKIYE>
@@ -248,7 +248,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
 <cfset attributes.department_in ="">
     <cfset attributes.LOCATION_IN="">
     <cfset attributes.department_out=7>
-    <cfset attributes.LOCATION_OUT =4>
+    <cfset attributes.LOCATION_OUT =3>
     <cfset form.process_cat=88>
     <cfset attributes.process_cat = form.process_cat>
    <cfset PROJECT_HEAD="">
