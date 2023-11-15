@@ -84,6 +84,7 @@
                 ,PROPERTY6
                 ,ORDER_ROW_ID
                 ,WRK_ROW_ID
+                ,ORDER_ROW_CURRENCY
                 ,STOCKS.PRODUCT_ID
                 ,STOCKS.STOCK_ID
                 ,STOCKS.PRODUCT_NAME
@@ -167,6 +168,7 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
         PROPERTY6=PROPERTY6,
         ORDER_ROW_ID=ORDER_ROW_ID,
         WRK_ROW_ID=WRK_ROW_ID,
+        ORDER_ROW_CURRENCY=ORDER_ROW_CURRENCY,
         PRODUCT_ID=PRODUCT_ID,
         STOCK_ID=STOCK_ID,
         PRODUCT_NAME=PRODUCT_NAME,
