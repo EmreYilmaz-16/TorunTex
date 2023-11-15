@@ -98,8 +98,8 @@ function getAOrder(ORDER_ROW_ID) {
       if(Obj.ORDER_ROW_CURRENCY != -5){
         alert("Üretim Durdurulmuştur");
         var Control = $select[0].selectize;
-        Control.clearOptions();
         Control.clear();
+        Control.clearOptions();        
         TemizleCanim();
         
       }else{
