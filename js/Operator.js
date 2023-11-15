@@ -97,6 +97,7 @@ function getAOrder(ORDER_ROW_ID) {
       console.log(Obj);
       if(Obj.ORDER_ROW_CURRENCY != -5){
         alert("Üretim Durdurulmuştur");
+        TemizleCanim();
         return false;
       }
       $("#RenkYazi").text(Obj.PROPERTY5);
@@ -152,6 +153,26 @@ function getAOrder(ORDER_ROW_ID) {
       }
     },
   });
+}
+function TemizleCanim(){
+  $("#RenkYazi").text("");
+  $("#color1").attr(
+    "style",
+    "display:block;border: solid 0.5px black;background:none ;width: 25%;"
+  );
+  $("#color2").attr(
+    "style",
+    "display:block;border: solid 0.5px black;background:none;width: 25%;"
+  );
+  $("#Country").text("");
+  $("#Customer").text("");
+  $("#paketIcerik").val("");
+  $("#paketKG").val("");
+  $("#WRK_ROW_ID").val("");
+  $("#SIP_DEPO").val("");
+  $("#sipres").html("");
+  $("#Complate").text("");
+  $("#LotNo").val("");
 }
 function Yaz(sayi) {
   if (sayi > 0) {
