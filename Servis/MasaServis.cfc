@@ -197,9 +197,11 @@ SELECT sum(STOCK_IN) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATI
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
         </cfquery>
+        
         <cfquery name="GETRELATEDPRODUCT" datasource="#DSN3#">
             SELECT * FROM w3Toruntex_1.RELATED_PRODUCT WHERE PRODUCT_ID=#getOI.PRODUCT_ID# ORDER BY RELATED_PRODUCT_NO
         </cfquery>
+        <CFSET O.REL_PROD_RES=GETRELATEDPRODUCT>
         <CFSET SARF_STOCK_ID=0>
         <CFSET attributes.SARF_STOCK_ID_LIST="">
         <CFSET attributes.SARF_AMOUNT_LIST="">
