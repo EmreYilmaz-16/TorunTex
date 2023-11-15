@@ -40,12 +40,13 @@
 
 <cffunction name="getOrders" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="PRODUCT_ID">
+        <cfargument name="STATION">
         <cfquery name="GETDATA" datasource="#DSN3#">
             SELECT ORR.WRK_ROW_ID,ORR.ORDER_ROW_ID,ORR.PRODUCT_ID,O.ORDER_ID,C.COMPANY_ID,O.PRIORITY_ID,O.ORDER_HEAD,O.ORDER_NUMBER,C.NICKNAME,CONVERT(INT,SP.PRIORITY) AS PP FROM ORDER_ROW AS ORR
             LEFT JOIN ORDERS AS O ON O.ORDER_ID=ORR.ORDER_ID
             LEFT JOIN #DSN#.COMPANY AS C ON C.COMPANY_ID=O.COMPANY_ID
             LEFT JOIN #DSN#.SETUP_PRIORITY AS SP ON SP.PRIORITY_ID=O.PRIORITY_ID
-            WHERE ORR.PRODUCT_ID=#arguments.PRODUCT_ID#
+            WHERE ORR.PRODUCT_ID=#arguments.PRODUCT_ID# AND ORR.UNIT2 LIKE '%#attributes.STATION#%'
         </cfquery>
 <CFSET RETURNARR=arrayNew(1)>
 <cfloop query="GETDATA">

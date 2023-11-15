@@ -53,12 +53,13 @@ function OpenLogIn() {
 function getOrders(product_id) {
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var RS = localStorage.getItem("ACTIVE_STATION");
+    var ls=JSON.parse(RS);
     $.ajax({
       url:
         "/AddOns/Partner/servis/MasaServis.cfc?method=getOrders&PRODUCT_ID=" +
         product_id +
         "&STATION=" +
-        RS,
+        ls.STATION,
       success: function (retDat) {
         console.log(retDat);
         var arr = JSON.parse(retDat);
