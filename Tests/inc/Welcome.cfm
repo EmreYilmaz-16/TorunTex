@@ -15,6 +15,7 @@
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=vt'">VT Sorgu</button>
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=ex'">EX</button>
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=Pu'">Import Units</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=fe'">Dosya Gezgini</button>
     </cfif>
 </div>
 </cf_box>
