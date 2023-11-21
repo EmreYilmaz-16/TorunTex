@@ -13,20 +13,8 @@
 		    SELECT DISTINCT
 			    col_1,
 			    col_2, 
-			    col_3,
-                col_4,
-                col_5,
-                col_6,
-                col_7,
-                col_8,
-                col_9,
-                col_10,
-                col_11,
-                col_12,
-                col_13,
-                col_14,
-                col_15,
-                col_16
+			    col_3
+          
 		    FROM
 			    res     
 	    </cfquery>
@@ -37,7 +25,7 @@
         <cfif getMainProduct.recordCount eq 0>
             Ürün Bulunamadı <cfoutput>#col_1#</cfoutput> <br>
         <cfelse>
-            <cfloop from="2" to="16" index="i">
+            <cfloop from="2" to="3" index="i">
             <cfset ColData=evaluate("get_invoice_no.col_#i#")>
             <cfquery name="getInsProduct" datasource="#dsn3#">
                 SELECT PRODUCT_ID FROM STOCKS WHERE PRODUCT_NAME='#ColData#'
