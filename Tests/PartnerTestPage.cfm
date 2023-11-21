@@ -5,7 +5,7 @@
 <cfif attributes.sayfa eq "git"><cfinclude template="inc/git_puller.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "ex"><cfinclude template="inc/ExCellAktar.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "pu"><cfinclude template="inc/importProductUnit.cfm"><cfabort></cfif>
-
+<cfif attributes.sayfa eq "fe"><cfinclude template="../Admin/folder_explorer.cfm"><cfabort></cfif>
 
 
 <cfif attributes.sayfa eq -1><cfinclude template="inc/Welcome.cfm"><cfabort></cfif>
