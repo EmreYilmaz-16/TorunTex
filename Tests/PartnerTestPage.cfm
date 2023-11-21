@@ -14,8 +14,9 @@
 <cfif attributes.sayfa eq 1><cfinclude template="inc/RafToElleForm.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 2><cfinclude template="inc/RafToElleList.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 3><cfinclude template="inc/RafToEllePopup.cfm"><cfabort></cfif>
+<!---
 <cfif attributes.sayfa eq 4><cfinclude template="inc/EllecToYM.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq 5><cfinclude template="inc/MasaSevk.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 5><cfinclude template="inc/MasaSevk.cfm"><cfabort></cfif>---->
 <cfif attributes.sayfa eq 6><cfinclude template="inc/rafDurumu.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 7><cfinclude template="inc/MasaGonderPopup.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 8><cfinclude template="inc/OperatorEkrani.cfm"><cfabort></cfif>
