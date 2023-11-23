@@ -1,14 +1,19 @@
 <table>
 <tr>
     <td>
-        <input type="text" name="Barcode" onkeyup="SearchBarcode(this,event)">
+        <div class="form-group">
+            <label>
+                Ürün Barkodu
+            </label>
+        <input class="form-control" type="text" name="Barcode" onkeyup="SearchBarcode(this,event)">
         <input type="hidden" name="FROM_WRK_ROW_ID" id="FROM_WRK_ROW_ID">
         <input type="hidden" name="TO_WRK_ROW_ID" id="TO_WRK_ROW_ID">
+    </div>
     </td>
     <td>
         <div class="form-group">
             <label>Çıkış Depo</label>
-            <input type="text" readonly name="txtFromDeptLocation" id="txtFromDeptLocation">
+            <input type="text" class="form-control"  readonly name="txtFromDeptLocation" id="txtFromDeptLocation">
             <input type="hidden"  name="txtFromDeptId" id="txtFromDeptId">
             <input type="hidden"  name="txtFromLocId" id="txtFromLocId">
         </div>
@@ -16,7 +21,7 @@
     <td style="display:none">
         <div class="form-group">
             <label>Giriş Depo</label>
-            <input type="text" name="txtToDeptLocation" id="txtToDeptLocation" onkeyup="searchDepo()">
+            <input type="text" class="form-control"  name="txtToDeptLocation" id="txtToDeptLocation" onkeyup="searchDepo()">
             <input type="text"  name="txtToDeptId" id="txtToDeptId">
             <input type="text"  name="txtToLocId" id="txtToLocId">
         </div>
@@ -43,6 +48,14 @@
             Qstr1+=" WHERE WRK_ROW_ID=( SELECT  DISTINCT PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"')"
             var QueryResult_1=wrk_query(Qstr1);
             console.log(QueryResult_1);
+            var Qstr2="SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID FROM STOCKS_LOCATION as SL "
+            Qstr2+=" INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID  WHERE SL.DEPARTMENT_ID="+QueryResult_1.DELIVER_DEPT_ID[0]+" AND SL.LOCATION_ID="+QueryResult_1.LOCATION_ID[0];
+            var QueryResult_2=wrk_query(Qstr2)
+            $("#txtFromDeptLocation").val(QueryResult_2.DEPARTMENT_HEAD[0]+" "+QueryResult_2.COMMENT[0])
+            $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0])
+            $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0])
+            $("#txtToDeptLocation").focus();
+            
         }
     }
 
