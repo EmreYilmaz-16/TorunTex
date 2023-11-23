@@ -18,7 +18,7 @@
             <input type="hidden"  name="txtFromLocId" id="txtFromLocId">
         </div>
     </td>
-    <td style="display:none">
+    <td id="exitr" style="display:none">
         <div class="form-group">
             <label>Giriş Depo</label>
             <input type="text" class="form-control"  name="txtToDeptLocation" id="txtToDeptLocation" onkeyup="searchDepo()">
@@ -54,8 +54,10 @@
             $("#txtFromDeptLocation").val(QueryResult_2.DEPARTMENT_HEAD[0]+" "+QueryResult_2.COMMENT[0])
             $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0])
             $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0])
+            $("#exitr").show(500);
             $("#txtToDeptLocation").focus();
             
+
         }
     }
 
