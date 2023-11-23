@@ -86,6 +86,7 @@ var AktifSiparisSureci=259;
             $("#txtToLocId").val(QueryResult_1.LOCATION_ID[0])
             $("#txtToDeptLocation").val(QueryResult_1.DEPARTMENT_HEAD[0]+"-"+QueryResult_1.COMMENT[0])
             $("#TO_STOCK_ID").val(STOCK_ID)
+            $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0])
         }
     }
     function Kaydet() {
