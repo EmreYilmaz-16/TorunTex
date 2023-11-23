@@ -23,7 +23,8 @@
     <td id="exitr" style="display:none">
         <div class="form-group">
             <label>Giriş Depo</label>
-            <input type="text" class="form-control"  name="txtToDeptLocation" id="txtToDeptLocation" onkeyup="searchDepo(this,event)">
+            <input type="text" class="form-control"  name="txtDepoAdi" id="txtDepoAdi" placeholder="Giriş Depo" onkeyup="searchDepo(this,event)">
+            <input type="text" class="form-control" readonly  name="txtToDeptLocation" id="txtToDeptLocation" >
             <input type="hidden"  name="txtToDeptId" id="txtToDeptId">
             <input type="hidden"  name="txtToLocId" id="txtToLocId">
         </div>
@@ -83,6 +84,7 @@ var AktifSiparisSureci=259;
             var QueryResult_2=wrk_query(Qstr2);
             $("#txtToDeptId").val(QueryResult_1.DEPARTMENT_ID[0])
             $("#txtToLocId").val(QueryResult_1.LOCATION_ID[0])
+            $("#txtToDeptLocation").val(QueryResult_1.DEPARTMENT_HEAD[0]+"-"+QueryResult_1.COMMENT[0])
             $("#TO_STOCK_ID").val(STOCK_ID)
         }
     }
