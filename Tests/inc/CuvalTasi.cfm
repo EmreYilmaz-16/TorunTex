@@ -51,9 +51,9 @@ var AktifSiparisSureci=259;
             var UrunKodu=list_getat(UrunBarkodu,1,"|");
             var LotNo=list_getat(UrunBarkodu,2,"|");
             var Agirlik=list_getat(UrunBarkodu,3,"|");
-            var Qstr1="SELECT ORDERS.DELIVER_DEPT_ID,ORDERS.LOCATION_ID,ORDER_ROW.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDER_ROW"
-            Qstr1+=" INNER JOIN "+dsn3+".ORDERS ON ORDERS.ORDER_ID=ORDER_ROW.ORDER_ID"
-            Qstr1+=" WHERE WRK_ROW_ID=( SELECT  DISTINCT PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"')"
+            var Qstr1="SELECT ORDERS.DELIVER_DEPT_ID,ORDERS.LOCATION_ID,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDER_ROW as ORR"
+            Qstr1+=" INNER JOIN "+dsn3+".ORDERS ON ORDERS.ORDER_ID=ORR.ORDER_ID"
+            Qstr1+=" WHERE ORR.WRK_ROW_ID=( SELECT  DISTINCT PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"')"
             var QueryResult_1=wrk_query(Qstr1);
             console.log(QueryResult_1);
             var Qstr2="SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID FROM STOCKS_LOCATION as SL "
