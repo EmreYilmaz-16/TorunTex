@@ -33,7 +33,7 @@
 <tr>
     <td colspan="3">
         <div style="display:flex">
-            <button style="display:none" id="btnKayit" class="btn btn-sm btn-outline-success" onclick="Kaydet()">Kaydet</button>
+            <button style="display:none" id="btnKayit" class="form-control btn btn-sm btn-outline-success" onclick="Kaydet()">Kaydet</button>
         </div>
     </td>
 </tr>
@@ -86,20 +86,25 @@ var AktifSiparisSureci=259;
            // var Qstr1="SELECT * FROM w3Toruntex.STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D WHERE 1=1 AND COMMENT ='"+el.value+"'";
             var QueryResult_1=wrk_query(Qstr1);
             if(QueryResult_1.recordcount>0){
-                el.setAttribute("style",ValidStyle); 
-                document.getElementById("txtToDeptLocation").setAttribute("style",ValidStyle);       
+                
 
                 var Qstr2="SELECT O.ORDER_ID,ORDER_NUMBER,ORDER_HEAD,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDERS AS O"
                 Qstr2+=" INNER JOIN "+dsn3+".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID "
                 Qstr2+=" WHERE O.ORDER_STAGE="+AktifSiparisSureci+" AND O.DELIVER_DEPT_ID="+QueryResult_1.DEPARTMENT_ID[0]+" AND O.LOCATION_ID="+QueryResult_1.LOCATION_ID[0]+"  AND ORR.STOCK_ID="+STOCK_ID
           //  var Qstr2="SELECT ORDER_ID,ORDER_NUMBER,ORDER_HEAD FROM "+dsn3+".ORDERS WHERE ORDER_STAGE=259 AND DELIVER_DEPT_ID="+QueryResult_1.DEPARTMENT_ID[0]+" AND LOCATION_ID="+QueryResult_1.LOCATION_ID[0];
                 var QueryResult_2=wrk_query(Qstr2);
-                $("#txtToDeptId").val(QueryResult_1.DEPARTMENT_ID[0])
-                $("#txtToLocId").val(QueryResult_1.LOCATION_ID[0])
-                $("#txtToDeptLocation").val(QueryResult_1.DEPARTMENT_HEAD[0]+"-"+QueryResult_1.COMMENT[0])
-                $("#TO_STOCK_ID").val(STOCK_ID)
-                $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0])
-                $("#btnKayit").show();
+               if(QueryResult_2.recordcount>0){
+                el.setAttribute("style",ValidStyle); 
+                document.getElementById("txtToDeptLocation").setAttribute("style",ValidStyle);   
+                    $("#txtToDeptId").val(QueryResult_1.DEPARTMENT_ID[0])
+                    $("#txtToLocId").val(QueryResult_1.LOCATION_ID[0])
+                    $("#txtToDeptLocation").val(QueryResult_1.DEPARTMENT_HEAD[0]+"-"+QueryResult_1.COMMENT[0])
+                    $("#TO_STOCK_ID").val(STOCK_ID)
+                    $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0])
+                    $("#btnKayit").show();}else{
+                        el.setAttribute("style",InValidStyle); 
+                document.getElementById("txtToDeptLocation").setAttribute("style",InValidStyle);   
+                    }
             }else{
                 el.setAttribute("style",InValidStyle); 
             }
