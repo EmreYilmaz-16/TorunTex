@@ -1,4 +1,4 @@
-<table>
+<table class="table" >
 <tr>
     <td>
         <div class="form-group">
@@ -7,7 +7,9 @@
             </label>
         <input class="form-control" type="text" name="Barcode" onkeyup="SearchBarcode(this,event)">
         <input type="hidden" name="FROM_WRK_ROW_ID" id="FROM_WRK_ROW_ID">
+        <input type="hidden" name="FROM_STOCK_ID" id="FROM_STOCK_ID">
         <input type="hidden" name="TO_WRK_ROW_ID" id="TO_WRK_ROW_ID">
+        <input type="hidden" name="TO_STOCK_ID" id="TO_STOCK_ID">
     </div>
     </td>
     <td>
@@ -21,10 +23,15 @@
     <td id="exitr" style="display:none">
         <div class="form-group">
             <label>Giriş Depo</label>
-            <input type="text" class="form-control"  name="txtToDeptLocation" id="txtToDeptLocation" onkeyup="searchDepo()">
-            <input type="text"  name="txtToDeptId" id="txtToDeptId">
-            <input type="text"  name="txtToLocId" id="txtToLocId">
+            <input type="text" class="form-control"  name="txtToDeptLocation" id="txtToDeptLocation" onkeyup="searchDepo(this,event)">
+            <input type="hidden"  name="txtToDeptId" id="txtToDeptId">
+            <input type="hidden"  name="txtToLocId" id="txtToLocId">
         </div>
+    </td>
+</tr>
+<tr>
+    <td>
+        <button class="btn btn-sm btn-outline-success" onclick="Kaydet()">Kaydet</button>
     </td>
 </tr>
 </table>
@@ -36,6 +43,7 @@
     var dsn2="#dsn2#";
     var dsn3="#dsn3#";
 </cfoutput>
+var AktifSiparisSureci=259;
     function SearchBarcode(el,ev){
         if(ev.keyCode==13){
             var UrunBarkodu=el.value;
@@ -43,7 +51,7 @@
             var UrunKodu=list_getat(UrunBarkodu,1,"|");
             var LotNo=list_getat(UrunBarkodu,2,"|");
             var Agirlik=list_getat(UrunBarkodu,3,"|");
-            var Qstr1="SELECT ORDERS.DELIVER_DEPT_ID,ORDERS.LOCATION_ID,ORDER_ROW.WRK_ROW_ID FROM "+dsn3+".ORDER_ROW"
+            var Qstr1="SELECT ORDERS.DELIVER_DEPT_ID,ORDERS.LOCATION_ID,ORDER_ROW.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDER_ROW"
             Qstr1+=" INNER JOIN "+dsn3+".ORDERS ON ORDERS.ORDER_ID=ORDER_ROW.ORDER_ID"
             Qstr1+=" WHERE WRK_ROW_ID=( SELECT  DISTINCT PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"')"
             var QueryResult_1=wrk_query(Qstr1);
@@ -54,13 +62,54 @@
             $("#txtFromDeptLocation").val(QueryResult_2.DEPARTMENT_HEAD[0]+" "+QueryResult_2.COMMENT[0])
             $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0])
             $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0])
+            $("#FROM_STOCK_ID").val(QueryResult_1.STOCK_ID[0])
+            $("#FROM_WRK_ROW_ID").val(QueryResult_1.WRK_ROW_ID[0])
             $("#exitr").show(500);
             $("#txtToDeptLocation").focus();
             
 
         }
     }
+    function searchDepo(el,ev) {
+        if(ev.keyCode==13){
+            var STOCK_ID=$("#FROM_STOCK_ID").val();
+            var Qstr1="SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM w3Toruntex.STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='"+el.value+"'"
+           // var Qstr1="SELECT * FROM w3Toruntex.STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D WHERE 1=1 AND COMMENT ='"+el.value+"'";
+            var QueryResult_1=wrk_query(Qstr1);
+            var Qstr2="SELECT O.ORDER_ID,ORDER_NUMBER,ORDER_HEAD,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDERS AS O"
+                Qstr2+=" INNER JOIN "+dsn3+".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID "
+                Qstr2+=" WHERE O.ORDER_STAGE="+AktifSiparisSureci+" AND O.DELIVER_DEPT_ID="+QueryResult_1.DEPARTMENT_ID[0]+" AND O.LOCATION_ID="+QueryResult_1.LOCATION_ID[0]+"  AND ORR.STOCK_ID="+STOCK_ID
+          //  var Qstr2="SELECT ORDER_ID,ORDER_NUMBER,ORDER_HEAD FROM "+dsn3+".ORDERS WHERE ORDER_STAGE=259 AND DELIVER_DEPT_ID="+QueryResult_1.DEPARTMENT_ID[0]+" AND LOCATION_ID="+QueryResult_1.LOCATION_ID[0];
+            var QueryResult_2=wrk_query(Qstr2);
+            $("#txtToDeptId").val(QueryResult_1.DEPARTMENT_ID[0])
+            $("#txtToLocId").val(QueryResult_1.LOCATION_ID[0])
+            $("#TO_STOCK_ID").val(STOCK_ID)
+        }
+    }
+    function Kaydet() {
+        var FROM_DEPARTMENT_ID=$("#txtFromDeptId").val()
+        var FROM_LOCATION_ID=$("#txtFromLocId").val()
+        var FROM_WRK_ROW_ID=$("#FROM_WRK_ROW_ID").val()
+        var FROM_STOCK_ID=$("#FROM_STOCK_ID").val()
 
+        var TO_DEPARTMENT_ID=$("#txtToDeptId").val()
+        var TO_LOCATION_ID=$("#txtToLocId").val()
+        var TO_WRK_ROW_ID=$("#TO_WRK_ROW_ID").val()
+        var TO_STOCK_ID=$("#TO_STOCK_ID").val()
+
+        var FormDatam={
+            FROM_DEPARTMENT_ID:FROM_DEPARTMENT_ID,
+            FROM_LOCATION_ID:FROM_LOCATION_ID,
+            FROM_WRK_ROW_ID:FROM_WRK_ROW_ID,
+            FROM_STOCK_ID:FROM_STOCK_ID,
+            TO_DEPARTMENT_ID:TO_DEPARTMENT_ID,
+            TO_LOCATION_ID:TO_LOCATION_ID,
+            TO_WRK_ROW_ID:TO_WRK_ROW_ID,
+            TO_STOCK_ID:TO_STOCK_ID
+        };
+        console.log(FormDatam)
+    }
+    
     function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
   var req;
