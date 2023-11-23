@@ -31,8 +31,10 @@
     </td>
 </tr>
 <tr>
-    <td>
-        <button class="btn btn-sm btn-outline-success" onclick="Kaydet()">Kaydet</button>
+    <td colspan="3">
+        <div style="display:flex">
+            <button style="display:none" id="btnKayit" class="btn btn-sm btn-outline-success" onclick="Kaydet()">Kaydet</button>
+        </div>
     </td>
 </tr>
 </table>
@@ -97,6 +99,7 @@ var AktifSiparisSureci=259;
                 $("#txtToDeptLocation").val(QueryResult_1.DEPARTMENT_HEAD[0]+"-"+QueryResult_1.COMMENT[0])
                 $("#TO_STOCK_ID").val(STOCK_ID)
                 $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0])
+                $("#btnKayit").show();
             }else{
                 el.setAttribute("style",InValidStyle); 
             }
