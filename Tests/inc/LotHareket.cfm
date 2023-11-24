@@ -1,7 +1,18 @@
+﻿<cf_box title="Lot Hareketleri">
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=15">
-    <input type="text" name="Barkod" id="Barkod">
-   <input type="hidden" name="is_submit" value="1">
-    <input type="submit">
+   <table>
+    <tr>
+        <td>
+            <input class="form-control" type="text" name="Barkod" id="Barkod">
+        </td>
+        <td>
+            <input type="hidden" name="is_submit" value="1">
+            <input type="submit">
+        </td>
+    </tr>
+   </table>
+    
+   
 </cfform>
 
 <cfif isDefined("attributes.is_submit")>
@@ -49,3 +60,4 @@ WHERE LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.PROCESS_TYPE
     </CFOUTPUT>
 
 </cfif>
+</cf_box>
