@@ -24,7 +24,7 @@
                 <tr>                    
                     <td style="text-align: center;" id="butonAre">             
                         
-                        <button type="button" class="btn btn-lg btn-outline-primary" onclick="OpenLogIn()">Kullanıcı Girişi</button>
+                        <!---<button type="button" class="btn btn-lg btn-outline-primary" onclick="OpenLogIn()">Kullanıcı Girişi</button>---->
                     </td>
                 </tr>
             </tbody>
