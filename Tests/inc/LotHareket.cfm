@@ -38,6 +38,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
 
         <cf_big_list>
             <tr>
+                <th>##</th>
                 <th>
                     Tarih
                 </th>
@@ -61,16 +62,18 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                     Depo
                 </th>
             </tr>
-            <cfloop query="getLOTDATA" >
+        
+            <cfloop from="1" to="#getLOTDATA.recordCount#" index="i"  >
                 <tr>
-                    <td>#dateformat(PROCESS_DATE,"dd/mm/yyyy")# #timeFormat(PROCESS_DATE,"HH:nn")#</td>
-                    <td>#ORDER_NUMBER#</td>
-                    <td>#NICKNAME#</td>
+                    <td>#i#</td>
+                    <td>#dateformat(PROCESS_DATE[i],"dd/mm/yyyy")# #timeFormat(PROCESS_DATE[i],"HH:nn")#</td>
+                    <td>#ORDER_NUMBER[i]#</td>
+                    <td>#NICKNAME[i]#</td>
                     
-                    <td>#PROCESS_CAT#</td>
-                    <td>#tlformat(STOCK_IN)#</td>
-                    <td>#tlformat(STOCK_OUT)#</td>
-                    <td>#COMMENT#</td>
+                    <td>#PROCESS_CAT[i]#</td>
+                    <td>#tlformat(STOCK_IN[i])#</td>
+                    <td>#tlformat(STOCK_OUT[i])#</td>
+                    <td>#COMMENT[i]#</td>
                 </tr>
             </cfloop>
         </cf_big_list>
