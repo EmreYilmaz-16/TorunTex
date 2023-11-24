@@ -176,7 +176,9 @@
         </td>
     </tr>
    </table>
-        
+    <div style="text-align:center">
+        <h3 id="uretimCount"></h3>
+    </div>
     </div>
 </div>
 

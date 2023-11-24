@@ -28,15 +28,15 @@ $(document).ready(function () {
     OpenLogIn();
   }
   //   $("#select_2").selectize(); butonAre
-  var btn=document.createElement("button");
-  if(localStorage.getItem("ACTIVE_STATION") != null){
-    btn.setAttribute("class","btn btn-lg btn-outline-danger")
-    btn.innerText="Çıkış Yap";
-    btn.setAttribute("onclick","LogOut()")
-  }else{
-    btn.setAttribute("class","btn btn-lg btn-outline-primary")
-    btn.innerText="Kullanıcı Girişi";
-    btn.setAttribute("onclick","OpenLogIn()")
+  var btn = document.createElement("button");
+  if (localStorage.getItem("ACTIVE_STATION") != null) {
+    btn.setAttribute("class", "btn btn-lg btn-outline-danger");
+    btn.innerText = "Çıkış Yap";
+    btn.setAttribute("onclick", "LogOut()");
+  } else {
+    btn.setAttribute("class", "btn btn-lg btn-outline-primary");
+    btn.innerText = "Kullanıcı Girişi";
+    btn.setAttribute("onclick", "OpenLogIn()");
   }
   document.getElementById("butonAre").appendChild(btn);
 });
@@ -64,7 +64,7 @@ function OpenLogIn() {
 function getOrders(product_id) {
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var RS = localStorage.getItem("ACTIVE_STATION");
-    var ls=JSON.parse(RS);
+    var ls = JSON.parse(RS);
     $.ajax({
       url:
         "/AddOns/Partner/servis/MasaServis.cfc?method=getOrders&PRODUCT_ID=" +
@@ -106,75 +106,87 @@ function getAOrder(ORDER_ROW_ID) {
       console.log(retDat);
       var Obj = JSON.parse(retDat);
       console.log(Obj);
-      if(Obj.ORDER_ROW_CURRENCY != -5){
+      if (Obj.ORDER_ROW_CURRENCY != -5) {
         alert("Üretim Durdurulmuştur");
         var Control = $select[0].selectize;
         Control.clear();
-        Control.clearOptions();        
+        Control.clearOptions();
         TemizleCanim();
-        
-      }else{
-      $("#RenkYazi").text(Obj.PROPERTY5);
-      var Renk1_ = list_getat(Obj.PROPERTY5, 1, "-");
-      var Renk2_ = list_getat(Obj.PROPERTY5, 2, "-");
-      var Renk1 = "";
-      var Renk2 = "";
-      if (Renk1_ == "BEYAZ") Renk1 = "white";
-      else if (Renk1_ == "SARI") Renk1 = "yellow";
-      else if (Renk1_ == "YEŞİL") Renk1 = "green";
-      else Renk1 = "antiquewhite";
+      } else {
+        $("#RenkYazi").text(Obj.PROPERTY5);
+        var Renk1_ = list_getat(Obj.PROPERTY5, 1, "-");
+        var Renk2_ = list_getat(Obj.PROPERTY5, 2, "-");
+        var Renk1 = "";
+        var Renk2 = "";
+        if (Renk1_ == "BEYAZ") Renk1 = "white";
+        else if (Renk1_ == "SARI") Renk1 = "yellow";
+        else if (Renk1_ == "YEŞİL") Renk1 = "green";
+        else Renk1 = "antiquewhite";
 
-      if (Renk2_ == "BEYAZ") Renk2 = "white";
-      else if (Renk2_ == "SARI") Renk2 = "yellow";
-      else if (Renk2_ == "YEŞİL") Renk2 = "green";
-      else if (Renk2_ == "MAVİ") Renk2 = "blue";
-      else Renk2 = "antiquewhite";
+        if (Renk2_ == "BEYAZ") Renk2 = "white";
+        else if (Renk2_ == "SARI") Renk2 = "yellow";
+        else if (Renk2_ == "YEŞİL") Renk2 = "green";
+        else if (Renk2_ == "MAVİ") Renk2 = "blue";
+        else Renk2 = "antiquewhite";
 
-      $("#color1").attr(
-        "style",
-        "display:block;border: solid 0.5px black;background: " +
-          Renk1 +
-          ";width: 25%;"
-      );
-      $("#color2").attr(
-        "style",
-        "display:block;border: solid 0.5px black;background: " +
-          Renk2 +
-          ";width: 25%;"
-      );
-      $("#Country").text(Obj.COUNTRY_NAME);
-      $("#Customer").text(Obj.NICKNAME);
-      $("#paketIcerik").val(Obj.A1);
-      $("#paketKG").val(Obj.A2);
-      $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
-      $("#SIP_DEPO").val(Obj.SIP_DEPO);
-      
-      $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
-      $("#AA2").text(Obj.PRODUCT_DETAIL);
-      $("#AA3").text(Obj.PRODUCT_NAME2);
-      
+        $("#color1").attr(
+          "style",
+          "display:block;border: solid 0.5px black;background: " +
+            Renk1 +
+            ";width: 25%;"
+        );
+        $("#color2").attr(
+          "style",
+          "display:block;border: solid 0.5px black;background: " +
+            Renk2 +
+            ";width: 25%;"
+        );
+        $("#Country").text(Obj.COUNTRY_NAME);
+        $("#Customer").text(Obj.NICKNAME);
+        $("#paketIcerik").val(Obj.A1);
+        $("#paketKG").val(Obj.A2);
+        $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
+        $("#SIP_DEPO").val(Obj.SIP_DEPO);
 
-      $("#sipres").html("");
-      $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
-      $("#LotNo").val(LotVer(CurrentStation));
-      for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
-        var OO = Obj.ALL_ROWS[i];
-        var tr = document.createElement("tr");
-        var td = document.createElement("td");
-        td.innerText = OO.PRODUCT_NAME;
-        tr.appendChild(td);
-        var td = document.createElement("td");
-        td.innerText = commaSplit(OO.QUANTITY);
-        tr.appendChild(td);
-        var td = document.createElement("td");
-        td.innerText = commaSplit(OO.R_AMOUNT);
-        tr.appendChild(td);
-        document.getElementById("sipres").appendChild(tr);
-      }}
+        $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
+        $("#AA2").text(Obj.PRODUCT_DETAIL);
+        $("#AA3").text(Obj.PRODUCT_NAME2);
+
+        $("#sipres").html("");
+        $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
+        $("#LotNo").val(LotVer(CurrentStation));
+        for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
+          var OO = Obj.ALL_ROWS[i];
+          var tr = document.createElement("tr");
+          var td = document.createElement("td");
+          td.innerText = OO.PRODUCT_NAME;
+          tr.appendChild(td);
+          var td = document.createElement("td");
+          td.innerText = commaSplit(OO.QUANTITY);
+          tr.appendChild(td);
+          var td = document.createElement("td");
+          td.innerText = commaSplit(OO.R_AMOUNT);
+          tr.appendChild(td);
+          document.getElementById("sipres").appendChild(tr);
+        }
+      }
     },
   });
 }
-function TemizleCanim(){
+function getProductionCount() {
+  if (localStorage.getItem("ACTIVE_STATION") != null) {
+    var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+    var Qstr =
+      "SELECT COUNT(*) as FF FROM STOCK_FIS AS SF where DEPARTMENT_IN=" +
+      Obj.DEPARTMENT_ID +
+      " AND LOCATION_IN=" +
+      Obj.LOCATION_ID +
+      " AND DAY(FIS_DATE)=DAY(GETDATE()) AND MONTH(FIS_DATE)=MONTH(FIS_DATE)";
+    var r = wrk_query(Qstr, "dsn2");
+    $("#uretimCount").text(r.FF[0]);
+  }
+}
+function TemizleCanim() {
   $("#RenkYazi").text("");
   $("#color1").attr(
     "style",
@@ -269,6 +281,7 @@ function Yazdir() {
       getAOrder(MainOrderRowID);
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+      getProductionCount()
     },
   });
 }
@@ -282,11 +295,11 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   localStorage.setItem("ACTIVE_STATION", JSON.stringify(StationObject));
 
   $("#butonAre").html("");
-  var btn=document.createElement("button");
- 
-    btn.setAttribute("class","btn btn-lg btn-outline-danger")
-    btn.innerText="Çıkış Yap";
-    btn.setAttribute("onclick","LogOut()")
+  var btn = document.createElement("button");
+
+  btn.setAttribute("class", "btn btn-lg btn-outline-danger");
+  btn.innerText = "Çıkış Yap";
+  btn.setAttribute("onclick", "LogOut()");
 
   document.getElementById("butonAre").appendChild(btn);
 
@@ -294,7 +307,6 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   CurrentStation = StationObject.STATION;
   getProducts(STATION);
   getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
- 
 }
 function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
   AjaxPageLoad(
@@ -307,10 +319,10 @@ function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
     "Yükleniyor"
   );
 }
-function LogOut(){
-  localStorage.removeItem("ACTIVE_STATION")
-localStorage.removeItem("ACTIVE_USER")
-window.location.reload();
+function LogOut() {
+  localStorage.removeItem("ACTIVE_STATION");
+  localStorage.removeItem("ACTIVE_USER");
+  window.location.reload();
 }
 function getOtherOrdersInfo(STOCK_ID) {
   AjaxPageLoad(
@@ -322,14 +334,17 @@ function getOtherOrdersInfo(STOCK_ID) {
   );
 }
 function getProducts(STATION) {
- /* var qstr =
+  /* var qstr =
     "SELECT PRODUCT_NAME,STOCKS.PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS LEFT JOIN w3Toruntex_1.PRODUCT_INFO_PLUS ON PRODUCT_INFO_PLUS.PRODUCT_ID=STOCKS.PRODUCT_ID WHERE PRODUCT_CATID NOT IN (26) AND PROPERTY1 LIKE '%" +
     STATION +
     "%'  ORDER BY STOCK_CODE";*/
-var qstr="SELECT DISTINCT * FROM ("
-  qstr+=" SELECT PRODUCT_NAME,STOCKS.PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS LEFT JOIN w3Toruntex_1.PRODUCT_INFO_PLUS ON PRODUCT_INFO_PLUS.PRODUCT_ID=STOCKS.PRODUCT_ID "
-  qstr+=" WHERE PRODUCT_CATID NOT IN (26) AND PROPERTY1 LIKE '%KLB%'  UNION ALL   SELECT S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,S.PRODUCT_DETAIL FROM w3Toruntex_1.ORDER_ROW "
-  qstr+=" INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID =ORDER_ROW.STOCK_ID  WHERE UNIT2 LIKE '%KLB%' AND ORDER_ROW_CURRENCY IN (-5) )  AS T"
+  var qstr = "SELECT DISTINCT * FROM (";
+  qstr +=
+    " SELECT PRODUCT_NAME,STOCKS.PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS LEFT JOIN w3Toruntex_1.PRODUCT_INFO_PLUS ON PRODUCT_INFO_PLUS.PRODUCT_ID=STOCKS.PRODUCT_ID ";
+  qstr +=
+    " WHERE PRODUCT_CATID NOT IN (26) AND PROPERTY1 LIKE '%KLB%'  UNION ALL   SELECT S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,S.PRODUCT_DETAIL FROM w3Toruntex_1.ORDER_ROW ";
+  qstr +=
+    " INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID =ORDER_ROW.STOCK_ID  WHERE UNIT2 LIKE '%KLB%' AND ORDER_ROW_CURRENCY IN (-5) )  AS T";
 
   var q = wrk_query(qstr, "dsn3");
   var Control = $sipSelect[0].selectize;
@@ -342,6 +357,7 @@ var qstr="SELECT DISTINCT * FROM ("
       PRODUCT_DETAIL: q.PRODUCT_DETAIL[index],
     });
   }
+  getProductionCount()
 }
 function LotVer(STATION) {
   var d = new Date();
@@ -439,7 +455,6 @@ function wrk_query(str_query, data_source, maxrows) {
 
   return new_query;
 }
-
 
 /**
  * TC Kimlik No Kontrolü :)
