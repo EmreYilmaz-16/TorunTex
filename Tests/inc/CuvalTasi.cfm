@@ -64,7 +64,7 @@ var AktifSiparisSureci=259;
             var Agirlik=list_getat(UrunBarkodu,3,"|");
             var Qstr1="SELECT ORDERS.DELIVER_DEPT_ID,ORDERS.LOCATION_ID,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDER_ROW as ORR"
             Qstr1+=" INNER JOIN "+dsn3+".ORDERS ON ORDERS.ORDER_ID=ORR.ORDER_ID"
-            Qstr1+=" WHERE ORR.WRK_ROW_ID=( SELECT TOP 1  PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"' ORDER BY PROCESS_DATE DESC)"
+            Qstr1+=" WHERE ORR.WRK_ROW_ID=( SELECT TOP 1  PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"' ORDER BY PROCESS_DATE)"
 
                /*
               SELECT TOP 1 PBS_RELATION_ID
