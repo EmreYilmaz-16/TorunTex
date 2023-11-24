@@ -15,12 +15,13 @@
     <!---    <CFSET URUN_KODU="#listgetat(URUN_BARKODU,"1","|")#">
         #listgetat(URUN_BARKODU,"2","|")#<br>
         #listgetat(URUN_BARKODU,"3","|")#<br>---->
-        <cfquery name="getData" datasource="#dsn2#">
+        <cfquery name="getLOTDATA" datasource="#dsn2#">
             SELECT PC.PROCESS_CAT,SR.STOCK_IN,SR.STOCK_OUT,SR.STORE,SR.STORE_LOCATION,SR.STOCK_ID,SL.COMMENT,SR.UPD_ID FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
 INNER JOIN w3Toruntex_1.SETUP_PROCESS_CAT AS PC ON PC.PROCESS_TYPE=SR.PROCESS_TYPE
 INNER JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID =SR.STORE
 WHERE LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.PROCESS_TYPE
         </cfquery>
+
         <cf_big_list>
             <tr>
                 <th>
@@ -36,7 +37,7 @@ WHERE LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.PROCESS_TYPE
                     Depo
                 </th>
             </tr>
-            <cfoutput query="getData">
+            <cfoutput query="getLOTDATA">
                 <tr>
                     <td>#PROCESS_CAT#</td>
                     <td>#tlformat(STOCK_IN)#</td>
