@@ -150,8 +150,8 @@ function getAOrder(ORDER_ROW_ID) {
       $("#SIP_DEPO").val(Obj.SIP_DEPO);
       
       $("#AA1").val(Obj.DETAIL_INFO_EXTRA);
-      $("#AA2").val(Obj.SIP_DEPO);
-      $("#AA3").val(Obj.SIP_DEPO);
+      $("#AA2").val(Obj.PRODUCT_DETAIL);
+      $("#AA3").val(Obj.PRODUCT_NAME2);
       
 
       $("#sipres").html("");
