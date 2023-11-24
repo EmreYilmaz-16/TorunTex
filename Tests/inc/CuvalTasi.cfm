@@ -132,7 +132,7 @@ var AktifSiparisSureci=259;
             TO_STOCK_ID:TO_STOCK_ID
         };
         console.log(FormDatam)
-        SendFormData("",FormDatam)
+        SendFormData("/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14",FormDatam)
     }
     
     function wrk_query(str_query, data_source, maxrows) {
