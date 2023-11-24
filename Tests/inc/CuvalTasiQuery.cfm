@@ -27,7 +27,7 @@
    <cfset attributes.clot=1>
    <cfset arguments=structNew()>
    <cfset arguments.LOT_NUMARASI=FormData.FROM_LOT_NO>
-<cfinclude template="../Tests/inc/StokFisQuery.cfm">
+<cfinclude template="StokFisQuery.cfm">
 <cfscript>
     structClear(attributes);
 </cfscript>
