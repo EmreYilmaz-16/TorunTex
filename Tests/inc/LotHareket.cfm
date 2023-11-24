@@ -27,14 +27,23 @@
         #listgetat(URUN_BARKODU,"2","|")#<br>
         #listgetat(URUN_BARKODU,"3","|")#<br>---->
         <cfquery name="getLOTDATA" datasource="#dsn2#">
-            SELECT PC.PROCESS_CAT,SR.STOCK_IN,SR.STOCK_OUT,SR.STORE,SR.STORE_LOCATION,SR.STOCK_ID,SL.COMMENT,SR.UPD_ID FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
+            SELECT PC.PROCESS_CAT,SR.STOCK_IN,SR.STOCK_OUT,SR.STORE,SR.STORE_LOCATION,SR.STOCK_ID,SL.COMMENT,SR.UPD_ID,O.ORDER_NUMBER,C.NICKNAME FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
 INNER JOIN w3Toruntex_1.SETUP_PROCESS_CAT AS PC ON PC.PROCESS_TYPE=SR.PROCESS_TYPE
 INNER JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID =SR.STORE
+INNER JOIN w3Torutnex_1.ORDER_ROW AS ORR ON ORR.WRK_ROW_ID=SR.PBS_RELATION_ID
+INNER JOIN w3Toruntex_1.ORDERS AS O ON O.ORDER_ID=ORR.ORDER_ID
+INNER JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID=O.COMPANY_ID
 WHERE LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
         </cfquery>
 
         <cf_big_list>
             <tr>
+                <th>
+                    Sipariş
+                </th>
+                <th>
+                Müşteri
+                </th>
                 <th>
                     İşlem
                 </th>
@@ -50,6 +59,8 @@ WHERE LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
             </tr>
             <cfloop query="getLOTDATA" >
                 <tr>
+                    <td>#ORDER_NUMBER#</td>
+                    <td>#NICKNAME#</td>
                     <td>#PROCESS_CAT#</td>
                     <td>#tlformat(STOCK_IN)#</td>
                     <td>#tlformat(STOCK_OUT)#</td>
