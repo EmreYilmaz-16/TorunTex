@@ -76,6 +76,7 @@
                 ,AMOUNT2
                 ,UNIT2
                 ,DETAIL_INFO_EXTRA
+                ,PRODUCT_NAME2
                 ,PROPERTY1
                 ,PROPERTY2
                 ,PROPERTY3
@@ -90,7 +91,7 @@
                 ,STOCKS.PRODUCT_NAME
                 ,STOCKS.PRODUCT_CODE
                 ,ORDER_ROW.ORDER_ID
-                
+                ,O.ORDER_DETAIL
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
                 ,O.DELIVER_DEPT_ID
@@ -167,6 +168,8 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         PROPERTY4=PROPERTY4,
         PROPERTY5=PROPERTY5,
         PROPERTY6=PROPERTY6,
+        PRODUCT_NAME2=PRODUCT_NAME2,
+        ORDER_DETAIL=ORDER_DETAIL,
         ORDER_ROW_ID=ORDER_ROW_ID,
         WRK_ROW_ID=WRK_ROW_ID,
         ORDER_ROW_CURRENCY=ORDER_ROW_CURRENCY,
