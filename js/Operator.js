@@ -279,6 +279,18 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   CurrentStation = StationObject.STATION;
   getProducts(STATION);
   getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+  $("#butonAre").html("");
+  var btn=document.createElement("button");
+  if(localStorage.getItem("ACTIVE_STATION") != null){
+    btn.setAttribute("class","btn btn-lg btn-outline-danger")
+    btn.innerText="Çıkış Yap";
+    btn.setAttribute("onclick","LogOut()")
+  }else{
+    btn.setAttribute("class","btn btn-lg btn-outline-primary")
+    btn.innerText="Kullanıcı Girişi";
+    btn.setAttribute("onclick","OpenLogIn()")
+  }
+  document.getElementById("butonAre").appendChild(btn);
 }
 function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
   AjaxPageLoad(
