@@ -77,7 +77,9 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                     <cfset RS=1>
                         <td rowspan="#RS#">#getLOTDATA.ORDER_NUMBER[i]#</td>
                      <td rowspan="#RS#">#getLOTDATA.NICKNAME[i]#</td>
-                     <td rowspan="#RS#">#getLOTDATA.PROCESS_CAT[i]#</td>
+                     <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] ><CFSET RS=2><cfelse></cfif>
+                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse>    <td rowspan="#RS#">#getLOTDATA.PROCESS_CAT[i]#</td></cfif>
+                        <cfset RS=1>
                     <td style="text-align:right">
                         <div class="<cfif getLOTDATA.PSSPK[i] lt 0>text-danger<cfelse>text-success</cfif> bold">#tlformat(getLOTDATA.PSSPK[i])#</div>
                     </td>
