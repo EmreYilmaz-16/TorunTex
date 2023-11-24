@@ -33,10 +33,10 @@
 <cfquery name="UPDA" datasource="#DSN2#">
   UPDATE 
 STOCKS_ROW SET PBS_RELATION_ID='#FormData.TO_WRK_ROW_ID#'
-WHERE LOT_NO = '#FormData.LOT_NO#'
+WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
 	AND STOCKS_ROW_ID = (
 		SELECT MAX(STOCKS_ROW_ID)
-		FROM STOCKS_ROW WHERE LOT_NO = '#FormData.LOT_NO#'
+		FROM STOCKS_ROW WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
 		)     
 </cfquery>
 <!----
