@@ -4,7 +4,7 @@
 }
 </style>
 <div class="row">
-    <div class="col col-9">
+    <div class="col col-11">
         <cf_seperator id="getP2" header="Duyurukar"  style="display:none;">
             <div id="getP2"  style="display:none;">
                 <cfquery name="getDuyuru" datasource="#dsn#">
@@ -18,13 +18,10 @@
             </div>
             </div>
     </div>
-    <div class="col col-3">
+    <div class="col col-1">
         <table style="width: 100%;">
             <tbody>
-                <tr>
-                    <td style="text-align: center;">
-                        <button type="button" class="btn btn-lg btn-outline-secondary" onclick="ShowStations()">KLB</button>                        
-                    </td>
+                <tr>                    
                     <td style="text-align: center;">                        
                         <button type="button" class="btn btn-lg btn-outline-primary" onclick="OpenLogIn()">Kullanıcı Girişi</button>
                     </td>
