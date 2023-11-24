@@ -39,14 +39,15 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
         <cf_big_list>
             <tr>
                 <th>
+                    Tarih
+                </th>
+                <th>
                     Sipariş
                 </th>
                 <th>
                 Müşteri
                 </th>
-                <th>
-                    Tarih
-                </th>
+          
                 <th>
                     İşlem
                 </th>
@@ -62,8 +63,10 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
             </tr>
             <cfloop query="getLOTDATA" >
                 <tr>
+                    <td>#PROCESS_DATE#</td>
                     <td>#ORDER_NUMBER#</td>
                     <td>#NICKNAME#</td>
+                    
                     <td>#PROCESS_CAT#</td>
                     <td>#tlformat(STOCK_IN)#</td>
                     <td>#tlformat(STOCK_OUT)#</td>
