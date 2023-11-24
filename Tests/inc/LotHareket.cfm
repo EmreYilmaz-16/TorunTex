@@ -73,7 +73,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
 <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] ><CFSET RS=2><cfelse></cfif>
                 <tr>
                    
-                    <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse> <td rowspan="#RS#">#ix# <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] >#ix#</cfif></td></cfif>
+                    <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse> <td rowspan="#RS#">#ix# <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] ></cfif></td></cfif>
                     <td>#dateformat(getLOTDATA.PROCESS_DATE[i],"dd/mm/yyyy")# #timeFormat(getLOTDATA.PROCESS_DATE[i],"HH:nn")#</td>
                     <td>#getLOTDATA.ORDER_NUMBER[i]#</td>
                     <td>#getLOTDATA.NICKNAME[i]#</td>
