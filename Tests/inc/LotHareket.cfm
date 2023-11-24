@@ -66,7 +66,10 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
             <cfloop from="1" to="#getLOTDATA.recordCount#" index="i"  >
 <cfset ix=ix+1>
 <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1]>
-<cfset ix=ix-1>
+    <cfset ix=ix>
+<cfelse>
+    <cfset ix=ix-1>
+
 </cfif>
                 <tr>
 
