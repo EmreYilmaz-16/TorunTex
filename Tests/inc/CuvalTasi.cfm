@@ -55,7 +55,7 @@
 
 </script>
 
-<cfscript src="/AddOns/Partner/js/CuvalTasi.js"></cfscript>
+<script src="/AddOns/Partner/js/CuvalTasi.js"></script>
 <!----
 
     Barkod Okut Çıkış Deposunu WrkQueryile getir 
