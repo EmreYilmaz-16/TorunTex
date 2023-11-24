@@ -66,14 +66,14 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
             <cfloop from="1" to="#getLOTDATA.recordCount#" index="i"  >
                 <tr>
                     <td>#i#</td>
-                    <td>#dateformat(PROCESS_DATE[i],"dd/mm/yyyy")# #timeFormat(PROCESS_DATE[i],"HH:nn")#</td>
-                    <td>#ORDER_NUMBER[i]#</td>
-                    <td>#NICKNAME[i]#</td>
+                    <td>#dateformat(getLOTDATA.PROCESS_DATE[i],"dd/mm/yyyy")# #timeFormat(getLOTDATA.PROCESS_DATE[i],"HH:nn")#</td>
+                    <td>#getLOTDATA.ORDER_NUMBER[i]#</td>
+                    <td>#getLOTDATA.NICKNAME[i]#</td>
                     
-                    <td>#PROCESS_CAT[i]#</td>
-                    <td>#tlformat(STOCK_IN[i])#</td>
-                    <td>#tlformat(STOCK_OUT[i])#</td>
-                    <td>#COMMENT[i]#</td>
+                    <td>#getLOTDATA.PROCESS_CAT[i]#</td>
+                    <td>#tlformat(getLOTDATA.STOCK_IN[i])#</td>
+                    <td>#tlformat(getLOTDATA.STOCK_OUT[i])#</td>
+                    <td>#getLOTDATA.COMMENT[i]#</td>
                 </tr>
             </cfloop>
         </cf_big_list>
