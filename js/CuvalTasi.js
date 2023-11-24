@@ -76,8 +76,9 @@ function searchDepo(el, ev) {
         " AND O.LOCATION_ID=" +
         QueryResult_1.LOCATION_ID[0] +
         "  AND ORR.STOCK_ID=" +
-        STOCK_ID;      
+        STOCK_ID;
       var QueryResult_2 = wrk_query(Qstr2);
+
       if (
         QueryResult_2.recordcount > 0 ||
         QueryResult_1.DEPARTMENT_ID[0] == 15
@@ -91,8 +92,13 @@ function searchDepo(el, ev) {
         $("#txtToDeptLocation").val(
           QueryResult_1.DEPARTMENT_HEAD[0] + "-" + QueryResult_1.COMMENT[0]
         );
+
         $("#TO_STOCK_ID").val(STOCK_ID);
-        $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0]);
+        if (QueryResult_2.recordcount > 0) {
+          $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0]);
+        } else {
+          $("#TO_WRK_ROW_ID").val("");
+        }
         $("#btnKayit").show();
       } else {
         el.setAttribute("style", InValidStyle);
