@@ -76,7 +76,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse> <td rowspan="#RS#">#getLOTDATA.NICKNAME[i]#</td></cfif>                    
                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse>  <td rowspan="#RS#">#getLOTDATA.PROCESS_CAT[i]#</td></cfif>
                     <td>
-                        <div class="<cfif getLOTDATA.PSSPK[i] lt 0>text-danger<cfelse>text-success</cfif> bold"><cfif getLOTDATA.PSSPK[i] lt 0>#getLOTDATA.PSSPK[i]#<cfelse>#getLOTDATA.PSSPK[i]#</cfif></div>
+                        <div class="<cfif getLOTDATA.PSSPK[i] lt 0>text-danger<cfelse>text-success</cfif> bold">#tlformat(getLOTDATA.PSSPK[i])#</div>
                     </td>
                    <!--- <td style="text-align:right"><div class="<cfif getLOTDATA.STOCK_IN[i] neq 0>text-success</cfif>" style="<cfif getLOTDATA.STOCK_IN[i] neq 0>font-weight:bold</cfif>"><cfif getLOTDATA.STOCK_IN[i] neq 0>#tlformat(getLOTDATA.STOCK_IN[i])#</cfif></div></td>
                     <td style="text-align:right"><div class="<cfif getLOTDATA.STOCK_OUT[i] neq 0>text-danger</cfif>" style="<cfif getLOTDATA.STOCK_OUT[i] neq 0>font-weight:bold</cfif>"><cfif getLOTDATA.STOCK_OUT[i] neq 0>#tlformat(getLOTDATA.STOCK_OUT[i])#</cfif></div></td>---->
