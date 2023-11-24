@@ -36,7 +36,7 @@ LEFT JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID=O.COMPANY_ID
 WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
         </cfquery>
 
-        <table class="table table-stripped table-bordered">
+        <cf_grid_list >
         <thead>
             <tr>
                 <th>##</th>
@@ -92,7 +92,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                 </tr>
             </cfloop>
         </tbody>
-        </table>
+        </cf_grid_list>
     </CFOUTPUT>
 
 </cfif>
