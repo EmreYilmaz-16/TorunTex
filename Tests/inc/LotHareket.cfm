@@ -64,8 +64,9 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
             </tr>
         
             <cfloop from="1" to="#getLOTDATA.recordCount#" index="i"  >
+
                 <tr>
-                    <td><cfif getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]>#i-1#<cfelse>#i# </cfif></td>
+                    <td><cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]>#i-1#<cfelse>#i# </cfif></td>
                     <td>#dateformat(getLOTDATA.PROCESS_DATE[i],"dd/mm/yyyy")# #timeFormat(getLOTDATA.PROCESS_DATE[i],"HH:nn")#</td>
                     <td>#getLOTDATA.ORDER_NUMBER[i]#</td>
                     <td>#getLOTDATA.NICKNAME[i]#</td>
