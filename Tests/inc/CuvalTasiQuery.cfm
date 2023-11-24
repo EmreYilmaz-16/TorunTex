@@ -37,7 +37,7 @@ WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
 	AND STOCKS_ROW_ID = (
 		SELECT MAX(STOCKS_ROW_ID)
 		FROM STOCKS_ROW WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
-		)     
+		) AND STOCK_IN <>0     
 </cfquery>
 <!----
 <cfscript>
