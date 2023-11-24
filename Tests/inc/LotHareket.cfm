@@ -36,7 +36,8 @@ LEFT JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID=O.COMPANY_ID
 WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
         </cfquery>
 
-        <cf_big_list>
+        <table class="table table-stripped table-bordered">
+        <thead>
             <tr>
                 <th>##</th>
                 <th>
@@ -59,8 +60,10 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                     Depo
                 </th>
             </tr>
+        </thead>
         <cfset ix=0>
         <cfset iy=1>
+        <tbody>
             <cfloop from="1" to="#getLOTDATA.recordCount#" index="i"  >
 <cfset ix=ix+1>
 <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]>
@@ -88,7 +91,8 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                     <td style="text-align:right">#getLOTDATA.COMMENT[i]#</td>
                 </tr>
             </cfloop>
-        </cf_big_list>
+        </tbody>
+        </table>
     </CFOUTPUT>
 
 </cfif>
