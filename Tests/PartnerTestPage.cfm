@@ -25,6 +25,7 @@
 <cfif attributes.sayfa eq 11><cfinclude template="inc/istasyonUretim.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 12><cfinclude template="inc/digerSiparis.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 13><cfinclude template="inc/CuvalTasi.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 14><cfinclude template="inc/CuvalTasiQuery.cfm"><cfabort></cfif>
 
 
 

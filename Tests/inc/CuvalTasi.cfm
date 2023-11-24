@@ -132,6 +132,7 @@ var AktifSiparisSureci=259;
             TO_STOCK_ID:TO_STOCK_ID
         };
         console.log(FormDatam)
+        SendFormData("",FormDatam)
     }
     
     function wrk_query(str_query, data_source, maxrows) {
@@ -198,6 +199,32 @@ var AktifSiparisSureci=259;
   //alert(new_query);
 
   return new_query;
+}
+function SendFormData(uri, BasketData) {
+  var mapForm = document.createElement("form");
+  mapForm.target = "Map";
+  mapForm.method = "POST"; // or "post" if appropriate
+  mapForm.action = uri;
+
+  var mapInput = document.createElement("input");
+  mapInput.type = "hidden";
+  mapInput.name = "data";
+  mapInput.value = JSON.stringify(BasketData);
+  mapForm.appendChild(mapInput);
+
+  document.body.appendChild(mapForm);
+
+  map = window.open(
+    uri,
+    "Map",
+    "status=0,title=0,height=600,width=800,scrollbars=1"
+  );
+
+  if (map) {
+    mapForm.submit();
+  } else {
+    alert("You must allow popups for this map to work.");
+  }
 }
 
 </script>
