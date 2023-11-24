@@ -152,7 +152,31 @@
 </div>
 <div class="row">
     <div class="col col-12">
+   <table class="table">
+    <tr>
+        <td>
+            <strong>Üretim Notu</strong>
+        </td>
+        <td id="AA1" colspan="3">
 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Açıklama</strong>
+        </td>
+        <td id="AA2">
+
+        </td>
+        <td>
+            <strong>Açıklama</strong>
+        </td>
+        <td id="AA3">
+
+        </td>
+    </tr>
+   </table>
+        
     </div>
 </div>
 

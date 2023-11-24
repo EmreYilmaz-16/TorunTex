@@ -148,6 +148,12 @@ function getAOrder(ORDER_ROW_ID) {
       $("#paketKG").val(Obj.A2);
       $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
       $("#SIP_DEPO").val(Obj.SIP_DEPO);
+      
+      $("#AA1").val(Obj.DETAIL_INFO_EXTRA);
+      $("#AA2").val(Obj.SIP_DEPO);
+      $("#AA3").val(Obj.SIP_DEPO);
+      
+
       $("#sipres").html("");
       $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
       $("#LotNo").val(LotVer(CurrentStation));

@@ -90,6 +90,7 @@
                 ,STOCKS.PRODUCT_NAME
                 ,STOCKS.PRODUCT_CODE
                 ,ORDER_ROW.ORDER_ID
+                
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
                 ,O.DELIVER_DEPT_ID
