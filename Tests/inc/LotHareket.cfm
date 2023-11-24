@@ -53,7 +53,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                     İşlem
                 </th>
                 <th>
-                    
+                    Miktar
                 </th>              
                 <th>
                     Depo
