@@ -64,7 +64,15 @@ var AktifSiparisSureci=259;
             var Agirlik=list_getat(UrunBarkodu,3,"|");
             var Qstr1="SELECT ORDERS.DELIVER_DEPT_ID,ORDERS.LOCATION_ID,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDER_ROW as ORR"
             Qstr1+=" INNER JOIN "+dsn3+".ORDERS ON ORDERS.ORDER_ID=ORR.ORDER_ID"
-            Qstr1+=" WHERE ORR.WRK_ROW_ID=( SELECT  DISTINCT PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"')"
+            Qstr1+=" WHERE ORR.WRK_ROW_ID=( SELECT TOP 1  PBS_RELATION_ID FROM "+dsn2+".STOCKS_ROW where LOT_NO='"+LotNo+"' ORDER BY PROCESS_DATE DESC)"
+
+               /*
+              SELECT TOP 1 PBS_RELATION_ID
+		FROM w3Toruntex_2023_1.STOCKS_ROW
+		WHERE LOT_NO = '124112023000192'
+ORDER BY PROCESS_DATE DESC
+              
+              */
             var QueryResult_1=wrk_query(Qstr1);
             if(QueryResult_1.recordcount>0){
                 el.setAttribute("style",ValidStyle); 
@@ -95,7 +103,7 @@ var AktifSiparisSureci=259;
            // var Qstr1="SELECT * FROM w3Toruntex.STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D WHERE 1=1 AND COMMENT ='"+el.value+"'";
             var QueryResult_1=wrk_query(Qstr1);
             if(QueryResult_1.recordcount>0){
-                
+           
 
                 var Qstr2="SELECT O.ORDER_ID,ORDER_NUMBER,ORDER_HEAD,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM "+dsn3+".ORDERS AS O"
                 Qstr2+=" INNER JOIN "+dsn3+".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID "
