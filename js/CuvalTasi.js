@@ -9,7 +9,7 @@ function SearchBarcode(el, ev) {
     var UrunKodu = list_getat(UrunBarkodu, 1, "|");
     var LotNo = list_getat(UrunBarkodu, 2, "|");
     var Agirlik = list_getat(UrunBarkodu, 3, "|");
-    var Qstr1 =
+    /*var Qstr1 =
       "SELECT ORDERS.DELIVER_DEPT_ID,ORDERS.LOCATION_ID,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM " +
       dsn3 +
       ".ORDER_ROW as ORR";
@@ -19,7 +19,8 @@ function SearchBarcode(el, ev) {
       dsn2 +
       ".STOCKS_ROW where LOT_NO='" +
       LotNo +
-      "' ORDER BY PROCESS_DATE DESC ,UPD_ID DESC)";
+      "' ORDER BY PROCESS_DATE DESC ,UPD_ID DESC)";*/
+    var Qstr1="SELECT TOP 1 STORE DELIVER_DEPT_ID,STORE_LOCATION LOCATION_ID FROM "+dsn2+".STOCKS_ROW WHERE  LOT_NO='"+el.value+"' ORDER BY PROCESS_DATE DESC,UPD_ID DESC"
     var QueryResult_1 = wrk_query(Qstr1);
     if (QueryResult_1.recordcount > 0) {
       el.setAttribute("style", ValidStyle);
