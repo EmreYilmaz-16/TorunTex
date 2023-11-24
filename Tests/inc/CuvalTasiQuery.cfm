@@ -1,5 +1,6 @@
 <cfdump var="#attributes#">
 <cfset FormData=deserializeJSON(attributes.data)>
+<cfdump var="#FormData#">
 <cfset i=1>
 <cfset attributes.ROWW="">
 <cfset qty=FormData.FROM_AMOUNT>
@@ -43,10 +44,10 @@
 <cfset "attributes.uniq_relation_id_#i#"=FormData.TO_WRK_ROW_ID>
 <cfset "attributes.PBS_RELATION_ID#i#"=FormData.TO_WRK_ROW_ID>
 <cfset attributes.ROWW="#attributes.ROWW#,#i#">
-<cfset attributes.department_in ="">
-    <cfset attributes.LOCATION_IN="">
-    <cfset attributes.department_out=FormData.TO_DEPARTMENT_ID>
-    <cfset attributes.LOCATION_OUT =FormData.TO_LOCATION_ID>
+<cfset attributes.department_out ="">
+    <cfset attributes.LOCATION_OUT="">
+    <cfset attributes.department_in=FormData.TO_DEPARTMENT_ID>
+    <cfset attributes.LOCATION_IN =FormData.TO_LOCATION_ID>
     <cfset form.process_cat=87>
     <cfset attributes.process_cat = form.process_cat>
    <cfset PROJECT_HEAD="">
