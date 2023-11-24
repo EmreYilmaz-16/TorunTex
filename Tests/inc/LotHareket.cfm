@@ -63,7 +63,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
             </tr>
             <cfloop query="getLOTDATA" >
                 <tr>
-                    <td>#PROCESS_DATE#</td>
+                    <td>#dateformat(PROCESS_DATE,"dd/mm/yyyy")# #timeFormat(PROCESS_DATE,"HH:nn")#</td>
                     <td>#ORDER_NUMBER#</td>
                     <td>#NICKNAME#</td>
                     
