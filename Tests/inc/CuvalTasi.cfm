@@ -110,7 +110,7 @@ ORDER BY PROCESS_DATE DESC
                 Qstr2+=" WHERE O.ORDER_STAGE="+AktifSiparisSureci+" AND O.DELIVER_DEPT_ID="+QueryResult_1.DEPARTMENT_ID[0]+" AND O.LOCATION_ID="+QueryResult_1.LOCATION_ID[0]+"  AND ORR.STOCK_ID="+STOCK_ID
           //  var Qstr2="SELECT ORDER_ID,ORDER_NUMBER,ORDER_HEAD FROM "+dsn3+".ORDERS WHERE ORDER_STAGE=259 AND DELIVER_DEPT_ID="+QueryResult_1.DEPARTMENT_ID[0]+" AND LOCATION_ID="+QueryResult_1.LOCATION_ID[0];
                 var QueryResult_2=wrk_query(Qstr2);
-               if(QueryResult_2.recordcount>0){
+               if(QueryResult_2.recordcount>0 || QueryResult_1.DEPARTMENT_ID[0]==15){
                 el.setAttribute("style",ValidStyle); 
                 document.getElementById("txtToDeptLocation").setAttribute("style",ValidStyle);   
                     $("#txtToDeptId").val(QueryResult_1.DEPARTMENT_ID[0])
