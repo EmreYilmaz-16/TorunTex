@@ -29,7 +29,7 @@ $(document).ready(function () {
   }
   //   $("#select_2").selectize(); butonAre
   var btn=document.createElement("button");
-  if(localStorage.getItem("ACTIVE_USER") != null){
+  if(localStorage.getItem("ACTIVE_STATION") != null){
     btn.setAttribute("class","btn btn-lg btn-outline-danger")
     btn.innerText="Çıkış Yap";
     btn.setAttribute("onclick","LogOut()")
@@ -275,10 +275,6 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   };
   localStorage.setItem("ACTIVE_STATION", JSON.stringify(StationObject));
 
-  $("#Location").text(FULL_STATION);
-  CurrentStation = StationObject.STATION;
-  getProducts(STATION);
-  getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
   $("#butonAre").html("");
   var btn=document.createElement("button");
   if(localStorage.getItem("ACTIVE_STATION") != null){
@@ -291,6 +287,12 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
     btn.setAttribute("onclick","OpenLogIn()")
   }
   document.getElementById("butonAre").appendChild(btn);
+
+  $("#Location").text(FULL_STATION);
+  CurrentStation = StationObject.STATION;
+  getProducts(STATION);
+  getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+ 
 }
 function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
   AjaxPageLoad(
