@@ -10,6 +10,11 @@
         <input type="hidden" name="FROM_STOCK_ID" id="FROM_STOCK_ID">
         <input type="hidden" name="TO_WRK_ROW_ID" id="TO_WRK_ROW_ID">
         <input type="hidden" name="TO_STOCK_ID" id="TO_STOCK_ID">
+        <input type="hidden" name="FROM_AMOUNT" id="FROM_AMOUNT">
+        <input type="hidden" name="TO_AMOUNT" id="TO_AMOUNT">
+        <input type="hidden" name="FROM_LOT_NO" id="FROM_LOT_NO">
+        <input type="hidden" name="TO_LOT_NO" id="TO_LOT_NO">
+        
     </div>
     </td>
     <td>
@@ -72,6 +77,10 @@ var AktifSiparisSureci=259;
                 $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0])
                 $("#FROM_STOCK_ID").val(QueryResult_1.STOCK_ID[0])
                 $("#FROM_WRK_ROW_ID").val(QueryResult_1.WRK_ROW_ID[0])
+                $("#FROM_AMOUNT").val(Agirlik)
+                $("#TO_AMOUNT").val(Agirlik)
+                $("#FROM_LOT_NO").val(LotNo)
+                $("#TO_LOT_NO").val(LotNo)
                 $("#exitr").show(500);
                 $("#txtToDeptLocation").focus();
             }else{
@@ -115,21 +124,29 @@ var AktifSiparisSureci=259;
         var FROM_LOCATION_ID=$("#txtFromLocId").val()
         var FROM_WRK_ROW_ID=$("#FROM_WRK_ROW_ID").val()
         var FROM_STOCK_ID=$("#FROM_STOCK_ID").val()
+        var FROM_AMOUNT=$("#FROM_AMOUNT").val()
+        var FROM_LOT_NO=$("#FROM_LOT_NO").val()
 
         var TO_DEPARTMENT_ID=$("#txtToDeptId").val()
         var TO_LOCATION_ID=$("#txtToLocId").val()
         var TO_WRK_ROW_ID=$("#TO_WRK_ROW_ID").val()
         var TO_STOCK_ID=$("#TO_STOCK_ID").val()
+        var TO_AMOUNT=$("#TO_AMOUNT").val()
+        var TO_LOT_NO=$("#TO_LOT_NO").val()
 
         var FormDatam={
             FROM_DEPARTMENT_ID:FROM_DEPARTMENT_ID,
             FROM_LOCATION_ID:FROM_LOCATION_ID,
             FROM_WRK_ROW_ID:FROM_WRK_ROW_ID,
             FROM_STOCK_ID:FROM_STOCK_ID,
+            FROM_AMOUNT:FROM_AMOUNT,
+            FROM_LOT_NO:FROM_LOT_NO,
             TO_DEPARTMENT_ID:TO_DEPARTMENT_ID,
             TO_LOCATION_ID:TO_LOCATION_ID,
             TO_WRK_ROW_ID:TO_WRK_ROW_ID,
-            TO_STOCK_ID:TO_STOCK_ID
+            TO_STOCK_ID:TO_STOCK_ID,
+            TO_AMOUNT:TO_AMOUNT,
+            TO_LOT_NO:TO_LOT_NO
         };
         console.log(FormDatam)
         SendFormData("/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14",FormDatam)
