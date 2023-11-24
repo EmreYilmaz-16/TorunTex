@@ -20,7 +20,7 @@ function SearchBarcode(el, ev) {
       ".STOCKS_ROW where LOT_NO='" +
       LotNo +
       "' ORDER BY PROCESS_DATE DESC ,UPD_ID DESC)";*/
-    var Qstr1="SELECT TOP 1 STORE DELIVER_DEPT_ID,STORE_LOCATION LOCATION_ID FROM "+dsn2+".STOCKS_ROW WHERE  LOT_NO='"+LotNo+"' ORDER BY PROCESS_DATE DESC,UPD_ID DESC"
+    var Qstr1="SELECT TOP 1 STORE DELIVER_DEPT_ID,STORE_LOCATION LOCATION_ID,STOCK_ID,WRK_ROW_ID FROM "+dsn2+".STOCKS_ROW WHERE  LOT_NO='"+LotNo+"' ORDER BY PROCESS_DATE DESC,UPD_ID DESC"
     var QueryResult_1 = wrk_query(Qstr1);
     if (QueryResult_1.recordcount > 0) {
       el.setAttribute("style", ValidStyle);
