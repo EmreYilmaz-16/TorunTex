@@ -79,9 +79,9 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse> <td rowspan="#RS#">#getLOTDATA.NICKNAME[i]#</td></cfif>                    
                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse>  <td rowspan="#RS#">#getLOTDATA.PROCESS_CAT[i]#</td></cfif>
 
-                    <td ><div class="<cfif getLOTDATA.STOCK_IN[i] neq 0>text-success</cfif>">#tlformat(getLOTDATA.STOCK_IN[i])#</div></td>
-                    <td><div class="<cfif getLOTDATA.STOCK_IN[i] neq 0>text-danger</cfif>">#tlformat(getLOTDATA.STOCK_OUT[i])#</div></td>
-                    <td>#getLOTDATA.COMMENT[i]#</td>
+                    <td style="text-align:right"><div class="<cfif getLOTDATA.STOCK_IN[i] neq 0>text-success</cfif>">#tlformat(getLOTDATA.STOCK_IN[i])#</div></td>
+                    <td style="text-align:right"><div class="<cfif getLOTDATA.STOCK_OUT[i] neq 0>text-danger</cfif>">#tlformat(getLOTDATA.STOCK_OUT[i])#</div></td>
+                    <td style="text-align:right">#getLOTDATA.COMMENT[i]#</td>
                 </tr>
             </cfloop>
         </cf_big_list>
