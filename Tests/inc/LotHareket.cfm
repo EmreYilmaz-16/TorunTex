@@ -7,7 +7,7 @@
         </td>
         <td>
             <input type="hidden" name="is_submit" value="1">
-            <input type="submit">
+            <button type="submit" class="btn btn-outline-success">Sorgula</button>
         </td>
     </tr>
    </table>
@@ -45,7 +45,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                 Müşteri
                 </th>
                 <th>
-
+                    Tarih
                 </th>
                 <th>
                     İşlem
