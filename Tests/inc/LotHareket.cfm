@@ -37,14 +37,14 @@ WHERE LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.PROCESS_TYPE
                     Depo
                 </th>
             </tr>
-            <cfoutput query="getLOTDATA">
+            <cfloop query="getLOTDATA">
                 <tr>
                     <td>#PROCESS_CAT#</td>
                     <td>#tlformat(STOCK_IN)#</td>
                     <td>#tlformat(STOCK_OUT)#</td>
                     <td>#COMMENT#</td>
                 </tr>
-            </cfoutput>
+            </cfloop>
         </cf_big_list>
     </CFOUTPUT>
 
