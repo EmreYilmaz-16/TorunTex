@@ -11,7 +11,7 @@
         <span styl="color:red"> #URUN_BARKODU#</span><br>
         <CFSET URUN_KODU="#listlen(URUN_BARKODU,"|")#">
         <CFSET URUN_KODU="#listgetat(URUN_BARKODU,"1","|")#">
-        <CFSET LOT_NO="#listgetat(URUN_BARKODU,"1","|")#">
+        <CFSET LOT_NO="#listgetat(URUN_BARKODU,"2","|")#">
     <!---    <CFSET URUN_KODU="#listgetat(URUN_BARKODU,"1","|")#">
         #listgetat(URUN_BARKODU,"2","|")#<br>
         #listgetat(URUN_BARKODU,"3","|")#<br>---->
