@@ -25,7 +25,7 @@
    <cfset unit_other="">  
    <cfset attributes.wodate="1">
    <cfset attributes.clot=1>
-   <cfset arguments.structNew()>
+   <cfset arguments=structNew()>
    <cfset arguments.LOT_NUMARASI=FormData.FROM_LOT_NO>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 <cfscript>
