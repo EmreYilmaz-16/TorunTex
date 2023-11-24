@@ -291,6 +291,11 @@ function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
     "Yükleniyor"
   );
 }
+function LogOut(){
+  localStorage.removeItem("ACTIVE_STATION")
+localStorage.removeItem("ACTIVE_USER")
+window.location.reload();
+}
 function getOtherOrdersInfo(STOCK_ID) {
   AjaxPageLoad(
     "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=12&STOCK_ID=" +
@@ -418,6 +423,7 @@ function wrk_query(str_query, data_source, maxrows) {
 
   return new_query;
 }
+
 
 /**
  * TC Kimlik No Kontrolü :)
