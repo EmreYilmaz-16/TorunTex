@@ -71,13 +71,12 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                 <tr>
                    
                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse> <td rowspan="#RS#">#ix# <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] ></cfif></td></cfif>
-                 
+                      <CFSET RS=1>
                       <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] ><CFSET RS=2><cfelse></cfif>
-                        <td rowspan="#RS#">#dateformat(getLOTDATA.PROCESS_DATE[i],"dd/mm/yyyy")# #timeFormat(getLOTDATA.PROCESS_DATE[i],"HH:nn")#</td>
-                        <CFSET RS=1>
-                    <td rowspan="#RS#">#getLOTDATA.ORDER_NUMBER[i]#</td>
+                      <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse>    <td rowspan="#RS#">#dateformat(getLOTDATA.PROCESS_DATE[i],"dd/mm/yyyy")# #timeFormat(getLOTDATA.PROCESS_DATE[i],"HH:nn")#</td></cfif>
+                    <cfset RS=1>
+                        <td rowspan="#RS#">#getLOTDATA.ORDER_NUMBER[i]#</td>
                      <td rowspan="#RS#">#getLOTDATA.NICKNAME[i]#</td>
-                     <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] ><CFSET RS=2><cfelse></cfif>
                      <td rowspan="#RS#">#getLOTDATA.PROCESS_CAT[i]#</td>
                     <td style="text-align:right">
                         <div class="<cfif getLOTDATA.PSSPK[i] lt 0>text-danger<cfelse>text-success</cfif> bold">#tlformat(getLOTDATA.PSSPK[i])#</div>
