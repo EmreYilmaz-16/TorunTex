@@ -143,7 +143,7 @@ function getAOrder(ORDER_ROW_ID) {
         $("#paketKG").val(Obj.A2);
         $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
         $("#SIP_DEPO").val(Obj.SIP_DEPO);
-
+        $("#OrderLocation").text(Obj.COMMENT);
         $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
         $("#AA2").text(Obj.PRODUCT_DETAIL);
         $("#AA3").text(Obj.PRODUCT_NAME2);
