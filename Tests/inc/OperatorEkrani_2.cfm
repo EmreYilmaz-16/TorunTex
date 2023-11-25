@@ -41,13 +41,13 @@
     <div class="col col-12">                
         <cf_grid_list style="width:100%">
             <tr>
-                <td style="font-size: 20px" id="OrderLocation">KLB</td>
-                <td style="font-size: 20px" id="Complate">%80</td>
-                <td style="font-size: 20px" id="Customer">Emre Cooop</td>
-                <td style="font-size: 20px" id="Country">Türkiye</td>
+                <td style="font-size: 20px" id="OrderLocation"></td>
+                <td style="font-size: 20px" id="Complate"></td>
+                <td style="font-size: 20px" id="Customer"></td>
+                <td style="font-size: 20px" id="Country"></td>
                 <td style="font-size: 20px" id="Color">
                     <div style="display: flex;justify-content: space-between;">
-                        <span style="font-size: 20px" id="RenkYazi" style="width: 50%;display: block;">Şeffaf-Kırmızı</span> 
+                        <span style="font-size: 20px" id="RenkYazi" style="width: 50%;display: block;"></span> 
                         <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
                         <span id="color2" style="display:block;border: solid 0.5px black;background: red;width: 25%;">&nbsp;&nbsp;&nbsp;</span>
                     </div>
