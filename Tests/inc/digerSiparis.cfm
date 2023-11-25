@@ -12,7 +12,7 @@ SL.LOCATION_ID=O.LOCATION_ID
 LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=O.COUNTRY_ID
 WHERE STOCK_ID =#attributes.STOCK_ID#
 </cfquery>
-<table id="digerSiparisTbl" class="table table-sm">
+<cf_grid_list id="digerSiparisTbl" class="table table-sm">
   <thead>
     <tr>
         <th>
@@ -51,4 +51,4 @@ WHERE STOCK_ID =#attributes.STOCK_ID#
         </tr>
     </cfoutput>
 </tbody>
-</table>
+</cf_grid_list>
