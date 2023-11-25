@@ -21,7 +21,12 @@
     <div class="col col-1">
         <table style="width: 100%;">
             <tbody>
-                <tr>                    
+                <tr>   
+                    <td>
+                        <button class="btn btn-outline-dark" id="btn_depo">
+
+                        </button>
+                    </td>                 
                     <td style="text-align: center;" id="butonAre">             
                         
                         <!---<button type="button" class="btn btn-lg btn-outline-primary" onclick="OpenLogIn()">Kullanıcı Girişi</button>---->
