@@ -41,13 +41,13 @@ WHERE STOCK_ID =#attributes.STOCK_ID#
 <tbody>
     <cfoutput query="gets">
         <tr>
-            <td>#PRIORITY#</td>
-            <td>#UNIT2#</td>
-            <td>#COMMENT#</td>
-            <td>#NICKNAME#</td>
-            <td>#BINFO_2#</td>
-            <td>#COUNTRY_NAME#</td>
-            <td>#QUANTITY-URETIM#</td>
+            <td style="width:7%">#PRIORITY#</td>
+            <td style="width:13%">#UNIT2#</td>
+            <td style="width:14%">#COMMENT#</td>
+            <td style="width:30%"><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
+            <td style="width:10%">#BINFO_2#</td>
+            <td style="width:13%">#COUNTRY_NAME#</td>
+            <td style="width:13%">#QUANTITY-URETIM#</td>
         </tr>
     </cfoutput>
 </tbody>
