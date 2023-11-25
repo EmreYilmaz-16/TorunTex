@@ -19,17 +19,12 @@ $(document).ready(function () {
     searchField: "ORDER_NUMBER",
     onChange: eventHandler_2("onChange"),
   });
+  var btn = document.createElement("button");
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
     getProducts(CurrentStation);
     getProductionInfo(Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
-  } else {
-    OpenLogIn();
-  }
-  //   $("#select_2").selectize(); butonAre
-  var btn = document.createElement("button");
-  if (localStorage.getItem("ACTIVE_STATION") != null) {
     btn.setAttribute("class", "btn btn-lg btn-outline-danger");
     btn.innerText = "Çıkış Yap";
     btn.setAttribute("onclick", "LogOut()");
@@ -37,6 +32,7 @@ $(document).ready(function () {
     btn.setAttribute("class", "btn btn-lg btn-outline-primary");
     btn.innerText = "Kullanıcı Girişi";
     btn.setAttribute("onclick", "OpenLogIn()");
+    OpenLogIn();
   }
   document.getElementById("butonAre").appendChild(btn);
 });
@@ -281,7 +277,7 @@ function Yazdir() {
       getAOrder(MainOrderRowID);
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
-      getProductionCount()
+      getProductionCount();
     },
   });
 }
@@ -357,7 +353,7 @@ function getProducts(STATION) {
       PRODUCT_DETAIL: q.PRODUCT_DETAIL[index],
     });
   }
-  getProductionCount()
+  getProductionCount();
 }
 function LotVer(STATION) {
   var d = new Date();
