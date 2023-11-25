@@ -198,6 +198,7 @@ function TemizleCanim() {
     "display:block;border: solid 0.5px black;background:none;width: 25%;"
   );
   $("#Country").text("");
+  $("#OrderLocation").text("");
   $("#Customer").text("");
   $("#paketIcerik").val("");
   $("#paketKG").val("");
