@@ -82,7 +82,7 @@
             <input type="hidden" name="SIP_DEPO" id="SIP_DEPO">
         </div>
 <hr>
-        <div  class="alert alert-success" style="height:25vh;overflow-y: scroll;padding:3px" id="DigerSiparis">
+        <div  class="" style="height:25vh;overflow-y: scroll;padding:3px" id="DigerSiparis">
             
         </div>
 </div>
