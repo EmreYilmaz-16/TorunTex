@@ -182,7 +182,7 @@
     </tr>
    </table>
    <div style="display: flex;justify-content: center;">
-    <div class="alert alert-dark" id="uretimCount" style="display: block;width: 100px;height: 100px;font-size: 40pt;text-align: center;">0</div>
+    <div class="alert alert-primary" id="uretimCount" style="display: block;width: 100px;height: 100px;font-size: 40pt;text-align: center;">0</div>
     </div>
     </div>
 </div>
