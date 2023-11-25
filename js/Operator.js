@@ -23,6 +23,7 @@ $(document).ready(function () {
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
+    $("#Location").text(Obj.FULL_STATION);
     getProducts(CurrentStation);
     getProductionInfo(Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
     btn.setAttribute("class", "btn btn-lg btn-outline-danger");
