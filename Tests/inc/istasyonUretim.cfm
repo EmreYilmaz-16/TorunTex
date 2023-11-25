@@ -31,7 +31,7 @@ ORDER BY SF.RECORD_DATE DESC
     <cfoutput query="gets">
         <tr>
             <td>#PRODUCT_NAME#</td>
-            <td>#NICKNAME#</td>            
+            <td ><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>  
             <td>#ORDER_NUMBER#</td>
             <td>#AMOUNT#</td>
         </tr>
