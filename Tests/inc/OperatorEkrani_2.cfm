@@ -4,7 +4,7 @@
 }
 </style>
 <div class="row">
-    <div class="col col-11">
+    <div class="col col-10">
         <cf_seperator id="getP2" header="Duyurukar"  style="display:none;">
             <div id="getP2"  style="display:none;">
                 <cfquery name="getDuyuru" datasource="#dsn#">
@@ -18,7 +18,7 @@
             </div>
             </div>
     </div>
-    <div class="col col-1">
+    <div class="col col-2">
         <table style="width: 100%;">
             <tbody>
                 <tr>   
