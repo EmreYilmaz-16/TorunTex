@@ -1,3 +1,4 @@
+<cf_box>
 <cfquery name="gets" datasource="#dsn3#">
     SELECT ORR.QUANTITY,C.NICKNAME,ORR.UNIT2,SP.PRIORITY,SL.COMMENT,SBI_1.BASKET_INFO_TYPE AS BINFO_1,SBI_2.BASKET_INFO_TYPE AS BINFO_2,SC.COUNTRY_NAME 
 ,ISNULL((SELECT SUM(STOCK_IN) AS S_IN FROM w3Toruntex_2023_1.STOCKS_ROW  WHERE PBS_RELATION_ID=ORR.WRK_ROW_ID AND PROCESS_TYPE=110),0) AS URETIM
@@ -12,7 +13,7 @@ SL.LOCATION_ID=O.LOCATION_ID
 LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=O.COUNTRY_ID
 WHERE STOCK_ID =#attributes.STOCK_ID#
 </cfquery>
-<cf_grid_list id="digerSiparisTbl" class="table table-sm">
+<cf_big_list id="digerSiparisTbl" class="table table-sm">
   <thead>
     <tr>
         <th>
@@ -51,4 +52,5 @@ WHERE STOCK_ID =#attributes.STOCK_ID#
         </tr>
     </cfoutput>
 </tbody>
-</cf_grid_list>
+</cf_big_list>
+</cf_box>
