@@ -23,7 +23,7 @@
             <tbody>
                 <tr>   
                     <td>
-                        <button class="btn btn-outline-dark" id="btn_depo">
+                        <button class="btn btn-outline-dark" id="Location">
 
                         </button>
                     </td>                 
@@ -41,7 +41,7 @@
     <div class="col col-12">                
         <cf_grid_list style="width:100%">
             <tr>
-                <td style="font-size: 20px" id="Location">KLB</td>
+                <td style="font-size: 20px" id="OrderLocation">KLB</td>
                 <td style="font-size: 20px" id="Complate">%80</td>
                 <td style="font-size: 20px" id="Customer">Emre Cooop</td>
                 <td style="font-size: 20px" id="Country">Türkiye</td>
