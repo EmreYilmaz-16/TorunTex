@@ -23,7 +23,7 @@
             <tbody>
                 <tr>   
                     <td>
-                        <button class="btn btn-outline-dark" id="Location">
+                        <button class="btn btn-lg btn-outline-dark" id="Location">
 
                         </button>
                     </td>                 
