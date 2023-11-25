@@ -136,7 +136,7 @@
 </div>
     <div class="col col-3">
         <div style="height:30vh;overflow-y: scroll;" id="OrderData">
-            <cf_big_list class="table table-striped table-lg tableFixHead">
+            <cf_big_list class="table table-striped table-lg tableFixHead" SHOW_FS="0">
                 <thead>
                   <tr>
                     <th scope="col">Ürün</th>
