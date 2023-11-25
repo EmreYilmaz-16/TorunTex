@@ -136,7 +136,7 @@
 </div>
     <div class="col col-3">
         <div style="height:30vh;overflow-y: scroll;" id="OrderData">
-            <table class="table table-striped table-lg tableFixHead">
+            <cf_big_list class="table table-striped table-lg tableFixHead">
                 <thead>
                   <tr>
                     <th scope="col">Ürün</th>
@@ -148,7 +148,7 @@
                 <tbody id="sipres">
                  
                 </tbody>
-              </table>
+              </cf_big_list>
         </div>
         <div style="height:20vh;overflow-y: scroll;" id="ProductionData">
             
@@ -181,8 +181,8 @@
         </td>
     </tr>
    </table>
-    <div style="text-align:center">
-        <h3 id="uretimCount"></h3>
+   <div style="display: flex;justify-content: center;">
+    <div class="alert alert-dark" id="uretimCount" style="display: block;width: 100px;height: 100px;font-size: 40pt;text-align: center;">0</div>
     </div>
     </div>
 </div>
