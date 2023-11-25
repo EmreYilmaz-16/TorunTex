@@ -47,7 +47,7 @@ WHERE STOCK_ID =#attributes.STOCK_ID#
             <td style="width:30%"><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
             <td style="width:10%">#BINFO_2#</td>
             <td style="width:13%">#COUNTRY_NAME#</td>
-            <td style="width:13%">#QUANTITY-URETIM#</td>
+            <td style="width:13%">#tlformat(QUANTITY-URETIM)#</td>
         </tr>
     </cfoutput>
 </tbody>
