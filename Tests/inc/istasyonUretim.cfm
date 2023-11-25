@@ -12,7 +12,7 @@ AND SL.DEPARTMENT_ID=#attributes.DEPARTMENT_ID# AND SL.LOCATION_ID=#attributes.L
 ORDER BY SF.RECORD_DATE DESC
 </cfquery>
 
-<table class="table table-sm table-stripped">
+<cf_big_list class="table table-sm table-stripped">
   <thead>
     <tr>
         <th>
@@ -37,4 +37,4 @@ ORDER BY SF.RECORD_DATE DESC
         </tr>
     </cfoutput>
 </tbody>
-</table>
+</cf_big_list>
