@@ -40,7 +40,7 @@
 <div class="row">
     <div class="col col-2">
         <cf_box title="Duyurular">
-            <div>
+            <div style="height:90vh;">
                 <cf_big_list>
                     <thead>
                     <tr>
