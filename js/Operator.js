@@ -117,19 +117,14 @@ function getAOrder(ORDER_ROW_ID) {
         );
         $("#Country").text(Obj.COUNTRY_NAME);
         $("#Customer").text(Obj.NICKNAME);
-
         $("#paketIcerik").val(Obj.A1);
-        $("#paketKG").val(Obj.A2);
-        // if(Obj.A1.length>0){
-        //   $("#paketKG").hide();
-        // }
+        $("#paketKG").val(Obj.A2);    
         $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
         $("#SIP_DEPO").val(Obj.SIP_DEPO);
         $("#OrderLocation").text(Obj.COMMENT);
         $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
         $("#AA2").text(Obj.PRODUCT_DETAIL);
         $("#AA3").text(Obj.PRODUCT_NAME2);
-
         $("#sipres").html("");
         $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
         $("#LotNo").val(LotVer(CurrentStation));
@@ -285,7 +280,7 @@ function setSelAll(el){
   el.select()
 }
 function Yazdir() {
-  var AMOUNT = document.getElementById("TxResult").value;
+  var AMOUNT = document.getElementById("paketKG").value;
   var SIP_DEPO = document.getElementById("SIP_DEPO").value;
   var LOT_NO = document.getElementById("LotNo").value;
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
@@ -562,4 +557,8 @@ function tck() {
     alert("Hatalı TC");
   } else alert("Giriş Başarılı");
   
-}*/
+}
+^XA^XFE:etiket2.ZPL^FS^CI28^FN1^FH^FDA-01^FS^CI27^CI28^FN2^FH^FDSA-5^FS^CI27^CI28^FN3^FH^FD100913231^FS^CI27^CI28^FN4^FH^FDAnorak Heavy Mix^FS^CI27^CI28^FN5^FH^FD127112023000315^FS^CI27^CI28^FN6^FH^FD25^FS^CI27^CI28^FN7^FH^FD100913231|127112023000315||25^FS^CI27^CI28^FN8^FH^FDANOMIX-10^FS^CI27^PQ1,0,1^XZ
+
+*/
+
