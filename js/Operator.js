@@ -251,11 +251,7 @@ function GetDuyurus(op, el) {
   }
   DuyurQueryResult = wrk_query(DuyurQuery);
 
-  $("#Sayfammm").text(
-    AktifSayfa +
-      "/" +
-      (parseInt(DuyurQueryResult.QUERY_COUNT[0]) / sayfaCount + 1)
-  );
+
 
   for (let i = 0; i < DuyurQueryResult.recordcount; i++) {
     var tr = document.createElement("tr");
