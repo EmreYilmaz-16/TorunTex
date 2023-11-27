@@ -303,7 +303,7 @@ function Yazdir() {
       SIP_DEPO,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
-      alert(Obj.MESSAGE);
+    //  alert(Obj.MESSAGE);
       getAOrder(MainOrderRowID);
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
