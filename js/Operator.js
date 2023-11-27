@@ -238,8 +238,7 @@ var AktifSayfa = 1;
 function GetDuyurus(op, el) {
   var Ba = 1;
   var Bi = 2;
-  if (op == "all") {
-  }
+  $("#DuyuruArea").html("");
 
   var DuyurQuery =
     "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
