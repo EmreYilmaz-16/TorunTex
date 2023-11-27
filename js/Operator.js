@@ -236,7 +236,7 @@ var str = "";
 });*/
 var AktifSayfa = 1;
 function GetDuyurus(op,el) {
-  if(AktifSayfa==1){
+  if(AktifSayfa==1 && op=="-"){
     document.getElementById("eksiEl").setAttribute("disabled","true"); 
     return false;
   }else{
