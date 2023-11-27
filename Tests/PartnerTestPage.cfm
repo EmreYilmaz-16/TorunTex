@@ -27,6 +27,7 @@
 <cfif attributes.sayfa eq 13><cfinclude template="inc/CuvalTasi.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 14><cfinclude template="inc/CuvalTasiQuery.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 15><cfinclude template="inc/LotHareket.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 16><cfinclude template="inc/siparisList.cfm"><cfabort></cfif>
 
 
 

@@ -106,17 +106,9 @@
             
             </select>
         </div>
-        <div class="form-group">
-            <label>Sipariş</label>
-            <div class="form-group">
-                <label>Sipariş</label>
-                <div class="input-group mb-3">
-        <input type="text" name="SearchSiparisTxt" id="SearchSiparisTxt"><button class="btn btn-outline-secondary input-group-text"><i class="icon-down"></i></button>
-        
-    <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId"></div>
-            <div id="SiparisResultArea" style="">
-        </div></div>
-        </div>
+<div id="SiparisDataArea">
+    
+</div>
         <div style="display:flex;flex-direction: column;">
             <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;">Yazdir/Üret</button>
             <button type="button" class="btn btn-danger" onclick="Iptal()">İptal</button>
