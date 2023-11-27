@@ -269,6 +269,7 @@ function GetDuyurus(op,el) {
     var td=document.createElement("td");
     var a=document.createElement("a");
     a.setAttribute("onclik","openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid="+DuyurQueryResult.CONTENT_ID[i]+"')");
+    a.setAttribute("href","javascript:;")
     a.innerText=DuyurQueryResult.CONT_HEAD[i];
     td.appendChild(a);
     tr.appendChild(td)

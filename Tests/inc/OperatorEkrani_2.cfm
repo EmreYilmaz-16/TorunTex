@@ -56,8 +56,8 @@
             <br>
             <div style="display:flex">
                 <span id="Sayfammm"></span>
-                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('+',this)"><span class="icn-md fa fa-chevron-left"></span></button>
-                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('-',this)"><span class="icn-md fa fa-chevron-right"></span></button>
+                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('-',this)"><span class="icn-md fa fa-chevron-left"></span></button>
+                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('+',this)"><span class="icn-md fa fa-chevron-right"></span></button>
             </div>
         </cf_box>
     </div>
