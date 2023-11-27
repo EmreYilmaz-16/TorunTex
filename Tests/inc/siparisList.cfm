@@ -102,5 +102,11 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
 
 <script>
       var AkSipId=$("#ActiveSiparisId").val()
+      function searchSiparis(el,ev){
+  var value = $(el).val().toLowerCase();
+  $("#Tabloooom tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+}
     getAOrder(AkSipId);
 </script>

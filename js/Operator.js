@@ -162,12 +162,7 @@ function getProductionCount() {
     $("#uretimCount").text(r.FF[0]);
   }
 }
-function searchSiparis(el,ev){
-  var value = $(el).val().toLowerCase();
-  $("#Tabloooom tr").filter(function() {
-    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-  });
-}
+
 function TemizleCanim() {
   $("#RenkYazi").text("");
   $("#color1").attr(
