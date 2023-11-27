@@ -118,9 +118,9 @@ function getAOrder(ORDER_ROW_ID) {
         
         $("#paketIcerik").val(Obj.A1);
         $("#paketKG").val(Obj.A2);
-        if(Obj.A1.length>0){
-          $("#paketKG").hide();
-        }
+        // if(Obj.A1.length>0){
+        //   $("#paketKG").hide();
+        // }
         $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
         $("#SIP_DEPO").val(Obj.SIP_DEPO);
         $("#OrderLocation").text(Obj.COMMENT);
