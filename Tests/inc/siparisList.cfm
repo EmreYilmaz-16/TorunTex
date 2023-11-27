@@ -50,7 +50,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
         <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultArea').toggle(500)"><i class="icon-down"></i></button>
         <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput>#getOrder.ORDER_ROW_ID#</cfoutput>">
         <div id="SiparisResultArea" style="display:none">
-            <cf_box title="Siparişler">
+            <cf_box title="Siparişler" closable="1">
                 <cf_big_list>
                     <thead>
                         <tr>
