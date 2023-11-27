@@ -30,6 +30,7 @@
 <cfif attributes.sayfa eq 15><cfinclude template="inc/LotHareket.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 16><cfinclude template="inc/siparisList.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 17><cfinclude template="inc/duyuruGoster.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 18><cfinclude template="inc/etiket_2.cfm"><cfabort></cfif>
 
 
 <cfif not isDefined("attributes.isAjax")>
