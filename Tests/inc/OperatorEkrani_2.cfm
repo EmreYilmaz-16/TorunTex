@@ -47,7 +47,7 @@
                 </cfquery>
                 <div class="list-group">
                     <cfoutput query="getDuyuru">
-                    <a onclick="openBoxDraggable('index.cfm?fuseaction=rule.dsp_rule&cntid=#CONTENT_ID#')" class="list-group-item-action">#CONT_HEAD#</a>                    
+                    <a onclick="openBoxDraggable('index.cfm?fuseaction=#attributes.fuseaction#&sayfa=17&cntid=#CONTENT_ID#')" class="list-group-item-action">#CONT_HEAD#</a>                    
                 </cfoutput>
             </div>
             </div>
