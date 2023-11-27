@@ -304,8 +304,11 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
 <cfset attributes.clot=1>
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 <cfset attributes.FIS_ID=PBS_FIS_ID>
+
+<!----
 <cfinclude template="../Tests/inc/etiketYap.cfm">
 <cfinclude template="../Tests/inc/etiket_2.cfm">
+---->
 
 <cfscript>
     structClear(attributes);    
@@ -350,10 +353,10 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
     INNER JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.DEPARTMENT_ID=O.DELIVER_DEPT_ID AND SL.LOCATION_ID=O.LOCATION_ID
     WHERE SF.FIS_ID=#attributes.FIS_ID#
 </cfquery>
-
+<!----
 <cfsavecontent variable=EtiketData>
     <cfoutput>^XA^XFE:etiket2.ZPL^FS^CI28^FN1^FH\^FD#GETD.COMMENT#^FS^CI27^CI28^FN2^FH\^FD#GETD.ORDER_NUMBER#^FS^CI27 ^CI28^FN3^FH\^FD#GETD.PRODUCT_CODE_2#^FS^CI27^CI28^FN4^FH\^FD#GETD.PRODUCT_DETAIL#^FS^CI27^CI28^FN5^FH\^FD#GETD.LOT_NO#^FS^CI27^CI28^FN6^FH\^FD#GETD.AMOUNT#^FS^CI27^CI28^FN7^FH\^FD#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#^FS^CI27^CI28^FN8^FH\^FD#GETD.PRODUCT_NAME#^FS^CI27^PQ1,0,1^XZ</cfoutput> 
- </cfsavecontent>
+ </cfsavecontent>---->
 <cfset O.ATTR_AFTT=attributes>
 <cfset O.COMMENT=GETD.COMMENT>
 <cfset O.ORDER_NUMBER=GETD.ORDER_NUMBER>
