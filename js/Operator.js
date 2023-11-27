@@ -313,6 +313,7 @@ function Yazdir() {
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
       getProductionCount();
+     console.log(Obj);
       YazdirabilirsenYazdir(Obj.COMMENT,Obj.ORDER_NUMBER,Obj.PRODUCT_CODE_2,Obj.PRODUCT_DETAIL,Obj.LOT_NO,Obj.AMOUNT,Obj.PRODUCT_NAME)
     },
   });
