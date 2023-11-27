@@ -68,6 +68,7 @@ function getOrders(product_id) {
   );
 }
 function getAOrder(ORDER_ROW_ID) {
+  $('#SiparisResultAreaAs').toggle(500)
   MainOrderRowID = ORDER_ROW_ID;
   $.ajax({
     url:
