@@ -269,7 +269,7 @@ function GetDuyurus(op,el) {
   $("#Sayfammm").text(
     AktifSayfa +
       "/" +
-      (parseInt(DuyurQueryResult.QUERY_COUNT[0]) / AktifSayfa) +
+      (parseInt(DuyurQueryResult.QUERY_COUNT[0]) / sayfaCount) +
       1
   );
   
