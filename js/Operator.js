@@ -36,6 +36,7 @@ $(document).ready(function () {
     OpenLogIn();
   }
   document.getElementById("butonAre").appendChild(btn);
+  GetDuyurus();
 });
 var eventHandler_1 = function (name) {
   return function () {
@@ -68,7 +69,7 @@ function getOrders(product_id) {
   );
 }
 function getAOrder(ORDER_ROW_ID) {
-  $('#SiparisResultAreaAs').toggle(500)
+  $("#SiparisResultAreaAs").toggle(500);
   MainOrderRowID = ORDER_ROW_ID;
   $.ajax({
     url:
@@ -115,7 +116,7 @@ function getAOrder(ORDER_ROW_ID) {
         );
         $("#Country").text(Obj.COUNTRY_NAME);
         $("#Customer").text(Obj.NICKNAME);
-        
+
         $("#paketIcerik").val(Obj.A1);
         $("#paketKG").val(Obj.A2);
         // if(Obj.A1.length>0){
@@ -233,6 +234,47 @@ var str = "";
     str += event.key;
   }
 });*/
+var AktifSayfa = 1;
+function GetDuyurus(op) {
+ $("#DuyuruArea").html("");
+  var sayfaCount = 2;
+  if (op == "+") {
+    AktifSayfa++;
+  } else if (op == "-") {
+    AktifSayfa--;
+  }
+  var Ba = AktifSayfa * sayfaCount - 1;
+  var Bi = AktifSayfa * sayfaCount;
+
+  var DuyurQuery =
+    "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
+  DuyurQuery +=
+    "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2 WHERE RowNum BETWEEN " +
+    Ba +
+    " AND " +
+    Bi;
+  DuyurQueryResult = wrk_query(DuyurQuery);
+  $("#Sayfammm").text(
+    AktifSayfa +
+      "/" +
+      parseInt(DuyurQueryResult.QUERY_COUNT[0]) / AktifSayfa +
+      1
+  );
+  var Ul=document.createElement("ul");
+  Ul.setAttribute("class","list-group");
+  for(let i=0;i<DuyurQueryResult.recordcount;i++){
+    var li=document.createElement("li");
+    var a=document.createElement("a");
+    a.setAttribute("onclik","openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid="+DuyurQueryResult.CONTENT_ID[i]+"')");
+    a.innerText=DuyurQueryResult.CONT_HEAD[i];
+    li.appendChild(a);
+    Ul.appendChild(li)
+  }
+  document.getElementById("DuyuruArea").appendChild(Ul);
+}
+function SonrakiSayfa() {
+  AktifSayfa++;
+}
 
 function Yazdir() {
   var AMOUNT = document.getElementById("TxResult").value;
@@ -323,9 +365,13 @@ function getProducts(STATION) {
   qstr +=
     " SELECT PRODUCT_NAME,STOCKS.PRODUCT_ID,STOCK_ID,PRODUCT_DETAIL FROM w3Toruntex_1.STOCKS LEFT JOIN w3Toruntex_1.PRODUCT_INFO_PLUS ON PRODUCT_INFO_PLUS.PRODUCT_ID=STOCKS.PRODUCT_ID ";
   qstr +=
-    " WHERE PRODUCT_CATID NOT IN (26) AND PROPERTY1 LIKE '%"+STATION+"%'  UNION ALL   SELECT S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,S.PRODUCT_DETAIL FROM w3Toruntex_1.ORDER_ROW ";
+    " WHERE PRODUCT_CATID NOT IN (26) AND PROPERTY1 LIKE '%" +
+    STATION +
+    "%'  UNION ALL   SELECT S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,S.PRODUCT_DETAIL FROM w3Toruntex_1.ORDER_ROW ";
   qstr +=
-    " INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID =ORDER_ROW.STOCK_ID  WHERE UNIT2 LIKE '%"+STATION+"%' AND ORDER_ROW_CURRENCY IN (-5) )  AS T";
+    " INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID =ORDER_ROW.STOCK_ID  WHERE UNIT2 LIKE '%" +
+    STATION +
+    "%' AND ORDER_ROW_CURRENCY IN (-5) )  AS T";
 
   var q = wrk_query(qstr, "dsn3");
   var Control = $sipSelect[0].selectize;

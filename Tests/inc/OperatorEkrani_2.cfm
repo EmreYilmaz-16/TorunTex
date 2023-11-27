@@ -39,18 +39,16 @@
 </style>
 <div class="row">
     <div class="col col-10">
-        <cf_seperator id="getP2" header="Duyurukar"  >
-            <div id="getP2" >
-                <cfquery name="getDuyuru" datasource="#dsn#">
-                    select CONT_HEAD,CONTENT_ID,* from CONTENT where ISNULL(CONVERT(DATE,VIEW_DATE_START),CONVERT(DATE,GETDATE()))<=CONVERT(DATE,getdate())  AND 
-                        ISNULL(CONVERT(DATE,VIEW_DATE_FINISH),CONVERT(DATE,GETDATE()))>=CONVERT(DATE,getdate())
-                </cfquery>
-                <div class="list-group">
-                    <cfoutput query="getDuyuru">
-                    <a onclick="openBoxDraggable('index.cfm?fuseaction=#attributes.fuseaction#&sayfa=17&cntid=#CONTENT_ID#')" class="list-group-item-action">#CONT_HEAD#</a>                    
-                </cfoutput>
+        <cf_box title="Duyurular">
+            <div id="DuyuruArea">
+
             </div>
+            <div style="display:flex">
+                <span id="Sayfammm"></span>
+                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('+')"><span class="icn-md fa fa-chevron-left"></span></button>
+                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('-')"><span class="icn-md fa fa-chevron-right"></span></button>
             </div>
+        </cf_box>
     </div>
     <div class="col col-2">
         <table style="width: 100%;">
