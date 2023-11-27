@@ -236,6 +236,12 @@ var str = "";
 });*/
 var AktifSayfa = 1;
 function GetDuyurus(op,el) {
+  if(AktifSayfa==1){
+    document.getElementById("eksiEl").setAttribute("disabled","true"); 
+    return false;
+  }else{
+    document.getElementById("eksiEl").removeAttribute("disabled");
+  }
  $("#DuyuruArea").html("");
   var sayfaCount = 2;
   if (op == "+") {
@@ -254,6 +260,12 @@ function GetDuyurus(op,el) {
     " AND " +
     Bi;
   DuyurQueryResult = wrk_query(DuyurQuery);
+  if(AktifSayfa==parseInt(DuyurQueryResult.QUERY_COUNT[0])){
+    document.getElementById("artiEl").setAttribute("disabled","true"); 
+    return false;
+  }else{
+    document.getElementById("artiEl").removeAttribute("disabled");
+  }
   $("#Sayfammm").text(
     AktifSayfa +
       "/" +
@@ -261,6 +273,7 @@ function GetDuyurus(op,el) {
       1
   );
   
+ 
   for(let i=0;i<DuyurQueryResult.recordcount;i++){
    var tr=document.createElement("tr");
     var td=document.createElement("td");
