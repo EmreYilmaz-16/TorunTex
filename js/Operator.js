@@ -61,12 +61,11 @@ function OpenLogIn() {
 function getOrders(product_id) {
   AjaxPageLoad(
     "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=16&PRODUCT_ID=" +
-    product_id ,
+      product_id,
     "SiparisDataArea",
     1,
     "Yükleniyor"
   );
-
 }
 function getAOrder(ORDER_ROW_ID) {
   MainOrderRowID = ORDER_ROW_ID;
@@ -80,7 +79,7 @@ function getAOrder(ORDER_ROW_ID) {
       console.log(Obj);
       if (Obj.ORDER_ROW_CURRENCY != -5) {
         alert("Üretim Durdurulmuştur");
-      /*  var Control = $select[0].selectize;
+        /*  var Control = $select[0].selectize;
         Control.clear();
         Control.clearOptions();*/
         TemizleCanim();
@@ -196,7 +195,10 @@ function Yaz(sayi) {
     if (sayi == -2) TxResult.value = "0";
     if (sayi == -3) TxResult.value = "";
     if (sayi == -4) TxResult.value += ",";
-    if (sayi == -5) TxResult.value += "";
+    if (sayi == -5) {
+      TxResult.value += "";
+      $("#paketKG").val(TxResult.value);
+    }
   } else if (sayi == "0") {
     TxResult.value += sayi;
   }
