@@ -60,11 +60,11 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                 </div>
             </div>
             <div id="SiparisResultArea" >
-                <cf_big_list>
+                <cf_big_list id="Tabloooom">
                     <thead>
                         <tr>
                             <th colspan="8">
-                                <input type="text" name="searchSiparis()">
+                                <input type="text" name="searchSiparis(this,event)">
                             </th>
                         </tr>
                         <tr>
