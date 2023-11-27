@@ -257,7 +257,7 @@ function GetDuyurus(op) {
   $("#Sayfammm").text(
     AktifSayfa +
       "/" +
-      parseInt(DuyurQueryResult.QUERY_COUNT[0]) / AktifSayfa +
+      (parseInt(DuyurQueryResult.QUERY_COUNT[0]) / AktifSayfa) +
       1
   );
   var Ul=document.createElement("ul");
@@ -266,7 +266,7 @@ function GetDuyurus(op) {
     var li=document.createElement("li");
     var a=document.createElement("a");
     a.setAttribute("onclik","openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid="+DuyurQueryResult.CONTENT_ID[i]+"')");
-    a.innerText=DuyurQueryResult.CONT_HEAD[i];
+    a.innerText=DuyurQueryResult.ROWNUM[i]+"-"+DuyurQueryResult.CONT_HEAD[i];
     li.appendChild(a);
     Ul.appendChild(li)
   }
