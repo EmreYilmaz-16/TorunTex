@@ -37,7 +37,7 @@
         border: 2px solid var(--scroll-bar-bg-color);
     }
 </style>
-<div class="row">
+<div class="row" style="position: absolute;z-index: 99999;background: white;width: 100%;">
     <div class="col col-10">
         <cf_box title="Duyurular">
             <div>
@@ -79,8 +79,8 @@
         </table>
     </div>
 </div>
-<cfdump var="#DIR_SEPERATOR#">
-<div class="row">
+
+<div class="row" style="margin-top: 60px;">
     <div class="col col-12">                
         <cf_grid_list style="width:100%">
             <tr>
