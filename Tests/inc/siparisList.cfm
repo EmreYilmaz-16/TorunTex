@@ -64,7 +64,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                     <thead>
                         <tr>
                             <th colspan="8">
-                                <input type="text" name="searchSiparis(this,event)">
+                                <input type="text" onkeyup="searchSiparis(this,event)">
                             </th>
                         </tr>
                         <tr>
