@@ -60,7 +60,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                 </div>
             </div>
             <div id="SiparisResultArea" >
-                <cf_big_list id="Tabloooom">
+                <cf_big_list >
                     <thead>
                         <tr>
                             <th colspan="8">
@@ -77,7 +77,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                             <th>Ülkesi</th>
                             <th>Eksik Kg</th>
                         </tr>
-                    <tbody>
+                    <tbody id="Tabloooom">
                     <cfoutput query="getOrder">
                         <tr>
                             <td>#PRIORITY#</td>
@@ -104,7 +104,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
       var AkSipId=$("#ActiveSiparisId").val()
       function searchSiparis(el,ev){
   var value = $(el).val().toLowerCase();
-  $("#Tabloooom tbody tr").filter(function() {
+  $("#Tabloooom tr").filter(function() {
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
 }
