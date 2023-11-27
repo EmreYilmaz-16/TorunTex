@@ -1,11 +1,7 @@
 <style>
-  :root {
-        --code-color: darkred;
-        --code-bg-color: #f6f6f6;
-        --code-font-size: 14px;
-        --code-line-height: 1.4;
+  :root {     
         --scroll-bar-color: #c5c5c5;
-        --scroll-bar-bg-color: #f6f6f6;
+        --scroll-bar-bg-color: #41cbf845;
     }
  #digerSiparisTbl>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {  
     FONT-SIZE: x-small;
@@ -32,7 +28,7 @@
 
     /* Works on Chrome, Edge, and Safari */
     *::-webkit-scrollbar {
-        width: 12px;
+        width: 10px;
     }
 
     *::-webkit-scrollbar-track {
@@ -42,7 +38,7 @@
     *::-webkit-scrollbar-thumb {
         background-color: var(--scroll-bar-color);
         border-radius: 20px;
-        border: 3px solid var(--scroll-bar-bg-color);
+        border: 2px solid var(--scroll-bar-bg-color);
     }
 </style>
 <div class="row">
