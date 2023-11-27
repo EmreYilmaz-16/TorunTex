@@ -146,27 +146,27 @@
             <table class="table table-bordered" style="font-size: 14pt;width: 100%;">
                 <tbody>
                     <tr>
-                        <td onclick="Yaz(9)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">9</td>
-                        <td onclick="Yaz(8)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">8</td>
-                        <td onclick="Yaz(7)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">7</td>
-                        <td onclick="Yaz(-1)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">◄</td>
+                        <td onclick="Yaz(9)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">9</td>
+                        <td onclick="Yaz(8)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">8</td>
+                        <td onclick="Yaz(7)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">7</td>
+                        <td onclick="Yaz(-1)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">◄</td>
                     </tr>
                     <tr>
-                        <td onclick="Yaz(4)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">4</td>
-                        <td onclick="Yaz(5)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">5</td>
-                        <td onclick="Yaz(6)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">6</td>
-                        <td onclick="Yaz(-2)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">C</td>
+                        <td onclick="Yaz(4)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">4</td>
+                        <td onclick="Yaz(5)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">5</td>
+                        <td onclick="Yaz(6)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">6</td>
+                        <td onclick="Yaz(-2)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">C</td>
                     </tr>
                     <tr>
-                        <td onclick="Yaz(1)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">1</td>
-                        <td onclick="Yaz(2)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">2</td>
-                        <td onclick="Yaz(3)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">3</td>
-                        <td onclick="Yaz(-3)" class="bg-danger text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">X</td>
+                        <td onclick="Yaz(1)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">1</td>
+                        <td onclick="Yaz(2)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">2</td>
+                        <td onclick="Yaz(3)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">3</td>
+                        <td onclick="Yaz(-3)" class="bg-danger text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">X</td>
                     </tr>
                     <tr>
-                        <td onclick="Yaz(0)" class="bg-dark text-white" colspan="2" style="font-size: 30pt;width: 50%;text-align: center;border-radius:0.375rem">0</td>            
-                        <td onclick="Yaz(-4)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">,</td>
-                        <td onclick="Yaz(-5)" class="bg-success text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">&#x2713;</td>
+                        <td onclick="Yaz(0)" class="bg-dark text-white" colspan="2" style="font-size: 40pt;width: 50%;text-align: center;border-radius:0.375rem">0</td>            
+                        <td onclick="Yaz(-4)" class="bg-dark text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">,</td>
+                        <td onclick="Yaz(-5)" class="bg-success text-white" style="font-size: 40pt;width: 25%;text-align: center;border-radius:0.375rem">&#x2713;</td>
                     </tr>
                 </tbody>
             </table>
