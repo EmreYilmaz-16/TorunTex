@@ -1,3 +1,4 @@
+<cfdump var="#attributes#">
 <cfquery name="getOrder" datasource="#dsn3#">
 SELECT C.NICKNAME
 	,O.DELIVER_DEPT_ID
