@@ -269,8 +269,8 @@ function GetDuyurus(op,el) {
   $("#Sayfammm").text(
     AktifSayfa +
       "/" +
-      (parseInt(DuyurQueryResult.QUERY_COUNT[0]) / sayfaCount) +
-      1
+      ((parseInt(DuyurQueryResult.QUERY_COUNT[0]) / sayfaCount) +
+      1)
   );
   
  
