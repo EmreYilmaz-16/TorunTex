@@ -83,6 +83,149 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                             <td>#QUANTITY-R_AMOUNT#</td>
                             
                         </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>#PRIORITY#</td>
+                            <td>#UNIT2#</td>
+                            <td>#COMMENT#</td>
+                            <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td>#NICKNAME#</td>
+                            <td>#A2#</td>
+                            <td>#COUNTRY_NAME#</td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
+                            
+                        </tr>
                     </cfoutput>
                     </tbody>
                     </thead>                
