@@ -50,7 +50,14 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
         <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultArea').toggle(500)"><i class="icon-down"></i></button>
         <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput>#getOrder.ORDER_ROW_ID#</cfoutput>">
         <div id="SiparisResultArea" style="display:none">
-            <cf_box title="Siparişler" closable="1">
+            <div style="display:flex">
+                <div>
+                    Siparişler
+                </div>
+                <div>
+                    <span onclick="$('#SiparisResultArea').toggle(500)" class="icn-md fa fa-times-circle-o"></span>
+                </div>
+            </div>
                 <cf_big_list>
                     <thead>
                         <tr>
@@ -80,7 +87,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                     </tbody>
                     </thead>                
                 </cf_big_list>
-            </cf_box>
+            
         </div>
     </div>
 </div>
