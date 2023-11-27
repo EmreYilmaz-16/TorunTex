@@ -13,7 +13,7 @@
    <cfoutput>^XA^XFE:etiket2.ZPL^FS^CI28^FN1^FH\^FD#GETD.COMMENT#^FS^CI27^CI28^FN2^FH\^FD#GETD.ORDER_NUMBER#^FS^CI27 ^CI28^FN3^FH\^FD#GETD.PRODUCT_CODE_2#^FS^CI27^CI28^FN4^FH\^FD#GETD.PRODUCT_DETAIL#^FS^CI27^CI28^FN5^FH\^FD#GETD.LOT_NO#^FS^CI27^CI28^FN6^FH\^FD#GETD.AMOUNT#^FS^CI27^CI28^FN7^FH\^FD#GETD.PRODUCT_DETAIL#|#GETD.LOT_NO#||#GETD.AMOUNT#^FS^CI27^CI28^FN8^FH\^FD#GETD.PRODUCT_NAME#^FS^CI27^PQ1,0,1^XZ</cfoutput> 
 </cfsavecontent>
 
-<cfhttp url="http://192.168.0.62">
+<cfhttp url="http://192.168.0.62/pstprnt">
     <cfhttpparam type="header" name="Content-Type" value="application/x-www-form-urlencoded">
     <cfhttpparam type="header" name="Content-Length" value="#len(EtiketData)#">
     <cfhttpparam type="formfield" name="data" value="#EtiketData#">
