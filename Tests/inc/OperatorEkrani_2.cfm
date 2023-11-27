@@ -39,15 +39,15 @@
 </style>
 <div class="row">
     <div class="col col-10">
-        <cf_seperator id="getP2" header="Duyurukar"  style="display:none;">
-            <div id="getP2"  style="display:none;">
+        <cf_seperator id="getP2" header="Duyurukar"  >
+            <div id="getP2" >
                 <cfquery name="getDuyuru" datasource="#dsn#">
                     select CONT_HEAD,CONTENT_ID,* from CONTENT where ISNULL(CONVERT(DATE,VIEW_DATE_START),CONVERT(DATE,GETDATE()))<=CONVERT(DATE,getdate())  AND 
                         ISNULL(CONVERT(DATE,VIEW_DATE_FINISH),CONVERT(DATE,GETDATE()))>=CONVERT(DATE,getdate())
                 </cfquery>
                 <div class="list-group">
                     <cfoutput query="getDuyuru">
-                    <a onclick="windowopen('/index.cfm?fuseaction=rule.dsp_rule&cntid=#CONTENT_ID#')" class="list-group-item-action">#CONT_HEAD#</a>                    
+                    <a onclick="openBoxDraggable('/index.cfm?fuseaction=rule.dsp_rule&cntid=#CONTENT_ID#')" class="list-group-item-action">#CONT_HEAD#</a>                    
                 </cfoutput>
             </div>
             </div>
