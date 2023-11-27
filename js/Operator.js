@@ -211,7 +211,7 @@ function Yaz(sayi) {
 }
 var str = "";
 $("body").on("keyup", function (event) {
-  //console.log(event)
+  console.log(event)
 
   console.log(str);
   if (event.keyCode == 13) {
