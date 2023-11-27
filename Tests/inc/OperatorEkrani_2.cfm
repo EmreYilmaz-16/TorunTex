@@ -1,7 +1,7 @@
 <style>
   :root {     
         --scroll-bar-color: #c5c5c5;
-        --scroll-bar-bg-color: #41cbf845;
+        --scroll-bar-bg-color: #f6f6f6;
     }
  #digerSiparisTbl>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {  
     FONT-SIZE: x-small;
