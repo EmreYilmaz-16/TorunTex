@@ -8,12 +8,13 @@
 }
 #SiparisResultArea{
     scrollbar-width: thin;            
-    height: 200px;
+    height: 250px;
     position: absolute;
     z-index: 9999;
     background: white;
     width: 100%;
     overflow-y: scroll;
+    box-shadow: inset -10px -5px 20px 0px grey;
 
 }
 .input-group {

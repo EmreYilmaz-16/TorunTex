@@ -50,11 +50,11 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
         <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultArea').toggle(500)"><i class="icon-down"></i></button>
         <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput>#getOrder.ORDER_ROW_ID#</cfoutput>">
         <div id="SiparisResultArea" style="display:none">
-            <div style="display:flex">
-                <div>
+            <div style="display: flex;border-bottom: solid 1px var(--gray);margin-bottom: 2px;position: absolute;background: white;width: 100%;">
+                <div style="color: var(--danger);font-size: 14pt;width: 95%;">
                     Siparişler
                 </div>
-                <div>
+                <div style="color: var(--danger);font-size: 14pt;align-self: center">
                     <span onclick="$('#SiparisResultArea').toggle(500)" class="icn-md fa fa-times-circle-o"></span>
                 </div>
             </div>
