@@ -250,12 +250,7 @@ function GetDuyurus(op, el) {
     DuyurQuery += " WHERE RowNum BETWEEN " + Ba + " AND " + Bi;
   }
   DuyurQueryResult = wrk_query(DuyurQuery);
-  if (AktifSayfa == parseInt(DuyurQueryResult.QUERY_COUNT[0])) {
-    document.getElementById("artiEl").setAttribute("disabled", "true");
-    return false;
-  } else {
-    document.getElementById("artiEl").removeAttribute("disabled");
-  }
+
   $("#Sayfammm").text(
     AktifSayfa +
       "/" +
