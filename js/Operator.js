@@ -237,7 +237,7 @@ var str = "";
 var AktifSayfa = 1;
 function GetDuyurus(op, el) {
   var Ba = 1;
-  var Bi = 2;
+  var Bi = 1;
   $("#DuyuruArea").html("");
 
   var DuyurQuery =
