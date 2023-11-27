@@ -305,6 +305,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 <cfset attributes.FIS_ID=PBS_FIS_ID>
 <cfinclude template="../Tests/inc/etiketYap.cfm">
+<cfinclude template="../Tests/inc/etiket_2.cfm">
 
 <cfscript>
     structClear(attributes);    
@@ -337,6 +338,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 <cfset attributes.FIS_ID=PBS_FIS_ID>
 <cfinclude template="../Tests/inc/etiketYap.cfm">
+<cfinclude template="../Tests/inc/etiket_2.cfm">
 
 
 <cfset O.ATTR_AFTT=attributes>
