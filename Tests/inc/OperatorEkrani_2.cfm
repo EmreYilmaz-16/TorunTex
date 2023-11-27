@@ -1,5 +1,13 @@
 <style>
-    #digerSiparisTbl>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {  
+  :root {
+        --code-color: darkred;
+        --code-bg-color: #f6f6f6;
+        --code-font-size: 14px;
+        --code-line-height: 1.4;
+        --scroll-bar-color: #c5c5c5;
+        --scroll-bar-bg-color: #f6f6f6;
+    }
+ #digerSiparisTbl>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {  
     FONT-SIZE: x-small;
 }
 #SiparisResultArea{
@@ -13,8 +21,8 @@
 
 }
 .input-group {
-    -ms-flex-wrap: nowrap;
-     flex-wrap: nowrap; 
+    -ms-flex-wrap: nowrap !important;
+     flex-wrap: nowrap !important; 
   
 }
 * {
