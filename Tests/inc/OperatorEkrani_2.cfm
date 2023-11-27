@@ -56,7 +56,7 @@
             <br>
             <div style="display:flex">
                 <span id="Sayfammm"></span>
-                <button class="btn btn-sm btn-primary" id="eksiEl" onclick="GetDuyurus('all')">Tümünü Göster</button>
+                <button class="btn btn-sm btn-primary" style="border-radius: 17px !important;" id="eksiEl" onclick="GetDuyurus('all')">Tümünü Göster</button>
               
             </div>
         </cf_box>
@@ -115,8 +115,8 @@
     
 </div>
         <div style="display:flex;flex-direction: column;">
-            <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;">Yazdir/Üret</button>
-            <button type="button" class="btn btn-lg btn-danger" style="position: fixed;bottom: 0;right: 0;width: 300px;margin-bottom: 20px;margin-right: 20px;" onclick="Iptal()">İptal</button>
+            <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;border-radius: 17px !important;">Yazdir/Üret</button>
+            <button type="button" class="btn btn-lg btn-danger" style="position: fixed;bottom: 0;right: 0;width: 300px;margin-bottom: 20px;margin-right: 20px;border-radius: 17px !important;" onclick="Iptal()">İptal</button>
             <input type="hidden" name="WRK_ROW_ID" id="WRK_ROW_ID">
             <input type="hidden" name="LotNo" id="LotNo">
             <input type="hidden" name="SIP_DEPO" id="SIP_DEPO">
