@@ -85,3 +85,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
     </div>
 </div>
 
+<script>
+      var AkSipId=$("#ActiveSiparisId").val()
+    getAOrder(AkSipId);
+</script>
