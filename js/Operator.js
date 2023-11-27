@@ -243,7 +243,7 @@ function GetDuyurus(op,el) {
     document.getElementById("eksiEl").removeAttribute("disabled");
   }
  $("#DuyuruArea").html("");
-  var sayfaCount = 2;
+  var sayfaCount = 3;
   if (op == "+") {
     AktifSayfa++;
   } else if (op == "-") {
