@@ -235,60 +235,52 @@ var str = "";
   }
 });*/
 var AktifSayfa = 1;
-function GetDuyurus(op,el) {
-  if(AktifSayfa==1 && op=="-"){
-    document.getElementById("eksiEl").setAttribute("disabled","true"); 
-    return false;
-  }else{
-    document.getElementById("eksiEl").removeAttribute("disabled");
+function GetDuyurus(op, el) {
+  var Ba = 1;
+  var Bi = 2;
+  if (op == "all") {
   }
- $("#DuyuruArea").html("");
-  var sayfaCount = 3;
-  if (op == "+") {
-    AktifSayfa++;
-  } else if (op == "-") {
-    AktifSayfa--;
-  }
-  var Ba = AktifSayfa * sayfaCount - 1;
-  var Bi = AktifSayfa * sayfaCount;
 
   var DuyurQuery =
     "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
   DuyurQuery +=
-    "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2 WHERE RowNum BETWEEN " +
-    Ba +
-    " AND " +
-    Bi;
+    "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2";
+  if (op == "all") {
+  } else {
+    DuyurQuery += " WHERE RowNum BETWEEN " + Ba + " AND " + Bi;
+  }
   DuyurQueryResult = wrk_query(DuyurQuery);
-  if(AktifSayfa==parseInt(DuyurQueryResult.QUERY_COUNT[0])){
-    document.getElementById("artiEl").setAttribute("disabled","true"); 
+  if (AktifSayfa == parseInt(DuyurQueryResult.QUERY_COUNT[0])) {
+    document.getElementById("artiEl").setAttribute("disabled", "true");
     return false;
-  }else{
+  } else {
     document.getElementById("artiEl").removeAttribute("disabled");
   }
   $("#Sayfammm").text(
     AktifSayfa +
       "/" +
-      ((parseInt(DuyurQueryResult.QUERY_COUNT[0]) / sayfaCount) +
-      1)
+      (parseInt(DuyurQueryResult.QUERY_COUNT[0]) / sayfaCount + 1)
   );
-  
- 
-  for(let i=0;i<DuyurQueryResult.recordcount;i++){
-   var tr=document.createElement("tr");
-    var td=document.createElement("td");
-    td.innerText=DuyurQueryResult.ROWNUM[i];
+
+  for (let i = 0; i < DuyurQueryResult.recordcount; i++) {
+    var tr = document.createElement("tr");
+    var td = document.createElement("td");
+    td.innerText = DuyurQueryResult.ROWNUM[i];
     tr.appendChild(td);
-    var td=document.createElement("td");
-    var a=document.createElement("a");
-    a.setAttribute("onclick","openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid="+DuyurQueryResult.CONTENT_ID[i]+"')");
-    a.setAttribute("href","javascript:;")
-    a.innerText=DuyurQueryResult.CONT_HEAD[i];
+    var td = document.createElement("td");
+    var a = document.createElement("a");
+    a.setAttribute(
+      "onclick",
+      "openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid=" +
+        DuyurQueryResult.CONTENT_ID[i] +
+        "')"
+    );
+    a.setAttribute("href", "javascript:;");
+    a.innerText = DuyurQueryResult.CONT_HEAD[i];
     td.appendChild(a);
-    tr.appendChild(td)
+    tr.appendChild(td);
     document.getElementById("DuyuruArea").appendChild(tr);
   }
-  
 }
 function SonrakiSayfa() {
   AktifSayfa++;
