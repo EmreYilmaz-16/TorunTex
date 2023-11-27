@@ -47,17 +47,18 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
     <label>Sipariş</label>    
     <div class="input-group mb-3">
         <input type="text" name="SearchSiparisTxt" id="SearchSiparisTxt" value="<cfoutput>#getOrder.NICKNAME# - #getOrder.ORDER_NUMBER#</cfoutput>">
-        <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultArea').toggle(500)"><i class="icon-down"></i></button>
+        <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultAreaAs').toggle(500)"><i class="icon-down"></i></button>
         <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput>#getOrder.ORDER_ROW_ID#</cfoutput>">
-        <div id="SiparisResultArea" style="display:none">
+        <div id="SiparisResultAreaAs" style="display:none">
             <div style="display: flex;border-bottom: solid 1px var(--gray);margin-bottom: 2px;position: absolute;background: white;width: 100%;">
                 <div style="color: var(--danger);font-size: 14pt;width: 95%;">
                     Siparişler
                 </div>
                 <div style="color: var(--danger);font-size: 14pt;align-self: center">
-                    <span onclick="$('#SiparisResultArea').toggle(500)" class="icn-md fa fa-times-circle-o"></span>
+                    <span onclick="$('#SiparisResultAreaAs').toggle(500)" class="icn-md fa fa-times-circle-o"></span>
                 </div>
             </div>
+            <div id="SiparisResultArea" style="display:none">
                 <cf_big_list>
                     <thead>
                         <tr>
@@ -230,7 +231,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                     </tbody>
                     </thead>                
                 </cf_big_list>
-            
+            </div>
         </div>
     </div>
 </div>
