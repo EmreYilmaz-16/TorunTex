@@ -40,13 +40,24 @@
 <div class="row">
     <div class="col col-10">
         <cf_box title="Duyurular">
-            <div id="DuyuruArea">
+            <div>
+                <cf_big_list>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody  id="DuyuruArea">
 
+                </tbody>
+                </cf_big_list>
             </div>
+            <br>
             <div style="display:flex">
                 <span id="Sayfammm"></span>
-                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('+')"><span class="icn-md fa fa-chevron-left"></span></button>
-                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('-')"><span class="icn-md fa fa-chevron-right"></span></button>
+                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('+',this)"><span class="icn-md fa fa-chevron-left"></span></button>
+                <button class="btn btn-sm btn-primary" onclick="GetDuyurus('-',this)"><span class="icn-md fa fa-chevron-right"></span></button>
             </div>
         </cf_box>
     </div>

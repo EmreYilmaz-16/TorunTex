@@ -235,7 +235,7 @@ var str = "";
   }
 });*/
 var AktifSayfa = 1;
-function GetDuyurus(op) {
+function GetDuyurus(op,el) {
  $("#DuyuruArea").html("");
   var sayfaCount = 2;
   if (op == "+") {
@@ -260,17 +260,21 @@ function GetDuyurus(op) {
       (parseInt(DuyurQueryResult.QUERY_COUNT[0]) / AktifSayfa) +
       1
   );
-  var Ul=document.createElement("ul");
-  Ul.setAttribute("class","list-group");
+  
   for(let i=0;i<DuyurQueryResult.recordcount;i++){
-    var li=document.createElement("li");
+   var tr=document.createElement("tr");
+    var td=document.createElement("td");
+    td.innerText=DuyurQueryResult.ROWNUM[i];
+    tr.appendChild(td);
+    var td=document.createElement("td");
     var a=document.createElement("a");
     a.setAttribute("onclik","openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid="+DuyurQueryResult.CONTENT_ID[i]+"')");
-    a.innerText=DuyurQueryResult.ROWNUM[i]+"-"+DuyurQueryResult.CONT_HEAD[i];
-    li.appendChild(a);
-    Ul.appendChild(li)
+    a.innerText=DuyurQueryResult.CONT_HEAD[i];
+    td.appendChild(a);
+    tr.appendChild(td)
+    document.getElementById("DuyuruArea").appendChild(tr);
   }
-  document.getElementById("DuyuruArea").appendChild(Ul);
+  
 }
 function SonrakiSayfa() {
   AktifSayfa++;
