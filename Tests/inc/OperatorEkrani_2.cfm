@@ -9,6 +9,7 @@
 #SiparisResultArea{
     scrollbar-width: thin;               
     overflow-y: scroll;   
+    height:30vh;
 
 }
 .input-group {
