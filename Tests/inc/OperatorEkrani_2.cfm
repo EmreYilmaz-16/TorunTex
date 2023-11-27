@@ -199,24 +199,24 @@
     <div class="col col-12">
    <table class="table">
     <tr>
-        <td>
+        <td style="font-size: 14pt">
             <strong>Üretim Notu</strong>
         </td>
-        <td id="AA1" colspan="3">
+        <td style="font-size: 14pt" id="AA1" colspan="3">
 
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="font-size: 14pt">
             <strong>Açıklama</strong>
         </td>
-        <td id="AA2">
+        <td style="font-size: 14pt" id="AA2">
 
         </td>
-        <td>
+        <td style="font-size: 14pt">
             <strong>Açıklama</strong>
         </td>
-        <td id="AA3">
+        <td style="font-size: 14pt" id="AA3">
 
         </td>
     </tr>
