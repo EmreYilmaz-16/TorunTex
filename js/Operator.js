@@ -210,7 +210,7 @@ function Yaz(sayi) {
   }
 }
 var str = "";
-$("body").on("keyup", function (event) {
+/*$("body").on("keyup", function (event) {
   console.log(event)
 
   console.log(str);
@@ -232,7 +232,7 @@ $("body").on("keyup", function (event) {
   } else {
     str += event.key;
   }
-});
+});*/
 
 function Yazdir() {
   var AMOUNT = document.getElementById("TxResult").value;
