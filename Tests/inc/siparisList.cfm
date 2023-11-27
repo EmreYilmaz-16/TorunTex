@@ -64,7 +64,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                     <thead>
                         <tr>
                             <th colspan="8">
-                                <input type="text" onkeyup="searchSiparis(this,event)">
+                                <input type="text" onclick="setSelAll(this)" onkeyup="searchSiparis(this,event)">
                             </th>
                         </tr>
                         <tr>
@@ -84,7 +84,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                             <td>#UNIT2#</td>
                             <td>#COMMENT#</td>
                             <td><a href="javascript:;" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
-                            <td>#NICKNAME#</td>
+                            <td><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
                             <td>#QUANTITY-R_AMOUNT#</td>

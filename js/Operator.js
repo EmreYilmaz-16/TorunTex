@@ -275,7 +275,9 @@ function GetDuyurus(op, el) {
 function SonrakiSayfa() {
   AktifSayfa++;
 }
-
+function setSelAll(el){
+  el.select()
+}
 function Yazdir() {
   var AMOUNT = document.getElementById("TxResult").value;
   var SIP_DEPO = document.getElementById("SIP_DEPO").value;
