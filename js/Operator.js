@@ -313,9 +313,44 @@ function Yazdir() {
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
       getProductionCount();
+      YazdirabilirsenYazdir(Obj.COMMENT,Obj.ORDER_NUMBER,Obj.PRODUCT_CODE_2,Obj.PRODUCT_DETAIL,Obj.LOT_NO,Obj.AMOUNT,Obj.PRODUCT_NAME)
     },
   });
 }
+function YazdirabilirsenYazdir(warehouse,order_no,product_no,product_note,serial_no,weight,product_name)
+    {
+      var ip_addr = "192.168.0.62";
+  
+      var qr_code = product_no + "|" + serial_no + "||" + weight;
+      
+
+	  var zpl = "^XA^XFE:etiket2.ZPL^FS"
+      + "^CI28^FN1^FH\^FD" + warehouse + "^FS^CI27^"
+      + "CI28^FN2^FH\^FD" + order_no + "^FS^CI27" 
+      + "^CI28^FN3^FH\^FD"+ product_no + "^FS^CI27"
+      + "^CI28^FN4^FH\^FD" + product_note + "^FS^CI27"
+      + "^CI28^FN5^FH\^FD" + serial_no + "^FS^CI27"
+      + "^CI28^FN6^FH\^FD" + weight + "^FS^CI27"
+      + "^CI28^FN7^FH\^FD" + qr_code + "^FS^CI27"
+      + "^CI28^FN8^FH\^FD" + product_name + "^FS^CI27"
+      + "^PQ1,0,1^XZ";
+      var url = "http://"+ip_addr+"/pstprnt";
+      var method = "POST";
+      var async = true;
+      var request = new XMLHttpRequest();
+
+      request.onload = function () {
+        var status = request.status; 
+        var data = request.responseText; 
+        output.innerHTML = "Status: " + status + "<br>" + data;
+      }
+
+      request.open(method, url, async);
+      request.setRequestHeader("Content-Length", zpl.length);
+
+      
+      request.send(zpl);
+    }
 function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   var StationObject = {
     DEPARTMENT_ID: DEPARTMENT_ID,
