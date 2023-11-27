@@ -2,6 +2,16 @@
     #digerSiparisTbl>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {  
     FONT-SIZE: x-small;
 }
+#SiparisResultArea{
+    scrollbar-width: thin;            
+    height: 200px;
+    position: absolute;
+    z-index: 9999;
+    background: white;
+    width: 100%;
+    overflow-y: scroll;
+
+}
 </style>
 <div class="row">
     <div class="col col-10">
@@ -70,9 +80,14 @@
         </div>
         <div class="form-group">
             <label>Sipariş</label>
-            <select class="form-control form-select sel" id="select_2" placeholder="Sipariş Seçiniz" aria-label="Default select example">            
-                
-            </select>
+            <div class="form-group">
+                <label>Sipariş</label>
+                <div class="input-group mb-3">
+        <input type="text" name="SearchSiparisTxt" id="SearchSiparisTxt"><button class="btn btn-outline-secondary input-group-text"><i class="icon-down"></i></button>
+        
+    <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId"></div>
+            <div id="SiparisResultArea" style="">
+        </div></div>
         </div>
         <div style="display:flex;flex-direction: column;">
             <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;">Yazdir/Üret</button>
