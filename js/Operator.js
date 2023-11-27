@@ -241,7 +241,7 @@ function GetDuyurus(op, el) {
   $("#DuyuruArea").html("");
 
   var DuyurQuery =
-    "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
+    "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID,CONT_BODY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
   DuyurQuery +=
     "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2";
   if (op == "all") {
@@ -268,6 +268,11 @@ function GetDuyurus(op, el) {
     a.setAttribute("href", "javascript:;");
     a.innerText = DuyurQueryResult.CONT_HEAD[i];
     td.appendChild(a);
+    if(i==0){
+    var div=document.createElement("div");
+    div.innerHTML=DuyurQueryResult.CONT_BODY[i]
+    td.appendChild(div);
+  }
     tr.appendChild(td);
     document.getElementById("DuyuruArea").appendChild(tr);
   }
