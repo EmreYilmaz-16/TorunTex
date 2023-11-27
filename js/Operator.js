@@ -80,9 +80,9 @@ function getAOrder(ORDER_ROW_ID) {
       console.log(Obj);
       if (Obj.ORDER_ROW_CURRENCY != -5) {
         alert("Üretim Durdurulmuştur");
-        var Control = $select[0].selectize;
+      /*  var Control = $select[0].selectize;
         Control.clear();
-        Control.clearOptions();
+        Control.clearOptions();*/
         TemizleCanim();
       } else {
         $("#RenkYazi").text(Obj.PROPERTY5);
