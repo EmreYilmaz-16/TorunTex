@@ -66,6 +66,8 @@ function getOrders(product_id) {
     1,
     "Yükleniyor"
   );
+  var AkSipId=$("#ActiveSiparisId").val()
+  getAOrder(AkSipId);
 }
 function getAOrder(ORDER_ROW_ID) {
   MainOrderRowID = ORDER_ROW_ID;
