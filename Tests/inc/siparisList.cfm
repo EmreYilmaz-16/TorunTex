@@ -47,7 +47,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
     <label>Sipariş</label>    
     <div class="input-group mb-3">
         <input type="text" name="SearchSiparisTxt" id="SearchSiparisTxt" value="<cfoutput>#getOrder.NICKNAME# - #getOrder.ORDER_NUMBER#</cfoutput>">
-        <button class="btn btn-outline-secondary input-group-text"><i class="icon-down"></i></button>
+        <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultArea').toggle(500)"><i class="icon-down"></i></button>
         <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput>#getOrder.ORDER_ROW_ID#</cfoutput>">
         <div id="SiparisResultArea" style="display:none">
             <cf_box title="Siparişler">
