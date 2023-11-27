@@ -63,6 +63,11 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# ORDER BY SP.PRIORITY
                 <cf_big_list>
                     <thead>
                         <tr>
+                            <th colspan="8">
+                                <input type="text" name="searchSiparis()">
+                            </th>
+                        </tr>
+                        <tr>
                             <th>Öncelik</th>
                             <th>İstasyon</th>
                             <th>Lokasyon</th>
