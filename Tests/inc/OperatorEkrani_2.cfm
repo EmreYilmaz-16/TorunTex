@@ -12,6 +12,11 @@
     overflow-y: scroll;
 
 }
+.input-group {
+    -ms-flex-wrap: nowrap;
+     flex-wrap: nowrap; 
+  
+}
 </style>
 <div class="row">
     <div class="col col-10">
