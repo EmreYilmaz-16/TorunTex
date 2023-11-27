@@ -38,10 +38,7 @@
     }
 </style>
 <div class="row">
-    <div class="col col-2"></div>
-    <div class="col col-10">
-<div class="row" >
-    <div class="col col-10">
+    <div class="col col-2">
         <cf_box title="Duyurular">
             <div>
                 <cf_big_list>
@@ -63,6 +60,11 @@
               
             </div>
         </cf_box>
+    </div>
+    <div class="col col-10">
+<div class="row" >
+    <div class="col col-10">
+        
     </div>
     <div class="col col-2">
         <table style="width: 100%;">
