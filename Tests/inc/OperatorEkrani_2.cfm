@@ -120,11 +120,11 @@
 
 <div class="col-6">
    <div style="display:flex;justify-content: space-between;">
-    <div class="form-group">
+    <div class="form-group" style="width:50%">
         <label>Paket İçerik</label>
         <input style="font-size:20pt" type="text" class="form-control" readonly="" id="paketIcerik">
     </div>
-    <div class="form-group">
+    <div class="form-group" style="width:50%">
         <label>Paket KG</label>
         <input style="font-size:20pt" type="text" class="form-control" id="paketKG">
     </div>
