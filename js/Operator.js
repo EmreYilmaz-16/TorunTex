@@ -444,9 +444,9 @@ function LotVer(STATION) {
   var GRB = "3";
 
   ReturnValue += eval(STATION);
-  ReturnValue += list_getat(Sda, 1, ".");
-  ReturnValue += list_getat(Sda, 2, ".");
-  ReturnValue += list_getat(Sda, 3, ".");
+  ReturnValue += list_getat(currentDatePBS, 1, ".");
+  ReturnValue += list_getat(currentDatePBS, 2, ".");
+  ReturnValue += list_getat(currentDatePBS, 3, ".");
   ReturnValue += SifirSay;
   ReturnValue += Lot;
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
