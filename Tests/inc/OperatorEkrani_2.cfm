@@ -119,7 +119,7 @@
         </div>
 </div>
 
-<div class="col-4">
+<div class="col-4" style="padding:0px 40px 0px 40px!important">
    <div style="display:flex;justify-content: space-between;">
     <div class="form-group" style="width:50%">
         <label>Paket İçerik</label>
