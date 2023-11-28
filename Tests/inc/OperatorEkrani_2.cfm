@@ -42,7 +42,7 @@
         <cfquery name="getDuyurus" datasource="#dsn#">
             SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())
         </cfquery>
-       <select class="form-contro form-control-lg text-primary">
+       <select class="form-control form-control-lg text-primary">
 <cfoutput query="getDuyurus">
     <option value="#CONTENT_ID#">#CONT_SUMMARY#</option>
 </cfoutput>
@@ -71,11 +71,11 @@
     <div class="col col-12">                
         <cf_grid_list style="width:100%">
             <tr>
-                <td style="font-size: 20px" id="OrderLocation"></td>
-                <td style="font-size: 20px" id="Complate"></td>
-                <td style="font-size: 20px" id="Customer"></td>
-                <td style="font-size: 20px" id="Country"></td>
-                <td style="font-size: 20px" id="Color">
+                <td style="font-size: 30px;padding:0;font-weight:bold;text-align:center" id="OrderLocation"></td>
+                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Complate"></td>
+                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Customer"></td>
+                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Country"></td>
+                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Color">
                     <div style="display: flex;justify-content: space-between;">
                         <span style="font-size: 20px" id="RenkYazi" style="width: 50%;display: block;"></span> 
                         <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
