@@ -36,6 +36,12 @@
         border-radius: 20px;
         border: 2px solid var(--scroll-bar-bg-color);
     }
+    .selectize-input>* {
+    vertical-align: baseline;
+    display: inline-block;
+    zoom: 1;
+    font-size: 20pt !important;
+}
 </style>
 <div class="row" >
     <div class="col col-10">
