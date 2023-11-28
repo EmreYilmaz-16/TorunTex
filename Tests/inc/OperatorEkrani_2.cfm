@@ -101,13 +101,7 @@
     <div class="col col-4">        
         <div class="form-group">
             <label>Ürün</label>
-            <select class="sel" id="select_1" placeholder="Ürün Seçiniz"> 
-                 
-                
-                   
-                
-            
-            </select>
+            <select class="sel" id="select_1" placeholder="Ürün Seçiniz"></select>
         </div>
 <div id="SiparisDataArea">
     
