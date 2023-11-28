@@ -1,4 +1,4 @@
-<cfquery name="gets" datasource="#dsn3#">
+﻿<cfquery name="gets" datasource="#dsn3#">
 SELECT *
 FROM (
 	SELECT SL.COMMENT
@@ -26,7 +26,7 @@ FROM (
 <!---WHERE TT.BAKIYE = 0
 	AND TT.SIP_DURUM = 0--->
 </cfquery>
-<cf_box title="Depolar" scroll="1" collapsable="1" resize="1" popup_box="1">
+<cf_box title="Depo - Lokasyon" scroll="1" collapsable="1" resize="1" popup_box="1">
     <div class="form-group">
     <input type="text" name="e" onkeyup="searchSiparis(this,event)" placeholder="Ara">
 </div>
