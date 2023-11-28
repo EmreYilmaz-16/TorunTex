@@ -37,6 +37,7 @@ $(document).ready(function () {
     OpenLogIn();
   }
   document.getElementById("butonAre").appendChild(btn);
+  $("#wrk_bug_add_div").hide()
   GetDuyurus();
 });
 var eventHandler_1 = function (name) {
