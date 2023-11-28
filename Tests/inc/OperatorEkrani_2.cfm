@@ -50,7 +50,7 @@
         </cfquery>
        <select class="form-control form-control-lg text-danger">
 <cfoutput query="getDuyurus">
-    <option value="#CONTENT_ID#">#CONT_SUMMARY#</option>
+    <option value="#CONTENT_ID#"> ! #CONT_SUMMARY#</option>
 </cfoutput>
        </select>
     </div>
