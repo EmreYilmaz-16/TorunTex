@@ -65,7 +65,7 @@
         </div>
 <div class="row" >
     <div class="col col-10">
-        <button class="btn btn-lg btn-link" id="BtnORk">≡</button>
+        <button class="btn btn-lg btn-link" onclick="$('#col_0001').toggle(500)" id="BtnORk">≡</button>
     </div>
     <div class="col col-2">
         <table style="width: 100%;">
