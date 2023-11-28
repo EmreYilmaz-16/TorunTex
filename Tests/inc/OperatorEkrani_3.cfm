@@ -234,9 +234,11 @@
 </div>
 </div>
 </div>
-<script>
-    var currentDatePBS="#dateFormat(now(),"dd.mm.yyyy")#";
-</script>
+<cfoutput>
+    <script>
+        var currentDatePBS="#dateFormat(now(),"dd.mm.yyyy")#";
+    </script>
+    </cfoutput>
 <script src="/AddOns/Partner/js/Operator.js"></script>
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
 <link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.bootstrap5.css">
