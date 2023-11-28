@@ -233,47 +233,47 @@ var str = "";
 });*/
 var AktifSayfa = 1;
 function GetDuyurus(op, el) {
-  var Ba = 1;
-  var Bi = 1;
-  $("#DuyuruArea").html("");
+//   var Ba = 1;
+//   var Bi = 1;
+//   $("#DuyuruArea").html("");
 
-  var DuyurQuery =
-    "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
-  DuyurQuery +=
-    "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2";
-  if (op == "all") {
-  } else {
-    DuyurQuery += " WHERE RowNum BETWEEN " + Ba + " AND " + Bi;
-  }
-  DuyurQueryResult = wrk_query(DuyurQuery);
+//   var DuyurQuery =
+//     "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
+//   DuyurQuery +=
+//     "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2";
+//   if (op == "all") {
+//   } else {
+//     DuyurQuery += " WHERE RowNum BETWEEN " + Ba + " AND " + Bi;
+//   }
+//   DuyurQueryResult = wrk_query(DuyurQuery);
 
 
 
-  for (let i = 0; i < DuyurQueryResult.recordcount; i++) {
-    var tr = document.createElement("tr");
-    var td = document.createElement("td");
-    td.innerText = DuyurQueryResult.ROWNUM[i];
-    tr.appendChild(td);
-    var td = document.createElement("td");
-    var a = document.createElement("a");
-    a.setAttribute(
-      "onclick",
-      "openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid=" +
-        DuyurQueryResult.CONTENT_ID[i] +
-        "')"
-    );
-    a.setAttribute("href", "javascript:;");
-    a.innerText = DuyurQueryResult.CONT_HEAD[i];
-    td.appendChild(a);
-    if(i==0){
-    var div=document.createElement("div");
-    div.innerHTML=DuyurQueryResult.CONT_SUMMARY[i]
-    td.appendChild(div);
-  }
-    tr.appendChild(td);
-    document.getElementById("DuyuruArea").appendChild(tr);
-  }
-}
+//   for (let i = 0; i < DuyurQueryResult.recordcount; i++) {
+//     var tr = document.createElement("tr");
+//     var td = document.createElement("td");
+//     td.innerText = DuyurQueryResult.ROWNUM[i];
+//     tr.appendChild(td);
+//     var td = document.createElement("td");
+//     var a = document.createElement("a");
+//     a.setAttribute(
+//       "onclick",
+//       "openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid=" +
+//         DuyurQueryResult.CONTENT_ID[i] +
+//         "')"
+//     );
+//     a.setAttribute("href", "javascript:;");
+//     a.innerText = DuyurQueryResult.CONT_HEAD[i];
+//     td.appendChild(a);
+//     if(i==0){
+//     var div=document.createElement("div");
+//     div.innerHTML=DuyurQueryResult.CONT_SUMMARY[i]
+//     td.appendChild(div);
+//   }
+//     tr.appendChild(td);
+//     document.getElementById("DuyuruArea").appendChild(tr);
+//   }
+ }
 function SonrakiSayfa() {
   AktifSayfa++;
 }

@@ -39,27 +39,14 @@
 </style>
 <div class="row" >
     <div class="col col-10">
-        <cf_box title="Duyurular">
-            <div>
-                <cf_big_list>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody  id="DuyuruArea">
-
-                </tbody>
-                </cf_big_list>
-            </div>
-            <br>
-            <div style="display:flex">
-                <span id="Sayfammm"></span>
-                <button class="btn btn-sm btn-primary" style="border-radius: 0.375rem !important;" id="eksiEl" onclick="GetDuyurus('all')">Tümünü Göster</button>
-              
-            </div>
-        </cf_box>
+        <cfquery name="getDuyurus" datasource="#dsn#">
+            SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())
+        </cfquery>
+       <select class="form-contro form-control-lg text-primary">
+<cfoutput query="#getDuyurus#">
+    <option value="#CONTENT_ID#">#CONT_SUMMARY#</option>
+</cfoutput>
+       </select>
     </div>
     <div class="col col-2">
         <table style="width: 100%;">
