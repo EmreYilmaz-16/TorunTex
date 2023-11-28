@@ -20,7 +20,7 @@ $(document).ready(function () {
     searchField: "ORDER_NUMBER",
     onChange: eventHandler_2("onChange"),
   });
-  document.body.setAttribute("style","overflow-y: hidden;")
+  document.body.setAttribute("style","overflow-y: hidden;background:#767676")
   var btn = document.createElement("button");
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
