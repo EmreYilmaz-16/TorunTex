@@ -108,8 +108,7 @@
     
 </div>
         <div style="display:flex;flex-direction: column;">
-            <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;border-radius: 0.375rem !important;">Yazdir/Üret</button>
-            <button type="button" class="btn btn-lg btn-danger" style="position: fixed;bottom: 0;right: 0;width: 300px;margin-bottom: 20px;margin-right: 20px;border-radius: 0.375rem !important;" onclick="Iptal()">İptal</button>
+            <button type="button" class="btn btn-lg btn-success" onclick="Yazdir()" style="margin-bottom: 5px;border-radius: 0.375rem !important;">Yazdir/Üret</button>            
             <input type="hidden" name="WRK_ROW_ID" id="WRK_ROW_ID">
             <input type="hidden" name="LotNo" id="LotNo">
             <input type="hidden" name="SIP_DEPO" id="SIP_DEPO">
@@ -186,6 +185,8 @@
         <div style="height:20vh;overflow-y: scroll;" id="ProductionData">
             
         </div>
+        <div class="alert alert-primary" id="uretimCount" style="display: block;width: 100px;height: 100px;font-size: 40pt;text-align: center;">0</div>
+        <button type="button" class="btn btn-lg btn-danger" onclick="Iptal()">İptal</button>
     </div>
 </div>
 <div class="row">
@@ -215,7 +216,7 @@
     </tr>
    </table>
    <div style="display: flex;justify-content: center;">
-    <div class="alert alert-primary" id="uretimCount" style="display: block;width: 100px;height: 100px;font-size: 40pt;text-align: center;">0</div>
+    
     </div>
     </div>
 </div>
