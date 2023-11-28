@@ -29,12 +29,30 @@ WHERE TT.BAKIYE = 0
 <cf_box title="Depolar" scroll="1" collapsable="1" resize="1" popup_box="1">
     <input type="text" name="e" onkeyup="searchSiparis(this,event)">
 <table id="Tabloooom">
+    <ul class="ui-list">
+				
+        <li onclick="send_value_1('1█ANTREPO - HOL-01█13█1');">
+            <a href="javascript://">
+                <div class="ui-list-left">
+                    1 - ANTREPO - HOL-01 
+                </div>
+            </a>
+                
+        </li>    
+
 <cfoutput query="gets">
-    <tr>
-        <td><a onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');">#DEPARTMENT_HEAD#-#COMMENT#</a></td>
-    </tr>
+    
+        <li  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');">
+            <a href="javascript://">
+                <div class="ui-list-left">
+                    #DEPARTMENT_HEAD#-#COMMENT#
+                </div>
+            </a>
+                
+        </li> 
+     
 </cfoutput>
-</table>
+</ul>
 </cf_box>
 <script>
           function searchSiparis(el,ev){
