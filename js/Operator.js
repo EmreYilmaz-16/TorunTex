@@ -7,7 +7,7 @@ $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
     .setAttribute("class", "container-fluid");
- /* $sipSelect = $("#select_1").selectize({
+  $sipSelect = $("#select_1").selectize({
     valueField: "PRODUCT_ID",
     labelField: "PRODUCT_NAME",
     searchField: "PRODUCT_NAME",
@@ -20,8 +20,7 @@ $(document).ready(function () {
     labelField: "ORDER_NUMBER",
     searchField: "ORDER_NUMBER",
     onChange: eventHandler_2("onChange"),
-  });*/
-  $('#select_1').select2();
+  });
   document.body.setAttribute("style","overflow-y: hidden;")
   var btn = document.createElement("button");
   if (localStorage.getItem("ACTIVE_STATION") != null) {

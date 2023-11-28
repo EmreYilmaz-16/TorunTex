@@ -1,6 +1,3 @@
-<link href="/JS/select2020/dist/css/select2.min.css" rel="stylesheet" />
-<script src="/JS/select2020/dist/js/select2.min.js"></script>
-
 <style>
   :root {     
         --scroll-bar-color: #c5c5c5;
@@ -104,7 +101,13 @@
     <div class="col col-4">        
         <div class="form-group">
             <label>Ürün</label>
-            <select class="sel" id="select_1" placeholder="Ürün Seçiniz"></select>
+            <select class="form-control form-control-lg form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example"> 
+                 
+                
+                   
+                
+            
+            </select>
         </div>
 <div id="SiparisDataArea">
     
@@ -214,6 +217,5 @@
 </script>
 </cfoutput>
 <script src="/AddOns/Partner/js/Operator.js"></script>
-
-
-
+<script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
+<link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.bootstrap5.css">
