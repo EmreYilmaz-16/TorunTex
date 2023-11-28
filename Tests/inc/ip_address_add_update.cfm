@@ -10,11 +10,12 @@
     <input type="hidden" name="IID" value="#ID#">
     <input type="text" name="PRINTER_NAME" value="#PRINTER_NAME#">
     <div class="form-group">
-        <input type="hidden" name="STORE_ID" value="#STORE_ID#">
-        <input type="hidden" name="LOCATION_ID" value="#LOCATION_ID#">
+        <input type="hidden" name="STORE_ID" id="deliver_dept_id" value="#STORE_ID#">
+        <input type="hidden" name="LOCATION_ID" id="deliver_loc_id" value="#LOCATION_ID#">
+        <input type="hidden"  id="branch_id" >
     
     <div class="input-group">
-        <input type="text" name="ISTASYON" value="#PRINTER_NAME#">
+        <input type="text" name="ISTASYON" id="deliver_dept_name" value="#PRINTER_NAME#">
         <span class="input-group-addon btnPointer icon-ellipsis" style="background:#6a6a6a;color:white" onclick="pencereac(1,null)"></span>
     </div>
 </div>
