@@ -185,8 +185,10 @@
         <div style="height:20vh;overflow-y: scroll;" id="ProductionData">
             
         </div>
-        <div class="alert alert-primary" id="uretimCount" style="display: block;width: 100px;height: 100px;font-size: 40pt;text-align: center;">0</div>
-        <button type="button" class="btn btn-lg btn-danger" onclick="Iptal()">İptal</button>
+        
+        <div style="display: flex;padding: 20px;">
+            <div class="alert alert-primary" id="uretimCount" style="display: block;font-size: 19pt;text-align: center;margin: 0px;padding: 5px;">0</div>
+            <button type="button" class="btn form-control btn-lg btn-danger" onclick="Iptal()" style="font-size: 18pt;">İptal</button></div>
     </div>
 </div>
 <div class="row">
