@@ -23,8 +23,8 @@ FROM (
 	INNER JOIN w3Toruntex.DEPARTMENT AS D ON D.DEPARTMENT_ID = SL.DEPARTMENT_ID
 	WHERE SL.DEPARTMENT_ID = 14
 	) AS TT
-WHERE TT.BAKIYE = 0
-	AND TT.SIP_DURUM = 0
+<!---WHERE TT.BAKIYE = 0
+	AND TT.SIP_DURUM = 0--->
 </cfquery>
 <cf_box title="Depolar" scroll="1" collapsable="1" resize="1" popup_box="1">
     <div class="form-group">
@@ -33,7 +33,7 @@ WHERE TT.BAKIYE = 0
     <ul class="ui-list" id="Tabloooom">
     <cfoutput query="gets">
     
-        <li  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');">
+        <li <cfif BAKIYE EQ 0 AND SIP_DURUM EQ 0>  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');"<CFELSE>style="color:red" </cfif>>
             <a href="javascript://">
                 <div class="ui-list-left">
                     #DEPARTMENT_HEAD#-#COMMENT#
