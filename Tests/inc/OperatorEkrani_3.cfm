@@ -38,7 +38,7 @@
     }
 </style>
 <div class="row">
-    <div class="col col-2">
+    <div class="col col-2" id="col_0001">
         <cf_box title="Duyurular">
             <div style="height:90vh;">
                 <cf_big_list>
@@ -61,7 +61,7 @@
             </div>
         </cf_box>
     </div>
-    <div class="col col-10">
+    <div class="col col-10" id="col_0002">
 <div class="row" >
     <div class="col col-10">
         <button class="btn btn-lg btn-link" id="BtnORk">≡</button>
