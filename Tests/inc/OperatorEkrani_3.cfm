@@ -64,7 +64,7 @@
     <div class="col col-10">
 <div class="row" >
     <div class="col col-10">
-        
+        <button class="btn btn-lg btn-link" id="BtnORk">≡</button>
     </div>
     <div class="col col-2">
         <table style="width: 100%;">
