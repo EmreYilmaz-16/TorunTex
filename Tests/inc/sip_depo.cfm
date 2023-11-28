@@ -30,17 +30,7 @@ WHERE TT.BAKIYE = 0
     <input type="text" name="e" onkeyup="searchSiparis(this,event)">
 <table id="Tabloooom">
     <ul class="ui-list">
-				
-        <li onclick="send_value_1('1█ANTREPO - HOL-01█13█1');">
-            <a href="javascript://">
-                <div class="ui-list-left">
-                    1 - ANTREPO - HOL-01 
-                </div>
-            </a>
-                
-        </li>    
-
-<cfoutput query="gets">
+    <cfoutput query="gets">
     
         <li  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');">
             <a href="javascript://">
