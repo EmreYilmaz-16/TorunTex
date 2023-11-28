@@ -31,7 +31,7 @@ WHERE TT.BAKIYE = 0
 <table id="Tabloooom">
 <cfoutput query="gets">
     <tr>
-        <td><a onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');">#DEPARTMENT_HEAD#-#COMMENTCOMMENT#</a></td>
+        <td><a onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');">#DEPARTMENT_HEAD#-#COMMENT#</a></td>
     </tr>
 </cfoutput>
 </table>
