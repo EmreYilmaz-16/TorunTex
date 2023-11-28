@@ -11,7 +11,7 @@ LEFT JOIN STOCKS_LOCATION AS SL ON SL.LOCATION_ID =SPR.LOCATION_ID AND SL.DEPART
         <th>İstasyon</th>
         <th>Yazıcı Adı</th>
         <th>İp Adresi</th>
-        <th></th>
+        <th><i class="fa fa-plus" id="basket_header_add_2" onclick="window.location.href='/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=21&iid=0'"></i></th>
     </tr>
     <cfoutput query="GetIp">
         <tr>
@@ -19,7 +19,7 @@ LEFT JOIN STOCKS_LOCATION AS SL ON SL.LOCATION_ID =SPR.LOCATION_ID AND SL.DEPART
             <td>#COMMENT#</td>
             <td>#PRINTER_NAME#</td>
             <td>#IP_ADDRESS#</td>
-            <td></td>
+            <td><i class="icon-search" onclick="window.location.href='/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=21&iid=#ID#'"></i></td>
         </tr>
     </cfoutput>
 </cf_big_list>
