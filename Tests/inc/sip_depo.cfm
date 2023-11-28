@@ -1,4 +1,5 @@
-﻿<cfquery name="gets" datasource="#dsn3#">
+﻿<cfparam name="attributes.all" default="0">
+<cfquery name="gets" datasource="#dsn3#">
 SELECT *
 FROM (
 	SELECT SL.COMMENT
@@ -21,7 +22,7 @@ FROM (
 				), 0) AS BAKIYE
 	FROM w3Toruntex.STOCKS_LOCATION AS SL
 	INNER JOIN w3Toruntex.DEPARTMENT AS D ON D.DEPARTMENT_ID = SL.DEPARTMENT_ID
-	WHERE SL.DEPARTMENT_ID = 14
+	<cfif attributes.all neq 1>WHERE SL.DEPARTMENT_ID = 14</cfif>
 	) AS TT
 <!---WHERE TT.BAKIYE = 0
 	AND TT.SIP_DURUM = 0--->
@@ -33,10 +34,10 @@ FROM (
     <ul class="ui-list" id="Tabloooom">
     <cfoutput query="gets">
     
-        <li <cfif BAKIYE EQ 0 AND SIP_DURUM EQ 0>  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');"<CFELSE>style="color:red" </cfif>>
+        <li <cfif (BAKIYE EQ 0 AND SIP_DURUM EQ 0) or attributes.all eq 1>  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');"<CFELSE>style="color:red" </cfif>>
             <a href="javascript://">
                 <div class="ui-list-left">
-                    #DEPARTMENT_HEAD#-#COMMENT# <cfif BAKIYE EQ 0 AND SIP_DURUM EQ 0><cfelse>&nbsp;&nbsp; <span style="color:red">DOLU</span></cfif>
+                    #DEPARTMENT_HEAD#-#COMMENT# <cfif (BAKIYE EQ 0 AND SIP_DURUM EQ 0) or attributes.all eq 1><cfelse>&nbsp;&nbsp; <span style="color:red">DOLU</span></cfif>
                 </div>
             </a>
                 
