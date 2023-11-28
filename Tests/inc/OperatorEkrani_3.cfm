@@ -38,30 +38,31 @@
     }
 </style>
 <div class="row">
-    <div class="col col-2" id="col_0001">
-        <cf_box title="Duyurular">
-            <div style="height:90vh;">
-                <cf_big_list>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody  id="DuyuruArea">
-
-                </tbody>
-                </cf_big_list>
-            </div>
-            <br>
-            <div style="display:flex">
-                <span id="Sayfammm"></span>
-                <button class="btn btn-sm btn-primary" style="border-radius: 0.375rem !important;" id="eksiEl" onclick="GetDuyurus('all')">Tümünü Göster</button>
-              
-            </div>
-        </cf_box>
-    </div>
-    <div class="col col-10" id="col_0002">
+   
+    <div class="col col-12" id="col_0002">
+        <div style="position:absolute;height:100vh;left:0;background:white;z-index:9999" class="col col-2" id="col_0001">
+            <cf_box title="Duyurular">
+                <div style="height:90vh;">
+                    <cf_big_list>
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody  id="DuyuruArea">
+    
+                    </tbody>
+                    </cf_big_list>
+                </div>
+                <br>
+                <div style="display:flex">
+                    <span id="Sayfammm"></span>
+                    <button class="btn btn-sm btn-primary" style="border-radius: 0.375rem !important;" id="eksiEl" onclick="GetDuyurus('all')">Tümünü Göster</button>
+                  
+                </div>
+            </cf_box>
+        </div>
 <div class="row" >
     <div class="col col-10">
         <button class="btn btn-lg btn-link" id="BtnORk">≡</button>
