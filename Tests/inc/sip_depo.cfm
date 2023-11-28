@@ -27,8 +27,9 @@ WHERE TT.BAKIYE = 0
 	AND TT.SIP_DURUM = 0
 </cfquery>
 <cf_box title="Depolar" scroll="1" collapsable="1" resize="1" popup_box="1">
-    <input type="text" name="e" onkeyup="searchSiparis(this,event)">
-
+    <div class="form-group">
+    <input type="text" name="e" onkeyup="searchSiparis(this,event)" placeholder="Ara">
+</div>
     <ul class="ui-list" id="Tabloooom">
     <cfoutput query="gets">
     
