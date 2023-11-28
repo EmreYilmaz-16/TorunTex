@@ -20,9 +20,9 @@
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
     function pencereac(tip,idd){
-        if(tip==1){
-        windowopen('index.cfm?fuseaction=sales.emptypopup_add_sevk_talep&ACTION_ID='+idd,'wide');}else if(tip==2){
-            windowopen('index.cfm?fuseaction=sales.popup_list_order_internal_rate&order_id='+idd,'wide');
+        if(tip==2){
+        windowopen('index.cfm?fuseaction=sales.emptypopup_add_sevk_talep&ACTION_ID='+idd,'wide');}else if(tip==1){
+            openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=19');
         }else if(tip==3){
              windowopen('index.cfm?fuseaction=objects.popup_print_files_old&action=sales.list_order&action_id='+idd+'&print_type=73','wide');
         }else if(tip==4){
