@@ -20,7 +20,7 @@ $(document).ready(function () {
     searchField: "ORDER_NUMBER",
     onChange: eventHandler_2("onChange"),
   });
-  document.body.setAttribute("style","overflow-y: hidden;")
+  document.body.setAttribute("style", "overflow-y: hidden;");
   var btn = document.createElement("button");
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
@@ -38,7 +38,7 @@ $(document).ready(function () {
     OpenLogIn();
   }
   document.getElementById("butonAre").appendChild(btn);
-  $("#wrk_bug_add_div").hide()
+  $("#wrk_bug_add_div").hide();
   GetDuyurus();
 });
 var eventHandler_1 = function (name) {
@@ -72,78 +72,82 @@ function getOrders(product_id) {
   );
 }
 function getAOrder(ORDER_ROW_ID) {
- // $("#SiparisResultAreaAs").toggle(500);
+  // $("#SiparisResultAreaAs").toggle(500);
   MainOrderRowID = ORDER_ROW_ID;
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
       ORDER_ROW_ID,
     success: function (retDat) {
-      console.log(retDat);
-      var Obj = JSON.parse(retDat);
-      console.log(Obj);
-      if (Obj.ORDER_ROW_CURRENCY != -5) {
-        alert("Üretim Durdurulmuştur");
-        /*  var Control = $select[0].selectize;
+      try {
+        console.log(retDat);
+        var Obj = JSON.parse(retDat);
+        console.log(Obj);
+        if (Obj.ORDER_ROW_CURRENCY != -5) {
+          alert("Üretim Durdurulmuştur");
+          /*  var Control = $select[0].selectize;
         Control.clear();
         Control.clearOptions();*/
-        TemizleCanim();
-      } else {
-        $("#RenkYazi").text(Obj.PROPERTY5);
-        var Renk1_ = list_getat(Obj.PROPERTY5, 1, "-");
-        var Renk2_ = list_getat(Obj.PROPERTY5, 2, "-");
-        var Renk1 = "";
-        var Renk2 = "";
-        if (Renk1_ == "BEYAZ") Renk1 = "white";
-        else if (Renk1_ == "SARI") Renk1 = "yellow";
-        else if (Renk1_ == "YEŞİL") Renk1 = "green";
-        else Renk1 = "antiquewhite";
+          TemizleCanim();
+        } else {
+          $("#RenkYazi").text(Obj.PROPERTY5);
+          var Renk1_ = list_getat(Obj.PROPERTY5, 1, "-");
+          var Renk2_ = list_getat(Obj.PROPERTY5, 2, "-");
+          var Renk1 = "";
+          var Renk2 = "";
+          if (Renk1_ == "BEYAZ") Renk1 = "white";
+          else if (Renk1_ == "SARI") Renk1 = "yellow";
+          else if (Renk1_ == "YEŞİL") Renk1 = "green";
+          else Renk1 = "antiquewhite";
 
-        if (Renk2_ == "BEYAZ") Renk2 = "white";
-        else if (Renk2_ == "SARI") Renk2 = "yellow";
-        else if (Renk2_ == "YEŞİL") Renk2 = "green";
-        else if (Renk2_ == "MAVİ") Renk2 = "blue";
-        else Renk2 = "antiquewhite";
+          if (Renk2_ == "BEYAZ") Renk2 = "white";
+          else if (Renk2_ == "SARI") Renk2 = "yellow";
+          else if (Renk2_ == "YEŞİL") Renk2 = "green";
+          else if (Renk2_ == "MAVİ") Renk2 = "blue";
+          else Renk2 = "antiquewhite";
 
-        $("#color1").attr(
-          "style",
-          "display:block;border: solid 0.5px black;background: " +
-            Renk1 +
-            ";width: 25%;"
-        );
-        $("#color2").attr(
-          "style",
-          "display:block;border: solid 0.5px black;background: " +
-            Renk2 +
-            ";width: 25%;"
-        );
-        $("#Country").text(Obj.COUNTRY_NAME);
-        $("#Customer").text(Obj.NICKNAME);
-        $("#paketIcerik").val(Obj.A1);
-        $("#paketKG").val(Obj.A2);    
-        $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
-        $("#SIP_DEPO").val(Obj.SIP_DEPO);
-        $("#OrderLocation").text(Obj.COMMENT);
-        $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
-        $("#AA2").text(Obj.PRODUCT_DETAIL);
-        $("#AA3").text(Obj.PRODUCT_NAME2);
-        $("#sipres").html("");
-        $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
-        $("#LotNo").val(LotVer(CurrentStation));
-        for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
-          var OO = Obj.ALL_ROWS[i];
-          var tr = document.createElement("tr");
-          var td = document.createElement("td");
-          td.innerText = OO.PRODUCT_NAME;
-          tr.appendChild(td);
-          var td = document.createElement("td");
-          td.innerText = commaSplit(OO.QUANTITY);
-          tr.appendChild(td);
-          var td = document.createElement("td");
-          td.innerText = commaSplit(OO.R_AMOUNT);
-          tr.appendChild(td);
-          document.getElementById("sipres").appendChild(tr);
+          $("#color1").attr(
+            "style",
+            "display:block;border: solid 0.5px black;background: " +
+              Renk1 +
+              ";width: 25%;"
+          );
+          $("#color2").attr(
+            "style",
+            "display:block;border: solid 0.5px black;background: " +
+              Renk2 +
+              ";width: 25%;"
+          );
+          $("#Country").text(Obj.COUNTRY_NAME);
+          $("#Customer").text(Obj.NICKNAME);
+          $("#paketIcerik").val(Obj.A1);
+          $("#paketKG").val(Obj.A2);
+          $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
+          $("#SIP_DEPO").val(Obj.SIP_DEPO);
+          $("#OrderLocation").text(Obj.COMMENT);
+          $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
+          $("#AA2").text(Obj.PRODUCT_DETAIL);
+          $("#AA3").text(Obj.PRODUCT_NAME2);
+          $("#sipres").html("");
+          $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
+          $("#LotNo").val(LotVer(CurrentStation));
+          for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
+            var OO = Obj.ALL_ROWS[i];
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            td.innerText = OO.PRODUCT_NAME;
+            tr.appendChild(td);
+            var td = document.createElement("td");
+            td.innerText = commaSplit(OO.QUANTITY);
+            tr.appendChild(td);
+            var td = document.createElement("td");
+            td.innerText = commaSplit(OO.R_AMOUNT);
+            tr.appendChild(td);
+            document.getElementById("sipres").appendChild(tr);
+          }
         }
+      } catch  {
+        TemizleCanim();
       }
     },
   });
@@ -234,52 +238,48 @@ var str = "";
 });*/
 var AktifSayfa = 1;
 function GetDuyurus(op, el) {
-//   var Ba = 1;
-//   var Bi = 1;
-//   $("#DuyuruArea").html("");
-
-//   var DuyurQuery =
-//     "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
-//   DuyurQuery +=
-//     "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2";
-//   if (op == "all") {
-//   } else {
-//     DuyurQuery += " WHERE RowNum BETWEEN " + Ba + " AND " + Bi;
-//   }
-//   DuyurQueryResult = wrk_query(DuyurQuery);
-
-
-
-//   for (let i = 0; i < DuyurQueryResult.recordcount; i++) {
-//     var tr = document.createElement("tr");
-//     var td = document.createElement("td");
-//     td.innerText = DuyurQueryResult.ROWNUM[i];
-//     tr.appendChild(td);
-//     var td = document.createElement("td");
-//     var a = document.createElement("a");
-//     a.setAttribute(
-//       "onclick",
-//       "openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid=" +
-//         DuyurQueryResult.CONTENT_ID[i] +
-//         "')"
-//     );
-//     a.setAttribute("href", "javascript:;");
-//     a.innerText = DuyurQueryResult.CONT_HEAD[i];
-//     td.appendChild(a);
-//     if(i==0){
-//     var div=document.createElement("div");
-//     div.innerHTML=DuyurQueryResult.CONT_SUMMARY[i]
-//     td.appendChild(div);
-//   }
-//     tr.appendChild(td);
-//     document.getElementById("DuyuruArea").appendChild(tr);
-//   }
- }
+  //   var Ba = 1;
+  //   var Bi = 1;
+  //   $("#DuyuruArea").html("");
+  //   var DuyurQuery =
+  //     "WITH CTE1 AS ( SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())";
+  //   DuyurQuery +=
+  //     "),CTE2 AS ( SELECT CTE1.*,ROW_NUMBER() OVER ( ORDER BY CONTENT_ID DESC) AS RowNum,(SELECT COUNT(*) FROM CTE1) AS QUERY_COUNT FROM CTE1) SELECT CTE2.* FROM CTE2";
+  //   if (op == "all") {
+  //   } else {
+  //     DuyurQuery += " WHERE RowNum BETWEEN " + Ba + " AND " + Bi;
+  //   }
+  //   DuyurQueryResult = wrk_query(DuyurQuery);
+  //   for (let i = 0; i < DuyurQueryResult.recordcount; i++) {
+  //     var tr = document.createElement("tr");
+  //     var td = document.createElement("td");
+  //     td.innerText = DuyurQueryResult.ROWNUM[i];
+  //     tr.appendChild(td);
+  //     var td = document.createElement("td");
+  //     var a = document.createElement("a");
+  //     a.setAttribute(
+  //       "onclick",
+  //       "openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid=" +
+  //         DuyurQueryResult.CONTENT_ID[i] +
+  //         "')"
+  //     );
+  //     a.setAttribute("href", "javascript:;");
+  //     a.innerText = DuyurQueryResult.CONT_HEAD[i];
+  //     td.appendChild(a);
+  //     if(i==0){
+  //     var div=document.createElement("div");
+  //     div.innerHTML=DuyurQueryResult.CONT_SUMMARY[i]
+  //     td.appendChild(div);
+  //   }
+  //     tr.appendChild(td);
+  //     document.getElementById("DuyuruArea").appendChild(tr);
+  //   }
+}
 function SonrakiSayfa() {
   AktifSayfa++;
 }
-function setSelAll(el){
-  el.select()
+function setSelAll(el) {
+  el.select();
 }
 function Yazdir() {
   var AMOUNT = document.getElementById("paketKG").value;
@@ -305,50 +305,80 @@ function Yazdir() {
       SIP_DEPO,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
-    //  alert(Obj.MESSAGE);
+      //  alert(Obj.MESSAGE);
       getAOrder(MainOrderRowID);
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
       getProductionCount();
-     console.log(Obj);
-      YazdirabilirsenYazdir(Obj.COMMENT,Obj.ORDER_NUMBER,Obj.PRODUCT_CODE_2,Obj.PRODUCT_DETAIL,Obj.LOT_NO,Obj.AMOUNT,Obj.PRODUCT_NAME)
+      console.log(Obj);
+      YazdirabilirsenYazdir(
+        Obj.COMMENT,
+        Obj.ORDER_NUMBER,
+        Obj.PRODUCT_CODE_2,
+        Obj.PRODUCT_DETAIL,
+        Obj.LOT_NO,
+        Obj.AMOUNT,
+        Obj.PRODUCT_NAME
+      );
     },
   });
 }
-function YazdirabilirsenYazdir(warehouse,order_no,product_no,product_note,serial_no,weight,product_name)
-    {
-      var ip_addr = "192.168.0.62";
-  
-      var qr_code = product_no + "|" + serial_no + "||" + weight;
-      
+function YazdirabilirsenYazdir(
+  warehouse,
+  order_no,
+  product_no,
+  product_note,
+  serial_no,
+  weight,
+  product_name
+) {
+  var ip_addr = "192.168.0.62";
 
-	  var zpl = "^XA^XFE:etiket2.ZPL^FS"
-      + "^CI28^FN1^FH\^FD" + warehouse + "^FS^CI27^"
-      + "CI28^FN2^FH\^FD" + order_no + "^FS^CI27" 
-      + "^CI28^FN3^FH\^FD"+ product_no + "^FS^CI27"
-      + "^CI28^FN4^FH\^FD" + product_note + "^FS^CI27"
-      + "^CI28^FN5^FH\^FD" + serial_no + "^FS^CI27"
-      + "^CI28^FN6^FH\^FD" + weight + "^FS^CI27"
-      + "^CI28^FN7^FH\^FD" + qr_code + "^FS^CI27"
-      + "^CI28^FN8^FH\^FD" + product_name + "^FS^CI27"
-      + "^PQ1,0,1^XZ";
-      var url = "http://"+ip_addr+"/pstprnt";
-      var method = "POST";
-      var async = true;
-      var request = new XMLHttpRequest();
+  var qr_code = product_no + "|" + serial_no + "||" + weight;
 
-      request.onload = function () {
-        var status = request.status; 
-        var data = request.responseText; 
-        output.innerHTML = "Status: " + status + "<br>" + data;
-      }
+  var zpl =
+    "^XA^XFE:etiket2.ZPL^FS" +
+    "^CI28^FN1^FH^FD" +
+    warehouse +
+    "^FS^CI27^" +
+    "CI28^FN2^FH^FD" +
+    order_no +
+    "^FS^CI27" +
+    "^CI28^FN3^FH^FD" +
+    product_no +
+    "^FS^CI27" +
+    "^CI28^FN4^FH^FD" +
+    product_note +
+    "^FS^CI27" +
+    "^CI28^FN5^FH^FD" +
+    serial_no +
+    "^FS^CI27" +
+    "^CI28^FN6^FH^FD" +
+    weight +
+    "^FS^CI27" +
+    "^CI28^FN7^FH^FD" +
+    qr_code +
+    "^FS^CI27" +
+    "^CI28^FN8^FH^FD" +
+    product_name +
+    "^FS^CI27" +
+    "^PQ1,0,1^XZ";
+  var url = "http://" + ip_addr + "/pstprnt";
+  var method = "POST";
+  var async = true;
+  var request = new XMLHttpRequest();
 
-      request.open(method, url, async);
-      request.setRequestHeader("Content-Length", zpl.length);
+  request.onload = function () {
+    var status = request.status;
+    var data = request.responseText;
+    output.innerHTML = "Status: " + status + "<br>" + data;
+  };
 
-      
-      request.send(zpl);
-    }
+  request.open(method, url, async);
+  request.setRequestHeader("Content-Length", zpl.length);
+
+  request.send(zpl);
+}
 function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   var StationObject = {
     DEPARTMENT_ID: DEPARTMENT_ID,
@@ -563,4 +593,3 @@ function tck() {
 ^XA^XFE:etiket2.ZPL^FS^CI28^FN1^FH^FDA-01^FS^CI27^CI28^FN2^FH^FDSA-5^FS^CI27^CI28^FN3^FH^FD100913231^FS^CI27^CI28^FN4^FH^FDAnorak Heavy Mix^FS^CI27^CI28^FN5^FH^FD127112023000315^FS^CI27^CI28^FN6^FH^FD25^FS^CI27^CI28^FN7^FH^FD100913231|127112023000315||25^FS^CI27^CI28^FN8^FH^FDANOMIX-10^FS^CI27^PQ1,0,1^XZ
 
 */
-
