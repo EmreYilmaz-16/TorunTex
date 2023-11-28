@@ -131,10 +131,10 @@
         <input style="font-size:20pt" type="text" class="form-control" id="paketKG">
     </div>
 </div>
-    <hr>
+    
     <div class="row">
-        <div class="col col-3"></div>
-        <div class="col col-6">
+        
+        <div class="col col-12" style="padding:0px 20px 0px 20px">
             <input type="text" class="form-control" id="TxResult" value="0" style="text-align: right;font-size: 25pt;">
             <table class="table table-bordered" style="font-size: 14pt;width: 100%;">
                 <tbody>
@@ -164,7 +164,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col col-3"></div>
+        
     </div>
 </div>
     <div class="col col-3">
