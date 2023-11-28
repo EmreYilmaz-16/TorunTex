@@ -1,4 +1,4 @@
-<cfquery name="GetIp" datasource="#dsn#">
+<cfquery name="GetIpa" datasource="#dsn#">
 SELECT SPR.*,SL.COMMENT,D.DEPARTMENT_HEAD FROM STATION_PRINTER_RELATION_PBS AS SPR 
 LEFT JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID =SPR.STORE_ID
 LEFT JOIN STOCKS_LOCATION AS SL ON SL.LOCATION_ID =SPR.LOCATION_ID AND SL.DEPARTMENT_ID=D.DEPARTMENT_ID 
@@ -13,7 +13,7 @@ LEFT JOIN STOCKS_LOCATION AS SL ON SL.LOCATION_ID =SPR.LOCATION_ID AND SL.DEPART
         <th>İp Adresi</th>
         <th><i class="fa fa-plus" id="basket_header_add_2" onclick="window.location.href='/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=21&iid=0'"></i></th>
     </tr>
-    <cfoutput query="GetIp">
+    <cfoutput query="GetIpa">
         <tr>
             <td>#DEPARTMENT_HEAD#</td>
             <td>#COMMENT#</td>
