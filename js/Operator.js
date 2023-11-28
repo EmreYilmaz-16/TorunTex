@@ -11,6 +11,8 @@ $(document).ready(function () {
     valueField: "PRODUCT_ID",
     labelField: "PRODUCT_NAME",
     searchField: "PRODUCT_NAME",
+    create: false,
+    maxItems: null,
     onChange: eventHandler_1("onChange"),
   });
   $select = $("#select_2").selectize({
