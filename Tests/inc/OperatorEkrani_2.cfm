@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.css">
 <style>
   :root {     
         --scroll-bar-color: #c5c5c5;
@@ -212,6 +213,6 @@
 </cfoutput>
 <script src="/AddOns/Partner/js/Operator.js"></script>
 
-<link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.css">
+
 
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
