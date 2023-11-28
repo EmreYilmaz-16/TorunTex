@@ -16,7 +16,7 @@
     
     <div class="input-group">
         <input type="text" name="ISTASYON" id="deliver_dept_name" value="#PRINTER_NAME#">
-        <span class="input-group-addon btnPointer icon-ellipsis" style="background:#6a6a6a;color:white" onclick="pencereac(1,null)"></span>
+        <span class="input-group-addon btnPointer icon-ellipsis" style="background:##6a6a6a;color:white" onclick="pencereac(1,null)"></span>
     </div>
 </div>
 </cfoutput>
