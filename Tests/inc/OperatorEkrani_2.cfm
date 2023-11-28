@@ -101,9 +101,9 @@
     <div class="col col-4">        
         <div class="form-group">
             <label>Ürün</label>
-            <select class="form-control form-control-lg form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example"> 
+            <select class="sel" id="select_1" placeholder="Ürün Seçiniz"> 
                  
-                <option value="">Ürün Seçiniz</option>
+                
                    
                 
             
