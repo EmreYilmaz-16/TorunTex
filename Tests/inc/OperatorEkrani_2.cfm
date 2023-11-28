@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.css">
+<link href="/JS/select2020/dist/css/select2.min.css" rel="stylesheet" />
+<script src="/JS/select2020/dist/js/select2.min.js"></script>
+
 <style>
   :root {     
         --scroll-bar-color: #c5c5c5;
@@ -215,4 +217,3 @@
 
 
 
-<script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
