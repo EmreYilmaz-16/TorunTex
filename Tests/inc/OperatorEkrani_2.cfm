@@ -93,7 +93,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col col-3">        
+    <div class="col col-4">        
         <div class="form-group">
             <label>Ürün</label>
             <select class="form-control form-control-lg form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example"> 
@@ -120,7 +120,7 @@
         </div>
 </div>
 
-<div class="col-6">
+<div class="col-4">
    <div style="display:flex;justify-content: space-between;">
     <div class="form-group" style="width:50%">
         <label>Paket İçerik</label>
@@ -167,7 +167,7 @@
         
     </div>
 </div>
-    <div class="col col-3">
+    <div class="col col-4">
         <div style="height:30vh;overflow-y: scroll;" id="OrderData">
             <cf_big_list class="table table-striped table-lg tableFixHead" SHOW_FS="0">
                 <thead>
