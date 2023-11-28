@@ -28,8 +28,8 @@ WHERE TT.BAKIYE = 0
 </cfquery>
 <cf_box title="Depolar" scroll="1" collapsable="1" resize="1" popup_box="1">
     <input type="text" name="e" onkeyup="searchSiparis(this,event)">
-<table id="Tabloooom">
-    <ul class="ui-list">
+
+    <ul class="ui-list" id="Tabloooom">
     <cfoutput query="gets">
     
         <li  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');">
@@ -47,7 +47,7 @@ WHERE TT.BAKIYE = 0
 <script>
           function searchSiparis(el,ev){
   var value = $(el).val().toLowerCase();
-  $("#Tabloooom tr").filter(function() {
+  $("#Tabloooom li").filter(function() {
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
 }
