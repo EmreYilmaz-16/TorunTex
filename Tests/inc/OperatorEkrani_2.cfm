@@ -48,11 +48,16 @@
         <cfquery name="getDuyurus" datasource="#dsn#">
             SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())
         </cfquery>
-       <select class="form-control form-control-lg text-danger" onchange="openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid=this.value')">
+       <select class="form-control form-control-lg text-danger" onchange="getirduyuru(this.value)">
 <cfoutput query="getDuyurus">
     <option value="#CONTENT_ID#"> ! #CONT_SUMMARY#</option>
 </cfoutput>
        </select>
+       <script>
+        function getirduyuru(params) {
+            openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=17&cntid='+params)
+        }
+       </script>
     </div>
     <div class="col col-2">
         <table style="width: 100%;">
