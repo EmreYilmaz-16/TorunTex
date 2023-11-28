@@ -186,40 +186,24 @@
             
         </div>
         
-        <div style="display: flex;padding: 20px;">
-            <div class="alert alert-primary" id="uretimCount" style="display: block;font-size: 19pt;text-align: center;margin: 0px;padding: 5px;">0</div>
-            <button type="button" class="btn form-control btn-lg btn-danger" onclick="Iptal()" style="font-size: 18pt;">İptal</button></div>
+        <div style="display: flex;padding: 20px;align-items: flex-end;justify-content: space-between;">
+            <div class="alert alert-primary" id="uretimCount" style="display: block;font-size: 19pt;text-align: center;margin: 0px;padding: 5px;width:150px">0</div>
+            <button type="button" class="btn form-control btn-lg btn-danger" onclick="Iptal()" style="font-size: 18pt;width:300px">İptal</button></div>
     </div>
 </div>
 <div class="row">
     <div class="col col-12">
    <table class="table">
-    <tr>
-        <td style="font-size: 14pt">
-            <strong>Üretim Notu</strong>
-        </td>
-        <td style="font-size: 14pt" id="AA1" colspan="3">
-
-        </td>
+    <tr>        
+        <td style="font-size: 14pt" id="AA1"></td>
+    </tr>
+    <tr>       
+        <td style="font-size: 14pt" id="AA2"></td>            
     </tr>
     <tr>
-        <td style="font-size: 14pt">
-            <strong>Açıklama</strong>
-        </td>
-        <td style="font-size: 14pt" id="AA2">
-
-        </td>
-        <td style="font-size: 14pt">
-            <strong>Açıklama</strong>
-        </td>
-        <td style="font-size: 14pt" id="AA3">
-
-        </td>
+        <td style="font-size: 14pt" id="AA3"></td>
     </tr>
    </table>
-   <div style="display: flex;justify-content: center;">
-    
-    </div>
     </div>
 </div>
 <cfoutput>
