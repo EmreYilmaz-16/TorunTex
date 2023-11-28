@@ -15,6 +15,7 @@ LEFT JOIN STOCKS_LOCATION AS SL ON SL.LOCATION_ID =SPR.LOCATION_ID AND SL.DEPART
     </tr>
     <cfoutput query="GetIpa">
         <tr>
+            <td>#currentrow#</td>
             <td>#DEPARTMENT_HEAD#</td>
             <td>#COMMENT#</td>
             <td>#PRINTER_NAME#</td>
