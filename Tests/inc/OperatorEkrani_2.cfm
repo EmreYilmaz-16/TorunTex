@@ -72,10 +72,10 @@
         <cf_grid_list style="width:100%">
             <tr>
                 <td style="font-size: 30px;padding:0;font-weight:bold;text-align:center" id="OrderLocation"></td>
-                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Complate"></td>
-                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Customer"></td>
-                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Country"></td>
-                <td style="font-size: 30px;padding:0;font-weight:bold;" id="Color">
+                <td style="font-size: 30px;padding:0;font-weight:normal;" id="Complate"></td>
+                <td style="font-size: 30px;padding:0;font-weight:normal;" id="Customer"></td>
+                <td style="font-size: 30px;padding:0;font-weight:normal;" id="Country"></td>
+                <td style="font-size: 30px;padding:0;font-weight:normal;" id="Color">
                     <div style="display: flex;justify-content: space-between;">
                         <span style="font-size: 20px" id="RenkYazi" style="width: 50%;display: block;"></span> 
                         <span id="color1" style="display:block;border: solid 0.5px black;background: none;width: 25%;">&nbsp;&nbsp;&nbsp;</span> 
@@ -90,7 +90,7 @@
     <div class="col col-3">        
         <div class="form-group">
             <label>Ürün</label>
-            <select class="form-control form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example"> 
+            <select class="form-control form-control-lg form-select sel" id="select_1" placeholder="Ürün Seçiniz" aria-label="Default select example"> 
                  
                 <option value="">Ürün Seçiniz</option>
                    
