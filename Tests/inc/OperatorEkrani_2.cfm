@@ -48,7 +48,7 @@
         <cfquery name="getDuyurus" datasource="#dsn#">
             SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())
         </cfquery>
-       <select class="form-control form-control-lg text-primary">
+       <select class="form-control form-control-lg text-danger">
 <cfoutput query="getDuyurus">
     <option value="#CONTENT_ID#">#CONT_SUMMARY#</option>
 </cfoutput>
