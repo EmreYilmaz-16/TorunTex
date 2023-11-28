@@ -43,4 +43,14 @@ WHERE TT.BAKIYE = 0
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
 }
+function send_value_1(values){
+				var value_length = list_len(values,'█');
+				for(vli=1;vli<=value_length;vli++){
+					var value=list_getat(values,vli,'█');
+					var inputObject = list_getat('deliver_loc_id,deliver_dept_name,deliver_dept_id,branch_id',vli,',');
+					if(document.getElementById(inputObject))
+						document.getElementById(inputObject).value = value;
+				}
+				closeBoxDraggable( '<cfoutput>#attributes.modal_id#</cfoutput>' );
+			}
 </script>
