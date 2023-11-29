@@ -92,6 +92,7 @@
                 ,STOCKS.PRODUCT_CODE
                 ,ORDER_ROW.ORDER_ID
                 ,O.ORDER_NUMBER
+                ,STOCKS.PRODUCT_DETAIL  
                 ,STOCKS.PRODUCT_DETAIL  A1
                 ,STOCKS.PRODUCT_DETAIL2  A2
                 ,SC.COUNTRY_NAME
