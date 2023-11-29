@@ -46,7 +46,7 @@
     </div>
 </div>
 <button type="button" class="btn btn-success" onclick="$('##frm1').submit()">Kaydet</button>
-<button type="button" class="btn btn-danger" onclick="$('##is_submit').val(2)&$('##frm1').submit()">Sil</button>
+<button type="button" class="btn btn-danger" onclick="">Sil</button>
 </cfoutput>
 </cfform>
 
@@ -60,6 +60,10 @@
         }else if(tip==4){
             windowopen('index.cfm?fuseaction=objects.popup_rekactions_prt&action=ORDER&action_id='+idd,'wide');
         }
+    }
+    function sil(){
+        $('#is_submit').val(2)
+        $('#frm1').submit()
     }
 </script>
 </cf_box>
