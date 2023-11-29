@@ -12,7 +12,7 @@
     <CFELSE>
         <CFSET attributes.IID=RES.GENERATEDKEY>
     </CFIF>
-<cfelse>
+<cfelseif isDefined("attributes.is_submit") and attributes.is_submit eq 2>
 <cfdump var="#attributes#">
 <cfquery name="del" datasource="#dsn#">
     DELETE FROM STATION_PRINTER_RELATION_PBS WHERE ID=#attributes.ID#
