@@ -140,9 +140,10 @@ function getAOrder(ORDER_ROW_ID) {
           $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
           $("#SIP_DEPO").val(Obj.SIP_DEPO);
           $("#OrderLocation").text(Obj.COMMENT);
-          $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
+          $("#AA1").text(Obj.DETAIL_INFO_EXTRA);          
           $("#AA2").text(Obj.AA2);
           $("#AA3").text(Obj.AA3);
+          $("#AA4").text(Obj.SA_PRODUCTION_NOTE);
           $("#sipres").html("");
           $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
           $("#LotNo").val(LotVer(CurrentStation));
