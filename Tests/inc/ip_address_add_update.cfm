@@ -46,7 +46,7 @@
     </div>
 </div>
 <button type="button" class="btn btn-success" onclick="$('##frm1').submit()">Kaydet</button>
-<button type="button" class="btn btn-danger" onclick="">Sil</button>
+<button type="button" class="btn btn-danger" onclick="sil()">Sil</button>
 </cfoutput>
 </cfform>
 
