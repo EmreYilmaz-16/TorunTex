@@ -502,6 +502,28 @@ function LotVer(STATION) {
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
   return ReturnValue;
 }
+function getDepoUretim(GENEL_DEPO){
+
+  $("#RenkYazi").text("");
+  $("#color1").attr(
+    "style",
+    "display:block;border: solid 0.5px black;background:none ;width: 25%;"
+  );
+  $("#color2").attr(
+    "style",
+    "display:block;border: solid 0.5px black;background:none;width: 25%;"
+  );
+  $("#Country").text("");
+  $("#OrderLocation").text(GENEL_DEPO);
+  $("#Customer").text("");
+  $("#paketIcerik").val("");
+  $("#paketKG").val("");
+  $("#WRK_ROW_ID").val("");
+  $("#SIP_DEPO").val(GENEL_DEPO);
+  $("#sipres").html("");
+  $("#Complate").text("");
+  $("#LotNo").val(LotVer(GENEL_DEPO));
+}
 
 /*
 WRK QUERY

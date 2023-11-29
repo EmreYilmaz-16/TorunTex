@@ -93,6 +93,16 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# AND O.PURCHASE_SALES=1 AND UNIT2='#
                         </tr>
                        
                     </cfoutput>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="javascript:;" class="btn btn-primary text-white" onclick="getDepoUretim('<cfoutput>#attributes.STATION#</cfoutput>')"><cfoutput>#attributes.STATION#</cfoutput></a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                     </tbody>
                     </thead>                
                 </cf_big_list>
