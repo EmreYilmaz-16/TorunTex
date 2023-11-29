@@ -30,24 +30,24 @@
     WHERE SPR.ID=#attributes.IID#
 </cfquery>
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#" id="frm1">
-    <cfoutput query="GetIpa">
-    <input type="hidden" name="ID" value="#ID#">
+    <cfoutput >
+    <input type="hidden" name="ID" value="#GetIpa.ID#">
     <input type="hidden" name="is_submit" id="is_submit" value="1">
     <div class="form-group">
         <label>Yazıcı Adı</label>
-        <input class="form-control" type="text" name="PRINTER_NAME" value="#PRINTER_NAME#">
+        <input class="form-control" type="text" name="PRINTER_NAME" value="#GetIpa.PRINTER_NAME#">
     </div>
     <div class="form-group">
         <label>İp Adresi</label>
-        <input class="form-control" type="text" name="IP_ADDRESS" value="#IP_ADDRESS#">
+        <input class="form-control" type="text" name="IP_ADDRESS" value="#GetIpa.IP_ADDRESS#">
     </div>
     <div class="form-group">
         <label>Depo</label>
-        <input type="hidden" name="STORE_ID" id="deliver_dept_id" value="#STORE_ID#">
-        <input type="hidden" name="LOCATION_ID" id="deliver_loc_id" value="#LOCATION_ID#">
+        <input type="hidden" name="STORE_ID" id="deliver_dept_id" value="#GetIpa.STORE_ID#">
+        <input type="hidden" name="LOCATION_ID" id="deliver_loc_id" value="#GetIpa.LOCATION_ID#">
         <input type="hidden"  id="branch_id" >    
     <div class="input-group">
-        <input class="form-control" type="text" name="ISTASYON" id="deliver_dept_name" value="#DEPARTMENT_HEAD#-#COMMENT# ">
+        <input class="form-control" type="text" name="ISTASYON" id="deliver_dept_name" value="#GetIpa.DEPARTMENT_HEAD#-#GetIpa.COMMENT# ">
         <button type="button" class="input-group-text" style="background:##6a6a6a;color:white;padding: 0px 13px 0px 13px;" onclick="pencereac(1,null)"><i class="icon-ellipsis"></i></button>
     </div>
 </div>
