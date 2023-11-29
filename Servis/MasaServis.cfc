@@ -92,7 +92,8 @@
                 ,STOCKS.PRODUCT_CODE
                 ,ORDER_ROW.ORDER_ID
                 ,O.ORDER_NUMBER
-                ,STOCKS.PRODUCT_DETAIL 
+                ,STOCKS.PRODUCT_DETAIL  A1
+                ,STOCKS.PRODUCT_DETAIL2  A2
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
                 ,O.DELIVER_DEPT_ID
@@ -100,8 +101,8 @@
                 ,SLSL.COMMENT
                 ,(100*ISNULL((
 SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where PBS_RELATION_ID=ORDER_ROW.WRK_ROW_ID and STORE=O.DELIVER_DEPT_ID and STORE_LOCATION=O.LOCATION_ID),0)/QUANTITY) AS TAMAMLANMA
-                ,SBI_1.BASKET_INFO_TYPE AS A1
-                ,SBI_2.BASKET_INFO_TYPE AS A2
+                ,SBI_1.BASKET_INFO_TYPE AS AA1
+                ,SBI_2.BASKET_INFO_TYPE AS AA2
             FROM w3Toruntex_1.ORDER_ROW
             LEFT JOIN w3Toruntex_1.ORDER_INFO_PLUS ON ORDER_ROW.ORDER_ID = ORDER_INFO_PLUS.ORDER_ID
             LEFT JOIN w3Toruntex_1.STOCKS ON STOCKS.STOCK_ID = ORDER_ROW.STOCK_ID
