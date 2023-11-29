@@ -403,6 +403,12 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         UPDATE w3Toruntex_1.PBS_LOT_NUMBER  SET LOT_NO=LOT_NO+1
     </cfquery>
 </cffunction>
+<cffunction name="getColData" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
+    <cfquery name="getdadata" datasource="#dsn#">
+        SELECT * FROM w3Toruntex.MODIFIED_PAGE WHERE CONTROLLER_NAME LIKE '%saleOrderController%' AND EVENT_LIST ='add'  AND POSITION_CODE <>-1
+    </cfquery>
+<cfreturn getdadata.JSON_DATA>
+</cffunction>
 
 <cffunction name="getLastRecords">
     <cfargument name="STATION_NAME">
@@ -410,4 +416,5 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         SELECT TOP 5 * FROM W
     </cfquery>
 </cffunction>
+<
 </cfcomponent>
