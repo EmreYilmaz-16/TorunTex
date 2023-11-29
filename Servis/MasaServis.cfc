@@ -91,6 +91,7 @@
                 ,STOCKS.PRODUCT_NAME
                 ,STOCKS.PRODUCT_CODE
                 ,ORDER_ROW.ORDER_ID
+                ,O.ORDER_NUMBER
                 ,STOCKS.PRODUCT_DETAIL 
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
@@ -182,6 +183,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         TAMAMLANMA=TAMAMLANMA,
         SIP_DEPO="#DELIVER_DEPT_ID#-#LOCATION_ID#",
         COMMENT=COMMENT,
+        ORDER_NUMBER=ORDER_NUMBER,
         A1=A1,
         A2=A2
         
