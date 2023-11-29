@@ -525,6 +525,7 @@ function getDepoUretim(GENEL_DEPO){
   $("#sipres").html("");
   $("#Complate").text("");
   $("#LotNo").val(LotVer(GENEL_DEPO));
+  $("#ActiveSiparisId").val("");
 }
 
 /*
