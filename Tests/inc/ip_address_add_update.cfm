@@ -1,4 +1,3 @@
-<cfdump var="#attributes#">
 <cfif isDefined("attributes.is_submit") and attributes.is_submit eq 1>
     <cfquery name="AddUpd" datasource="#DSN#" result="RES">
         <cfif len(attributes.ID) and attributes.ID neq 0>
@@ -13,7 +12,6 @@
         <CFSET attributes.IID=RES.GENERATEDKEY>
     </CFIF>
 <cfelseif isDefined("attributes.is_submit") and attributes.is_submit eq 2>
-<cfdump var="#attributes#">
 <cfquery name="del" datasource="#dsn#">
     DELETE FROM STATION_PRINTER_RELATION_PBS WHERE ID=#attributes.ID#
 </cfquery>
