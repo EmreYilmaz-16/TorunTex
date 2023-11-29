@@ -1,5 +1,5 @@
 <cfquery name="gets" datasource="#dsn2#">
- SELECT TOP 5 SR.STOCK_IN
+ SELECT TOP 5 SR.STOCK_IN AS AMOUNT
 	,C.NICKNAME
 	,SL.COMMENT
 	,O.ORDER_NUMBER
