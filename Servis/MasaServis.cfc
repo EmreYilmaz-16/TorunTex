@@ -416,5 +416,5 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         SELECT TOP 5 * FROM W
     </cfquery>
 </cffunction>
-<
+
 </cfcomponent>
