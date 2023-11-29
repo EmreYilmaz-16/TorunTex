@@ -26,7 +26,7 @@
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#" id="frm1">
     <cfoutput query="GetIpa">
     <input type="hidden" name="ID" value="#ID#">
-    <input type="hidden" name="is_submit" value="1">
+    <input type="hidden" name="is_submit" id="is_submit" value="1">
     <div class="form-group">
         <label>Yazıcı Adı</label>
         <input class="form-control" type="text" name="PRINTER_NAME" value="#PRINTER_NAME#">
