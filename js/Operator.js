@@ -146,7 +146,7 @@ function getAOrder(ORDER_ROW_ID) {
             document.getElementById("sipres").appendChild(tr);
           }
         }
-      } catch  {
+      } catch {
         TemizleCanim();
       }
     },
@@ -311,15 +311,29 @@ function Yazdir() {
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
       getProductionCount();
       console.log(Obj);
-      YazdirabilirsenYazdir(
-        Obj.COMMENT,
-        Obj.ORDER_NUMBER,
-        Obj.PRODUCT_CODE_2,
-        Obj.PRODUCT_DETAIL,
-        Obj.LOT_NO,
-        Obj.AMOUNT,
-        Obj.PRODUCT_NAME
+      var GetIp = wrk_query(
+        "SELECT * FROM STATION_PRINTER_RELATION_PBS WHERE STORE_ID=" +
+          DEPARTMENT_ID +
+          " AND LOCATION_ID=" +
+          LOCATION_ID
       );
+      if (GetIp.recordcount == 0) {
+        alert(
+          "Bu İstasyon İçin Yazıcı Tanımlanmamıştır Belge Kayıt Edildi Ancak Etiket Üretilmeyecektir !"
+        );
+      } else {
+        var IP_Add = GetIp.IP_ADDRESS[0];
+        YazdirabilirsenYazdir(
+          Obj.COMMENT,
+          Obj.ORDER_NUMBER,
+          Obj.PRODUCT_CODE_2,
+          Obj.PRODUCT_DETAIL,
+          Obj.LOT_NO,
+          Obj.AMOUNT,
+          Obj.PRODUCT_NAME,
+          IP_Add
+        );
+      }
     },
   });
 }
@@ -330,9 +344,10 @@ function YazdirabilirsenYazdir(
   product_note,
   serial_no,
   weight,
-  product_name
+  product_name,
+  IIIP
 ) {
-  var ip_addr = "192.168.0.62";
+  var ip_addr = IIIP;
 
   var qr_code = product_no + "|" + serial_no + "||" + weight;
 
