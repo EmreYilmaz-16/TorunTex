@@ -12,7 +12,7 @@ LEFT JOIN STOCKS_LOCATION AS SL ON SL.LOCATION_ID =SPR.LOCATION_ID AND SL.DEPART
         <th>İstasyon</th>
         <th>Yazıcı Adı</th>
         <th>İp Adresi</th>
-        <th><i class="fa fa-plus" id="basket_header_add_2" onclick="window.location.href='/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=21&iid=0'"></i></th>
+        <th><i class="fa fa-plus" id="basket_header_add_2" onclick="<cfoutput>window.location.href='/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=21&iid=0'</cfoutput>"></i></th>
     </tr>
     <cfoutput query="GetIpa">
         <tr>
