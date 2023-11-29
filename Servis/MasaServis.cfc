@@ -212,7 +212,10 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         </cfquery>
     <CFSET O.getOI=getOI>    
     <cfelse>
-        <cfset O.getOI="Depoya Üretim">
+        <cfquery name="getOI" datasource="#dsn3#">
+            SELECT  * FROM STOCKS WHERE PRODUCT_ID=#arguments.PRODUCT_ID#
+        </cfquery>
+        <cfset O.getOI=getOI>
     </cfif>
         
         <cfquery name="GETRELATEDPRODUCT" datasource="#DSN3#">
