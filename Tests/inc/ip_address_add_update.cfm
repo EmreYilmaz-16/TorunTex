@@ -1,3 +1,4 @@
+<cf_box title="Yazıcı Ekle">
 <cfparam name="IID" default="0">
 <cfquery name="GetIpa" datasource="#dsn#">
     SELECT SPR.*,SL.COMMENT,D.DEPARTMENT_HEAD FROM STATION_PRINTER_RELATION_PBS AS SPR 
@@ -8,14 +9,22 @@
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
     <cfoutput query="GetIpa">
     <input type="hidden" name="IID" value="#ID#">
-    <input type="text" name="PRINTER_NAME" value="#PRINTER_NAME#">
+    <input type="hidden" name="is_submit" value="1">
     <div class="form-group">
+        <label>Yazıcı Adı</label>
+        <input class="form-control" type="text" name="PRINTER_NAME" value="#PRINTER_NAME#">
+    </div>
+    <div class="form-group">
+        <label>İp Adresi</label>
+        <input class="form-control" type="text" name="PRINTER_NAME" value="#PRINTER_NAME#">
+    </div>
+    <div class="form-group">
+        <label>Depo</label>
         <input type="hidden" name="STORE_ID" id="deliver_dept_id" value="#STORE_ID#">
         <input type="hidden" name="LOCATION_ID" id="deliver_loc_id" value="#LOCATION_ID#">
-        <input type="hidden"  id="branch_id" >
-    
+        <input type="hidden"  id="branch_id" >    
     <div class="input-group">
-        <input type="text" name="ISTASYON" id="deliver_dept_name" value="#PRINTER_NAME#">
+        <input class="form-control" type="text" name="ISTASYON" id="deliver_dept_name" value="#PRINTER_NAME#">
         <span class="input-group-addon btnPointer icon-ellipsis" style="background:##6a6a6a;color:white" onclick="pencereac(1,null)"></span>
     </div>
 </div>
@@ -33,3 +42,4 @@
         }
     }
 </script>
+</cf_box>
