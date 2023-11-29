@@ -86,7 +86,7 @@ function getAOrder(ORDER_ROW_ID) {
     return false;
   }
   MainOrderRowID = ORDER_ROW_ID;
-
+  $('#SiparisResultAreaAs').hide(500)
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
@@ -524,6 +524,7 @@ function LotVer(STATION) {
 }
 function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   MainOrderRowID = 0;
+  $('#SiparisResultAreaAs').hide(500)
   $("#RenkYazi").text("");
   $("#color1").attr(
     "style",
