@@ -201,8 +201,8 @@
     <div class="col col-12">
    <table class="table table-bordered">
     <tr>        
-        <td style="font-size: 14pt" id="AA1"></td>
-        <td style="font-size: 14pt" id="AA4"></td>
+        <td style="font-size: 14pt;width:50%" id="AA1"></td>
+        <td style="font-size: 14pt;width:50%" id="AA4"></td>
     </tr>
     <tr>       
         <td style="font-size: 14pt" id="AA2"></td>            
