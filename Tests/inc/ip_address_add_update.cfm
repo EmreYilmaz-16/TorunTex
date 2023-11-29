@@ -12,7 +12,7 @@
         <CFSET attributes.IID=RES.GENERATEDKEY>
     </CFIF>
 <cfelse>
-
+<cfdump var="#attributes#">
 </cfif>
 <cf_box title="Yazıcı Ekle">
 <cfparam name="IID" default="0">
