@@ -59,7 +59,7 @@ var eventHandler_2 = function (name) {
 };
 function OpenLogIn() {
   openBoxDraggable(
-    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10"
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10","st00001"
   );
 }
 function getOrders(product_id) {
