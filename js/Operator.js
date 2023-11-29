@@ -79,7 +79,14 @@ function getOrders(product_id) {
 }
 function getAOrder(ORDER_ROW_ID) {
   // $("#SiparisResultAreaAs").toggle(500);
+  if(ORDER_ROW_ID.length==0 && MainOrderRowID==0){
+    var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+    CurrentStation = Obj.STATION;
+    getDepoUretim(Obj.STATION,Obj.DEPARTMENT_ID,Obj.LOCATION_ID);
+    return false;
+  }
   MainOrderRowID = ORDER_ROW_ID;
+  
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
@@ -534,6 +541,7 @@ function getDepoUretim(GENEL_DEPO,DEPARTMENT_ID,LOCATION_ID) {
   $("#LotNo").val(LotVer(GENEL_DEPO));
   $("#ActiveSiparisId").val("");
   $("#SearchSiparisTxt").val(GENEL_DEPO)
+
 }
 
 /*
