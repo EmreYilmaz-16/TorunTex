@@ -117,6 +117,7 @@
             <input type="hidden" name="WRK_ROW_ID" id="WRK_ROW_ID">
             <input type="hidden" name="LotNo" id="LotNo">
             <input type="hidden" name="SIP_DEPO" id="SIP_DEPO">
+            <input type="hidden" name="PRODUCT_ID" id="PRODUCT_ID">
         </div>
 <hr>
         <div  class="" style="height:25vh;overflow-y: scroll;padding:3px" id="DigerSiparis">

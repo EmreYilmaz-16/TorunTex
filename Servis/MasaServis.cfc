@@ -201,16 +201,22 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         <cfargument name="WRK_ROW_ID">
         <cfargument name="LOT_NUMARASI">
         <cfargument name="DEPO">        
+        <cfargument name="PRODUCT_ID">        
         <CFSET MIKTARIM=arguments.AMOUNT>
         <CFSET MESSAGE="">
         <CFSET O=structNew()>
         <cftry>
+            <cfif len(arguments.WRK_ROW_ID)>
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
         </cfquery>
-        <CFSET O.getOI=getOI>
+    <CFSET O.getOI=getOI>    
+    <cfelse>
+        <cfset O.getOI="Depoya Üretim">
+    </cfif>
+        
         <cfquery name="GETRELATEDPRODUCT" datasource="#DSN3#">
-            SELECT * FROM w3Toruntex_1.RELATED_PRODUCT WHERE PRODUCT_ID=#getOI.PRODUCT_ID# ORDER BY RELATED_PRODUCT_NO
+            SELECT * FROM w3Toruntex_1.RELATED_PRODUCT WHERE PRODUCT_ID=#arguments.PRODUCT_ID# ORDER BY RELATED_PRODUCT_NO
         </cfquery>
         <CFSET O.REL_PROD_RES=GETRELATEDPRODUCT.recordcount>
         <CFSET SARF_STOCK_ID=0>

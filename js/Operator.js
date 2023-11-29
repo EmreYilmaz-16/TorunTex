@@ -45,6 +45,7 @@ var eventHandler_1 = function (name) {
   return function () {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
+    $("#PRODUCT_ID").val(arguments[0]);
     ActiveStockId = arguments[0];
     getOtherOrdersInfo(arguments[0]);
     getOrders(arguments[0]);
@@ -59,14 +60,17 @@ var eventHandler_2 = function (name) {
 };
 function OpenLogIn() {
   openBoxDraggable(
-    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10","st00001"
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=10",
+    "st00001"
   );
 }
 function getOrders(product_id) {
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
   var ST = Obj.STATION;
   AjaxPageLoad(
-    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=16&STATION="+ST+"&PRODUCT_ID=" +
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=16&STATION=" +
+      ST +
+      "&PRODUCT_ID=" +
       product_id,
     "SiparisDataArea",
     1,
@@ -120,8 +124,8 @@ function getAOrder(ORDER_ROW_ID) {
               Renk2 +
               ";width: 25%;"
           );
-          $("#SearchSiparisTxt").val(Obj.NICKNAME+' '+Obj.ORDER_NUMBER)
-          $("#ActiveSiparisId").val(Obj.ORDER_ROW_ID)
+          $("#SearchSiparisTxt").val(Obj.NICKNAME + " " + Obj.ORDER_NUMBER);
+          $("#ActiveSiparisId").val(Obj.ORDER_ROW_ID);
           $("#Country").text(Obj.COUNTRY_NAME);
           $("#Customer").text(Obj.NICKNAME);
           $("#paketIcerik").val(Obj.A1);
@@ -290,6 +294,7 @@ function Yazdir() {
   var SIP_DEPO = document.getElementById("SIP_DEPO").value;
   var LOT_NO = document.getElementById("LotNo").value;
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
+  var PRODUCT_ID = document.getElementById("PRODUCT_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
   var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
@@ -306,7 +311,9 @@ function Yazdir() {
       "&DEPO=" +
       Depo +
       "&SIP_DEPO=" +
-      SIP_DEPO,
+      SIP_DEPO +
+      "&PRODUCT_ID=" +
+      PRODUCT_ID,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
       //  alert(Obj.MESSAGE);
@@ -420,7 +427,7 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   CurrentStation = StationObject.STATION;
   getProducts(STATION);
   getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
-  closeBoxDraggable("st00001")
+  closeBoxDraggable("st00001");
 }
 function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
   AjaxPageLoad(
@@ -504,8 +511,7 @@ function LotVer(STATION) {
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
   return ReturnValue;
 }
-function getDepoUretim(GENEL_DEPO){
-
+function getDepoUretim(GENEL_DEPO,DEPARTMENT_ID,LOCATION_ID) {
   $("#RenkYazi").text("");
   $("#color1").attr(
     "style",
@@ -521,7 +527,7 @@ function getDepoUretim(GENEL_DEPO){
   $("#paketIcerik").val("");
   $("#paketKG").val("");
   $("#WRK_ROW_ID").val("");
-  $("#SIP_DEPO").val(GENEL_DEPO);
+  $("#SIP_DEPO").val(DEPARTMENT_ID+"-"+LOCATION_ID);
   $("#sipres").html("");
   $("#Complate").text("");
   $("#LotNo").val(LotVer(GENEL_DEPO));

@@ -97,7 +97,10 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# AND O.PURCHASE_SALES=1 AND UNIT2='#
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a href="javascript:;" class="btn btn-primary text-white" onclick="getDepoUretim('<cfoutput>#attributes.STATION#</cfoutput>')"><cfoutput>#attributes.STATION#</cfoutput></a></td>
+                        <td><cfquery name="GETS2" datasource="#DSN#">
+                            SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='#attributes.STATION#'
+                        </cfquery>
+                            <a href="javascript:;" class="btn btn-primary text-white" onclick="getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>)"><cfoutput>#attributes.STATION#</cfoutput></a></td>
                         <td></td>
                         <td></td>
                         <td></td>
