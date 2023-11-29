@@ -98,6 +98,7 @@
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
                 ,O.DELIVER_DEPT_ID
+                ,O.SA_PRODUCTION_NOTE
                 ,O.LOCATION_ID 
                 ,SLSL.COMMENT
                 ,(100*ISNULL((
@@ -174,6 +175,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         PROPERTY5=PROPERTY5,
         PROPERTY6=PROPERTY6,
         PRODUCT_NAME2=PRODUCT_NAME2,
+        SA_PRODUCTION_NOTE=SA_PRODUCTION_NOTE,
         PRODUCT_DETAIL=PRODUCT_DETAIL,
         ORDER_ROW_ID=ORDER_ROW_ID,
         WRK_ROW_ID=WRK_ROW_ID,
