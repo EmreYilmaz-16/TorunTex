@@ -532,6 +532,7 @@ function getDepoUretim(GENEL_DEPO,DEPARTMENT_ID,LOCATION_ID) {
   $("#Complate").text("");
   $("#LotNo").val(LotVer(GENEL_DEPO));
   $("#ActiveSiparisId").val("");
+  $("#SearchSiparisTxt").val(GENEL_DEPO)
 }
 
 /*
