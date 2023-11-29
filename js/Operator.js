@@ -298,6 +298,7 @@ function setSelAll(el) {
 }
 function Yazdir() {
   var AMOUNT = document.getElementById("paketKG").value;
+  var AMOUNT22 = document.getElementById("TxResult").value;
   var SIP_DEPO = document.getElementById("SIP_DEPO").value;
   var LOT_NO = document.getElementById("LotNo").value;
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
@@ -306,7 +307,10 @@ function Yazdir() {
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
   var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
   var LOCATION_ID = Obj.LOCATION_ID;
-
+  if(AMOUNT.length==0 ){
+    alert("Onaylayınız");
+    return false;
+  }
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=SaveBelge&AMOUNT=" +
