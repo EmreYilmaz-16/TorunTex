@@ -63,8 +63,10 @@ function OpenLogIn() {
   );
 }
 function getOrders(product_id) {
+  var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+  var ST = Obj.STATION;
   AjaxPageLoad(
-    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=16&PRODUCT_ID=" +
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=16&STATION="+ST+"&PRODUCT_ID=" +
       product_id,
     "SiparisDataArea",
     1,
