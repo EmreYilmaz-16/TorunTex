@@ -1,3 +1,4 @@
+<cfdump var="#attributes#">
 <cfif isDefined("attributes.is_submit") and attributes.is_submit eq 1>
     <cfquery name="AddUpd" datasource="#DSN#" result="RES">
         <cfif len(attributes.ID) and attributes.ID neq 0>
@@ -44,8 +45,8 @@
         <button type="button" class="input-group-text" style="background:##6a6a6a;color:white;padding: 0px 13px 0px 13px;" onclick="pencereac(1,null)"><i class="icon-ellipsis"></i></button>
     </div>
 </div>
-<button type="button" class="btn btn-success">Kaydet</button>
-<button type="button" class="btn btn-dagner" onclick="$('##is_submit').val(2)&$('##frm1').submit()">Sil</button>
+<button type="button" class="btn btn-success" onclick="$('##frm1').submit()">Kaydet</button>
+<button type="button" class="btn btn-danger" onclick="$('##is_submit').val(2)&$('##frm1').submit()">Sil</button>
 </cfoutput>
 </cfform>
 
