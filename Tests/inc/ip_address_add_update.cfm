@@ -1,3 +1,17 @@
+<cfif isDefined("attributes.is_submit")>
+    <cfquery name="AddUpd" datasource="#DSN#" result="RES">
+        <cfif len(attributes.ID) and attributes.ID neq 0>
+            UPDATE STATION_PRINTER_RELATION_PBS SET (PRINTER_NAME='#attributes.PRINTER_NAME#',IP_ADDRESS='#attributes.IP_ADDRESS#',STORE_ID=#attributes.STORE_ID#,LOCATION_ID=#attributes.LOCATION_ID#) WHERE ID=#attributes.ID#
+        <cfelse>
+            INSERT INTO STATION_PRINTER_RELATION_PBS (PRINTER_NAME,IP_ADDRESS,STORE_ID,LOCATION_ID) VALUES ('#attributes.PRINTER_NAME#','#attributes.IP_ADDRESS#',#attributes.STORE_ID#,#attributes.LOCATION_ID#)
+        </cfif>
+    </cfquery>
+    <CFIF LEN(attributes.ID) AND attributes.ID NEQ 0>
+        <CFSET attributes.IID=attributes.ID>
+    <CFELSE>
+        <CFSET attributes.IID=RES.GENERATEDKEY>
+    </CFIF>
+</cfif>
 <cf_box title="Yazıcı Ekle">
 <cfparam name="IID" default="0">
 <cfquery name="GetIpa" datasource="#dsn#">
@@ -8,7 +22,7 @@
 </cfquery>
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
     <cfoutput query="GetIpa">
-    <input type="hidden" name="IID" value="#ID#">
+    <input type="hidden" name="ID" value="#ID#">
     <input type="hidden" name="is_submit" value="1">
     <div class="form-group">
         <label>Yazıcı Adı</label>
@@ -16,7 +30,7 @@
     </div>
     <div class="form-group">
         <label>İp Adresi</label>
-        <input class="form-control" type="text" name="PRINTER_NAME" value="#PRINTER_NAME#">
+        <input class="form-control" type="text" name="IP_ADDRESS" value="#IP_ADDRESS#">
     </div>
     <div class="form-group">
         <label>Depo</label>
@@ -24,12 +38,14 @@
         <input type="hidden" name="LOCATION_ID" id="deliver_loc_id" value="#LOCATION_ID#">
         <input type="hidden"  id="branch_id" >    
     <div class="input-group">
-        <input class="form-control" type="text" name="ISTASYON" id="deliver_dept_name" value="#PRINTER_NAME#">
+        <input class="form-control" type="text" name="ISTASYON" id="deliver_dept_name" value="#DEPARTMENT_HEAD#-#COMMENT# ">
         <button type="button" class="input-group-text" style="background:##6a6a6a;color:white;padding: 0px 13px 0px 13px;" onclick="pencereac(1,null)"><i class="icon-ellipsis"></i></button>
     </div>
 </div>
+<input type="submit">
 </cfoutput>
 </cfform>
+
 <script>
    function pencereac(tip,idd){
         if(tip==2){
