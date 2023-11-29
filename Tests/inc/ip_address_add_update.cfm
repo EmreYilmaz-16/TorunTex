@@ -14,6 +14,9 @@
     </CFIF>
 <cfelse>
 <cfdump var="#attributes#">
+<cfquery name="del" datasource="#dsn#">
+    DELETE FROM STATION_PRINTER_RELATION_PBS WHERE ID=#attributes.ID#
+</cfquery>
 </cfif>
 <cf_box title="Yazıcı Ekle">
 <cfparam name="IID" default="0">
