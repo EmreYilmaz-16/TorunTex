@@ -141,7 +141,7 @@ function getAOrder(ORDER_ROW_ID) {
           $("#SIP_DEPO").val(Obj.SIP_DEPO);
           $("#OrderLocation").text(Obj.COMMENT);
           $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
-          $("#AA2").text(Obj.AA1);
+          $("#AA2").text(Obj.AA2);
           $("#AA3").text(Obj.AA3);
           $("#sipres").html("");
           $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");

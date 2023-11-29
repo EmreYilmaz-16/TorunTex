@@ -93,7 +93,7 @@
                 ,ORDER_ROW.ORDER_ID
                 ,O.ORDER_NUMBER
                 ,STOCKS.PRODUCT_DETAIL  
-                ,STOCKS.PRODUCT_DETAIL  AA1
+                ,STOCKS.PRODUCT_DETAIL  AA2
                 ,STOCKS.PRODUCT_DETAIL2  AA3
                 ,SC.COUNTRY_NAME
                 ,C.NICKNAME
@@ -188,7 +188,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         ORDER_NUMBER=ORDER_NUMBER,
         A1=A1,
         A2=A2,
-        AA1=AA1,
+        AA2=AA2,
         AA3=AA3
         
     }>
