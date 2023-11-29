@@ -17,6 +17,9 @@
 <cfquery name="del" datasource="#dsn#">
     DELETE FROM STATION_PRINTER_RELATION_PBS WHERE ID=#attributes.ID#
 </cfquery>
+<script>
+    window.location.href='/index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#&sayfa=20</cfoutput>'
+</script>
 </cfif>
 <cf_box title="Yazıcı Ekle">
 <cfparam name="IID" default="0">
