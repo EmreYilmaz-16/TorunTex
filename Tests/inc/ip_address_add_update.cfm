@@ -25,7 +25,7 @@
         <input type="hidden"  id="branch_id" >    
     <div class="input-group">
         <input class="form-control" type="text" name="ISTASYON" id="deliver_dept_name" value="#PRINTER_NAME#">
-        <button class="input-group-text" style="background:##6a6a6a;color:white;padding: 0px 13px 0px 13px;" onclick="pencereac(1,null)"><i class="icon-ellipsis"></i></button>
+        <button type="button" class="input-group-text" style="background:##6a6a6a;color:white;padding: 0px 13px 0px 13px;" onclick="pencereac(1,null)"><i class="icon-ellipsis"></i></button>
     </div>
 </div>
 </cfoutput>
