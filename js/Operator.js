@@ -416,6 +416,7 @@ function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
   CurrentStation = StationObject.STATION;
   getProducts(STATION);
   getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+  closeBoxDraggable("st00001")
 }
 function getProductionInfo(DEPARTMENT_ID, LOCATION_ID) {
   AjaxPageLoad(
