@@ -512,6 +512,7 @@ function LotVer(STATION) {
   return ReturnValue;
 }
 function getDepoUretim(GENEL_DEPO,DEPARTMENT_ID,LOCATION_ID) {
+  MainOrderRowID = 0;
   $("#RenkYazi").text("");
   $("#color1").attr(
     "style",
