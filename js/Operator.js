@@ -202,6 +202,10 @@ function TemizleCanim() {
   $("#sipres").html("");
   $("#Complate").text("");
   $("#LotNo").val("");
+  $("#AA1").text("");          
+  $("#AA2").text("");
+  $("#AA3").text("");
+  $("#AA4").text("");
 }
 function Yaz(sayi) {
   if (sayi > 0) {
