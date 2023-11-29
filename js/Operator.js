@@ -120,7 +120,8 @@ function getAOrder(ORDER_ROW_ID) {
               Renk2 +
               ";width: 25%;"
           );
-          $("#SearchSiparisTxt").val(Obj.NICKNAME+'-'+Obj.ORDER_NUMBER)
+          $("#SearchSiparisTxt").val(Obj.NICKNAME+' '+Obj.ORDER_NUMBER)
+          $("#ActiveSiparisId").val(Obj.ORDER_ROW_ID)
           $("#Country").text(Obj.COUNTRY_NAME);
           $("#Customer").text(Obj.NICKNAME);
           $("#paketIcerik").val(Obj.A1);
