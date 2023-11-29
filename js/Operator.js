@@ -79,14 +79,14 @@ function getOrders(product_id) {
 }
 function getAOrder(ORDER_ROW_ID) {
   // $("#SiparisResultAreaAs").toggle(500);
-  if(ORDER_ROW_ID.length==0 && MainOrderRowID==0){
+  if (ORDER_ROW_ID.length == 0 && MainOrderRowID == 0) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
-    getDepoUretim(Obj.STATION,Obj.DEPARTMENT_ID,Obj.LOCATION_ID);
+    getDepoUretim(Obj.STATION, Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
     return false;
   }
   MainOrderRowID = ORDER_ROW_ID;
-  
+
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
@@ -307,7 +307,7 @@ function Yazdir() {
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
   var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
   var LOCATION_ID = Obj.LOCATION_ID;
-  if(AMOUNT.length==0 ){
+  if (AMOUNT.length == 0) {
     alert("Onaylayınız");
     return false;
   }
@@ -522,7 +522,7 @@ function LotVer(STATION) {
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
   return ReturnValue;
 }
-function getDepoUretim(GENEL_DEPO,DEPARTMENT_ID,LOCATION_ID) {
+function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   MainOrderRowID = 0;
   $("#RenkYazi").text("");
   $("#color1").attr(
@@ -537,15 +537,22 @@ function getDepoUretim(GENEL_DEPO,DEPARTMENT_ID,LOCATION_ID) {
   $("#OrderLocation").text(GENEL_DEPO);
   $("#Customer").text("");
   $("#paketIcerik").val("");
-  $("#paketKG").val("");
+  var productData = wrk_query(
+    "SELECT PROPERTY1,PROPERTY2,PROPERTY3 FROM PRODUCT_INFO_PLUS WHERE PRODUCT_ID=6",
+    "DSN3"
+  );
+  if (productData.recordcount == 0) {
+    $("#paketKG").val("");
+  } else {
+    $("#paketKG").val(productData.PROPERTY3[0]);
+  }
   $("#WRK_ROW_ID").val("");
-  $("#SIP_DEPO").val(DEPARTMENT_ID+"-"+LOCATION_ID);
+  $("#SIP_DEPO").val(DEPARTMENT_ID + "-" + LOCATION_ID);
   $("#sipres").html("");
   $("#Complate").text("");
   $("#LotNo").val(LotVer(GENEL_DEPO));
   $("#ActiveSiparisId").val("");
-  $("#SearchSiparisTxt").val(GENEL_DEPO)
-
+  $("#SearchSiparisTxt").val(GENEL_DEPO);
 }
 
 /*
