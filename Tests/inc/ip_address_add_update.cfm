@@ -1,4 +1,4 @@
-<cfif isDefined("attributes.is_submit")>
+<cfif isDefined("attributes.is_submit") and attributes.is_submit eq 1>
     <cfquery name="AddUpd" datasource="#DSN#" result="RES">
         <cfif len(attributes.ID) and attributes.ID neq 0>
             UPDATE STATION_PRINTER_RELATION_PBS SET (PRINTER_NAME='#attributes.PRINTER_NAME#',IP_ADDRESS='#attributes.IP_ADDRESS#',STORE_ID=#attributes.STORE_ID#,LOCATION_ID=#attributes.LOCATION_ID#) WHERE ID=#attributes.ID#
@@ -11,6 +11,8 @@
     <CFELSE>
         <CFSET attributes.IID=RES.GENERATEDKEY>
     </CFIF>
+<cfelse>
+
 </cfif>
 <cf_box title="Yazıcı Ekle">
 <cfparam name="IID" default="0">
@@ -20,7 +22,7 @@
     LEFT JOIN STOCKS_LOCATION AS SL ON SL.LOCATION_ID =SPR.LOCATION_ID AND SL.DEPARTMENT_ID=D.DEPARTMENT_ID 
     WHERE SPR.ID=#attributes.IID#
 </cfquery>
-<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
+<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#" id="frm1">
     <cfoutput query="GetIpa">
     <input type="hidden" name="ID" value="#ID#">
     <input type="hidden" name="is_submit" value="1">
@@ -42,7 +44,8 @@
         <button type="button" class="input-group-text" style="background:##6a6a6a;color:white;padding: 0px 13px 0px 13px;" onclick="pencereac(1,null)"><i class="icon-ellipsis"></i></button>
     </div>
 </div>
-<input type="submit">
+<button type="button" class="btn btn-success">Kaydet</button>
+<button type="button" class="btn btn-dagner" onclick="$('##is_submit').val(2)&$('##frm1').submit()">Sil</button>
 </cfoutput>
 </cfform>
 
