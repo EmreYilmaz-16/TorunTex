@@ -1,5 +1,5 @@
 <cfparam name="attributes.ALL" default="0">
-<cfquery name="getDoluDepolar">
+<cfquery name="getDoluDepolar" datasource="#DSN3#">
     SELECT *
 FROM (
 	SELECT SL.COMMENT
