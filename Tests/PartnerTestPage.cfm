@@ -37,6 +37,7 @@
 <cfif attributes.sayfa eq 19><cfinclude template="inc/sip_depo.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 20><cfinclude template="inc/ip_adres_list.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 21><cfinclude template="inc/ip_address_add_update.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 22><cfinclude template="inc/Sevkiyat.cfm"><cfabort></cfif>
 
 
 <cfif not isDefined("attributes.isAjax")>

@@ -11,6 +11,7 @@
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_3','_blank')">Operator Ekrani V3</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=13','_blank')">Çuval Taşı</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=15','_blank')">Lot Hareketleri</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=22','_blank')">Sevkiyat İşlemleri</button>
     <cfif isDefined("attributes.ymcik")>
         <button style="margin-top:5px"   class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=4','_blank')">Yarı Mamül Çıkış </button>
         <button style="margin-top:5px"   class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=5','_blank')">Masa Çıkış </button>
