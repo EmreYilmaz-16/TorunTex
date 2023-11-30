@@ -33,7 +33,7 @@ FROM (
 <div class="form-group">
     <label>Depo</label>
     <div class="input-group" style="flex-wrap:nowrap">
-    <select name="form-control form-select" onchange="$('#frm_1').submit()">
+    <select name="select1" class="form-control form-select" onchange="$('#frm_1').submit()">
         <cfoutput query="getDoluDepolar">
             <cfquery name="getOrder" datasource="#dsn3#">
                SELECT C.NICKNAME
