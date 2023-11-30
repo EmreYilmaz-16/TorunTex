@@ -27,7 +27,7 @@ INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
                                 <option value="1">Aktif</option>
                                 <option value="0">Pasif</option>
                             </select>
-                        <cfelseif TIP eq "datetime">
+                        <cfelseif TIP eq "datetime" or TIP eq "date">
                             <input type="date" name="#KOLON_ADI#">
                         <cfelseif TIP eq "nvarchar" OR TIP eq "varchar">
                             <input type="text" name="#KOLON_ADI#" <cfif max_length neq -1>maxlength="#max_length#"</cfif>>
