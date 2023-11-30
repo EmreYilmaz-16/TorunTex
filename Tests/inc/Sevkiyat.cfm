@@ -41,6 +41,7 @@ FROM (
 	,D.DEPARTMENT_HEAD
     ,'PLAKA' AS PLAKA
     ,'KONTEYNER NO ' AS KONTEYNER
+    ,O.ORDER_ID
 FROM w3Toruntex_1.ORDERS AS O
 INNER JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID = O.COMPANY_ID
 INNER JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID = O.COUNTRY_ID
@@ -51,7 +52,7 @@ WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 	AND O.LOCATION_ID = #LOCATION_ID#
 	AND ORDER_STAGE <> 262
             </cfquery>
-            <option value="#DEPARTMENT_ID#-#LOCATION_ID#">#DEPARTMENT_HEAD# - #COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
+            <option value="#DEPARTMENT_ID#-#LOCATION_ID#*#getOrder.ORDER_ID#">#DEPARTMENT_HEAD# - #COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
         </cfoutput>
     </select>
 </div>
