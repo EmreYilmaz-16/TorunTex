@@ -88,6 +88,8 @@ INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
                             #evaluate("attributes.#getData.KOLON_ADI#")#
                         <cfelseif TIP eq "float">
                             #evaluate("attributes.#getData.KOLON_ADI#")#
+                        <cfelseif TIP eq "smallint">
+                            #evaluate("attributes.#getData.KOLON_ADI#")#
                         </cfif>                
                     <cfif ix lt getData.recordCount>,</cfif>
             </cfif>
