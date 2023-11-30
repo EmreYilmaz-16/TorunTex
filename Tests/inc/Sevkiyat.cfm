@@ -51,7 +51,7 @@ WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 	AND O.LOCATION_ID = #LOCATION_ID#
 	AND ORDER_STAGE <> 262
             </cfquery>
-            <option value="#DEPARTMENT_ID#-#LOCATION_ID#">#DEPARTMENT_HEAD# - #COMMENT# #NICKNAME# #COUNTRY_NAME# #PLAKA# #KONTEYNER#</option>
+            <option value="#DEPARTMENT_ID#-#LOCATION_ID#">#DEPARTMENT_HEAD# - #COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
         </cfoutput>
     </select>
 </div>
