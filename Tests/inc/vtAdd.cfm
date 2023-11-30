@@ -35,6 +35,8 @@ INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
                             <input type="number" name="#KOLON_ADI#">
                         <cfelseif TIP eq "float">
                             <input type="number" name="#KOLON_ADI#">
+                        <cfelseif TIP eq "smallint">
+                            <input type="number" name="#KOLON_ADI#">
                         </cfif>
                     </div>
                     
