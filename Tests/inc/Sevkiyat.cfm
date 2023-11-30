@@ -1,4 +1,4 @@
-
+﻿
 <cfparam name="attributes.ALL" default="0">
 <cf_box title="Sevkiyat İşlemleri">
 <cfquery name="getDoluDepolar" datasource="#DSN3#">
