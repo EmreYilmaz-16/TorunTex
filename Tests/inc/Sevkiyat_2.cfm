@@ -6,7 +6,7 @@
 <cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
 <CFIF SEPET_ID neq 0>
     <script>
-        window.LOCATION_ID.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=<cfoutput>#attributes.select1#</cfoutput>";
+        window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=<cfoutput>#attributes.select1#</cfoutput>";
         <cfabort>
     </script>
 </CFIF>
