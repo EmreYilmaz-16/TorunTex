@@ -374,6 +374,7 @@ function YazdirabilirsenYazdir(
   product_name,
   IIIP
 ) {
+  console.log(arguments);
   var ip_addr = IIIP;
 
   var qr_code = product_no + "|" + serial_no + "||" + weight;
