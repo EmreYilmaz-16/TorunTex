@@ -45,17 +45,19 @@ FROM (
     ,'PLAKA' AS PLAKA
     ,'KONTEYNER NO ' AS KONTEYNER
     ,O.ORDER_ID
+    ,SSP.SEPET_ID
 FROM w3Toruntex_1.ORDERS AS O
 INNER JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID = O.COMPANY_ID
 INNER JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID = O.COUNTRY_ID
 INNER JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.DEPARTMENT_ID = O.DELIVER_DEPT_ID
 	AND SL.LOCATION_ID = O.LOCATION_ID
 INNER JOIN w3Toruntex.DEPARTMENT AS D ON D.DEPARTMENT_ID = O.DELIVER_DEPT_ID
+LEFT JOIN w3Toruntex_1.SEVKIYAT_SEPET_PBS AS SSP ON SSP.ORDER_ID=O.ORDER_ID
 WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 	AND O.LOCATION_ID = #LOCATION_ID#
 	AND ORDER_STAGE <> 262
             </cfquery>
-            <option value="#DEPARTMENT_ID#-#LOCATION_ID#*#getOrder.ORDER_ID#">#DEPARTMENT_HEAD# - #COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
+            <option value="#DEPARTMENT_ID#-#LOCATION_ID#*#getOrder.ORDER_ID#*#getOrder.SEPET_ID#">#DEPARTMENT_HEAD# - #COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
         </cfoutput>
     </select>
 <button class="btn btn-success input-group-text" type="button" onclick="$('#frm_1').submit()">Aç</button>
