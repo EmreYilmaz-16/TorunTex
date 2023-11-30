@@ -17,7 +17,7 @@ order by st.schema_id
     <div style="width:25%;height: 100vh;overflow: scroll;">
     <cf_big_list>
         <cfoutput query="getT">
-        <tr><td><a href="javascript://" onclick="getCols('#schema_namea#','#name#')">#schema_namea#-#name#</a></td></tr>
+        <tr><td><a href="javascript://" onclick="windowopen('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=vtAdd&sc=#schema_namea#&tb=#name#')">+</a></td><td><a href="javascript://" onclick="getCols('#schema_namea#','#name#')">#schema_namea#.#name#</a> </td></tr>
         </cfoutput>
     </cf_big_list>
     </div>
