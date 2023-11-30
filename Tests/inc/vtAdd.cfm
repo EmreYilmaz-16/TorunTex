@@ -72,6 +72,7 @@ INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
             </cfloop>
         )
         VALUES (
+            <cfset ix=0>
             <cfloop query="getData">
                 <cfset ix=ix+1>
             <cfif getData.IDENT neq 1>
