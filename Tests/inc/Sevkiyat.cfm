@@ -29,9 +29,10 @@ FROM (
     WHERE TT.BAKIYE <> 0
 	AND TT.SIP_DURUM <> 0
 </cfquery>
-<cfform method="post" action="#request.self#?fuseaction=settings.emptypopup_partner_test_page&sayfa=23">
+<cfform method="post" action="#request.self#?fuseaction=settings.emptypopup_partner_test_page&sayfa=23" id="frm_1">
 <div class="form-group">
     <label>Depo</label>
+    <div class="input-group">
     <select name="form-control form-select" onchange="$('#frm_1').submit()">
         <cfoutput query="getDoluDepolar">
             <cfquery name="getOrder" datasource="#dsn3#">
@@ -57,7 +58,8 @@ WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
             <option value="#DEPARTMENT_ID#-#LOCATION_ID#*#getOrder.ORDER_ID#">#DEPARTMENT_HEAD# - #COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
         </cfoutput>
     </select>
+<button class="btn btn-success input-group-text" type="button" onclick="$('#frm_1').submit()">Aç</button>
 </div>
-
+</div>
 </cfform>
 </cf_box>
