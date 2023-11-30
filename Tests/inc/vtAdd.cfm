@@ -51,5 +51,45 @@ INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
     </cfoutput>
 </cfform>
 <cfif isDefined("attributes.is_submit")>
+    <cfquery name="getData" datasource="#dsn#">
+        SELECT  *FROM (
+       SELECT AC.name AS KOLON_ADI,ST.name AS TABLO_ADI,SS.name AS SEMA_ADI,STY.name AS TIP,AC.is_identity AS IDENT,AC.max_length  FROM sys.all_columns AS AC 
+       INNER JOIN sys.tables AS ST ON AC.object_id=ST.object_id
+       INNER JOIN sys.types AS STY ON STY.user_type_id=AC.user_type_id
+       INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
+       ) AS TK WHERE TABLO_ADI='#attributes.tb#' AND SEMA_ADI='#attributes.sc#'
+        
+          <!--- select COLUMN_NAME,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA='#attributes.sc#' and TABLE_NAME='#attributes.tb#'---->
+       </cfquery>
+       <cfset ix=1>
+    <cfquery name="Ins" datasource="#dsn#">
+        INSERT INTO #attributes.sc#.#attributes.tb#(
+            <cfloop query="getData">
+                <cfset ix=ix+1>
+            <cfif getData.IDENT neq 1>
+                #KOLON_ADI#<cfif ix lt getData.recordCount>,</cfif>
+            </cfif>
+            </cfloop>
+        )
+        VALUES (
+            <cfloop query="getData">
+                <cfset ix=ix+1>
+            <cfif getData.IDENT neq 1>
+                <cfif TIP EQ "bit">
+                #evaluate("attributes.#getData.KOLON_ADI#")#                       
+                        <cfelseif TIP eq "datetime">
+                            '#evaluate("attributes.#getData.KOLON_ADI#")#'
+                        <cfelseif TIP eq "nvarchar" OR TIP eq "varchar">
+                            '#evaluate("attributes.#getData.KOLON_ADI#")#'
+                        <cfelseif TIP eq "int">
+                            #evaluate("attributes.#getData.KOLON_ADI#")#
+                        <cfelseif TIP eq "float">
+                            #evaluate("attributes.#getData.KOLON_ADI#")#
+                        </cfif>                
+                    <cfif ix lt getData.recordCount>,</cfif>
+            </cfif>
+            </cfloop>
+        )
+    </cfquery>
     <cfdump var="#attributes#">
 </cfif>
