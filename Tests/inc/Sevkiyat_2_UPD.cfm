@@ -32,7 +32,7 @@
         </cfquery>
         <cfoutput query="GETDATA">
             <tr>
-                <td data-sepet_row="#SEPET_ROW_ID#" data-PRODUCT_ID='#WRK_ROW_ID#'>
+                <td data-sepet_row="#SEPET_ROW_ID#" data-PRODUCT_ID='#PRODUCT_ID#'>
                     #AMOUNT# / #AMOUNT_#
                 </td>
                 <td>

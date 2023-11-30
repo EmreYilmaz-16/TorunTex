@@ -73,7 +73,7 @@ GROUP BY S.PRODUCT_NAME
     </cfquery>
     <cfoutput query="GETDATA">
         <tr>
-            <td data-sepet_row="#SEPET_ROW_ID#" data-WRK_ROW_ID='#WRK_ROW_ID#'>
+            <td data-sepet_row="#SEPET_ROW_ID#" data-PRODUCT_ID='#PRODUCT_ID#'>
                 #AMOUNT# / #AMOUNT_#
             </td>
             <td>
