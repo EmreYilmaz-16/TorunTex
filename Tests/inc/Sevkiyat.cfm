@@ -32,7 +32,7 @@ FROM (
 <cfform method="post" action="#request.self#?fuseaction=settings.emptypopup_partner_test_page&sayfa=23" id="frm_1">
 <div class="form-group">
     <label>Depo</label>
-    <div class="input-group">
+    <div class="input-group" style="flex-wrap:nowrap">
     <select name="form-control form-select" onchange="$('#frm_1').submit()">
         <cfoutput query="getDoluDepolar">
             <cfquery name="getOrder" datasource="#dsn3#">
