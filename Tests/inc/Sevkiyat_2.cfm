@@ -1,7 +1,15 @@
+
 <cfdump var="#attributes#">
 <cfset DEPARTMENT_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),1,"-")>
 <cfset LOCATION_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),2,"-")>
 <cfset ORDER_ID=listGetAt(attributes.SELECT1,2,"*")>
+<cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
+<CFIF SEPET_ID EQ 0>
+    <script>
+        window.LOCATION_ID.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=<cfoutput>#attributes.select1#</cfoutput>";
+        <cfabort>
+    </script>
+</CFIF>
 <cfquery name="GETmX" datasource="#DSN3#">
     select ISNULL(max(SEPET_ID),0 )+1 SEPET_ID  from  w3Toruntex_1.SEVKIYAT_SEPET_PBS
 </cfquery>
