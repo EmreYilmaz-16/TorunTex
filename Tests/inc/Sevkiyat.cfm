@@ -1,4 +1,6 @@
+
 <cfparam name="attributes.ALL" default="0">
+<cf_box title="Sevkiyat İşlemleri">
 <cfquery name="getDoluDepolar" datasource="#DSN3#">
     SELECT *
 FROM (
@@ -27,10 +29,10 @@ FROM (
     WHERE TT.BAKIYE <> 0
 	AND TT.SIP_DURUM <> 0
 </cfquery>
-
+<cfform method="post" action="#request.self#?fuseaction=settings.emptypopup_partner_test_page&sayfa=23">
 <div class="form-group">
     <label>Depo</label>
-    <select name="form-control form-select">
+    <select name="form-control form-select" onchange="$('#frm_1').submit()">
         <cfoutput query="getDoluDepolar">
             <cfquery name="getOrder" datasource="#dsn3#">
                SELECT C.NICKNAME
@@ -56,3 +58,6 @@ WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
         </cfoutput>
     </select>
 </div>
+
+</cfform>
+</cf_box>
