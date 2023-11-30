@@ -5,9 +5,8 @@
 <cfset ORDER_ID=listGetAt(attributes.SELECT1,2,"*")>
 <cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
 <CFIF SEPET_ID neq 0>
-    <script>
-        window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=<cfoutput>#attributes.select1#</cfoutput>";
-        <cfabort>
+    
+    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#attributes.select1#">
     </script>
 </CFIF>
 <cfquery name="GETmX" datasource="#DSN3#">
