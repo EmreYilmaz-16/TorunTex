@@ -3,29 +3,29 @@
 
 <cf_box title="PDA Welcome">
 <div style="display: flex;flex-direction: column;">
-    <button style="margin-top:5px" class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=1'">Raftan Çuval Al</button>
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=6'">Raf Durumu</button>
+    <button style="margin-top:5px" class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=1','_blank')">Raftan Çuval Al</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=6'">Raf Durumu</button>
     
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9'">Operator Ekrani</button>
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_2'">Operator Ekrani V2</button>
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_3'">Operator Ekrani V3</button>
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=13'">Çuval Taşı</button>
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=15'">Lot Hareketleri</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9','_blank')">Operator Ekrani</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_2','_blank')">Operator Ekrani V2</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_3','_blank')">Operator Ekrani V3</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=13','_blank')">Çuval Taşı</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=15','_blank')">Lot Hareketleri</button>
     <cfif isDefined("attributes.ymcik")>
-        <button style="margin-top:5px"   class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=4'">Yarı Mamül Çıkış </button>
-        <button style="margin-top:5px"   class="btn btn-outline-primary" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=5'">Masa Çıkış </button>
+        <button style="margin-top:5px"   class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=4','_blank')">Yarı Mamül Çıkış </button>
+        <button style="margin-top:5px"   class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=5','_blank')">Masa Çıkış </button>
     </cfif>
     <cfif listfind("2,144,145,146",session.ep.userid)>
-        <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=20'">Yazıcı Ekle</button>
+        <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=20','_blank')">Yazıcı Ekle</button>
     </cfif>
     <cfif session.ep.userid eq 144>
 
 
-    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=git'">Git Pull</button>
-    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=vt'">VT Sorgu</button>
-    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=ex'">EX</button>
-    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=Pu'">Import Units</button>
-    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=fe'">Dosya Gezgini</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=git','_blank')">Git Pull</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=vt','_blank')">VT Sorgu</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=ex','_blank')">EX</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=Pu','_blank')">Import Units</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=fe','_blank')">Dosya Gezgini</button>
     
     </cfif>
 </div>
