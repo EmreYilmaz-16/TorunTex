@@ -85,6 +85,7 @@ $(d).css("height",(v-t)/1.5+"px")
     
 
   });
+  document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
 })
 $("textarea").click(function(){
 var d=document.getElementById("sonuc_div")
@@ -182,4 +183,5 @@ function wrk_query(str_query,data_source,maxrows)
 	
 	return new_query;
 }
+
 </script>
