@@ -43,3 +43,4 @@
         </cfoutput>
     </table>
     </cf_box>
+    <script src="/AddOns/Partner/js/sevkiyat.js"></script>
