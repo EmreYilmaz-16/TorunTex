@@ -30,7 +30,7 @@ INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
                         <cfelseif TIP eq "datetime">
                             <input type="date" name="#KOLON_ADI#">
                         <cfelseif TIP eq "nvarchar" OR TIP eq "varchar">
-                            <input type="text" name="#KOLON_ADI#" maxlength="#max_length#">
+                            <input type="text" name="#KOLON_ADI#" <cfif max_length neq -1>maxlength="#max_length#"</cfif>>
                         </cfif>
                     </div>
                     
