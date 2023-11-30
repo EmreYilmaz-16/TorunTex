@@ -61,7 +61,7 @@ INNER JOIN sys.schemas AS SS ON SS.schema_id=ST.schema_id
         
           <!--- select COLUMN_NAME,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA='#attributes.sc#' and TABLE_NAME='#attributes.tb#'---->
        </cfquery>
-       <cfset ix=1>
+       <cfset ix=0>
     <cfquery name="Ins" datasource="#dsn#">
         INSERT INTO #attributes.sc#.#attributes.tb#(
             <cfloop query="getData">
