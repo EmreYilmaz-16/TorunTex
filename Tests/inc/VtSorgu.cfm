@@ -73,7 +73,7 @@ v=parseInt(v)
 $(d).css("height",(v-t)/1.5+"px")
   var mime = 'text/x-mssql';
   // get mime type
-
+/*
   window.editor = CodeMirror.fromTextArea(document.getElementById('sql_sorgu'), {
     mode: mime,
     indentWithTabs: true,
@@ -84,7 +84,7 @@ $(d).css("height",(v-t)/1.5+"px")
     extraKeys: {"Ctrl-Space": "autocomplete"},
     
 
-  });
+  });*/
   document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
 })
 $("textarea").click(function(){
