@@ -138,7 +138,7 @@ function islemYap(el, ev) {
       if (OSX.SATIRDA != 1) {
         SatirEkle(OSX.PRODUCT_ID, OSX.PRODUCT_NAME, OSX.Agirlik);
       } else {
-        SatirGuncelle(PRODUCT_ID, AMOUNT);
+        SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik);
       }
 
       console.table(OSX);
