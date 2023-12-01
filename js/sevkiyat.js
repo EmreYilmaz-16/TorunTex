@@ -9,6 +9,8 @@
  * @param {*} el
  * @param {*} ev
  */
+// YAPILACAK 
+//INC WRK_QUERY,document.getElementByProductId,SepeteEkle,OkumaEkle,SatirEkle, SatirGuncelle
 function islemYap(el, ev) {
   if (ev.keyCode == 13) {
     //console.log(el.value)
@@ -141,7 +143,7 @@ function islemYap(el, ev) {
        var GENERATEDKEY= SepeteEkle(OSX.SEPET_ID,OSX.PBS_RELATION_ID,OSX.PRODUCT_ID,OSX.Agirlik,1);
        OkumaEkle(OSX.Agirlik,1,OSX.LotNo,GENERATEDKEY);
         SatirEkle(OSX.PRODUCT_ID, OSX.PRODUCT_NAME, OSX.Agirlik);
-
+        
       } else {
         SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik, OSX.LotNo);
       }
