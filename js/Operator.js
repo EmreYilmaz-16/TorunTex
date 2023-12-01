@@ -146,7 +146,7 @@ function getAOrder(ORDER_ROW_ID) {
           $("#AA4").text(Obj.SA_PRODUCTION_NOTE);
           $("#sipres").html("");
           $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
-          $("#LotNo").val(LotVer(CurrentStation));
+         // $("#LotNo").val(LotVer(CurrentStation));
           for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
             var OO = Obj.ALL_ROWS[i];
             var tr = document.createElement("tr");
@@ -305,7 +305,8 @@ function Yazdir() {
   var AMOUNT = document.getElementById("paketKG").value;
   var AMOUNT22 = document.getElementById("TxResult").value;
   var SIP_DEPO = document.getElementById("SIP_DEPO").value;
-  var LOT_NO = document.getElementById("LotNo").value;
+  var Objecim = JSON.parse(localStorage.ACTIVE_STATION);
+  var LOT_NO = LotVer(Objecim.STATION)
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var PRODUCT_ID = document.getElementById("PRODUCT_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
@@ -340,7 +341,7 @@ function Yazdir() {
       } else {
         //  alert(Obj.MESSAGE);
         if (MainOrderRowID == 0) {
-          var Objecim = JSON.parse(localStorage.ACTIVE_STATION);
+          
           var ssid = list_getat(SIP_DEPO, 1, "-");
           var ssLid = list_getat(SIP_DEPO, 2, "-");
           getDepoUretim(Objecim.STATION, ssid, ssLid);
@@ -574,7 +575,7 @@ function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   $("#SIP_DEPO").val(DEPARTMENT_ID + "-" + LOCATION_ID);
   $("#sipres").html("");
   $("#Complate").text("");
-  $("#LotNo").val(LotVer(GENEL_DEPO));
+  //$("#LotNo").val(LotVer(GENEL_DEPO));
   $("#ActiveSiparisId").val("");
   $("#SearchSiparisTxt").val(GENEL_DEPO);
 }
