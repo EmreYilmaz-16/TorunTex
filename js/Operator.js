@@ -309,6 +309,7 @@ function Yazdir() {
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var PRODUCT_ID = document.getElementById("PRODUCT_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
   var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
   var LOCATION_ID = Obj.LOCATION_ID;
@@ -338,7 +339,15 @@ function Yazdir() {
         return false;
       } else {
         //  alert(Obj.MESSAGE);
-        getAOrder(MainOrderRowID);
+        if (MainOrderRowID == 0) {
+          var Objecim = JSON.parse(localStorage.ACTIVE_STATION);
+          var ssid = list_getat(SIP_DEPO, 1, "-");
+          var ssLid = list_getat(SIP_DEPO, 2, "-");
+          getDepoUretim(Objecim.STATION, ssid, ssLid);
+        } else {
+          getAOrder(MainOrderRowID);
+        }
+
         getOtherOrdersInfo(ActiveStockId);
         getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
         getProductionCount();
@@ -526,9 +535,11 @@ function LotVer(STATION) {
   var GRB = "3";
 
   ReturnValue += eval(STATION);
-  ReturnValue += list_getat(currentDatePBS, 1, ".");
+  /* ReturnValue += list_getat(currentDatePBS, 1, ".");
   ReturnValue += list_getat(currentDatePBS, 2, ".");
-  ReturnValue += list_getat(currentDatePBS, 3, ".");
+  ReturnValue += list_getat(currentDatePBS, 3, ".");*/
+  var tsss = Math.floor(Math.random() * 1100) + 1000;
+  ReturnValue += tsss.toString();
   ReturnValue += SifirSay;
   ReturnValue += Lot;
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
