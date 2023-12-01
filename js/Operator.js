@@ -332,6 +332,7 @@ function Yazdir() {
       PRODUCT_ID,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
+      console.log(Obj);      
       //  alert(Obj.MESSAGE);
       getAOrder(MainOrderRowID);
       getOtherOrdersInfo(ActiveStockId);
