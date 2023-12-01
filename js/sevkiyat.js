@@ -225,6 +225,7 @@ function wrk_query_pbs(str_query, data_source, maxrows) {
       }
     if (req) {
       function return_function_() {
+      console.log(req);
         if (req.readyState == 4 && req.status == 200)
           try {
             eval(req.responseText.replace(/\u200B/g, ""));
