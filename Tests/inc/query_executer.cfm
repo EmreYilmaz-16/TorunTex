@@ -1,3 +1,4 @@
+<cfset InfoArray = ArrayNew(1)>
 <cfset ReturnValue=structNew()>
 <cftry>
 <cfset ResWords="insert,update,delete">
@@ -42,7 +43,7 @@
 </cfcatch>
 
 </cftry>
-
+<cfset InfoArray[1]=ReturnValue>
 <cfoutput>
-    #Replace(SerializeJSON(ReturnValue),'//','')#
+    #Replace(SerializeJSON(InfoArray),'//','')#
 </cfoutput>
