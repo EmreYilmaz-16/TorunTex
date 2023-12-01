@@ -39,7 +39,7 @@
 </cfif>
 <cfcatch>
     <cfset ReturnValue.recordCount=0>
-    <cfset ReturnValue.RESULT=cfcatch.message>
+    <cfset ReturnValue.RESULT=cfcatch>
 </cfcatch>
 
 </cftry>
