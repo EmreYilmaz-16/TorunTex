@@ -1,4 +1,4 @@
-<cfset ReturnValue=structNew();
+<cfset ReturnValue=structNew()>
 <cftry>
 <cfset ResWords="insert,update,delete">
 <cfset RecOp=0>
