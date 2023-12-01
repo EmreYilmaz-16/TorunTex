@@ -15,7 +15,7 @@ function islemYap(el, ev) {
     var SEPET_DEPARTMAN_ID = document.getElementById("DEPARTMENT_ID").value;
     var SEPET_LOCATION_ID = document.getElementById("LOCATION_ID").value;
     var SEPET_ORDER_ID = document.getElementById("ORDER_ID").value;
-    var SEPET_ID=document.getElementById("SEPET_ID").value
+    var SEPET_ID = document.getElementById("SEPET_ID").value;
     var UrunBarkodu = el.value;
     UrunBarkodu = ReplaceAll(UrunBarkodu, "||", "|");
     var UrunKodu = list_getat(UrunBarkodu, 1, "|");
@@ -28,7 +28,7 @@ function islemYap(el, ev) {
       SEPET_DEPARTMAN_ID: SEPET_DEPARTMAN_ID,
       SEPET_LOCATION_ID: SEPET_LOCATION_ID,
       SEPET_ORDER_ID: SEPET_ORDER_ID,
-      SEPET_ID:SEPET_ID
+      SEPET_ID: SEPET_ID,
     };
     //BILGI LOT NO DAHA ÖNCESİNDE OKUTULMUŞ MU KONTROLÜ
     var Res1 = wrk_query(
@@ -103,7 +103,13 @@ function islemYap(el, ev) {
           "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14&data=" +
             str
         ); /**/
-        SepeteEkle(OSX.SEPET_ID,TasimaVeri.TO_WRK_ROW_ID,OSX.PRODUCT_ID,0,0);
+        SepeteEkle(
+          OSX.SEPET_ID,
+          TasimaVeri.TO_WRK_ROW_ID,
+          OSX.PRODUCT_ID,
+          0,
+          0
+        );
         console.table(TasimaVeri);
       } else {
         // BILGI Ürünün Siparişteyse Ve Deposu Farklıysa
@@ -130,7 +136,6 @@ function islemYap(el, ev) {
       //YAPILACAK TAŞIMA SONRASI SEPET_ROW'A KAYIT EKLE
       //YAPILACAK SEPET_ROW_READINGS'E KAYIT EKLE
       if (OSX.SATIRDA != 1) {
-        
         SatirEkle(OSX.PRODUCT_ID, OSX.PRODUCT_NAME, OSX.Agirlik);
       } else {
         SatirGuncelle(PRODUCT_ID, AMOUNT);
@@ -149,13 +154,19 @@ document.getElementByProductId = function (idb) {
   return el;
 };
 
-function OkumaEkle(AMOUNT,AMOUNT2,LOT_NO,SEPET_ROW_ID){
+function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID) {}
 
-}
-
-function SepeteEkle(SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2){
-  var str="INSERT INTO  w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2) VALUES () "
-
+function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
+  var str =
+    "INSERT INTO  w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2) VALUES (" +
+    SEPET_ID +
+    ",'" +
+    WRK_ROW_ID +
+    "'," +
+    PRODUCT_ID +
+    "," +
+    AMOUNT +
+    ",1) ";
 }
 
 function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT) {
