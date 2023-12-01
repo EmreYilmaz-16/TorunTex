@@ -138,7 +138,8 @@ function islemYap(el, ev) {
       if (OSX.SATIRDA != 1) {
         SatirEkle(OSX.PRODUCT_ID, OSX.PRODUCT_NAME, OSX.Agirlik);
       } else {
-        SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik);
+        SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik,OSX.LOT_NO);
+        
       }
 
       console.table(OSX);
@@ -154,7 +155,11 @@ document.getElementByProductId = function (idb) {
   return el;
 };
 
-function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID) {}
+function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID) {
+  var str="INSERT INTO SEVKIYAT_SEPET_ROW_READ_PBS (SEPET_ROW_ID,LOT_NO,AMOUNT,AMOUNT2) VALUES ("+SEPET_ROW_ID+",'"+LOT_NO+"',"+AMOUNT+","+AMOUNT2+")" 
+  var QueryResult=GetAjaxQuery(str,"dsn3");
+  console.log(QueryResult);
+}
 
 function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
   var str =
@@ -184,7 +189,7 @@ function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT) {
   tr.appendChild(td);
 }
 
-function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT) {
+function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT,LotNo) {
   var AMOUNT_ = document.getElementById("AMOUNT_" + PRODUCT_ID).innerText;
   var TOTAL_1 = list_getat(AMOUNT_, 2, "/").trim();
   var AMOUNT__ = list_getat(AMOUNT_, 1, "/").trim();
@@ -194,11 +199,12 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT) {
   var TOTAL_2 = list_getat(AMOUNT2_, 2, "/").trim();
   var AMOUNT2__ = list_getat(AMOUNT2_, 1, "/").trim();
   var AMOUNT2 = parseFloat(AMOUNT2__);
-
+  var SEPET_ROW_ID=document.getElementByProductId(PRODUCT_ID).getAttribute("data-SEPET_ROW_ID")
   var str_1 = (AMOUNT + ARGA_AMOUNT).toString() + "/" + TOTAL_1;
   document.getElementById("AMOUNT_" + PRODUCT_ID).innerText = str_1;
   var str_2 = (AMOUNT2 + 1).toString() + "/" + TOTAL_2;
   document.getElementById("AMOUNT2_" + PRODUCT_ID).innerText = str_2;
+  OkumaEkle(ARGA_AMOUNT, 1, LotNo, SEPET_ROW_ID)
 }
 function wrk_query_pbs(str_query, data_source, maxrows) {
   var new_query = new Object();
