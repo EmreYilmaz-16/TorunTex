@@ -4,6 +4,10 @@
     <cfset dsn3_alias="w3Toruntex_1">
     <cfset dsn2="w3Toruntex_2023_1">
     <cfset dsn2_alias="w3Toruntex_2023_1">
+    <!----
+        //BILGI MASALARA ÜRÜNÜ GÖNDERMEK İÇİN KULLANILIR
+        //UYARI ESKİDE KALDI EĞER BİRGÜN SIEMENSİN PLC PROGRAMINA SCRİPT YAZMAK İSTERLERSE KULLANILACAK    
+    ------>
     <cffunction name="SendMasa" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfdump var="#arguments#">
         <cfset F=structKeyArray(arguments)>
@@ -37,7 +41,9 @@
 <cfinclude template="../Tests/inc/StokFisQuery.cfm">
 
     </cffunction>
-
+<!-------
+    //BILGI ÜRÜN VE İSTASYONA BAĞLI OLARAK SİPARİŞLERİ GETİRİR    
+-------->
 <cffunction name="getOrders" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="PRODUCT_ID">
         <cfargument name="STATION">
@@ -67,6 +73,9 @@
 </cfloop>
 <cfreturn replace(serializeJSON(RETURNARR),"//","")>
     </cffunction>
+<!----
+//BILGI SİPARİŞ ROW IDSİ İLE BİRTANE SİPRAİŞ SATIRI DÖNER FORMDAKİ VERİLER BU METODLA DOLAR
+    ------>
     <cffunction name="getAOrder" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="ORDER_ROW_ID">
         <cfquery name="GETDATA" datasource="#DSN3#">
@@ -201,7 +210,11 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
 <cfset RETURN_ITEM.ALL_ROWS=ALL_ROWS>
 <cfreturn replace(serializeJSON(RETURN_ITEM),"//","")>
     </cffunction>
-
+<!---
+    //BILGI TAŞIMA YAPMADA KULLANILIR
+    //DIKKAT TAŞIMA YAPMA BİRDEN FAZLA YERDE KULLANILDI 
+    //UYARI METHODDA DEĞİŞİKLİK YAPTIKTAN SONRA VERİ DOĞRULUĞUNU KONTROL ET
+    ----->
     <cffunction name="SaveBelge" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfargument name="AMOUNT">
         <cfargument name="WRK_ROW_ID">

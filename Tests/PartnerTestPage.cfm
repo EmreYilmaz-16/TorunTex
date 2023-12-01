@@ -3,13 +3,13 @@
     <script src="/AddOns/Partner/js/datetime.1-3.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </cfif>
-<cfif attributes.sayfa eq "vt"><cfinclude template="inc/VtSorgu.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq "git"><cfinclude template="inc/git_puller.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq "ex"><cfinclude template="inc/ExCellAktar.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq "pu"><cfinclude template="inc/importProductUnit.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq "fe"><cfinclude template="../Admin/folder_explorer.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq "vtAdd"><cfinclude template="inc/vtAdd.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq "query_executer"><cfinclude template="inc/query_executer.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq "vt"><cfinclude template="inc/VtSorgu.cfm"><cfabort></cfif>                       <!--- //BILGI VERİ TABANI SORGU GÖNDERME  -----> 
+<cfif attributes.sayfa eq "git"><cfinclude template="inc/git_puller.cfm"><cfabort></cfif>                   <!--- //BILGI GİTTEN DEĞİŞİKLİKLERİ ALIR ----->
+<cfif attributes.sayfa eq "ex"><cfinclude template="inc/ExCellAktar.cfm"><cfabort></cfif>                   <!--- //BILGI İLİŞKİLİ ÜRÜN AKTARIM ----->
+<cfif attributes.sayfa eq "pu"><cfinclude template="inc/importProductUnit.cfm"><cfabort></cfif>             <!--- //BILGI ÜRÜN BİRİM AKTARIMI İÇİN KULLANILDI ----->
+<cfif attributes.sayfa eq "fe"><cfinclude template="../Admin/folder_explorer.cfm"><cfabort></cfif>          <!--- //BILGI DOSYA YÖNETİCİSİ ----->
+<cfif attributes.sayfa eq "vtAdd"><cfinclude template="inc/vtAdd.cfm"><cfabort></cfif>                      <!--- //BILGI VERİ TABANINA FORM TADINDA VERİ YAZMA ----->
+<cfif attributes.sayfa eq "query_executer"><cfinclude template="inc/query_executer.cfm"><cfabort></cfif>    <!--- //BILGI PBS JS QUERY ----->
 
 <cfif attributes.sayfa eq -1><cfinclude template="inc/Welcome.cfm"><cfabort></cfif>
 

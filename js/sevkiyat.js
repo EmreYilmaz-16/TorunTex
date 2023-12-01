@@ -103,13 +103,13 @@ function islemYap(el, ev) {
           "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14&data=" +
             str
         ); /**/
-        SepeteEkle(
+        /*SepeteEkle(
           OSX.SEPET_ID,
           TasimaVeri.TO_WRK_ROW_ID,
           OSX.PRODUCT_ID,
           0,
           0
-        );
+        );*/
         console.table(TasimaVeri);
       } else {
         // BILGI Ürünün Siparişteyse Ve Deposu Farklıysa
@@ -134,7 +134,9 @@ function islemYap(el, ev) {
         }
       }
       //YAPILACAK TAŞIMA SONRASI SEPET_ROW'A KAYIT EKLE
+      //TAMAM
       //YAPILACAK SEPET_ROW_READINGS'E KAYIT EKLE
+      //TAMAM
       if (OSX.SATIRDA != 1) {
        var GENERATEDKEY= SepeteEkle(OSX.SEPET_ID,OSX.PBS_RELATION_ID,OSX.PRODUCT_ID,OSX.Agirlik,1);
        OkumaEkle(OSX.Agirlik,1,OSX.LotNo,GENERATEDKEY);
@@ -176,7 +178,7 @@ function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID) {
     return false;
   }
 }
-
+//BILGI SEPETE EKLEMEK İÇİN INSERT SORGUSU SEPET_ROW_ID DONER
 function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
   var str =
     "INSERT INTO  w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2) VALUES (" +
@@ -195,7 +197,7 @@ function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
     return false;
   }
 }
-
+//BILGI YALNIZCA HTML OLARAK SATIR EKLER
 function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT,SEPET_ROW_ID) {
   var tr = document.createElement("tr");
   var td = document.createElement("td");
@@ -212,7 +214,10 @@ function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT,SEPET_ROW_ID) {
   tr.setAttribute("data-SEPET_ROW_ID", SEPET_ROW_ID);
   document.getElementById("Sepetim").appendChild(tr);
 }
-
+//BILGI VAR OLAN SATIRI GUNCELLER 
+//DIKKAT BU METOD OKUMDA DA KAYIT ETTIGINDEN YANLIŞ OLMAMASI İÇİN DAHA ÖNCESİNDE OKUMA KAYIT ETMEDİĞİNE EMİN OL
+//UYARI SATIR DEĞERLERİ HTML OLARAK GÜNCELLENİR VERİ SUNUCUDAN DEĞİL CLİENT TARAFINDAKİ VERİDİR 
+//TESTET SUNUCU CLIENT VERI KARŞILAŞTIRMASINI YAP
 function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
   var AMOUNT_ = document.getElementById("AMOUNT_" + PRODUCT_ID).innerText;
   var TOTAL_1 = list_getat(AMOUNT_, 2, "/").trim();
@@ -232,74 +237,8 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
   document.getElementById("AMOUNT2_" + PRODUCT_ID).innerText = str_2;
   OkumaEkle(ARGA_AMOUNT, 1, LotNo, SEPET_ROW_ID);
 }
-function wrk_query_pbs(str_query, data_source, maxrows) {
-  var new_query = new Object();
-  var req;
-  if (!data_source) data_source = "dsn";
-  if (!maxrows) maxrows = 0;
-  function callpage(url) {
-    req = false;
-    if (window.XMLHttpRequest)
-      try {
-        req = new XMLHttpRequest();
-      } catch (e) {
-        req = false;
-      }
-    else if (window.ActiveXObject)
-      try {
-        req = new ActiveXObject("Msxml2.XMLHTTP");
-      } catch (e) {
-        try {
-          req = new ActiveXObject("Microsoft.XMLHTTP");
-        } catch (e) {
-          req = false;
-        }
-      }
-    if (req) {
-      function return_function_() {
-        console.log(req);
-        if (req.readyState == 4 && req.status == 200)
-          try {
-            new_query = eval(req.responseText.replace(/\u200B/g, "")); //alert('Cevap:\n\n'+req.responseText);//
-          } catch (e) {
-            console.log(e);
-            new_query = false;
-          }
-      }
-      req.open("post", url + "&xmlhttp=1", false);
-      req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      req.setRequestHeader("pragma", "nocache");
-      if (encodeURI(str_query).indexOf("+") == -1)
-        // + isareti encodeURI fonksiyonundan gecmedigi icin encodeURIComponent fonksiyonunu kullaniyoruz. EY 20120125
-        req.send(
-          "str_sql=" +
-            encodeURI(str_query) +
-            "&data_source=" +
-            data_source +
-            "&maxrows=" +
-            maxrows
-        );
-      else
-        req.send(
-          "str_sql=" +
-            encodeURIComponent(str_query) +
-            "&data_source=" +
-            data_source +
-            "&maxrows=" +
-            maxrows
-        );
-      return_function_();
-    }
-  }
-
-  //TolgaS 20070124 objects yetkisi olmayan partnerlar var diye fuseaction objects2 yapildi
-  callpage(
-    "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=query_executer&isAjax=1"
-  );
-  //alert(new_query);
-
-  return new_query;
-}
+//BILGI PBS JS QUERY
+//DIKKAT BÜTÜN METODLAR SERBEST 'INSERT,UPDATE,DELETE,EXEC,TRUNCATE GIBI GIBI'
 function GetAjaxQuery(str_query, data_source, maxrows) {
   var CompanyInfo = new Object();
   var url =

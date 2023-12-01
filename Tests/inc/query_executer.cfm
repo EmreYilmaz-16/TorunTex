@@ -1,3 +1,8 @@
+<!---
+    //DIKKAT  BÜTÜN METODLAR SERBEST
+    //BILGI datasource verisi gelmezse default datasource dsn
+    //BILGI ResWords Dönüşte SIkıntı Olmasın Diye Kondu
+    ---->
 <cfset InfoArray = ArrayNew(1)>
 <cfset ReturnValue=structNew()>
 <cftry>
