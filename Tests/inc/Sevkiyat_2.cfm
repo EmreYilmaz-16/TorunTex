@@ -54,7 +54,7 @@
     <label>Barkod</label>
     <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
 </div>
-<table class="table table-sm table-stripped">
+<table class="table table-sm table-stripped" id="Sepetim">
     <cfquery name="GETDATA" datasource="#DSN3#">
 SELECT S.PRODUCT_NAME
     ,S.PRODUCT_ID
