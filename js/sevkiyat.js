@@ -167,7 +167,6 @@ function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
     "," +
     AMOUNT +
     ",1) ";
-
 }
 
 function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT) {
@@ -225,11 +224,10 @@ function wrk_query_pbs(str_query, data_source, maxrows) {
       }
     if (req) {
       function return_function_() {
-      console.log(req);
+        console.log(req);
         if (req.readyState == 4 && req.status == 200)
           try {
-            
-            new_query = eval(req.responseText.replace(/\u200B/g, ""));; //alert('Cevap:\n\n'+req.responseText);//
+            new_query = eval(req.responseText.replace(/\u200B/g, "")); //alert('Cevap:\n\n'+req.responseText);//
           } catch (e) {
             console.log(e);
             new_query = false;
@@ -262,11 +260,50 @@ function wrk_query_pbs(str_query, data_source, maxrows) {
   }
 
   //TolgaS 20070124 objects yetkisi olmayan partnerlar var diye fuseaction objects2 yapildi
-  callpage("/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=query_executer&isAjax=1");
+  callpage(
+    "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=query_executer&isAjax=1"
+  );
   //alert(new_query);
 
   return new_query;
 }
+function GetAjaxQuery(str_query, data_source, maxrows) {
+  var CompanyInfo = new Object();
+  var url =
+    "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=query_executer&isAjax=1";
+  var myAjaxConnector = GetAjaxConnector();
+  if (myAjaxConnector) {
+    data =
+      "str_sql=" +
+      encodeURIComponent(str_query) +
+      "&data_source=" +
+      data_source +
+      "&maxrows=" +
+      maxrows;
+    myAjaxConnector.open("post", url + "&xmlhttp=1", false);
+    myAjaxConnector.setRequestHeader(
+      "If-Modified-Since",
+      "Sat, 1 Jan 2000 00:00:00 GMT"
+    );
+    myAjaxConnector.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded; charset=utf-8"
+    );
+    myAjaxConnector.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    myAjaxConnector.send(data);
+    if (myAjaxConnector.readyState == 4 && myAjaxConnector.status == 200) {
+      try {
+        CompanyInfo = eval(
+          myAjaxConnector.responseText.replace(/\u200B/g, "")
+        )[0];
+      } catch (e) {
+        CompanyInfo = false;
+      }
+    }
+  }
+  return CompanyInfo;
+}
+
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
   var req;
