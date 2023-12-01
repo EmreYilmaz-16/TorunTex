@@ -228,8 +228,8 @@ function wrk_query_pbs(str_query, data_source, maxrows) {
       console.log(req);
         if (req.readyState == 4 && req.status == 200)
           try {
-            eval(req.responseText.replace(/\u200B/g, ""));
-            new_query = get_js_query; //alert('Cevap:\n\n'+req.responseText);//
+            
+            new_query = eval(req.responseText.replace(/\u200B/g, ""));; //alert('Cevap:\n\n'+req.responseText);//
           } catch (e) {
             console.log(e);
             new_query = false;
