@@ -4,7 +4,7 @@
 <cfset ResWords="insert,update,delete,INSERT,UPDATE,DELETE">
 <cfset RecOp=0>
 <cfloop list="#ResWords#" item="Aword">
-    <cfif findNoCase(attributes.str_sql,Aword)>
+    <cfif findNoCase(Aword,attributes.str_sql)>
         <cfset RecOp=1>
     </cfif>
 </cfloop>
