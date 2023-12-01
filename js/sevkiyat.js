@@ -203,7 +203,7 @@ function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT,SEPET_ROW_ID) {
   td.innerText = AMOUNT + "/" + "0";
   tr.appendChild(td);
   var td = document.createElement("td");
-  td.innerText(1 + "/" + 0);
+  td.innerText=1 + "/" + 0;
   tr.appendChild(td);
   var td = document.createElement("td");
   td.innerText = PRODUCT_NAME;
