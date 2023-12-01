@@ -200,7 +200,7 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT) {
   var str_2 = (AMOUNT2 + 1).toString() + "/" + TOTAL_2;
   document.getElementById("AMOUNT2_" + PRODUCT_ID).innerText = str_2;
 }
-function wrk_query(str_query, data_source, maxrows) {
+function wrk_query_pbs(str_query, data_source, maxrows) {
   var new_query = new Object();
   var req;
   if (!data_source) data_source = "dsn";
