@@ -20,6 +20,7 @@
     </cfquery>
     <cfset ReturnValue.recordCount=Res.recordCount>
     <cfset ReturnValue.RESULT=Res>
+    <cfset ReturnValue.CALISAN_1="BIRINCI QUERY CALISTI">
 <cfelse>
     <cfquery name="ReturnQuery" datasource="#DataSource#" result="Res">
         #preserveSingleQuotes(attributes.str_sql)#
@@ -36,6 +37,7 @@
     </cfoutput>
     <cfset ReturnValue.recordCount=ReturnQuery.recordCount>
     <cfset ReturnValue.RESULT=ReturnArr>
+    <cfset ReturnValue.CALISAN_2="IKINCI QUERY CALISTI">
 </cfif>
 <cfcatch>
     <cfset ReturnValue.recordCount=0>
