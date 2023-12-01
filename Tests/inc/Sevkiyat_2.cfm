@@ -46,6 +46,10 @@
 
 <cf_box title="Sevkiyat İşlemi">
 <input type="hidden" name="SEPET_ID" id="SEPET_ID" value="<CFOUTPUT>#RES.GENERATEDKEY#</CFOUTPUT>">
+
+<input type="hidden" name="DEPARTMENT_ID" id="DEPARTMENT_ID" value="<CFOUTPUT>#DEPARTMENT_ID#</CFOUTPUT>">
+<input type="hidden" name="LOCATION_ID" id="LOCATION_ID" value="<CFOUTPUT>#LOCATION_ID#</CFOUTPUT>">
+<input type="hidden" name="ORDER_ID" id="ORDER_ID" value="<CFOUTPUT>#ORDER_ID#</CFOUTPUT>">
 <div class="form-group">
     <label>Barkod</label>
     <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
