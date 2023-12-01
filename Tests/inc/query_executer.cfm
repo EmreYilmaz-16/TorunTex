@@ -10,7 +10,7 @@
 <cfif not isDefined("attributes.data_source")>
     <cfset DataSource="#dsn#">
 <cfelse>
-    <cfset DataSource=attributes.data_source>
+    <cfset DataSource=evaluate(attributes.data_source)>
 </cfif>
 
 <cfif RecOp eq 1>
