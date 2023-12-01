@@ -86,7 +86,7 @@ function getAOrder(ORDER_ROW_ID) {
     return false;
   }
   MainOrderRowID = ORDER_ROW_ID;
-  $('#SiparisResultAreaAs').hide(500)
+  $("#SiparisResultAreaAs").hide(500);
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
@@ -140,7 +140,7 @@ function getAOrder(ORDER_ROW_ID) {
           $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
           $("#SIP_DEPO").val(Obj.SIP_DEPO);
           $("#OrderLocation").text(Obj.COMMENT);
-          $("#AA1").text(Obj.DETAIL_INFO_EXTRA);          
+          $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
           $("#AA2").text(Obj.AA2);
           $("#AA3").text(Obj.AA3);
           $("#AA4").text(Obj.SA_PRODUCTION_NOTE);
@@ -202,7 +202,7 @@ function TemizleCanim() {
   $("#sipres").html("");
   $("#Complate").text("");
   $("#LotNo").val("");
-  $("#AA1").text("");          
+  $("#AA1").text("");
   $("#AA2").text("");
   $("#AA3").text("");
   $("#AA4").text("");
@@ -332,35 +332,40 @@ function Yazdir() {
       PRODUCT_ID,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
-      console.log(Obj);      
-      //  alert(Obj.MESSAGE);
-      getAOrder(MainOrderRowID);
-      getOtherOrdersInfo(ActiveStockId);
-      getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
-      getProductionCount();
       console.log(Obj);
-      var GetIp = wrk_query(
-        "SELECT * FROM STATION_PRINTER_RELATION_PBS WHERE STORE_ID=" +
-          DEPARTMENT_ID +
-          " AND LOCATION_ID=" +
-          LOCATION_ID
-      );
-      if (GetIp.recordcount == 0) {
-        alert(
-          "Bu İstasyon İçin Yazıcı Tanımlanmamıştır Belge Kayıt Edildi Ancak Etiket Üretilmeyecektir !"
-        );
+      if (Obj.STATUS_CODE == 3 || Obj.STATUS_CODE == 2) {
+        alert(Obj.MESSAGE);
+        return false;
       } else {
-        var IP_Add = GetIp.IP_ADDRESS[0];
-        YazdirabilirsenYazdir(
-          Obj.COMMENT,
-          Obj.ORDER_NUMBER,
-          Obj.PRODUCT_CODE_2,
-          Obj.PRODUCT_DETAIL,
-          Obj.LOT_NO,
-          Obj.AMOUNT,
-          Obj.PRODUCT_NAME,
-          IP_Add
+        //  alert(Obj.MESSAGE);
+        getAOrder(MainOrderRowID);
+        getOtherOrdersInfo(ActiveStockId);
+        getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+        getProductionCount();
+        console.log(Obj);
+        var GetIp = wrk_query(
+          "SELECT * FROM STATION_PRINTER_RELATION_PBS WHERE STORE_ID=" +
+            DEPARTMENT_ID +
+            " AND LOCATION_ID=" +
+            LOCATION_ID
         );
+        if (GetIp.recordcount == 0) {
+          alert(
+            "Bu İstasyon İçin Yazıcı Tanımlanmamıştır Belge Kayıt Edildi Ancak Etiket Üretilmeyecektir !"
+          );
+        } else {
+          var IP_Add = GetIp.IP_ADDRESS[0];
+          YazdirabilirsenYazdir(
+            Obj.COMMENT,
+            Obj.ORDER_NUMBER,
+            Obj.PRODUCT_CODE_2,
+            Obj.PRODUCT_DETAIL,
+            Obj.LOT_NO,
+            Obj.AMOUNT,
+            Obj.PRODUCT_NAME,
+            IP_Add
+          );
+        }
       }
     },
   });
@@ -531,7 +536,7 @@ function LotVer(STATION) {
 }
 function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   MainOrderRowID = 0;
-  $('#SiparisResultAreaAs').hide(500)
+  $("#SiparisResultAreaAs").hide(500);
   $("#RenkYazi").text("");
   $("#color1").attr(
     "style",

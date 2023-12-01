@@ -257,6 +257,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
             <CFSET MESSAGE="STOK YETERSİZ">
             <cfset O.MESSAGE=MESSAGE>
             <cfset O.STATUS=0>
+            <cfset O.STATUS_CODE=3>
             <cfreturn replace(serializeJSON(O),"//","")>
         </cfif>
 <cfset attributes.ROWW="">
@@ -385,7 +386,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
 <CFSET MESSAGE="Kayıt Başarılı">
 <cfset O.MESSAGE=MESSAGE>
 <cfset O.STATUS=1>
-
+<cfset O.STATUS_CODE=1>
 
 
 
@@ -393,6 +394,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
     <CFSET MESSAGE=cfcatch>
     <cfset O.MESSAGE=MESSAGE>
 <cfset O.STATUS=0>
+<cfset O.STATUS_CODE=2>
 </cfcatch>
 </cftry>
 <cfreturn replace(serializeJSON(O),"//","")>
