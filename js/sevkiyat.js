@@ -167,6 +167,7 @@ function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
     "," +
     AMOUNT +
     ",1) ";
+    var QueryResult=GetAjaxQuery(str,"dsn3");
 }
 
 function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT) {
@@ -285,6 +286,7 @@ function GetAjaxQuery(str_query, data_source, maxrows) {
       "If-Modified-Since",
       "Sat, 1 Jan 2000 00:00:00 GMT"
     );
+    myAjaxConnector.setRequestHeader("pragma", "nocache");
     myAjaxConnector.setRequestHeader(
       "Content-Type",
       "application/x-www-form-urlencoded; charset=utf-8"
