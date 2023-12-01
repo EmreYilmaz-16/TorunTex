@@ -1,7 +1,7 @@
 <cfset InfoArray = ArrayNew(1)>
 <cfset ReturnValue=structNew()>
 <cftry>
-<cfset ResWords="insert,update,delete">
+<cfset ResWords="insert,update,delete,INSERT,UPDATE,DELETE">
 <cfset RecOp=0>
 <cfloop list="#ResWords#" item="Aword">
     <cfif findNoCase(attributes.str_sql,Aword)>
