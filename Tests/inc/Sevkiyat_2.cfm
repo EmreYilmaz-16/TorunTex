@@ -76,8 +76,8 @@ GROUP BY S.PRODUCT_NAME
 	,SEVKIYAT_SEPET_ROW_PBS.AMOUNT2
     </cfquery>
     <cfoutput query="GETDATA">
-        <tr data-PRODUCT_ID='#PRODUCT_ID#' >
-            <td data-sepet_row="#SEPET_ROW_ID#" id="AMOUNT_#PRODUCT_ID#">
+        <tr data-PRODUCT_ID='#PRODUCT_ID#' data-SEPET_ROW_ID="#SEPET_ROW_ID#">
+            <td  id="AMOUNT_#PRODUCT_ID#">
                 #AMOUNT# / #AMOUNT_#
             </td>
             <td id="AMOUNT2_#PRODUCT_ID#">

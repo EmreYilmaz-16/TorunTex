@@ -34,7 +34,7 @@
         ,SEVKIYAT_SEPET_ROW_PBS.AMOUNT2
         </cfquery>
         <cfoutput query="GETDATA">
-            <tr data-PRODUCT_ID='#PRODUCT_ID#'>
+            <tr data-PRODUCT_ID='#PRODUCT_ID#' data-SEPET_ROW_ID="#SEPET_ROW_ID#"> 
                 <td id="AMOUNT_#PRODUCT_ID#">
                     #AMOUNT# / #AMOUNT_#
                 </td>
