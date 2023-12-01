@@ -3,7 +3,7 @@
 <cfset ResWords="insert,update,delete">
 <cfset RecOp=0>
 <cfloop list="#ResWords#" item="Aword">
-    <cfif findNoCase(attributes.query,Aword)>
+    <cfif findNoCase(attributes.str_sql,Aword)>
         <cfset RecOp=1>
     </cfif>
 </cfloop>
@@ -15,13 +15,13 @@
 
 <cfif RecOp eq 1>
     <cfquery name="ReturnQuery" datasource="#DataSource#" result="Res">
-        #preserveSingleQuotes(attributes.sql_query)#
+        #preserveSingleQuotes(attributes.str_sql)#
     </cfquery>
     <cfset ReturnValue.recordCount=Res.recordCount>
     <cfset ReturnValue.RESULT=Res>
 <cfelse>
     <cfquery name="ReturnQuery" datasource="#DataSource#" result="Res">
-        #preserveSingleQuotes(attributes.sql_query)#
+        #preserveSingleQuotes(attributes.str_sql)#
     </cfquery>
     <cfset ReturnArr=arrayNew(1)>
   <cfoutput query="ReturnQuery">            
