@@ -439,5 +439,19 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         SELECT TOP 5 * FROM W
     </cfquery>
 </cffunction>
+<cffunction name="deleteSelected" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
+    <cfargument name="lot_no">
+    <cfquery name="getHarekets" datasource="#dsn2#">
+        SELECT * FROM STOCKS_ROW WHERE LOT_NO='#arguments.lot_no#'
+    </cfquery>
+    <cfset fis_sayisi=0>
+    <cfloop query="getHarekets">
+        <cfset attributes.del_fis =1>
+        <cfset form.upd_id=getHarekets.UPD_ID>
+        <cfset form.type_id=getHarekets.PROCESS_TYPE>
+        <cfset form.old_process_type=getHarekets.PROCESS_TYPE>
+        <cfinclude template="/v16/stock/query/upd_fis_1.cfm">
+    </cfloop>
+</cffunction>
 
 </cfcomponent>
