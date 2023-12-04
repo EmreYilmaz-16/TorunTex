@@ -6,6 +6,10 @@
 	,S.PRODUCT_NAME 
     ,SR.UPD_ID
     ,SR.LOT_NO
+    ,(SELECT COUNT(*) AS SS FROM w3Toruntex_2023_1.STOCKS_ROW 
+INNER JOIN w3Toruntex_2023_1.STOCK_FIS AS SF ON SF.FIS_ID=STOCKS_ROW.UPD_ID
+WHERE LOT_NO=SR.LOT_NO AND SF.PROCESS_CAT  NOT IN (87,255)
+) AS HAREKET_VAMI
     FROM #DSN2#.STOCKS_ROW AS SR    
 LEFT JOIN #dsn3#.ORDER_ROW AS ORR ON ORR.WRK_ROW_ID = SR.PBS_RELATION_ID
 LEFT JOIN #dsn3#.ORDERS AS O ON O.ORDER_ID = ORR.ORDER_ID
@@ -46,7 +50,10 @@ ORDER BY SR.PROCESS_DATE DESC
             <td ><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>  
             <td>#ORDER_NUMBER#</td>
             <td>#AMOUNT#</td>
-            <td><input type="radio" name="SELRADIO" value="#LOT_NO#"></td>
+            <td><cfif HAREKET_VAMI eq 0>
+                <input type="radio" name="SELRADIO" value="#LOT_NO#">
+            </cfif>
+            </td>
         </tr>
     </cfoutput>
 </tbody>
