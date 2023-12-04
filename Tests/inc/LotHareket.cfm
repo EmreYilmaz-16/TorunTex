@@ -27,7 +27,7 @@
         #listgetat(URUN_BARKODU,"2","|")#<br>
         #listgetat(URUN_BARKODU,"3","|")#<br>---->
         <cfquery name="getLOTDATA" datasource="#dsn2#">
-            SELECT PC.PROCESS_CAT,SR.STOCK_IN,SR.STOCK_OUT,STOCK_IN-STOCK_OUT as PSSPK,SR.STORE,SR.STORE_LOCATION,SR.STOCK_ID,SL.COMMENT,SPC.PROCESS_CAT AS ISLEMCIM,SR.UPD_ID,O.ORDER_NUMBER,C.NICKNAME,SR.PROCESS_DATE FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
+            SELECT PC.PROCESS_CAT,SR.STOCK_IN,SR.STOCK_OUT,STOCK_IN-STOCK_OUT as PSSPK,SR.STORE,SR.STORE_LOCATION,SR.STOCK_ID,SL.COMMENT,SR.UPD_ID,O.ORDER_NUMBER,C.NICKNAME,SR.PROCESS_DATE FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
 
 LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID =SR.STORE
 LEFT JOIN w3Toruntex_1.ORDER_ROW AS ORR ON ORR.WRK_ROW_ID=SR.PBS_RELATION_ID
@@ -84,7 +84,7 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                         <td rowspan="#RS#">#getLOTDATA.ORDER_NUMBER[i]#</td>
                      <td rowspan="#RS#">#getLOTDATA.NICKNAME[i]#</td>
                      <cfif i neq getLOTDATA.recordCount and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i+1] ><CFSET RS=2><cfelse></cfif>
-                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse>    <td rowspan="#RS#">#getLOTDATA.ISLEMCIM[i]#</td></cfif>
+                     <cfif i neq 1 and getLOTDATA.UPD_ID[i] eq getLOTDATA.UPD_ID[i-1]><cfelse>    <td rowspan="#RS#">#getLOTDATA.PROCESS_CAT[i]#</td></cfif>
                         <cfset RS=1>
                     <td style="text-align:right">
                         <div class="<cfif getLOTDATA.PSSPK[i] lt 0>text-danger<cfelse>text-success</cfif> bold">#tlformat(getLOTDATA.PSSPK[i])#</div>
