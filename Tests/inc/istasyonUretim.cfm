@@ -5,6 +5,7 @@
 	,O.ORDER_NUMBER
 	,S.PRODUCT_NAME 
     ,SR.UPD_ID
+    ,SR.LOT_NO
     FROM #DSN2#.STOCKS_ROW AS SR    
 LEFT JOIN #dsn3#.ORDER_ROW AS ORR ON ORR.WRK_ROW_ID = SR.PBS_RELATION_ID
 LEFT JOIN #dsn3#.ORDERS AS O ON O.ORDER_ID = ORR.ORDER_ID
@@ -35,6 +36,7 @@ ORDER BY SF.RECORD_DATE DESC----->
 <cf_big_list class="table table-sm table-stripped" SHOW_FS="0">
   <thead>
     <tr>
+        <th>Seri</th>
         <th>
             Ürün
         </th>
@@ -53,6 +55,7 @@ ORDER BY SF.RECORD_DATE DESC----->
 <tbody>
     <cfoutput query="gets">
         <tr>
+            <td>#LOT_NO#</td>
             <td>#PRODUCT_NAME#</td>
             <td ><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>  
             <td>#ORDER_NUMBER#</td>
