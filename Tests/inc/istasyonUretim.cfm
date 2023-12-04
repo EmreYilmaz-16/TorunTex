@@ -46,7 +46,7 @@ ORDER BY SR.PROCESS_DATE DESC
             <td ><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>  
             <td>#ORDER_NUMBER#</td>
             <td>#AMOUNT#</td>
-            <td><input type="radio" name="SELRADIO" value="#UPD_ID#"></td>
+            <td><input type="radio" name="SELRADIO" value="#LOT_NO#"></td>
         </tr>
     </cfoutput>
 </tbody>

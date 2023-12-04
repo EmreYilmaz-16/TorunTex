@@ -16,7 +16,7 @@
     <cfset attributes.LOCATION_IN="#FormData.TO_LOCATION_ID#">
     <cfset attributes.department_out=FormData.FROM_DEPARTMENT_ID>
     <cfset attributes.LOCATION_OUT =FormData.FROM_LOCATION_ID>
-    <cfset form.process_cat=255>
+    <cfset form.process_cat=294>
     <cfset attributes.process_cat = form.process_cat>
    <cfset PROJECT_HEAD="">
    <cfset PROJECT_HEAD_IN="">
