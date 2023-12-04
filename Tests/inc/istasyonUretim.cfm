@@ -3,7 +3,9 @@
 	,C.NICKNAME
 	,SL.COMMENT
 	,O.ORDER_NUMBER
-	,S.PRODUCT_NAME FROM #DSN2#.STOCKS_ROW AS SR
+	,S.PRODUCT_NAME 
+    ,SR.UPD_ID
+    FROM #DSN2#.STOCKS_ROW AS SR    
 LEFT JOIN #dsn3#.ORDER_ROW AS ORR ON ORR.WRK_ROW_ID = SR.PBS_RELATION_ID
 LEFT JOIN #dsn3#.ORDERS AS O ON O.ORDER_ID = ORR.ORDER_ID
 LEFT JOIN #dsn#.COMPANY AS C ON C.COMPANY_ID = O.COMPANY_ID
@@ -43,6 +45,9 @@ ORDER BY SF.RECORD_DATE DESC----->
         <th>
             Miktar
         </th>
+        <th>
+            
+        </th>
     </tr>
 </thead>
 <tbody>
@@ -52,6 +57,7 @@ ORDER BY SF.RECORD_DATE DESC----->
             <td ><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>  
             <td>#ORDER_NUMBER#</td>
             <td>#AMOUNT#</td>
+            <td><input type="radio" name="SELRADIO" value="#UPD_ID#"></td>
         </tr>
     </cfoutput>
 </tbody>
