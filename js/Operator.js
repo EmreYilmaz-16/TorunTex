@@ -95,7 +95,7 @@ function getAOrder(ORDER_ROW_ID,nerden="") {
   }
   //console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
   console.log("getAOrder Fonksiyonunu Çağıran="+ nerden);
-  console.log(MainOrderRowID)
+  console.log(" MainOrderRowID= "+MainOrderRowID+" ORDER_ROW_ID= "+ORDER_ROW_ID)
   $("#ActiveSiparisId").val(ORDER_ROW_ID)
   MainOrderRowID = ORDER_ROW_ID;
 
