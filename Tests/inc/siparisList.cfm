@@ -46,6 +46,7 @@ LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID = O.LOCATION_ID
     
 WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# AND O.PURCHASE_SALES=1 AND UNIT2='#attributes.STATION#' AND ORDER_ROW_CURRENCY=-5 ORDER BY SP.PRIORITY  
 </cfquery>
+<cfdump var="#getOrder#">
 <div class="form-group">
     <label>Sipariş</label>    
     <div class="input-group mb-3">
