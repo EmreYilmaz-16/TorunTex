@@ -680,7 +680,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
             <cfif isDefined("session.pda")>
                 window.open('<cfoutput>#request.self#?fuseaction=pda.emptypopup_cost_action&action_type=#arguments.action_type#&action_id=#arguments.action_id#&dsn_type=#arguments.dsn_type#&period_dsn_type=#arguments.period_dsn_type#&query_type=#arguments.query_type#&user_id=#session.pda.userid#&period_id=#session.pda.period_id#&company_id=#session.pda.our_company_id#</cfoutput>',"#popup_page_name#","height=75,width=350");
             <cfelse>
-                window.open('<cfoutput>#request.self#?fuseaction=objects.emptypopup_cost_action&action_type=#arguments.action_type#&action_id=#arguments.action_id#&dsn_type=#arguments.dsn_type#&period_dsn_type=#arguments.period_dsn_type#&query_type=#arguments.query_type#&user_id=#session.ep.userid#&period_id=#session.ep.period_id#&company_id=#session.ep.company_id#</cfoutput>',"#popup_page_name#","height=75,width=350");
+                window.open('<cfoutput>/index.cfm?fuseaction=objects.emptypopup_cost_action&action_type=#arguments.action_type#&action_id=#arguments.action_id#&dsn_type=#arguments.dsn_type#&period_dsn_type=#arguments.period_dsn_type#&query_type=#arguments.query_type#&user_id=#session.ep.userid#&period_id=#session.ep.period_id#&company_id=#session.ep.company_id#</cfoutput>',"#popup_page_name#","height=75,width=350");
             </cfif>
         </script>
     <cfelse>
