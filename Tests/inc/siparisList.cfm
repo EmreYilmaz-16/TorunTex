@@ -76,7 +76,7 @@ WHERE 1=1
     </cfif>
 ORDER BY PRIORITY  
 </cfquery>
-<cfdump var="#getOrder#">
+
 <div class="form-group">
     <label>Sipariş</label>    
     <div class="input-group mb-3">
