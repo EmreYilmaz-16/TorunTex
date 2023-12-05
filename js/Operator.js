@@ -381,6 +381,7 @@ function Yazdir() {
 }
 function Iptal() {
   var LOT_NO = "";
+  var Radios=document.getElementsByName("SELRADIO")
   for (let index = 0; index < Radios.length; index++) {
     var Radio = Radios[index];
     if ($(Radio).is(":checked")) {
@@ -397,7 +398,7 @@ function Iptal() {
       var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
       var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
       var LOCATION_ID = Obj.LOCATION_ID;
-      
+
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
       getProductionCount();
