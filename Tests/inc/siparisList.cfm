@@ -9,6 +9,7 @@ SELECT * FROM (SELECT C.NICKNAME
 	,O.ORDER_ID
 	,ORR.QUANTITY
 	,ORR.WRK_ROW_ID
+    ,ORR.AMOUNT2 DIGER_MIKTAR
 	,ORR.ORDER_ROW_ID
 	,SBI_1.BASKET_INFO_TYPE AS A1
 	,SBI_2.BASKET_INFO_TYPE AS A2
@@ -66,8 +67,13 @@ WHERE ORR.PRODUCT_ID = #attributes.PRODUCT_ID#
 	AND O.PURCHASE_SALES = 1
 	AND UNIT2 = '#attributes.STATION#'
 	AND ORDER_ROW_CURRENCY = - 5) AS POLKI
-    <cfif attributes.STATION eq 'KLB'></cfif>
-    <cfif attributes.STATION eq 'SCK'></cfif>
+WHERE 1=1 
+    <cfif attributes.STATION eq 'KLB'>
+        AND DIGER_MIKTAR <URETILEN_MIKTAR2
+    </cfif>
+    <cfif attributes.STATION eq 'SCK'>
+        AND QUANTITY <R_AMOUNT
+    </cfif>
 ORDER BY PRIORITY  
 </cfquery>
 <cfdump var="#getOrder#">
