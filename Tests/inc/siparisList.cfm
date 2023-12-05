@@ -116,7 +116,7 @@ ORDER BY PRIORITY
                             <td>#PRIORITY#</td>
                             <td>#UNIT2#</td>
                             <td>#COMMENT#</td>
-                            <td><a href="javascript:;" class="btn btn-primary text-white" onclick="getAOrder(#ORDER_ROW_ID#)">#ORDER_NUMBER#</a></td>
+                            <td><a href="javascript:;" class="btn btn-primary text-white" onclick="getAOrder(#ORDER_ROW_ID#,'ELİMLEN BASTIM')">#ORDER_NUMBER#</a></td>
                             <td><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
