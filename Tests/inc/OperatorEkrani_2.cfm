@@ -144,9 +144,9 @@
             <table class="table table-bordered" style="font-size: 14pt;width: 100%;">
                 <tbody>
                     <tr>
-                        <td onclick="Yaz(9)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">9</td>
-                        <td onclick="Yaz(8)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">8</td>
                         <td onclick="Yaz(7)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">7</td>
+                        <td onclick="Yaz(8)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">8</td>                        
+                        <td onclick="Yaz(9)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">9</td>
                         <td onclick="Yaz(-1)" class="bg-dark text-white" style="font-size: 30pt;width: 25%;text-align: center;border-radius:0.375rem">◄</td>
                     </tr>
                     <tr>
