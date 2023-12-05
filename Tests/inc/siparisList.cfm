@@ -122,7 +122,7 @@ ORDER BY PRIORITY
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
                             <td>#QUANTITY-R_AMOUNT# </td>
-                            <td>DIGER_MIKTAR-URETILEN_MIKTAR2</td>
+                            <td>#DIGER_MIKTAR-URETILEN_MIKTAR2#</td>
                             
                         </tr>
                        
