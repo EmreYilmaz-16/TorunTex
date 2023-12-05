@@ -120,7 +120,7 @@ ORDER BY PRIORITY
                             <td><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
-                            <td>#QUANTITY-R_AMOUNT# <span style="color:red">#URETILEN_MIKTAR2#</span></td>
+                            <td>#QUANTITY-R_AMOUNT# <span style="color:red">#URETILEN_MIKTAR2#</span> <span style="color:green">#DIGER_MIKTAR#</span></td>
                             
                         </tr>
                        
