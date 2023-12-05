@@ -310,7 +310,7 @@ function Yazdir() {
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var PRODUCT_ID = document.getElementById("PRODUCT_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
-
+var STATION_ =Obj.STATION;
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
   var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
   var LOCATION_ID = Obj.LOCATION_ID;
@@ -351,6 +351,7 @@ function Yazdir() {
         getOtherOrdersInfo(ActiveStockId);
         getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
         getProductionCount();
+        getProducts(STATION_)
         console.log(Obj);
         var GetIp = wrk_query(
           "SELECT * FROM STATION_PRINTER_RELATION_PBS WHERE STORE_ID=" +
@@ -542,6 +543,9 @@ function getProducts(STATION) {
       STOCK_ID: q.STOCK_ID[index],
       PRODUCT_DETAIL: q.PRODUCT_DETAIL[index],
     });
+  }
+  if(ActiveStockId.length>0){
+    Control.setValue(ActiveStockId)
   }
   getProductionCount();
 }
