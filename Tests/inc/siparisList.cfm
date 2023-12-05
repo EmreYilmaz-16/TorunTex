@@ -21,15 +21,7 @@ SELECT C.NICKNAME
 					AND STORE = O.DELIVER_DEPT_ID
 					AND STORE_LOCATION = O.LOCATION_ID
 				), 0) / QUANTITY
-		) AS TAMAMLANMA
-      ,ISNULL((
-        SELECT SUM(AMOUNT2) FROM (
-SELECT SR.STOCK_IN,SR.STOCK_OUT,SR.PROCESS_TYPE,SFR.AMOUNT,
-CASE WHEN SR.STOCK_OUT >0 THEN -1 ELSE 1 END AS AMOUNT2,SR.UPD_ID FROM w3Toruntex_2023_1.STOCKS_ROW AS SR 
-LEFT JOIN w3Toruntex_2023_1.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID=SR.UPD_ID
-WHERE SR.PBS_RELATION_ID=ORR.WRK_ROW_ID AND SR.STORE=O.DELIVER_DEPT_ID AND SR.STORE_LOCATION=O.LOCATION_ID
-) AS TS
-      ),0) AS R_AMOUNT2
+		) AS TAMAMLANMA      
 	,ISNULL((
 			SELECT sum(STOCK_IN - STOCK_OUT) STOCK_IN
 			FROM w3Toruntex_2023_1.STOCKS_ROW
@@ -54,6 +46,7 @@ LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID = O.LOCATION_ID
 ) AS TSTS
 WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# AND O.PURCHASE_SALES=1 AND UNIT2='#attributes.STATION#' AND ORDER_ROW_CURRENCY=-5 ORDER BY SP.PRIORITY  
 </cfquery>
+<cfdump var="#getOrder#">
 <div class="form-group">
     <label>Sipariş</label>    
     <div class="input-group mb-3">
@@ -97,7 +90,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# AND O.PURCHASE_SALES=1 AND UNIT2='#
                             <td><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
-                            <td>#QUANTITY-R_AMOUNT# <span>#R_AMOUNT_2#</span></td>
+                            <td>#QUANTITY-R_AMOUNT#</td>
                             
                         </tr>
                        
