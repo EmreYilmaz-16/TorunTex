@@ -69,10 +69,10 @@ WHERE ORR.PRODUCT_ID = #attributes.PRODUCT_ID#
 	AND ORDER_ROW_CURRENCY = - 5) AS POLKI
 WHERE 1=1 
     <cfif attributes.STATION eq 'KLB'>
-        AND DIGER_MIKTAR <URETILEN_MIKTAR2
+        AND DIGER_MIKTAR >URETILEN_MIKTAR2
     </cfif>
     <cfif attributes.STATION eq 'SCK'>
-        AND QUANTITY <R_AMOUNT
+        AND QUANTITY >R_AMOUNT
     </cfif>
 ORDER BY PRIORITY  
 </cfquery>
