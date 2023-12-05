@@ -210,6 +210,7 @@ function TemizleCanim() {
   $("#AA4").text("");
 }
 function Yaz(sayi) {
+  if(TxResult.value.length >=3) {return false};
   if (sayi > 0) {
     if (TxResult.value == "0") {
       if (sayi != -4) {
