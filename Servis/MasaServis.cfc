@@ -604,5 +604,42 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
     </cfquery> --->
     <cfreturn true>
 </cffunction>
-
+<cffunction name="butce_sil" output="false">
+    <!---
+    by :  20060125
+    notes : Butce fişi siler...
+            !!! TRANSACTION icinde kullanılmalıdır !!!, ancak bu durumda transaction icindeki diger queryler de
+            bu fonksiyon gibi dsn2 den calismalidir. Fonksiyon sorunsuz calistiginda true döndürür.
+    usage :
+        butce_sil (action_id:attributes.id,muhasebe_db:dsn2,process_type:process_type(fatura icin bos olmalı),is_stock_fis:1(stok fis ise true));
+    revisions :TolgaS 20070211
+    --->
+    <cfargument name="action_id" required="yes" type="numeric">
+    <cfargument name="process_type" type="string" default="">
+    <cfargument name="muhasebe_db" type="string" default="#dsn2#">
+    <cfargument name="muhasebe_db_alias" type="string" default="">
+    <cfargument name="is_stock_fis" type="boolean" default="0">
+    <cfargument name="reserv_type" type="string" default=""> <!--- Rezerv_type gelirse expense_reserved_rows tablosuna kayıt atar --->
+        <cfif arguments.muhasebe_db is not '#dsn2#'>
+            <cfset arguments.muhasebe_db_alias = '#dsn2_alias#'&'.'>
+        <cfelse>
+            <cfset arguments.muhasebe_db_alias =''>
+        </cfif>
+        <cfif len(arguments.process_type)><!--- banka vs tipi yerlerden gelen işlemler için --->
+            <cfquery name="DEL_COST_FIS" datasource="#arguments.muhasebe_db#">
+                DELETE FROM <cfif not len(arguments.reserv_type)>#arguments.muhasebe_db_alias#EXPENSE_ITEMS_ROWS <cfelse> #arguments.muhasebe_db_alias#EXPENSE_RESERVED_ROWS</cfif> WHERE ACTION_ID = #arguments.action_id# AND EXPENSE_COST_TYPE = #arguments.process_type# AND (ACTION_TABLE IS NULL OR ACTION_TABLE <> 'EMPLOYEES_PUANTAJ')
+            </cfquery>
+        <cfelse><!--- fatura dağılımları --->
+            <cfif arguments.is_stock_fis eq 0>
+                <cfquery name="DEL_COST_FIS" datasource="#arguments.muhasebe_db#">
+                    DELETE FROM <cfif not len(arguments.reserv_type)>#arguments.muhasebe_db_alias#EXPENSE_ITEMS_ROWS <cfelse> #arguments.muhasebe_db_alias#EXPENSE_RESERVED_ROWS</cfif> WHERE INVOICE_ID = #arguments.action_id#
+                </cfquery>
+            <cfelse>
+                <cfquery name="DEL_COST_FIS" datasource="#arguments.muhasebe_db#">
+                    DELETE FROM <cfif not len(arguments.reserv_type)>#arguments.muhasebe_db_alias#EXPENSE_ITEMS_ROWS <cfelse> #arguments.muhasebe_db_alias#EXPENSE_RESERVED_ROWS</cfif> WHERE STOCK_FIS_ID = #arguments.action_id#
+                </cfquery>
+            </cfif>
+        </cfif>
+    <cfreturn true>
+</cffunction>
 </cfcomponent>
