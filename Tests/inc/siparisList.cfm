@@ -109,6 +109,7 @@ ORDER BY PRIORITY
                             <th>Paket Kg</th>
                             <th>Ülkesi</th>
                             <th>Eksik Kg</th>
+                            <th>Eksik Ad</th>
                         </tr>
                     <tbody id="Tabloooom">
                     <cfoutput query="getOrder">
@@ -120,7 +121,8 @@ ORDER BY PRIORITY
                             <td><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
-                            <td>#QUANTITY-R_AMOUNT# <span style="color:red">#URETILEN_MIKTAR2#</span> <span style="color:green">#DIGER_MIKTAR#</span></td>
+                            <td>#QUANTITY-R_AMOUNT# </td>
+                            <td>DIGER_MIKTAR-URETILEN_MIKTAR2</td>
                             
                         </tr>
                        
@@ -133,6 +135,7 @@ ORDER BY PRIORITY
                             SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='#attributes.STATION#'
                         </cfquery>
                             <a href="javascript:;" class="btn btn-primary text-white" onclick="getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>)"><cfoutput>#attributes.STATION#</cfoutput></a></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
