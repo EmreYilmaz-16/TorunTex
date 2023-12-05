@@ -96,6 +96,7 @@ function getAOrder(ORDER_ROW_ID,nerden="") {
   //console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
   console.log("getAOrder Fonksiyonunu Çağıran="+ nerden);
   console.log(MainOrderRowID)
+  $("#ActiveSiparisId").val(ORDER_ROW_ID)
   MainOrderRowID = ORDER_ROW_ID;
 
   $("#SiparisResultAreaAs").hide(500);
