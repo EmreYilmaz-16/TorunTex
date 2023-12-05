@@ -146,7 +146,7 @@ function getAOrder(ORDER_ROW_ID) {
           $("#AA4").text(Obj.SA_PRODUCTION_NOTE);
           $("#sipres").html("");
           $("#Complate").text(wrk_round(Obj.TAMAMLANMA) + " %");
-         // $("#LotNo").val(LotVer(CurrentStation));
+          // $("#LotNo").val(LotVer(CurrentStation));
           for (let i = 0; i < Obj.ALL_ROWS.length; i++) {
             var OO = Obj.ALL_ROWS[i];
             var tr = document.createElement("tr");
@@ -306,7 +306,7 @@ function Yazdir() {
   var AMOUNT22 = document.getElementById("TxResult").value;
   var SIP_DEPO = document.getElementById("SIP_DEPO").value;
   var Objecim = JSON.parse(localStorage.ACTIVE_STATION);
-  var LOT_NO = LotVer(Objecim.STATION)
+  var LOT_NO = LotVer(Objecim.STATION);
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var PRODUCT_ID = document.getElementById("PRODUCT_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
@@ -341,7 +341,6 @@ function Yazdir() {
       } else {
         //  alert(Obj.MESSAGE);
         if (MainOrderRowID == 0) {
-          
           var ssid = list_getat(SIP_DEPO, 1, "-");
           var ssLid = list_getat(SIP_DEPO, 2, "-");
           getDepoUretim(Objecim.STATION, ssid, ssLid);
@@ -379,6 +378,31 @@ function Yazdir() {
       }
     },
   });
+}
+function Iptal() {
+  var LOT_NO = "";
+  for (let index = 0; index < Radios.length; index++) {
+    var Radio = Radios[index];
+    if ($(Radio).is(":checked")) {
+      console.log(Radio.value);
+      LOT_NO = Radio.value;
+    }
+  }
+  $.ajax({
+    url:"/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelected&lot_no="+LOT_NO,
+    success:function(retDat){
+      console.log(retDat);
+      var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+
+      var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
+      var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
+      var LOCATION_ID = Obj.LOCATION_ID;
+      
+      getOtherOrdersInfo(ActiveStockId);
+      getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+      getProductionCount();
+    }
+  })
 }
 function YazdirabilirsenYazdir(
   warehouse,
