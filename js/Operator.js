@@ -63,7 +63,7 @@ var eventHandler_2 = function (name) {
   return function () {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
-    getAOrder(arguments[0]);
+    getAOrder(arguments[0],"event handler 2den geldim");
   };
 };
 function OpenLogIn() {
@@ -93,8 +93,8 @@ function getAOrder(ORDER_ROW_ID,nerden="") {
     getDepoUretim(Obj.STATION, Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
     return false;
   }
-  console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
-  console.log(nerden);
+  //console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
+  console.log("getAOrder Fonksiyonunu Çağıran="+ nerden);
   console.log(MainOrderRowID)
   MainOrderRowID = ORDER_ROW_ID;
 
@@ -375,7 +375,7 @@ function Yazdir() {
           var ssLid = list_getat(SIP_DEPO, 2, "-");
           getDepoUretim(Objecim.STATION, ssid, ssLid);
         } else {
-          getAOrder(MainOrderRowID);
+          getAOrder(MainOrderRowID,"YAZDIRDAN GELDİM");
         }
         console.log(Obj);
         var GetIp = wrk_query(
