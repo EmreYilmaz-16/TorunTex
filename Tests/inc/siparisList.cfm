@@ -68,7 +68,7 @@ WHERE ORR.PRODUCT_ID = #attributes.PRODUCT_ID#
 	AND ORDER_ROW_CURRENCY = - 5) AS POLKI
     <cfif attributes.STATION eq 'KLB'></cfif>
     <cfif attributes.STATION eq 'SCK'></cfif>
-ORDER BY SP.PRIORITY  
+ORDER BY PRIORITY  
 </cfquery>
 <cfdump var="#getOrder#">
 <div class="form-group">
