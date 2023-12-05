@@ -195,7 +195,7 @@
         <div style="display: flex;padding: 20px;align-items: flex-end;justify-content: space-between;">
             <div class="alert alert-primary" id="uretimCount" style="display: block;font-size: 19pt;text-align: center;margin: 0px;padding: 5px;width:150px">0</div>
             <button type="button" class="btn form-control btn-lg btn-danger" onclick="Iptal()" style="font-size: 18pt;width:300px">İptal</button>
-            <button type="button" class="btn btn-lg btn-primary" onclick="YenidenFisYazdir()" style="font-size: 18pt;"><span class="icn-md fa fa-print"></span></button>
+            <button type="button" class="btn form-control btn-lg btn-primary" onclick="YenidenFisYazdir()" style="font-size: 18pt;width:100px"><span class="icn-md fa fa-print"></span></button>
             </div>
     </div>
 </div>
