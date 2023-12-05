@@ -45,7 +45,7 @@ $(document).ready(function () {
 var eventHandler_1 = function (name) {
   return function () {
     console.log("event handler 1 çalıştı !!!!")
-    console.log(name, arguments);
+   // console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
     $("#PRODUCT_ID").val(arguments[0]);
 
@@ -61,7 +61,7 @@ var eventHandler_1 = function (name) {
 };
 var eventHandler_2 = function (name) {
   return function () {
-    console.log(name, arguments);
+  //  console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
     getAOrder(arguments[0],"event handler 2den geldim");
   };
@@ -106,9 +106,9 @@ function getAOrder(ORDER_ROW_ID,nerden="") {
       ORDER_ROW_ID,
     success: function (retDat) {
       try {
-        console.log(retDat);
+       // console.log(retDat);
         var Obj = JSON.parse(retDat);
-        console.log(Obj);
+      //  console.log(Obj);
         if (Obj.ORDER_ROW_CURRENCY != -5) {
           alert("Üretim Durdurulmuştur");
           /*  var Control = $select[0].selectize;
@@ -351,7 +351,7 @@ function Yazdir() {
       PRODUCT_ID,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
-      console.log(Obj);
+    //  console.log(Obj);
       if (Obj.STATUS_CODE == 3 || Obj.STATUS_CODE == 2) {
         alert(Obj.MESSAGE);
         return false;
@@ -378,7 +378,7 @@ function Yazdir() {
         } else {
           getAOrder(MainOrderRowID,"YAZDIRDAN GELDİM");
         }
-        console.log(Obj);
+        //console.log(Obj);
         var GetIp = wrk_query(
           "SELECT * FROM STATION_PRINTER_RELATION_PBS WHERE STORE_ID=" +
             DEPARTMENT_ID +
@@ -412,7 +412,7 @@ function Iptal() {
   for (let index = 0; index < Radios.length; index++) {
     var Radio = Radios[index];
     if ($(Radio).is(":checked")) {
-      console.log(Radio.value);
+     // console.log(Radio.value);
       LOT_NO = Radio.value;
     }
   }
@@ -421,7 +421,7 @@ function Iptal() {
       "/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelected&lot_no=" +
       LOT_NO,
     success: function (retDat) {
-      console.log(retDat);
+     // console.log(retDat);
       var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
 
       var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
@@ -445,7 +445,7 @@ function YazdirabilirsenYazdir(
   product_name,
   IIIP
 ) {
-  console.log(arguments);
+  //console.log(arguments);
   var ip_addr = IIIP;
 
   var qr_code = product_no + "|" + serial_no + "||" + weight;
@@ -582,7 +582,7 @@ function YenidenFisYazdir() {
   for (let index = 0; index < Radios.length; index++) {
     var Radio = Radios[index];
     if ($(Radio).is(":checked")) {
-      console.log(Radio.value);
+     // console.log(Radio.value);
       LOT_NO = Radio.value;
     }
   }
@@ -596,7 +596,7 @@ function YenidenFisYazdir() {
   str += " INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID";
   str += " WHERE SR.LOT_NO='" + lot + "' ORDER BY UPD_ID DESC";
   var Res = wrk_query(str, "DSN2");
-  console.log(Res);
+  //console.log(Res);
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
   var GetIp = wrk_query(
     "SELECT * FROM STATION_PRINTER_RELATION_PBS WHERE STORE_ID=" +
@@ -629,7 +629,7 @@ function LotVer(STATION) {
   var Sda = list_getat(Sdate, 1, " ");
   var ReturnValue = "";
   var Qstr = wrk_query("SELECT * FROM  PBS_LOT_NUMBER", "dsn3");
-  console.log(Qstr);
+  //console.log(Qstr);
   var Lot = Qstr.LOT_NO[0];
   var SifirSay = "";
   if (Lot.length == 1) SifirSay = "00000";
