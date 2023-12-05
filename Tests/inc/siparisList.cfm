@@ -22,14 +22,14 @@ SELECT C.NICKNAME
 					AND STORE_LOCATION = O.LOCATION_ID
 				), 0) / QUANTITY
 		) AS TAMAMLANMA
-      ,(
-        SELECT SUM(STOCK_IN-STOCK_OUT),SUM(AMOUNT2) FROM (
+      ,ISNULL((
+        SELECT SUM(AMOUNT2) FROM (
 SELECT SR.STOCK_IN,SR.STOCK_OUT,SR.PROCESS_TYPE,SFR.AMOUNT,
 CASE WHEN SR.STOCK_OUT >0 THEN -1 ELSE 1 END AS AMOUNT2,SR.UPD_ID FROM w3Toruntex_2023_1.STOCKS_ROW AS SR 
 LEFT JOIN w3Toruntex_2023_1.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID=SR.UPD_ID
 WHERE SR.PBS_RELATION_ID=ORR.WRK_ROW_ID AND SR.STORE=O.DELIVER_DEPT_ID AND SR.STORE_LOCATION=O.LOCATION_ID
 ) AS TS
-      ) AS R_AMOUNT2
+      ),0) AS R_AMOUNT2
 	,ISNULL((
 			SELECT sum(STOCK_IN - STOCK_OUT) STOCK_IN
 			FROM w3Toruntex_2023_1.STOCKS_ROW
@@ -97,7 +97,7 @@ WHERE ORR.PRODUCT_ID=#attributes.PRODUCT_ID# AND O.PURCHASE_SALES=1 AND UNIT2='#
                             <td><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
-                            <td>#QUANTITY-R_AMOUNT#</td>
+                            <td>#QUANTITY-R_AMOUNT# <span>#R_AMOUNT_2#</span></td>
                             
                         </tr>
                        
