@@ -76,13 +76,13 @@ WHERE 1=1
     </cfif>
 ORDER BY PRIORITY  
 </cfquery>
-
+<cfset ORDER_ROW_ID_LIST=valueList(getOrder.ORDER_ROW_ID)>
 <div class="form-group">
     <label>Sipariş</label>    
     <div class="input-group mb-3">
         <input class="form-control" type="text" style="font-size:20pt !important" name="SearchSiparisTxt" id="SearchSiparisTxt" value="<cfoutput>#getOrder.NICKNAME# - #getOrder.ORDER_NUMBER#</cfoutput>">
         <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultAreaAs').toggle(500)"><i class="icon-down"></i></button>
-        <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput><cfif isdefined("attributes.ActiveSiparisId")>#attributes.ActiveSiparisId#<cfelse>#getOrder.ORDER_ROW_ID#</cfif></cfoutput>">
+        <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput><cfif isdefined("attributes.ActiveSiparisId")><cfif listFind(ORDER_ROW_ID_LIST,attributes.ActiveSiparisId)>#attributes.ActiveSiparisId#<cfelse>#getOrder.ORDER_ROW_ID#</cfif><cfelse>#getOrder.ORDER_ROW_ID#</cfif></cfoutput>">
         <div id="SiparisResultAreaAs" style="display:none;position: absolute;z-index: 999;width: 100%;background: white;">
             <div style="display: flex;border-bottom: solid 1px var(--gray);margin-bottom: 2px;position: sticky;background: white;width: 100%;">
                 <div style="color: var(--danger);font-size: 14pt;width: 95%;">
