@@ -3,6 +3,7 @@ var $sipSelect = null;
 var MainOrderRowID = 0;
 var CurrentStation = null;
 var ActiveStockId = 0;
+var ActiveOrderRowID = 0;
 $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
@@ -48,6 +49,7 @@ var eventHandler_1 = function (name) {
     $("#PRODUCT_ID").val(arguments[0]);
     ActiveStockId = arguments[0];
     getOtherOrdersInfo(arguments[0]);
+  
     getOrders(arguments[0]);
   };
 };
