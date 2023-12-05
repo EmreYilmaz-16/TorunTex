@@ -442,7 +442,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
 <cffunction name="deleteSelected" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
     <cfargument name="lot_no">
     <cfquery name="getHarekets" datasource="#dsn2#">
-        SELECT DISTINCT SR.PROCESS_TYPE,SR.UPD_ID,SF.PROCESS_CAT,SR.UPD_ID FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
+        SELECT DISTINCT SR.PROCESS_TYPE,SR.UPD_ID,SF.PROCESS_CAT,SR.UPD_ID,SF.FIS_NUMBER FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
         INNER JOIN w3Toruntex_2023_1.STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID
         WHERE LOT_NO='#arguments.lot_no#'
     </cfquery>
@@ -455,7 +455,7 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
         <cfset attributes.type_id=PROCESS_TYPE>
         <cfset attributes.UPD_ID=UPD_ID>
         <cfset attributes.old_process_type=PROCESS_TYPE>
-
+        <cfset attributes.FIS_NO =FIS_NUMBER>
         <cfset form.process_cat=PROCESS_CAT>
         <cfset form.cat=PROCESS_TYPE>
         <cfset form.type_id=PROCESS_TYPE>
