@@ -95,11 +95,14 @@ function getAOrder(ORDER_ROW_ID,nerden="") {
   }
   //console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
   console.log("getAOrder Fonksiyonunu Çağıran="+ nerden);
-  console.log(" MainOrderRowID= "+MainOrderRowID+" ORDER_ROW_ID= "+ORDER_ROW_ID)
+  var KSSIP=$("#ActiveSiparisId").val()
+  console.log(" MainOrderRowID= "+MainOrderRowID+" ORDER_ROW_ID= "+ORDER_ROW_ID+"İnput Değeri 1="+KSSIP)
   $("#ActiveSiparisId").val(ORDER_ROW_ID)
   MainOrderRowID = ORDER_ROW_ID;
 
   $("#SiparisResultAreaAs").hide(500);
+  var KSSIP=$("#ActiveSiparisId").val()
+  console.log(" MainOrderRowID= "+MainOrderRowID+" ORDER_ROW_ID= "+ORDER_ROW_ID+"İnput Değeri 1="+KSSIP)
   $.ajax({
     url:
       "/AddOns/Partner/servis/MasaServis.cfc?method=getAOrder&ORDER_ROW_ID=" +
