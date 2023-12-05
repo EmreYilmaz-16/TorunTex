@@ -401,6 +401,7 @@ function Iptal() {
 
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+      
       getProductionCount();
     }
   })
