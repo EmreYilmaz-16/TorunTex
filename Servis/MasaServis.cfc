@@ -467,5 +467,109 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
     <cfset ReturnObj.STATUS=1>
     <cfreturn replace(serializeJSON(ReturnObj),"//","")>
 </cffunction>
+<cffunction name="muhasebe_sil" output="false">
+    <!---
+    by :  20040227
+    notes : Muhasebe fişi siler...(Tahsil-Tediye-Mahsup)
+            !!! TRANSACTION icinde kullanılmalıdır !!! Fonksiyon sorunsuz çalistiginda true döndürür.
+    usage :
+        muhasebe_sil (action_id:attributes.id,process_type:90);
+    revisions :
+    muhasebe sil fonksiyonuna history silme bölümü eklenmedi, boylece silinen kayıtların detaylı loglarını tutuyoruz
+    --->
+    <cfargument name="action_id" required="yes" type="numeric">
+    <cfargument name="process_type" required="yes" type="numeric">
+    <cfargument name="muhasebe_db" type="string" default="#dsn2#">	
+    <cfargument name="muhasebe_db_alias" type="string" default="">
+    <cfargument name="belge_no" type="string" default="">
+    <cfargument name="action_table" type="string">
+    <cfif arguments.muhasebe_db is not '#dsn2#'>
+        <cfset arguments.muhasebe_db_alias = '#dsn2_alias#'&'.'>
+    <cfelse>
+        <cfset arguments.muhasebe_db_alias =''>
+    </cfif>
+    <cfquery name="GET_CARD_ID" datasource="#arguments.muhasebe_db#">
+        SELECT
+            CARD_ID,
+            ACTION_ID,
+            BILL_NO,
+            ACTION_DATE
+        FROM
+            #arguments.muhasebe_db_alias#ACCOUNT_CARD
+        WHERE
+            ACTION_ID = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.action_id#">
+            AND ACTION_TYPE = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.process_type#">
+            AND ISNULL(IS_CANCEL,0)=0
+            <cfif isDefined('arguments.action_table') and len(arguments.action_table)> 
+                AND ACTION_TABLE = '#arguments.action_table#'
+            </cfif>
+    </cfquery>
+    <cfif GET_CARD_ID.RECORDCOUNT>
+        <!--- e-defter islem kontrolu FA --->
+        <cfif session.ep.our_company_info.is_edefter eq 1>
+            <cfstoredproc procedure="GET_NETBOOK" datasource="#arguments.muhasebe_db#">
+                <cfprocparam cfsqltype="cf_sql_timestamp" value="#GET_CARD_ID.ACTION_DATE#">
+                <cfprocparam cfsqltype="cf_sql_timestamp" value="#GET_CARD_ID.ACTION_DATE#">
+                <cfprocparam cfsqltype="cf_sql_varchar" value="#arguments.muhasebe_db_alias#">
+                <cfprocresult name="getNetbook">
+            </cfstoredproc>
+            <cfif getNetbook.recordcount>
+                <script type="text/javascript">
+                    alert('Muhasebeci : İşlemi yapamazsınız. İşlem tarihine ait e-defter bulunmaktadır.');
+                </script>
+                <cfabort>
+            </cfif>
+        </cfif>
+        <!--- e-defter islem kontrolu FA --->
+        
+        <!--- FBS 20120606 Belgelerde Birden Fazla Fis Olustugunda, Belge Silindiginde Fislerin Tamaminin Silinmesi Icin CARD_ID IN ile Cekiliyor  --->
+        <cfquery name="DEL_ACCOUNT_CARD" datasource="#arguments.muhasebe_db#">
+            DELETE FROM #arguments.muhasebe_db_alias#ACCOUNT_CARD WHERE CARD_ID IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#ValueList(GET_CARD_ID.CARD_ID)#" list="yes">)
+        </cfquery>
+        <cfquery name="DEL_ACCOUNT_CARD_ROWS" datasource="#arguments.muhasebe_db#">
+            DELETE FROM #arguments.muhasebe_db_alias#ACCOUNT_CARD_ROWS WHERE CARD_ID IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#ValueList(GET_CARD_ID.CARD_ID)#" list="yes">)
+        </cfquery>
+        <cfquery name="DEL_ACCOUNT_ROWS_IFRS" datasource="#arguments.muhasebe_db#">
+            DELETE FROM #arguments.muhasebe_db_alias#ACCOUNT_ROWS_IFRS WHERE CARD_ID IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#ValueList(GET_CARD_ID.CARD_ID)#" list="yes">)
+        </cfquery>
+        <cfquery name="ADD_LOG" datasource="#arguments.muhasebe_db#">
+            INSERT INTO
+                #dsn_alias#.WRK_LOG
+            (
+                PROCESS_TYPE,
+                EMPLOYEE_ID,
+                LOG_TYPE,
+                LOG_DATE,
+                <cfif len(arguments.belge_no)>
+                 PAPER_NO, 
+                </cfif>
+                FUSEACTION,
+                ACTION_ID,
+                ACTION_NAME,
+                PERIOD_ID
+                
+            )
+            VALUES
+            (	
+                #arguments.process_type#,
+                #session.ep.userid#,
+                -1,
+                #now()#,
+                <cfif len(arguments.belge_no)>
+                    '#arguments.belge_no#', 
+                </cfif>
+                <cfif isdefined("fusebox.circuit")>
+                    '#fusebox.circuit#  #fusebox.fuseaction#',
+                <cfelse>
+                    '#caller.fusebox.circuit#  #caller.fusebox.fuseaction#',
+                </cfif>
+                #arguments.action_id#,
+                '#left(GET_CARD_ID.BILL_NO,250)#',
+                #session.ep.period_id#
+            )
+        </cfquery>
+    </cfif>
+    <cfreturn true>
+</cffunction>
 
 </cfcomponent>
