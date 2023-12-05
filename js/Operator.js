@@ -48,10 +48,15 @@ var eventHandler_1 = function (name) {
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
     $("#PRODUCT_ID").val(arguments[0]);
+
     ActiveStockId = arguments[0];
+
+    //BILGI DİĞER SİPARİŞLER YÜKLENDİ 
     getOtherOrdersInfo(arguments[0]);
 
+    //BILGI SIPARISLER YUKLENDI
     getOrders(arguments[0]);
+
   };
 };
 var eventHandler_2 = function (name) {
@@ -80,7 +85,7 @@ function getOrders(product_id) {
     "Yükleniyor"
   );
 }
-function getAOrder(ORDER_ROW_ID) {
+function getAOrder(ORDER_ROW_ID,nerden="") {
   // $("#SiparisResultAreaAs").toggle(500);
   if (ORDER_ROW_ID.length == 0 && MainOrderRowID == 0) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
@@ -88,7 +93,11 @@ function getAOrder(ORDER_ROW_ID) {
     getDepoUretim(Obj.STATION, Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
     return false;
   }
+  console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
+  console.log(nerden);
+  console.log(MainOrderRowID)
   MainOrderRowID = ORDER_ROW_ID;
+
   $("#SiparisResultAreaAs").hide(500);
   $.ajax({
     url:
@@ -308,6 +317,7 @@ function setSelAll(el) {
   el.select();
 }
 function Yazdir() {
+  
   var AMOUNT = document.getElementById("paketKG").value;
   var AMOUNT22 = document.getElementById("TxResult").value;
   var SIP_DEPO = document.getElementById("SIP_DEPO").value;
@@ -357,6 +367,8 @@ function Yazdir() {
         
         //BILGI ÜRÜN LİSTESİNİ GÜNCELLİYOR
         getProducts(STATION_);
+
+        console.log("YAZDIR--"+MainOrderRowID);
 
         if (MainOrderRowID == 0) {
           var ssid = list_getat(SIP_DEPO, 1, "-");

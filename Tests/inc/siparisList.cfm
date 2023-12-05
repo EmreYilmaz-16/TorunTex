@@ -154,5 +154,5 @@ ORDER BY PRIORITY
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
 }
-    getAOrder(AkSipId);
+    getAOrder(AkSipId,"sipariş listesinden otomatik geldi");
 </script>
