@@ -4,6 +4,7 @@
     <cfset dsn3_alias="w3Toruntex_1">
     <cfset dsn2="w3Toruntex_2023_1">
     <cfset dsn2_alias="w3Toruntex_2023_1">
+    <cfset DSN1="w3Toruntex_product">
     <!----
         //BILGI MASALARA ÜRÜNÜ GÖNDERMEK İÇİN KULLANILIR
         //UYARI ESKİDE KALDI EĞER BİRGÜN SIEMENSİN PLC PROGRAMINA SCRİPT YAZMAK İSTERLERSE KULLANILACAK    
