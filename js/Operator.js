@@ -44,6 +44,7 @@ $(document).ready(function () {
 });
 var eventHandler_1 = function (name) {
   return function () {
+    console.log("event handler 1 çalıştı !!!!")
     console.log(name, arguments);
     //$('#log').append('<div><span class="name">' + name + '</span></div>');
     $("#PRODUCT_ID").val(arguments[0]);
@@ -345,11 +346,18 @@ function Yazdir() {
         return false;
       } else {
         //  alert(Obj.MESSAGE);
+        //BILGI DİĞER SİPARİŞLER KISMINI YENİLİYOR
+        getOtherOrdersInfo(ActiveStockId); 
 
-        getOtherOrdersInfo(ActiveStockId);
+        //BILGI ÜRETİM KISMINI GÜNCELLİYOR
         getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
+
+        //BILGI BUGÜN ÜRETİLEN ADEDİ GÜNCELLİYOR        
         getProductionCount();
+        
+        //BILGI ÜRÜN LİSTESİNİ GÜNCELLİYOR
         getProducts(STATION_);
+
         if (MainOrderRowID == 0) {
           var ssid = list_getat(SIP_DEPO, 1, "-");
           var ssLid = list_getat(SIP_DEPO, 2, "-");
@@ -549,6 +557,7 @@ function getProducts(STATION) {
       PRODUCT_DETAIL: q.PRODUCT_DETAIL[index],
     });
   }
+  //BILGI ÜRÜN DAHA ÖNCESİNDEN SEÇİLİ İSE DROPDOWNUN DEĞERİNİ ÖNCEKİ ÜRETİLEN ÜRÜN İD YAP
   if (ActiveStockId.length > 0) {
     Control.setValue(ActiveStockId);
   }
