@@ -381,7 +381,7 @@ function Yazdir() {
 }
 function Iptal() {
   var LOT_NO = "";
-  var Radios=document.getElementsByName("SELRADIO")
+  var Radios = document.getElementsByName("SELRADIO");
   for (let index = 0; index < Radios.length; index++) {
     var Radio = Radios[index];
     if ($(Radio).is(":checked")) {
@@ -390,8 +390,10 @@ function Iptal() {
     }
   }
   $.ajax({
-    url:"/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelected&lot_no="+LOT_NO,
-    success:function(retDat){
+    url:
+      "/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelected&lot_no=" +
+      LOT_NO,
+    success: function (retDat) {
       console.log(retDat);
       var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
 
@@ -401,10 +403,10 @@ function Iptal() {
 
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
-      
+
       getProductionCount();
-    }
-  })
+    },
+  });
 }
 function YazdirabilirsenYazdir(
   warehouse,
@@ -542,6 +544,53 @@ function getProducts(STATION) {
     });
   }
   getProductionCount();
+}
+function YenidenFisYazdir() {
+  var LOT_NO = "";
+  var Radios = document.getElementsByName("SELRADIO");
+  for (let index = 0; index < Radios.length; index++) {
+    var Radio = Radios[index];
+    if ($(Radio).is(":checked")) {
+      console.log(Radio.value);
+      LOT_NO = Radio.value;
+    }
+  }
+  var lot = LOT_NO;
+  var str =
+    "SELECT TOP 1 SR.STOCK_ID,UPD_ID,SF.DEPARTMENT_IN,SF.LOCATION_IN,SR.PBS_RELATION_ID,O.ORDER_NUMBER,SL.COMMENT,S.PRODUCT_CODE,S.PRODUCT_CODE_2,S.MANUFACT_CODE,S.PRODUCT_NAME,SR.LOT_NO,SR.STOCK_IN,S.PRODUCT_DETAIL  FROM STOCKS_ROW AS SR INNER JOIN STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID";
+  str +=
+    " INNER JOIN w3Toruntex_1.ORDER_ROW AS ORR ON ORR.WRK_ROW_ID=SR.PBS_RELATION_ID INNER JOIN w3Toruntex_1.ORDERS AS O ON O.ORDER_ID=ORR.ORDER_ID";
+  str +=
+    " INNER JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.DEPARTMENT_ID=SF.DEPARTMENT_IN AND SL.LOCATION_ID=SF.LOCATION_IN";
+  str += " INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID";
+  str += " WHERE SR.LOT_NO='" + lot + "' ORDER BY UPD_ID DESC";
+  var Res = wrk_query(str, "DSN2");
+  console.log(Res);
+  var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+  var GetIp = wrk_query(
+    "SELECT * FROM STATION_PRINTER_RELATION_PBS WHERE STORE_ID=" +
+    Obj.DEPARTMENT_ID +
+      " AND LOCATION_ID=" +
+      Obj.LOCATION_ID
+  );
+  if (GetIp.recordcount == 0) {
+    alert(
+      "Bu İstasyon İçin Yazıcı Tanımlanmamıştır Belge Kayıt Edildi Ancak Etiket Üretilmeyecektir !"
+    );
+  } else {
+    var IP_Add = GetIp.IP_ADDRESS[0];
+    YazdirabilirsenYazdir(
+      Obj.COMMENT,
+      Obj.ORDER_NUMBER,
+      Obj.PRODUCT_CODE_2,
+      Obj.PRODUCT_DETAIL,
+      Obj.LOT_NO,
+      Obj.AMOUNT,
+      Obj.PRODUCT_NAME,
+      IP_Add
+    );
+  }
+}
 }
 function LotVer(STATION) {
   var d = new Date();
