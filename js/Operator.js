@@ -49,7 +49,7 @@ var eventHandler_1 = function (name) {
     $("#PRODUCT_ID").val(arguments[0]);
     ActiveStockId = arguments[0];
     getOtherOrdersInfo(arguments[0]);
-  
+
     getOrders(arguments[0]);
   };
 };
@@ -210,7 +210,9 @@ function TemizleCanim() {
   $("#AA4").text("");
 }
 function Yaz(sayi) {
-  if(TxResult.value.length >=3) {return false};
+  if (TxResult.value.length >= 3 && sayi >= 0) {
+    return false;
+  }
   if (sayi > 0) {
     if (TxResult.value == "0") {
       if (sayi != -4) {
@@ -343,7 +345,6 @@ function Yazdir() {
         return false;
       } else {
         //  alert(Obj.MESSAGE);
-       
 
         getOtherOrdersInfo(ActiveStockId);
         getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
