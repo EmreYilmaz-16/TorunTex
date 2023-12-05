@@ -82,7 +82,7 @@ ORDER BY PRIORITY
     <div class="input-group mb-3">
         <input class="form-control" type="text" style="font-size:20pt !important" name="SearchSiparisTxt" id="SearchSiparisTxt" value="<cfoutput>#getOrder.NICKNAME# - #getOrder.ORDER_NUMBER#</cfoutput>">
         <button class="btn btn-outline-secondary input-group-text" onclick="$('#SiparisResultAreaAs').toggle(500)"><i class="icon-down"></i></button>
-        <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput>#getOrder.ORDER_ROW_ID#</cfoutput>">
+        <input type="hidden" name="ActiveSiparisId" id="ActiveSiparisId" value="<cfoutput><cfif isdefined("attributes.ActiveSiparisId")>#attributes.ActiveSiparisId#<cfelse>#getOrder.ORDER_ROW_ID#</cfif></cfoutput>">
         <div id="SiparisResultAreaAs" style="display:none;position: absolute;z-index: 999;width: 100%;background: white;">
             <div style="display: flex;border-bottom: solid 1px var(--gray);margin-bottom: 2px;position: sticky;background: white;width: 100%;">
                 <div style="color: var(--danger);font-size: 14pt;width: 95%;">
@@ -116,7 +116,7 @@ ORDER BY PRIORITY
                             <td>#PRIORITY#</td>
                             <td>#UNIT2#</td>
                             <td>#COMMENT#</td>
-                            <td><a href="javascript:;" class="btn btn-primary text-white" onclick="getAOrder(#ORDER_ROW_ID#,'ELİMLEN BASTIM')">#ORDER_NUMBER#</a></td>
+                            <td><a href="javascript:;" class="btn btn-primary text-white" onclick="getAOrder(#ORDER_ROW_ID#,'ELİMLEN ')">#ORDER_NUMBER#</a></td>
                             <td><cfif len(NICKNAME) gt 20>#left(NICKNAME,20)#<cfelse>#NICKNAME#</cfif> </td>
                             <td>#A2#</td>
                             <td>#COUNTRY_NAME#</td>
