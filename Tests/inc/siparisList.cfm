@@ -1,6 +1,6 @@
 
 <cfquery name="getOrder" datasource="#dsn3#">
-SELECT C.NICKNAME
+SELECT * FROM (SELECT C.NICKNAME
 	,O.DELIVER_DEPT_ID
 	,O.ORDER_NUMBER
 	,O.LOCATION_ID
@@ -65,7 +65,9 @@ LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID = O.LOCATION_ID
 WHERE ORR.PRODUCT_ID = #attributes.PRODUCT_ID#
 	AND O.PURCHASE_SALES = 1
 	AND UNIT2 = '#attributes.STATION#'
-	AND ORDER_ROW_CURRENCY = - 5
+	AND ORDER_ROW_CURRENCY = - 5)
+    <cfif attributes.STATION eq 'KLB'></cfif>
+    <cfif attributes.STATION eq 'SCK'></cfif>
 ORDER BY SP.PRIORITY  
 </cfquery>
 <cfdump var="#getOrder#">
