@@ -721,8 +721,9 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
                 #arguments.action_type#,
                 #arguments.action_id#,
                 #arguments.query_type#,
+                
                 <cfif isDefined("session.pda")>
-                    #session.pda.period_id#,
+                    #arguments.period_id#,
                     #session.pda.our_company_id#,
                     #now()#,
                     #session.pda.userid#,
