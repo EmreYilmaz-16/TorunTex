@@ -591,7 +591,7 @@ function YenidenFisYazdir() {
     );
   }
 }
-}
+
 function LotVer(STATION) {
   var d = new Date();
   var Sdate = d.toLocaleString();
