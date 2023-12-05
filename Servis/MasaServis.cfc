@@ -442,16 +442,30 @@ SELECT sum(STOCK_IN-STOCK_OUT) STOCK_IN FROM w3Toruntex_2023_1.STOCKS_ROW where 
 <cffunction name="deleteSelected" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
     <cfargument name="lot_no">
     <cfquery name="getHarekets" datasource="#dsn2#">
-        SELECT * FROM STOCKS_ROW WHERE LOT_NO='#arguments.lot_no#'
+        SELECT DISTINCT SR.PROCESS_TYPE,SR.UPD_ID,SF.PROCESS_CAT,SR.UPD_ID FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
+        INNER JOIN w3Toruntex_2023_1.STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID
+        WHERE LOT_NO='#arguments.lot_no#'
     </cfquery>
     <cfset fis_sayisi=0>
     <cfloop query="getHarekets">
+        <cfset fis_sayisi=fis_sayisi+1>
         <cfset attributes.del_fis =1>
-        <cfset form.upd_id=getHarekets.UPD_ID>
-        <cfset form.type_id=getHarekets.PROCESS_TYPE>
-        <cfset form.old_process_type=getHarekets.PROCESS_TYPE>
-        <cfinclude template="/v16/stock/query/upd_fis_1.cfm">
+        <cfset attributes.process_cat=PROCESS_CAT>
+        <cfset attributes.cat=PROCESS_TYPE>
+        <cfset attributes.type_id=PROCESS_TYPE>
+        <cfset attributes.UPD_ID=UPD_ID>
+        <cfset attributes.old_process_type=PROCESS_TYPE>
+
+        <cfset form.process_cat=PROCESS_CAT>
+        <cfset form.cat=PROCESS_TYPE>
+        <cfset form.type_id=PROCESS_TYPE>
+        <cfset form.UPD_ID=UPD_ID>
+        <cfset form.old_process_type=PROCESS_TYPE>
+        <cfinclude template="/v16/stock/query/upd_fis_1_pbs.cfm">        
     </cfloop>
+    <cfset ReturnObj.FIS_SAYISI=fis_sayisi>
+    <cfset ReturnObj.STATUS=1>
+    <cfreturn replace(serializeJSON(ReturnObj),"//","")>
 </cffunction>
 
 </cfcomponent>
