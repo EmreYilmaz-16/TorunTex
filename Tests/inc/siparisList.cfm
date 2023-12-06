@@ -77,6 +77,15 @@ WHERE 1=1
 ORDER BY PRIORITY  
 </cfquery>
 <cfset ORDER_ROW_ID_LIST=valueList(getOrder.ORDER_ROW_ID)>
+<cfif getOrder.recordCount eq 0>
+    <cfquery name="GETS2" datasource="#DSN#">
+        SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='#attributes.STATION#'
+    </cfquery>
+    <script>
+        getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>)
+        <cfabort>
+    </script>
+</cfif>
 <div class="form-group">
     <label>Sipariş</label>    
     <div class="input-group mb-3">
