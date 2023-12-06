@@ -244,8 +244,8 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
     <CFSET O.getOI=getOI> 
        
     <cfquery name="getORDER" datasource="#dsn3#">
-    SELECT  sum(STOCK_IN-STOCK_OUT) BAK,
-            SUM(CASE WHEN STOCK_OUT>0 THEN -1 ELSE 1 END) AS BAK2 
+    SELECT  ISNULL(SUM(STOCK_IN-STOCK_OUT),0) BAK,
+            ISNULL(SUM(CASE WHEN STOCK_OUT>0 THEN -1 ELSE 1 END),0) AS BAK2 
     FROM    w3Toruntex_2023_1.STOCKS_ROW 
     WHERE   STORE=#listGetAt(arguments.SIP_DEPO,1,"-")# 
         AND STORE_LOCATION=#listGetAt(arguments.SIP_DEPO,2,"-")# 
