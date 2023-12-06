@@ -217,6 +217,7 @@ function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
 //BILGI YALNIZCA HTML OLARAK SATIR EKLER
 function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT, SEPET_ROW_ID) {
   var tr = document.createElement("tr");
+  tr.setAttribute("class","bg-danger");
   var td = document.createElement("td");
 
   td.innerText = AMOUNT + "/" + "0";
