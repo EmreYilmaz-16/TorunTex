@@ -685,7 +685,7 @@ function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   $("#Customer").text("");
   $("#paketIcerik").val("");
   var productData = wrk_query(
-    "SELECT PROPERTY1,PROPERTY2,PROPERTY3 FROM PRODUCT_INFO_PLUS WHERE PRODUCT_ID=6",
+    "SELECT PROPERTY1,PROPERTY2,PROPERTY3 FROM PRODUCT_INFO_PLUS WHERE PRODUCT_ID="+ActiveStockId,
     "DSN3"
   );
   if (productData.recordcount == 0) {
