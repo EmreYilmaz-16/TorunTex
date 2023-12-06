@@ -217,7 +217,8 @@ function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
 //BILGI YALNIZCA HTML OLARAK SATIR EKLER
 function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT, SEPET_ROW_ID) {
   var tr = document.createElement("tr");
-  tr.setAttribute("class","bg-danger");
+  tr.setAttribute("class", "bg-danger");
+  tr.setAttribute("data-fromSiparis", 0);
   var td = document.createElement("td");
 
   td.innerText = AMOUNT + "/" + "0";
@@ -256,6 +257,30 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
   document.getElementById("AMOUNT_" + PRODUCT_ID).innerText = str_1;
   var str_2 = (AMOUNT2 + 1).toString() + "/" + TOTAL_2;
   document.getElementById("AMOUNT2_" + PRODUCT_ID).innerText = str_2;
+  var AMOUNT2_ = document.getElementById("AMOUNT2_" + PRODUCT_ID).innerText;
+  var TOTAL_2 = list_getat(AMOUNT2_, 2, "/").trim();
+  var AMOUNT2__ = list_getat(AMOUNT2_, 1, "/").trim();
+  var AMOUNT2 = parseFloat(AMOUNT2__);
+  var isFromSip = parseInt(
+    document
+      .getElementById("ROW_" + PRODUCT_ID)
+      .getAttribute("data-fromSiparis")
+  );
+  if (isFromSip == 1) {
+    if (AMOUNT2_ > TOTAL_2) {
+      document
+        .getElementById("ROW_" + PRODUCT_ID)
+        .setAttribute("class", "bg-primary");
+    } else if (AMOUNT2 == TOTAL_2) {
+      document
+        .getElementById("ROW_" + PRODUCT_ID)
+        .setAttribute("class", "bg-success");
+    }
+  } else {
+    document
+      .getElementById("ROW_" + PRODUCT_ID)
+      .setAttribute("class", "bg-danger");
+  }
   OkumaEkle(ARGA_AMOUNT, 1, LotNo, SEPET_ROW_ID);
 }
 //BILGI PBS JS QUERY
