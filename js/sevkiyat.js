@@ -53,7 +53,7 @@ function islemYap(el, ev) {
       OSX.PRODUCT_ID = Res2.PRODUCT_ID[0];
       OSX.STOCK_ID = Res2.STOCK_ID[0];
       OSX.PBS_RELATION_ID = Res2.PBS_RELATION_ID[0];
-
+      OSX.PRODUCT_NAME=Res2.PRODUCT_NAME[0];
       var SL_1 = OSX.SEPET_DEPARTMAN_ID + "-" + OSX.SEPET_LOCATION_ID;
       var SL_2 = OSX.STOCK_DEPARTMENT_ID + "-" + OSX.STOCK_LOCATION_ID;
       if (SL_1 == SL_2) {
