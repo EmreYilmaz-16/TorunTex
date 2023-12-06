@@ -261,17 +261,18 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
   var TOTAL_2 = list_getat(AMOUNT2_, 2, "/").trim();
   var AMOUNT2__ = list_getat(AMOUNT2_, 1, "/").trim();
   var AMOUNT2 = parseFloat(AMOUNT2__);
+  var toplam=parseFloat(TOTAL_2);
   var isFromSip = parseInt(
     document
       .getElementById("ROW_" + PRODUCT_ID)
       .getAttribute("data-fromSiparis")
   );
   if (isFromSip == 1) {
-    if (AMOUNT2_ > TOTAL_2) {
+    if (AMOUNT2 > toplam) {
       document
         .getElementById("ROW_" + PRODUCT_ID)
         .setAttribute("class", "bg-primary");
-    } else if (AMOUNT2 == TOTAL_2) {
+    } else if (AMOUNT2 == toplam) {
       document
         .getElementById("ROW_" + PRODUCT_ID)
         .setAttribute("class", "bg-success");
