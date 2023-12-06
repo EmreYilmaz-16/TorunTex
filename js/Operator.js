@@ -694,6 +694,7 @@ function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   } else {
     $("#paketKG").val(productData.PROPERTY3[0]);
   }
+  console.table(productData);
   $("#WRK_ROW_ID").val("");
   $("#SIP_DEPO").val(DEPARTMENT_ID + "-" + LOCATION_ID);
   $("#sipres").html("");
