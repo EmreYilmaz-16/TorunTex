@@ -251,7 +251,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
         AND STORE_LOCATION=#listGetAt(arguments.SIP_DEPO,2,"-")# 
         AND PBS_RELATION_ID='#arguments.WRK_ROW_ID#'        
     </cfquery>
-    <CFIF arguments.STATION EQ "KLB">
+    <CFIF arguments.ISTASYON EQ "KLB">
         <cfif (getORDER.BAK2+1) GT getOI.AMOUNT2>
             <CFSET MESSAGE="ÜRETİM TAMAMLANMIŞTIR VEYA ÜRETİLEN MİKTAR İLE BİRLİKTE SİPARİŞ MİKTARI AŞILMAKTADIR">
             <cfset O.MESSAGE=MESSAGE>
@@ -259,7 +259,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
             <cfset O.STATUS_CODE=4>
             <cfreturn replace(serializeJSON(O),"//","")>
         </cfif>
-    <cfelseif arguments.STATION EQ "SCK">
+    <cfelseif arguments.ISTASYON EQ "SCK">
         <cfif (getORDER.BAK+MIKTARIM) GT getOI.QUANTITY>
             <CFSET MESSAGE="ÜRETİM TAMAMLANMIŞTIR VEYA ÜRETİLEN MİKTAR İLE BİRLİKTE SİPARİŞ MİKTARI AŞILMAKTADIR">
             <cfset O.MESSAGE=MESSAGE>

@@ -365,7 +365,9 @@ function Yazdir() {
       "&SIP_DEPO=" +
       SIP_DEPO +
       "&PRODUCT_ID=" +
-      PRODUCT_ID,
+      PRODUCT_ID +
+      "&ISTASYON=" +
+      STATION_,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
       //  console.log(Obj);
@@ -686,7 +688,8 @@ function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   $("#Customer").text("");
   $("#paketIcerik").val("");
   var productData = wrk_query(
-    "SELECT PROPERTY1,PROPERTY2,PROPERTY3 FROM PRODUCT_INFO_PLUS WHERE PRODUCT_ID="+ActiveStockId,
+    "SELECT PROPERTY1,PROPERTY2,PROPERTY3 FROM PRODUCT_INFO_PLUS WHERE PRODUCT_ID=" +
+      ActiveStockId,
     "DSN3"
   );
   if (productData.recordcount == 0) {
