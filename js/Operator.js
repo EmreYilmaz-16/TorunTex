@@ -670,6 +670,7 @@ function LotVer(STATION) {
 }
 function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
   MainOrderRowID = 0;
+  console.log("GetDepoÜretim Çalıştı");
   $("#SiparisResultAreaAs").hide(500);
   $("#RenkYazi").text("");
   $("#color1").attr(
