@@ -371,7 +371,7 @@ function Yazdir() {
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
       //  console.log(Obj);
-      if (Obj.STATUS_CODE == 3 || Obj.STATUS_CODE == 2) {
+      if (Obj.STATUS_CODE > 2) {
         alert(Obj.MESSAGE);
         return false;
       } else {
