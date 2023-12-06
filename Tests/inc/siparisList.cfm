@@ -83,7 +83,7 @@ ORDER BY PRIORITY
     </cfquery>
     <script>
         getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>)
-        <cfabort>
+        
     </script>
 </cfif>
 <div class="form-group">
