@@ -1,3 +1,4 @@
+
 <cfset DEPARTMENT_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),1,"-")>
 <cfset LOCATION_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),2,"-")>
 <cfset ORDER_ID=listGetAt(attributes.SELECT1,2,"*")>
@@ -12,7 +13,7 @@
         <label>Barkod</label>
         <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
     </div>
-    <table class="table table-sm table-stripped" id="Sepetim">
+    <table class="table table-warning table-stripped" id="Sepetim">
         <cfquery name="GETDATA" datasource="#DSN3#">
     SELECT S.PRODUCT_NAME
         ,S.PRODUCT_ID

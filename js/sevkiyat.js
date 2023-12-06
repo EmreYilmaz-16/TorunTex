@@ -9,7 +9,17 @@
  * @param {*} el
  * @param {*} ev
  */
-// YAPILACAK 
+$(document).ready(function () {
+  var lnk = document.getElementsByTagName("link");
+  for (let index = 0; index < lnk.length; index++) {
+    var l = lnk[index];
+    var href = l.getAttribute("href");
+    if (href.indexOf("gui_custom") != -1) {
+      l.remove();
+    }
+  }
+});
+// YAPILACAK
 //INC WRK_QUERY,document.getElementByProductId,SepeteEkle,OkumaEkle,SatirEkle, SatirGuncelle
 function islemYap(el, ev) {
   if (ev.keyCode == 13) {
@@ -53,7 +63,7 @@ function islemYap(el, ev) {
       OSX.PRODUCT_ID = Res2.PRODUCT_ID[0];
       OSX.STOCK_ID = Res2.STOCK_ID[0];
       OSX.PBS_RELATION_ID = Res2.PBS_RELATION_ID[0];
-      OSX.PRODUCT_NAME=Res2.PRODUCT_NAME[0];
+      OSX.PRODUCT_NAME = Res2.PRODUCT_NAME[0];
       var SL_1 = OSX.SEPET_DEPARTMAN_ID + "-" + OSX.SEPET_LOCATION_ID;
       var SL_2 = OSX.STOCK_DEPARTMENT_ID + "-" + OSX.STOCK_LOCATION_ID;
       if (SL_1 == SL_2) {
@@ -140,10 +150,15 @@ function islemYap(el, ev) {
       //YAPILACAK SEPET_ROW_READINGS'E KAYIT EKLE
       //TAMAM
       if (OSX.SATIRDA != 1) {
-       var GENERATEDKEY= SepeteEkle(OSX.SEPET_ID,OSX.PBS_RELATION_ID,OSX.PRODUCT_ID,OSX.Agirlik,1);
-       OkumaEkle(OSX.Agirlik,1,OSX.LotNo,GENERATEDKEY);
+        var GENERATEDKEY = SepeteEkle(
+          OSX.SEPET_ID,
+          OSX.PBS_RELATION_ID,
+          OSX.PRODUCT_ID,
+          OSX.Agirlik,
+          1
+        );
+        OkumaEkle(OSX.Agirlik, 1, OSX.LotNo, GENERATEDKEY);
         SatirEkle(OSX.PRODUCT_ID, OSX.PRODUCT_NAME, OSX.Agirlik);
-        
       } else {
         SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik, OSX.LotNo);
       }
@@ -200,28 +215,28 @@ function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
   }
 }
 //BILGI YALNIZCA HTML OLARAK SATIR EKLER
-function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT,SEPET_ROW_ID) {
+function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT, SEPET_ROW_ID) {
   var tr = document.createElement("tr");
   var td = document.createElement("td");
-  
+
   td.innerText = AMOUNT + "/" + "0";
-  td.setAttribute("id","AMOUNT_"+PRODUCT_ID)
+  td.setAttribute("id", "AMOUNT_" + PRODUCT_ID);
   tr.appendChild(td);
   var td = document.createElement("td");
-  td.setAttribute("id","AMOUNT2_"+PRODUCT_ID)
-  td.innerText=1 + "/" + 0;
+  td.setAttribute("id", "AMOUNT2_" + PRODUCT_ID);
+  td.innerText = 1 + "/" + 0;
   tr.appendChild(td);
   var td = document.createElement("td");
-  td.setAttribute("id","PRODUCT_NAME_"+PRODUCT_ID)
+  td.setAttribute("id", "PRODUCT_NAME_" + PRODUCT_ID);
   td.innerText = PRODUCT_NAME;
   tr.appendChild(td);
   tr.setAttribute("data-product_id", PRODUCT_ID);
   tr.setAttribute("data-SEPET_ROW_ID", SEPET_ROW_ID);
   document.getElementById("Sepetim").appendChild(tr);
 }
-//BILGI VAR OLAN SATIRI GUNCELLER 
+//BILGI VAR OLAN SATIRI GUNCELLER
 //DIKKAT BU METOD OKUMDA DA KAYIT ETTIGINDEN YANLIŞ OLMAMASI İÇİN DAHA ÖNCESİNDE OKUMA KAYIT ETMEDİĞİNE EMİN OL
-//UYARI SATIR DEĞERLERİ HTML OLARAK GÜNCELLENİR VERİ SUNUCUDAN DEĞİL CLİENT TARAFINDAKİ VERİDİR 
+//UYARI SATIR DEĞERLERİ HTML OLARAK GÜNCELLENİR VERİ SUNUCUDAN DEĞİL CLİENT TARAFINDAKİ VERİDİR
 //TESTET SUNUCU CLIENT VERI KARŞILAŞTIRMASINI YAP
 function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
   var AMOUNT_ = document.getElementById("AMOUNT_" + PRODUCT_ID).innerText;
@@ -236,7 +251,7 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
   var SEPET_ROW_ID = document
     .getElementByProductId(PRODUCT_ID)
     .getAttribute("data-SEPET_ROW_ID");
-  var str_1 = ((AMOUNT + parseFloat(ARGA_AMOUNT))).toString() + "/" + TOTAL_1;
+  var str_1 = (AMOUNT + parseFloat(ARGA_AMOUNT)).toString() + "/" + TOTAL_1;
   document.getElementById("AMOUNT_" + PRODUCT_ID).innerText = str_1;
   var str_2 = (AMOUNT2 + 1).toString() + "/" + TOTAL_2;
   document.getElementById("AMOUNT2_" + PRODUCT_ID).innerText = str_2;

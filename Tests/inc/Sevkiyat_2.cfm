@@ -54,7 +54,7 @@
     <label>Barkod</label>
     <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
 </div>
-<table class="table table-sm table-stripped" id="Sepetim">
+<table class="table table-warning table-stripped" id="Sepetim">
     <cfquery name="GETDATA" datasource="#DSN3#">
 SELECT S.PRODUCT_NAME
     ,S.PRODUCT_ID
@@ -75,8 +75,12 @@ GROUP BY S.PRODUCT_NAME
 	,SEVKIYAT_SEPET_ROW_PBS.AMOUNT
 	,SEVKIYAT_SEPET_ROW_PBS.AMOUNT2
     </cfquery>
+    <cfquery name="getO" datasource="#dsn3#">
+        SELECT PRODUCT_ID FROM ORDER_ROW WHERE ORDER_ID=#ORDER_ID#
+    </cfquery>
+    <cfset vls=valueList(getO.PRODUCT_ID)>
     <cfoutput query="GETDATA">
-        <tr data-PRODUCT_ID='#PRODUCT_ID#' data-SEPET_ROW_ID="#SEPET_ROW_ID#">
+        <tr  data-PRODUCT_ID='#PRODUCT_ID#' data-SEPET_ROW_ID="#SEPET_ROW_ID#">
             <td  id="AMOUNT_#PRODUCT_ID#">
                 #AMOUNT# / #AMOUNT_#
             </td>
