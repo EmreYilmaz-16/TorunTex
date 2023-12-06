@@ -205,11 +205,14 @@ function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT,SEPET_ROW_ID) {
   var td = document.createElement("td");
   
   td.innerText = AMOUNT + "/" + "0";
+  td.setAttribute("id","AMOUNT_"+PRODUCT_ID)
   tr.appendChild(td);
   var td = document.createElement("td");
+  td.setAttribute("id","AMOUNT2_"+PRODUCT_ID)
   td.innerText=1 + "/" + 0;
   tr.appendChild(td);
   var td = document.createElement("td");
+  td.setAttribute("id","PRODUCT_NAME_"+PRODUCT_ID)
   td.innerText = PRODUCT_NAME;
   tr.appendChild(td);
   tr.setAttribute("data-product_id", PRODUCT_ID);
