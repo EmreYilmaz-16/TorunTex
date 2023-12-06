@@ -228,8 +228,10 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
         <cfargument name="AMOUNT">
         <cfargument name="WRK_ROW_ID">
         <cfargument name="LOT_NUMARASI">
-        <cfargument name="DEPO">        
+        <cfargument name="DEPO">       
+        <cfargument name="SIP_DEPO">        
         <cfargument name="PRODUCT_ID">        
+        <cfargument name="ISTASYON">        
         <CFSET MIKTARIM=arguments.AMOUNT>
         <CFSET MESSAGE="">
         <CFSET O=structNew()>
@@ -238,13 +240,43 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM ORDER_ROW WHERE WRK_ROW_ID='#arguments.WRK_ROW_ID#'
         </cfquery>
-    <CFSET O.getOI=getOI>    
+   
+    <CFSET O.getOI=getOI> 
+       
+    <cfquery name="getORDER" datasource="#dsn3#">
+    SELECT  sum(STOCK_IN-STOCK_OUT) BAK,
+            SUM(CASE WHEN STOCK_OUT>0 THEN -1 ELSE 1 END) AS BAK2 
+    FROM    w3Toruntex_2023_1.STOCKS_ROW 
+    WHERE   STORE=#listGetAt(arguments.SIP_DEPO,1,"-")# 
+        AND STORE_LOCATION=#listGetAt(arguments.SIP_DEPO,2,"-")# 
+        AND PBS_RELATION_ID='#arguments.WRK_ROW_ID#'        
+    </cfquery>
+    <CFIF arguments.STATION EQ "KLB">
+        <cfif (getORDER.BAK2+1) GT getOI.AMOUNT2>
+            <CFSET MESSAGE="ÜRETİM TAMAMLANMIŞTIR VEYA ÜRETİLEN MİKTAR İLE BİRLİKTE SİPARİŞ MİKTARI AŞILMAKTADIR">
+            <cfset O.MESSAGE=MESSAGE>
+            <cfset O.STATUS=0>
+            <cfset O.STATUS_CODE=4>
+            <cfreturn replace(serializeJSON(O),"//","")>
+        </cfif>
+    <cfelseif arguments.STATION EQ "SCK">
+        <cfif (getORDER.BAK+MIKTARIM) GT getOI.QUANTITY>
+            <CFSET MESSAGE="ÜRETİM TAMAMLANMIŞTIR VEYA ÜRETİLEN MİKTAR İLE BİRLİKTE SİPARİŞ MİKTARI AŞILMAKTADIR">
+            <cfset O.MESSAGE=MESSAGE>
+            <cfset O.STATUS=0>
+            <cfset O.STATUS_CODE=4>
+            <cfreturn replace(serializeJSON(O),"//","")>
+        </cfif>
+    <CFELSE>
+    </CFIF>
+ 
     <cfelse>
         <cfquery name="getOI" datasource="#dsn3#">
             SELECT  * FROM STOCKS WHERE PRODUCT_ID=#arguments.PRODUCT_ID#
         </cfquery>
         <cfset O.getOI=getOI>
     </cfif>
+
         
         <cfquery name="GETRELATEDPRODUCT" datasource="#DSN3#">
             SELECT * FROM w3Toruntex_1.RELATED_PRODUCT WHERE PRODUCT_ID=#arguments.PRODUCT_ID# ORDER BY RELATED_PRODUCT_NO
