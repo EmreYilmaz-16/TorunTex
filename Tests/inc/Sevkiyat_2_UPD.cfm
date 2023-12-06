@@ -36,10 +36,11 @@
         <cfoutput query="GETDATA">
             <tr data-PRODUCT_ID='#PRODUCT_ID#' data-SEPET_ROW_ID="#SEPET_ROW_ID#"> 
                 <td id="AMOUNT_#PRODUCT_ID#">
-                    #AMOUNT# / #AMOUNT_#
+                    
+                    <cfif len(AMOUNT)>#AMOUNT#<CFELSE>0</cfif>/ #AMOUNT_#
                 </td>
                 <td id="AMOUNT2_#PRODUCT_ID#">
-                    #AMOUNT2# / #AMOUNT2_#
+                    <cfif len(AMOUNT2)>#AMOUNT2#<CFELSE>0</cfif> / #AMOUNT2_#
                 </td>
                 <td id="PRODUCT_NAME_#PRODUCT_ID#">
                     #PRODUCT_NAME#
