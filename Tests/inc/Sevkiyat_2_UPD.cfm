@@ -34,6 +34,10 @@
         ,SEVKIYAT_SEPET_ROW_PBS.AMOUNT
         ,SEVKIYAT_SEPET_ROW_PBS.AMOUNT2
         </cfquery>
+         <cfquery name="getO" datasource="#dsn3#">
+            SELECT PRODUCT_ID FROM ORDER_ROW WHERE ORDER_ID=#ORDER_ID#
+        </cfquery>
+        <cfset vls=valueList(getO.PRODUCT_ID)>
         <cfoutput query="GETDATA">
             <tr <cfif not listFind(vls,PRODUCT_ID)>class="bg-danger"<cfelse><cfif AMOUNT2 eq AMOUNT2_>class="bg-success"<cfelseif AMOUNT2 gt AMOUNT2_>class="bg-primary"  </cfif> </cfif>  data-PRODUCT_ID='#PRODUCT_ID#' data-SEPET_ROW_ID="#SEPET_ROW_ID#"> 
                 <td id="AMOUNT_#PRODUCT_ID#">
