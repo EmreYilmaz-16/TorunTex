@@ -45,6 +45,10 @@
 </CFLOOP>
 
 <cf_box title="Sevkiyat İşlemi">
+    <div>
+        <button class="form-control btn btn-warning" onclick="SevkiyatKapa(this,<cfoutput>#RES.GENERATEDKEY#</cfoutput>)">Sevkiyat Açık</button>
+    </div>
+    
 <input type="hidden" name="SEPET_ID" id="SEPET_ID" value="<CFOUTPUT>#RES.GENERATEDKEY#</CFOUTPUT>">
 
 <input type="hidden" name="DEPARTMENT_ID" id="DEPARTMENT_ID" value="<CFOUTPUT>#DEPARTMENT_ID#</CFOUTPUT>">

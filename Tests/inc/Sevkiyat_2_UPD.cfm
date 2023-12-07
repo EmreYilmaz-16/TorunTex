@@ -3,18 +3,7 @@
 <cfset LOCATION_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),2,"-")>
 <cfset ORDER_ID=listGetAt(attributes.SELECT1,2,"*")>
 <cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
-
-<cf_box title="Sevkiyat İşlemi">
-    <input type="hidden" name="SEPET_ID" id="SEPET_ID" value="<CFOUTPUT>#SEPET_ID#</CFOUTPUT>">
-    <input type="hidden" name="DEPARTMENT_ID" id="DEPARTMENT_ID" value="<CFOUTPUT>#DEPARTMENT_ID#</CFOUTPUT>">
-    <input type="hidden" name="LOCATION_ID" id="LOCATION_ID" value="<CFOUTPUT>#LOCATION_ID#</CFOUTPUT>">
-    <input type="hidden" name="ORDER_ID" id="ORDER_ID" value="<CFOUTPUT>#ORDER_ID#</CFOUTPUT>">
-    <div class="form-group">
-        <label>Barkod</label>
-        <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
-    </div>
-    <table class="table table-warning table-stripped" id="Sepetim">
-        <cfquery name="GETDATA" datasource="#DSN3#">
+<cfquery name="GETDATA" datasource="#DSN3#">
     SELECT S.PRODUCT_NAME
         ,S.PRODUCT_ID
         ,SEVKIYAT_SEPET_ROW_PBS.SEPET_ROW_ID
@@ -34,6 +23,21 @@
         ,SEVKIYAT_SEPET_ROW_PBS.AMOUNT
         ,SEVKIYAT_SEPET_ROW_PBS.AMOUNT2
         </cfquery>
+        
+<cf_box title="Sevkiyat İşlemi">
+    <div>
+        <button class="form-control btn btn-warning" onclick="SevkiyatKapa(this,<cfoutput>#SEPET_ID#</cfoutput>)">Sevkiyat Açık</button>
+    </div>
+    <input type="hidden" name="SEPET_ID" id="SEPET_ID" value="<CFOUTPUT>#SEPET_ID#</CFOUTPUT>">
+    <input type="hidden" name="DEPARTMENT_ID" id="DEPARTMENT_ID" value="<CFOUTPUT>#DEPARTMENT_ID#</CFOUTPUT>">
+    <input type="hidden" name="LOCATION_ID" id="LOCATION_ID" value="<CFOUTPUT>#LOCATION_ID#</CFOUTPUT>">
+    <input type="hidden" name="ORDER_ID" id="ORDER_ID" value="<CFOUTPUT>#ORDER_ID#</CFOUTPUT>">
+    <div class="form-group">
+        <label>Barkod</label>
+        <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
+    </div>
+    <table class="table table-warning table-stripped" id="Sepetim">
+
          <cfquery name="getO" datasource="#dsn3#">
             SELECT PRODUCT_ID FROM ORDER_ROW WHERE ORDER_ID=#ORDER_ID#
         </cfquery>
