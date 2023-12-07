@@ -41,6 +41,7 @@
 <cfif attributes.sayfa eq 22><cfinclude template="inc/Sevkiyat.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 23><cfinclude template="inc/Sevkiyat_2.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 24><cfinclude template="inc/Sevkiyat_2_UPD.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 25><cfinclude template="inc/sevkiyatListesi.cfm"><cfabort></cfif>
 
 
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
