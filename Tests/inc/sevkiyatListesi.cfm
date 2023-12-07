@@ -43,7 +43,7 @@ LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 		</tr>
 	</thead>
 	<tbody>
-		<cfoutput>
+		<cfoutput query="getSepetler">
 		<tr>
 			<td>
 				#SEVK_NO#
