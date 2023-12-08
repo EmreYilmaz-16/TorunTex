@@ -15,8 +15,8 @@
 	barcode_list = ArrayNew(1);
 	for(row_i=1;row_i lte attributes.row_count;row_i=row_i+1)
 		if(attributes.is_rafsiz eq 0){
-            ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;1;#evaluate('attributes.SHELF_CODE#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");}else{
-                ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;1;#evaluate('attributes.LOT_NO#row_i#')#");
+            ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.SHELF_CODE#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");}else{
+                ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");
             }
 </cfscript>
 <cfset file_name = "#createUUID()#.txt">
@@ -293,12 +293,13 @@ var RC=1;
                
 
                 var td=document.createElement("td");
+                td.innerText=AMOUNT;
                 var input=document.createElement("input");
                 input.setAttribute("type","hidden");
                 input.setAttribute("name","AMOUNT"+RC)
                 input.setAttribute("value",AMOUNT);                
                 td.appendChild(input);     
-                td.innerText=AMOUNT;
+                
                 tr.appendChild(td);
                 document.getElementById("SayimTable").appendChild(tr);             
                 $("#LotNo").val("");
