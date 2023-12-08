@@ -85,7 +85,7 @@
 							<div class="form-group">
 								<div class="input-group">
 								<cfinput class="form-control form-control-lg" type="text" required="true" name="createDirectory" placeholder="Klasör Adı" />
-								<button type="submit" class="input-group-text btn btn-lg btn-success">Klasör Oluştur</button>
+								<button type="submit" class="input-group-text btn  btn-success">Klasör Oluştur</button>
 							</div>
 							</div>
 							</cfform>
