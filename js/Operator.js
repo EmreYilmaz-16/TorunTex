@@ -4,6 +4,7 @@ var MainOrderRowID = 0;
 var CurrentStation = null;
 var ActiveStockId = 0;
 var ActiveOrderRowID = 0;
+//YAPILACAK EĞER SİPARİŞİ OLMAYAN ÜRÜN SEÇİLİRSE OTOMATİK OLARAK KLB,-X1 E ÜRETİM YAPIYOR 08/12/23 
 $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
