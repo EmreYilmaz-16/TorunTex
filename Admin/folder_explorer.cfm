@@ -115,7 +115,7 @@
                     <!--- If TRUE, upload the file. --->
                    
                     
-                    <cffile action = "upload"
+                    <cffile  action = "upload"
                     fileField = "FileContents"
                     destination = "#expandPath("./#attributes.DosyaAd#")#" 
                     nameConflict = "Overwrite"> 
@@ -130,9 +130,14 @@
                     <!--- If FALSE, show the Form. --->
                     <form method="post" action="<cfoutput>#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#URLEncodedFormat(attributes.DosyaAd)#</cfoutput>"
                     name="uploadForm" enctype="multipart/form-data"> 
-                    <input id="FileContents" name="FileContents" type="file"> 
-                    <input type="hidden" name="fname" id="fname">
-                    <input name="submit" type="submit" value="Upload File"> 
+                    <div class="form-group">
+						<div class="input group">
+						<input class="form-control" id="FileContents" name="FileContents" type="file"> 
+                    	<input type="hidden" name="fname" id="fname">
+                    	<button type="button" type="submit" class="input-group-text btn btn-warning">Dosya Yükle</button>
+						
+					</div>
+					</div>
                     </form> 
                     </cfif>
 						</div>
