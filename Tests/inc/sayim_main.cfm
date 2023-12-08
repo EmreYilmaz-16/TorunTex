@@ -1,4 +1,4 @@
-<cfparam name="attributes.is_rafsiz" default="0">
+<cfparam name="attributes.is_rafsiz" default="1">
 <cfparam name="attributes.is_default_depo" default="0">
 <cfparam name="attributes.default_depo" default="1-3">
 
