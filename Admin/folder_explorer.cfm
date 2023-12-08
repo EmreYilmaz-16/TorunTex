@@ -141,24 +141,7 @@
 			</cf_ajax_list>
     </cf_box>
 		</td>
-		<td>	<cfform name="form_add_product">
-					<div class="form-group" id="item-product_cat">
-						<label class="col col-3 col-xs-3">Kategori</label>
-						<div class="col col-9 col-xs-12"> 
-							<div class="input-group">
-								<cfinput type="hidden" name="product_catid" value="#product_cat_id#">
-								<cfsavecontent variable="message">Kategori Girmediniz</cfsavecontent>
-								<cfif is_show_detail_variation eq 1>
-									<cfinput type="text" name="product_cat" id="product_cat" required="yes" style="width:426px;" message="#message#" value=" #product_cat#" onFocus="AutoComplete_Create('product_cat','PRODUCT_CAT,HIERARCHY','PRODUCT_CAT_NAME','get_product_cat','1','PRODUCT_CATID','product_catid','','3','455',true,'add_property()');">
-								<cfelse>                                
-									<cfinput type="text" name="product_cat" id="product_cat" required="yes" style="width:426px;" message="#message#" value="#product_cat#" onFocus="AutoComplete_Create('product_cat','PRODUCT_CAT,HIERARCHY','PRODUCT_CAT_NAME','get_product_cat','1','PRODUCT_CATID','product_catid','','3','455');">
-								</cfif>
-								<span class="input-group-addon icon-ellipsis btnPoniter" onclick="windowopen('<cfoutput>#request.self#</cfoutput>?fuseaction=objects.popup_product_cat_names&field_id=product_catid&field_name=form_add_product.product_cat&field_min=form_add_product.MIN_MARGIN&field_max=form_add_product.MAX_MARGIN<cfif is_show_detail_variation eq 1>&caller_function=add_property</cfif>','list');" title="Ürün Kategorisi Ekle!">11</span>
-							</div>
-						</div>
-					</div>
-					</cfform>
-		</td>
+		
 	</tr>
 </table>
 <script>
