@@ -152,7 +152,7 @@ function islemYap(el, ev) {
       if (OSX.SATIRDA != 1) {
         var GENERATEDKEY = SepeteEkle(
           OSX.SEPET_ID,
-          OSX.PBS_RELATION_ID,
+          '',
           OSX.PRODUCT_ID,
           OSX.Agirlik,
           1
