@@ -76,7 +76,7 @@
 		<td valign="top">
 			<table>
 				<tr>
-					<td class="td1">
+					<td class="td1" colspan="2">
 						<div style="margin-left:10px;margin-right:10px">
 							<h4>
 								Klasör Oluşturma 
