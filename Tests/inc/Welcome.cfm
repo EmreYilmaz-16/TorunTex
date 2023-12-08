@@ -4,7 +4,7 @@
 <cf_box title="PDA Welcome">
 <div style="display: flex;flex-direction: column;">
     <button style="margin-top:5px" class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=1','_blank')">Raftan Çuval Al</button>
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=6'">Raf Durumu</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=6')">Raf Durumu</button>
     
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9','_blank')">Operator Ekrani</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_2','_blank')">Operator Ekrani V2</button>
