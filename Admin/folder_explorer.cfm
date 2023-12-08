@@ -82,8 +82,8 @@
 								Klasör Oluşturma 
 							</h4>
 							<cfform action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#attributes.DosyaAd#" method="post" preservedata="true">
-								<cfinput type="text" required="true" name="createDirectory" placeholder="Klasör Adı" />
-								<cfinput type="submit" value="Klasör Oluştur" name="submit" />
+								<cfinput class="form-control form-control-sm" type="text" required="true" name="createDirectory" placeholder="Klasör Adı" />
+								<button type="submit" class="btn btn-success">Kaydet</button>
 							</cfform>
 							<cfif IsDefined("FORM.createDirectory")>
 								<cfif FORM.createDirectory is not "">
