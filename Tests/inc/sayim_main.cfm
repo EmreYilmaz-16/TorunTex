@@ -154,6 +154,7 @@ var STOCK_ID="";
 var PRODUCT_CODE="";
 var PRODUCT_CODE_2="";
 var LOT_NO="";
+var AMOUNT=1;
 var RC=1;
     function GetLot(el,ev) {
         if(ev.keyCode==13){
@@ -163,7 +164,7 @@ var RC=1;
     var UrunKodu = list_getat(UrunBarkodu, 1, LotKontrolChar);
     var LotNumarasi = list_getat(UrunBarkodu, parseInt(LotPosition), LotKontrolChar);
     var Agirlik = list_getat(UrunBarkodu, parseInt(WeightPosition), LotKontrolChar);
-         
+        AMOUNT=Agirlik 
             var Urun=wrk_query("SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='"+LotNumarasi+"'","DSN2")
             if(Urun.recordcount>0){
                 PRODUCT_ID=Urun.PRODUCT_ID[0];
@@ -292,7 +293,12 @@ var RC=1;
                
 
                 var td=document.createElement("td");
-                td.innerText=1;
+                var input=document.createElement("input");
+                input.setAttribute("type","hidden");
+                input.setAttribute("name","AMOUNT"+RC)
+                input.setAttribute("value",AMOUNT);                
+                td.appendChild(input);     
+                td.innerText=AMOUNT;
                 tr.appendChild(td);
                 document.getElementById("SayimTable").appendChild(tr);             
                 $("#LotNo").val("");
