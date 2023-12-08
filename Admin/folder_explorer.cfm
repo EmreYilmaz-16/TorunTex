@@ -74,7 +74,7 @@
           <cfheader name = "Content-disposition" value = 'attachment; filename="#expandPath('./#attributes.DosyaAd#/dwn.zip')#"'>
     </cfif>
 		<td valign="top">
-			<table>
+			<table style="width:100%">
 				<tr>
 					<td class="td1" colspan="2">
 						<div style="margin-left:10px;margin-right:10px">
