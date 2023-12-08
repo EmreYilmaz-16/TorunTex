@@ -1,6 +1,9 @@
 <cfparam name="attributes.is_rafsiz" default="1">
 <cfparam name="attributes.is_default_depo" default="0">
 <cfparam name="attributes.default_depo" default="1-3">
+<cfparam name="attributes.LotKontrolChar" default="|">
+<cfparam name="attributes.LotPosition" default="2">
+<cfparam name="attributes.WeightPosition" default="3">
 
 <cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
@@ -143,6 +146,9 @@
 </cfform>
 </cf_box>
 <script>
+var LotKontrolChar=<cfoutput>'#attributes.LotKontrolChar#'</cfoutput>
+var LotPosition=<cfoutput>'#attributes.LotPosition#'</cfoutput>
+var WeightPosition=<cfoutput>'#attributes.WeightPosition#'</cfoutput>
 var PRODUCT_ID="";
 var STOCK_ID="";
 var PRODUCT_CODE="";
@@ -151,7 +157,13 @@ var LOT_NO="";
 var RC=1;
     function GetLot(el,ev) {
         if(ev.keyCode==13){
-            var LotNumarasi=el.value;
+            var UrunBarkodu = el.value;
+            var ls=LotKontrolChar+""+LotKontrolChar
+    UrunBarkodu = ReplaceAll(UrunBarkodu, ls, LotKontrolChar);
+    var UrunKodu = list_getat(UrunBarkodu, 1, LotKontrolChar);
+    var LotNumarasi = list_getat(UrunBarkodu, parseInt(LotPosition), LotKontrolChar);
+    var Agirlik = list_getat(UrunBarkodu, parseInt(WeightPosition), LotKontrolChar);
+         
             var Urun=wrk_query("SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='"+LotNumarasi+"'","DSN2")
             if(Urun.recordcount>0){
                 PRODUCT_ID=Urun.PRODUCT_ID[0];
