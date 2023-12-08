@@ -84,8 +84,8 @@
 							<cfform action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#attributes.DosyaAd#" method="post" preservedata="true">
 							<div class="form-group">
 								<div class="input-group">
-								<cfinput class="form-control form-control-sm" type="text" required="true" name="createDirectory" placeholder="Klasör Adı" />
-								<button type="submit" class="input-group-text btn btn-success">Kaydet</button>
+								<cfinput class="form-control form-control-lg" type="text" required="true" name="createDirectory" placeholder="Klasör Adı" />
+								<button type="submit" class="input-group-text btn btn-lg btn-success">Klasör Oluştur</button>
 							</div>
 							</div>
 							</cfform>
