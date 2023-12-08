@@ -10,6 +10,7 @@
 <cfif attributes.sayfa eq "fe"><cfinclude template="../Admin/folder_explorer.cfm"><cfabort></cfif>          <!--- //BILGI DOSYA YÖNETİCİSİ ----->
 <cfif attributes.sayfa eq "vtAdd"><cfinclude template="inc/vtAdd.cfm"><cfabort></cfif>                      <!--- //BILGI VERİ TABANINA FORM TADINDA VERİ YAZMA ----->
 <cfif attributes.sayfa eq "query_executer"><cfinclude template="inc/query_executer.cfm"><cfabort></cfif>    <!--- //BILGI PBS JS QUERY ----->
+<cfif attributes.sayfa eq "fis_sil"><cfinclude template="inc/stokFisSil.cfm"><cfabort></cfif>               <!--- //BILGI tüm stok fişlerini siler ----->
 
 <cfif attributes.sayfa eq -1><cfinclude template="inc/Welcome.cfm"><cfabort></cfif>
 
