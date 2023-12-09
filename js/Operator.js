@@ -4,7 +4,7 @@ var MainOrderRowID = 0;
 var CurrentStation = null;
 var ActiveStockId = 0;
 var ActiveOrderRowID = 0;
-//YAPILACAK EĞER SİPARİŞİ OLMAYAN ÜRÜN SEÇİLİRSE OTOMATİK OLARAK KLB,-X1 E ÜRETİM YAPIYOR 08/12/23 
+//YAPILACAK EĞER SİPARİŞİ OLMAYAN ÜRÜN SEÇİLİRSE OTOMATİK OLARAK KLB,-X1 E ÜRETİM YAPIYOR 08/12/23
 $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
@@ -513,14 +513,20 @@ function YazdirabilirsenYazdir(
   request.send(zpl);
 }
 function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
-  var StResult=wrk_query("SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='"+STATION+"'","dsn")
+  var StResult = wrk_query(
+    "SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='" +
+      STATION +
+      "'",
+    "dsn"
+  );
+  console.log(StResult);
   var StationObject = {
     DEPARTMENT_ID: DEPARTMENT_ID,
     LOCATION_ID: LOCATION_ID,
     STATION: STATION,
     FULL_STATION: FULL_STATION,
-    GENERAL_STORE:StResult.DEPARTMENT_ID[0],
-    GENERAL_LOCATION:StResult.LOCATION_ID[0]
+    GENERAL_STORE: StResult.DEPARTMENT_ID[0],
+    GENERAL_LOCATION: StResult.LOCATION_ID[0],
   };
   localStorage.setItem("ACTIVE_STATION", JSON.stringify(StationObject));
 
@@ -819,4 +825,3 @@ function tck() {
 ^XA^XFE:etiket2.ZPL^FS^CI28^FN1^FH^FDA-01^FS^CI27^CI28^FN2^FH^FDSA-5^FS^CI27^CI28^FN3^FH^FD100913231^FS^CI27^CI28^FN4^FH^FDAnorak Heavy Mix^FS^CI27^CI28^FN5^FH^FD127112023000315^FS^CI27^CI28^FN6^FH^FD25^FS^CI27^CI28^FN7^FH^FD100913231|127112023000315||25^FS^CI27^CI28^FN8^FH^FDANOMIX-10^FS^CI27^PQ1,0,1^XZ
 
 */
-
