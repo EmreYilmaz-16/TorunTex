@@ -16,6 +16,8 @@
 	,C.COMPANY_ID
     ,C.NICKNAME
 	,O.ORDER_NUMBER
+    ,O.SHIP_ADDRESS_ID
+    ,O.EMPLOYEE_ID
 	,CC.PRICE_CAT    
     ,CC.MONEY AS MUSTERI_PARA_BIRIMI
 	,CASE WHEN ORR.WRK_ROW_ID IS NULL THEN 0 ELSE 1 END AS IN_SIPARIS
@@ -86,6 +88,9 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.INVOICE_DATE =dateformat(now(),"dd/mm/yyyy")>
 <cfset attributes.INVOICE_DATE_H =timeFormat(now(),"hh")>
 <cfset attributes.INVOICE_DATE_M =timeFormat(now(),"mm")>
+<cfset attributes.ship_address_id=getCekiListesi.SHIP_ADDRESS_ID>
+<cfset attributes.EMPO_ID=getCekiListesi.EMPLOYEE_ID>
+
 <cfset ibnm=1>
 <cfloop query="getMoney">
     <cfset "attributes._txt_rate1_#ibnm#"=RATE1>
@@ -125,8 +130,21 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 </cfloop>
 <CFSET MAIN_OTHER_MONEY=AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
 <CFSET MAIN_OTHER_MONEY_VALUE=(MAIN_NET_TOTAL/AKTIF_MUSTERI_PARA_BIRIMI[1].RATE2)>
+
+<cfset form.basket_net_total=MAIN_NET_TOTAL>
+<cfset form.basket_gross_total=MAIN_GROSS_TOTAL>
+<cfset form.basket_tax_total=MAIN_TAX_TOTAL>
+<cfset form.basket_otv_total="">
+<cfset form.genel_indirim="">
 <cfinclude template="/V16/invoice/query/add_invoice_sale.cfm">
 <!-----
+    		#form.basket_net_total#,
+		#form.basket_gross_total#,
+		#form.basket_tax_total#,
+        
+        NETTOTAL,
+		GROSSTOTAL,
+		TAXTOTAL,
     //BILGI HESAPLAMA 
 GROS_TOTAL=SATIR TL TOPLAM
 NET TOTAL
