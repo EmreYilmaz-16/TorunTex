@@ -42,7 +42,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
  SM.MONEY
  FROM #DSN#.SETUP_MONEY AS SM WHERE SM.PERIOD_ID=#session.ep.period_id#
  </cfquery>
-<cfset moneyArr=arrayNew(1)>
+<cfset MYARR=arrayNew(1)>
 <cfloop query="getMoney">
     <cfset PARA_={
         MONEY=MONEY,
@@ -50,7 +50,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
         RATE2=RATE2
     }>
     <cfscript>
-        arrayAppend(moneyArr,PARA_);
+        arrayAppend(MYARR,PARA_);
     </cfscript>
 </cfloop>
 
