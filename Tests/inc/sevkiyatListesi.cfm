@@ -64,7 +64,7 @@ LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 				<button type="button" class="btn btn-outline-dark">Çeki Listesi</button>
 			</td>
 			<td>
-				<button class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
+				<button onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')" class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
 					<cfif FATURA_DURUM eq 1>Fatura Kesildi<cfelse>Fatura Kes </cfif>
 				</button>
 			</td>
