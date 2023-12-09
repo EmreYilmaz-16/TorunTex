@@ -513,11 +513,14 @@ function YazdirabilirsenYazdir(
   request.send(zpl);
 }
 function setStation(DEPARTMENT_ID, LOCATION_ID, STATION, FULL_STATION) {
+  var StResult=wrk_query("SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='"+STATION+"'","dsn")
   var StationObject = {
     DEPARTMENT_ID: DEPARTMENT_ID,
     LOCATION_ID: LOCATION_ID,
     STATION: STATION,
     FULL_STATION: FULL_STATION,
+    GENERAL_STORE:StResult.DEPARTMENT_ID[0],
+    GENERAL_LOCATION:StResult.LOCATION_ID[0]
   };
   localStorage.setItem("ACTIVE_STATION", JSON.stringify(StationObject));
 
