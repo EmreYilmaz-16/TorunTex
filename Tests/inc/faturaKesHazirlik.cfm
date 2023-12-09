@@ -136,6 +136,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET "attributes.row_nettotal#IX#"=NET_TOTAL>     <!-----//BILGI NET      TOTAL       ---->
     <CFSET TAX_TOTAL=((NET_TOTAL*TAX)/ 100)>
     <CFSET "attributes.row_taxtotal#IX#"=TAX_TOTAL>     <!-----//BILGI TAX      TOTAL       ---->
+    <CFSET "form.row_taxtotal#IX#"=TAX_TOTAL>
     <CFSET GROSS_TOTAL=NET_TOTAL+TAX_TOTAL>
     <CFSET "attributes.row_lasttotal#IX#"=GROSS_TOTAL>  <!-----//BILGI GROSS    TOTAL       ---->
     <CFSET "attributes.tax#IX#"=TAX>                    <!-----//BILGI TAX                  ---->
