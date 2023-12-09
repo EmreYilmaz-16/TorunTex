@@ -14,6 +14,7 @@
 	,ISNULL(ISNULL(ORR.OTHER_MONEY,P.MONEY),'TL') AS OTHER_MONEY
     ,ISNULL(ISNULL(ORR.TAX,20),0) AS TAX
 	,C.COMPANY_ID
+    ,C.NICKNAME
 	,O.ORDER_NUMBER
 	,CC.PRICE_CAT    
     ,CC.MONEY AS MUSTERI_PARA_BIRIMI
@@ -70,6 +71,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 })>
 
 <cfset attributes.COMPANY_ID=getCekiListesi.COMPANY_ID>
+<cfset attributes.comp_name=getCekiListesi.NICKNAME>
 <cfset attributes.process_cat=36>
 <cfset attributes.ACTIVE_PERIOD =session.ep.period_id>
 <cfset form.serial_number= "PINV">
