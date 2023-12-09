@@ -19,6 +19,8 @@
     ,O.SHIP_ADDRESS_ID
     ,O.EMPLOYEE_ID
 	,CC.PRICE_CAT    
+    ,O.DELIVER_DEPT_ID
+	,O.LOCATION_ID
     ,CC.MONEY AS MUSTERI_PARA_BIRIMI
 	,CASE WHEN ORR.WRK_ROW_ID IS NULL THEN 0 ELSE 1 END AS IN_SIPARIS
 FROM #DSN3#.SEVKIYAT_SEPET_ROW_PBS AS SR
@@ -90,7 +92,9 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.INVOICE_DATE_M =timeFormat(now(),"mm")>
 <cfset attributes.ship_address_id=getCekiListesi.SHIP_ADDRESS_ID>
 <cfset attributes.EMPO_ID=getCekiListesi.EMPLOYEE_ID>
-
+<CFSET attributes.department_id=getCekiListesi.DELIVER_DEPT_ID>
+<CFSET attributes.location_id=getCekiListesi.LOCATION_ID>
+<cfset DELIVER_GET ="Admin">
 <cfset ibnm=1>
 <cfloop query="getMoney">
     <cfset "attributes._txt_rate1_#ibnm#"=RATE1>
