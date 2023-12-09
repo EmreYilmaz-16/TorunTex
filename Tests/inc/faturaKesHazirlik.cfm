@@ -78,7 +78,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset form.serial_number= "PINV">
 <cfset form.serial_no= randRange(0, 1000000, "CFMX_COMPAT")>
 <cfset attributes.EMPLOYEE_ID=session.EP.userid>
-
+<cfset attributes.basket_id=2> <!----//UYARI BASKET ID DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 <cfset ibnm=1>
 <cfloop query="getMoney">
     <cfset "attributes._txt_rate1_#ibnm#"=RATE1>
