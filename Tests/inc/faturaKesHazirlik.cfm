@@ -170,6 +170,11 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.genel_indirim="">
 <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
 <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
+<!------
+    //YAPILACAK FATURA KAYDFETME TAMAMLANDI ANCAK SİPARİŞ BİLGİSİ ALMADIĞIM İÇİN FATURA SİPARİŞ BAĞLANTISINI MANUEL YAP 
+    //SOR SİPARİŞTEKİ EŞLEŞMEYEN SATIRLARA NE OLACAK ? REZERV PROBLEMİ OLABİLİR
+
+    ----->
 <!-----
     		#form.basket_net_total#,
 		#form.basket_gross_total#,
