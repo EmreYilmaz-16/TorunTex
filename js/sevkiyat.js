@@ -152,7 +152,7 @@ function islemYap(el, ev) {
       if (OSX.SATIRDA != 1) {
         var GENERATEDKEY = SepeteEkle(
           OSX.SEPET_ID,
-          '',
+          "",
           OSX.PRODUCT_ID,
           OSX.Agirlik,
           1
@@ -261,7 +261,7 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
   var TOTAL_2 = list_getat(AMOUNT2_, 2, "/").trim();
   var AMOUNT2__ = list_getat(AMOUNT2_, 1, "/").trim();
   var AMOUNT2 = parseFloat(AMOUNT2__);
-  var toplam=parseFloat(TOTAL_2);
+  var toplam = parseFloat(TOTAL_2);
   var isFromSip = parseInt(
     document
       .getElementById("ROW_" + PRODUCT_ID)
@@ -323,7 +323,13 @@ function GetAjaxQuery(str_query, data_source, maxrows) {
   }
   return CompanyInfo;
 }
-
+function SevkiyatKapa(IID) {
+  var str =
+    "UPDATE w3Toruntex_1.SEVKIYAT_SEPET_PBS set IS_CLOSED=1 ^ISNULL(IS_CLOSED,0) WHERE SEPET_ID=" +
+    IID;
+  var res = GetAjaxQuery(str, "dsn3");
+  console.log(res);
+}
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
   var req;
