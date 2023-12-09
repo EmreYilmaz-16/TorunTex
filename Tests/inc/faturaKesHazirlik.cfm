@@ -120,6 +120,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET "attributes.lot_no#IX#"=LOT_NO>
     <CFSET "attributes.otv_oran#IX#"="">
     <CFSET "attributes.row_bsmv_rate#IX#"=""> 
+    <CFSET "form.row_otvtotal#IX#"=0>
     <CFSET "attributes.row_oiv_rate#IX#"=""> 
     <CFSET "attributes.row_tevkifat_rate#IX#"=""> 
     <CFSET "attributes.row_exp_center_id#IX#"="">
