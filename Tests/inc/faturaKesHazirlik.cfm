@@ -110,6 +110,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset form.basket_rate2=AKTIF_MUSTERI_PARA_BIRIMI[1].RATE2>
 <CFSET attributes.BASKET_MONEY =AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
 <CFSET FORM.BASKET_MONEY =AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
+<CFSET attributes.KUR_SAY=getMoney.recordCount>
+<CFSET FORM.KUR_SAY=getMoney.recordCount>
 <cfloop query="getCekiListesi">
 
     <cfset "attributes.PRODUCT_ID#IX#"=PRODUCT_ID>
