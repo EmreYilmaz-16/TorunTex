@@ -59,6 +59,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 </cfloop>
 
 <CFSET attributes.ROW_=getCekiListesi.recordCount>
+<CFSET attributes.rows_=getCekiListesi.recordCount>
 <CFSET IX=1>
 <CFSET MAIN_GROSS_TOTAL=0>
 <CFSET MAIN_NET_TOTAL=0>
