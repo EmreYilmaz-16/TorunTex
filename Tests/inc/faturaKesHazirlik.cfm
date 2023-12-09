@@ -82,6 +82,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.EMPLOYEE_ID=session.EP.userid>
 <cfset attributes.basket_id=2> <!----//UYARI BASKET ID DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 <cfset attributes.sale_product=1>
+<cfset form.sale_product=1>
 <cfset ibnm=1>
 <cfloop query="getMoney">
     <cfset "attributes._txt_rate1_#ibnm#"=RATE1>
