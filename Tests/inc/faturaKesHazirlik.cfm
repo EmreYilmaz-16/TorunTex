@@ -168,6 +168,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.basket_tax_total=MAIN_TAX_TOTAL>
 <cfset attributes.basket_otv_total="">
 <cfset attributes.genel_indirim="">
+<cfinclude template="../../objects/functions/add_company_related_action.cfm">
 <cfinclude template="/V16/invoice/query/add_invoice_sale.cfm">
 <!-----
     		#form.basket_net_total#,
