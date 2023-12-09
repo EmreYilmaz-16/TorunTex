@@ -94,6 +94,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.EMPO_ID=getCekiListesi.EMPLOYEE_ID>
 <CFSET attributes.department_id=getCekiListesi.DELIVER_DEPT_ID>
 <CFSET attributes.location_id=getCekiListesi.LOCATION_ID>
+<cfset form.BASKET_DISCOUNT_TOTAL =0>
 <cfset DELIVER_GET ="Admin">
 <cfset ibnm=1>
 <cfloop query="getMoney">
