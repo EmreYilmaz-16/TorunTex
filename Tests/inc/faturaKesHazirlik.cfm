@@ -72,6 +72,9 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.COMPANY_ID=getCekiListesi.COMPANY_ID>
 <cfset attributes.process_cat=36>
 <cfset attributes.ACTIVE_PERIOD =session.ep.period_id>
+<cfset form.serial_number= "PINV">
+<cfset form.serial_no= randRange(0, 1000000, "CFMX_COMPAT")>
+
 <cfloop query="getCekiListesi">
 
     <cfset "attributes.PRODUCT_ID#IX#"=PRODUCT_ID>
