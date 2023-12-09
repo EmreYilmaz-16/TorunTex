@@ -323,7 +323,7 @@ function GetAjaxQuery(str_query, data_source, maxrows) {
   }
   return CompanyInfo;
 }
-function SevkiyatKapa(IID) {
+function SevkiyatKapa(el,IID) {
   var str =
     "UPDATE w3Toruntex_1.SEVKIYAT_SEPET_PBS set IS_CLOSED=1 ^ISNULL(IS_CLOSED,0) WHERE SEPET_ID=" +
     IID;
