@@ -117,6 +117,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET "attributes.unit#IX#"=MAIN_UNIT>
     <CFSET "attributes.unit_id#IX#"=PRODUCT_UNIT_ID>
     <CFSET "attributes.lot_no#IX#"=LOT_NO>
+    <CFSET "attributes.otv_oran#IX#"="">
+    
     <cfset AKTIF_BIRIM=arrayFilter(MYARR,function(item){
         return item.MONEY=="#getCekiListesi.OTHER_MONEY#"
     })>
