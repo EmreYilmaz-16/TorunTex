@@ -92,7 +92,7 @@ function getAOrder(ORDER_ROW_ID, nerden = "") {
   if (ORDER_ROW_ID.length == 0 && MainOrderRowID == 0) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
-    getDepoUretim(Obj.STATION, Obj.DEPARTMENT_ID, Obj.LOCATION_ID);
+    getDepoUretim(Obj.STATION, Obj.GENERAL_STORE, Obj.GENERAL_LOCATION);
     return false;
   }
   //console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
