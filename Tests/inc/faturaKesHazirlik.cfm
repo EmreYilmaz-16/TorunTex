@@ -1,6 +1,7 @@
 <cfquery name="getCekiListesi" datasource="#dsn3#">
  SELECT S.PRODUCT_NAME
 	,S.STOCK_ID
+    ,S.PRODUCT_ID
 	,S.PRODUCT_CODE
 	,S.PRODUCT_UNIT_ID
 	,SSR.AMOUNT
