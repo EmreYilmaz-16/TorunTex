@@ -82,7 +82,7 @@ ORDER BY PRIORITY
         SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='#attributes.STATION#'
     </cfquery>
     <script>
-        getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>)
+        getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>,'SİPARİŞ SELECTEN OTOMATİK ÇALIŞTI')
         
     </script>
 </cfif>
@@ -143,7 +143,7 @@ ORDER BY PRIORITY
                         <td><cfquery name="GETS2" datasource="#DSN#">
                             SELECT DEPARTMENT_ID,LOCATION_ID FROM STOCKS_LOCATION WHERE COMMENT='#attributes.STATION#'
                         </cfquery>
-                            <a href="javascript:;" class="btn btn-primary text-white" onclick="getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>)"><cfoutput>#attributes.STATION#</cfoutput></a></td>
+                            <a href="javascript:;" class="btn btn-primary text-white" onclick="getDepoUretim(<cfoutput>'#attributes.STATION#',#GETS2.DEPARTMENT_ID#,#GETS2.LOCATION_ID#</cfoutput>,'SİPARİŞ SELECTEN TIKLADIM ÇALIŞTI')"><cfoutput>#attributes.STATION#</cfoutput></a></td>
                         <td></td>
                         <td></td>
                         <td></td>

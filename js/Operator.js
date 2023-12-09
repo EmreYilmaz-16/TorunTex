@@ -92,7 +92,7 @@ function getAOrder(ORDER_ROW_ID, nerden = "") {
   if (ORDER_ROW_ID.length == 0 && MainOrderRowID == 0) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
-    getDepoUretim(Obj.STATION, Obj.GENERAL_STORE, Obj.GENERAL_LOCATION);
+    getDepoUretim(Obj.STATION, Obj.GENERAL_STORE, Obj.GENERAL_LOCATION,"GET A ORDERDAN ÇALIŞTI");
     return false;
   }
   //console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
@@ -394,7 +394,7 @@ function Yazdir() {
         if (MainOrderRowID == 0) {
           var ssid = list_getat(SIP_DEPO, 1, "-");
           var ssLid = list_getat(SIP_DEPO, 2, "-");
-          getDepoUretim(Objecim.STATION, ssid, ssLid);
+          getDepoUretim(Objecim.STATION, ssid, ssLid,"YAZDIRDAN ÇALIŞTI");
         } else {
           getAOrder(MainOrderRowID, "YAZDIRDAN GELDİM");
         }
@@ -680,8 +680,9 @@ function LotVer(STATION) {
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
   return ReturnValue;
 }
-function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID) {
+function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID,NERDEN) {
   MainOrderRowID = 0;
+  console.log(arguments);
   console.log("GetDepoÜretim Çalıştı");
   $("#SiparisResultAreaAs").hide(500);
   $("#RenkYazi").text("");
