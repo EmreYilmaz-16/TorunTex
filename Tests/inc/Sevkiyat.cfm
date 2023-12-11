@@ -62,7 +62,7 @@ WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 		</cfloop>
         </cfoutput>
     </select>
-	<cfdump var="#getOrder#">
+	
 <button class="btn btn-success input-group-text" type="button" onclick="$('#frm_1').submit()">Aç</button>
 </div>
 </div>
