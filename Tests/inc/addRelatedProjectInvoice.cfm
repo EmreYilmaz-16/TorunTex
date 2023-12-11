@@ -60,10 +60,11 @@
     </cfquery>
     <cfloop query="GETFAT">
         <CFSET "BAKIYE_#PROJECT.PROJECT_ID#"=evaluate("BAKIYE_#PROJECT.PROJECT_ID#")-GETFAT.AMOUNT>
+        <CFSET DEVREDEN +=GETFAT.AMOUNT>
     </cfloop>
 
 </cfloop>
-<CFSET DEVREDEN += (1* evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
+
 
 <TR>
     <TD>
