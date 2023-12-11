@@ -47,11 +47,13 @@
             PROJE
         </TH>
     </TR>
+<CFSET DEVREDEN=0>
 <cfoutput query="PROJECT">
+
 <cfquery name="getInvoices" datasource="#dsn#">
     select * from w3Toruntex.PROJECT_INVOICE_RELATIONSXXXXXX where PROJECT_ID=#PROJECT.PROJECT_ID#
 </cfquery>
-<CFSET "BAKIYE_#PROJECT_ID#"=PROJECT.AMOUNT>
+<CFSET "BAKIYE_#PROJECT_ID#"=PROJECT.AMOUNT-DEVREDEN>
 <cfloop query="getInvoices">
     <cfquery name="GETFAT" datasource="#DSN#">
         SELECT * FROM FATURAXXXXXX WHERE INVOICE_ID=#INVOICE_ID#
@@ -59,7 +61,9 @@
     <cfloop query="GETFAT">
         <CFSET "BAKIYE_#PROJECT.PROJECT_ID#"=evaluate("BAKIYE_#PROJECT.PROJECT_ID#")-GETFAT.AMOUNT>
     </cfloop>
+
 </cfloop>
+<CFSET DEVREDEN= (-1* evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
 
 <TR>
     <TD>
@@ -72,8 +76,7 @@
 <table>
     <cfloop query="getInvoices">
 <tr>
-    <td>#getInvoices.INVOICE_ID#</td>
-    <td>#getInvoices.AMOUNT#</td>
+    <td>#getInvoices.INVOICE_ID#</td>    
 </tr>
 </cfloop>
 </table>
@@ -81,7 +84,8 @@
 
 
 <td>
-    #evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#
+    <CFIF evaluate("BAKIYE_#PROJECT.PROJECT_ID#") LTE 0>0</CFIF>
+    <SPAN style="color:red">#evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#</SPAN>
 </td>
 </tr>
 </cfoutput>
