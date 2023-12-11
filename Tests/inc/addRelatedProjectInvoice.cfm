@@ -41,7 +41,7 @@
     SELECT * FROM PROJECTXXXXXX
 </cfquery>
 <CF_BOX title="Proje">
-<table>
+<table border="1" cellspacing="0" cellpadding="0">
     <TR>
         <TH>
             PROJE
