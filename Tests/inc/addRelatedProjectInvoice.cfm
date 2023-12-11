@@ -1,4 +1,4 @@
-<cfscript >
+<!-----<cfscript >
     INVOICE_ROW=queryNew("INVOICE_ID,AMOUNT","INTEGER,DECIMAL");
     PROJECT=queryNew("PROJECT_ID,AMOUNT","INTEGER,DECIMAL");
     PROJECT_INVOICE_RELATIONS=queryNew("ID,PROJECT_ID,INVOICE_ID","INTEGER,INTEGER,INTEGER")
@@ -36,7 +36,10 @@
     
     writeDump(PROJECT_INVOICE_RELATIONS)
 </cfscript>
-
+---->
+<cfquery name="PROJECT" datasource="#dsn#">
+    SELECT * FROM PROJECTXXXXXX
+</cfquery>
 
 <table>
 <cfoutput query="PROJECT">
