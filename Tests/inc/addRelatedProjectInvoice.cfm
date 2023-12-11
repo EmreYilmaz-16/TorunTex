@@ -40,7 +40,7 @@
 <cfquery name="PROJECT" datasource="#dsn#">
     SELECT * FROM PROJECTXXXXXX
 </cfquery>
-
+<CF_BOX title="Proje">
 <table>
     <TR>
         <TH>
@@ -48,10 +48,23 @@
         </TH>
     </TR>
 <cfoutput query="PROJECT">
+<cfquery name="getInvoices" datasource="#dsn#">
+    select * from w3Toruntex.PROJECT_INVOICE_RELATIONSXXXXXX where PROJECT_ID=#PROJECT.PROJECT_ID#
+</cfquery>
 <TR>
-    <TD>
+    <TD rowspan="#getInvoices.recordCount#">
          #PROJECT.PROJECT_ID#
     </TD>
+    <TD rowspan="#getInvoices.recordCount#">
+        #PROJECT.AMOUNT#
+   </TD>
+
 </TR>
+<cfloop query="getInvoices">
+<tr>
+    <td>#getInvoices.INVOICE_ID#</td>    
+</tr>
+</cfloop>
 </cfoutput>
 </table>
+</CF_BOX>
