@@ -171,6 +171,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <CFSET attributes.ORDER_ID=getCekiListesi.ORDER_ID>
 <CFSET attributes.order_id_form="000">
 <CFSET attributes.order_id_listesi=getCekiListesi.ORDER_ID>
+<cfdump var="#attributes#">
+<cfabort>
 <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
 <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
 
