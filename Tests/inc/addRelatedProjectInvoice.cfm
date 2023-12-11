@@ -48,6 +48,8 @@
         </TH>
     </TR>
 <CFSET DEVREDEN=0>
+<CFSET DEVREDEN1=0>
+<CFSET DEVREDEN2=0>
 <cfoutput query="PROJECT">
 
 <cfquery name="getInvoices" datasource="#dsn#">
@@ -64,7 +66,8 @@
     </cfloop>
 
 </cfloop>
-
+<CFSET DEVREDEN1 += (1* evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
+<CFSET DEVREDEN2 += (-1* evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
 
 <TR>
     <TD>
@@ -86,7 +89,10 @@
 
 <td>
     <CFIF evaluate("BAKIYE_#PROJECT.PROJECT_ID#") LTE 0>0</CFIF>
-    <SPAN style="color:red">#evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#</SPAN>
+    <SPAN style="color:red">#DEVREDEN#</SPAN>-
+    <SPAN style="color:green">#DEVREDEN1#</SPAN>-
+    <SPAN style="color:blue">#DEVREDEN2#</SPAN>-
+    <SPAN style="color:orange">#evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#</SPAN>
 </td>
 </tr>
 </cfoutput>
