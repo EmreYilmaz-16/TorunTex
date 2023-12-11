@@ -62,18 +62,21 @@
 </cfloop>
 
 <TR>
-    <TD rowspan="#getInvoices.recordCount+1#">
+    <TD>
          #PROJECT.PROJECT_ID#
     </TD>
 
 
-</TR>
-<cfloop query="getInvoices">
-<tr>
-    <td>#getInvoices.INVOICE_ID#</td>    
 
-</tr>
+<td>
+<table>
+    <cfloop query="getInvoices">
+<tr><td>#getInvoices.INVOICE_ID#</td></tr>
 </cfloop>
+</table>
+</td>    
+
+
 <td>
     #evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#
 </td>
