@@ -47,12 +47,12 @@
             PROJE
         </TH>
     </TR>
-<CFSET DEVREDEN=0>
-<CFSET DEVREDEN1=0>
-<CFSET DEVREDEN2=0>
-<CFSET DEVREDEN3=0>
-<cfoutput query="PROJECT">
 
+<cfoutput query="PROJECT">
+    <CFSET DEVREDEN=0>
+    <CFSET DEVREDEN1=0>
+    <CFSET DEVREDEN2=0>
+    <CFSET DEVREDEN3=0>
 <cfquery name="getInvoices" datasource="#dsn#">
     select * from w3Toruntex.PROJECT_INVOICE_RELATIONSXXXXXX where PROJECT_ID=#PROJECT.PROJECT_ID#
 </cfquery>
