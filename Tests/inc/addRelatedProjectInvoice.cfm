@@ -43,12 +43,13 @@
 [FATURAXXXXXX][PROJECT_INVOICE_RELATIONSXXXXXX]
 <table>
     <cfdump var="#PROJECT#">
-<cfoutput query="PROJECT"><
+<cfoutput query="PROJECT">
     <cfset "BAKIYE_#PROJECT_ID#"=AMOUNT>
     <cfquery name="S1" datasource="#DSN#">  
         SELECT SUM(AMOUNT) A2  FROM PROJECT_INVOICE_RELATIONSXXXXXX  LEFT JOIN FATURAXXXXXX ON FATURAXXXXXX.INVOICE_ID=PROJECT_INVOICE_RELATIONSXXXXXX.INVOICE_ID
         WHERE PROJECT_INVOICE_RELATIONSXXXXXX.PROJECT_ID=#PROJECT_ID#
     </cfquery>
+    <cfdump var="#evaluate('BAKIYE_#PROJECT.PROJECT_ID#')#">
     <cfloop query="S1">
       
     </cfloop>
