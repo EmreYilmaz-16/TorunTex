@@ -40,23 +40,18 @@
 <cfquery name="PROJECT" datasource="#dsn#">
     SELECT * FROM PROJECTXXXXXX
 </cfquery>
-[FATURAXXXXXX][PROJECT_INVOICE_RELATIONSXXXXXX]
-<table>
-    <cfdump var="#PROJECT#">
-<cfoutput query="PROJECT">
-    <cfset "BAKIYE_#PROJECT_ID#"=AMOUNT>
-    <cfquery name="S1" datasource="#DSN#">  
-        SELECT AMOUNT AS A2,PROJECT_INVOICE_RELATIONSXXXXXX.INVOICE_ID   FROM PROJECT_INVOICE_RELATIONSXXXXXX  LEFT JOIN FATURAXXXXXX ON FATURAXXXXXX.INVOICE_ID=PROJECT_INVOICE_RELATIONSXXXXXX.INVOICE_ID
-        WHERE PROJECT_INVOICE_RELATIONSXXXXXX.PROJECT_ID=#PROJECT_ID#
-    </cfquery>
-    (#PROJECT.PROJECT_ID#) ---
-    <cfdump var="#evaluate('BAKIYE_#PROJECT.PROJECT_ID#')#">    
-    <cfloop query="S1">
-     (#INVOICE_ID#) - -  #A2#<BR>
-     <cfset "BAKIYE_#PROJECT.PROJECT_ID#"=evaluate('BAKIYE_#PROJECT.PROJECT_ID#')-A2>
-    </cfloop>
-    <cfdump var="#evaluate('BAKIYE_#PROJECT.PROJECT_ID#')#">   
-    <HR>
 
+<table>
+    <TR>
+        <TH>
+            PROJE
+        </TH>
+    </TR>
+<cfoutput query="PROJECT">
+<TR>
+    <TD>
+         #PROJECT.PROJECT_ID#
+    </TD>
+</TR>
 </cfoutput>
 </table>
