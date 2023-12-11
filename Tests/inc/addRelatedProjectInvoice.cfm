@@ -50,6 +50,7 @@
 <CFSET DEVREDEN=0>
 <CFSET DEVREDEN1=0>
 <CFSET DEVREDEN2=0>
+<CFSET DEVREDEN3=0>
 <cfoutput query="PROJECT">
 
 <cfquery name="getInvoices" datasource="#dsn#">
@@ -62,7 +63,8 @@
     </cfquery>
     <cfloop query="GETFAT">
         <CFSET "BAKIYE_#PROJECT.PROJECT_ID#"=evaluate("BAKIYE_#PROJECT.PROJECT_ID#")-GETFAT.AMOUNT>
-        <CFSET DEVREDEN +=GETFAT.AMOUNT>
+        <CFSET DEVREDEN -=evaluate("BAKIYE_#PROJECT.PROJECT_ID#")>
+        <CFSET DEVREDEN3 +=evaluate("BAKIYE_#PROJECT.PROJECT_ID#")>
     </cfloop>
 
 </cfloop>
@@ -92,6 +94,7 @@
     <SPAN style="color:red">#DEVREDEN#</SPAN>-
     <SPAN style="color:green">#DEVREDEN1#</SPAN>-
     <SPAN style="color:blue">#DEVREDEN2#</SPAN>-
+    <SPAN style="color:magenta">#DEVREDEN2#</SPAN>-
     <SPAN style="color:orange">#evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#</SPAN>
 </td>
 </tr>
