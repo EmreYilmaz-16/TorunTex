@@ -50,12 +50,7 @@
         WHERE PROJECT_INVOICE_RELATIONSXXXXXX.PROJECT_ID=#PROJECT_ID#
     </cfquery>
     <cfloop query="S1">
-        <CFIF LEN(evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
-            <CFSET "BAKIYE_#PROJECT.PROJECT_ID#"-=A2>    
-        </CFIF>
-    
-        
-        #evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#
+      
     </cfloop>
 </cfoutput>
 </table>
