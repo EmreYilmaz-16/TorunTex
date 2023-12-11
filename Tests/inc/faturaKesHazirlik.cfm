@@ -168,10 +168,18 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.basket_tax_total=MAIN_TAX_TOTAL>
 <cfset attributes.basket_otv_total="">
 <cfset attributes.genel_indirim="">
+<CFSET attributes.ORDER_ID=getCekiListesi.ORDER_ID>
 <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
 <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
+
+<!----
+<cfquery name="ORDERS_INVOICE_ADD" datasource="#dsn3#">
+    INSERT INTO ORDERS_INVOCE(INVOICE_ID,ORDER_ID,PERIOD_ID,CHANGE_RESERVE_STATUS) VALUES(#first_invoice_id#,#getCekiListesi.ORDER_ID#,session.EP.userid,1)
+</cfquery>
+----->
+
 <!------
-    //YAPILACAK FATURA KAYDFETME TAMAMLANDI ANCAK SİPARİŞ BİLGİSİ ALMADIĞIM İÇİN FATURA SİPARİŞ BAĞLANTISINI MANUEL YAP 
+    //TAMAM FATURA KAYDFETME TAMAMLANDI ANCAK SİPARİŞ BİLGİSİ ALMADIĞIM İÇİN FATURA SİPARİŞ BAĞLANTISINI MANUEL YAP 
     //SOR SİPARİŞTEKİ EŞLEŞMEYEN SATIRLARA NE OLACAK ? REZERV PROBLEMİ OLABİLİR
 
     ----->

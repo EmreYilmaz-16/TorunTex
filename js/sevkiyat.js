@@ -145,9 +145,9 @@ function islemYap(el, ev) {
           console.table(TasimaVeri);
         }
       }
-      //YAPILACAK TAŞIMA SONRASI SEPET_ROW'A KAYIT EKLE
+      //TAMAM TAŞIMA SONRASI SEPET_ROW'A KAYIT EKLE
       //TAMAM
-      //YAPILACAK SEPET_ROW_READINGS'E KAYIT EKLE
+      //TAMAM SEPET_ROW_READINGS'E KAYIT EKLE
       //TAMAM
       if (OSX.SATIRDA != 1) {
         var GENERATEDKEY = SepeteEkle(
