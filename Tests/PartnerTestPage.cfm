@@ -45,6 +45,7 @@
 <cfif attributes.sayfa eq 25><cfinclude template="inc/sevkiyatListesi.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 26><cfinclude template="inc/sayim_main.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 27><cfinclude template="inc/faturaKesHazirlik.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 28><cfinclude template="inc/addRelatedProjectInvoice.cfm"><cfabort></cfif>
 
 
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
