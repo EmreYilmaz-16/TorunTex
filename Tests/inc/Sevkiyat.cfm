@@ -57,7 +57,9 @@ WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 	AND O.LOCATION_ID = #LOCATION_ID#
 	AND ORDER_STAGE <> 262
             </cfquery>
-            <option value="#DEPARTMENT_ID#-#LOCATION_ID#*#getOrder.ORDER_ID#*#getOrder.SEPET_ID#">#DEPARTMENT_HEAD# - #COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
+			<cfloop query="getOrder">
+            <option value="#getDoluDepolar.DEPARTMENT_ID#-#getDoluDepolar.LOCATION_ID#*#getOrder.ORDER_ID#*#getOrder.SEPET_ID#">#getDoluDepolar.DEPARTMENT_HEAD# - #getDoluDepolar.COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
+		</cfloop>
         </cfoutput>
     </select>
 	<cfdump var="#getOrder#">
