@@ -53,7 +53,7 @@
 </cfquery>
 
 <TR>
-    <TD rowspan="#getInvoices.recordCount#">
+    <TD rowspan="#getInvoices.recordCount+1#">
          #PROJECT.PROJECT_ID#
     </TD>
 
