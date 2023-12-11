@@ -63,7 +63,7 @@
     </cfloop>
 
 </cfloop>
-<CFSET DEVREDEN += (-1* evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
+<CFSET DEVREDEN += (1* evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
 
 <TR>
     <TD>
