@@ -71,7 +71,10 @@
 <td>
 <table>
     <cfloop query="getInvoices">
-<tr><td>#getInvoices.INVOICE_ID#</td></tr>
+<tr>
+    <td>#getInvoices.INVOICE_ID#</td>
+    <td>#getInvoices.AMOUNT#</td>
+</tr>
 </cfloop>
 </table>
 </td>    
