@@ -41,7 +41,14 @@
 <table>
 <cfoutput query="PROJECT">
     <tr>
-        #PROJECT_ID#
+       <TD> #PROJECT_ID#</TD>
+       <td>
+        <cfquery dbtype="query" name="S1"> 
+            SELECT SUM(AMOUNT) AS A FROM PROJECT_INVOICE_RELATIONS AS PIR LEFT JOIN INVOICE_ROW AS I IN I.INVOICE_ID=IR.INVOICE_ID
+            WHERE PIR.PROJECT_ID=#PROJECT_ID#
+        </cfquery>
+        <cfdump var="#S1#">
+       </td>
     </tr>
 </cfoutput>
 </table>
