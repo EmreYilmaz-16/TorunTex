@@ -80,6 +80,7 @@
 <td>
     #evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#
 </td>
+</tr>
 </cfoutput>
 </table>
 </CF_BOX>
