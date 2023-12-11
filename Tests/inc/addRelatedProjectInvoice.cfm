@@ -42,6 +42,7 @@
 </cfquery>
 [FATURAXXXXXX][PROJECT_INVOICE_RELATIONSXXXXXX]
 <table>
+    <cfdump var="#PROJECT#">
 <cfoutput query="PROJECT"><
     <cfset "BAKIYE_#PROJECT_ID#"=AMOUNT>
     <cfquery name="S1" datasource="#DSN#">  
@@ -49,7 +50,11 @@
         WHERE PROJECT_INVOICE_RELATIONSXXXXXX.PROJECT_ID=#PROJECT_ID#
     </cfquery>
     <cfloop query="S1">
-        <CFSET "BAKIYE_#PROJECT.PROJECT_ID#"-=A2>
+        <CFIF LEN(evaluate("BAKIYE_#PROJECT.PROJECT_ID#"))>
+            <CFSET "BAKIYE_#PROJECT.PROJECT_ID#"-=A2>    
+        </CFIF>
+    
+        
         #evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#
     </cfloop>
 </cfoutput>
