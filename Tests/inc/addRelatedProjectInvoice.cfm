@@ -51,7 +51,8 @@
     </cfquery>
     <cfdump var="#evaluate('BAKIYE_#PROJECT.PROJECT_ID#')#">    
     <cfloop query="S1">
-      #A2#
+      #A2#<BR>
     </cfloop>
+    <HR>
 </cfoutput>
 </table>
