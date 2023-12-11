@@ -51,7 +51,7 @@
 <cfquery name="getInvoices" datasource="#dsn#">
     select * from w3Toruntex.PROJECT_INVOICE_RELATIONSXXXXXX where PROJECT_ID=#PROJECT.PROJECT_ID#
 </cfquery>
-<cfdump var="#getInvoices#">
+
 <TR>
     <TD rowspan="#getInvoices.recordCount#">
          #PROJECT.PROJECT_ID#
