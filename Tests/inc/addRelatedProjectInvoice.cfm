@@ -55,14 +55,13 @@
     <TD rowspan="#getInvoices.recordCount#">
          #PROJECT.PROJECT_ID#
     </TD>
-    <TD rowspan="#getInvoices.recordCount#">
-        #PROJECT.AMOUNT#
-   </TD>
+
 
 </TR>
 <cfloop query="getInvoices">
 <tr>
     <td>#getInvoices.INVOICE_ID#</td>    
+
 </tr>
 </cfloop>
 </cfoutput>
