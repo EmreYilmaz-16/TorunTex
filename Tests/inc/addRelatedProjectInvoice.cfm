@@ -49,9 +49,9 @@
         SELECT SUM(AMOUNT) A2  FROM PROJECT_INVOICE_RELATIONSXXXXXX  LEFT JOIN FATURAXXXXXX ON FATURAXXXXXX.INVOICE_ID=PROJECT_INVOICE_RELATIONSXXXXXX.INVOICE_ID
         WHERE PROJECT_INVOICE_RELATIONSXXXXXX.PROJECT_ID=#PROJECT_ID#
     </cfquery>
-    <cfdump var="#evaluate('BAKIYE_#PROJECT.PROJECT_ID#')#">
+    <cfdump var="#evaluate('BAKIYE_#PROJECT.PROJECT_ID#')#">    
     <cfloop query="S1">
-      
+      #A2#
     </cfloop>
 </cfoutput>
 </table>
