@@ -94,7 +94,7 @@
     <SPAN style="color:red">#DEVREDEN#</SPAN>-
     <SPAN style="color:green">#DEVREDEN1#</SPAN>-
     <SPAN style="color:blue">#DEVREDEN2#</SPAN>-
-    <SPAN style="color:magenta">#DEVREDEN2#</SPAN>-
+    <SPAN style="color:magenta">#DEVREDEN3#</SPAN>-
     <SPAN style="color:orange">#evaluate("BAKIYE_#PROJECT.PROJECT_ID#")#</SPAN>
 </td>
 </tr>
