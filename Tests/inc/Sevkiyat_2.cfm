@@ -163,4 +163,4 @@ GROUP BY S.PRODUCT_NAME
 </table>
 
 </cf_box>
-<script src="/AddOns/Partner/js/sevkiyat.js"></script>
+<script src="/AddOns/Partner/js/sevkiyat.min.js"></script>

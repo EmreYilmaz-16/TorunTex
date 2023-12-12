@@ -128,4 +128,4 @@ LEFT JOIN w3Toruntex.EMPLOYEES AS E ON E.EMPLOYEE_ID = SSC.RECORD_EMP
             var UserId=#session.ep.UserId#;
         </cfoutput>
     </script>
-    <script src="/AddOns/Partner/js/sevkiyat.js"></script>
+    <script src="/AddOns/Partner/js/sevkiyat.min.js"></script>
