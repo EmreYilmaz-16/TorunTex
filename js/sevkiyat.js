@@ -177,6 +177,15 @@ function islemYap(el, ev) {
     x.play();
     $("#BARKOD").val("");
     $("#BARKOD").focus();
+      var Ads=parseFloat(document.getElementById("AdS").innerText);
+      Ads+=OSX.Agirlik;
+      document.getElementById("AdS").innerText=Ads;
+      var AdK=parseFloat(document.getElementById("AdK").innerText);
+      AdK+=1;
+      document.getElementById("AdK").innerText=AdK;
+    /*
+    <span class="input-group-text" ><span id="AdS"></span>KG</span> 
+    <span class="input-group-text" ><span id="AdK"></span>Ad</span>*/
   }
 }
 //BILGI URUN ID'SI VERİLEN SATIRI BULMAK İÇİN KULLANILIR
