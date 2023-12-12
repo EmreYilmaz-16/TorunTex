@@ -59,6 +59,13 @@
         VALUES(#RES.GENERATEDKEY#,'#WRK_ROW_ID#',#PRODUCT_ID#,#QUANTITY#,#AMOUNT2#)
     </cfquery>
 </CFLOOP>
+<cfset DEPARTMENT_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),1,"-")>
+<cfset LOCATION_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),2,"-")>
+<cfset ORDER_ID=listGetAt(attributes.SELECT1,2,"*")>
+<cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
+<CFSET GIDEN_DEGISKEN="#DEPARTMENT_ID#-#LOCATION_ID#*#ORDER_ID#*#RES.GENERATEDKEY#">
+
+<cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#GIDEN_DEGISKEN#">
 
 <cf_box title="Sevkiyat İşlemi">
     <div>
