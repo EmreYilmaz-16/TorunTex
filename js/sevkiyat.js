@@ -170,19 +170,20 @@ function islemYap(el, ev) {
       }
 
       console.table(OSX);
+      var x = document.getElementById("myAudio");
+      x.play();
+      $("#BARKOD").val("");
+      $("#BARKOD").focus();
+        var Ads=parseFloat(document.getElementById("AdS").innerText);
+        Ads+=parseFloat(OSX.Agirlik);
+        document.getElementById("AdS").innerText=Ads;
+        var AdK=parseFloat(document.getElementById("AdK").innerText);
+        AdK+=1;
+        document.getElementById("AdK").innerText=AdK;
     } else {
       alert("Bu Lot Numarası Daha Önce Okutulmuş");
     }
-    var x = document.getElementById("myAudio");
-    x.play();
-    $("#BARKOD").val("");
-    $("#BARKOD").focus();
-      var Ads=parseFloat(document.getElementById("AdS").innerText);
-      Ads+=OSX.Agirlik;
-      document.getElementById("AdS").innerText=Ads;
-      var AdK=parseFloat(document.getElementById("AdK").innerText);
-      AdK+=1;
-      document.getElementById("AdK").innerText=AdK;
+ 
     /*
     <span class="input-group-text" ><span id="AdS"></span>KG</span> 
     <span class="input-group-text" ><span id="AdK"></span>Ad</span>*/
