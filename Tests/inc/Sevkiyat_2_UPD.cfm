@@ -58,7 +58,7 @@
             <span class="input-group-text" ><span id="AdS">0</span>&nbsp;Kg.</span> 
             <span class="input-group-text" ><span id="AdK">0</span>&nbsp;Ad.</span>
         </div>
-        <label id="LastRead">sıkadjoı şsdkajısodj lksadl 10Ad</label>
+        <label id="LastRead"></label>
     </div>
     <table class="table table-warning table-stripped" id="Sepetim">
 

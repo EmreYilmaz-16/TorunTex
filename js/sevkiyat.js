@@ -185,6 +185,7 @@ function islemYap(el, ev) {
         var AdK=parseFloat(document.getElementById("AdK").innerText);
         AdK+=1;
         document.getElementById("AdK").innerText=AdK;
+        $("#LastRead").text(OSX.LotNo+" - "+OSX.PRODUCT_NAME+" - "+OSX.Agirlik+ "Kg."  )
     } else {
       alert("Bu Lot Numarası Daha Önce Okutulmuş");
     }
