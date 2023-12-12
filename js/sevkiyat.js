@@ -350,11 +350,11 @@ function SevkiyatKapa(el,IID) {
   var res = GetAjaxQuery(str, "dsn3");
   console.log(res);
   if(el.getAttribute("data-status")=="1"){
-    el.setAttribute("data-satatus","0");
+    el.setAttribute("data-status","0");
     el.setAttribute("class","form-control btn btn-danger")
     el.innerText="Sevkiyat Kilitli";
   }else{
-    el.setAttribute("data-satatus","1");
+    el.setAttribute("data-status","1");
     el.setAttribute("class","form-control btn btn-warning")
     el.innerText="Sevkiyat Açık";
   }
