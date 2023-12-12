@@ -65,7 +65,7 @@
         </cfquery>
 
 <cfoutput>
-    <table class="table table-sm table-bordered">
+    <cf_grid_list class="table table-sm table-bordered">
         <tr>
             <td>#getSepet.SEVK_NO#</td>
             <td>#getSepet.NICKNAME#</td>
@@ -74,10 +74,10 @@
             <td>#getSepet.KONTEYNER#</td>
             <td>#getSepet.DEPARTMENT_HEAD# - #getSepet.COMMENT#</td>
         </tr>
-    </table>
+    </cf_grid_list>
 </cfoutput>
 
-<table class="table table-sm table-bordered">
+<cf_grid_list class="table table-sm table-bordered">
     <thead>
         <tr>
             <th>Ürün K.</th>
@@ -86,6 +86,7 @@
         </tr>
         
     </thead>
+    <tbody>
    <cfoutput query="getCekiListesi">
     <tr>
         <td>#PRODUCT_CODE_2#</td>
@@ -94,8 +95,8 @@
         
     </tr>
    </cfoutput>
-
-</table>
+</tbody>
+</cf_grid_list>
 <cfcatch>
     <cfdump var="#cfcatch#">
 </cfcatch>
