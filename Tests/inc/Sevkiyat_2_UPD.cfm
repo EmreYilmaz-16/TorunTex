@@ -34,7 +34,11 @@
     <input type="hidden" name="ORDER_ID" id="ORDER_ID" value="<CFOUTPUT>#ORDER_ID#</CFOUTPUT>">
     <div class="form-group">
         <label>Barkod</label>
-        <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
+        <div class="input-group">
+            <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
+                <span class="input-group-text" id="AdS">100</span>
+                <span class="input-group-text" id="AdK">100</span>
+        </div>
     </div>
     <table class="table table-warning table-stripped" id="Sepetim">
 
