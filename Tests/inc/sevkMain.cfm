@@ -15,7 +15,7 @@
         Ekle
     </button>
     
-    <button class="btn form-control btn-lg btn-danger" style="font-size: 50pt;">
+    <button class="btn form-control btn-lg btn-danger" onclick="window.location.href='/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=30&SELECT1=#attributes.SELECT1#'" style="font-size: 50pt;">
         Çıkar
     </button>
 </cfoutput>
