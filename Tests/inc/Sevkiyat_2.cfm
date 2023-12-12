@@ -8,7 +8,7 @@
   font-weight: 400;
   line-height: 1.5 !important;
   color: #495057;
-  background-color: #fff !important;
+  
   background-clip: padding-box;
   border: 1px solid #ced4da !important;
   border-radius: .25rem !important;
