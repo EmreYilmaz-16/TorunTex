@@ -61,8 +61,8 @@
                     #PRODUCT_NAME#
                 </td>
             </tr>
-            <cfset ToplamAdet+=AMOUNT2_>
-            <cfset ToplamKg+=AMOUNT_>
+            <cfset ToplamAdet+=AMOUNT2>
+            <cfset ToplamKg+=AMOUNT>
         </cfoutput>
     </table>
     </cf_box>
