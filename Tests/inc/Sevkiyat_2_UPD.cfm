@@ -67,12 +67,12 @@
         <cf_box><cfoutput>
             <table>
                 <tr>
-                    <td>#SEVK_NO#</td>
-                    <td>#NICKNAME#</td>
-                    <td>#COUNTRY_NAME#</td>
-                    <td>#PLAKA#</td>
-                    <td>#KONTEYNER#</td>
-                    <td>#DEPARTMENT_HEAD# - #COMMENT#</td>
+                    <td>#getSepet.SEVK_NO#</td>
+                    <td>#getSepet.NICKNAME#</td>
+                    <td>#getSepet.COUNTRY_NAME#</td>
+                    <td>#getSepet.PLAKA#</td>
+                    <td>#getSepet.KONTEYNER#</td>
+                    <td>#getSepet.DEPARTMENT_HEAD# - #getSepet.COMMENT#</td>
                 </tr>
             </table>
         </cfoutput></cf_box>
