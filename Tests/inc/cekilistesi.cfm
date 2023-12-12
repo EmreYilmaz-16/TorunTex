@@ -1,3 +1,4 @@
+<cftry>
 <cfquery name="getCekiListesi" datasource="#dsn3#">
     SELECT S.PRODUCT_NAME
        ,S.STOCK_ID
@@ -92,3 +93,7 @@
    </cfoutput>
 
 </table>
+<cfcatch>
+    <cfdump var="#cfcatch#">
+</cfcatch>
+</cftry>
