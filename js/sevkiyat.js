@@ -31,6 +31,7 @@ $(document).ready(function () {
 });
 document.addEventListener("click", function (event) {
   // Tıklanan öğe metin kutusu değilse, metin kutusuna odaklan
+  var qrcodeInput=document.getElementById("BARKOD")
   if (event.target !== qrcodeInput) {
     qrcodeInput.focus();
   }
