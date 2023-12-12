@@ -41,9 +41,43 @@
         </cfquery>
         
 <cf_box title="Sevkiyat İşlemi">
-    <cfquery name="getSepet" datasource="#dsn3#">
-        SELECT ISNULL(IS_CLOSED,0) IS_CLOSED FROM SEVKIYAT_SEPET_PBS WHERE SEPET_ID=#SEPET_ID#
-    </cfquery>
+    <div>
+        <cfquery name="getSepet" datasource="#dsn3#">
+            SELECT ISNULL(IS_CLOSED, 0) IS_CLOSED
+                ,SEVK_NO
+                ,SS.DEPARTMENT_ID
+                ,SS.LOCATION_ID
+                ,SS.ORDER_ID
+                ,O.ORDER_NUMBER
+                ,C.NICKNAME
+                ,SC.COUNTRY_NAME
+                ,SL.COMMENT
+                ,D.DEPARTMENT_HEAD
+                ,'PLAKA' AS PLAKA
+                ,'KONTEYNER NO ' AS KONTEYNER
+            FROM w3Toruntex_1.SEVKIYAT_SEPET_PBS SS
+            LEFT JOIN w3Toruntex_1.ORDERS AS O ON O.ORDER_ID = SS.ORDER_ID
+            LEFT JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID = O.COMPANY_ID
+            LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID = C.COUNTRY
+            LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID = SS.LOCATION_ID
+                AND SL.DEPARTMENT_ID = SS.DEPARTMENT_ID
+            LEFT JOIN w3Toruntex.DEPARTMENT AS D ON D.DEPARTMENT_ID = SS.DEPARTMENT_ID
+            WHERE SEPET_ID = #SEPET_ID#
+        </cfquery>
+        <cf_box><cfoutput>
+            <table>
+                <tr>
+                    <td>#SEVK_NO#</td>
+                    <td>#NICKNAME#</td>
+                    <td>#COUNTRY_NAME#</td>
+                    <td>#PLAKA#</td>
+                    <td>#KONTEYNER#</td>
+                    <td>#DEPARTMENT_HEAD# - #COMMENT#</td>
+                </tr>
+            </table>
+        </cfoutput></cf_box>
+    </div>
+   
     <div>
         <button class="form-control btn <cfif getSepet.IS_CLOSED eq 1>btn-danger<cfelse> btn-warning</cfif>" data-status="<CFOUTPUT>#getSepet.IS_CLOSED#</CFOUTPUT>" onclick="SevkiyatKapa(this,<cfoutput>#SEPET_ID#</cfoutput>)"><cfif getSepet.IS_CLOSED eq 1>Sevkiyat Kilitli<cfelse>Sevkiyat Açık</cfif></button>
     </div>
