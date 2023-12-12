@@ -351,12 +351,12 @@ function SevkiyatKapa(el,IID) {
   console.log(res);
   if(el.getAttribute("data-status")=="1"){
     el.setAttribute("data-status","0");
-    el.setAttribute("class","form-control btn btn-danger")
-    el.innerText="Sevkiyat Kilitli";
-  }else{
-    el.setAttribute("data-status","1");
     el.setAttribute("class","form-control btn btn-warning")
     el.innerText="Sevkiyat Açık";
+  }else{
+    el.setAttribute("data-status","1");
+    el.setAttribute("class","form-control btn btn-danger")
+    el.innerText="Sevkiyat Kilitli";
   }
 }
 function wrk_query(str_query, data_source, maxrows) {
