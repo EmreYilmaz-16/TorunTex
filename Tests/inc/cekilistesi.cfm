@@ -73,7 +73,7 @@
     </table>
 </cfoutput>
 
-<cf_grid_list>
+<table class="table table-sm table-bordered">
     <thead>
         <tr>
             <th>Ürün K.</th>
@@ -91,4 +91,4 @@
     </tr>
    </cfoutput>
 
-</cf_grid_list>
+</table>
