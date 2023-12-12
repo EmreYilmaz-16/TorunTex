@@ -41,26 +41,29 @@
     
    
    </cfquery>
-<cfquery name="GETDATA" datasource="#DSN3#">
-    SELECT S.PRODUCT_NAME
-        ,S.PRODUCT_ID
-        ,SEVKIYAT_SEPET_ROW_PBS.SEPET_ROW_ID
-        ,SEVKIYAT_SEPET_ROW_PBS.WRK_ROW_ID
-        ,ISNULL(SEVKIYAT_SEPET_ROW_PBS.AMOUNT,0) AS AMOUNT_
-        ,ISNULL(SEVKIYAT_SEPET_ROW_PBS.AMOUNT2,0) AS AMOUNT2_
-        ,ISNULL(SUM(SEVKIYAT_SEPET_ROW_READ_PBS.AMOUNT),0) AS AMOUNT
-        ,ISNULL(SUM(SEVKIYAT_SEPET_ROW_READ_PBS.AMOUNT2),0) AS AMOUNT2
-    FROM w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS
-    LEFT JOIN w3Toruntex_1.SEVKIYAT_SEPET_ROW_READ_PBS ON SEVKIYAT_SEPET_ROW_PBS.SEPET_ROW_ID = SEVKIYAT_SEPET_ROW_READ_PBS.SEPET_ROW_ID
-    LEFT JOIN w3Toruntex_1.STOCKS AS S ON S.PRODUCT_ID = SEVKIYAT_SEPET_ROW_PBS.PRODUCT_ID
-    WHERE SEVKIYAT_SEPET_ROW_PBS.SEPET_ID = #attributes.action_id# 
-    GROUP BY S.PRODUCT_NAME
-        ,S.PRODUCT_ID
-        ,SEVKIYAT_SEPET_ROW_PBS.SEPET_ROW_ID
-        ,SEVKIYAT_SEPET_ROW_PBS.WRK_ROW_ID
-        ,SEVKIYAT_SEPET_ROW_PBS.AMOUNT
-        ,SEVKIYAT_SEPET_ROW_PBS.AMOUNT2
+           <cfquery name="getSepet" datasource="#dsn3#">
+            SELECT ISNULL(IS_CLOSED, 0) IS_CLOSED
+                ,SEVK_NO
+                ,SS.DEPARTMENT_ID
+                ,SS.LOCATION_ID
+                ,SS.ORDER_ID
+                ,O.ORDER_NUMBER
+                ,C.NICKNAME
+                ,SC.COUNTRY_NAME
+                ,SL.COMMENT
+                ,D.DEPARTMENT_HEAD
+                ,'PLAKA' AS PLAKA
+                ,'KONTEYNER NO ' AS KONTEYNER
+            FROM w3Toruntex_1.SEVKIYAT_SEPET_PBS SS
+            LEFT JOIN w3Toruntex_1.ORDERS AS O ON O.ORDER_ID = SS.ORDER_ID
+            LEFT JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID = O.COMPANY_ID
+            LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID = C.COUNTRY
+            LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID = SS.LOCATION_ID
+                AND SL.DEPARTMENT_ID = SS.DEPARTMENT_ID
+            LEFT JOIN w3Toruntex.DEPARTMENT AS D ON D.DEPARTMENT_ID = SS.DEPARTMENT_ID
+            WHERE SEPET_ID = #attributes.action_id#
         </cfquery>
+
 <cfoutput>
     <table class="table table-sm table-bordered">
         <tr>
