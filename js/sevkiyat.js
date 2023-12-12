@@ -172,8 +172,7 @@ function islemYap(el, ev) {
       console.table(OSX);
       var x = document.getElementById("myAudio");
       x.play();
-      $("#BARKOD").val("");
-      $("#BARKOD").focus();
+    
         var Ads=parseFloat(document.getElementById("AdS").innerText);
         Ads+=parseFloat(OSX.Agirlik);
         document.getElementById("AdS").innerText=Ads;
@@ -183,7 +182,8 @@ function islemYap(el, ev) {
     } else {
       alert("Bu Lot Numarası Daha Önce Okutulmuş");
     }
- 
+    $("#BARKOD").val("");
+    $("#BARKOD").focus();
     /*
     <span class="input-group-text" ><span id="AdS"></span>KG</span> 
     <span class="input-group-text" ><span id="AdK"></span>Ad</span>*/
