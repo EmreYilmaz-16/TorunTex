@@ -18,6 +18,7 @@ $(document).ready(function () {
       l.remove();
     }
   }
+  $("#BARKOD").focus();
 });
 // YAPILACAK
 //INC WRK_QUERY,document.getElementByProductId,SepeteEkle,OkumaEkle,SatirEkle, SatirGuncelle
@@ -167,6 +168,9 @@ function islemYap(el, ev) {
     } else {
       alert("Bu Lot Numarası Daha Önce Okutulmuş");
     }
+
+    $("#BARKOD").val("");
+    $("#BARKOD").focus();
   }
 }
 //BILGI URUN ID'SI VERİLEN SATIRI BULMAK İÇİN KULLANILIR
