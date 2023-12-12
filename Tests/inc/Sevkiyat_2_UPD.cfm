@@ -36,7 +36,7 @@
         <label>Barkod</label>
         <div class="input-group">
             <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
-                <span class="input-group-text" id="AdS">100</span>
+                <span class="input-group-text" id="AdS"></span>
                 <span class="input-group-text" id="AdK">100</span>
         </div>
     </div>
@@ -46,6 +46,8 @@
             SELECT PRODUCT_ID FROM ORDER_ROW WHERE ORDER_ID=#ORDER_ID#
         </cfquery>
         <cfset vls=valueList(getO.PRODUCT_ID)>
+        <cfset ToplamAdet=0>
+        <cfset ToplamKg=0>
         <cfoutput query="GETDATA">
             <tr <cfif not listFind(vls,PRODUCT_ID)>data-fromSiparis="0"<cfelse>data-fromSiparis="1"</cfif> id="ROW_#PRODUCT_ID#" <cfif not listFind(vls,PRODUCT_ID)>class="bg-danger"<cfelse><cfif AMOUNT2 eq AMOUNT2_>class="bg-success"<cfelseif AMOUNT2 gt AMOUNT2_>class="bg-primary"  </cfif> </cfif>  data-PRODUCT_ID='#PRODUCT_ID#' data-SEPET_ROW_ID="#SEPET_ROW_ID#"> 
                 <td id="AMOUNT_#PRODUCT_ID#">
@@ -59,6 +61,8 @@
                     #PRODUCT_NAME#
                 </td>
             </tr>
+            <cfset ToplamAdet+=AMOUNT2_>
+            <cfset ToplamKg+=AMOUNT_>
         </cfoutput>
     </table>
     </cf_box>
@@ -66,4 +70,10 @@
         <source src="/AddOns/Partner/content/beep.mp3" type="audio/mpeg">
         <source src="/AddOns/Partner/content/beep.ogg" type="audio/ogg">
     </audio>
+    <script>
+        <cfoutput>
+            var ToplamAdet='#ToplamAdet#';
+            var ToplamKg='#ToplamKg#';
+        </cfoutput>
+    </script>
     <script src="/AddOns/Partner/js/sevkiyat.js"></script>

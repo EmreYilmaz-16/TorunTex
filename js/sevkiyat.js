@@ -19,6 +19,11 @@ $(document).ready(function () {
     }
   }
   $("#BARKOD").focus();
+  //AdS AdK
+  $("#AdS").text(ToplamKg)
+  $("#AdK").text(ToplamAdet)
+
+  
 });
 // YAPILACAK
 //INC WRK_QUERY,document.getElementByProductId,SepeteEkle,OkumaEkle,SatirEkle, SatirGuncelle
