@@ -102,10 +102,13 @@ LEFT JOIN w3Toruntex.EMPLOYEES AS E ON E.EMPLOYEE_ID = SSC.RECORD_EMP
         <cfset ToplamKg=0>
         <cfoutput query="GETDATA">
             <tr> 
-                <td id="LOT_NO_#PRODUCT_ID#"></td>
-                <td id="PRODUCT_NAME_#PRODUCT_ID#"></td>
-                <td id="PRODUCT_CODE_#PRODUCT_ID#"></td>
-                <td id="AMOUNT_#PRODUCT_ID#"></td>
+                <td id="LOT_NO_#PRODUCT_ID#">#LOT_NO#</td>
+                <td id="PRODUCT_CODE_#PRODUCT_ID#">#PRODUCT_CODE_2#</td>
+                <td id="PRODUCT_NAME_#PRODUCT_ID#">#PRODUCT_NAME#</td>                
+                <td id="AMOUNT_#PRODUCT_ID#">#AMOUNT#</td>
+                <td id="AMOUNT2_#PRODUCT_ID#">#AMOUNT2#</td>
+                <td id="CIKARAN_#PRODUCT_ID#">#EMPLOYEE_NAME# #EMPLOYEE_SURNAME#</td>                
+                <td id="TARIH_#PRODUCT_ID#"><input type="date" readonly value="#RECORD_DATE#"></td>  
                 <td></td>                
             </tr>
             <cfset ToplamAdet+=AMOUNT2>
@@ -122,6 +125,7 @@ LEFT JOIN w3Toruntex.EMPLOYEES AS E ON E.EMPLOYEE_ID = SSC.RECORD_EMP
             var ToplamAdet='#ToplamAdet#';
             var ToplamKg='#ToplamKg#';
             var SevkStatus=#getSepet.IS_CLOSED#;
+            var UserId=#session.ep.UserId#;
         </cfoutput>
     </script>
     <script src="/AddOns/Partner/js/sevkiyat.js"></script>
