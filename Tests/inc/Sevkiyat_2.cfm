@@ -58,8 +58,8 @@
     <label>Barkod</label>
     <div class="input-group">
         <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
-            <span class="input-group-text" id="AdS"></span>
-            <span class="input-group-text" id="AdK"></span>
+            <span class="input-group-text" id="AdS">100</span>
+            <span class="input-group-text" id="AdK">100</span>
     </div>
 </div>
 <table class="table table-warning table-stripped" id="Sepetim">
