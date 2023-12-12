@@ -188,8 +188,16 @@ function islemYap(el, ev) {
         $("#LastRead").text(OSX.LotNo+" - "+OSX.PRODUCT_NAME+" - "+OSX.Agirlik+ "Kg."  )
         document.getElementById("LastRead").setAttribute("class","text-success")
     } else {
+      var QueryString =
+        "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT FROM w3Toruntex_2023_1.STOCKS_ROW AS SR";
+      QueryString +=
+        " INNER JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID=SR.STORE  INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
+        LotNo +
+        "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME ) AS TTTS WHERE SSSR<>0";
+      var Res2 = wrk_query(QueryString, "dsn2");
       alert("Bu Lot Numarası Daha Önce Okutulmuş");
-      $("#LastRead").text(OSX.LotNo+" - "+OSX.PRODUCT_NAME+" - "+OSX.Agirlik+ "Kg."  )
+      
+      $("#LastRead").text(OSX.LotNo+" - "+Res2.PRODUCT_NAME[0]+" - "+OSX.Agirlik+ "Kg."  )
       document.getElementById("LastRead").setAttribute("class","text-danger")
     }
     $("#BARKOD").val("");
