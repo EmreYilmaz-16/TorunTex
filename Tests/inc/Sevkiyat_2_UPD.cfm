@@ -77,6 +77,7 @@
         <cfoutput>
             var ToplamAdet='#ToplamAdet#';
             var ToplamKg='#ToplamKg#';
+            var SevkStatus=getSepet.IS_CLOSED;
         </cfoutput>
     </script>
     <script src="/AddOns/Partner/js/sevkiyat.js"></script>

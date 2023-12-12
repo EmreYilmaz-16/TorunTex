@@ -18,7 +18,13 @@ $(document).ready(function () {
       l.remove();
     }
   }
-  $("#BARKOD").focus();
+  if(SevkStatus==1){
+    //$("#BARKOD").focus();
+    document.getElementById("BARKOD").setAttribute("disabled","true")
+  }else{
+    $("#BARKOD").focus();
+  }
+  
   //AdS AdK
   $("#AdS").text(ToplamKg)
   $("#AdK").text(ToplamAdet)
@@ -353,10 +359,12 @@ function SevkiyatKapa(el,IID) {
     el.setAttribute("data-status","0");
     el.setAttribute("class","form-control btn btn-warning")
     el.innerText="Sevkiyat Açık";
+    document.getElementById("BARKOD").removeAttribute("disabled")
   }else{
     el.setAttribute("data-status","1");
     el.setAttribute("class","form-control btn btn-danger")
     el.innerText="Sevkiyat Kilitli";
+    document.getElementById("BARKOD").setAttribute("disabled","true")
   }
 }
 function wrk_query(str_query, data_source, maxrows) {
