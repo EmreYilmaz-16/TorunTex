@@ -168,7 +168,8 @@ function islemYap(el, ev) {
     } else {
       alert("Bu Lot Numarası Daha Önce Okutulmuş");
     }
-
+    var x = document.getElementById("myAudio");
+    x.play();
     $("#BARKOD").val("");
     $("#BARKOD").focus();
   }
