@@ -114,9 +114,6 @@
                 <td id="PRODUCT_NAME_#PRODUCT_ID#">
                     #PRODUCT_NAME#
                 </td>
-                <td>
-                    <button class="btn btn-primary" onclick="silCanim(this)">Sil</button>
-                </td>
             </tr>
             <cfset ToplamAdet+=AMOUNT2>
             <cfset ToplamKg+=AMOUNT>
