@@ -18,18 +18,22 @@ $(document).ready(function () {
       l.remove();
     }
   }
-  if(SevkStatus==1){
+  if (SevkStatus == 1) {
     //$("#BARKOD").focus();
-    document.getElementById("BARKOD").setAttribute("disabled","true")
-  }else{
+    document.getElementById("BARKOD").setAttribute("disabled", "true");
+  } else {
     $("#BARKOD").focus();
   }
-  
-  //AdS AdK
-  $("#AdS").text(ToplamKg)
-  $("#AdK").text(ToplamAdet)
 
-  
+  //AdS AdK
+  $("#AdS").text(ToplamKg);
+  $("#AdK").text(ToplamAdet);
+});
+document.addEventListener("click", function (event) {
+  // Tıklanan öğe metin kutusu değilse, metin kutusuna odaklan
+  if (event.target !== qrcodeInput) {
+    qrcodeInput.focus();
+  }
 });
 // YAPILACAK
 //INC WRK_QUERY,document.getElementByProductId,SepeteEkle,OkumaEkle,SatirEkle, SatirGuncelle
@@ -69,6 +73,18 @@ function islemYap(el, ev) {
         LotNo +
         "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME ) AS TTTS WHERE SSSR<>0";
       var Res2 = wrk_query(QueryString, "dsn2");
+      if(Res2.recordcount==0){
+        $("#LastRead").text(
+          OSX.LotNo + " - " + UrunKodu + " - " + OSX.Agirlik + "Kg."
+        );
+        
+        document.getElementById("LastRead").setAttribute("class", "text-dark");
+        document.getElementById("LastRead").setAttribute("style","text-decoration: line-through;")
+        $("#BARKOD").val("");
+        $("#BARKOD").focus();
+        alert("Lot Numarası Bulunamadı !");
+        return false;
+      }
       console.log(Res2);
       OSX.STOCK_LOCATION_ID = Res2.STORE_LOCATION[0];
       OSX.STOCK_DEPARTMENT_ID = Res2.STORE[0];
@@ -178,15 +194,17 @@ function islemYap(el, ev) {
       console.table(OSX);
       var x = document.getElementById("myAudio");
       x.play();
-    
-        var Ads=parseFloat(document.getElementById("AdS").innerText);
-        Ads+=parseFloat(OSX.Agirlik);
-        document.getElementById("AdS").innerText=Ads;
-        var AdK=parseFloat(document.getElementById("AdK").innerText);
-        AdK+=1;
-        document.getElementById("AdK").innerText=AdK;
-        $("#LastRead").text(OSX.LotNo+" - "+OSX.PRODUCT_NAME+" - "+OSX.Agirlik+ "Kg."  )
-        document.getElementById("LastRead").setAttribute("class","text-success")
+
+      var Ads = parseFloat(document.getElementById("AdS").innerText);
+      Ads += parseFloat(OSX.Agirlik);
+      document.getElementById("AdS").innerText = Ads;
+      var AdK = parseFloat(document.getElementById("AdK").innerText);
+      AdK += 1;
+      document.getElementById("AdK").innerText = AdK;
+      $("#LastRead").text(
+        OSX.LotNo + " - " + OSX.PRODUCT_NAME + " - " + OSX.Agirlik + "Kg."
+      );
+      document.getElementById("LastRead").setAttribute("class", "text-success");
     } else {
       var QueryString =
         "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT FROM w3Toruntex_2023_1.STOCKS_ROW AS SR";
@@ -196,9 +214,11 @@ function islemYap(el, ev) {
         "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME ) AS TTTS WHERE SSSR<>0";
       var Res2 = wrk_query(QueryString, "dsn2");
       alert("Bu Lot Numarası Daha Önce Okutulmuş");
-      
-      $("#LastRead").text(OSX.LotNo+" - "+Res2.PRODUCT_NAME[0]+" - "+OSX.Agirlik+ "Kg."  )
-      document.getElementById("LastRead").setAttribute("class","text-danger")
+
+      $("#LastRead").text(
+        OSX.LotNo + " - " + Res2.PRODUCT_NAME[0] + " - " + OSX.Agirlik + "Kg."
+      );
+      document.getElementById("LastRead").setAttribute("class", "text-danger");
     }
     $("#BARKOD").val("");
     $("#BARKOD").focus();
@@ -361,23 +381,23 @@ function GetAjaxQuery(str_query, data_source, maxrows) {
   }
   return CompanyInfo;
 }
-function SevkiyatKapa(el,IID) {
+function SevkiyatKapa(el, IID) {
   var str =
     "UPDATE w3Toruntex_1.SEVKIYAT_SEPET_PBS set IS_CLOSED=1 ^ISNULL(IS_CLOSED,0) WHERE SEPET_ID=" +
     IID;
   var res = GetAjaxQuery(str, "dsn3");
   console.log(res);
-  if(el.getAttribute("data-status")=="1"){
-    el.setAttribute("data-status","0");
-    el.setAttribute("class","form-control btn btn-warning")
-    el.innerText="Sevkiyat Açık";
-    document.getElementById("BARKOD").removeAttribute("disabled")
+  if (el.getAttribute("data-status") == "1") {
+    el.setAttribute("data-status", "0");
+    el.setAttribute("class", "form-control btn btn-warning");
+    el.innerText = "Sevkiyat Açık";
+    document.getElementById("BARKOD").removeAttribute("disabled");
     $("#BARKOD").focus();
-  }else{
-    el.setAttribute("data-status","1");
-    el.setAttribute("class","form-control btn btn-danger")
-    el.innerText="Sevkiyat Kilitli";
-    document.getElementById("BARKOD").setAttribute("disabled","true")
+  } else {
+    el.setAttribute("data-status", "1");
+    el.setAttribute("class", "form-control btn btn-danger");
+    el.innerText = "Sevkiyat Kilitli";
+    document.getElementById("BARKOD").setAttribute("disabled", "true");
   }
 }
 function wrk_query(str_query, data_source, maxrows) {
