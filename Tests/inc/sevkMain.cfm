@@ -1,10 +1,12 @@
 ﻿<style>
 .btnBoy{
     width:25%;
+    left:40%
 }
     @media screen and (max-width: 600px) {
         .btnBoy{
     width:100%;
+    left:0px
 }
 }
 </style>
