@@ -76,7 +76,7 @@ LEFT JOIN w3Toruntex.EMPLOYEES AS E ON E.EMPLOYEE_ID = SSC.RECORD_EMP
         </cfoutput></cf_box>
     </div>
    
-    <div>
+    <div style="display:none">
         <button class="form-control btn <cfif getSepet.IS_CLOSED eq 1>btn-danger<cfelse> btn-warning</cfif>" data-status="<CFOUTPUT>#getSepet.IS_CLOSED#</CFOUTPUT>" onclick="SevkiyatKapa(this,<cfoutput>#SEPET_ID#</cfoutput>)"><cfif getSepet.IS_CLOSED eq 1>Sevkiyat Kilitli<cfelse>Sevkiyat Açık</cfif></button>
     </div>
     <input type="hidden" name="SEPET_ID" id="SEPET_ID" value="<CFOUTPUT>#SEPET_ID#</CFOUTPUT>">
