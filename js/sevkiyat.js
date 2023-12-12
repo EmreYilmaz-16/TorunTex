@@ -510,7 +510,7 @@ if(Res.recordcount>0){
   GetAjaxQuery(Str2,"DSN3")
   window.location.reload();
 }else{
-alert(Lot_No+" Lot Numaralı Ürün Bulunamadı")
+alert(LotNo+" Lot Numaralı Ürün Bulunamadı")
 }
   }
   

@@ -108,7 +108,7 @@ LEFT JOIN w3Toruntex.EMPLOYEES AS E ON E.EMPLOYEE_ID = SSC.RECORD_EMP
                 <td id="AMOUNT_#PRODUCT_ID#">#AMOUNT#</td>
                 <td id="AMOUNT2_#PRODUCT_ID#">#AMOUNT2#</td>
                 <td id="CIKARAN_#PRODUCT_ID#">#EMPLOYEE_NAME# #EMPLOYEE_SURNAME#</td>                
-                <td id="TARIH_#PRODUCT_ID#"><input type="date" readonly value="#RECORD_DATE#"></td>  
+                <td id="TARIH_#PRODUCT_ID#"><input type="date" readonly value="#dateformat(RECORD_DATE,"yyyy-mm-dd")#"></td>  
                 <td></td>                
             </tr>
             <cfset ToplamAdet+=AMOUNT2>
