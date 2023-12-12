@@ -62,6 +62,42 @@
 
 <cf_box title="Sevkiyat İşlemi">
     <div>
+        <cfquery name="getSepet" datasource="#dsn3#">
+            SELECT ISNULL(IS_CLOSED, 0) IS_CLOSED
+                ,SEVK_NO
+                ,SS.DEPARTMENT_ID
+                ,SS.LOCATION_ID
+                ,SS.ORDER_ID
+                ,O.ORDER_NUMBER
+                ,C.NICKNAME
+                ,SC.COUNTRY_NAME
+                ,SL.COMMENT
+                ,D.DEPARTMENT_HEAD
+                ,'PLAKA' AS PLAKA
+                ,'KONTEYNER NO ' AS KONTEYNER
+            FROM w3Toruntex_1.SEVKIYAT_SEPET_PBS SS
+            LEFT JOIN w3Toruntex_1.ORDERS AS O ON O.ORDER_ID = SS.ORDER_ID
+            LEFT JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID = O.COMPANY_ID
+            LEFT JOIN w3Toruntex.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID = C.COUNTRY
+            LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID = SS.LOCATION_ID
+                AND SL.DEPARTMENT_ID = SS.DEPARTMENT_ID
+            LEFT JOIN w3Toruntex.DEPARTMENT AS D ON D.DEPARTMENT_ID = SS.DEPARTMENT_ID
+            WHERE SEPET_ID = #RES.GENERATEDKEY#
+        </cfquery>
+        <cf_box><cfoutput>
+            <table class="table table-sm table-bordered">
+                <tr>
+                    <td>#getSepet.SEVK_NO#</td>
+                    <td>#getSepet.NICKNAME#</td>
+                    <td>#getSepet.COUNTRY_NAME#</td>
+                    <td>#getSepet.PLAKA#</td>
+                    <td>#getSepet.KONTEYNER#</td>
+                    <td>#getSepet.DEPARTMENT_HEAD# - #getSepet.COMMENT#</td>
+                </tr>
+            </table>
+        </cfoutput></cf_box>
+    </div>
+    <div>
         <button class="form-control btn btn-warning" data-status="1" onclick="SevkiyatKapa(this,<cfoutput>#RES.GENERATEDKEY#</cfoutput>)">Sevkiyat Açık</button>
     </div>
     

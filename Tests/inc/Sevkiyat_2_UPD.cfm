@@ -65,7 +65,7 @@
             WHERE SEPET_ID = #SEPET_ID#
         </cfquery>
         <cf_box><cfoutput>
-            <table>
+            <table class="table table-sm table-bordered">
                 <tr>
                     <td>#getSepet.SEVK_NO#</td>
                     <td>#getSepet.NICKNAME#</td>
