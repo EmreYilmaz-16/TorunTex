@@ -80,22 +80,38 @@
 <cf_grid_list class="table table-sm table-bordered">
     <thead>
         <tr>
-            <th>Ürün K.</th>
+            <th></th>
+            <th>Lot No</th>
+            <th>Ürün K.</th>            
             <th>Ürün</th>
             <th>Miktar</th>
         </tr>
         
     </thead>
     <tbody>
+        <cfset toplamA=0>
    <cfoutput query="getCekiListesi">
     <tr>
+        <td>#currentrow#</td>
+        <td>#LOT_NO#</td>
         <td>#PRODUCT_CODE_2#</td>
         <td>#PRODUCT_NAME#</td>
-        <td>#AMOUNT#</td>
-        
+        <td style="text-align:right">#tlformat(AMOUNT)#</td>
+        <cfset toplamA +=AMOUNT>
     </tr>
    </cfoutput>
 </tbody>
+<tfoot>
+    <tr>
+        <th colspan="4">
+
+        </th>
+        <th style="text-align:right">
+            <cfoutput>#tlformat(toplamA)# Kg.</cfoutput>
+        </th>
+        
+    </tr>
+</tfoot>
 </cf_grid_list>
 <cfcatch>
     <cfdump var="#cfcatch#">
