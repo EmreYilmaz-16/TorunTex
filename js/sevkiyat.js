@@ -360,6 +360,7 @@ function SevkiyatKapa(el,IID) {
     el.setAttribute("class","form-control btn btn-warning")
     el.innerText="Sevkiyat Açık";
     document.getElementById("BARKOD").removeAttribute("disabled")
+    $("#BARKOD").focus();
   }else{
     el.setAttribute("data-status","1");
     el.setAttribute("class","form-control btn btn-danger")
