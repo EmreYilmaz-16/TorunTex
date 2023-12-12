@@ -46,7 +46,7 @@
 
 <cf_box title="Sevkiyat İşlemi">
     <div>
-        <button class="form-control btn btn-warning" onclick="SevkiyatKapa(this,<cfoutput>#RES.GENERATEDKEY#</cfoutput>)">Sevkiyat Açık</button>
+        <button class="form-control btn btn-warning" data-status="1" onclick="SevkiyatKapa(this,<cfoutput>#RES.GENERATEDKEY#</cfoutput>)">Sevkiyat Açık</button>
     </div>
     
 <input type="hidden" name="SEPET_ID" id="SEPET_ID" value="<CFOUTPUT>#RES.GENERATEDKEY#</CFOUTPUT>">
@@ -58,8 +58,8 @@
     <label>Barkod</label>
     <div class="input-group">
         <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
-            <span class="input-group-text" ><span id="AdS">0</span>KG</span> 
-            <span class="input-group-text" ><span id="AdK">0</span>Ad</span>
+            <span class="input-group-text" ><span id="AdS">0</span>&nbsp;Kg.</span> 
+            <span class="input-group-text" ><span id="AdK">0</span>&nbsp;Ad.</span>
     </div>
 </div>
 <table class="table table-warning table-stripped" id="Sepetim">
