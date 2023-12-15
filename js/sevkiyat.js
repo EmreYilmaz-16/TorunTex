@@ -522,7 +522,7 @@ function IptalEt(params) {
   var SEPET_ID = document.getElementById("SEPET_ID").value;
   var Onay=confirm("Sevkiyat Listesindeki Tüm Okutmalar Sıfırlanacaktır Onaylıyormusunuz ?");
   if(Onay){
-    var str="DELETE FROM SEVKIYAT_SEPET_ROW_READ_PBS WHERE SEPET_ROW_ID IN (SELECT SEPET_ROW_ID FROM SEVKIYAT_SEPET_ROW_PBS WHERE SEPET_ID="+SEPET_ID+")";
+    var Str1="DELETE FROM SEVKIYAT_SEPET_ROW_READ_PBS WHERE SEPET_ROW_ID IN (SELECT SEPET_ROW_ID FROM SEVKIYAT_SEPET_ROW_PBS WHERE SEPET_ID="+SEPET_ID+")";
   var Yanıt=GetAjaxQuery(Str1);
 console.log(Yanıt);
     //SEVKIYAT_SEPET_ROW_PBS
