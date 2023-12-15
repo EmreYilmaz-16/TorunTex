@@ -500,9 +500,11 @@ function EksiislemYap(el,ev){
     var LotNo = list_getat(UrunBarkodu, 2, "|");
     var Agirlik = list_getat(UrunBarkodu, 3, "|");
     var SEPET_ID = document.getElementById("SEPET_ID").value;
-    //var Lot_No="11976001082"
-//var SepetId=1;
-//var User_ID=12;
+
+// var aa=wrk_query("SELECT * FROM w3Toruntex_1.SEVKIYAT_SEPET_CIKAN WHERE LOT_NO='"+LotNo+"' AND SEPET_ID="+SEPET_ID,"DSN3");
+// if(aa.recordcount>0){
+//   alert("Bu Lot Numarası Çıkarılmış")
+// }
 var Res=wrk_query("SELECT SRR.LOT_NO,SRR.SEPET_ROW_ID,SRR.AMOUNT,SSR.PRODUCT_ID,S.PRODUCT_NAME FROM SEVKIYAT_SEPET_ROW_READ_PBS AS SRR INNER JOIN SEVKIYAT_SEPET_ROW_PBS AS  SSR ON SSR.SEPET_ROW_ID=SRR.SEPET_ROW_ID INNER JOIN STOCKS AS S ON S.PRODUCT_ID=SSR.PRODUCT_ID  WHERE SRR.LOT_NO='"+LotNo+"' AND SSR.SEPET_ID="+SEPET_ID,"DSN3");
 if(Res.recordcount>0){
 	var Str1="INSERT INTO w3Toruntex_1.SEVKIYAT_SEPET_CIKAN (LOT_NO,SEPET_ROW_ID,AMOUNT,SEPET_ID,PRODUCT_ID,RECORD_EMP,RECORD_DATE) VALUES ('"+LotNo+"',"+Res.SEPET_ROW_ID[0]+","+Res.AMOUNT[0]+","+SEPET_ID+","+Res.PRODUCT_ID[0]+","+UserId+",GETDATE())"
@@ -515,4 +517,15 @@ alert(LotNo+" Lot Numaralı Ürün Bulunamadı")
 }
   }
   
+}
+function IptalEt(params) {
+  var SEPET_ID = document.getElementById("SEPET_ID").value;
+  var Onay=confirm("Sevkiyat Listesindeki Tüm Okutmalar Sıfırlanacaktır Onaylıyormusunuz ?");
+  if(Onay){
+    var str="DELETE FROM SEVKIYAT_SEPET_ROW_READ_PBS WHERE SEPET_ROW_ID IN (SELECT SEPET_ROW_ID FROM SEVKIYAT_SEPET_ROW_PBS WHERE SEPET_ID="+SEPET_ID+")";
+  var Yanıt=GetAjaxQuery(Str1);
+console.log(Yanıt);
+    //SEVKIYAT_SEPET_ROW_PBS
+  }
+
 }

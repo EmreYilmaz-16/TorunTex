@@ -67,12 +67,17 @@
         <cf_box><cfoutput>
             <table class="table table-sm table-bordered">
                 <tr>
-                    <td>#getSepet.SEVK_NO#</td>
+                    <td>#getSepet.DEPARTMENT_HEAD# - #getSepet.COMMENT#</td>                    
                     <td>#getSepet.NICKNAME#</td>
                     <td>#getSepet.COUNTRY_NAME#</td>
                     <td>#getSepet.PLAKA#</td>
                     <td>#getSepet.KONTEYNER#</td>
-                    <td>#getSepet.DEPARTMENT_HEAD# - #getSepet.COMMENT#</td>
+                    <td>#getSepet.SEVK_NO#</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <button type="button" class="btn form-control btn-danger" onclick="IptalEt()">İptal</button>
+                    </td>
                 </tr>
             </table>
         </cfoutput></cf_box>
