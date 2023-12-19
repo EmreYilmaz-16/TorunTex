@@ -29,10 +29,30 @@
             
         </div>
     </td>
-    <td id="exitr" style="display:none">
+    <td id="exitr">
         <div class="form-group">
             <label>Giriş Depo</label>
-            <input type="text" class="form-control"  name="txtDepoAdi" id="txtDepoAdi" placeholder="Giriş Depo" onkeyup="searchDepo(this,event)">
+            <cfquery name="getDepo" datasource="#dsn3#">
+                SELECT SL.COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'SIPARIS DEPO' AS SD FROM #DSN3#.ORDERS AS O 
+ INNER JOIN #DSN3#.ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID 
+INNER JOIN #DSN#.STOCKS_LOCATION AS SL ON SL.DEPARTMENT_ID=O.DELIVER_DEPT_ID AND SL.LOCATION_ID=O.LOCATION_ID
+WHERE O.ORDER_STAGE=259  AND ORR.STOCK_ID=6
+UNION  ALL 
+SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'GENEL DEPO' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=15
+
+            </cfquery>
+            <SELECT name="txtDepoAdi" id="txtDepoAdi" onchange="searchDepo_2(this)">
+                <option value="">Seçiniz</option>
+                
+                <cfoutput query="getDepo" group="DEPARTMENT_ID">
+                    <optgroup label="#SD#">
+                    <cfoutput>
+                    <option value="#COMMENT#">#COMMENT#</option>
+                </cfoutput>
+            </optgroup>
+                </cfoutput>
+            </SELECT>
+            <input type="hidden" class="form-control"  name="txtDepoAdi" id="txtDepoAdi" placeholder="Giriş Depo" onkeyup="searchDepo(this,event)">
             <input type="text" class="form-control" readonly  name="txtToDeptLocation" id="txtToDeptLocation" >
             <input type="hidden"  name="txtToDeptId" id="txtToDeptId">
             <input type="hidden"  name="txtToLocId" id="txtToLocId">

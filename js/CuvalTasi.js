@@ -119,6 +119,61 @@ function searchDepo(el, ev) {
     }
   }
 }
+function searchDepo(el, ev) {
+  var STOCK_ID = $("#FROM_STOCK_ID").val();
+  var Qstr1 =
+    "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM w3Toruntex.STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='" +
+    el.value +
+    "'";
+  // var Qstr1="SELECT * FROM w3Toruntex.STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D WHERE 1=1 AND COMMENT ='"+el.value+"'";
+  var QueryResult_1 = wrk_query(Qstr1);
+  if (QueryResult_1.recordcount > 0) {
+    var Qstr2 =
+      "SELECT O.ORDER_ID,ORDER_NUMBER,ORDER_HEAD,ORR.WRK_ROW_ID,ORR.STOCK_ID,ORR.UNIT2 FROM " +
+      dsn3 +
+      ".ORDERS AS O";
+    Qstr2 +=
+      " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
+    Qstr2 +=
+      " WHERE O.ORDER_STAGE=" +
+      AktifSiparisSureci +
+      " AND O.DELIVER_DEPT_ID=" +
+      QueryResult_1.DEPARTMENT_ID[0] +
+      " AND O.LOCATION_ID=" +
+      QueryResult_1.LOCATION_ID[0] +
+      "  AND ORR.STOCK_ID=" +
+      STOCK_ID;
+    var QueryResult_2 = wrk_query(Qstr2);
+
+    if (QueryResult_2.recordcount > 0 || QueryResult_1.DEPARTMENT_ID[0] == 15) {
+      el.setAttribute("style", ValidStyle);
+      document
+        .getElementById("txtToDeptLocation")
+        .setAttribute("style", ValidStyle);
+      $("#txtToDeptId").val(QueryResult_1.DEPARTMENT_ID[0]);
+      $("#txtToLocId").val(QueryResult_1.LOCATION_ID[0]);
+      $("#txtToDeptLocation").val(
+        QueryResult_1.DEPARTMENT_HEAD[0] + "-" + QueryResult_1.COMMENT[0]
+      );
+
+      $("#TO_STOCK_ID").val(STOCK_ID);
+      if (QueryResult_2.recordcount > 0) {
+        $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0]);
+      } else {
+        $("#TO_WRK_ROW_ID").val("");
+      }
+
+      $("#btnKayit").show();
+    } else {
+      el.setAttribute("style", InValidStyle);
+      document
+        .getElementById("txtToDeptLocation")
+        .setAttribute("style", InValidStyle);
+    }
+  } else {
+    el.setAttribute("style", InValidStyle);
+  }
+}
 function Kaydet() {
   var FROM_DEPARTMENT_ID = $("#txtFromDeptId").val();
   var FROM_LOCATION_ID = $("#txtFromLocId").val();
@@ -208,7 +263,7 @@ function sepeteEkle(
   document.getElementById("Sepetim").appendChild(tr);
 }
 
-function fis_sil(FIS_ID,el) {
+function fis_sil(FIS_ID, el) {
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelectedFis&FIS_ID=" +
