@@ -202,19 +202,20 @@ function sepeteEkle(
   var button = document.createElement("button");
   button.setAttribute("class", "btn btn-danger");
   button.innerText = "Sil";
-  button.setAttribute("onclick", "fis_sil(" + FIS_ID + ")");
+  button.setAttribute("onclick", "fis_sil(" + FIS_ID + ",this)");
   td.appendChild(button);
   tr.appendChild(td);
   document.getElementById("Sepetim").appendChild(tr);
 }
 
-function fis_sil(FIS_ID) {
+function fis_sil(FIS_ID,el) {
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelectedFis&FIS_ID=" +
       FIS_ID,
     success: function (retDat) {
       console.log(retDat);
+      el.parentElement.parentElement.remove();
     },
   });
 }
