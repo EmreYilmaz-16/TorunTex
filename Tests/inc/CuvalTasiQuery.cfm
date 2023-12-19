@@ -22,8 +22,8 @@
    <cfset PROJECT_HEAD_IN="">
    <cfset PROJECT_ID="">
    <cfset PROJECT_ID_IN="">
-   <cfset amount_other="">
-   <cfset unit_other="">  
+   <cfset amount_other="1">
+   <cfset unit_other="#FormData.FROM_UNIT2#">  
    <cfset attributes.wodate="1">
    <cfset attributes.clot=1>
    <cfset arguments=structNew()>
@@ -49,15 +49,35 @@ WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
   SELECT D.DEPARTMENT_HEAD,SL.COMMENT FROM STOCK_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID
   WHERE D.DEPARTMENT_ID=#FormData.TO_DEPARTMENT_ID# AND SL.LOCATION_ID=#FormData.TO_LOCATION_ID#
 </cfquery>
+<cfquery name="CIKIS_DEPO" datasource="#DSN#">
+  SELECT D.DEPARTMENT_HEAD,SL.COMMENT FROM STOCK_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID
+  WHERE D.DEPARTMENT_ID=#FormData.FROM_DEPARTMENT_ID# AND SL.LOCATION_ID=#FormData.FROM_LOCATION_ID#
+</cfquery>
 <cfquery name="getProduct" datasource="#dsn3#">
   SELECT * FROM STOCKS WHERE STOCK_ID=#FormData.FROM_STOCK_ID#
 </cfquery>
+<cfset FROM_ORDER_NO="">
+<cfset TO_ORDER_NO="">
+<cfif LEN(FormData.FROM_WRK_ROW_ID)>
+  <cfquery name="getorder" datasource="#dsn3#">
+    SELECT ORDER_NUMBER FROM ORDERS AS O INNER JOIN ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID WHERE ORR.WRK_ROW_ID='#FormData.FROM_WRK_ROW_ID#'
+  </cfquery>
+  <CFSET FROM_ORDER_NO=getorder.ORDER_NUMBER>
+</cfif>
 
+<cfif LEN(FormData.TO_WRK_ROW_ID)>
+  <cfquery name="getorder" datasource="#dsn3#">
+    SELECT ORDER_NUMBER FROM ORDERS AS O INNER JOIN ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID WHERE ORR.WRK_ROW_ID='#FormData.TO_WRK_ROW_ID#'
+  </cfquery>
+  <CFSET TO_ORDER_NO=getorder.TO_WRK_ROW_ID>
+</cfif>
 
+<cfoutput>
 <script>
-  window.opener.sepeteEkle(PRODUCT_CODE,PRODUCT_NAME,AMOUNT,UNIT,FROM_DEPO,TO_DEPO,LOT_NO,AMOUNT2,UNIT2,FIS_ID,FIS_NO,FROM_ORDER,TO_ORDER)
+  window.opener.sepeteEkle("#getProduct.PRODUCT_CODE#","#getProduct.PRODUCT_NAME#",#FormData.FROM_AMOUNT#,"KG","#CIKIS_DEPO.DEPARTMENT_HEAD#-#CIKIS_DEPO.COMMENT#","#GIRIS_DEPO.DEPARTMENT_HEAD#-#GIRIS_DEPO.COMMENT#","#FormData.FROM_LOT_NO#",1,"#FormData.FROM_UNIT2#",#GET_ID.MAX_ID#,"#attributes.FIS_NO#","#FROM_ORDER_NO#","#TO_ORDER_NO#")
+this.close();
 </script>
-
+</cfoutput>
 <!----
   w3Toruntex_2023_1.TASIMA_SEPET(ID INT PRIMARY KEY IDENTITY(1,1),EMPLOYEE_ID INT,FIS_ID INT,IS_ACTIVE BIT,RECORD_DATE DATETIME)
 <cfscript>

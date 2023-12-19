@@ -21,7 +21,7 @@ function SearchBarcode(el, ev) {
       LotNo +
       "' ORDER BY PROCESS_DATE DESC ,UPD_ID DESC)";*/
     var Qstr1 =
-      "SELECT TOP 1 STORE DELIVER_DEPT_ID,STORE_LOCATION LOCATION_ID,STOCK_ID,PBS_RELATION_ID AS WRK_ROW_ID FROM " +
+      "SELECT TOP 1 STORE DELIVER_DEPT_ID,STORE_LOCATION LOCATION_ID,STOCK_ID,PBS_RELATION_ID AS WRK_ROW_ID,UNIT2 FROM " +
       dsn2 +
       ".STOCKS_ROW WHERE  LOT_NO='" +
       LotNo +
@@ -50,6 +50,7 @@ function SearchBarcode(el, ev) {
       $("#FROM_AMOUNT").val(Agirlik);
       $("#TO_AMOUNT").val(Agirlik);
       $("#FROM_LOT_NO").val(LotNo);
+      $("#FROM_UNIT2").val(QueryResult_1.UNIT2);
       $("#TO_LOT_NO").val(LotNo);
       $("#exitr").show(500);
       $("#txtDepoAdi").focus();
@@ -69,7 +70,7 @@ function searchDepo(el, ev) {
     var QueryResult_1 = wrk_query(Qstr1);
     if (QueryResult_1.recordcount > 0) {
       var Qstr2 =
-        "SELECT O.ORDER_ID,ORDER_NUMBER,ORDER_HEAD,ORR.WRK_ROW_ID,ORR.STOCK_ID FROM " +
+        "SELECT O.ORDER_ID,ORDER_NUMBER,ORDER_HEAD,ORR.WRK_ROW_ID,ORR.STOCK_ID,ORR.UNIT2 FROM " +
         dsn3 +
         ".ORDERS AS O";
       Qstr2 +=
@@ -105,6 +106,7 @@ function searchDepo(el, ev) {
         } else {
           $("#TO_WRK_ROW_ID").val("");
         }
+
         $("#btnKayit").show();
       } else {
         el.setAttribute("style", InValidStyle);
@@ -124,7 +126,7 @@ function Kaydet() {
   var FROM_STOCK_ID = $("#FROM_STOCK_ID").val();
   var FROM_AMOUNT = $("#FROM_AMOUNT").val();
   var FROM_LOT_NO = $("#FROM_LOT_NO").val();
-
+  var FROM_UNIT2 = $("#FROM_UNIT2").val();
   var TO_DEPARTMENT_ID = $("#txtToDeptId").val();
   var TO_LOCATION_ID = $("#txtToLocId").val();
   var TO_WRK_ROW_ID = $("#TO_WRK_ROW_ID").val();
@@ -145,6 +147,7 @@ function Kaydet() {
     TO_STOCK_ID: TO_STOCK_ID,
     TO_AMOUNT: TO_AMOUNT,
     TO_LOT_NO: TO_LOT_NO,
+    FROM_UNIT2: FROM_UNIT2,
   };
   console.log(FormDatam);
   SendFormData(
@@ -153,9 +156,20 @@ function Kaydet() {
   );
 }
 
-function sepeteEkle(PRODUCT_CODE,PRODUCT_NAME,AMOUNT,UNIT,FROM_DEPO,TO_DEPO,AMOUNT2,UNIT2,FIS_ID) {
-
-}
+function sepeteEkle(
+  PRODUCT_CODE,
+  PRODUCT_NAME,
+  AMOUNT,
+  UNIT,
+  FROM_DEPO,
+  TO_DEPO,
+  LOT_NO,
+  AMOUNT2,
+  UNIT2,
+  FIS_ID,
+  FROM_ORDER,
+  TO_ORDER
+) {}
 
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
