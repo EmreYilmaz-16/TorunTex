@@ -52,7 +52,7 @@ function getOutLocations() {
     "<option value=''>Giriş Deposu Seçiniz</option><option value='15-2'>KLB</option><option value='15-3'>SCK</option><option value='15-1'>GRB</option>"
   );
   $("#DEPARTMENT_OUT_SEL").focus();
-  document.getElementById(DEPARTMENT_OUT_SEL).removeAttribute("style");
+  document.getElementById("DEPARTMENT_OUT_SEL").removeAttribute("style");
   var Qstr1 =
     "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,D.DEPARTMENT_ID,SL.LOCATION_ID FROM STOCKS_LOCATION AS SL ";
   Qstr1 +=
