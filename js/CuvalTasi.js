@@ -190,11 +190,11 @@ function sepeteEkle(
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  td.innerHTML = FROM_DEPO + " &gte; " + TO_DEPO;
+  td.innerHTML = FROM_DEPO + " &gt; " + TO_DEPO;
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  td.innerHTML = FROM_ORDER + " &gte; " + TO_ORDER;
+  td.innerHTML = FROM_ORDER + " &gt; " + TO_ORDER;
   tr.appendChild(td);
 
   var td = document.createElement("td");

@@ -50,7 +50,7 @@
 <cf_big_list>
     <thead>
     <tr>
-        <td>
+        
             <th>
                 Lot No
             </th>
@@ -72,7 +72,7 @@
             </th>
             <th>            
             </th>
-        </td>
+        
     </tr>
 </thead>
 <tbody id="Sepetim"> 
