@@ -1,3 +1,4 @@
+<cf_box title="Çuval Taşı">
 <table class="table" >
 <tr>
     <td>
@@ -62,3 +63,4 @@
     Giriş Depo Barkodu Okut wrlk query ile Giriş Depo bilgilerini getir
 
 ---->
+</cf_box>

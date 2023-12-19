@@ -551,7 +551,7 @@ function IptalEt(params) {
       ")";
     var Yanıt = GetAjaxQuery(Str1, "dsn3");
     console.log(Yanıt);
-    alert(Yanıt.RESULT.RECORDCOUNT + "Satır Silindi");
+    alert(Yanıt.RESULT.RECORDCOUNT + "Satır Silindi ");
     //SEVKIYAT_SEPET_ROW_PBS
   }
 }

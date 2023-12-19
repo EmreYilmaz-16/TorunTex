@@ -21,6 +21,7 @@
 <!---
 <cfif attributes.sayfa eq 4><cfinclude template="inc/EllecToYM.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 5><cfinclude template="inc/MasaSevk.cfm"><cfabort></cfif>---->
+
 <cfif attributes.sayfa eq 6><cfinclude template="inc/rafDurumu.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 7><cfinclude template="inc/MasaGonderPopup.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 8><cfinclude template="inc/OperatorEkrani.cfm"><cfabort></cfif>
@@ -48,6 +49,7 @@
 <cfif attributes.sayfa eq 28><cfinclude template="inc/addRelatedProjectInvoice.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 29><cfinclude template="inc/sevkMain.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 30><cfinclude template="inc/sevkCikar.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 31><cfinclude template="inc/tasimaYeni.cfm"><cfabort></cfif>
 
 
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>

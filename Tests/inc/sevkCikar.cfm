@@ -38,7 +38,7 @@ LEFT JOIN w3Toruntex.EMPLOYEES AS E ON E.EMPLOYEE_ID = SSC.RECORD_EMP
  WHERE SEPET_ID=#SEPET_ID#
         </cfquery>
         
-<cf_box title="Sevkiyat İşlemi">
+<cf_box title="Sevkiyatı İptal Edilmiş Ürünler">
     <div>
         <cfquery name="getSepet" datasource="#dsn3#">
             SELECT ISNULL(IS_CLOSED, 0) IS_CLOSED
