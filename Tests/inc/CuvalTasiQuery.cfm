@@ -42,7 +42,7 @@ WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
 
 <cfquery name="INS" datasource="#DSN2#">
   INSERT INTO TASIMA_SEPET(EMPLOYEE_ID,FIS_ID,IS_ACTIVE,RECORD_DATE)
-  VALUES(#session.ep.userid#,#GET_ID.MAX_ID#,GETDATE());
+  VALUES(#session.ep.userid#,#GET_ID.MAX_ID#,1,GETDATE());
 </cfquery>
 
 <cfquery name="GIRIS_DEPO" datasource="#DSN#">
