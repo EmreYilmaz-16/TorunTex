@@ -71,7 +71,7 @@ function getOutLocations() {
   $("#DEPARTMENT_OUT_SEL").click();
   document
     .getElementById("DEPARTMENT_OUT_SEL")
-    .setAttribute("style", "box-shadow: 1px 1px 20px 1px green;");
+    .setAttribute("style", "box-shadow: 1px 1px 10px 1px green;");
 }
 function setDO(el) {
   var DEPARTMENT_ID_ = parseInt(list_getat(el.value, 1, "-"));
