@@ -171,6 +171,52 @@ function sepeteEkle(
   TO_ORDER
 ) {
   console.table(arguments);
+  var tr = document.createElement("tr");
+
+  var td = document.createElement("td");
+  td.innerText(LOT_NO);
+  tr.appendChild(td);
+
+  var td = document.createElement("td");
+  td.innerText(PRODUCT_NAME);
+  tr.appendChild(td);
+
+  var td = document.createElement("td");
+  td.innerText(AMOUNT + " " + UNIT);
+  tr.appendChild(td);
+
+  var td = document.createElement("td");
+  td.innerText(AMOUNT2 + " " + UNIT2);
+  tr.appendChild(td);
+
+  var td = document.createElement("td");
+  td.innerText(FROM_DEPO + " > " + TO_DEPO);
+  tr.appendChild(td);
+
+  var td = document.createElement("td");
+  td.innerText(FROM_ORDER + " > " + TO_ORDER);
+  tr.appendChild(td);
+
+  var td = document.createElement("td");
+  // td.innerText(FROM_ORDER + " > " + TO_ORDER);
+  var button = document.createElement("button");
+  button.setAttribute("class", "btn btn-danger");
+  button.innerText = "Sil";
+  button.setAttribute("onclick", "fis_sil(" + FIS_ID + ")");
+  td.appendChild(button);
+  tr.appendChild(td);
+  document.getElementById("Sepetim").appendChild(tr);
+}
+
+function fis_sil(FIS_ID) {
+  $.ajax({
+    url:
+      "/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelectedFis&FIS_ID=" +
+      FIS_ID,
+    success: function (retDat) {
+      console.log(retDat);
+    },
+  });
 }
 
 function wrk_query(str_query, data_source, maxrows) {

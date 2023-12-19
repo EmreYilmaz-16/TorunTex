@@ -52,16 +52,25 @@
     <tr>
         <td>
             <th>
+                Lot No
+            </th>
+            <th>
                 Ürün
             </th>
+            
             <th>
                 Miktar
             </th>
             <th>
-                Çıkış Depo
+                Miktar 2
             </th>
             <th>
-                Giriş Depo
+                 Depo
+            </th>
+            <th>
+                Sipariş 
+            </th>
+            <th>            
             </th>
         </td>
     </tr>
