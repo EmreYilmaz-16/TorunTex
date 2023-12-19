@@ -83,7 +83,7 @@ function setDO(el) {
     DEPARTMENT_ID_ +
     " AND SL.LOCATION_ID=" +
     LOCATION_ID_;
-  var QueryResult_1 = (Qstr1, "dsn");
+  var QueryResult_1 = wrk_query(Qstr1, "dsn");
 
   if (QueryResult_1.recordcount && DEPARTMENT_ID_ != 15) {
     var Qstr2 =
