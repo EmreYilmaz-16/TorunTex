@@ -1,24 +1,34 @@
+var RC = 1;
+//BILGI CIKIS HAREKETI ICIN DOLDURULACAK
 var LOCATION_OUT = "";
 var DEPARTMENT_OUT = "";
 var OUT_TXT = "";
 var WRK_ROW_ID_OUT = "";
 
+//BILGI GIRIS HAREKETI ICIN DOLDURULACAK
 var LOCATION_IN = "";
 var DEPARTMENT_IN = "";
 var IN_TXT = "";
 var WRK_ROW_ID_IN = "";
 
+//BILGI GIRIS CIKISTA ORTAK OLAN ALANLAR
+var UNIT2_IN_OUT = "";
 var LOT_NUMARA = "";
 var STOCK_ID = "";
-var ISLEM = "";
+
+//BILGI DEFAULT DEĞERLER
+var AktifSiparisSureci = 259;
+
 //BILGI ISLEM : 1 - SEÇİLİ DEPONUN SİPARİŞNDE VAR SEÇİLİ DEPO SİPARİŞİNDEN  WRK_ROW ID ALINACAK
 //BILGI ISLEM : 2 - SEÇİLİ DEPO SİPARİŞİNDE YOK  WRK_ROW_ID TEMIZLENECEK
-var AktifSiparisSureci = 259;
+var ISLEM = "";
+
 $(document).ready(function () {
   $("#DEPARTMENT_OUT_SEL").html(
     "<option value=''>Giriş Deposu Seçiniz</option><option value='15-2'>KLB</option><option value='15-3'>SCK</option><option value='15-1'>GRB</option>"
   );
 });
+
 
 function getBarkode_1(el, ev) {
   if (ev.keyCode == 13) {
@@ -114,6 +124,18 @@ function setDO(el) {
     IN_TXT = QueryResult_1.DEPARTMENT_HEAD[0] + "-" + QueryResult_1.COMMENT[0];
     WRK_ROW_ID_IN = "";
   }
+}
+function satirEkle() {
+  var StockInfo = wrk_query(
+    "SELECT * FROM STOCKS WHERE STOCK_ID=" + STOCK_ID,
+    "DSN3"
+  );
+  var tr = document.createElement("tr");
+  var td = document.createElement("td");
+  td.innerText=RC;
+  
+
+
 }
 
 function wrk_query(str_query, data_source, maxrows) {

@@ -20,7 +20,12 @@ function SearchBarcode(el, ev) {
       ".STOCKS_ROW where LOT_NO='" +
       LotNo +
       "' ORDER BY PROCESS_DATE DESC ,UPD_ID DESC)";*/
-    var Qstr1="SELECT TOP 1 STORE DELIVER_DEPT_ID,STORE_LOCATION LOCATION_ID,STOCK_ID,PBS_RELATION_ID AS WRK_ROW_ID FROM "+dsn2+".STOCKS_ROW WHERE  LOT_NO='"+LotNo+"' ORDER BY PROCESS_DATE DESC,UPD_ID DESC"
+    var Qstr1 =
+      "SELECT TOP 1 STORE DELIVER_DEPT_ID,STORE_LOCATION LOCATION_ID,STOCK_ID,PBS_RELATION_ID AS WRK_ROW_ID FROM " +
+      dsn2 +
+      ".STOCKS_ROW WHERE  LOT_NO='" +
+      LotNo +
+      "' ORDER BY PROCESS_DATE DESC,UPD_ID DESC";
     var QueryResult_1 = wrk_query(Qstr1);
     if (QueryResult_1.recordcount > 0) {
       el.setAttribute("style", ValidStyle);
@@ -146,6 +151,10 @@ function Kaydet() {
     "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14",
     FormDatam
   );
+}
+
+function sepeteEkle(PRODUCT_CODE,PRODUCT_NAME,AMOUNT,UNIT,FROM_DEPO,TO_DEPO,AMOUNT2,UNIT2,FIS_ID) {
+
 }
 
 function wrk_query(str_query, data_source, maxrows) {

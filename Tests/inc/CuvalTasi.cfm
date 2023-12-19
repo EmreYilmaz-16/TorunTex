@@ -1,5 +1,6 @@
 <cf_box title="Çuval Taşı">
-<table class="table" >
+
+    <table class="table" >
 <tr>
     <td>
         <div class="form-group">
@@ -15,6 +16,7 @@
         <input type="hidden" name="TO_AMOUNT" id="TO_AMOUNT">
         <input type="hidden" name="FROM_LOT_NO" id="FROM_LOT_NO">
         <input type="hidden" name="TO_LOT_NO" id="TO_LOT_NO">
+        <input type="hidden" name="FROM_UNIT2" id="FROM_UNIT2">
         
     </div>
     </td>
@@ -24,6 +26,7 @@
             <input type="text" class="form-control"  readonly name="txtFromDeptLocation" id="txtFromDeptLocation">
             <input type="hidden"  name="txtFromDeptId" id="txtFromDeptId">
             <input type="hidden"  name="txtFromLocId" id="txtFromLocId">
+            
         </div>
     </td>
     <td id="exitr" style="display:none">
@@ -44,6 +47,29 @@
     </td>
 </tr>
 </table>
+<cf_big_list>
+    <thead>
+    <tr>
+        <td>
+            <th>
+                Ürün
+            </th>
+            <th>
+                Miktar
+            </th>
+            <th>
+                Çıkış Depo
+            </th>
+            <th>
+                Giriş Depo
+            </th>
+        </td>
+    </tr>
+</thead>
+<tbody id="Sepetim"> 
+    
+</tbody>
+</cf_big_list>
 
 <script>
 <cfoutput>

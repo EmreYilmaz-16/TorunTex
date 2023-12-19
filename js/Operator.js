@@ -92,7 +92,12 @@ function getAOrder(ORDER_ROW_ID, nerden = "") {
   if (ORDER_ROW_ID.length == 0 && MainOrderRowID == 0) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     CurrentStation = Obj.STATION;
-    getDepoUretim(Obj.STATION, Obj.GENERAL_STORE, Obj.GENERAL_LOCATION,"GET A ORDERDAN ÇALIŞTI");
+    getDepoUretim(
+      Obj.STATION,
+      Obj.GENERAL_STORE,
+      Obj.GENERAL_LOCATION,
+      "GET A ORDERDAN ÇALIŞTI"
+    );
     return false;
   }
   //console.log("getAOrder Fonksiyonunu Çağıran="+getAOrder.caller)
@@ -171,6 +176,7 @@ function getAOrder(ORDER_ROW_ID, nerden = "") {
           $("#paketKG").val(Obj.A2);
           $("#WRK_ROW_ID").val(Obj.WRK_ROW_ID);
           $("#SIP_DEPO").val(Obj.SIP_DEPO);
+          $("#UNIT2").val(Obj.UNIT2);
           $("#OrderLocation").text(Obj.COMMENT);
           $("#AA1").text(Obj.DETAIL_INFO_EXTRA);
           $("#AA2").text(Obj.AA2);
@@ -345,6 +351,8 @@ function Yazdir() {
   var WRK_ROW_ID = document.getElementById("WRK_ROW_ID").value;
   var PRODUCT_ID = document.getElementById("PRODUCT_ID").value;
   var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
+ 
+
   var STATION_ = Obj.STATION;
   var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
   var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
@@ -368,6 +376,8 @@ function Yazdir() {
       "&PRODUCT_ID=" +
       PRODUCT_ID +
       "&ISTASYON=" +
+      STATION_ +
+      "&UNIT2=" +
       STATION_,
     success: function (returnData) {
       var Obj = JSON.parse(returnData);
@@ -394,7 +404,7 @@ function Yazdir() {
         if (MainOrderRowID == 0) {
           var ssid = list_getat(SIP_DEPO, 1, "-");
           var ssLid = list_getat(SIP_DEPO, 2, "-");
-          getDepoUretim(Objecim.STATION, ssid, ssLid,"YAZDIRDAN ÇALIŞTI");
+          getDepoUretim(Objecim.STATION, ssid, ssLid, "YAZDIRDAN ÇALIŞTI");
         } else {
           getAOrder(MainOrderRowID, "YAZDIRDAN GELDİM");
         }
@@ -680,7 +690,7 @@ function LotVer(STATION) {
   $.post("/AddOns/Partner/Servis/MasaServis.cfc?method=UpLot");
   return ReturnValue;
 }
-function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID,NERDEN) {
+function getDepoUretim(GENEL_DEPO, DEPARTMENT_ID, LOCATION_ID, NERDEN) {
   MainOrderRowID = 0;
   console.log(arguments);
   console.log("GetDepoÜretim Çalıştı");
