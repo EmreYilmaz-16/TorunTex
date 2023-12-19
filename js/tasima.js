@@ -35,6 +35,7 @@ function getBarkode_1(el, ev) {
       LOCATION_OUT = QueryResult_1.LOCATION_ID[0];
       DEPARTMENT_OUT = QueryResult_1.DELIVER_DEPT_ID[0];
       WRK_ROW_ID_OUT = QueryResult_1.WRK_ROW_ID[0];
+      getOutLocations();
     } else {
       alert("Ürün Bulunamadı");
     }
@@ -42,9 +43,12 @@ function getBarkode_1(el, ev) {
 }
 
 function getOutLocations() {
+
   $("#DEPARTMENT_OUT_SEL").html(
     "<option value=''>Giriş Deposu Seçiniz</option>"
   );
+  $("#DEPARTMENT_OUT_SEL").focus();
+  
   var Qstr1 =
     "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,D.DEPARTMENT_ID,SL.LOCATION_ID FROM STOCKS_LOCATION AS SL ";
   Qstr1 +=
@@ -60,6 +64,7 @@ function getOutLocations() {
     option.innerText = DEPARTMENT_HEAD + "-" + COMMENT;
     document.getElementById("DEPARTMENT_OUT_SEL").appendChild(option);
   }
+  $("#DEPARTMENT_OUT_SEL").click();
 }
 
 function wrk_query(str_query, data_source, maxrows) {
