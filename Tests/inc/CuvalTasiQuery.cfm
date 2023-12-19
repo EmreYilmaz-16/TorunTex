@@ -69,7 +69,7 @@ WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
   <cfquery name="getorder" datasource="#dsn3#">
     SELECT ORDER_NUMBER FROM ORDERS AS O INNER JOIN ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID WHERE ORR.WRK_ROW_ID='#FormData.TO_WRK_ROW_ID#'
   </cfquery>
-  <CFSET TO_ORDER_NO=getorder.TO_WRK_ROW_ID>
+  <CFSET TO_ORDER_NO=getorder.ORDER_NUMBER>
 </cfif>
 
 <cfoutput>
