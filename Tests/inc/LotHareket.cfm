@@ -27,7 +27,7 @@
         #listgetat(URUN_BARKODU,"2","|")#<br>
         #listgetat(URUN_BARKODU,"3","|")#<br>---->
         <cfquery name="getLOTDATA" datasource="#dsn2#">
-            SELECT PC.PROCESS_CAT,SR.STOCK_IN,SR.STOCK_OUT,STOCK_IN-STOCK_OUT as PSSPK,SR.STORE,SR.STORE_LOCATION,SR.STOCK_ID,SL.COMMENT,SR.UPD_ID,O.ORDER_NUMBER,C.NICKNAME,SR.PROCESS_DATE FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
+            SELECT PC.PROCESS_CAT,SR.STOCK_IN,SR.STOCK_OUT,STOCK_IN-STOCK_OUT as PSSPK,SR.STORE,SR.STORE_LOCATION,SR.STOCK_ID,SL.COMMENT,SR.UPD_ID,O.ORDER_NUMBER,C.NICKNAME,SR.PROCESS_DATE,SR.UNIT2 FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
 
 LEFT JOIN w3Toruntex.STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID =SR.STORE
 LEFT JOIN w3Toruntex_1.ORDER_ROW AS ORR ON ORR.WRK_ROW_ID=SR.PBS_RELATION_ID
@@ -58,7 +58,10 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                 </th>
                 <th>
                     Miktar
-                </th>              
+                </th>  
+                <th>
+                    Miktar2
+                </th>                   
                 <th>
                     Depo
                 </th>
@@ -88,6 +91,9 @@ WHERE SR.LOT_NO='#LOT_NO#' ORDER BY UPD_ID,SR.STOCK_OUT DESC
                         <cfset RS=1>
                     <td style="text-align:right">
                         <div class="<cfif getLOTDATA.PSSPK[i] lt 0>text-danger<cfelse>text-success</cfif> bold">#tlformat(getLOTDATA.PSSPK[i])#</div>
+                    </td>
+                    <td style="text-align:right">
+                        <div class="<cfif getLOTDATA.PSSPK[i] lt 0>text-danger<cfelse>text-success</cfif> bold">#tlformat(1)# #getLOTDATA.UNIT2[i]#</div>
                     </td>
                    <!--- <td style="text-align:right"><div class="<cfif getLOTDATA.STOCK_IN[i] neq 0>text-success</cfif>" style="<cfif getLOTDATA.STOCK_IN[i] neq 0>font-weight:bold</cfif>"><cfif getLOTDATA.STOCK_IN[i] neq 0>#tlformat(getLOTDATA.STOCK_IN[i])#</cfif></div></td>
                     <td style="text-align:right"><div class="<cfif getLOTDATA.STOCK_OUT[i] neq 0>text-danger</cfif>" style="<cfif getLOTDATA.STOCK_OUT[i] neq 0>font-weight:bold</cfif>"><cfif getLOTDATA.STOCK_OUT[i] neq 0>#tlformat(getLOTDATA.STOCK_OUT[i])#</cfif></div></td>---->
