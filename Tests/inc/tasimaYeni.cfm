@@ -1,7 +1,7 @@
 <cf_box title="Çuval Taşı">
     <div class="form-group">
         <label>Lot No</label>
-        <input class="form-control" type="text" name="BARCODE" id="BARCODE" onkeyup="getBarkode(this,event)">
+        <input class="form-control" type="text" name="BARCODE" id="BARCODE" onkeyup="getBarkode_1(this,event)">
     </div>
     <div class="form-group">
         <label>Giriş Depos</label>
