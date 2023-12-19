@@ -119,7 +119,7 @@ function searchDepo(el, ev) {
     }
   }
 }
-function searchDepo(el, ev) {
+function searchDepo_2(el, ev) {
   var STOCK_ID = $("#FROM_STOCK_ID").val();
   var Qstr1 =
     "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM w3Toruntex.STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='" +
