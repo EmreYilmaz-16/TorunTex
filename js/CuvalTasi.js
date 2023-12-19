@@ -169,7 +169,9 @@ function sepeteEkle(
   FIS_ID,
   FROM_ORDER,
   TO_ORDER
-) {}
+) {
+  console.table(arguments);
+}
 
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
