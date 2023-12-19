@@ -509,6 +509,35 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
     <cfset ReturnObj.STATUS=1>
     <cfreturn replace(serializeJSON(ReturnObj),"//","")>
 </cffunction>
+
+<cffunction name="deleteSelectedFis" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
+    <cfargument name="FIS_ID">
+    <cfquery name="getHarekets" datasource="#dsn2#">
+        SELECT DISTINCT SR.PROCESS_TYPE,SR.UPD_ID,SF.PROCESS_CAT,SR.UPD_ID,SF.FIS_NUMBER FROM w3Toruntex_2023_1.STOCKS_ROW AS SR
+        INNER JOIN w3Toruntex_2023_1.STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID
+        WHERE SF.FIS_ID=#arguments.FIS_ID#
+    </cfquery>
+    <cfset fis_sayisi=0>
+    <cfloop query="getHarekets">
+        <cfset fis_sayisi=fis_sayisi+1>
+        <cfset attributes.del_fis =1>
+        <cfset attributes.process_cat=PROCESS_CAT>
+        <cfset attributes.cat=PROCESS_TYPE>
+        <cfset attributes.type_id=PROCESS_TYPE>
+        <cfset attributes.UPD_ID=UPD_ID>
+        <cfset attributes.old_process_type=PROCESS_TYPE>
+        <cfset attributes.FIS_NO =FIS_NUMBER>
+        <cfset form.process_cat=PROCESS_CAT>
+        <cfset form.cat=PROCESS_TYPE>
+        <cfset form.type_id=PROCESS_TYPE>
+        <cfset form.UPD_ID=UPD_ID>
+        <cfset form.old_process_type=PROCESS_TYPE>
+        <cfinclude template="/v16/stock/query/upd_fis_1_pbs.cfm">        
+    </cfloop>
+    <cfset ReturnObj.FIS_SAYISI=fis_sayisi>
+    <cfset ReturnObj.STATUS=1>
+    <cfreturn replace(serializeJSON(ReturnObj),"//","")>
+</cffunction>
 <cffunction name="muhasebe_sil" output="false">
     <!---
     by :  20040227

@@ -174,27 +174,27 @@ function sepeteEkle(
   var tr = document.createElement("tr");
 
   var td = document.createElement("td");
-  td.innerText(LOT_NO);
+  td.innerText = LOT_NO;
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  td.innerText(PRODUCT_NAME);
+  td.innerText = PRODUCT_NAME;
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  td.innerText(AMOUNT + " " + UNIT);
+  td.innerText = AMOUNT + " " + UNIT;
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  td.innerText(AMOUNT2 + " " + UNIT2);
+  td.innerText = AMOUNT2 + " " + UNIT2;
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  td.innerText(FROM_DEPO + " > " + TO_DEPO);
+  td.innerText = FROM_DEPO + " > " + TO_DEPO;
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  td.innerText(FROM_ORDER + " > " + TO_ORDER);
+  td.innerText = FROM_ORDER + " > " + TO_ORDER;
   tr.appendChild(td);
 
   var td = document.createElement("td");
