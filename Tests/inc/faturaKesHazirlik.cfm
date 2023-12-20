@@ -78,8 +78,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 
 <cfset attributes.COMPANY_ID=getCekiListesi.COMPANY_ID>
 <cfset attributes.comp_name=getCekiListesi.NICKNAME>
-<cfset attributes.process_cat=36><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
-<cfset form.process_cat=36><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
+<cfset attributes.process_cat=211><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
+<cfset form.process_cat=211><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 
 <cfset attributes.ACTIVE_PERIOD =session.ep.period_id>
 <cfset form.serial_number= "PINV">
