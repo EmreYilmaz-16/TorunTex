@@ -7,6 +7,7 @@
 	,SSR.AMOUNT
 	,ISNULL(SR.WRK_ROW_ID,'') WRK_ROW_ID
 	,SSR.LOT_NO
+    ,SSR.UNIT2
 	,PU.MAIN_UNIT
 	,O.ORDER_ID
 	,ORR.ORDER_ROW_ID
@@ -149,7 +150,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET "attributes.other_money_value_#IX#"=NET_TOTAL/AKTIF_BIRIM[1].RATE2>  <!-----//BILGI OTHER_MONEY_VALUE                  ---->
     <CFSET "attributes.other_money_gross_total#IX#"=GROSS_TOTAL/AKTIF_BIRIM[1].RATE2>  <!-----//BILGI OTHER_MONEY_GROSS_TOTAL                  ---->
     <CFSET "attributes.price_other#IX#"=TL_FIYAT/AKTIF_BIRIM[1].RATE2>
-    
+    <CFSET "attributes.amount_other#IX#"=1>
+    <CFSET "attributes.unit_other#IX#"=UNIT2>
     <CFSET MAIN_GROSS_TOTAL=MAIN_GROSS_TOTAL+GROSS_TOTAL>
     <CFSET MAIN_NET_TOTAL=MAIN_NET_TOTAL+GROSS_TOTAL>
     <CFSET MAIN_TAX_TOTAL=MAIN_TAX_TOTAL+TAX_TOTAL>
@@ -179,6 +181,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 
 
 <!----
+    <cfif isdefined('attributes.amount_other#i#') and len(evaluate('attributes.amount_other#i#'))>#evaluate('attributes.amount_other#i#')#<cfelse>NULL</cfif>,
+		<cfif isdefined('attributes.unit_other#i#') and len(evaluate('attributes.unit_other#i#'))><cfqueryparam cfsqltype="cf_sql_varchar" value="#evaluate('attributes.unit_other#i#')#"><cfelse>NULL</cfif>,
 <cfquery name="ORDERS_INVOICE_ADD" datasource="#dsn3#">
     INSERT INTO ORDERS_INVOCE(INVOICE_ID,ORDER_ID,PERIOD_ID,CHANGE_RESERVE_STATUS) VALUES(#first_invoice_id#,#getCekiListesi.ORDER_ID#,session.EP.userid,1)
 </cfquery>
