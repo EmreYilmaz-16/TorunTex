@@ -19,10 +19,10 @@
         var pw=document.getElementById("CardId").value
         var R=null;
         if(ev.type=='click'){
-             R=wrk_query("select EMPLOYEE_NAME,EMPLOYEE_SURNAME,EMPLOYEE_ID from w3Toruntex.EMPLOYEES where OZEL_KOD2='"+pw+"'","dsn")
+             R=wrk_query("select EMPLOYEE_NAME,EMPLOYEE_SURNAME,EMPLOYEE_ID from EMPLOYEES where OZEL_KOD2='"+pw+"'","dsn")
         }else{
             if(ev.keyCode==13){
-                R=wrk_query("select EMPLOYEE_NAME,EMPLOYEE_SURNAME,EMPLOYEE_ID from w3Toruntex.EMPLOYEES where OZEL_KOD2='"+pw+"'","dsn")
+                R=wrk_query("select EMPLOYEE_NAME,EMPLOYEE_SURNAME,EMPLOYEE_ID from EMPLOYEES where OZEL_KOD2='"+pw+"'","dsn")
             }
         }
      
@@ -41,7 +41,7 @@
         }
     }
     function CreateStation(EMP_ID) {
-       var ResA= wrk_query("select DEPARTMENT_ID,LOCATION_ID,COMMENT from w3Toruntex.STOCKS_LOCATION WHERE DEPARTMENT_ID =7 AND LOCATION_ID >20","DSN")
+       var ResA= wrk_query("select DEPARTMENT_ID,LOCATION_ID,COMMENT from STOCKS_LOCATION WHERE DEPARTMENT_ID =7 AND LOCATION_ID >20","DSN")
        $(document.getElementById("Stations")).html("")
     for(let i=0;i<ResA.LOCATION_ID.length;i++){
         var btn=document.createElement("button")

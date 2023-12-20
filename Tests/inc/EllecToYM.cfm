@@ -1,7 +1,7 @@
 <cf_box title="YM-DEPO Fişi">
 <cfparam name="YM_CAT" default="OYM.%">
 <cfquery name="GetYmOrg" datasource="#dsn2#">
-    SELECT * FROM w3Toruntex_1.STOCKS WHERE STOCK_CODE LIKE '#YM_CAT#%'
+    SELECT * FROM #dsn3#.STOCKS WHERE STOCK_CODE LIKE '#YM_CAT#%'
 </cfquery>
 <div style="height:30vh;overflow-x: none;overflow-y: scroll;">
 <cf_grid_list>
@@ -43,10 +43,10 @@
             SELECT sum(STOCK_IN - STOCK_OUT)
                 ,STOCK_ID
                 ,PRODUCT_ID
-            FROM w3Toruntex_2023_1.STOCKS_ROW
+            FROM #dsn2#.STOCKS_ROW
             WHERE PRODUCT_ID IN (
                     SELECT RELATED_PRODUCT_ID
-                    FROM w3Toruntex_1.RELATED_PRODUCT
+                    FROM #dsn3#.RELATED_PRODUCT
                     WHERE PRODUCT_ID = #evaluate("attributes.PRODUCT_ID#li#")#
                     )
                 AND STORE = 7

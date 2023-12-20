@@ -33,7 +33,7 @@
 
 <cfif isDefined("attributes.is_submit")>
     <cfquery name="getS2" datasource="#dsn3#">
-        select * from w3Toruntex_1.PRODUCT_PLACE where PRODUCT_PLACE_ID=#attributes.PRODUCT_PLACE_ID#
+        select * from #dsn3#.PRODUCT_PLACE where PRODUCT_PLACE_ID=#attributes.PRODUCT_PLACE_ID#
     </cfquery>
 
 

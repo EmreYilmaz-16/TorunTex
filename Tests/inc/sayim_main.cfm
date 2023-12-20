@@ -4,7 +4,14 @@
 <cfparam name="attributes.LotKontrolChar" default="|">
 <cfparam name="attributes.LotPosition" default="2">
 <cfparam name="attributes.WeightPosition" default="3">
-
+<cfoutput>
+<script>
+    var dsn="#dsn#";
+    var dsn1="#dsn1#";
+    var dsn2="#dsn2#";
+    var dsn3="#dsn3#";
+</script>
+</cfoutput>
 <cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
     <cfset attributes.seperator_type = 59><!--- Noktali Virgul Chr --->
@@ -165,7 +172,7 @@ var RC=1;
     var LotNumarasi = list_getat(UrunBarkodu, parseInt(LotPosition), LotKontrolChar);
     var Agirlik = list_getat(UrunBarkodu, parseInt(WeightPosition), LotKontrolChar);
         AMOUNT=Agirlik 
-            var Urun=wrk_query("SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='"+LotNumarasi+"'","DSN2")
+            var Urun=wrk_query("SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN "+dsn3+".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='"+LotNumarasi+"'","DSN2")
             if(Urun.recordcount>0){
                 PRODUCT_ID=Urun.PRODUCT_ID[0];
                 STOCK_ID=Urun.STOCK_ID[0];

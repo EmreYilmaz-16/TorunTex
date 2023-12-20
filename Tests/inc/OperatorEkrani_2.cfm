@@ -46,7 +46,7 @@
 <div class="row" >
     <div class="col col-10">
         <cfquery name="getDuyurus" datasource="#dsn#">
-            SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM w3Toruntex.CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())
+            SELECT CONT_HEAD,CONTENT_ID,CONT_BODY,CONT_SUMMARY	FROM CONTENT	WHERE ISNULL(CONVERT(DATE, VIEW_DATE_START), CONVERT(DATE, GETDATE())) <= CONVERT(DATE, getdate())	AND ISNULL(CONVERT(DATE, VIEW_DATE_FINISH), CONVERT(DATE, GETDATE())) >= CONVERT(DATE, getdate())
         </cfquery>
        <select class="form-control form-control-lg text-danger" onchange="getirduyuru(this.value)">
 <cfoutput query="getDuyurus">
@@ -219,8 +219,13 @@
 <cfoutput>
 <script>
     var currentDatePBS="#dateFormat(now(),"dd.mm.yyyy")#";
+    var dsn="#dsn#";
+    var dsn1="#dsn1#";
+    var dsn2="#dsn2#";
+    var dsn3="#dsn3#";
 </script>
 </cfoutput>
+
 <script src="/AddOns/Partner/js/Operator.js"></script>
 <script src="/JS/sselec/selectize/dist/js/standalone/selectize.js"></script>
 <link rel="stylesheet" href="/JS/sselec/selectize/dist/css/selectize.bootstrap5.css">
