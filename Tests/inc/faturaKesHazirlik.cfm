@@ -9,7 +9,7 @@
 	,SSR.LOT_NO
     ,SSR.UNIT2
 	,PU.MAIN_UNIT
-	,O.ORDER_ID
+	,ISNULL(O.ORDER_ID,0) ORDER_ID
 	,ORR.ORDER_ROW_ID
 	,ISNULL(ISNULL(ORR.PRICE,P.PRICE) ,0)AS PRICE
 	,ISNULL(ISNULL(ORR.OTHER_MONEY,P.MONEY),'TL') AS OTHER_MONEY
@@ -133,7 +133,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET "attributes.row_exp_center_id#IX#"="">
     <CFSET "attributes.row_exp_item_id#IX#"="">
     <CFSET "attributes.row_subscription_id#IX#"="">
-
+    <cfset "attributes.row_ship_id#IX#"="#order_id#">
     <cfset AKTIF_BIRIM=arrayFilter(MYARR,function(item){
         return item.MONEY=="#getCekiListesi.OTHER_MONEY#"
     })>
