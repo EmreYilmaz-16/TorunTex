@@ -202,7 +202,7 @@ function islemYap(el, ev) {
           OSX.UNIT2
         );
       } else {
-        SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik, OSX.LotNo);
+        SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik, OSX.LotNo, "KG", OSX.UNIT2);
       }
 
       console.table(OSX);
@@ -248,7 +248,7 @@ document.getElementByProductId = function (idb) {
   return el;
 };
 
-function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2="") {
+function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2 = "") {
   var str =
     "INSERT INTO SEVKIYAT_SEPET_ROW_READ_PBS (SEPET_ROW_ID,LOT_NO,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
     SEPET_ROW_ID +
@@ -284,7 +284,7 @@ function SepeteEkle(
   AMOUNT,
   AMOUNT2,
   UNIT,
-  UNIT2=""
+  UNIT2 = ""
 ) {
   var str =
     "INSERT INTO  w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
@@ -332,7 +332,7 @@ function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT, SEPET_ROW_ID) {
 //DIKKAT BU METOD OKUMDA DA KAYIT ETTIGINDEN YANLIŞ OLMAMASI İÇİN DAHA ÖNCESİNDE OKUMA KAYIT ETMEDİĞİNE EMİN OL
 //UYARI SATIR DEĞERLERİ HTML OLARAK GÜNCELLENİR VERİ SUNUCUDAN DEĞİL CLİENT TARAFINDAKİ VERİDİR
 //TESTET SUNUCU CLIENT VERI KARŞILAŞTIRMASINI YAP
-function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
+function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo, UNIT, UNIT2) {
   var AMOUNT_ = document.getElementById("AMOUNT_" + PRODUCT_ID).innerText;
   var TOTAL_1 = list_getat(AMOUNT_, 2, "/").trim();
   var AMOUNT__ = list_getat(AMOUNT_, 1, "/").trim();
@@ -374,7 +374,7 @@ function SatirGuncelle(PRODUCT_ID, ARGA_AMOUNT, LotNo) {
       .getElementById("ROW_" + PRODUCT_ID)
       .setAttribute("class", "bg-danger");
   }
-  OkumaEkle(ARGA_AMOUNT, 1, LotNo, SEPET_ROW_ID);
+  OkumaEkle(ARGA_AMOUNT, 1, LotNo, SEPET_ROW_ID, UNIT, UNIT2);
 }
 //BILGI PBS JS QUERY
 //DIKKAT BÜTÜN METODLAR SERBEST 'INSERT,UPDATE,DELETE,EXEC,TRUNCATE GIBI GIBI'
