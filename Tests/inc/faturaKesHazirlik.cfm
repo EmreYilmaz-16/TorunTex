@@ -65,6 +65,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 
 <CFSET attributes.ROW_=getCekiListesi.recordCount>
 <CFSET attributes.rows_=getCekiListesi.recordCount>
+
 <CFSET IX=1>
 <CFSET MAIN_GROSS_TOTAL=0>
 <CFSET MAIN_NET_TOTAL=0>
@@ -95,6 +96,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.EMPO_ID=getCekiListesi.EMPLOYEE_ID>
 <CFSET attributes.department_id=getCekiListesi.DELIVER_DEPT_ID>
 <CFSET attributes.location_id=getCekiListesi.LOCATION_ID>
+<cfset attributes.note="">
 <cfset form.BASKET_DISCOUNT_TOTAL =0>
 <cfset DELIVER_GET ="Admin">
 <cfset ibnm=1>
