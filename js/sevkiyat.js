@@ -140,7 +140,7 @@ function islemYap(el, ev) {
           TO_LOCATION_ID: OSX.SEPET_LOCATION_ID,
           FROM_DEPARTMENT_ID: OSX.STOCK_DEPARTMENT_ID,
           FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
-          FROM_UNIT2:OSX.UNIT2,
+          FROM_UNIT2: OSX.UNIT2,
           TO_WRK_ROW_ID: "",
         };
         var str = JSON.stringify(TasimaVeri);
@@ -168,7 +168,7 @@ function islemYap(el, ev) {
             TO_LOCATION_ID: OSX.SEPET_LOCATION_ID,
             FROM_DEPARTMENT_ID: OSX.STOCK_DEPARTMENT_ID,
             FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
-            FROM_UNIT2:OSX.UNIT2,
+            FROM_UNIT2: OSX.UNIT2,
             TO_WRK_ROW_ID: Res3.WRK_ROW_ID[0],
           };
           var str = JSON.stringify(TasimaVeri);
@@ -189,10 +189,18 @@ function islemYap(el, ev) {
           "",
           OSX.PRODUCT_ID,
           OSX.Agirlik,
-          1
+          1,
+          "KG",
+          OSX.UNIT2
         );
-        OkumaEkle(OSX.Agirlik, 1, OSX.LotNo, GENERATEDKEY);
-        SatirEkle(OSX.PRODUCT_ID, OSX.PRODUCT_NAME, OSX.Agirlik);
+        OkumaEkle(OSX.Agirlik, 1, OSX.LotNo, GENERATEDKEY, "KG", OSX.UNIT2);
+        SatirEkle(
+          OSX.PRODUCT_ID,
+          OSX.PRODUCT_NAME,
+          OSX.Agirlik,
+          "KG",
+          OSX.UNIT2
+        );
       } else {
         SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik, OSX.LotNo);
       }
@@ -240,9 +248,9 @@ document.getElementByProductId = function (idb) {
   return el;
 };
 
-function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID) {
+function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2) {
   var str =
-    "INSERT INTO SEVKIYAT_SEPET_ROW_READ_PBS (SEPET_ROW_ID,LOT_NO,AMOUNT,AMOUNT2) VALUES (" +
+    "INSERT INTO SEVKIYAT_SEPET_ROW_READ_PBS (SEPET_ROW_ID,LOT_NO,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
     SEPET_ROW_ID +
     ",'" +
     LOT_NO +
@@ -250,7 +258,16 @@ function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID) {
     AMOUNT +
     "," +
     AMOUNT2 +
-    ")";
+    ",'" +
+    UNIT;
+  +"'";
+  if (UNIT2.length > 0) {
+    str = str + ",'" + UNIT2 + "'";
+  } else {
+    str = str + ",NULL";
+  }
+  str = str + ")";
+
   var QueryResult = GetAjaxQuery(str, "dsn3");
   console.log(QueryResult);
   if (QueryResult.RECORDCOUNT > 0) {
@@ -260,9 +277,17 @@ function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID) {
   }
 }
 //BILGI SEPETE EKLEMEK İÇİN INSERT SORGUSU SEPET_ROW_ID DONER
-function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
+function SepeteEkle(
+  SEPET_ID,
+  WRK_ROW_ID,
+  PRODUCT_ID,
+  AMOUNT,
+  AMOUNT2,
+  UNIT,
+  UNIT2
+) {
   var str =
-    "INSERT INTO  w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2) VALUES (" +
+    "INSERT INTO  w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
     SEPET_ID +
     ",'" +
     WRK_ROW_ID +
@@ -270,7 +295,10 @@ function SepeteEkle(SEPET_ID, WRK_ROW_ID, PRODUCT_ID, AMOUNT, AMOUNT2) {
     PRODUCT_ID +
     "," +
     AMOUNT +
-    ",1) ";
+    ",1,'KG'";
+  if (UNIT2.length > 0) str += ",'" + UNIT2 + "'";
+  else str += ",NULL";
+  str += ")";
   var QueryResult = GetAjaxQuery(str, "dsn3");
   if (QueryResult.RECORDCOUNT > 0) {
     return QueryResult.RESULT.GENERATEDKEY;
