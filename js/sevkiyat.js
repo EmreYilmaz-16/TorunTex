@@ -258,9 +258,7 @@ function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2 = "") {
     AMOUNT +
     "," +
     AMOUNT2 +
-    ",'" +
-    UNIT;
-  +"'";
+    ",'KG'"
   if (UNIT2.length > 0) {
     str = str + ",'" + UNIT2 + "'";
   } else {
