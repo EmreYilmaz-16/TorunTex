@@ -248,7 +248,7 @@ document.getElementByProductId = function (idb) {
   return el;
 };
 
-function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2) {
+function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2="") {
   var str =
     "INSERT INTO SEVKIYAT_SEPET_ROW_READ_PBS (SEPET_ROW_ID,LOT_NO,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
     SEPET_ROW_ID +
@@ -284,7 +284,7 @@ function SepeteEkle(
   AMOUNT,
   AMOUNT2,
   UNIT,
-  UNIT2
+  UNIT2=""
 ) {
   var str =
     "INSERT INTO  w3Toruntex_1.SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
