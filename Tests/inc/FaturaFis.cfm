@@ -49,7 +49,11 @@ SELECT * FROM (
                 KALAN:#KALAN#
             },
         </cfloop>
-    ]
+    ];
+    var dsn="#dsn#";
+    var dsn1="#dsn1#";
+    var dsn2="#dsn2#";
+    var dsn3="#dsn3#";
 </script>
 </cfoutput>
 <table>
@@ -124,9 +128,10 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
 </cfoutput>
 </tbody>
 </cf_big_list>
-
-
 <script>
+    
+
+
     function Ekle(INVOICE_ID,DSN2,EMPLOYEE_ID) {
         var B=document.getElementById("BEYAN").value;
         var FIS_ID=list_getat(B,1,"-")
@@ -158,9 +163,33 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
                 td.innerText=AMOUNT;
                 tr.appendChild(td);
                 document.getElementById("Sepetim").appendChild(tr);
-
+                LoadBeyannameData()
             }
         })
         
     }
+    function LoadBeyannameData() {
+        $.ajax({
+            url:"/AddOns/Partner/Servis/GeneralFunctions.cfc?method=getBeyannameler",
+            data:{
+                dsn:dsn,
+                dsn2:dsn2
+            },
+            success:function (returnData) {
+                var obj=JSON.parse(returnData)
+                $("#BEYAN").html("");
+                for (let index = 0; index < obj.length; index++) {
+                    const element = obj[index];
+                    var opt=document.createElement("option");
+                    opt.value=element.FIS_ID+"-"+element.STOCK_ID;
+                    opt.innerText=element.BEYANNAME_NO+" - "+opt.KONTEYNER_NO+" - "+opt.GECEN_SURE+" Gün - "+opt.KALAN+" "+opt.BIRIM;
+                    document.getElementById("BEYAN").appendChild(opt);
+                    
+                }
+            }
+        })
+    }
 </script>
+<!----
+     <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# Gün - #KALAN# #BIRIM#</option>
+----->
