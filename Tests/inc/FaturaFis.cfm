@@ -44,6 +44,7 @@ SELECT * FROM (
         </td>
         <td>
             <div class="form-group">
+            <label>Miktar</label>
             <input type="number" name="KULLAN" id="KULLAN">
         </div>
         </td>
@@ -77,7 +78,7 @@ SELECT * FROM (
         var STOCK_ID=list_getat(B,2,"-")
         var AMOUNT=document.getElementById("KULLAN").value;
         $.ajax({
-            url:"/AddOns/Partner/Servis/GeneralFunctions.cfc?method=SaveFatFis"
+            url:"/AddOns/Partner/Servis/GeneralFunctions.cfc?method=SaveFatFis",
             data:{
                 FIS_ID:FIS_ID,
                 STOCK_ID:STOCK_ID,
