@@ -49,7 +49,7 @@ SELECT * FROM (
         </div>
         </td>
         <td>
-            <button type="button" class="btn btn-success" onclick="Ekle(<cfoutput>#attributes.INVOICE_ID#</cfoutput>)">Ekle</button>
+            <button type="button" class="btn btn-success" onclick="Ekle(<cfoutput>#attributes.INVOICE_ID#,'#dsn2#',#session.ep.user_id#</cfoutput>)">Ekle</button>
         </td>
     </tr>
 </table>
@@ -72,7 +72,7 @@ SELECT * FROM (
 
 
 <script>
-    function Ekle(INVOICE_ID) {
+    function Ekle(INVOICE_ID,DSN2,EMPLOYEE_ID) {
         var B=document.getElementById("BEYAN").value;
         var FIS_ID=list_getat(B,1,"-")
         var STOCK_ID=list_getat(B,2,"-")
@@ -83,7 +83,9 @@ SELECT * FROM (
                 FIS_ID:FIS_ID,
                 STOCK_ID:STOCK_ID,
                 AMOUNT:AMOUNT,
-                INVOICE_ID:INVOICE_ID
+                INVOICE_ID:INVOICE_ID,
+                DSN2:DSN2,
+                EMPLOYEE_ID:EMPLOYEE_ID
             },
             success:function (returnData) {
                 console.log(returnData);
