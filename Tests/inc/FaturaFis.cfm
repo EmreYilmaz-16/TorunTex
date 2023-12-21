@@ -117,7 +117,7 @@ SELECT * FROM (
                 console.log(returnData);
                 var tr=document.createElement("tr");
                 var td=document.createElement("td");
-                td.innerText=
+                td.innerText=""
 
             }
         })
