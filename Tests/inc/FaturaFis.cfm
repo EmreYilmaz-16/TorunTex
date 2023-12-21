@@ -90,8 +90,38 @@ SELECT * FROM (
 
     </tr>
 </thead>
+<cfquery name="GETFISFAT" datasource="#DSN2#">
+    SELECT 
+SF.FIS_ID
+		,SF.FIS_DATE AS SEVK_TARIHI
+		,SFR.STOCK_ID AS STOCK_ID
+		,SFR.AMOUNT AS MIKTAR
+		,SFR.UNIT AS BIRIM
+		,SFR.AMOUNT2 AS MIKTAR2
+		,SFR.UNIT2 AS BIRIM2
+		,SFR.LOT_NO AS KONTEYNER_NO
+		,PP.PROJECT_HEAD AS BEYANNAME_NO
+		,SFF.AMOUNT
+FROM w3Toruntex_2023_1.STOK_FIS_FATURA AS SFF
+INNER JOIN w3Toruntex_2023_1.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID=SFF.FIS_ID AND SFR.STOCK_ID=SFF.STOCK_ID
+INNER JOIN w3Toruntex_2023_1.STOCK_FIS AS SF ON SF.FIS_ID=SFR.FIS_ID
+INNER JOIN w3Toruntex.PRO_PROJECTS AS PP ON PP.PROJECT_ID = SF.PROJECT_ID
+WHERE FATURA_ID=#attributes.INVOICE_ID#
+</cfquery>
 <tbody id="Sepetim">
-
+    <cfoutput query="GETFISFAT">
+<tr>
+    <td>
+        #BEYANNAME_NO#
+    </td>
+    <td>
+        #dateFormat(SEVK_TARIHI,"dd/mm/yyyy")#
+    </td>
+    <td>
+        #AMOUNT#
+    </td>
+</tr>
+</cfoutput>
 </tbody>
 </cf_big_list>
 
