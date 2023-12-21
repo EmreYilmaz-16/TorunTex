@@ -1,4 +1,4 @@
-<cfparam name="attributes.INVOICE_ID" default="77">
+﻿<cfparam name="attributes.INVOICE_ID" default="77">
 <cfquery name="getBeyans" datasource="#dsn2#">   
 SELECT * FROM (
 	SELECT SF.FIS_ID
