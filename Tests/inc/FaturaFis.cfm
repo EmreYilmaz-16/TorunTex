@@ -39,8 +39,9 @@ SELECT * FROM (
                 SEVK_TARIHI:"#SEVK_TARIHI#",
                 STOCK_ID:#STOCK_ID#,
                 MIKTAR:#MIKTAR#,
-                SEVK_TARIHI:"#BIRIM#",
+                BIRIM:"#BIRIM#",
                 MIKTAR:#MIKTAR2#,
+                BIRIM2:"#BIRIM2#",
                 SEVK_TARIHI:"#BIRIM2#",
                 KONTEYNER_NO:"#KONTEYNER_NO#",
                 BEYANNAME_NO:"#BEYANNAME_NO#",
@@ -114,10 +115,16 @@ SELECT * FROM (
                 EMPLOYEE_ID:EMPLOYEE_ID
             },
             success:function (returnData) {
+                
                 console.log(returnData);
+                var Beyan=BEYANNAME_DATA.find(p=>p.FIS_ID==FIS_ID)
                 var tr=document.createElement("tr");
-                var td=document.createElement("td");
-                td.innerText=""
+                var td=document.createElement("td");                
+                td.innerText=Beyan.BEYANNAME_NO;
+                tr.appendChild(td);
+                var td=document.createElement("td");                
+                td.innerText=Beyan.BEYANNAME_NO;
+                tr.appendChild(td);
 
             }
         })
