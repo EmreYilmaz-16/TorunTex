@@ -1,3 +1,4 @@
+<cfparam name="attributes.INVOICE_ID" default="77">
 <cfquery name="getBeyans" datasource="#dsn2#">   
 SELECT * FROM (
 	SELECT SF.FIS_ID
@@ -41,5 +42,52 @@ SELECT * FROM (
                 </select>
             </div>
         </td>
+        <td>
+            <div class="form-group">
+            <input type="number" name="KULLAN" id="KULLAN">
+        </div>
+        </td>
+        <td>
+            <button type="button" class="btn btn-success" onclick="Ekle(<cfoutput>#attributes.INVOICE_ID#</cfoutput>)">Ekle</button>
+        </td>
     </tr>
 </table>
+<cf_big_list>
+    <thead>
+    <tr>
+        <th>
+            Beyanname No
+        </th>
+        <th>
+            Miktar
+        </th>
+
+    </tr>
+</thead>
+<tbody id="Sepetim">
+
+</tbody>
+</cf_big_list>
+
+
+<script>
+    function Ekle(INVOICE_ID) {
+        var B=document.getElementById("BEYAN").value;
+        var FIS_ID=list_getat(B,1,"-")
+        var STOCK_ID=list_getat(B,2,"-")
+        var AMOUNT=document.getElementById("KULLAN").value;
+        $.ajax({
+            url:"/AddOns/Partner/Servis/GeneralFunctions.cfc?method=SaveFatFis"
+            data:{
+                FIS_ID:FIS_ID,
+                STOCK_ID:STOCK_ID,
+                AMOUNT:AMOUNT,
+                INVOICE_ID:INVOICE_ID
+            },
+            success:function (returnData) {
+                console.log(returnData);
+            }
+        })
+        
+    }
+</script>
