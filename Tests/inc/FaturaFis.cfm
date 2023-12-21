@@ -63,7 +63,7 @@ SELECT * FROM (
     <tr>
         <td>
             <div class="form-group">
-                <label>Beyanname</label>
+                <label>Elleçleme Stok Girişi</label>
                 <select name="BEYAN" id="BEYAN">
                     <cfoutput query="getBeyans">
                         <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# Gün - #KALAN# #BIRIM#</option>
