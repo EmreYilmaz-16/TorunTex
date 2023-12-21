@@ -1,4 +1,5 @@
-﻿<cfparam name="attributes.INVOICE_ID" default="77">
+﻿
+<cfparam name="attributes.INVOICE_ID" default="77">
 <cfquery name="getBeyans" datasource="#dsn2#">   
 SELECT * FROM (
 	SELECT SF.FIS_ID
@@ -56,6 +57,8 @@ SELECT * FROM (
     var dsn3="#dsn3#";
 </script>
 </cfoutput>
+
+<cf_box title="Kullanılan Beyannameler" scroll="1" collapsable="1" resize="1" popup_box="1">
 <table>
     <tr>
         <td>
@@ -128,6 +131,7 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
 </cfoutput>
 </tbody>
 </cf_big_list>
+</cf_box>
 <script>
     
 

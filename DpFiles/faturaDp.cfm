@@ -8,7 +8,7 @@ $(elem[0].children).append("<li class='dropdown' id='transformation'><a style='c
 
 function pencereac(tip,iid) {
     if(tip==1){
-        windowopen("/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=32&INVOICE_ID="+iid)
+        openBoxDraggable("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=32&INVOICE_ID="+iid)
     }
 }
 
