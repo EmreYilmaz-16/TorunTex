@@ -50,6 +50,7 @@
 <cfif attributes.sayfa eq 29><cfinclude template="inc/sevkMain.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 30><cfinclude template="inc/sevkCikar.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 31><cfinclude template="inc/tasimaYeni.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 32><cfinclude template="inc/FaturaFis.cfm"><cfabort></cfif>
 
 
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
