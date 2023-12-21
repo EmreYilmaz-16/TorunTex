@@ -30,6 +30,28 @@ SELECT * FROM (
 		,PP.PROJECT_HEAD
 ) AS T WHERE T.KALAN>0
 </cfquery>
+<cfoutput>
+<script>
+    var BEYANNAME_DATA=[
+        <cfloop query="getBeyans">
+            {
+                FIS_ID:#FIS_ID#,
+                SEVK_TARIHI:"#SEVK_TARIHI#",
+                STOCK_ID:#STOCK_ID#,
+                MIKTAR:#MIKTAR#,
+                SEVK_TARIHI:"#BIRIM#",
+                MIKTAR:#MIKTAR2#,
+                SEVK_TARIHI:"#BIRIM2#",
+                KONTEYNER_NO:"#KONTEYNER_NO#",
+                BEYANNAME_NO:"#BEYANNAME_NO#",
+                GECEN_SURE:#GECEN_SURE#,
+                KULLANILAN:#KULLANILAN#,
+                KALAN:#KALAN#
+            },
+        </cfloop>
+    ]
+</script>
+</cfoutput>
 <table>
     <tr>
         <td>
@@ -60,6 +82,9 @@ SELECT * FROM (
             Beyanname No
         </th>
         <th>
+            Beyanname Tarihi
+        </th>
+        <th>
             Miktar
         </th>
 
@@ -77,6 +102,7 @@ SELECT * FROM (
         var FIS_ID=list_getat(B,1,"-")
         var STOCK_ID=list_getat(B,2,"-")
         var AMOUNT=document.getElementById("KULLAN").value;
+      return arguments;
         $.ajax({
             url:"/AddOns/Partner/Servis/GeneralFunctions.cfc?method=SaveFatFis",
             data:{
@@ -89,6 +115,10 @@ SELECT * FROM (
             },
             success:function (returnData) {
                 console.log(returnData);
+                var tr=document.createElement("tr");
+                var td=document.createElement("td");
+                td.innerText=
+
             }
         })
         
