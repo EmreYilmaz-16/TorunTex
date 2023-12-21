@@ -182,7 +182,7 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
                     const element = obj[index];
                     var opt=document.createElement("option");
                     opt.value=element.FIS_ID+"-"+element.STOCK_ID;
-                    opt.innerText=element.BEYANNAME_NO+" - "+opt.KONTEYNER_NO+" - "+opt.GECEN_SURE+" Gün - "+opt.KALAN+" "+opt.BIRIM;
+                    opt.innerText=element.BEYANNAME_NO+" - "+element.KONTEYNER_NO+" - "+element.GECEN_SURE+" Gün - "+element.KALAN+" "+element.BIRIM;
                     document.getElementById("BEYAN").appendChild(opt);
                     
                 }
@@ -192,4 +192,16 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
 </script>
 <!----
      <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# Gün - #KALAN# #BIRIM#</option>
+     FIS_ID=FIS_ID,
+                            SEVK_TARIHI="#dateFormat(SEVK_TARIHI,'dd/mm/yyyy')#",
+                            STOCK_ID=STOCK_ID,
+                            MIKTAR=MIKTAR,
+                            BIRIM=BIRIM,
+                            MIKTAR2=MIKTAR2,
+                            BIRIM2=BIRIM2,
+                            KONTEYNER_NO=KONTEYNER_NO,
+                            BEYANNAME_NO=BEYANNAME_NO,
+                            GECEN_SURE=GECEN_SURE,
+                            KULLANILAN=KULLANILAN,
+                            KALAN=KALAN
 ----->
