@@ -36,7 +36,7 @@ SELECT * FROM (
                 <label>Beyanname</label>
                 <select name="BEYAN" id="BEYAN">
                     <cfoutput query="getBeyans">
-                        <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# - #KALAN#</option>
+                        <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# Gün - #KALAN# #BIRIM#</option>
                     </cfoutput>
                 </select>
             </div>
