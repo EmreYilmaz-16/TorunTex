@@ -36,7 +36,7 @@ SELECT * FROM (
         <cfloop query="getBeyans">
             {
                 FIS_ID:#FIS_ID#,
-                SEVK_TARIHI:"#SEVK_TARIHI#",
+                SEVK_TARIHI:"#dateformat(SEVK_TARIHI,'dd/mm/yyyy')#",
                 STOCK_ID:#STOCK_ID#,
                 MIKTAR:#MIKTAR#,
                 BIRIM:"#BIRIM#",
@@ -122,8 +122,12 @@ SELECT * FROM (
                 td.innerText=Beyan.BEYANNAME_NO;
                 tr.appendChild(td);
                 var td=document.createElement("td");                
-                td.innerText=Beyan.BEYANNAME_NO;
+                td.innerText=Beyan.SEVK_TARIHI;
                 tr.appendChild(td);
+                var td=document.createElement("td");                
+                td.innerText=AMOUNT;
+                tr.appendChild(td);
+                document.getElementById("Sepetim").appendChild(tr);
 
             }
         })
