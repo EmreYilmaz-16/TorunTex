@@ -35,7 +35,7 @@ SELECT * FROM (
             <div class="form-group">
                 <label>Beyanname</label>
                 <select name="BEYAN" id="BEYAN">
-                    <cfoutput query="">
+                    <cfoutput query="getBeyans">
                         <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# - #KALAN#</option>
                     </cfoutput>
                 </select>
