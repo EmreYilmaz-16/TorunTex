@@ -89,7 +89,7 @@ SELECT * FROM (
             Beyanname No
         </th>
         <th>
-            Beyanname Tarihi
+            Antrepo Çıkış Tarihi
         </th>
         <th>
             Miktar
