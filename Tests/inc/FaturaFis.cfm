@@ -49,7 +49,7 @@ SELECT * FROM (
         </div>
         </td>
         <td>
-            <button type="button" class="btn btn-success" onclick="Ekle(<cfoutput>#attributes.INVOICE_ID#,'#dsn2#',#session.ep.user_id#</cfoutput>)">Ekle</button>
+            <button type="button" class="btn btn-success" onclick="Ekle(<cfoutput>#attributes.INVOICE_ID#,'#dsn2#',#session.ep.userid#</cfoutput>)">Ekle</button>
         </td>
     </tr>
 </table>
