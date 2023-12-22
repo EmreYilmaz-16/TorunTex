@@ -45,6 +45,7 @@ FROM (
     ,'PLAKA' AS PLAKA
     ,'KONTEYNER NO ' AS KONTEYNER
     ,O.ORDER_ID
+	,O.DELIVERY_DATE
     ,ISNULL(SSP.SEPET_ID,0) SEPET_ID
 FROM #dsn3#.ORDERS AS O
 INNER JOIN #dsn#.COMPANY AS C ON C.COMPANY_ID = O.COMPANY_ID
@@ -58,7 +59,7 @@ WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 	AND ORDER_STAGE not IN(262,259)
             </cfquery>
 			<cfloop query="getOrder">
-            <option value="#getDoluDepolar.DEPARTMENT_ID#-#getDoluDepolar.LOCATION_ID#*#getOrder.ORDER_ID#*#getOrder.SEPET_ID#">#getDoluDepolar.DEPARTMENT_HEAD# - #getDoluDepolar.COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
+            <option value="#getDoluDepolar.DEPARTMENT_ID#-#getDoluDepolar.LOCATION_ID#*#getOrder.ORDER_ID#*#getOrder.SEPET_ID#">#getDoluDepolar.DEPARTMENT_HEAD# - #getDoluDepolar.COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER# - #getOrder.DELIVERY_DATE#</option>
 		</cfloop>
         </cfoutput>
     </select>
