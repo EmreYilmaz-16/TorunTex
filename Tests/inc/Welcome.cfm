@@ -7,10 +7,13 @@
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=6')">Raf Durumu</button>
     
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9','_blank')">Operator Ekrani</button>
+    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=13','_blank')">Çuval Taşı</button>
+    <!----
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_2','_blank')">Operator Ekrani V2</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=9_3','_blank')">Operator Ekrani V3</button>
-    <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=13','_blank')">Çuval Taşı</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=31','_blank')">Çuval Taşı V2</button>
+    ----->
+
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=15','_blank')">Lot Hareketleri</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=22','_blank')">Sevkiyat İşlemleri</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=25','_blank')">Sevkiyat Listesi</button>
