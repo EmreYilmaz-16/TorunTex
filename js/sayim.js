@@ -74,7 +74,7 @@ function getLotNo(el, ev, productCodeArea) {
   if (ev.keyCode == 13) {
     if (SayimSettings.is_product_code == 0) {
       var GetLotNoQuery =
-        "SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN catalys_test_1.STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
+        "SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN "+DSN3+".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
         LotNumarasi +
         "'";
       var GetLotNoResult = wrk_query(GetLotNoQuery, "dsn2");

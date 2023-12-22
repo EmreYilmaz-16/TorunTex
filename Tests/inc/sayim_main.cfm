@@ -156,4 +156,12 @@ var SayimSettings={
 <input type="hidden" name="is_rafli" id="is_rafli" value="<cfoutput>#attributes.is_rafli#</cfoutput>">
 </cfform>
 </cf_box>
+<cfoutput>
+    <script>
+        var DSN="#DSN#";
+        var DSN1="#DSN1#";
+        var DSN2="#DSN2#";
+        var DSN3="#DSN3#";
+    </script>
+</cfoutput>
 <script src="/AddOns/Partner/js/sayim.js"></script>
