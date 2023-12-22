@@ -7,7 +7,7 @@ var DEPARTMENT_ID = "";
 var LOCATION_ID = "";
 var LOT_NO = "";
 var RC = 1;
-
+var MIKTARIM="";
 function getProduct(el, ev, productCodeArea) {
   if (ev.keyCode == 13) {
     var GetProductQuery =
@@ -74,7 +74,7 @@ function getLotNo(el, ev, productCodeArea) {
   if (ev.keyCode == 13) {
     if (SayimSettings.is_product_code == 0) {
       var GetLotNoQuery =
-        "SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN "+DSN3+".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
+        "SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE,ISNULL(STOCK_IN,STOCK_OUT) AS AMOUNTMIK FROM STOCKS_ROW AS SR LEFT JOIN "+DSN3+".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
         LotNumarasi +
         "'";
       var GetLotNoResult = wrk_query(GetLotNoQuery, "dsn2");
@@ -85,6 +85,7 @@ function getLotNo(el, ev, productCodeArea) {
         PRODUCT_CODE = GetLotNoResult.PRODUCT_CODE[0];
         LOT_NO = GetLotNoResult.LOT_NO[0];
         PRODUCT_CODE_2 = GetLotNoResult.PRODUCT_CODE_2[0];
+        MIKTARIM=GetLotNoResult.AMOUNTMIK[0];
         satirEkle();
       } else {
         alert("Lot Numaralı Ürün Bulunamadı");
@@ -127,6 +128,11 @@ function satirEkle(params) {
   input.setAttribute("type", "hidden");
   input.setAttribute("name", "LOT_NO" + RC);
   input.setAttribute("value", LOT_NO);
+  td.appendChild(input);
+  var input = document.createElement("input");
+  input.setAttribute("type", "hidden");
+  input.setAttribute("name", "AMOUNT" + RC);
+  input.setAttribute("value", MIKTARIM);
   td.appendChild(input);
   tr.appendChild(td);
   var td = document.createElement("td");

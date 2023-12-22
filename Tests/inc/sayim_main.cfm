@@ -34,8 +34,8 @@ var SayimSettings={
 	barcode_list = ArrayNew(1);
 	for(row_i=1;row_i lte attributes.row_count;row_i=row_i+1)
 		if(attributes.is_rafli eq 1){
-            ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;1;#evaluate('attributes.SHELF_CODE#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");}else{
-                ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;1;#evaluate('attributes.LOT_NO#row_i#')#");
+            ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.SHELF_CODE#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");}else{
+                ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");
             }
 </cfscript>
 <cfset file_name = "#createUUID()#.txt">
