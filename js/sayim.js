@@ -9,6 +9,7 @@ var LOT_NO = "";
 var RC = 1;
 var MIKTARIM="";
 function getProduct(el, ev, productCodeArea) {
+  debugger;
   if (ev.keyCode == 13) {
     var GetProductQuery =
       "SELECT PRODUCT_ID,STOCK_ID,PRODUCT_CODE,PRODUCT_CODE_2 FROM STOCKS WHERE " +
