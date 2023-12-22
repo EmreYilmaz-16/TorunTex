@@ -1,6 +1,6 @@
-<cfparam name="attributes.is_rafli" default="1">                        <!--------  //BILGI RAFLI KAYITMI YAPILACAK   ------------->
-<cfparam name="attributes.is_default_depo" default="1">                 <!--------  //BILGI DEFAULT DEPO VARMI        ------------->
-<cfparam name="attributes.default_depo" default="1-3">                  <!--------  //BILGI DEFAULT DEPOLAR           ------------->
+<cfparam name="attributes.is_rafli" default="0">                        <!--------  //BILGI RAFLI KAYITMI YAPILACAK   ------------->
+<cfparam name="attributes.is_default_depo" default="0">                 <!--------  //BILGI DEFAULT DEPO VARMI        ------------->
+<cfparam name="attributes.default_depo" default="0">                  <!--------  //BILGI DEFAULT DEPOLAR           ------------->
 <cfparam name="attributes.is_product_code" default="1">                 <!--------  //BILGI ÜRÜN KODU SORULACAKMI     ------------->
 <cfparam name="attributes.product_code_area" default="PRODUCT_CODE_2">  <!--------  //BILGI ÜRÜN KODU ARAMA ALANI     ------------->
 <cfparam name="attributes.is_lot_no" default="1">                       <!--------  //BILGI LOT NO SORULACAKMI        ------------->
