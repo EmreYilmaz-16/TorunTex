@@ -71,6 +71,7 @@ function GetShelf(el, ev) {
 }
 
 function getLotNo(el, ev, productCodeArea) {
+  debugger;
   var LotNumarasi = el.value;
   if (ev.keyCode == 13) {
     if (SayimSettings.is_product_code == 0) {
