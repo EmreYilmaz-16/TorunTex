@@ -266,8 +266,9 @@ function Yaz(sayi) {
     if (sayi == -3) TxResult.value = "";
     if (sayi == -4) TxResult.value += ",";
     if (sayi == -5) {
-      TxResult.value = "";
+      
       $("#paketKG").val(TxResult.value);
+      TxResult.value = "";
     }
   } else if (sayi == "0") {
     TxResult.value += sayi;
