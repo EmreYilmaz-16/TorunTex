@@ -142,6 +142,7 @@ function islemYap(el, ev) {
           FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
           FROM_UNIT2: OSX.UNIT2,
           TO_WRK_ROW_ID: "",
+          SEPET_ID:OSX.SEPET_ID
         };
         var str = JSON.stringify(TasimaVeri);
         $.get(
@@ -170,6 +171,7 @@ function islemYap(el, ev) {
             FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
             FROM_UNIT2: OSX.UNIT2,
             TO_WRK_ROW_ID: Res3.WRK_ROW_ID[0],
+            SEPET_ID:OSX.SEPET_ID
           };
           var str = JSON.stringify(TasimaVeri);
           $.get(
@@ -580,7 +582,19 @@ function IptalEt(params) {
       ")";
     var Yanıt = GetAjaxQuery(Str1, "dsn3");
     console.log(Yanıt);
-    alert(Yanıt.RESULT.RECORDCOUNT + "Satır Silindi ");
+    var Str1 =
+    "DELETE FROM SEVKIYAT_SEPET_ROW_PBS WHERE SEPET_ID IN (" +
+    SEPET_ID +
+    ")";
+  var Yanıt = GetAjaxQuery(Str1, "dsn3");
+  var Str1 =
+  "DELETE FROM SEVKIYAT_SEPET_PBS WHERE SEPET_ID IN (" +
+  SEPET_ID +
+  ")";
+var Yanıt = GetAjaxQuery(Str1, "dsn3");
+  console.log(Yanıt);
+    alert("Belge İptal Edilmiştir");
     //SEVKIYAT_SEPET_ROW_PBS
+    window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=22";
   }
 }

@@ -1,5 +1,5 @@
 <cfquery name="getHarekets" datasource="#dsn2#">
-SELECT * FROM STOCK_FIS AS SF 
+SELECT * FROM STOCK_FIS AS SF WHERE PROCESS_CAT=294
 </cfquery>
 <cfset fis_sayisi=0>
 <cfloop query="getHarekets">

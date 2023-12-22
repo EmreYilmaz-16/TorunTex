@@ -71,13 +71,19 @@ WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
   </cfquery>
   <CFSET TO_ORDER_NO=getorder.ORDER_NUMBER>
 </cfif>
-
+<cfif isDefined("FormData.SEPET_ID")>
+  <cfquery name="INS" datasource="#DSN3#">
+    INSERT INTO SEPET_FIS_RELATIONS (SEPET_ID,FIS_ID,FIS_PERIOD_ID) VALUES(#FormData.SEPET_ID#,#GET_ID.MAX_ID#,#session.ep.period_id#)
+  </cfquery>
+</cfif>
 <cfoutput>
 <script>
   window.opener.sepeteEkle("#getProduct.PRODUCT_CODE#","#getProduct.PRODUCT_NAME#",#FormData.FROM_AMOUNT#,"KG","#CIKIS_DEPO.DEPARTMENT_HEAD#-#CIKIS_DEPO.COMMENT#","#GIRIS_DEPO.DEPARTMENT_HEAD#-#GIRIS_DEPO.COMMENT#","#FormData.FROM_LOT_NO#",1,"#FormData.FROM_UNIT2#",#GET_ID.MAX_ID#,"#attributes.FIS_NO#","#FROM_ORDER_NO#","#TO_ORDER_NO#")
 this.close();
 </script>
 </cfoutput>
+
+
 <!----
   #dsn2#.TASIMA_SEPET(ID INT PRIMARY KEY IDENTITY(1,1),EMPLOYEE_ID INT,FIS_ID INT,IS_ACTIVE BIT,RECORD_DATE DATETIME)
 <cfscript>
