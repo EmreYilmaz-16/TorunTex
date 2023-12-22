@@ -6,7 +6,7 @@
     btn.setAttribute("style","background:#6a6a6a;color:white")
     btn.setAttribute("onclick","pencereac(1,"+fatid+")")
     $(document.getElementById("item-deliver_dept_name")).find(".input-group")[0].appendChild(btn)
-    $(document.getElementById("item-deliver_dept_name")).find(".input-group")[0].innerHtml="";
+    $($(document.getElementById("item-deliver_dept_name")).find(".input-group")[0]).html("");
     
     })
     
