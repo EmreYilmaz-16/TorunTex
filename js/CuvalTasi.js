@@ -261,6 +261,8 @@ function sepeteEkle(
   td.appendChild(button);
   tr.appendChild(td);
   document.getElementById("Sepetim").appendChild(tr);
+  $("#Barcode").html("");
+  $("#Barcode").focus();
 }
 
 function fis_sil(FIS_ID, el) {

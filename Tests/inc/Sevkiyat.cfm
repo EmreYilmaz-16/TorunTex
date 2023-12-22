@@ -14,11 +14,11 @@ FROM (
 			FROM #dsn3#.ORDERS AS O
 			WHERE O.DELIVER_DEPT_ID = SL.DEPARTMENT_ID
 				AND O.LOCATION_ID = SL.LOCATION_ID
-				AND ORDER_STAGE <> 262
+				AND ORDER_STAGE <> 260
 			) AS SIP_DURUM
 		,ISNULL((
 				SELECT SUM(ISNULL(STOCK_IN, 0) - ISNULL(STOCK_OUT, 0))
-				FROM #dsn#_2023_1.STOCKS_ROW
+				FROM #dsn2#.STOCKS_ROW
 				WHERE STORE = SL.DEPARTMENT_ID
 					AND STORE_LOCATION = SL.LOCATION_ID
 				), 0) AS BAKIYE
@@ -26,7 +26,7 @@ FROM (
 	INNER JOIN #dsn#.DEPARTMENT AS D ON D.DEPARTMENT_ID = SL.DEPARTMENT_ID
 	<cfif attributes.all neq 1>WHERE SL.DEPARTMENT_ID = 14</cfif>
 	) AS TT
-    WHERE TT.BAKIYE <> 0
+  --  WHERE TT.BAKIYE <> 0
 	AND TT.SIP_DURUM <> 0
 </cfquery>
 <cfform method="post" action="#request.self#?fuseaction=settings.emptypopup_partner_test_page&sayfa=29" id="frm_1">
@@ -55,7 +55,7 @@ INNER JOIN #dsn#.DEPARTMENT AS D ON D.DEPARTMENT_ID = O.DELIVER_DEPT_ID
 LEFT JOIN #dsn3#.SEVKIYAT_SEPET_PBS AS SSP ON SSP.ORDER_ID=O.ORDER_ID
 WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 	AND O.LOCATION_ID = #LOCATION_ID#
-	AND ORDER_STAGE <> 262
+	AND ORDER_STAGE not IN(262,259)
             </cfquery>
 			<cfloop query="getOrder">
             <option value="#getDoluDepolar.DEPARTMENT_ID#-#getDoluDepolar.LOCATION_ID#*#getOrder.ORDER_ID#*#getOrder.SEPET_ID#">#getDoluDepolar.DEPARTMENT_HEAD# - #getDoluDepolar.COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLAKA# #getOrder.KONTEYNER#</option>
