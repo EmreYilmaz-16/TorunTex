@@ -127,7 +127,7 @@ var SayimSettings={
     </table>
 
 
-<cfform id="frm1" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#">
+<cfform id="frm1" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=26">
 <cf_big_list >
     <tr>
         <th>
