@@ -21,7 +21,7 @@
 <cfset ORDER_ID=listGetAt(attributes.SELECT1,2,"*")>
 <cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
 <cfdump var="#attributes#">
-<cfabort>
+
 <CFIF SEPET_ID neq 0>
     
     <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#attributes.select1#">
@@ -49,7 +49,7 @@
     <CFSET SEPET_NO="0#GETmX.SEPET_ID#">                                
 </CFIF>
 MERHABA
-<cfabort>
+
 <cfquery name="CREATE_SEPET" datasource="#DSN3#" result="RES">
     INSERT INTO SEVKIYAT_SEPET_PBS(SEVK_NO,DEPARTMENT_ID,LOCATION_ID,ORDER_ID,RECORD_DATE,RECORD_EMP ) VALUES ('#SEPET_NO#',#DEPARTMENT_ID#,#LOCATION_ID#,#ORDER_ID#,GETDATE(),#session.ep.userid#)
 </cfquery>
