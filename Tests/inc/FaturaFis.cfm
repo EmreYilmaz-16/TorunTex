@@ -14,10 +14,10 @@ SELECT * FROM (
 		,DATEDIFF(DAY, SF.FIS_DATE, GETDATE()) AS GECEN_SURE	
 		,ISNULL(SUM(SFF.AMOUNT),0) AS KULLANILAN
 		,SFR.AMOUNT-ISNULL(SUM(SFF.AMOUNT),0) AS KALAN
-	FROM w3Toruntex_2023_1.STOCK_FIS AS SF
-	INNER JOIN w3Toruntex_2023_1.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID = SF.FIS_ID
-	INNER JOIN w3Toruntex.PRO_PROJECTS AS PP ON PP.PROJECT_ID = SF.PROJECT_ID
-	LEFT  JOIN w3Toruntex_2023_1.STOK_FIS_FATURA AS SFF ON SFF.FIS_ID=SF.FIS_ID AND SFF.STOCK_ID=SFR.STOCK_ID
+	FROM #dsn2#.STOCK_FIS AS SF
+	INNER JOIN #dsn2#.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID = SF.FIS_ID
+	INNER JOIN #dsn#.PRO_PROJECTS AS PP ON PP.PROJECT_ID = SF.PROJECT_ID
+	LEFT  JOIN #dsn2#.STOK_FIS_FATURA AS SFF ON SFF.FIS_ID=SF.FIS_ID AND SFF.STOCK_ID=SFR.STOCK_ID
 	WHERE DEPARTMENT_OUT = 13
 	GROUP BY
 	SF.FIS_ID
@@ -85,21 +85,14 @@ SELECT * FROM (
 <cf_big_list>
     <thead>
     <tr>
-        <th>
-            Beyanname No
-        </th>
-        <th>
-            Antrepo Çıkış Tarihi
-        </th>
-        <th>
-            Miktar
-        </th>
-
+        <th>Beyanname No</th>
+        <th>Antrepo Çıkış Tarihi</th>
+        <th>Miktar</th>
     </tr>
 </thead>
 <cfquery name="GETFISFAT" datasource="#DSN2#">
     SELECT 
-SF.FIS_ID
+        SF.FIS_ID
 		,SF.FIS_DATE AS SEVK_TARIHI
 		,SFR.STOCK_ID AS STOCK_ID
 		,SFR.AMOUNT AS MIKTAR
@@ -109,25 +102,19 @@ SF.FIS_ID
 		,SFR.LOT_NO AS KONTEYNER_NO
 		,PP.PROJECT_HEAD AS BEYANNAME_NO
 		,SFF.AMOUNT
-FROM w3Toruntex_2023_1.STOK_FIS_FATURA AS SFF
-INNER JOIN w3Toruntex_2023_1.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID=SFF.FIS_ID AND SFR.STOCK_ID=SFF.STOCK_ID
-INNER JOIN w3Toruntex_2023_1.STOCK_FIS AS SF ON SF.FIS_ID=SFR.FIS_ID
-INNER JOIN w3Toruntex.PRO_PROJECTS AS PP ON PP.PROJECT_ID = SF.PROJECT_ID
+FROM #dsn2#.STOK_FIS_FATURA AS SFF
+INNER JOIN #dsn2#.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID=SFF.FIS_ID AND SFR.STOCK_ID=SFF.STOCK_ID
+INNER JOIN #dsn2#.STOCK_FIS AS SF ON SF.FIS_ID=SFR.FIS_ID
+INNER JOIN #dsn#.PRO_PROJECTS AS PP ON PP.PROJECT_ID = SF.PROJECT_ID
 WHERE FATURA_ID=#attributes.INVOICE_ID#
 </cfquery>
 <tbody id="Sepetim">
     <cfoutput query="GETFISFAT">
-<tr>
-    <td>
-        #BEYANNAME_NO#
-    </td>
-    <td>
-        #dateFormat(SEVK_TARIHI,"dd/mm/yyyy")#
-    </td>
-    <td>
-        #AMOUNT#
-    </td>
-</tr>
+        <tr>
+            <td>#BEYANNAME_NO#</td>
+            <td>#dateFormat(SEVK_TARIHI,"dd/mm/yyyy")#</td>
+            <td>#AMOUNT#</td>
+        </tr>
 </cfoutput>
 </tbody>
 </cf_big_list>
@@ -194,18 +181,3 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
         })
     }
 </script>
-<!----
-     <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# Gün - #KALAN# #BIRIM#</option>
-     FIS_ID=FIS_ID,
-                            SEVK_TARIHI="#dateFormat(SEVK_TARIHI,'dd/mm/yyyy')#",
-                            STOCK_ID=STOCK_ID,
-                            MIKTAR=MIKTAR,
-                            BIRIM=BIRIM,
-                            MIKTAR2=MIKTAR2,
-                            BIRIM2=BIRIM2,
-                            KONTEYNER_NO=KONTEYNER_NO,
-                            BEYANNAME_NO=BEYANNAME_NO,
-                            GECEN_SURE=GECEN_SURE,
-                            KULLANILAN=KULLANILAN,
-                            KALAN=KALAN
------>
