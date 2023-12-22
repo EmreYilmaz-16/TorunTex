@@ -1,15 +1,27 @@
-<cfparam name="attributes.is_rafsiz" default="1">
-<cfparam name="attributes.is_default_depo" default="0">
-<cfparam name="attributes.default_depo" default="1-3">
-<cfparam name="attributes.LotKontrolChar" default="|">
-<cfparam name="attributes.LotPosition" default="2">
-<cfparam name="attributes.WeightPosition" default="3">
+<cfparam name="attributes.is_rafli" default="1">                        <!--------  //BILGI RAFLI KAYITMI YAPILACAK   ------------->
+<cfparam name="attributes.is_default_depo" default="1">                 <!--------  //BILGI DEFAULT DEPO VARMI        ------------->
+<cfparam name="attributes.default_depo" default="1-3">                  <!--------  //BILGI DEFAULT DEPOLAR           ------------->
+<cfparam name="attributes.is_product_code" default="1">                 <!--------  //BILGI ÜRÜN KODU SORULACAKMI     ------------->
+<cfparam name="attributes.product_code_area" default="PRODUCT_CODE_2">  <!--------  //BILGI ÜRÜN KODU ARAMA ALANI     ------------->
+<cfparam name="attributes.is_lot_no" default="1">                       <!--------  //BILGI LOT NO SORULACAKMI        ------------->
+<!--------  
+    //BILGI YUKARIDAKİ PARAMETRELERE GÖRE AŞAĞIDAKİ FORM ŞEKİLLENİR ÜRÜN KODU VE LOT  SORGUSU AYNI ANDA 0 OLAMAZ
+    //BILGI ÜRÜN BARKODUNDA YER ALAN ALANIN ÜRÜN KARTINDAKİ HANGİ ALANLA EŞLŞECEĞİNİ BİLMEK İÇİN PRODUCT_CODE_AREA VERİSİ KULLANILIR BU ALAN YOKSA ÜRÜN KODUYLA SAYIM YAPAMAZSINIZ
+    //BILGI RAFLI SAYIM YADA RAFSIZ SAYIM YAPILABİLİR
+    //BILGI BU SAYFA SADECE SAYIM BELGESİNİ OLUŞTURUR BELGEYİ OLUŞTURDUKTAN SONRA SAYIM İŞLEMLERİNDEN BİRLEŞTİRME  VE STOK FİŞLERİNİN OLUŞTURULMASI AŞAMASI MANUEL YAPILACAKTIR
+    //BILGI SAYIM TARİHİ BU GÜNÜN TARİHİ OLARAK DEFAULT OLARAK GELECEKTİR
+    //BILGI EĞER DEFAULT DEPO TANIMLANMADIYSA SAYIM DEPOSU SEÇİLEN DEPO OLACAKTIR
+    ------------->
 <cfoutput>
 <script>
-    var dsn="#dsn#";
-    var dsn1="#dsn1#";
-    var dsn2="#dsn2#";
-    var dsn3="#dsn3#";
+var SayimSettings={
+    is_rafli:#attributes.is_rafli#,
+    is_default_depo:#attributes.is_default_depo#,
+    default_depo:'#attributes.default_depo#',
+    product_code_area:'#attributes.product_code_area#',
+    is_lot_no:#attributes.is_lot_no#,
+    is_product_code:#attributes.is_product_code#
+}    
 </script>
 </cfoutput>
 <cfif isDefined("attributes.is_submit")>
@@ -21,9 +33,9 @@
 	CRLF=chr(13)&chr(10);
 	barcode_list = ArrayNew(1);
 	for(row_i=1;row_i lte attributes.row_count;row_i=row_i+1)
-		if(attributes.is_rafsiz eq 0){
-            ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.SHELF_CODE#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");}else{
-                ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");
+		if(attributes.is_rafli eq 1){
+            ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;1;#evaluate('attributes.SHELF_CODE#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");}else{
+                ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;1;#evaluate('attributes.LOT_NO#row_i#')#");
             }
 </cfscript>
 <cfset file_name = "#createUUID()#.txt">
@@ -36,7 +48,7 @@
 <cfset attributes.location_id = ListGetAt(attributes.txt_department_in,2,'-')>
 <cfset attributes.process_date = Dateformat(now(),'dd/mm/yyyy')>
 <cfset attributes.stock_identity_type = 2><!--- Tip Barkod --->
-<cfif attributes.is_rafsiz eq 0>
+<cfif attributes.is_rafli eq 1>
     <CFSET attributes.add_file_format_1="SHELF_CODE">
     <CFSET attributes.add_file_format_2="LOT_NO">
 <cfelse>
@@ -62,63 +74,60 @@
 <cf_box title="Sayim">
     <table>
         <tr>
-           <cfif attributes.is_default_depo eq 0>
+            <cfif attributes.is_default_depo eq 1> <!---//BILGI EĞER SAYIM DEPOSU DEFAULTSA---->
+                <td>
+                    <div class="form-group">
+                        <input type="hidden" id="DEPOLAMA" name="DEPOLAMA" value="<cfoutput>#attributes.default_depo#</cfoutput>"> 
+                    </div>
+                </td>
+            <cfelse>
+                <td>
+                    <div class="form-group">
+                        <label>Depo - Lokasyon</label>
+                        <cfquery name="GETSL" datasource="#DSN#">
+                            SELECT D.DEPARTMENT_ID,SL.LOCATION_ID,D.DEPARTMENT_HEAD,SL.COMMENT FROM STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID ORDER BY D.DEPARTMENT_ID
+                        </cfquery>
+                        <select name="DEPOLAMA" id="DEPOLAMA" onchange="setDept(this)">
+                            <cfoutput query="GETSL" group="DEPARTMENT_ID">
+                                <optgroup label="#DEPARTMENT_HEAD#">
+                                 <cfoutput><option value="#DEPARTMENT_ID#-#LOCATION_ID#">#COMMENT#</option></cfoutput>                                                                        
+                                  </optgroup>
+                            </cfoutput>
+                        </select>                             
+                </td>
+            </cfif>
+            <cfif attributes.is_rafli eq 1> <!---//BILGI EĞER RAFSIZ KAYIT YAPILACAKSA---->
             <td>
                 <div class="form-group">
-                    <label>Depo - Lokasyon</label>
-                    <cfquery name="GETSL" datasource="#DSN#">
-                        SELECT D.DEPARTMENT_ID,SL.LOCATION_ID,D.DEPARTMENT_HEAD,SL.COMMENT FROM STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID ORDER BY D.DEPARTMENT_ID
-                    </cfquery>
-                    <select name="DEPOLAMA" id="DEPOLAMA" onchange="setDept(this)">
-                        <cfoutput query="GETSL" group="DEPARTMENT_ID">
-                            <optgroup label="#DEPARTMENT_HEAD#">
-                             <cfoutput><option value="#DEPARTMENT_ID#-#LOCATION_ID#">#COMMENT#</option></cfoutput>
-                                
-                                
-                              </optgroup>
-                        </cfoutput>
-                    </select>
-            </div>
+                    <label>Raf Kodu</label>
+                    <input type="text" name="SHELF_CODE" id="SHELF_CODE"  placeholder="Raf Kodu" onkeyup="GetShelf(this,event)">
+                </div>
             </td>
-            
-        <cfelse>
+            </cfif>
+            <cfif attributes.is_product_code eq 1> <!---//BILGI EĞER ÜRÜN KODU KAYIT YAPILACAKSA---->
+                <td>
+                    <div class="form-group">
+                        <label>Ürün Kodu</label>
+                        <input type="text" name="PRODUCT_CODE" id="PRODUCT_CODE"  placeholder="Ürün Kodu" onkeyup="getProduct(this,event,'<cfoutput>#attributes.product_code_area#</cfoutput>')">
+                    </div>
+                </td>
+            </cfif>
+            <cfif attributes.is_lot_no eq 1> <!---//BILGI LOTLU KAYIT YAPILACAKSA---->
+                <td>
+                    <div class="form-group">
+                        <label>Seri No (Lot No)</label>
+                        <input type="text" name="LOT_NO" id="LOT_NO"  placeholder="Seri No (Lot No)" onkeyup="getLotNo(this,event,'<cfoutput>#attributes.product_code_area#</cfoutput>')">
+                    </div>
+                </td>
+            </cfif>
             <td>
-                <input type="hidden" id="DEPOLAMA" name="DEPOLAMA" value="<cfoutput>#attributes.default_depo#</cfoutput>">
-            </td>
-        </cfif>
-            <td>
-                <button onclick="$('#frm1').submit()">Kaydet</button>
+                <input type="button" class="btn" onclick="$('#frm1').submit()" value="Kaydet">
             </td>
         </tr>
-<tr>
-    <td>
-        <div class="form-group">
-            <label>Lot No</label>
-            <input type="text" name="LotNo" id="LotNo" value="" onkeyup="GetLot(this,event)">
-        </div>  
-    </td>
-    <cfif attributes.is_rafsiz eq 0>
-    <td>
-        <div class="form-group">
-            <label>Raf No/label>
-            <input type="text" name="ShelfNumber" id="ShelfNumber" value="" onkeyup="GetShelf(this,event)" readonly>
-        </div>  
-    </td>
-<cfelse>
-    <td></td>
-</cfif>
-    <td>
-        <div class="form-group">
-            <label>Miktar</label>
-            <input type="text" name="AMOUNT" id="AMOUNT" value="1" readonly>
-            
-        </div>  
-    </td>
-</tr>
-        
+    </table>
 
-</table>
-<cfform id="frm1" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=26">
+
+<cfform id="frm1" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#">
 <cf_big_list >
     <tr>
         <th>
@@ -127,7 +136,7 @@
         <th>
             Ürün
         </th>
-        <cfif attributes.is_rafsiz eq 0>
+        <cfif attributes.is_rafli eq 1>
         <th>
             Raf
         </th>
@@ -142,254 +151,9 @@
 </cf_big_list>
 <input type="hidden" name="is_submit" value="1">
 <input type="hidden" name="row_count" id="RC" value="">
-<cfif attributes.is_default_depo eq 1>
-    <input type="hidden" name="TXT_DEPARTMENT_IN" id="TXT_DEPARTMENT_IN" value="<cfoutput>#attributes.default_depo#</cfoutput>">
-<cfelse>
-    <input type="hidden" name="TXT_DEPARTMENT_IN" id="TXT_DEPARTMENT_IN" value="">
-</cfif>
-
+<input type="hidden" name="TXT_DEPARTMENT_IN" id="TXT_DEPARTMENT_IN" value="<cfoutput>#attributes.default_depo#</cfoutput>">
 <input type="hidden" name="is_default_depo" id="is_default_depo" value="<cfoutput>#attributes.is_default_depo#</cfoutput>">
-<input type="hidden" name="is_rafsiz" id="is_rafsiz" value="<cfoutput>#attributes.is_rafsiz#</cfoutput>">
+<input type="hidden" name="is_rafli" id="is_rafli" value="<cfoutput>#attributes.is_rafli#</cfoutput>">
 </cfform>
 </cf_box>
-<script>
-var LotKontrolChar=<cfoutput>'#attributes.LotKontrolChar#'</cfoutput>
-var LotPosition=<cfoutput>'#attributes.LotPosition#'</cfoutput>
-var WeightPosition=<cfoutput>'#attributes.WeightPosition#'</cfoutput>
-var PRODUCT_ID="";
-var STOCK_ID="";
-var PRODUCT_CODE="";
-var PRODUCT_CODE_2="";
-var LOT_NO="";
-var AMOUNT=1;
-var RC=1;
-    function GetLot(el,ev) {
-        if(ev.keyCode==13){
-            var UrunBarkodu = el.value;
-            var ls=LotKontrolChar+""+LotKontrolChar
-    UrunBarkodu = ReplaceAll(UrunBarkodu, ls, LotKontrolChar);
-    var UrunKodu = list_getat(UrunBarkodu, 1, LotKontrolChar);
-    var LotNumarasi = list_getat(UrunBarkodu, parseInt(LotPosition), LotKontrolChar);
-    var Agirlik = list_getat(UrunBarkodu, parseInt(WeightPosition), LotKontrolChar);
-        AMOUNT=Agirlik 
-            var Urun=wrk_query("SELECT TOP 1 S.PRODUCT_NAME,S.PRODUCT_ID,S.STOCK_ID,SR.LOT_NO,S.PRODUCT_CODE_2,S.PRODUCT_CODE FROM STOCKS_ROW AS SR LEFT JOIN "+dsn3+".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='"+LotNumarasi+"'","DSN2")
-            if(Urun.recordcount>0){
-                PRODUCT_ID=Urun.PRODUCT_ID[0];
-                STOCK_ID=Urun.STOCK_ID[0];
-                PRODUCT_CODE=Urun.PRODUCT_CODE[0];
-                LOT_NO=Urun.LOT_NO[0];
-                PRODUCT_CODE_2=Urun.PRODUCT_CODE_2[0];
-               <cfif attributes.is_rafsiz eq 0> document.getElementById("ShelfNumber").removeAttribute("readonly");
-                $("#ShelfNumber").focus(); <cfelse>
-                satirEkle()
-                </cfif>          
-            }
-        }
-    }
-    function GetShelf(el,ev) {
-        if(ev.keyCode==13){
-            var str=document.getElementById("DEPOLAMA").value;
-            var STORE_ID=list_getat(str,1,"-")
-            var LOCATION_ID=list_getat(str,2,"-")
-            var SHELF_CODE=list_getat(el.value,3,"-")
-            var w=wrk_query("SELECT * FROM PRODUCT_PLACE WHERE STORE_ID="+STORE_ID+" AND LOCATION_ID="+LOCATION_ID+" AND SHELF_CODE='"+SHELF_CODE+"'","DSN3")
-            console.log(w)
-            if(w.recordcount>0){
-                var tr=document.createElement("tr");
-                var td=document.createElement("td");
-                td.innerText=LOT_NO;
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","PRODUCT_ID_"+RC)
-                input.setAttribute("value",PRODUCT_ID);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","STOCK_ID_"+RC)
-                input.setAttribute("value",STOCK_ID);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","PRODUCT_CODE"+RC)
-                input.setAttribute("value",PRODUCT_CODE);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","PRODUCT_CODE_2"+RC)
-                input.setAttribute("value",PRODUCT_CODE_2);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","LOT_NO"+RC)
-                input.setAttribute("value",LOT_NO);
-                td.appendChild(input);
-               
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","SHELF_CODE"+RC)
-                input.setAttribute("value",SHELF_CODE);
-                td.appendChild(input);
-
-
-                tr.appendChild(td);
-
-                var td=document.createElement("td");
-                td.innerText=PRODUCT_CODE_2;
-                tr.appendChild(td);
-
-                var td=document.createElement("td");
-                td.innerText=el.value;
-                tr.appendChild(td);
-
-                var td=document.createElement("td");
-                td.innerText=1;
-                tr.appendChild(td);
-                document.getElementById("SayimTable").appendChild(tr);
-                el.value='';
-                el.setAttribute("readonly","true")
-                $("#LotNo").val("");
-                $("#LotNo").focus();
-                PRODUCT_ID="";
-                STOCK_ID="";
-                PRODUCT_CODE="";
-                PRODUCT_CODE_2="";
-                LOT_NO="";
-                $("#RC").val(RC);
-                RC++;
-
-            }
-        }
-    }
-    function satirEkle(params) {
-        var str=document.getElementById("DEPOLAMA").value;
-            var STORE_ID=list_getat(str,1,"-")
-            var LOCATION_ID=list_getat(str,2,"-")
-            var tr=document.createElement("tr");
-                var td=document.createElement("td");
-                td.innerText=LOT_NO;
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","PRODUCT_ID_"+RC)
-                input.setAttribute("value",PRODUCT_ID);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","STOCK_ID_"+RC)
-                input.setAttribute("value",STOCK_ID);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","PRODUCT_CODE"+RC)
-                input.setAttribute("value",PRODUCT_CODE);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","PRODUCT_CODE_2"+RC)
-                input.setAttribute("value",PRODUCT_CODE_2);
-                td.appendChild(input);
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","LOT_NO"+RC)
-                input.setAttribute("value",LOT_NO);
-                td.appendChild(input);                             
-                tr.appendChild(td);
-                var td=document.createElement("td");
-                td.innerText=PRODUCT_CODE_2;
-                tr.appendChild(td);
-
-               
-
-                var td=document.createElement("td");
-                td.innerText=AMOUNT;
-                var input=document.createElement("input");
-                input.setAttribute("type","hidden");
-                input.setAttribute("name","AMOUNT"+RC)
-                input.setAttribute("value",AMOUNT);                
-                td.appendChild(input);     
-                
-                tr.appendChild(td);
-                document.getElementById("SayimTable").appendChild(tr);             
-                $("#LotNo").val("");
-                $("#LotNo").focus();
-                PRODUCT_ID="";
-                STOCK_ID="";
-                PRODUCT_CODE="";
-                PRODUCT_CODE_2="";
-                LOT_NO="";
-                $("#RC").val(RC);
-                RC++;
-            
-    }
-    function setDept(el) {
-        el.setAttribute("readonly","true");
-        $("#TXT_DEPARTMENT_IN").val(el.value);
-        $("#LotNo").focus();
-    }
-    function wrk_query(str_query, data_source, maxrows) {
-  var new_query = new Object();
-  var req;
-  if (!data_source) data_source = "dsn";
-  if (!maxrows) maxrows = 0;
-  function callpage(url) {
-    req = false;
-    if (window.XMLHttpRequest)
-      try {
-        req = new XMLHttpRequest();
-      } catch (e) {
-        req = false;
-      }
-    else if (window.ActiveXObject)
-      try {
-        req = new ActiveXObject("Msxml2.XMLHTTP");
-      } catch (e) {
-        try {
-          req = new ActiveXObject("Microsoft.XMLHTTP");
-        } catch (e) {
-          req = false;
-        }
-      }
-    if (req) {
-      function return_function_() {
-        if (req.readyState == 4 && req.status == 200)
-          try {
-            eval(req.responseText.replace(/\u200B/g, ""));
-            new_query = get_js_query; //alert('Cevap:\n\n'+req.responseText);//
-          } catch (e) {
-            new_query = false;
-          }
-      }
-      req.open("post", url + "&xmlhttp=1", false);
-      req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      req.setRequestHeader("pragma", "nocache");
-      if (encodeURI(str_query).indexOf("+") == -1)
-        // + isareti encodeURI fonksiyonundan gecmedigi icin encodeURIComponent fonksiyonunu kullaniyoruz. EY 20120125
-        req.send(
-          "str_sql=" +
-            encodeURI(str_query) +
-            "&data_source=" +
-            data_source +
-            "&maxrows=" +
-            maxrows
-        );
-      else
-        req.send(
-          "str_sql=" +
-            encodeURIComponent(str_query) +
-            "&data_source=" +
-            data_source +
-            "&maxrows=" +
-            maxrows
-        );
-      return_function_();
-    }
-  }
-
-  //TolgaS 20070124 objects yetkisi olmayan partnerlar var diye fuseaction objects2 yapildi
-  callpage("/index.cfm?fuseaction=objects2.emptypopup_get_js_query&isAjax=1");
-  //alert(new_query);
-
-  return new_query;
-}
-</script>
-
-
+<script src="/AddOns/Partner/js/sayim.js"></script>
