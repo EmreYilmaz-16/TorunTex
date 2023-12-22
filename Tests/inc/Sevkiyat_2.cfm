@@ -20,6 +20,8 @@
 <cfset LOCATION_ID=listGetAt(listGetAt(attributes.SELECT1,1,"*"),2,"-")>
 <cfset ORDER_ID=listGetAt(attributes.SELECT1,2,"*")>
 <cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
+<cfdump var="#attributes#">
+<cfabort>
 <CFIF SEPET_ID neq 0>
     
     <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#attributes.select1#">
