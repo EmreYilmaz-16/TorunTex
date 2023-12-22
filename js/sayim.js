@@ -151,7 +151,7 @@ function satirEkle(params) {
   }
 
   var td = document.createElement("td");
-  td.innerText = 1;
+  td.innerText = MIKTARIM;
   tr.appendChild(td);
   document.getElementById("SayimTable").appendChild(tr);
   debugger;
@@ -170,6 +170,7 @@ function satirEkle(params) {
   DEPARTMENT_ID = "";
   LOCATION_ID = "";
   LOT_NO = "";
+  MIKTARIM="";
   $("#RC").val(RC);
   RC++;
 }
