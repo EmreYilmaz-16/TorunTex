@@ -83,7 +83,7 @@ function getLotNo(el, ev, productCodeArea) {
         "'";
       var GetLotNoResult = wrk_query(GetLotNoQuery, "dsn2");
       console.log(GetLotNoResult);
-      if (getLotNo.recordcount) {
+      if (GetLotNoResult.recordcount >= 1) {
         PRODUCT_ID = GetLotNoResult.PRODUCT_ID[0];
         STOCK_ID = GetLotNoResult.STOCK_ID[0];
         PRODUCT_CODE = GetLotNoResult.PRODUCT_CODE[0];
