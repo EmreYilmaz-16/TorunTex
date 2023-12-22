@@ -68,9 +68,15 @@ function islemYap(el, ev) {
     if (Res1.recordcount == 0) {
       //BILGI LOT_NO DAN STOK VERİSİNE ULAŞMAK İÇİN BURASI VAR
       var QueryString =
-        "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.UNIT2 FROM "+dsn2+".STOCKS_ROW AS SR";
+        "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.UNIT2 FROM " +
+        dsn2 +
+        ".STOCKS_ROW AS SR";
       QueryString +=
-        " INNER JOIN "+dsn+".STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID=SR.STORE  INNER JOIN "+dsn3+".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
+        " INNER JOIN " +
+        dsn +
+        ".STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID=SR.STORE  INNER JOIN " +
+        dsn3 +
+        ".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
         LotNo +
         "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME,SR.UNIT2 ) AS TTTS WHERE SSSR<>0";
       var Res2 = wrk_query(QueryString, "dsn2");
@@ -142,7 +148,7 @@ function islemYap(el, ev) {
           FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
           FROM_UNIT2: OSX.UNIT2,
           TO_WRK_ROW_ID: "",
-          SEPET_ID:OSX.SEPET_ID
+          SEPET_ID: OSX.SEPET_ID,
         };
         var str = JSON.stringify(TasimaVeri);
         $.get(
@@ -171,7 +177,7 @@ function islemYap(el, ev) {
             FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
             FROM_UNIT2: OSX.UNIT2,
             TO_WRK_ROW_ID: Res3.WRK_ROW_ID[0],
-            SEPET_ID:OSX.SEPET_ID
+            SEPET_ID: OSX.SEPET_ID,
           };
           var str = JSON.stringify(TasimaVeri);
           $.get(
@@ -223,9 +229,15 @@ function islemYap(el, ev) {
       document.getElementById("LastRead").setAttribute("class", "text-success");
     } else {
       var QueryString =
-        "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT FROM "+dsn2+".STOCKS_ROW AS SR";
+        "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT FROM " +
+        dsn2 +
+        ".STOCKS_ROW AS SR";
       QueryString +=
-        " INNER JOIN "+dsn+".STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID=SR.STORE  INNER JOIN "+dsn3+".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
+        " INNER JOIN " +
+        dsn +
+        ".STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID=SR.STORE  INNER JOIN " +
+        dsn3 +
+        ".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
         LotNo +
         "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME ) AS TTTS WHERE SSSR<>0";
       var Res2 = wrk_query(QueryString, "dsn2");
@@ -260,7 +272,7 @@ function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2 = "") {
     AMOUNT +
     "," +
     AMOUNT2 +
-    ",'KG'"
+    ",'KG'";
   if (UNIT2.length > 0) {
     str = str + ",'" + UNIT2 + "'";
   } else {
@@ -287,7 +299,9 @@ function SepeteEkle(
   UNIT2 = ""
 ) {
   var str =
-    "INSERT INTO  "+dsn3+".SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
+    "INSERT INTO  " +
+    dsn3 +
+    ".SEVKIYAT_SEPET_ROW_PBS (SEPET_ID,WRK_ROW_ID,PRODUCT_ID,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
     SEPET_ID +
     ",'" +
     WRK_ROW_ID +
@@ -417,7 +431,9 @@ function GetAjaxQuery(str_query, data_source, maxrows) {
 }
 function SevkiyatKapa(el, IID) {
   var str =
-    "UPDATE "+dsn3+".SEVKIYAT_SEPET_PBS set IS_CLOSED=1 ^ISNULL(IS_CLOSED,0) WHERE SEPET_ID=" +
+    "UPDATE " +
+    dsn3 +
+    ".SEVKIYAT_SEPET_PBS set IS_CLOSED=1 ^ISNULL(IS_CLOSED,0) WHERE SEPET_ID=" +
     IID;
   var res = GetAjaxQuery(str, "dsn3");
   console.log(res);
@@ -547,7 +563,9 @@ function EksiislemYap(el, ev) {
     );
     if (Res.recordcount > 0) {
       var Str1 =
-        "INSERT INTO "+dsn3+".SEVKIYAT_SEPET_CIKAN (LOT_NO,SEPET_ROW_ID,AMOUNT,SEPET_ID,PRODUCT_ID,RECORD_EMP,RECORD_DATE) VALUES ('" +
+        "INSERT INTO " +
+        dsn3 +
+        ".SEVKIYAT_SEPET_CIKAN (LOT_NO,SEPET_ROW_ID,AMOUNT,SEPET_ID,PRODUCT_ID,RECORD_EMP,RECORD_DATE) VALUES ('" +
         LotNo +
         "'," +
         Res.SEPET_ROW_ID[0] +
@@ -583,18 +601,19 @@ function IptalEt(params) {
     var Yanıt = GetAjaxQuery(Str1, "dsn3");
     console.log(Yanıt);
     var Str1 =
-    "DELETE FROM SEVKIYAT_SEPET_ROW_PBS WHERE SEPET_ID IN (" +
-    SEPET_ID +
-    ")";
-  var Yanıt = GetAjaxQuery(Str1, "dsn3");
-  var Str1 =
-  "DELETE FROM SEVKIYAT_SEPET_PBS WHERE SEPET_ID IN (" +
-  SEPET_ID +
-  ")";
-var Yanıt = GetAjaxQuery(Str1, "dsn3");
-  console.log(Yanıt);
+      "DELETE FROM SEVKIYAT_SEPET_ROW_PBS WHERE SEPET_ID IN (" + SEPET_ID + ")";
+    var Yanıt = GetAjaxQuery(Str1, "dsn3");
+    var Str1 =
+      "DELETE FROM SEVKIYAT_SEPET_PBS WHERE SEPET_ID IN (" + SEPET_ID + ")";
+    var Yanıt = GetAjaxQuery(Str1, "dsn3");
+    console.log(Yanıt);
+    $.get(
+      "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=fis_sil&SEPET_ID=" +
+        SEPET_ID
+    );
     alert("Belge İptal Edilmiştir");
     //SEVKIYAT_SEPET_ROW_PBS
-    window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=22";
+    window.location.href =
+      "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=22";
   }
 }

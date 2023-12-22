@@ -1,6 +1,9 @@
 <cfquery name="getHarekets" datasource="#dsn2#">
-SELECT * FROM STOCK_FIS AS SF WHERE PROCESS_CAT=294
+SELECT * FROM STOCK_FIS AS SF WHERE  PROCESS_CAT=294 <cfif isDefined("attributes.SEPET_ID")>
+    AND FIS_ID IN(SELECT FIS_ID FROM w3Toruntex_1.SEPET_FIS_RELATIONS WHERE SEPET_ID=#attributes.SEPET_ID# )
+</cfif>
 </cfquery>
+
 <cfset fis_sayisi=0>
 <cfloop query="getHarekets">
     <cfset fis_sayisi=fis_sayisi+1>
