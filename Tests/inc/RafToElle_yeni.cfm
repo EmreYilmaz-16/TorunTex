@@ -24,7 +24,7 @@
                 </div>
             </td>
             <td>
-                <button class="btn btn-success" onclick="$('#form1').submit">Kaydet</button>
+                <button class="btn btn-success" onclick="$('#form1').submit()">Kaydet</button>
             </td>
             </tr>
             <tr>
