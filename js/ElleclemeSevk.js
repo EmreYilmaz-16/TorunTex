@@ -26,7 +26,7 @@ function getShelfProducts(el) {
         str+=" GROUP BY T2.PROJECT_ID,LOT_NO,SHELF_NUMBER,PROJECT_HEAD,T2.STOCK_ID,S.PRODUCT_CODE,S.PRODUCT_NAME,UNIT,UNIT2,PS.SHELF_CODE,STORE_ID,PS.LOCATION_ID) AS TS WHERE A>0 AND SHELF_NUMBER="+el.value
 $("#URUNLER").html("");
   var Res = wrk_query(str, "dsn3");
-  for (let index = 0; index < Res.recordcount.length; index++) {
+  for (let index = 0; index < Res.recordcount; index++) {
     var tr=document.createElement("tr");
     var td=document.createElement("td");
     td.innerText=Res.PRODUCT_CODE[index];
