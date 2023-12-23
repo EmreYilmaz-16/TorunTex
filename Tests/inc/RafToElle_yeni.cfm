@@ -49,3 +49,4 @@
 
 </cf_box>
 
+<script src="/AddOns/Partner/js/ElleclemeSevk.js"></script>
