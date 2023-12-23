@@ -23,6 +23,8 @@
 <cfloop list="#attributes.PROJECT_ID_LIST#" item="it">
     <cfset OOO=structNew()>
     <cfset OOO.PROJECT_ID=it>
+    <CFSET OOO.DEPARTMENT_ID=listGetAt(attributes.DEP_LOC,1,"-")>
+    <CFSET OOO.LOCATION_ID=listGetAt(attributes.DEP_LOC,2,"-")>
     <cfset OOO.SATIRLAR=arrayNew(1)>
     <cfloop array="#evaluate("attributes.PROJECT#it#")#" item="ai">
     
@@ -31,7 +33,8 @@
         OBJ={
             STOCK_ID=evaluate("attributes.STOCK_ID#ai#"),
             MIKTAR=evaluate("attributes.MIKTAR#ai#"),
-            MIKTAR2=evaluate("attributes.MIKTAR2#ai#")
+            MIKTAR2=evaluate("attributes.MIKTAR2#ai#"),
+            SHELF_ID=attributes.SHELF_ID
         }
         arrayAppend(OOO.SATIRLAR,OBJ);
     </cfscript>        
