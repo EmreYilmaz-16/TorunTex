@@ -43,6 +43,7 @@
                                         Çuval
                                     </th>
                                     <th>Beyanname</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody  id="URUNLER">

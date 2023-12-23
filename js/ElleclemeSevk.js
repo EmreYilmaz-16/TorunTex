@@ -50,6 +50,9 @@ $("#URUNLER").html("");
     td.appendChild(input);    
     tr.appendChild(td);
     var td=document.createElement("td");
+    td.innerText=Res.PROJECT_HEAD[index];
+    tr.appendChild(td);
+    var td=document.createElement("td");
     var btn=document.createElement("button");
     btn.innerText="Ekle"
     btn.setAttribute("class","btn btn-sm btn-success");
