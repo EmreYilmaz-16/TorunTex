@@ -123,9 +123,9 @@ function hasapEt(el, ev) {
   document.getElementById("A_" + RC).value = commaSplit(e);
 }
 function satirEkle(el, rc, STOCK_ID,PROJECT_ID) {
-  var PRODUCT_NAME = document.getElementById("PRODUCT_NAME_" + rc);
-  var PRODUCT_CODE = document.getElementById("PRODUCT_CODE_" + rc);
-  var PROJECT_HEAD = document.getElementById("PROJECT_HEAD_" + rc);
+  var PRODUCT_NAME = document.getElementById("PRODUCT_NAME_" + rc).innerText;
+  var PRODUCT_CODE = document.getElementById("PRODUCT_CODE_" + rc).innerText;
+  var PROJECT_HEAD = document.getElementById("PROJECT_HEAD_" + rc).innerText;
   var A=document.getElementById("A_"+rc).value;
   var A2=document.getElementById("A2_"+rc).value;
   var tr=document.createElement("tr");
