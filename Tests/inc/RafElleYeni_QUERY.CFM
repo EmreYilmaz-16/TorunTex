@@ -4,6 +4,9 @@
 <cfloop from="1" to="#attributes.TSATIR#" index="i">
     <CFSET PROJECT_ID=evaluate("attributes.PROJECT_ID#i#")>
     <cfif isDefined("attributes.PROJECT#PROJECT_ID#")>
+        <cfscript>
+            arrayAppend(evaluate("attributes.PROJECT#PROJECT_ID#"),i)
+        </cfscript>
     <CFELSE>
         <CFSET "attributes.PROJECT#PROJECT_ID#"=arrayNew(1)>
         <cfscript>
