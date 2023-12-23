@@ -181,7 +181,9 @@ function satirEkle(el, rc, STOCK_ID,PROJECT_ID) {
   td.appendChild(input);
   tr.appendChild(td);
   document.getElementById("Sepetim").appendChild(tr);
+  $("#TSATIR").val(ROW_COUNT);
   ROW_COUNT++;
+  
 }
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();

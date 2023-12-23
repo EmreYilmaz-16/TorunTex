@@ -39,6 +39,7 @@
     <cfform id="form1" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=35">
         <input type="hidden" name="SHELF_ID" id="SHELF_ID">
         <input type="hidden" name="DEP_LOC" id="DEP_LOC">
+        <input type="hidden" name="TSATIR" id="TSATIR">
     <cf_big_list>
         <thead>
             <tr>
