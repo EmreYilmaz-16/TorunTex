@@ -9,7 +9,7 @@
                     <label>Hol </label>
                     <select name="LOCATION" id="LOCATION" onchange="getShelves(this)">
                         <option value="">Seçiniz</option>                       
-                        <cfoutput query="#getLocations#">
+                        <cfoutput query="getLocations">
                         <option value="#DEPARTMENT_LOCATION#">#COMMENT#</option>
                         </cfoutput>
                     </select>
