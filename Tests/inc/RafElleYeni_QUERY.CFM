@@ -1,5 +1,5 @@
 <cfdump var="#attributes#">
-<cfset BELGELER=structNew()>
+
 <CFSET attributes.PROJECT_ID_LIST="">
 <cfloop from="1" to="#attributes.TSATIR#" index="i">
     <CFSET PROJECT_ID=evaluate("attributes.PROJECT_ID#i#")>
@@ -19,8 +19,30 @@
 
 </cfloop>
 <cfdump var="#attributes#">
-
-
+<cfset attributes.BELGELER=arrayNew(1)>
+<cfloop list="#attributes.PROJECT_ID_LIST#" item="it">
+    <cfset OOO=structNew()>
+    <cfset OOO.PROJECT_ID=it>
+    <cfset OOO.SATIRLAR=arrayNew(1)>
+    <cfloop array="#evaluate("attributes.PROJECT#it#")#" item="ai">
+    
+        <cfscript>
+        
+        OBJ={
+            STOCK_ID=evaluate("attributes.STOCK_ID#ai#"),
+            MIKTAR=evaluate("attributes.MIKTAR#ai#"),
+            MIKTAR2=evaluate("attributes.MIKTAR2#ai#")
+        }
+        arrayAppend(OOO.SATIRLAR,OBJ);
+    </cfscript>        
+       
+        
+    </cfloop>
+<script>
+    arrayAppend(BELGELER,OOO)>
+</script>
+</cfloop>
+<cfdump var="#BELGELER#">
 
 <cfabort>
 
