@@ -16,9 +16,7 @@
 
 </cfloop>
 <cfdump var="#attributes#">
-<cfloop list="#attributes.PROJECT_ID_LIST#">
 
-</cfloop>
 
 
 <cfabort>
