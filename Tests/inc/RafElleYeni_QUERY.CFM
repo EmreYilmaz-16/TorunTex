@@ -39,7 +39,7 @@
         
     </cfloop>
 <cfscript>
-    arrayAppend(attributes.BELGELER,OOO)>
+    arrayAppend(attributes.BELGELER,OOO);
 </cfscript>
 </cfloop>
 <cfdump var="#attributes.BELGELER#">
