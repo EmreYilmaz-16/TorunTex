@@ -7,7 +7,7 @@
     <CFELSE>
         <CFSET "attributes.PROJECT#PROJECT_ID#"=arrayNew(1)>
         <cfscript>
-            arrayAppend("attributes.PROJECT#PROJECT_ID#",i)
+            arrayAppend(evaluate("attributes.PROJECT#PROJECT_ID#"),i)
             
         </cfscript>
     </cfif>
