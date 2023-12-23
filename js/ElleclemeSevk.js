@@ -93,6 +93,7 @@ function hasapEt(el, ev) {
   var BASLANGIC_MIKTAR2 = el.getAttribute("data-stm");
   BASLANGIC_MIKTAR2 = parseInt(BASLANGIC_MIKTAR2);
   var RC = el.getAttribute("data-rid");
+  RC=parseInt(RC);
   var BASLANGIC_KG = document.getElementById("A_" + RC).getAttribute("data-stm");
   BASLANGIC_KG = parseFloat(BASLANGIC_KG);
   var BirimCuvalAgirlik = BASLANGIC_KG / BASLANGIC_MIKTAR2;
