@@ -89,6 +89,7 @@ function getShelfProducts(el) {
   }
 }
 function hasapEt(el, ev) {
+    debugger;
   var BASLANGIC_MIKTAR2 = el.getAttribute("data-stm");
   BASLANGIC_MIKTAR2 = parseInt(BASLANGIC_MIKTAR2);
   var RC = el.getAttribute("data-rid");
