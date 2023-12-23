@@ -41,7 +41,7 @@ GROUP BY T2.PROJECT_ID,LOT_NO,SHELF_NUMBER,PROJECT_HEAD,T2.STOCK_ID,S.PRODUCT_CO
         <td id="PROJECT_HEAD_#CURRENTROW#">#PROJECT_HEAD#</td>
         <td>
             <div class="form-group">
-                <input type="text" name="A_#CURRENTROW#" value="#A#" data-rid="#CURRENTROW#" id="A_#CURRENTROW#" readonly="yes" data-stm="#tlformat(A)# KG">
+                <input type="text" name="A_#CURRENTROW#" value="#tlformat(A)#" data-rid="#CURRENTROW#" id="A_#CURRENTROW#" readonly="yes" data-stm="#A# KG">
             </div>
         </td>
         <td>
