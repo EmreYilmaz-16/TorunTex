@@ -63,6 +63,7 @@ function getShelfProducts(el) {
     input.setAttribute("readonly", "yes");
     input.setAttribute("data-rid", index);
     input.setAttribute("id", "A_" + index);
+    input.setAttribute("data-stm", Res.A[index]);
     td.appendChild(input);
     tr.appendChild(td);
 
