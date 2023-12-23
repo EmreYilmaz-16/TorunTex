@@ -11,8 +11,8 @@ function getShelves(el) {
   $("#SHELF").html('<option value="">Seçiniz</option>');
   for (let index = 0; index < Res.SHELF_CODE.length; index++) {
     var opt = document.createElement("option");
-    opt.setAttribute("value", Res.PRODUCT_PLACE_ID[i]);
-    opt.innerText = Res.SHELF_CODE[i];
+    opt.setAttribute("value", Res.PRODUCT_PLACE_ID[index]);
+    opt.innerText = Res.SHELF_CODE[index];
     document.getElementById("SHELF").appendChild(opt);
   }
 }
