@@ -23,6 +23,8 @@
                     </select>
                 </div>
             </td>
+            </tr>
+            <tr>
             <td>
                 <div class="form-group">
                     <label>Ürün</label>
