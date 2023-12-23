@@ -62,7 +62,7 @@ function getShelfProducts(el) {
     input.setAttribute("type", "text");
     input.setAttribute("readonly", "yes");
     input.setAttribute("data-rid", index);
-    input.setAttribute("ID", "A" + index);
+    input.setAttribute("id", "A_" + index);
     td.appendChild(input);
     tr.appendChild(td);
 
@@ -72,7 +72,7 @@ function getShelfProducts(el) {
     input.setAttribute("type", "text");
     input.setAttribute("onchange", "hasapEt(this,event)");
     input.setAttribute("data-rid", index);
-    input.setAttribute("ID", "A2" + index);
+    input.setAttribute("id", "A2_" + index);
     input.setAttribute("data-stm", Res.A2[index]);
     td.appendChild(input);
     tr.appendChild(td);
@@ -93,7 +93,7 @@ function hasapEt(el, ev) {
   var BASLANGIC_MIKTAR2 = el.getAttribute("data-stm");
   BASLANGIC_MIKTAR2 = parseInt(BASLANGIC_MIKTAR2);
   var RC = el.getAttribute("data-rid");
-  var BASLANGIC_KG = document.getElementById("A" + RC).getAttribute("data-stm");
+  var BASLANGIC_KG = document.getElementById("A_" + RC).getAttribute("data-stm");
   BASLANGIC_KG = parseFloat(BASLANGIC_KG);
   var BirimCuvalAgirlik = BASLANGIC_KG / BASLANGIC_MIKTAR2;
   var e = BirimCuvalAgirlik * parseInt(el.value);
