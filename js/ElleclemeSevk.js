@@ -17,6 +17,15 @@ function getShelves(el) {
   }
 }
 function getShelfProducts(el) {
+  AjaxPageLoad(
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=34&SHELF_NUMBER=" +
+      el.value,
+    "URUNLER",
+    1,
+    "Yükleniyor"
+  );
+}
+function getShelfProductsz(el) {
   var str =
     "SELECT * FROM  (SELECT SUM(AMOUNT) AS A,SUM(AMOUNT2) AS A2,T2.PROJECT_ID,LOT_NO,SHELF_NUMBER,PP.PROJECT_HEAD,T2.STOCK_ID,S.PRODUCT_CODE,S.PRODUCT_NAME,UNIT,UNIT2,PS.SHELF_CODE,STORE_ID,PS.LOCATION_ID FROM (";
   str +=
@@ -51,10 +60,12 @@ function getShelfProducts(el) {
   for (let index = 0; index < Res.recordcount; index++) {
     var tr = document.createElement("tr");
     var td = document.createElement("td");
+    td.setAttribute("id", "PRODUCT_CODE_" + index);
     td.innerText = Res.PRODUCT_CODE[index];
     tr.appendChild(td);
     var td = document.createElement("td");
     td.innerText = Res.PRODUCT_NAME[index];
+    td.setAttribute("id", "PRODUCT_NAME" + index);
     tr.appendChild(td);
     var td = document.createElement("td");
     var input = document.createElement("input");
@@ -79,29 +90,42 @@ function getShelfProducts(el) {
     tr.appendChild(td);
     var td = document.createElement("td");
     td.innerText = Res.PROJECT_HEAD[index];
+    td.setAttribute("id", "PROJECT_HEAD_" + index);
     tr.appendChild(td);
     var td = document.createElement("td");
+
     var btn = document.createElement("button");
     btn.innerText = "Ekle";
     btn.setAttribute("class", "btn btn-sm btn-success");
     td.appendChild(btn);
     tr.appendChild(td);
+    btn.setAttribute(
+      "onclick",
+      "satirEkle(this," + index + "," + Res.STOCK_ID[index] + ")"
+    );
     document.getElementById("URUNLER").appendChild(tr);
   }
 }
+
 function hasapEt(el, ev) {
-    debugger;
+  debugger;
   var BASLANGIC_MIKTAR2 = el.getAttribute("data-stm");
   BASLANGIC_MIKTAR2 = parseInt(BASLANGIC_MIKTAR2);
   var RC = el.getAttribute("data-rid");
-  RC=parseInt(RC);
-  var BASLANGIC_KG = document.getElementById("A_" + RC).getAttribute("data-stm");
+  RC = parseInt(RC);
+  var BASLANGIC_KG = document
+    .getElementById("A_" + RC)
+    .getAttribute("data-stm");
   BASLANGIC_KG = parseFloat(BASLANGIC_KG);
   var BirimCuvalAgirlik = BASLANGIC_KG / BASLANGIC_MIKTAR2;
   var e = BirimCuvalAgirlik * parseInt(el.value);
-  document.getElementById("A_" + RC).value=commaSplit(e);
+  document.getElementById("A_" + RC).value = commaSplit(e);
 }
-function satirEkle() {}
+function satirEkle(el, rc, STOCK_ID) {
+  var PRODUCT_NAME = document.getElementById("PRODUCT_NAME_" + rc);
+  var PRODUCT_CODE = document.getElementById("PRODUCT_CODE_" + rc);
+  var PROJECT_HEAD = document.getElementById("PROJECT_HEAD_" + rc);
+}
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
   var req;

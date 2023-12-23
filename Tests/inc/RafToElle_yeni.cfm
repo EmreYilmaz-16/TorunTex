@@ -25,42 +25,13 @@
             </td>
             </tr>
             <tr>
-            <td colspan="2">
-                <div class="form-group">
-                    <label>Ürün</label>
-                    <div>
-                        <table class="table table-stripped">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Ürün K
-                                    </th>
-                                    <th>
-                                        Ürün
-                                    </th>
-                                    <th>
-                                        Miktar
-                                    </th>
-                                    <th>
-                                        Çuval
-                                    </th>
-                                    <th>Beyanname</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody  id="URUNLER">
-
-                            </tbody>
-                        </table>
-                    </div>
+            <td colspan="2">                                    
+                <div id="URUNLER">   
+                       
                 </div>
-            </td>
-        </tr>   
-        <tr style="display:none">
-            <td>
                 
             </td>
-        </tr>     
+        </tr>             
     </table>
     <cf_big_list>
         <thead>
@@ -80,7 +51,7 @@
             </tr>
         </thead>
         <tbody id="Sepetim">
-            
+
         </tbody>
     </cf_big_list>
 
