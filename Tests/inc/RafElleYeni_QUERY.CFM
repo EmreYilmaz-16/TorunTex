@@ -38,9 +38,9 @@
        
         
     </cfloop>
-<script>
+<cfscript>
     arrayAppend(attributes.BELGELER,OOO)>
-</script>
+</cfscript>
 </cfloop>
 <cfdump var="#attributes.BELGELER#">
 
