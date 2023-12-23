@@ -4,7 +4,7 @@
     </cfquery>
     <table>
         <tr>
-            <td>
+            <td style="vertical-align:top">
                 <div class="form-group">
                     <label>Hol </label>
                     <select name="LOCATION" id="LOCATION" onchange="getShelves(this)">
@@ -15,7 +15,7 @@
                     </select>
                 </div>
             </td>
-            <td>
+            <td style="vertical-align:top">
                 <div class="form-group">
                     <label>Raf</label>
                     <select name="SHELF" id="SHELF" onchange="getShelfProducts(this)">
