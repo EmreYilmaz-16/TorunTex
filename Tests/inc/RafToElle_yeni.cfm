@@ -33,11 +33,15 @@
             </td>
         </tr>             
     </table>
+    <cfform>
     <cf_big_list>
         <thead>
             <tr>
                 <th>
                     Ürün Kodu
+                </th>
+                <th>
+                    Ürün
                 </th>
                 <th>
                     Beyanname No
@@ -54,7 +58,7 @@
 
         </tbody>
     </cf_big_list>
-
+</cfform>
 </cf_box>
 <cfoutput>
 <script>

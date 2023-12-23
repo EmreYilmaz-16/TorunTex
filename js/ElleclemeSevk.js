@@ -1,3 +1,4 @@
+var ROW_COUNT=1;
 function getShelves(el) {
   var DEPARTMENT_ID = list_getat(el.value, 1, "-");
   var LOCATION_ID = list_getat(el.value, 2, "-");
@@ -125,6 +126,52 @@ function satirEkle(el, rc, STOCK_ID) {
   var PRODUCT_NAME = document.getElementById("PRODUCT_NAME_" + rc);
   var PRODUCT_CODE = document.getElementById("PRODUCT_CODE_" + rc);
   var PROJECT_HEAD = document.getElementById("PROJECT_HEAD_" + rc);
+  var A=document.getElementById("A_"+rc).value;
+  var A2=document.getElementById("A2_"+rc).value;
+  var tr=document.createElement("tr");
+  
+  var td=document.createElement("td");
+  td.innerText(PRODUCT_CODE);
+  tr.appendChild(td);
+
+  var td=document.createElement("td");
+  td.innerText(PRODUCT_NAME);
+  tr.appendChild(td);
+
+  var td=document.createElement("td");
+  td.innerText(PROJECT_HEAD);
+  tr.appendChild(td);
+
+
+
+  var td=document.createElement("td");
+  var input=document.createElement("input");
+  input.setAttribute("name","MIKTAR2"+ROW_COUNT);
+  input.setAttribute("type","text");
+  input.setAttribute("readonly","yes");
+  input.value=A2;
+  td.appendChild(input);
+  tr.appendChild(td);
+
+  var td=document.createElement("td");
+  var input=document.createElement("input");
+  input.setAttribute("type","text");
+  input.setAttribute("readonly","yes");
+  input.setAttribute("name","MIKTAR"+ROW_COUNT);
+  input.value=A;
+  td.appendChild(input);
+  tr.appendChild(td);
+
+  var td=document.createElement("td");
+  var input=document.createElement("input");
+  input.setAttribute("type","hidden");
+  input.setAttribute("readonly","yes");
+  input.setAttribute("name","STOCK_ID"+ROW_COUNT);
+  input.value=STOCK_ID;
+  td.appendChild(input);
+  tr.appendChild(td);
+  document.getElementById("Sepetim").appendChild(tr);
+  ROW_COUNT++;
 }
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
