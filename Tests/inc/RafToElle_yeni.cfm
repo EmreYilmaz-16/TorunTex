@@ -23,7 +23,41 @@
                     </select>
                 </div>
             </td>
-        </tr>        
+            <td>
+                <div class="form-group">
+                    <label>Ürün</label>
+                    <div>
+                        <table class="table table-stripped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Ürün K
+                                    </th>
+                                    <th>
+                                        Ürün
+                                    </th>
+                                    <th>
+                                        Miktar
+                                    </th>
+                                    <th>
+                                        Çuval
+                                    </th>
+                                    <th>Beyanname</th>
+                                </tr>
+                            </thead>
+                            <tbody  id="URUNLER">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>   
+        <tr style="display:none">
+            <td>
+                
+            </td>
+        </tr>     
     </table>
     <cf_big_list>
         <thead>
@@ -48,5 +82,13 @@
     </cf_big_list>
 
 </cf_box>
+<cfoutput>
+<script>
+    dsn="#dsn#";
+    dsn1="#dsn1#";
+    dsn2="#dsn2#";
+    dsn3="#dsn3#";
 
+</script>
+</cfoutput>
 <script src="/AddOns/Partner/js/ElleclemeSevk.js"></script>
