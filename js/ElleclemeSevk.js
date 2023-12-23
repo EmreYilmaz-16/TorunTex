@@ -47,6 +47,7 @@ $("#URUNLER").html("");
     input.value=Res.A2[index];
     input.setAttribute("type","text");
     input.setAttribute("onchange","hasapEt(this)");
+    input.setAttribute("data-stm",Res.A2[index])
     td.appendChild(input);    
     tr.appendChild(td);
     var td=document.createElement("td");
@@ -60,6 +61,9 @@ $("#URUNLER").html("");
     tr.appendChild(td)
     document.getElementById("URUNLER").appendChild(tr);
   }
+}
+function hasapEt (el,ev){
+    
 }
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
