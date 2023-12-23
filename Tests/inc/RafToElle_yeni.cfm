@@ -23,6 +23,9 @@
                     </select>
                 </div>
             </td>
+            <td>
+                <button class="btn btn-success" onclick="$('#form1').submit">Kaydet</button>
+            </td>
             </tr>
             <tr>
             <td colspan="2">                                    
@@ -33,7 +36,9 @@
             </td>
         </tr>             
     </table>
-    <cfform>
+    <cfform id="form1" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=35">
+        <input type="hidden" name="SHELF_ID">
+        <input type="hidden" name="DEP_LOC">
     <cf_big_list>
         <thead>
             <tr>

@@ -53,6 +53,7 @@
 <cfif attributes.sayfa eq 32><cfinclude template="inc/FaturaFis.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 33><cfinclude template="inc/RafToElle_yeni.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 34><cfinclude template="inc/antrepo_urun_sec.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 35><cfinclude template="inc/RafElleYeni_QUERY.cfm"><cfabort></cfif>
 
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
 

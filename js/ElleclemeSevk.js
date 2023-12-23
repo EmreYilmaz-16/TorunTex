@@ -9,6 +9,7 @@ function getShelves(el) {
       LOCATION_ID,
     "DSN3"
   );
+  $("#DEP_LOC").val(el.value);
   $("#SHELF").html('<option value="">Seçiniz</option>');
   for (let index = 0; index < Res.SHELF_CODE.length; index++) {
     var opt = document.createElement("option");
@@ -16,8 +17,11 @@ function getShelves(el) {
     opt.innerText = Res.SHELF_CODE[index];
     document.getElementById("SHELF").appendChild(opt);
   }
+  el.setAttribute("disabled","yes")
 }
 function getShelfProducts(el) {
+    $("#SHELF_ID").val(el.value);
+    el.setAttribute("disabled","yes")
   AjaxPageLoad(
     "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=34&SHELF_NUMBER=" +
       el.value,
