@@ -131,15 +131,15 @@ function satirEkle(el, rc, STOCK_ID) {
   var tr=document.createElement("tr");
   
   var td=document.createElement("td");
-  td.innerText(PRODUCT_CODE);
+  td.innerText=PRODUCT_CODE;
   tr.appendChild(td);
 
   var td=document.createElement("td");
-  td.innerText(PRODUCT_NAME);
+  td.innerText=PRODUCT_NAME;
   tr.appendChild(td);
 
   var td=document.createElement("td");
-  td.innerText(PROJECT_HEAD);
+  td.innerText=PROJECT_HEAD;
   tr.appendChild(td);
 
 
