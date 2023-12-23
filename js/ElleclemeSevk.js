@@ -99,7 +99,7 @@ function hasapEt(el, ev) {
   BASLANGIC_KG = parseFloat(BASLANGIC_KG);
   var BirimCuvalAgirlik = BASLANGIC_KG / BASLANGIC_MIKTAR2;
   var e = BirimCuvalAgirlik * parseInt(el.value);
-  document.getElementById("A" + RC).value=commaSplit(e);
+  document.getElementById("A_" + RC).value=commaSplit(e);
 }
 function satirEkle() {}
 function wrk_query(str_query, data_source, maxrows) {
