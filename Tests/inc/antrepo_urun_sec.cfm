@@ -50,7 +50,7 @@ GROUP BY T2.PROJECT_ID,LOT_NO,SHELF_NUMBER,PROJECT_HEAD,T2.STOCK_ID,S.PRODUCT_CO
             </div>
         </td>
         <td>
-            <button type="button" class="btn btn-sm btn-success" onclick="satirEkle(this,#CURRENTROW#,#STOCK_ID#)">Ekle</button>
+            <button type="button" class="btn btn-sm btn-success" onclick="satirEkle(this,#CURRENTROW#,#STOCK_ID#,#PROJECT_ID#)">Ekle</button>
         </td>
     </tr>
 </cfoutput>
