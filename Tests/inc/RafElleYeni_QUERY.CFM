@@ -1,5 +1,23 @@
 <cfdump var="#attributes#">
+<cfset BELGELER=structNew()>
+<CFSET PROJECT_ID_LIST="">
+<cfloop from="1" to="#attributes.TSATIR#" index="i">
+    <CFSET PROJECT_ID=evaluate("attributes.PROJECT_ID#i#")>
+    <cfif isDefined("attributes.PROJECT#PROJECT_ID#")>
+    <CFELSE>
+        <CFSET "attributes.PROJECT#PROJECT_ID#"=arrayNew(1)>
+        <cfscript>
+            arrayAppend("attributes.PROJECT#PROJECT_ID#",i)
+            
+        </cfscript>
+    </cfif>
+<cfscript>
+    listAppend(PROJECT_ID_LIST,PROJECT_ID);
+</cfscript>
 
+
+</cfloop>
+<cfdump var="#attributes#">
 
 <cfabort>
 
