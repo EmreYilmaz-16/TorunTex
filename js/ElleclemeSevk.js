@@ -61,8 +61,8 @@ function getShelfProducts(el) {
     input.value = commaSplit(Res.A[index]);
     input.setAttribute("type", "text");
     input.setAttribute("readonly", "yes");
-    input.setAttribute("data-rid",index)
-    input.setAttribute("ID","A"+index)
+    input.setAttribute("data-rid", index);
+    input.setAttribute("ID", "A" + index);
     td.appendChild(input);
     tr.appendChild(td);
 
@@ -71,8 +71,8 @@ function getShelfProducts(el) {
     input.value = Res.A2[index];
     input.setAttribute("type", "text");
     input.setAttribute("onchange", "hasapEt(this,event)");
-    input.setAttribute("data-rid",index)
-    input.setAttribute("ID","A2"+index)
+    input.setAttribute("data-rid", index);
+    input.setAttribute("ID", "A2" + index);
     input.setAttribute("data-stm", Res.A2[index]);
     td.appendChild(input);
     tr.appendChild(td);
@@ -89,9 +89,14 @@ function getShelfProducts(el) {
   }
 }
 function hasapEt(el, ev) {
-    var stm=el.getAttribute("data-stm");
-    stm=parseInt(stm);
-
+  var BASLANGIC_MIKTAR2 = el.getAttribute("data-stm");
+  BASLANGIC_MIKTAR2 = parseInt(BASLANGIC_MIKTAR2);
+  var RC = el.getAttribute("data-rid");
+  var BASLANGIC_KG = document.getElementById("A" + RC).getAttribute("data-stm");
+  BASLANGIC_KG = parseFloat(BASLANGIC_KG);
+  var BirimCuvalAgirlik = BASLANGIC_KG / BASLANGIC_MIKTAR2;
+  var e = BirimCuvalAgirlik * parseInt(el.value);
+  document.getElementById("A" + RC).value=commaSplit(e);
 }
 function satirEkle() {}
 function wrk_query(str_query, data_source, maxrows) {
