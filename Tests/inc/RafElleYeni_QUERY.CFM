@@ -11,13 +11,15 @@
             
         </cfscript>
     </cfif>
-<cfscript>
-    listAppend(attributes.PROJECT_ID_LIST,PROJECT_ID);
-</cfscript>
+<cfset attributes.PROJECT_ID_LIST="#attributes.PROJECT_ID_LIST#,#PROJECT_ID#">
 
 
 </cfloop>
 <cfdump var="#attributes#">
+<cfloop list="#attributes.PROJECT_ID_LIST#">
+
+</cfloop>
+
 
 <cfabort>
 
