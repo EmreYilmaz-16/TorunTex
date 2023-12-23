@@ -25,7 +25,7 @@
             </td>
             </tr>
             <tr>
-            <td>
+            <td colspan="2">
                 <div class="form-group">
                     <label>Ürün</label>
                     <div>
