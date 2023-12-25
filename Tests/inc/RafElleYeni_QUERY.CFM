@@ -63,11 +63,11 @@
         <CFSET ROWC++>
         <cfset attributes.RAF_KODU_GIRIS="">
         <cfset attributes.RAF_ID_GIRIS="">
-        <CFSET "attributes.STOCK_ID#i#"=it.STOCK_ID>
-        <CFSET "attributes.PRODUCT_ID#i#"=it.PRODUCT_ID>
-        <cfset "attributes.lot_no#i#"=it.LOT_NO>
-        <cfset "attributes.QUANTITY#i#"=it.MIKTAR>
-        <cfset amount_other=it.MIKTAR2>
+        <CFSET "attributes.STOCK_ID#i#"=it2.STOCK_ID>
+        <CFSET "attributes.PRODUCT_ID#i#"=it2.PRODUCT_ID>
+        <cfset "attributes.lot_no#i#"=it2.LOT_NO>
+        <cfset "attributes.QUANTITY#i#"=it2.MIKTAR>
+        <cfset amount_other=it2.MIKTAR2>
         <cfset unit_other="Çuval">
         <cfset "attributes.RAF_KODU_CIKIS"=it2.SHELF_ID>
         <cfset "attributes.RAF_ID_CIKIS"=it2.SHELF_ID>       
