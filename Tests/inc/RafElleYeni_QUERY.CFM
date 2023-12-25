@@ -34,6 +34,7 @@
             STOCK_ID=evaluate("attributes.STOCK_ID#ai#"),
             MIKTAR=evaluate("attributes.MIKTAR#ai#"),
             MIKTAR2=evaluate("attributes.MIKTAR2#ai#"),
+            LOT_NO=evaluate("attributes.LOT_NO#ai#"),
             SHELF_ID=attributes.SHELF_ID
         }
         arrayAppend(OOO.SATIRLAR,OBJ);

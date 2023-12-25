@@ -126,7 +126,7 @@ function hasapEt(el, ev) {
   var e = BirimCuvalAgirlik * parseInt(el.value);
   document.getElementById("A_" + RC).value = commaSplit(e);
 }
-function satirEkle(el, rc, STOCK_ID,PROJECT_ID) {
+function satirEkle(el, rc, STOCK_ID,PROJECT_ID,LOT_NO) {
   var PRODUCT_NAME = document.getElementById("PRODUCT_NAME_" + rc).innerText;
   var PRODUCT_CODE = document.getElementById("PRODUCT_CODE_" + rc).innerText;
   var PROJECT_HEAD = document.getElementById("PROJECT_HEAD_" + rc).innerText;
@@ -172,6 +172,12 @@ function satirEkle(el, rc, STOCK_ID,PROJECT_ID) {
   input.setAttribute("readonly","yes");
   input.setAttribute("name","STOCK_ID"+ROW_COUNT);
   input.value=STOCK_ID;
+  td.appendChild(input);
+  var input=document.createElement("input");
+  input.setAttribute("type","hidden");
+  input.setAttribute("readonly","yes");
+  input.setAttribute("name","LOT_NO"+ROW_COUNT);
+  input.value=LOT_NO;
   td.appendChild(input);
   var input=document.createElement("input");
   input.setAttribute("type","hidden");
