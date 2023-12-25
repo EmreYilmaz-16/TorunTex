@@ -74,7 +74,7 @@ function getShelfProductsz(el) {
     tr.appendChild(td);
     var td = document.createElement("td");
     var input = document.createElement("input");
-    input.value = commaSplit(Res.A[index]);
+    input.value = Res.A[index];
     input.setAttribute("type", "text");
     input.setAttribute("readonly", "yes");
     input.setAttribute("data-rid", index);
@@ -124,7 +124,7 @@ function hasapEt(el, ev) {
   BASLANGIC_KG = parseFloat(BASLANGIC_KG);
   var BirimCuvalAgirlik = BASLANGIC_KG / BASLANGIC_MIKTAR2;
   var e = BirimCuvalAgirlik * parseInt(el.value);
-  document.getElementById("A_" + RC).value = commaSplit(e);
+  document.getElementById("A_" + RC).value = e;
 }
 function satirEkle(el, rc, STOCK_ID,PROJECT_ID,LOT_NO) {
   var PRODUCT_NAME = document.getElementById("PRODUCT_NAME_" + rc).innerText;
