@@ -31,9 +31,12 @@
         <SELECT class="form-control form-select" name="FaturaNo" id="FaturaNo" onchange="getFatura(this,event)">
             <option value="">Seçiniz</option>
             <cfoutput query="GETF">
-                <option value="#INVOICE_NUMBER#">#INVOICE_NUMBER#</option>
+                <option value="#INVOICE_ID#">#INVOICE_NUMBER#</option>
             </cfoutput>
         </SELECT>
         <!---<input type="text" name="FaturaNo" id="FaturaNo" onkeyup="getFatura(this,event)">---->
+    </div>
+    <div class="form-group">
+        
     </div>
 </cf_box>
