@@ -76,6 +76,7 @@
         <cfset "attributes.RAF_KODU_CIKIS"=it2.SHELF_ID>
         <cfset "attributes.RAF_ID_CIKIS"=it2.SHELF_ID>       
     </cfloop>
+    <cfset ROW_COUNT=ROWC>
     <cfinclude template="stokfisQueryY.cfm">
 </cfloop>
 
