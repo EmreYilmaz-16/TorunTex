@@ -60,11 +60,14 @@
     <cfset PROJECT_ID_IN="#it.PROJECT_ID#">
     <cfset ROWC=0>
     <cfloop array="#it.SATIRLAR#" item="it2" index="i">
+        <cfquery name="getStockInfo" datasource="#dsn3#">
+            SELECT * FROM STOCKS WHERE STOCK_ID=#it2.STOCK_ID#
+        </cfquery>
         <CFSET ROWC++>
         <cfset attributes.RAF_KODU_GIRIS="">
         <cfset attributes.RAF_ID_GIRIS="">
         <CFSET "attributes.STOCK_ID#i#"=it2.STOCK_ID>
-        <CFSET "attributes.PRODUCT_ID#i#"=it2.PRODUCT_ID>
+        <CFSET "attributes.PRODUCT_ID#i#"=getStockInfo.PRODUCT_ID>
         <cfset "attributes.lot_no#i#"=it2.LOT_NO>
         <cfset "attributes.QUANTITY#i#"=it2.MIKTAR>
         <cfset amount_other=it2.MIKTAR2>
