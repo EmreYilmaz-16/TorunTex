@@ -79,7 +79,9 @@
     <cfset ROW_COUNT=ROWC>
     <cfinclude template="stokfisQueryY.cfm">
 </cfloop>
-
+<script>
+    window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=33";
+</script>
 <cfabort>
 
 
