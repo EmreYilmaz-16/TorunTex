@@ -54,6 +54,9 @@
                     Beyanname No
                 </th>
                 <th>
+                    Konteyner No
+                </th>
+                <th>
                     Çuval
                 </th>
                 <th>

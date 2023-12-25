@@ -146,6 +146,9 @@ function satirEkle(el, rc, STOCK_ID,PROJECT_ID,LOT_NO) {
   td.innerText=PROJECT_HEAD;
   tr.appendChild(td);
 
+  var td=document.createElement("td");
+  td.innerText=LOT_NO;
+  tr.appendChild(td);
 
 
   var td=document.createElement("td");
