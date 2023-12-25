@@ -128,7 +128,6 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
         var FIS_ID=list_getat(B,1,"-")
         var STOCK_ID=list_getat(B,2,"-")
         var AMOUNT=document.getElementById("KULLAN").value;
-      
         $.ajax({
             url:"/AddOns/Partner/Servis/GeneralFunctions.cfc?method=SaveFatFis",
             data:{
