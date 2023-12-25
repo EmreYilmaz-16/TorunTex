@@ -46,7 +46,7 @@
 </cfscript>
 </cfloop>
 <cfdump var="#attributes.BELGELER#">
-<cfloop array="#BELGELER#" item="it">
+<cfloop array="#attributes.BELGELER#" item="it">
     <cfset attributes.LOCATION_IN=    3>
     <cfset attributes.department_in = 7>
     
