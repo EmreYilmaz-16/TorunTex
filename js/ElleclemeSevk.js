@@ -191,6 +191,10 @@ function satirEkle(el, rc, STOCK_ID,PROJECT_ID,LOT_NO) {
   ROW_COUNT++;
   
 }
+function temzile(){
+  document.getElementById("LOCATION").removeAttribute("disabled");
+  document.getElementById("SHELF").removeAttribute("disabled");
+}
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
   var req;
