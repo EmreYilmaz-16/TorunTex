@@ -29,9 +29,8 @@ function SearchBarcode(el, ev) {
     var QueryResult_1 = wrk_query(Qstr1);
     if (QueryResult_1.recordcount > 0) {
       el.setAttribute("style", ValidStyle);
-      document
-        .getElementById("txtFromDeptLocation")
-        .setAttribute("style", ValidStyle);
+      var exxx = document.getElementById("txtFromDeptLocation");
+      exxx.setAttribute("style", ValidStyle);
       var Qstr2 =
         "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID FROM STOCKS_LOCATION as SL ";
       Qstr2 +=
@@ -43,8 +42,8 @@ function SearchBarcode(el, ev) {
       $("#txtFromDeptLocation").val(
         QueryResult_2.DEPARTMENT_HEAD[0] + " " + QueryResult_2.COMMENT[0]
       );
-      var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el);
-      if(t==false) return false;
+      var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
+      if (t == false) return false;
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
       $("#FROM_STOCK_ID").val(QueryResult_1.STOCK_ID[0]);
@@ -118,11 +117,11 @@ function searchDepo(el, ev) {
         document
           .getElementById("txtToDeptLocation")
           .setAttribute("style", InValidStyle);
-          return false;
+        return false;
       }
     } else {
       el.setAttribute("style", InValidStyle);
-      return false
+      return false;
     }
   }
 }
@@ -183,7 +182,7 @@ function searchDepo_2(el, ev) {
     el.setAttribute("style", InValidStyle);
   }
 }
-function searchDepo_3(STOCK_ID, el) {
+function searchDepo_3(STOCK_ID, el, el2) {
   var cmnt = document.getElementById("txtDepoAdi").value;
   //var STOCK_ID = $("#FROM_STOCK_ID").val();
   var Qstr1 =
@@ -214,6 +213,7 @@ function searchDepo_3(STOCK_ID, el) {
 
     if (QueryResult_2.recordcount > 0 || QueryResult_1.DEPARTMENT_ID[0] == 15) {
       el.setAttribute("style", ValidStyle);
+      el2.setAttribute("style", ValidStyle);
       document
         .getElementById("txtToDeptLocation")
         .setAttribute("style", ValidStyle);
@@ -233,11 +233,13 @@ function searchDepo_3(STOCK_ID, el) {
       $("#btnKayit").show();
     } else {
       el.setAttribute("style", InValidStyle);
+      el2.setAttribute("style", InValidStyle);
       document
         .getElementById("txtToDeptLocation")
         .setAttribute("style", InValidStyle);
     }
   } else {
+    el.setAttribute("style", InValidStyle);
     el.setAttribute("style", InValidStyle);
   }
 }
