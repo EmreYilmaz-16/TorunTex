@@ -91,21 +91,21 @@ function Ekle(
   td.appendChild(input);
   tr.appendChild(td);
 
-  var td = document.createElement(td);
+  var td = document.createElement("td");
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
   input.setAttribute("name", "AMOUNT_" + RowCount);
   input.setAttribute("value", MIKTAR);
   td.appendChild(input);
   tr.appendChild(td);
-  var td = document.createElement(td);
+  var td = document.createElement("td");
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
   input.setAttribute("name", "AMOUNT2_" + RowCount);
   input.setAttribute("value", MIKTAR2);
   td.appendChild(input);
   tr.appendChild(td);
-  var td = document.createElement(td);
+  var td = document.createElement("td");
   td.innerText = _SHELF_CODE;
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
