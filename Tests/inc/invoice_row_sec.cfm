@@ -44,11 +44,15 @@ FROM (
 <cf_big_list>
     <thead>
         <tr>
-            <th>
-                Ürün Kodu
-            </th>
+           
             <th>
                 Ürün
+            </th>
+            <th>
+                AMOUNT
+            </th>
+            <th>
+                Miktar2
             </th>
             <th>
                 Miktar
@@ -62,11 +66,15 @@ FROM (
     <tbody>
         <cfoutput query="getIvr">
             <tr>
-                <td>
-                    #PRODUCT_CODE_2#
-                </td>
+               
                 <td>
                     #PRODUCT_NAME#
+                </td>
+                <td>
+                    #AMOUNT#
+                </td>
+                <td>
+                    #AMOUNT2#
                 </td>
                 <td>
                     #KALAN#
