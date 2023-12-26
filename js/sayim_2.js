@@ -19,7 +19,7 @@ function getProduct(el, ev, pc) {
       Res.STOCK_ID[0],
       Res.PRODUCT_CODE[0],
       Res.PRODUCT_CODE_2[0],
-      LOT_NO,
+      LotNo,
       Agirlik
     );
   } else {
