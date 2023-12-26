@@ -279,10 +279,13 @@ function Kaydet() {
     "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14",
     FormDatam
   );
+  
+}
+
+function fokuslan(){
   $("#Barcode").val("");
   $("#Barcode").focus();
 }
-
 function sepeteEkle(
   PRODUCT_CODE,
   PRODUCT_NAME,

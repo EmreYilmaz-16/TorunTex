@@ -79,6 +79,7 @@ WHERE LOT_NO = '#FormData.FROM_LOT_NO#'
 <cfoutput>
 <script>
   window.opener.sepeteEkle("#getProduct.PRODUCT_CODE#","#getProduct.PRODUCT_NAME#",#FormData.FROM_AMOUNT#,"KG","#CIKIS_DEPO.DEPARTMENT_HEAD#-#CIKIS_DEPO.COMMENT#","#GIRIS_DEPO.DEPARTMENT_HEAD#-#GIRIS_DEPO.COMMENT#","#FormData.FROM_LOT_NO#",1,"#FormData.FROM_UNIT2#",#GET_ID.MAX_ID#,"#attributes.FIS_NO#","#FROM_ORDER_NO#","#TO_ORDER_NO#")
+window.opener.fokuslan();
 this.close();
 </script>
 </cfoutput>
