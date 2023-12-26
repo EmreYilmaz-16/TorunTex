@@ -10,6 +10,7 @@ FROM (
 		,IR.AMOUNT2
 		,I.PROCESS_STAGE
 		,S.STOCK_ID
+        ,S.PRODUCT_ID
 		,S.PRODUCT_CODE_2
 		,S.PRODUCT_NAME
 		,IR.WRK_ROW_ID
@@ -73,7 +74,7 @@ FROM (
                     #KALAN2#
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,'#WRK_ROW_ID#',#AMOUNT#,#AMOUNT2#,'#KALAN2#','#PRODUCT_NAME#','#PRODUCT_CODE_2#','#LOT_NO#')">Seç</button>
+                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,#PRODUCT_ID#,'#WRK_ROW_ID#',#AMOUNT#,#AMOUNT2#,'#KALAN2#','#PRODUCT_NAME#','#PRODUCT_CODE_2#','#LOT_NO#')">Seç</button>
                 </td>
             </tr>
         </cfoutput>
