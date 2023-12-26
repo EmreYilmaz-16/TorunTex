@@ -40,7 +40,7 @@ FROM (
 	) AS IRRS
     WHERE INVOICE_ID=#attributes.INVOICE_ID#
 </cfquery>
-
+<cfdump var="#getIvr#">
 <cf_big_list>
     <thead>
         <tr>
