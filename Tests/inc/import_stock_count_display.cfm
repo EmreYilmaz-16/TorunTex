@@ -485,6 +485,7 @@
 						<tr>
 							<td>
 								<cfdump var="#get_product_name#">
+								<cfdump var="#get_product#">
 							#barcode# (<font color="##FF0000"><cfif get_product_name.recordcount eq 0>Bu Ürün Kayıtlı Değil<cfelse>Ürün Bilgisi ile birden fazla kayıt bulundu</cfif> !</font>) / miktar: #listgetat(dosya1[i],2,"#document_seperator#")#<br/>
 							</td>
 						</tr>
