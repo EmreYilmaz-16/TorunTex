@@ -54,6 +54,9 @@
     "Yükleniyor"
   );
     }
+    function SatirEkle(INVOICE_ID,STOCK_ID,WRK_ROW_ID) {
+        console.table(arguments);
+    }
 </script>
 
 
