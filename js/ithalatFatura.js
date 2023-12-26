@@ -94,14 +94,16 @@ function Ekle(
 
   var td = document.createElement("td");
   var input = document.createElement("input");
-  input.setAttribute("type", "hidden");
+  input.setAttribute("type", "text");
+  input.setAttribute("readonly", "yes");
   input.setAttribute("name", "AMOUNT_" + RowCount);
   input.setAttribute("value", MIKTAR);
   td.appendChild(input);
   tr.appendChild(td);
   var td = document.createElement("td");
   var input = document.createElement("input");
-  input.setAttribute("type", "hidden");
+  input.setAttribute("type", "text");
+  input.setAttribute("readonly", "yes");
   input.setAttribute("name", "AMOUNT2_" + RowCount);
   input.setAttribute("value", MIKTAR2);
   td.appendChild(input);
