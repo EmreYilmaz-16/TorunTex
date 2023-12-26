@@ -1,3 +1,29 @@
+<cfparam name="attributes.is_rafli" default="0">                        <!--------  //BILGI RAFLI KAYITMI YAPILACAK   ------------->
+<cfparam name="attributes.is_default_depo" default="0">                 <!--------  //BILGI DEFAULT DEPO VARMI        ------------->
+<cfparam name="attributes.default_depo" default="0">                  <!--------  //BILGI DEFAULT DEPOLAR           ------------->
+<cfparam name="attributes.is_product_code" default="1">                 <!--------  //BILGI ÜRÜN KODU SORULACAKMI     ------------->
+<cfparam name="attributes.product_code_area" default="PRODUCT_CODE_2">  <!--------  //BILGI ÜRÜN KODU ARAMA ALANI     ------------->
+<cfparam name="attributes.is_lot_no" default="1">                       <!--------  //BILGI LOT NO SORULACAKMI        ------------->
+<!--------  
+    //BILGI YUKARIDAKİ PARAMETRELERE GÖRE AŞAĞIDAKİ FORM ŞEKİLLENİR ÜRÜN KODU VE LOT  SORGUSU AYNI ANDA 0 OLAMAZ
+    //BILGI ÜRÜN BARKODUNDA YER ALAN ALANIN ÜRÜN KARTINDAKİ HANGİ ALANLA EŞLŞECEĞİNİ BİLMEK İÇİN PRODUCT_CODE_AREA VERİSİ KULLANILIR BU ALAN YOKSA ÜRÜN KODUYLA SAYIM YAPAMAZSINIZ
+    //BILGI RAFLI SAYIM YADA RAFSIZ SAYIM YAPILABİLİR
+    //BILGI BU SAYFA SADECE SAYIM BELGESİNİ OLUŞTURUR BELGEYİ OLUŞTURDUKTAN SONRA SAYIM İŞLEMLERİNDEN BİRLEŞTİRME  VE STOK FİŞLERİNİN OLUŞTURULMASI AŞAMASI MANUEL YAPILACAKTIR
+    //BILGI SAYIM TARİHİ BU GÜNÜN TARİHİ OLARAK DEFAULT OLARAK GELECEKTİR
+    //BILGI EĞER DEFAULT DEPO TANIMLANMADIYSA SAYIM DEPOSU SEÇİLEN DEPO OLACAKTIR
+    ------------->
+<cfoutput>
+<script>
+var SayimSettings={
+    is_rafli:#attributes.is_rafli#,
+    is_default_depo:#attributes.is_default_depo#,
+    default_depo:'#attributes.default_depo#',
+    product_code_area:'#attributes.product_code_area#',
+    is_lot_no:#attributes.is_lot_no#,
+    is_product_code:#attributes.is_product_code#
+}    
+</script>
+</cfoutput>
 <cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
     <cfset attributes.seperator_type = 59><!--- Noktali Virgul Chr --->
