@@ -17,6 +17,7 @@ function getProduct(el, ev, pc) {
       "SELECT * FROM STOCKS WHERE " + pc + "='" + UrunKodu + "'",
       "dsn3"
     );
+    console.log(Res);
     if (Res.recordcount) {
       satirEkle(
         Res.PRODUCT_ID[0],
