@@ -69,6 +69,7 @@ function Ekle(
 
   var td = document.createElement("td");
   td.innerText = LOT_NO;
+  
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
   input.setAttribute("name", "LOT_NO_" + RowCount);
