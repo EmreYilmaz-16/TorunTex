@@ -32,6 +32,8 @@ GROUP BY T2.PROJECT_ID,LOT_NO,SHELF_NUMBER,PROJECT_HEAD,T2.STOCK_ID,S.PRODUCT_CO
         <th>Konteyner No</th>
         <th>Miktar</th>
         <th>Çuval</th>
+        <th>Miktar</th>
+        <th>Çuval</th>
         <th></th>
     </tr>
 </thead>
@@ -42,11 +44,14 @@ GROUP BY T2.PROJECT_ID,LOT_NO,SHELF_NUMBER,PROJECT_HEAD,T2.STOCK_ID,S.PRODUCT_CO
         <td id="PRODUCT_NAME_#CURRENTROW#">#PRODUCT_NAME#</td>
         <td id="PROJECT_HEAD_#CURRENTROW#">#PROJECT_HEAD#</td>
         <td id="KONTEYNER_ND_#CURRENTROW#">#LOT_NO#</td>
+        <td>#A#</td>
+        <td>#A2#</td>
         <td>
             <div class="form-group">
                 <input type="text" name="A_#CURRENTROW#" value="#A#" data-rid="#CURRENTROW#" id="A_#CURRENTROW#" readonly="yes" data-stm="#A# KG">
             </div>
         </td>
+       
         <td>
             <div class="form-group">
                 <input type="text" name="A2_#CURRENTROW#" value="#A2#" data-rid="#CURRENTROW#" id="A2_#CURRENTROW#"  data-stm="#A2#" onchange="hasapEt(this,event)">
