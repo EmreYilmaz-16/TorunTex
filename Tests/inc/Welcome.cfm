@@ -3,6 +3,7 @@
 
 <cf_box title="PDA Welcome">
 <div style="display: flex;flex-direction: column;">
+    <button style="margin-top:5px" class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36','_blank')">İthal Mal Girişi</button>
     <button style="margin-top:5px" class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=33','_blank')">Raftan Çuval Al</button>
     <button style="margin-top:5px"  class="btn btn-outline-primary" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=6')">Raf Durumu</button>
     
