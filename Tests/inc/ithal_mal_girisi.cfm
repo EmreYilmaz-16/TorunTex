@@ -36,7 +36,7 @@
                 </div>
             </td>
             <td>
-                <button type="button" onclick="$('#form1').submit()"
+                <button class="btn btn-lg btn-success" type="button" onclick="$('#form1').submit()">Kaydet</button>
             </td>
         </tr>
         <tr>
