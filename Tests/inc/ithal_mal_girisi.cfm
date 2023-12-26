@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <SELECT class="form-control form-select" name="DEPARTMENT_LOCATION" id="DEPARTMENT_LOCATION" onchange="getFatura(this,event)">
                         <option value="">Seçiniz</option>
-                        <cfoutput query="GETF">
+                        <cfoutput query="GETL">
                             <option value="#DEPARTMENT_LOCATION#">#COMMENT#</option>
                         </cfoutput>
                     </SELECT>
