@@ -1,6 +1,6 @@
 <cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
-    <cfabort>
+    
     <cfquery name="GETMAXID" datasource="#DSN2#">
         SELECT MAX(SHIP_ID) AS MXIDD FROM SHIP
     </cfquery>
@@ -14,22 +14,22 @@
     <cfquery name="getper" datasource="#dsn#">
         SELECT * FROM SETUP_PERIOD WHERE PERIOD_YEAR=#attributes.IV_DATE# AND OUR_COMPANY_ID=1
     </cfquery>
-      <cfset DELIVER_IN_DEPT=1>
-      <cfset DELIVER__IN_LOC=2>
+      <cfset DELIVER_IN_DEPT=listGetAt(attributes.DEP_LOC,1,"-")>
+      <cfset DELIVER__IN_LOC=listGetAt(attributes.DEP_LOC,2,"-")>
       <cfset PROCESS__IN_TYPE=811>
       <cfquery name="GETSHIP_ROW" datasource="#DSN2#">
         SELECT * FROM SHIP_ROW WHERE SHIP_ID=#GETMAXID.MXIDD#
       </cfquery>
-<cfset attributes.process_cat=198>
-<cfset form.process_cat=198>
+<cfset attributes.process_cat=117>
+<cfset form.process_cat=117>
 <cfset attributes.ship_date=now()>
 <cfset attributes.deliver_date_frm=now()>
 
-<cfset attributes.department_in_id=1> <!---- mal kabul----->
-<cfset attributes.location_in_id=2> <!---- mal kabul----->
+<cfset attributes.department_in_id=DELIVER_IN_DEPT> <!---- mal kabul----->
+<cfset attributes.location_in_id=DELIVER__IN_LOC> <!---- mal kabul----->
 
 <cfset attributes.location_id =1>
-<cfset attributes.DEPARTMENT_ID =20> 
+<cfset attributes.DEPARTMENT_ID =11> 
 
 <cfset attributes.DELIVER_DATE_H =0>
 <cfset attributes.deliver_date_m =0>
@@ -117,6 +117,6 @@ INSERT INTO STOCKS_ROW (STOCK_ID,PRODUCT_ID,UPD_ID,PROCESS_TYPE,STOCK_IN,STORE,S
             UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
         </cfquery>
 <script>
-    window.location.href="/index.cfm?fuseaction=invoice.emptypopup_ithal_mal_girisi";
+  window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=33";
 </script>
 </cfif>

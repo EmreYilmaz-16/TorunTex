@@ -6,6 +6,7 @@
 FROM (
 	SELECT INVOICE_NUMBER
 		,I.INVOICE_ID
+        ,YEAR(I.INVOICE_DATE) AS IV_DATE
 		,IR.AMOUNT
 		,IR.AMOUNT2
 		,I.PROCESS_STAGE
@@ -74,7 +75,7 @@ FROM (
                     #KALAN2#
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,#PRODUCT_ID#,'#WRK_ROW_ID#',#AMOUNT#,#AMOUNT2#,'#KALAN2#','#PRODUCT_NAME#','#PRODUCT_CODE_2#','#LOT_NO#')">Seç</button>
+                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,#PRODUCT_ID#,'#WRK_ROW_ID#',#AMOUNT#,#AMOUNT2#,'#KALAN2#','#PRODUCT_NAME#','#PRODUCT_CODE_2#','#LOT_NO#',#IV_DATE#)">Seç</button>
                 </td>
             </tr>
         </cfoutput>

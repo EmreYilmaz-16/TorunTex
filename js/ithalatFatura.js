@@ -10,6 +10,8 @@ function getFatura(el) {
     "Yükleniyor"
   );
   el.setAttribute("readonly","yes")
+  
+
 }
 function SatirEkle(
   INVOICE_ID,
@@ -21,9 +23,13 @@ function SatirEkle(
   KALAN2,
   PRODUCT_NAME,
   PRODUCT_CODE,
-  LOT_NO
+  LOT_NO,
+  IV_DATE
 ) {
   console.table(arguments);
+  
+  document.getElementById("INVOICE_ID").value=INVOICE_ID;
+  document.getElementById("IV_DATE").value=IV_DATE;
   var SHELF_CODE = document.getElementById(SHELF_CODE);
   var DIS_MIKTAR = prompt("Giriş Yapılacak Çuval Miktarı");
   var BIRIM_KG = MIKTAR / MIKTAR2;
