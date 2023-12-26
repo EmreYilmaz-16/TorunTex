@@ -38,6 +38,7 @@ var SayimSettings={
          
                 ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");
          </cfscript>
+         <cfdump var="#ArrayToList(barcode_list,CRLF)#">
 <cfset file_name = "#createUUID()#.txt">
 <cffile action="write" output="#ArrayToList(barcode_list,CRLF)#" file="#upload_folder##file_name#" addnewline="yes" charset="iso-8859-9">
 <cfdirectory directory="#upload_folder#" name="folder_info" sort="datelastmodified" filter="#file_name#">
