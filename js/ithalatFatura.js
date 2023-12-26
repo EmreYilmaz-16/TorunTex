@@ -9,7 +9,7 @@ function getFatura(el) {
     1,
     "Yükleniyor"
   );
-  el.setAttribute("readonly", "yes");
+  el.setAttribute("disabled", "yes");
 }
 function SatirEkle(
   INVOICE_ID,
@@ -56,7 +56,7 @@ function setShelf(el) {
   var tv = el.options[ix].value;
   _SHELF_CODE = tx;
   _SHELF_ID = tv;
-  el.setAttribute("readonly", "yes");
+  el.setAttribute("disabled", "yes");
 }
 function Ekle(
   PRODUCT_ID,
@@ -159,7 +159,7 @@ function getShelves(el) {
   }
 
   $("#DEP_LOC").val(el.value);
-  el.setAttribute("readonly", "yes");
+  el.setAttribute("disabled", "yes");
 }
 function kontrol() {
   var shelf = document.getElementById("PRODUCT_PLACE_ID").value;
