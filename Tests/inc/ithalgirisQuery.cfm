@@ -68,8 +68,8 @@
 <cfset 'attributes.lot_no#i#'="#evaluate('attributes.LOT_NO_#i#')#">
 <cfset 'attributes.price_other#i#'=0>
 <cfset 'attributes.spect_id#i#'="">
-<cfset 'attributes.to_shelf_number#i#'="evaluate('attributes.SHELF_ID_#i#')">
-<cfset 'attributes.to_shelf_number_txt#i#'="evaluate('attributes.SHELF_ID_#i#')">
+<cfset 'attributes.to_shelf_number#i#'="#evaluate('attributes.SHELF_ID_#i#')#">
+<cfset 'attributes.to_shelf_number_txt#i#'="#evaluate('attributes.SHELF_ID_#i#')#">
 
 <CFSET 'attributes.wrk_row_relation_id#i#' ="#evaluate('attributes.WRK_ROW_ID_#i#')#">
 <cfset 'attributes.awrk_row_id#i#'="PBS#round(rand()*65)##dateformat(now(),'YYYYMMDD')##timeformat(now(),'HHmmssL')##session.ep.userid##round(rand()*100)#">
