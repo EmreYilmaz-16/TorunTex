@@ -13,6 +13,7 @@ FROM (
 		,S.PRODUCT_CODE_2
 		,S.PRODUCT_NAME
 		,IR.WRK_ROW_ID
+        ,IR.LOT_NO
 		,(
 			SELECT SUM(AMOUNT)
 			FROM w3Toruntex_2023_1.SHIP_ROW AS SR
@@ -72,7 +73,7 @@ FROM (
                     #KALAN2#
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,'#WRK_ROW_ID#',#AMOUNT#,#AMOUNT2#)">Seç</button>
+                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,'#WRK_ROW_ID#',#AMOUNT#,#AMOUNT2#,'#KALAN2#','#PRODUCT_NAME#','#PRODUCT_CODE_2#')">Seç</button>
                 </td>
             </tr>
         </cfoutput>
