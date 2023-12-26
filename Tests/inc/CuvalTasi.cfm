@@ -1,6 +1,34 @@
 <cf_box title="Çuval Taşı">
 
     <table class="table" >
+        <tr>
+            <td id="exitr">
+                <div class="form-group">
+                    <label>Giriş Depo</label>
+                    <cfquery name="getDepo" datasource="#dsn3#">
+               SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Sipariş Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=14
+        UNION  ALL 
+        SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Genel Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=15
+        
+                    </cfquery>
+                    <SELECT name="txtDepoAdi" id="txtDepoAdi" onchange="searchDepo_2(this)">
+                        <option value="">Seçiniz</option>
+                        
+                        <cfoutput query="getDepo" group="DEPARTMENT_ID">
+                            <optgroup label="#SD#">
+                            <cfoutput>
+                            <option value="#COMMENT#">#COMMENT#</option>
+                        </cfoutput>
+                    </optgroup>
+                        </cfoutput>
+                    </SELECT>
+                    <input type="hidden" class="form-control"  name="txtDepoAdi" id="txtDepoAdi" placeholder="Giriş Depo" onkeyup="searchDepo(this,event)">
+                    <input type="text" class="form-control" readonly  name="txtToDeptLocation" id="txtToDeptLocation" >
+                    <input type="hidden"  name="txtToDeptId" id="txtToDeptId">
+                    <input type="hidden"  name="txtToLocId" id="txtToLocId">
+                </div>
+            </td>
+        </tr>
 <tr>
     <td>
         <div class="form-group">
@@ -29,32 +57,7 @@
             
         </div>
     </td>
-    <td id="exitr">
-        <div class="form-group">
-            <label>Giriş Depo</label>
-            <cfquery name="getDepo" datasource="#dsn3#">
-       SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Sipariş Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=14
-UNION  ALL 
-SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Genel Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=15
-
-            </cfquery>
-            <SELECT name="txtDepoAdi" id="txtDepoAdi" onchange="searchDepo_2(this)">
-                <option value="">Seçiniz</option>
-                
-                <cfoutput query="getDepo" group="DEPARTMENT_ID">
-                    <optgroup label="#SD#">
-                    <cfoutput>
-                    <option value="#COMMENT#">#COMMENT#</option>
-                </cfoutput>
-            </optgroup>
-                </cfoutput>
-            </SELECT>
-            <input type="hidden" class="form-control"  name="txtDepoAdi" id="txtDepoAdi" placeholder="Giriş Depo" onkeyup="searchDepo(this,event)">
-            <input type="text" class="form-control" readonly  name="txtToDeptLocation" id="txtToDeptLocation" >
-            <input type="hidden"  name="txtToDeptId" id="txtToDeptId">
-            <input type="hidden"  name="txtToLocId" id="txtToLocId">
-        </div>
-    </td>
+    
 </tr>
 <tr>
     <td colspan="3">
