@@ -49,8 +49,9 @@
     SELECT TOP 10 s.PRODUCT_NAME,S.STOCK_ID,PU.MAIN_UNIT,PU.PRODUCT_UNIT_ID,PRODUCT_CODE_2,S.PRODUCT_ID FROM STOCKS AS S INNER JOIN PRODUCT_UNIT AS PU ON PU.PRODUCT_ID=S.PRODUCT_ID AND IS_MAIN=1
  WHERE S.PRODUCT_ID=#evaluate("attributes.PRODUCT_ID_#i#")#
 </cfquery>
-
-
+<!----
+<cfif isdefined('attributes.to_shelf_number#i#') and len(evaluate('attributes.to_shelf_number#i#')) and isdefined('attributes.to_shelf_number_txt#i#') and len(evaluate('attributes.to_shelf_number_txt#i#'))>#evaluate('attributes.to_shelf_number#i#')#<cfelse>NULL</cfif>,
+    ----->
 <cfset 'attributes.product_name#i#'=getProductInfo.PRODUCT_NAME>
 <cfset 'attributes.stock_id#i#'=getProductInfo.STOCK_ID>
 <cfset 'attributes.product_id#i#'=getProductInfo.PRODUCT_ID>
@@ -67,6 +68,9 @@
 <cfset 'attributes.lot_no#i#'="#evaluate('attributes.LOT_NO_#i#')#">
 <cfset 'attributes.price_other#i#'=0>
 <cfset 'attributes.spect_id#i#'="">
+<cfset 'attributes.to_shelf_number#i#'="evaluate('attributes.SHELF_ID_#i#')">
+<cfset 'attributes.to_shelf_number_txt#i#'="evaluate('attributes.SHELF_ID_#i#')">
+
 <CFSET 'attributes.wrk_row_relation_id#i#' ="#evaluate('attributes.WRK_ROW_ID_#i#')#">
 <cfset 'attributes.awrk_row_id#i#'="PBS#round(rand()*65)##dateformat(now(),'YYYYMMDD')##timeformat(now(),'HHmmssL')##session.ep.userid##round(rand()*100)#">
 
