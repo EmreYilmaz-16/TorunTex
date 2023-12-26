@@ -97,7 +97,7 @@
 <cfreturn GETF>
 </cffunction>
 <cffunction name="getLocation">
-    <cfquery name="getl" datasource="#dsn3#">
+    <cfquery name="getl" datasource="#dsn#">
         SELECT * FROM STOCKS_LOCATION WHERE DEPARTMENT_ID=13
     </cfquery>
     <cfreturn getl>
