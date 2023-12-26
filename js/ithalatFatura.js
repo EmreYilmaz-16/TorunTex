@@ -9,9 +9,7 @@ function getFatura(el) {
     1,
     "Yükleniyor"
   );
-  el.setAttribute("readonly","yes")
-  
-
+  el.setAttribute("readonly", "yes");
 }
 function SatirEkle(
   INVOICE_ID,
@@ -27,9 +25,9 @@ function SatirEkle(
   IV_DATE
 ) {
   console.table(arguments);
-  
-  document.getElementById("INVOICE_ID").value=INVOICE_ID;
-  document.getElementById("IV_DATE").value=IV_DATE;
+
+  document.getElementById("INVOICE_ID").value = INVOICE_ID;
+  document.getElementById("IV_DATE").value = IV_DATE;
   var SHELF_CODE = document.getElementById(SHELF_CODE);
   var DIS_MIKTAR = prompt("Giriş Yapılacak Çuval Miktarı");
   var BIRIM_KG = MIKTAR / MIKTAR2;
@@ -58,7 +56,7 @@ function setShelf(el) {
   var tv = el.options[ix].value;
   _SHELF_CODE = tx;
   _SHELF_ID = tv;
-  el.setAttribute("readonly","yes")
+  el.setAttribute("readonly", "yes");
 }
 function Ekle(
   PRODUCT_ID,
@@ -101,25 +99,25 @@ function Ekle(
   tr.appendChild(td);
 
   var td = document.createElement("td");
-  var div=document.createElement("div");
-  div.setAttribute("class","form-group");
+  var div = document.createElement("div");
+  div.setAttribute("class", "form-group");
   var input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("readonly", "yes");
   input.setAttribute("name", "AMOUNT_" + RowCount);
   input.setAttribute("value", filterNum(commaSplit(parseFloat(MIKTAR))));
-  div.appendChild(input)
+  div.appendChild(input);
   td.appendChild(div);
   tr.appendChild(td);
   var td = document.createElement("td");
-  var div=document.createElement("div");
-  div.setAttribute("class","form-group");
+  var div = document.createElement("div");
+  div.setAttribute("class", "form-group");
   var input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("readonly", "yes");
   input.setAttribute("name", "AMOUNT2_" + RowCount);
   input.setAttribute("value", MIKTAR2);
-  div.appendChild(input)
+  div.appendChild(input);
   td.appendChild(div);
 
   tr.appendChild(td);
@@ -159,9 +157,19 @@ function getShelves(el) {
     opt.innerText = Res.SHELF_CODE[index];
     document.getElementById("PRODUCT_PLACE_ID").appendChild(opt);
   }
-  
-  $("#DEP_LOC").val(el.value)
-  el.setAttribute("readonly","yes")
+
+  $("#DEP_LOC").val(el.value);
+  el.setAttribute("readonly", "yes");
+}
+function kontrol() {
+  var shelf = document.getElementById("PRODUCT_PLACE_ID").value;
+  var loc = document.getElementById("DEPARTMENT_LOCATION").value;
+  if (shelf.length == 0 || loc.length == 0) {
+    alert("Raf - Lokasyon Seçmediniz !");
+    return false;
+  }else{
+    return true;
+  }
 }
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();

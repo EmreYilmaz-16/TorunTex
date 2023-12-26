@@ -6,7 +6,7 @@
                     <label>Fatura No</label>
                   
                     <cfset GETF=getFatura()>
-                    <cfdump var="#GETF#">
+                    
                     <SELECT class="form-control form-select" name="FaturaNo" id="FaturaNo" onchange="getFatura(this,event)">
                         <option value="">Seçiniz</option>
                         <cfoutput query="GETF">
@@ -37,7 +37,7 @@
                 </div>
             </td>
             <td>
-                <button class="btn btn-lg btn-success" type="button" onclick="$('#form1').submit()">Kaydet</button>
+                <button class="btn btn-lg btn-success" type="button" onclick="if(kontrol()) $('#form1').submit();">Kaydet</button>
             </td>
         </tr>
         <tr>
