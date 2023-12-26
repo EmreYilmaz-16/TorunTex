@@ -49,4 +49,4 @@
         </cfform>
 </cf_box>
 
-<script src="/AddOns/Partner/js/sayim_2.js"></script>
+<script src="/AddOns/Partner/js/sayim_2.js"></script>Partner\Tests\inc\sayim_2.cfm

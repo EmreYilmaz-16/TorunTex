@@ -57,6 +57,7 @@
 <cfif attributes.sayfa eq 36><cfinclude template="inc/ithal_mal_girisi.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 37><cfinclude template="inc/invoice_row_sec.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 38><cfinclude template="inc/ithalgirisQuery.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 39><cfinclude template="inc/sayim_2.cfm"><cfabort></cfif>
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

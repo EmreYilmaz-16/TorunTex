@@ -25,6 +25,7 @@
     <cfif listfind("1,2,144,145,146",session.ep.userid)>
         <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=20','_blank')">Yazıcı Ekle</button>
         <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=26','_blank')">Sayım</button>
+        <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=39','_blank')">Sayım 2</button>
     </cfif>
     <cfif session.ep.userid eq 144>
 
