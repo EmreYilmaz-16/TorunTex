@@ -21,13 +21,10 @@
 <cfset attributes.location_id = ListGetAt(attributes.txt_department_in,2,'-')>
 <cfset attributes.process_date = Dateformat(now(),'dd/mm/yyyy')>
 <cfset attributes.stock_identity_type = 2><!--- Tip Barkod --->
-<cfif attributes.is_rafli eq 1>
-    <CFSET attributes.add_file_format_1="SHELF_CODE">
-    <CFSET attributes.add_file_format_2="LOT_NO">
-<cfelse>
+
     <CFSET attributes.add_file_format_1="LOT_NO">
     <CFSET attributes.add_file_format_2="">
-</cfif>
+
 <CFSET attributes.add_file_format_3="">
 <CFSET attributes.add_file_format_4="">
 <cf_date tarih='attributes.process_date'>
