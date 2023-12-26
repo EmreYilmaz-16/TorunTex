@@ -18,6 +18,7 @@
             <td>
                 <CFSET GETL=getLocation()>
                 <div class="form-group">
+                    <label>Hol</label>
                     <SELECT class="form-control form-select" name="DEPARTMENT_LOCATION" id="DEPARTMENT_LOCATION" onchange="getShelves(this,event)">
                         <option value="">Seçiniz</option>
                         <cfoutput query="GETL">
@@ -28,8 +29,9 @@
             </td>
             <td>
                 <div class="form-group">
+                    <label>Raf</label>
                     <SELECT class="form-control form-select" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID" onchange="">
-
+                        <option value="">Seçiniz</option>
                     </SELECT>
                 </div>
             </td>
