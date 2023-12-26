@@ -44,13 +44,27 @@
             </td>
         </tr>
     </table>
+    <cfform>
     <input type="hidden" name="row_count" id="row_count">
    <cf_big_list>
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                Konteyner No
+            </th>
+            <th>Ağırlıl</th>
+            <th>Adet</th>
+            <th>Raf No</th>
+            <th>Ürün Kodu</th>
+            <th>Ürün</th>
+        </tr>
+    </thead>
     <tbody id="SEPETIM">
 
     </tbody>
    </cf_big_list>
-    
+</cfform>
 </cf_box>
 
 <script src="/AddOns/Partner/js/ithalatFatura.js"></script>

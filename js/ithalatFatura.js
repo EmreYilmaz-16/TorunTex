@@ -9,6 +9,7 @@ function getFatura(el) {
     1,
     "Yükleniyor"
   );
+  el.setAttribute("readonly","yes")
 }
 function SatirEkle(
   INVOICE_ID,
@@ -51,6 +52,7 @@ function setShelf(el) {
   var tv = el.options[ix].value;
   _SHELF_CODE = tx;
   _SHELF_ID = tv;
+  el.setAttribute("readonly","yes")
 }
 function Ekle(
   PRODUCT_ID,
@@ -113,7 +115,7 @@ function Ekle(
   input.setAttribute("value", MIKTAR2);
   div.appendChild(input)
   td.appendChild(div);
-  
+
   tr.appendChild(td);
   var td = document.createElement("td");
   td.innerText = _SHELF_CODE;
@@ -151,6 +153,9 @@ function getShelves(el) {
     opt.innerText = Res.SHELF_CODE[index];
     document.getElementById("PRODUCT_PLACE_ID").appendChild(opt);
   }
+  
+  $("#DEP_LOC").val(el.value)
+  el.setAttribute("readonly","yes")
 }
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
