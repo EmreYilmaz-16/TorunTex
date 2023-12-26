@@ -97,7 +97,7 @@ function Ekle(
   input.setAttribute("type", "text");
   input.setAttribute("readonly", "yes");
   input.setAttribute("name", "AMOUNT_" + RowCount);
-  input.setAttribute("value", MIKTAR);
+  input.setAttribute("value", filterNum(commaSplit(parseFloat(MIKTAR))));
   td.appendChild(input);
   tr.appendChild(td);
   var td = document.createElement("td");
