@@ -59,7 +59,7 @@
     function SatirEkle(INVOICE_ID,STOCK_ID,WRK_ROW_ID) {
         console.table(arguments);
     }
-    function name(el) {
+    function getShelves(el) {
         var STORE=list_getat(el.value,1,"-")
     var STLOCATION=list_getat(el.value,2,"-")
     var Res=wrk_query("SELECT TOP 10 PRODUCT_PLACE_ID,SHELF_CODE FROM PRODUCT_PLACE WHERE STORE_ID="+STORE+" AND LOCATION_ID="+STLOCATION,"DSN3")
