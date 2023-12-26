@@ -1,5 +1,6 @@
 
 	<cffile action="read" file="#upload_folder##file_name#" variable="dosya">
+	dosyadayım
 	<cfdump var="#dosya#">
 	<cfabort>
 	<cfscript>
