@@ -93,20 +93,27 @@ function Ekle(
   tr.appendChild(td);
 
   var td = document.createElement("td");
+  var div=document.createElement("div");
+  div.setAttribute("class","form-group");
   var input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("readonly", "yes");
   input.setAttribute("name", "AMOUNT_" + RowCount);
   input.setAttribute("value", filterNum(commaSplit(parseFloat(MIKTAR))));
-  td.appendChild(input);
+  div.appendChild(input)
+  td.appendChild(div);
   tr.appendChild(td);
   var td = document.createElement("td");
+  var div=document.createElement("div");
+  div.setAttribute("class","form-group");
   var input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("readonly", "yes");
   input.setAttribute("name", "AMOUNT2_" + RowCount);
   input.setAttribute("value", MIKTAR2);
-  td.appendChild(input);
+  div.appendChild(input)
+  td.appendChild(div);
+  
   tr.appendChild(td);
   var td = document.createElement("td");
   td.innerText = _SHELF_CODE;
