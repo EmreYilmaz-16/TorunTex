@@ -4,26 +4,28 @@ function setDept(el) {
   $("#LotNo").focus();
 }
 function getProduct(el, ev, pc) {
-  var UrunBarkodu = el.value;
-  UrunBarkodu = ReplaceAll(UrunBarkodu, "||", "|");
-  var UrunKodu = list_getat(UrunBarkodu, 1, "|");
-  var LotNo = list_getat(UrunBarkodu, 2, "|");
-  var Agirlik = list_getat(UrunBarkodu, 3, "|");
-  var Res = wrk_query(
-    "SELECT * FROM STOCKS WHERE " + pc + "='" + UrunKodu + "'",
-    "dsn3"
-  );
-  if (Res.recordcount) {
-    satirEkle(
-      Res.PRODUCT_ID[0],
-      Res.STOCK_ID[0],
-      Res.PRODUCT_CODE[0],
-      Res.PRODUCT_CODE_2[0],
-      LotNo,
-      Agirlik
+  if (ev.keyCode == 13) {
+    var UrunBarkodu = el.value;
+    UrunBarkodu = ReplaceAll(UrunBarkodu, "||", "|");
+    var UrunKodu = list_getat(UrunBarkodu, 1, "|");
+    var LotNo = list_getat(UrunBarkodu, 2, "|");
+    var Agirlik = list_getat(UrunBarkodu, 3, "|");
+    var Res = wrk_query(
+      "SELECT * FROM STOCKS WHERE " + pc + "='" + UrunKodu + "'",
+      "dsn3"
     );
-  } else {
-    alert("Ürün Bulunamadı");
+    if (Res.recordcount) {
+      satirEkle(
+        Res.PRODUCT_ID[0],
+        Res.STOCK_ID[0],
+        Res.PRODUCT_CODE[0],
+        Res.PRODUCT_CODE_2[0],
+        LotNo,
+        Agirlik
+      );
+    } else {
+      alert("Ürün Bulunamadı");
+    }
   }
 }
 
