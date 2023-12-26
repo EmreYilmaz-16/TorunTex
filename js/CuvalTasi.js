@@ -279,12 +279,19 @@ function Kaydet() {
     "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14",
     FormDatam
   );
-  
 }
 
-function fokuslan(){
+function fokuslan() {
   $("#Barcode").val("");
   $("#Barcode").focus();
+  $("#txtFromDeptLocation").val("");
+  $("#txtFromDeptId").val("");
+  $("#txtFromLocId").val("");
+  document.getElementById("Barcode").removeAttribute("style");
+  document.getElementById("txtFromDeptLocation").removeAttribute("style");
+  document.getElementById("txtFromDeptId").removeAttribute("style");
+  document.getElementById("txtFromLocId").removeAttribute("style");
+  //txtFromDeptLocation,txtFromDeptId,txtFromLocId
 }
 function sepeteEkle(
   PRODUCT_CODE,

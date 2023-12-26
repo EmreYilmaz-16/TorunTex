@@ -35,7 +35,7 @@
             <label>
                 Ürün Barkodu
             </label>
-        <input class="form-control" type="text" name="Barcode" onkeyup="SearchBarcode(this,event)">
+        <input class="form-control" type="text" name="Barcode" id="Barcode" onkeyup="SearchBarcode(this,event)">
         <input type="hidden" name="FROM_WRK_ROW_ID" id="FROM_WRK_ROW_ID">
         <input type="hidden" name="FROM_STOCK_ID" id="FROM_STOCK_ID">
         <input type="hidden" name="TO_WRK_ROW_ID" id="TO_WRK_ROW_ID">
