@@ -35,6 +35,9 @@
                     </SELECT>
                 </div>
             </td>
+            <td>
+                <button type="button" onclick="$('#form1').submit()"
+            </td>
         </tr>
         <tr>
             <td colspan="2">
@@ -44,8 +47,9 @@
             </td>
         </tr>
     </table>
-    <cfform>
+    <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=38&is_submit=1" id="form1">
     <input type="hidden" name="row_count" id="row_count">
+    <input type="hidden" name="DEP_LOC" id="DEP_LOC">
    <cf_big_list>
     <thead>
         <tr>
@@ -53,7 +57,7 @@
             <th>
                 Konteyner No
             </th>
-            <th>Ağırlıl</th>
+            <th>Ağırlık</th>
             <th>Adet</th>
             <th>Raf No</th>
             <th>Ürün Kodu</th>
