@@ -1,3 +1,4 @@
+var RC = 1;
 function setDept(el) {
   el.setAttribute("readonly", "true");
   $("#TXT_DEPARTMENT_IN").val(el.value);
@@ -92,6 +93,7 @@ function satirEkle(
     $("#LOT_NO").val("");
     $("#LOT_NO").focus();
   }
+  RC++;
 }
 
 function wrk_query(str_query, data_source, maxrows) {
