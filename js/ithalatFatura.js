@@ -69,7 +69,7 @@ function Ekle(
 
   var td = document.createElement("td");
   td.innerText = LOT_NO;
-  
+
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
   input.setAttribute("name", "LOT_NO_" + RowCount);
@@ -138,8 +138,8 @@ function getShelves(el) {
   $("#PRODUCT_PLACE_ID").html('<option value="">Seçiniz</option>');
   for (let index = 0; index < Res.recordcount; index++) {
     var opt = document.createElement("option");
-    opt.value = Res.PRODUCT_PLACE_ID[i];
-    opt.innerText = Res.SHELF_CODE[i];
+    opt.value = Res.PRODUCT_PLACE_ID[index];
+    opt.innerText = Res.SHELF_CODE[index];
     document.getElementById("PRODUCT_PLACE_ID").appendChild(opt);
   }
 }
