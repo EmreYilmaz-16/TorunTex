@@ -60,8 +60,7 @@ function Ekle(
   PRODUCT_CODE,
   LOT_NO,
   MIKTAR,
-  MIKTAR2,
-  SHELF_CODE
+  MIKTAR2
 ) {
   var tr = document.createElement("tr");
   var td = document.createElement("td");
@@ -107,11 +106,11 @@ function Ekle(
   td.appendChild(input);
   tr.appendChild(td);
   var td = document.createElement(td);
-  td.innerText = SHELF_CODE;
+  td.innerText = _SHELF_CODE;
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
   input.setAttribute("name", "SHELF_ID_" + RowCount);
-  input.setAttribute("value", SHELF_ID);
+  input.setAttribute("value", _SHELF_ID);
   td.appendChild(input);
   tr.appendChild(td);
 
