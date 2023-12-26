@@ -50,7 +50,7 @@
    <cfset attributes.QUANTITY=attributes.DEF>
    <cfset attributes.uniq_relation_id_="">
    <cfset amount_other=DEF_A>
-   <cfset unit_other="Çuval">
+   <cfset unit_other="Cuval">
    <cfset attributes.clot=1>
    <cfset lot_no=attributes.LOT>
  <cfset arguments.LOT_NUMARASI=attributes.LOT>

@@ -72,7 +72,7 @@
         <cfset "attributes.lot_no#i#"=it2.LOT_NO>
         <cfset "attributes.QUANTITY#i#"=it2.MIKTAR>
         <cfset amount_other=it2.MIKTAR2>
-        <cfset unit_other="Çuval">
+        <cfset unit_other="Cuval">
         <cfset "attributes.RAF_KODU_CIKIS"=it2.SHELF_ID>
         <cfset "attributes.RAF_ID_CIKIS"=it2.SHELF_ID>       
     </cfloop>
@@ -122,7 +122,7 @@
 <cfset attributes.QUANTITY=attributes.DEF>
 <cfset attributes.uniq_relation_id_="">
 <cfset amount_other=DEF_A>
-<cfset unit_other="Çuval">
+<cfset unit_other="Cuval">
 <cfset attributes.clot=1>
 <cfset lot_no=attributes.LOT>
 <cfset arguments.LOT_NUMARASI=attributes.LOT>

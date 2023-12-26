@@ -57,8 +57,8 @@
 <cfset 'attributes.product_id#i#'=getProductInfo.PRODUCT_ID>
 <cfset 'attributes.amount#i#'=evaluate('attributes.AMOUNT_#i#')>
 <cfset 'attributes.unit#i#'=getProductInfo.MAIN_UNIT>
-<cfset 'attributes.amount2#i#'=evaluate('attributes.AMOUNT2_#i#')>
-<cfset 'attributes.unit2#i#'="Çuval">
+<cfset 'attributes.amount_other#i#'=evaluate('attributes.AMOUNT2_#i#')>
+<cfset 'attributes.unit_other#i#'="Cuval">
 <cfset 'attributes.unit_id#i#'=getProductInfo.PRODUCT_UNIT_ID>
 <cfset 'attributes.tax#i#'=0>
 <cfset 'attributes.price#i#'=0>
