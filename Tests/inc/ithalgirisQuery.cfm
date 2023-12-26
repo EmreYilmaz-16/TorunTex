@@ -1,4 +1,4 @@
-<cfif isDefined("attributes.is_submit")>
+﻿<cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
     <cfabort>
     <cfquery name="GETMAXID" datasource="#DSN2#">
@@ -54,8 +54,10 @@
 <cfset 'attributes.product_name#i#'=getProductInfo.PRODUCT_NAME>
 <cfset 'attributes.stock_id#i#'=getProductInfo.STOCK_ID>
 <cfset 'attributes.product_id#i#'=getProductInfo.PRODUCT_ID>
-<cfset 'attributes.amount#i#'=1>
+<cfset 'attributes.amount#i#'=evaluate('attributes.AMOUNT_#i#')>
 <cfset 'attributes.unit#i#'=getProductInfo.MAIN_UNIT>
+<cfset 'attributes.amount2#i#'=evaluate('attributes.AMOUNT2_#i#')>
+<cfset 'attributes.unit#i#'="Çuval">
 <cfset 'attributes.unit_id#i#'=getProductInfo.PRODUCT_UNIT_ID>
 <cfset 'attributes.tax#i#'=0>
 <cfset 'attributes.price#i#'=0>
