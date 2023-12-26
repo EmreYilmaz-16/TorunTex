@@ -10,6 +10,8 @@ function getProduct(el, ev, pc) {
     var UrunKodu = list_getat(UrunBarkodu, 1, "|");
     var LotNo = list_getat(UrunBarkodu, 2, "|");
     var Agirlik = list_getat(UrunBarkodu, 3, "|");
+    var e = $("#SayimTable tr").find('td:contains("' + LotNo + '")');
+    if (e.length != 0) return false;
     var Res = wrk_query(
       "SELECT * FROM STOCKS WHERE " + pc + "='" + UrunKodu + "'",
       "dsn3"
