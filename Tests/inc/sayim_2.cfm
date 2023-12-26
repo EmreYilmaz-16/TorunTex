@@ -26,6 +26,7 @@ var SayimSettings={
 </cfoutput>
 <cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
+    <cfabort>
     <cfset attributes.seperator_type = 59><!--- Noktali Virgul Chr --->
 <cfset upload_folder = "#upload_folder#store#dir_seperator#">
 
