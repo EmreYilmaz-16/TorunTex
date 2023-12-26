@@ -58,8 +58,9 @@
     "Yükleniyor"
   );
     }
-    function SatirEkle(INVOICE_ID,STOCK_ID,WRK_ROW_ID) {
+    function SatirEkle(INVOICE_ID,STOCK_ID,WRK_ROW_ID,MIKTAR,MIKTAR2) {
         console.table(arguments);
+
     }
     function getShelves(el) {
         var STORE=list_getat(el.value,1,"-")
@@ -138,6 +139,7 @@
 
   return new_query;
 }
+
 </script>
 
 

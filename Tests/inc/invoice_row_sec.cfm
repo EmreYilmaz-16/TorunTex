@@ -53,6 +53,7 @@ FROM (
             <th>
                 Miktar2
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -65,13 +66,13 @@ FROM (
                     #PRODUCT_NAME#
                 </td>
                 <td>
-                    #AMOUNT#
+                    #KALAN#
                 </td>
                 <td>
-                    #AMOUNT2#
+                    #KALAN2#
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,'#WRK_ROW_ID#')">Seç</button>
+                    <button class="btn btn-sm btn-primary" onclick="SatirEkle(#INVOICE_ID#,#STOCK_ID#,'#WRK_ROW_ID#',#AMOUNT#,#AMOUNT2#)">Seç</button>
                 </td>
             </tr>
         </cfoutput>
