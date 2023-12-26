@@ -66,6 +66,9 @@
                     <input type="text" name="PRODUCT_CODE" id="PRODUCT_CODE"  placeholder="Ürün Kodu" onkeyup="getProduct(this,event,'<cfoutput>#attributes.product_code_area#</cfoutput>')">
                 </div>
             </td>
+            <td>
+                <input type="button" class="btn" onclick="$('#frm1').submit()" value="Kaydet">
+            </td>
         </tr>
     </table>
     <cfform id="frm1" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=39">
