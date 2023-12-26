@@ -43,6 +43,8 @@ function SearchBarcode(el, ev) {
       $("#txtFromDeptLocation").val(
         QueryResult_2.DEPARTMENT_HEAD[0] + " " + QueryResult_2.COMMENT[0]
       );
+      var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el);
+      if(t==false) return false;
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
       $("#FROM_STOCK_ID").val(QueryResult_1.STOCK_ID[0]);
@@ -63,7 +65,9 @@ function searchDepo(el, ev) {
   if (ev.keyCode == 13) {
     var STOCK_ID = $("#FROM_STOCK_ID").val();
     var Qstr1 =
-      "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM "+dsn+".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='" +
+      "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM " +
+      dsn +
+      ".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='" +
       el.value +
       "'";
     // var Qstr1="SELECT * FROM "+dsn+".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D WHERE 1=1 AND COMMENT ='"+el.value+"'";
@@ -108,22 +112,85 @@ function searchDepo(el, ev) {
         }
 
         $("#btnKayit").show();
+        return true;
       } else {
         el.setAttribute("style", InValidStyle);
         document
           .getElementById("txtToDeptLocation")
           .setAttribute("style", InValidStyle);
+          return false;
       }
     } else {
       el.setAttribute("style", InValidStyle);
+      return false
     }
   }
 }
 function searchDepo_2(el, ev) {
   var STOCK_ID = $("#FROM_STOCK_ID").val();
   var Qstr1 =
-    "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM "+dsn+".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='" +
+    "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM " +
+    dsn +
+    ".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='" +
     el.value +
+    "'";
+  // var Qstr1="SELECT * FROM "+dsn+".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D WHERE 1=1 AND COMMENT ='"+el.value+"'";
+  var QueryResult_1 = wrk_query(Qstr1);
+  if (QueryResult_1.recordcount > 0) {
+    var Qstr2 =
+      "SELECT O.ORDER_ID,ORDER_NUMBER,ORDER_HEAD,ORR.WRK_ROW_ID,ORR.STOCK_ID,ORR.UNIT2 FROM " +
+      dsn3 +
+      ".ORDERS AS O";
+    Qstr2 +=
+      " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
+    Qstr2 +=
+      " WHERE O.ORDER_STAGE=" +
+      AktifSiparisSureci +
+      " AND O.DELIVER_DEPT_ID=" +
+      QueryResult_1.DEPARTMENT_ID[0] +
+      " AND O.LOCATION_ID=" +
+      QueryResult_1.LOCATION_ID[0] +
+      "  AND ORR.STOCK_ID=" +
+      STOCK_ID;
+    var QueryResult_2 = wrk_query(Qstr2);
+
+    if (QueryResult_2.recordcount > 0 || QueryResult_1.DEPARTMENT_ID[0] == 15) {
+      el.setAttribute("style", ValidStyle);
+      document
+        .getElementById("txtToDeptLocation")
+        .setAttribute("style", ValidStyle);
+      $("#txtToDeptId").val(QueryResult_1.DEPARTMENT_ID[0]);
+      $("#txtToLocId").val(QueryResult_1.LOCATION_ID[0]);
+      $("#txtToDeptLocation").val(
+        QueryResult_1.DEPARTMENT_HEAD[0] + "-" + QueryResult_1.COMMENT[0]
+      );
+
+      $("#TO_STOCK_ID").val(STOCK_ID);
+      if (QueryResult_2.recordcount > 0) {
+        $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0]);
+      } else {
+        $("#TO_WRK_ROW_ID").val("");
+      }
+
+      $("#btnKayit").show();
+    } else {
+      el.setAttribute("style", InValidStyle);
+      document
+        .getElementById("txtToDeptLocation")
+        .setAttribute("style", InValidStyle);
+    }
+  } else {
+    el.setAttribute("style", InValidStyle);
+  }
+}
+function searchDepo_3(STOCK_ID, el) {
+  var cmnt = document.getElementById("txtDepoAdi").value;
+  //var STOCK_ID = $("#FROM_STOCK_ID").val();
+  var Qstr1 =
+    "SELECT D.DEPARTMENT_HEAD,SL.COMMENT,SL.LOCATION_ID,SL.DEPARTMENT_ID FROM " +
+    dsn +
+    ".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D ON D.DEPARTMENT_ID=SL.DEPARTMENT_ID WHERE 1=1 AND COMMENT ='" +
+    cmnt +
     "'";
   // var Qstr1="SELECT * FROM "+dsn+".STOCKS_LOCATION AS SL INNER JOIN DEPARTMENT AS D WHERE 1=1 AND COMMENT ='"+el.value+"'";
   var QueryResult_1 = wrk_query(Qstr1);

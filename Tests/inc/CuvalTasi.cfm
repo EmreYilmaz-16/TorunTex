@@ -11,7 +11,7 @@
         SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Genel Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=15
         
                     </cfquery>
-                    <SELECT name="txtDepoAdi" id="txtDepoAdi" onchange="searchDepo_2(this)">
+                    <SELECT name="txtDepoAdi" id="txtDepoAdi" <!--- onchange="searchDepo_2(this)"---->>
                         <option value="">Seçiniz</option>
                         
                         <cfoutput query="getDepo" group="DEPARTMENT_ID">
@@ -85,7 +85,7 @@
                 Miktar 2
             </th>
             <th>
-                 Depo
+                Depo
             </th>
             <th>
                 Sipariş 
