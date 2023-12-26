@@ -279,6 +279,8 @@ function Kaydet() {
     "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14",
     FormDatam
   );
+  $("#Barcode").val("");
+  $("#Barcode").focus();
 }
 
 function sepeteEkle(
