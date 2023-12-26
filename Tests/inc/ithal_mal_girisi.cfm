@@ -6,6 +6,7 @@
                     <label>Fatura No</label>
                   
                     <cfset GETF=getFatura()>
+                    <cfdump var="#GETF#">
                     <SELECT class="form-control form-select" name="FaturaNo" id="FaturaNo" onchange="getFatura(this,event)">
                         <option value="">Seçiniz</option>
                         <cfoutput query="GETF">
