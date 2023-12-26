@@ -291,6 +291,7 @@ function fokuslan() {
   document.getElementById("txtFromDeptLocation").removeAttribute("style");
   document.getElementById("txtFromDeptId").removeAttribute("style");
   document.getElementById("txtFromLocId").removeAttribute("style");
+  $("#btnKayit").hide()
   //txtFromDeptLocation,txtFromDeptId,txtFromLocId
 }
 function sepeteEkle(
