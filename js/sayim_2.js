@@ -94,6 +94,7 @@ function satirEkle(
     $("#LOT_NO").val("");
     $("#LOT_NO").focus();
   }
+  $("#RC").val(RC);
   RC++;
 }
 
