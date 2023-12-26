@@ -1,4 +1,4 @@
-<cfparam name="attributes.INVOICE_ID"  default="24">
+﻿<cfparam name="attributes.INVOICE_ID"  default="24">
 <cfquery name="getIvr" datasource="#dsn2#">
     SELECT *
 	,ISNULL(AMOUNT, 0) - ISNULL(AC, 0) AS KALAN
