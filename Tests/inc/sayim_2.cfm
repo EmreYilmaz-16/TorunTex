@@ -1,3 +1,50 @@
+<cfif isDefined("attributes.is_submit")>
+    <cfdump var="#attributes#">
+    <cfset attributes.seperator_type = 59><!--- Noktali Virgul Chr --->
+<cfset upload_folder = "#upload_folder#store#dir_seperator#">
+
+<cfscript>
+	CRLF=chr(13)&chr(10);
+	barcode_list = ArrayNew(1);
+	for(row_i=1;row_i lte attributes.row_count;row_i=row_i+1)
+		
+         
+                ArrayAppend(barcode_list,"#evaluate('attributes.PRODUCT_CODE#row_i#')#;#evaluate('attributes.AMOUNT#row_i#')#;#evaluate('attributes.LOT_NO#row_i#')#");
+         </cfscript>
+<cfset file_name = "#createUUID()#.txt">
+<cffile action="write" output="#ArrayToList(barcode_list,CRLF)#" file="#upload_folder##file_name#" addnewline="yes" charset="iso-8859-9">
+<cfdirectory directory="#upload_folder#" name="folder_info" sort="datelastmodified" filter="#file_name#">
+<cfset file_name = folder_info.name>
+<cfset file_size = folder_info.size>
+<cfset form.store = attributes.txt_department_in>
+<cfset attributes.department_id = ListGetAt(attributes.txt_department_in,1,'-')>
+<cfset attributes.location_id = ListGetAt(attributes.txt_department_in,2,'-')>
+<cfset attributes.process_date = Dateformat(now(),'dd/mm/yyyy')>
+<cfset attributes.stock_identity_type = 2><!--- Tip Barkod --->
+<cfif attributes.is_rafli eq 1>
+    <CFSET attributes.add_file_format_1="SHELF_CODE">
+    <CFSET attributes.add_file_format_2="LOT_NO">
+<cfelse>
+    <CFSET attributes.add_file_format_1="LOT_NO">
+    <CFSET attributes.add_file_format_2="">
+</cfif>
+<CFSET attributes.add_file_format_3="">
+<CFSET attributes.add_file_format_4="">
+<cf_date tarih='attributes.process_date'>
+    <cfset get_stock_date = date_add("h",23,attributes.process_date)>
+    <cfset get_stock_date = date_add("n",59,get_stock_date)>
+    <cfset count_product_problem=0>    
+<cfinclude template="import_stock_count_display.cfm">
+<!----<cfinclude template="import_stock_count_display.cfm">
+<script type="text/javascript">
+	<cfif not isdefined('error_flag')>
+		alert('Sayım dosyanız başarıyla oluşturulmuştur !');
+	</cfif>
+	window.location.href = '<cfoutput>#request.self#?fuseaction=epda.prtotm_raf_sayim</cfoutput>';
+</script>----->
+    <cfabort>
+</cfif>
+
 <cfparam name="attributes.product_code_area" default="PRODUCT_CODE_2">  <!--------  //BILGI ÜRÜN KODU ARAMA ALANI     ------------->
 <cf_box title="Sayim">
     <table>
@@ -24,7 +71,7 @@
             </td>
         </tr>
     </table>
-    <cfform id="frm1" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=26">
+    <cfform id="frm1" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=39">
         <cf_big_list >
             <tr>
                 <th>
