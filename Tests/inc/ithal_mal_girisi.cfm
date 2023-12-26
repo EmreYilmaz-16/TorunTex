@@ -18,7 +18,7 @@
             <td>
                 <CFSET GETL=getLocation()>
                 <div class="form-group">
-                    <SELECT class="form-control form-select" name="DEPARTMENT_LOCATION" id="DEPARTMENT_LOCATION" onchange="getFatura(this,event)">
+                    <SELECT class="form-control form-select" name="DEPARTMENT_LOCATION" id="DEPARTMENT_LOCATION" onchange="getShelves(this,event)">
                         <option value="">Seçiniz</option>
                         <cfoutput query="GETL">
                             <option value="#DEPARTMENT_LOCATION#">#COMMENT#</option>
@@ -28,7 +28,9 @@
             </td>
             <td>
                 <div class="form-group">
-        
+                    <SELECT class="form-control form-select" name="PRODUCT_PLACE_ID" id="PRODUCT_PLACE_ID" onchange="">
+
+                    </SELECT>
                 </div>
             </td>
         </tr>
@@ -56,6 +58,18 @@
     }
     function SatirEkle(INVOICE_ID,STOCK_ID,WRK_ROW_ID) {
         console.table(arguments);
+    }
+    function name(el) {
+        var STORE=list_getat(el.value,1,"-")
+    var STLOCATION=list_getat(el.value,2,"-")
+    var Res=wrk_query("SELECT TOP 10 PRODUCT_PLACE_ID,SHELF_CODE FROM PRODUCT_PLACE WHERE STORE_ID="+STORE+" AND LOCATION_ID="+STLOCATION,"DSN3")
+    $("#PRODUCT_PLACE_ID").html('<option value="">Seçiniz</option>')
+    for (let index = 0; index < Res.recordcount; index++) {
+        var opt=document.createElement("option");
+        opt.value=Res.PRODUCT_PLACE_ID[i];
+        opt.innerText=Res.SHELF_CODE[i];
+        document.getElementById("PRODUCT_PLACE_ID").appendChild(opt);
+    }
     }
 </script>
 
