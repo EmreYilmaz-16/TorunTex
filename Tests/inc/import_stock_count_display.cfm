@@ -2,7 +2,7 @@
 	<cffile action="read" file="#upload_folder##file_name#" variable="dosya">
 	dosyadayım
 	<cfdump var="#dosya#">
-	<cfabort>
+	
 	<cfscript>
 		//dosya formatı için colum_3,colum_4... tarzı değişkenlerde degerleri tutar formda atlanarak seçebilirler diye döngü ile yazıldı 
 		if(isdefined('attributes.add_file_format_1'))
