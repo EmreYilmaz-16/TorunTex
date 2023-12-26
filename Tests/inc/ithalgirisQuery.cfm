@@ -1,6 +1,6 @@
 <cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
-    
+    <cfabort>
     <cfquery name="GETMAXID" datasource="#DSN2#">
         SELECT MAX(SHIP_ID) AS MXIDD FROM SHIP
     </cfquery>
