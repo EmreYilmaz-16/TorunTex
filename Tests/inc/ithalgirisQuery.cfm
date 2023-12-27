@@ -42,7 +42,10 @@
     SELECT MAX(SHIP_ID) AS MXIDD FROM SHIP
 </cfquery>
 <CFSET SHIP_NUMBER='IMG-0000#getMaxIDsh.MXIDD#'>
-
+<cfquery name="getIVdat" datasource="#dsn2#">
+    SELECT PROJECT_ID FROM INVOICE WHERE INVOICE_ID=#attributes.INVOICE_ID#
+</cfquery>
+<cfset attributes.project_id="#getIVdat.PROJECT_ID#">
 <cfloop from="1" to="#attributes.ROW_COUNT#" index="i">
     <cfset 'attributes.deliver_date#i#'=now()>
 <cfquery name="getProductInfo" datasource="#dsn3#">
