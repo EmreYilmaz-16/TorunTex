@@ -127,6 +127,7 @@ LEFT JOIN #dsn#.EMPLOYEES AS E ON E.EMPLOYEE_ID = SSC.RECORD_EMP
             var ToplamKg='#ToplamKg#';
             var SevkStatus=#getSepet.IS_CLOSED#;
             var UserId=#session.ep.UserId#;
+            var dsn3="#dsn3#";
         </cfoutput>
     </script>
     <script src="/AddOns/Partner/js/sevkiyat.min.js"></script>

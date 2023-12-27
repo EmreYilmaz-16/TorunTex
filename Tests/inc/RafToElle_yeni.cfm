@@ -31,7 +31,6 @@
             <tr>
             <td colspan="2">                                    
                 <div id="URUNLER">   
-                       
                 </div>
                 
             </td>
