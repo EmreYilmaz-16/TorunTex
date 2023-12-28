@@ -181,9 +181,14 @@
    <cfset attributes.basket_tax_total=MAIN_TAX_TOTAL>
    <cfset attributes.basket_otv_total="">
    <cfset attributes.genel_indirim="">
+   <!---
    <CFSET attributes.ORDER_ID=getCekiListesi.ORDER_ID>
    <CFSET attributes.order_id_form="000">
    <CFSET attributes.order_id_listesi=getCekiListesi.ORDER_ID>
+   ---->
+   <CFSET attributes.irsaliye_id_listesi=";1,#attributes.SHIP_ID#;1">
+   <CFSET attributes.irsaliye_project_id_listesi="0,0">
+   <CFSET attributes.irsaliye_date_listesi="#dateFormat(NOW(),'dd/mm/yyyy)')#">
    <cfdump var="#attributes#">
    <cfdump var="#getCekiListesi#">
    
