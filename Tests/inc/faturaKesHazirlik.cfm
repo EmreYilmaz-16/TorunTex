@@ -79,8 +79,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 
 <cfset attributes.COMPANY_ID=getCekiListesi.COMPANY_ID>
 <cfset attributes.comp_name=getCekiListesi.NICKNAME>
-<cfset attributes.process_cat=211><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
-<cfset form.process_cat=211><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
+<cfset attributes.process_cat=69><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
+<cfset form.process_cat=69><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 
 <cfset attributes.ACTIVE_PERIOD =session.ep.period_id>
 <!----
@@ -102,7 +102,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.SHIP_DATE =dateformat(now(),"dd/mm/yyyy")>
 <cfset attributes.SHIP_DATE_H =timeFormat(now(),"hh")>
 <cfset attributes.SHIP_DATE_M =timeFormat(now(),"mm")>
-
+<cfset attributes.PARTNER_ID=getCekiListesi.COMPANY_ID>
 
 <cfset attributes.DELIVER_DATE_FRM =dateformat(now(),"dd/mm/yyyy")>
 <cfset attributes.deliver_date_h =timeFormat(now(),"hh")>
