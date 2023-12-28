@@ -192,7 +192,7 @@
    <cfdump var="#attributes#">
    <cfdump var="#getCekiListesi#">
    
-   <cfabort>
+   
    <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
    <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
    
