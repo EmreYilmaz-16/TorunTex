@@ -35,16 +35,20 @@ function SatirEkle(
   if (DIS_MIKTAR != null) {
     if (isNaN(DIS_MIKTAR) == false) {
       T_KG = BIRIM_KG * parseInt(DIS_MIKTAR);
-      Ekle(
-        PRODUCT_ID,
-        STOCK_ID,
-        WRK_ROW_ID,
-        PRODUCT_NAME,
-        PRODUCT_CODE,
-        LOT_NO,
-        T_KG,
-        DIS_MIKTAR
-      );
+      if (parseInt(DIS_MIKTAR) > KALAN2) {
+        alert("Miktar Fatura Miktarından Büyük Olamaz");
+      } else {
+        Ekle(
+          PRODUCT_ID,
+          STOCK_ID,
+          WRK_ROW_ID,
+          PRODUCT_NAME,
+          PRODUCT_CODE,
+          LOT_NO,
+          T_KG,
+          DIS_MIKTAR
+        );
+      }
     } else {
       alert("Miktar Numerik Olmalı");
     }
@@ -167,7 +171,7 @@ function kontrol() {
   if (shelf.length == 0 || loc.length == 0) {
     alert("Raf - Lokasyon Seçmediniz !");
     return false;
-  }else{
+  } else {
     return true;
   }
 }
