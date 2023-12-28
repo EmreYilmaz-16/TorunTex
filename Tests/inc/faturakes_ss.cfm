@@ -16,6 +16,8 @@
         ,SR.PRICE
         ,SR.OTHER_MONEY
         ,SR.TAX
+        ,SH.DELIVER_STORE_ID AS DELIVER_DEPT_ID 
+        ,SH.LOCATION AS LOCATION_ID
         ,#session.EP.userid# AS EMPLOYEE_ID 
         ,CC.MONEY AS MUSTERI_PARA_BIRIMI
     FROM w3Toruntex_2023_1.SHIP AS SH
@@ -40,6 +42,8 @@
         ,SR.OTHER_MONEY
         ,SR.TAX
         ,CC.MONEY
+        ,SH.DELIVER_STORE_ID 
+        ,SH.LOCATION
    </cfquery>
    <cfquery name="getMoney" datasource="#dsn#">
        SELECT 
