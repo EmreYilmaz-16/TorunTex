@@ -84,6 +84,7 @@ function Ekle(
 ) {
   var tr = document.createElement("tr");
   tr.setAttribute("data-wrk_row_id",WRK_ROW_ID);
+  tr.setAttribute("data-RowCount",RowCount);
   var td = document.createElement("td");
   td.innerText = RowCount;
   tr.appendChild(td);
