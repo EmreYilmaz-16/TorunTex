@@ -89,6 +89,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 ---->
 <cfset AAserial_no= randRange(0, 1000000, "CFMX_COMPAT")>
 <CFSET attributes.SHIP_NUMBER="PSH-#AAserial_no#">
+<CFSET SHIP_NUMBER=attributes.SHIP_NUMBER>
 <cfset attributes.EMPLOYEE_ID=session.EP.userid>
 <cfset attributes.basket_id=2> <!----//UYARI BASKET ID DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 <cfset attributes.sale_product=1>
