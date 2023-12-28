@@ -48,6 +48,10 @@ function SatirEkle(
       if (parseInt(DIS_MIKTAR) > KALAN2) {
         alert("Miktar Fatura Miktarından Büyük Olamaz");
       } else {
+        var KNT = Kontrol(WRK_ROW_ID, MIKTAR2, parseInt(DIS_MIKTAR));
+        if (KNT == false) {
+          return false;
+        }
         Ekle(
           PRODUCT_ID,
           STOCK_ID,
@@ -72,6 +76,28 @@ function setShelf(el) {
   _SHELF_ID = tv;
   el.setAttribute("disabled", "yes");
 }
+function Kontrol(WRK_ROW_ID, MIKTAR2, EKLENEN) {
+  var sepetSatir = document.getElementById("SEPETIM").children;
+  var ToplamEklenen = EKLENEN;
+  for (let i = 0; i < sepetSatir.length; i++) {
+    var Satir = sepetSatir[i];
+    var SatirWrk = Satir.getAttribute("data-wrk_row_id");
+    var SatirRowId = Satir.getAttribute("data-rowcount");
+    if (SatirWrk == WRK_ROW_ID) {
+      console.log(SatirWrk);
+      var SatirMiktar = document.getElementsByName("AMOUNT2_" + SatirRowId)[0]
+        .value;
+      console.log(SatirMiktar);
+      ToplamEklenen += parseInt(SatirMiktar);
+    }
+  }
+  console.log(ToplamEklenen);
+  if (ToplamEklenen <= MIKTAR2) {
+  } else {
+    alert("Toplam Miktar Fatura Miktarından Fazladır");
+    return false;
+  }
+}
 function Ekle(
   PRODUCT_ID,
   STOCK_ID,
@@ -83,12 +109,12 @@ function Ekle(
   MIKTAR2
 ) {
   var tr = document.createElement("tr");
-  tr.setAttribute("data-wrk_row_id",WRK_ROW_ID);
-  tr.setAttribute("data-RowCount",RowCount);
+  tr.setAttribute("data-wrk_row_id", WRK_ROW_ID);
+  tr.setAttribute("data-RowCount", RowCount);
   var td = document.createElement("td");
   td.innerText = RowCount;
   tr.appendChild(td);
-  
+
   var td = document.createElement("td");
   td.innerText = LOT_NO;
 
@@ -151,11 +177,11 @@ function Ekle(
   tr.appendChild(td);
   var td = document.createElement("td");
   td.innerText = PRODUCT_NAME;
+
   tr.appendChild(td);
   document.getElementById("SEPETIM").appendChild(tr);
   document.getElementById("row_count").value = RowCount;
   RowCount++;
-  
 }
 function getShelves(el) {
   var STORE = list_getat(el.value, 1, "-");
