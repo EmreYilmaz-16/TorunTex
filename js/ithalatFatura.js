@@ -83,10 +83,11 @@ function Ekle(
   MIKTAR2
 ) {
   var tr = document.createElement("tr");
+  tr.setAttribute("data-wrk_row_id",WRK_ROW_ID);
   var td = document.createElement("td");
   td.innerText = RowCount;
   tr.appendChild(td);
-
+  
   var td = document.createElement("td");
   td.innerText = LOT_NO;
 
@@ -153,8 +154,7 @@ function Ekle(
   document.getElementById("SEPETIM").appendChild(tr);
   document.getElementById("row_count").value = RowCount;
   RowCount++;
-  var s=document.getElementById("FaturaNo").value;
-  getFatura2(s)
+  
 }
 function getShelves(el) {
   var STORE = list_getat(el.value, 1, "-");
