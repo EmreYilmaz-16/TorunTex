@@ -180,10 +180,14 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <CFSET attributes.order_id_listesi=getCekiListesi.ORDER_ID>
 <cfdump var="#attributes#">
 <cfdump var="#getCekiListesi#">
+<cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
+<cfinclude template="/V16/stock/query/add_sale.cfm">
 
+
+<!---- Burası Fatura Yapar 
 <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
 <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
-
+----->
 
 <!----
     <cfif isdefined('attributes.amount_other#i#') and len(evaluate('attributes.amount_other#i#'))>#evaluate('attributes.amount_other#i#')#<cfelse>NULL</cfif>,
