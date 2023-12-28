@@ -83,8 +83,12 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset form.process_cat=211><!----//UYARI process_cat DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 
 <cfset attributes.ACTIVE_PERIOD =session.ep.period_id>
+<!----
 <cfset form.serial_number= "PINV">
 <cfset form.serial_no= randRange(0, 1000000, "CFMX_COMPAT")>
+---->
+<cfset AAserial_no= randRange(0, 1000000, "CFMX_COMPAT")>
+<CFSET attributes.SHIP_NUMBER="PSH-#AAserial_no#">
 <cfset attributes.EMPLOYEE_ID=session.EP.userid>
 <cfset attributes.basket_id=2> <!----//UYARI BASKET ID DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 <cfset attributes.sale_product=1>
