@@ -11,6 +11,16 @@ function getFatura(el) {
   );
   el.setAttribute("disabled", "yes");
 }
+function getFatura2(el) {
+  AjaxPageLoad(
+    "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=37&INVOICE_ID=" +
+      el,
+    "fatura_satirlari",
+    1,
+    "Yükleniyor"
+  );
+  el.setAttribute("disabled", "yes");
+}
 function SatirEkle(
   INVOICE_ID,
   STOCK_ID,
@@ -143,6 +153,8 @@ function Ekle(
   document.getElementById("SEPETIM").appendChild(tr);
   document.getElementById("row_count").value = RowCount;
   RowCount++;
+  var s=document.getElementById("FaturaNo").value;
+  getFatura2(s)
 }
 function getShelves(el) {
   var STORE = list_getat(el.value, 1, "-");
