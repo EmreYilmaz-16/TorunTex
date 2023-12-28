@@ -97,6 +97,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.sale_product=1>
 <cfset form.sale_product=1>
 <CFSET ADRES =getCekiListesi.SHIP_ADDRESS>
+<cfset attributes.paper_number=2>
+<cfset attributes.paper_printer_id=3>
 <!---- Burası Fatura Yapar 
 <cfset attributes.INVOICE_DATE =dateformat(now(),"dd/mm/yyyy")>
 <cfset attributes.INVOICE_DATE_H =timeFormat(now(),"hh")>
