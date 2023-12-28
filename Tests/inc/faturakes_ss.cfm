@@ -16,6 +16,7 @@
         ,SR.PRICE
         ,SR.OTHER_MONEY
         ,SR.TAX
+        ,#session.EP.userid# AS EMPLOYEE_ID 
         ,CC.MONEY AS MUSTERI_PARA_BIRIMI
     FROM w3Toruntex_2023_1.SHIP AS SH
     INNER JOIN w3Toruntex_2023_1.SHIP_ROW AS SR ON SR.SHIP_ID = SH.SHIP_ID
