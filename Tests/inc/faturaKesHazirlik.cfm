@@ -103,6 +103,11 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.SHIP_DATE_H =timeFormat(now(),"hh")>
 <cfset attributes.SHIP_DATE_M =timeFormat(now(),"mm")>
 
+
+<cfset attributes.DELIVER_DATE_FRM =dateformat(now(),"dd/mm/yyyy")>
+<cfset attributes.deliver_date_h =timeFormat(now(),"hh")>
+<cfset attributes.deliver_date_m =timeFormat(now(),"mm")>
+
 <cfset attributes.ship_address_id=getCekiListesi.SHIP_ADDRESS_ID>
 <cfset attributes.EMPO_ID=getCekiListesi.EMPLOYEE_ID>
 <CFSET attributes.department_id=getCekiListesi.DELIVER_DEPT_ID>
