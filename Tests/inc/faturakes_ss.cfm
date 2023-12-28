@@ -7,7 +7,7 @@
         ,SUM(SR.AMOUNT) AMOUNT
         ,SUM(SR.AMOUNT2) AMOUNT2
         ,SR.UNIT2
-        ,SR.UNIT
+        ,SR.UNIT MAIN_UNIT 
         ,SH.SHIP_ID
         ,C.COMPANY_ID
         ,C.NICKNAME
