@@ -2,7 +2,7 @@
 $(document).ready(function(){
     var pt=$("#old_process_type").val()
     if(parseInt(pt)==88){
-        $("#tabMenu ul").prepend("<li class='dropdown'><a onclick='FaturaKesCanim(<cfoutput>#caller.attributes.ship_id#</cfoutput>)'>Fatura Kes - PBS</a></li>")
+        $("#tabMenu ul").prepend("<li class='dropdown'><a onclick='FaturaKesCanim(<cfoutput>#attributes.ship_id#</cfoutput>)'>Fatura Kes - PBS</a></li>")
     }
 })
 function FaturaKesCanim(iid) {
