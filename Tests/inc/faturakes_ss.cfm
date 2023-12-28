@@ -196,7 +196,9 @@
    <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
    <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
    
-   
+   <script>
+    this.close();
+   </script>
    <!----
        <cfif isdefined('attributes.amount_other#i#') and len(evaluate('attributes.amount_other#i#'))>#evaluate('attributes.amount_other#i#')#<cfelse>NULL</cfif>,
            <cfif isdefined('attributes.unit_other#i#') and len(evaluate('attributes.unit_other#i#'))><cfqueryparam cfsqltype="cf_sql_varchar" value="#evaluate('attributes.unit_other#i#')#"><cfelse>NULL</cfif>,
