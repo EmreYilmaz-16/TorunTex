@@ -89,9 +89,15 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfset attributes.basket_id=2> <!----//UYARI BASKET ID DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
 <cfset attributes.sale_product=1>
 <cfset form.sale_product=1>
+<!---- Burası Fatura Yapar 
 <cfset attributes.INVOICE_DATE =dateformat(now(),"dd/mm/yyyy")>
 <cfset attributes.INVOICE_DATE_H =timeFormat(now(),"hh")>
 <cfset attributes.INVOICE_DATE_M =timeFormat(now(),"mm")>
+---->
+<cfset attributes.SHIP_DATE =dateformat(now(),"dd/mm/yyyy")>
+<cfset attributes.SHIP_DATE_H =timeFormat(now(),"hh")>
+<cfset attributes.SHIP_DATE_M =timeFormat(now(),"mm")>
+
 <cfset attributes.ship_address_id=getCekiListesi.SHIP_ADDRESS_ID>
 <cfset attributes.EMPO_ID=getCekiListesi.EMPLOYEE_ID>
 <CFSET attributes.department_id=getCekiListesi.DELIVER_DEPT_ID>
