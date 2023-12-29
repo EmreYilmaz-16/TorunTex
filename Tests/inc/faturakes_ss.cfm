@@ -61,7 +61,7 @@
        SELECT 1 AS RATE1,1 AS RATE2,'TL' AS MONEY
     </cfquery>
     <CFELSE><cfquery name="getMoney" datasource="#dsn#">
-        SELECT MONEY_TYPE,RATE2,RATE1 FROM w3Toruntex_2023_1.SHIP_MONEY WHERE ACTION_ID=#attributes.SHIP_ID#
+        SELECT MONEY_TYPE AS MONEY,RATE2,RATE1 FROM w3Toruntex_2023_1.SHIP_MONEY WHERE ACTION_ID=#attributes.SHIP_ID#
     </cfquery>
     </CFIF>
    <cfset MYARR=arrayNew(1)>
