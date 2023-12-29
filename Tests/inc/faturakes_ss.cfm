@@ -174,7 +174,7 @@
        <CFSET "attributes.other_money_gross_total#IX#"=GROSS_TOTAL/AKTIF_BIRIM[1].RATE2>  <!-----//BILGI OTHER_MONEY_GROSS_TOTAL                  ---->
        <CFSET "attributes.price_other#IX#"=TL_FIYAT/AKTIF_BIRIM[1].RATE2>
        <CFSET "attributes.price_other#IX#"=NumberFormat(evaluate('attributes.price_other#IX#'), '9.99')>
-       <CFSET "attributes.amount_other#IX#"=1>
+       <CFSET "attributes.amount_other#IX#"=AMOUNT2>
        <CFSET "attributes.unit_other#IX#"=UNIT2>
        <CFSET "attributes.wrk_row_id#IX#"="#round(rand()*65)##dateformat(now(),'YYYYMMDD')##timeformat(now(),'HHmmssL')##session.ep.userid##round(rand()*100)#">
        <CFSET MAIN_GROSS_TOTAL=MAIN_GROSS_TOTAL+GROSS_TOTAL>
