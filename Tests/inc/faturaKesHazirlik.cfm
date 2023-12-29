@@ -168,7 +168,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     </CFIF>
     
 
-    <div class="alert-alert:success">
+    <div class="alert alert-success">
        <b> Ürün Adı  : #PRODUCT_NAME#</b> <br>
        Aktif ParaBirimi :  getCekiListesi.OTHER_MONEY <br>
        Rate 1=#AKTIF_BIRIM[1].RATE1#<br>
