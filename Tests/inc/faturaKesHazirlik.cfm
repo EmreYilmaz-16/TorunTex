@@ -174,6 +174,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
         <CFSET TL_FIYAT=PRICE>    
     </CFIF>
     
+    <CFSET "attributes.PRICE#IX#"=TL_FIYAT>
+    <CFSET "attributes.price_other#IX#"=TL_FIYAT/AKTIF_BIRIM[1].RATE2>
 
     <div class="alert alert-success">
        <b> Ürün Adı  : #PRODUCT_NAME#</b> <br>
@@ -182,12 +184,13 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
        Rate 2=#AKTIF_BIRIM[1].RATE2#<br>
        HESAPLANAN TL FİYATI=#TL_FIYAT# <BR>
        SİPARİŞTEN GELEN TL FİYATI=#PRICE#<br>
+       DİĞER FİYAT : #evaluate('attributes.price_other#IX#')#><br>
       Fiyat Kaynağı : <CFIF NERDEN_GELDIM EQ 1>Sipariş<cfelse>Fiyat Listesi</CFIF>
     </div>
     
 
 
-    <CFSET "attributes.PRICE#IX#"=TL_FIYAT>
+    
     
     <CFSET NET_TOTAL=AMOUNT*TL_FIYAT>
     <CFSET "attributes.row_total#IX#"=NET_TOTAL> 
@@ -201,7 +204,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET "attributes.other_money_#IX#"=OTHER_MONEY>   <!-----//BILGI DIGER PARA BIRIMI                  ---->
     <CFSET "attributes.other_money_value_#IX#"=NET_TOTAL/AKTIF_BIRIM[1].RATE2>  <!-----//BILGI OTHER_MONEY_VALUE                  ---->
     <CFSET "attributes.other_money_gross_total#IX#"=GROSS_TOTAL/AKTIF_BIRIM[1].RATE2>  <!-----//BILGI OTHER_MONEY_GROSS_TOTAL                  ---->
-    <CFSET "attributes.price_other#IX#"=TL_FIYAT/AKTIF_BIRIM[1].RATE2>
+    
     <CFSET "attributes.amount_other#IX#"=1>
     <CFSET "attributes.unit_other#IX#"=UNIT2>
     <CFSET "attributes.wrk_row_id#IX#"="#round(rand()*65)##dateformat(now(),'YYYYMMDD')##timeformat(now(),'HHmmssL')##session.ep.userid##round(rand()*100)#">
