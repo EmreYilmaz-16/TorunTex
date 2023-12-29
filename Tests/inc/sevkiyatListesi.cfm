@@ -12,7 +12,7 @@
 	,SC.COUNTRY_NAME
 	,ISNULL(SSP.IS_CLOSED,0) IS_CLOSED
 	,(SELECT COUNT(*) FROM #dsn3#.ORDERS_SHIP WHERE ORDER_ID=O.ORDER_ID) AS FATURA_DURUM
-	,(SELECT SHIP_ID FROM #dsn3#.ORDERS_SHIP WHERE ORDER_ID=O.ORDER_ID FOR JSON PATH) AS IRSALIYELER
+	,(SELECT SHIP_ID,SHIP_NUMBER FROM #dsn3#.ORDERS_SHIP WHERE ORDER_ID=O.ORDER_ID FOR JSON PATH) AS IRSALIYELER
 FROM #dsn3#.SEVKIYAT_SEPET_PBS SSP
 LEFT JOIN #dsn#.STOCKS_LOCATION AS SL ON SL.DEPARTMENT_ID=SSP.DEPARTMENT_ID AND SL.LOCATION_ID=SSP.LOCATION_ID
 LEFT JOIN #dsn3#.ORDERS AS O ON O.ORDER_ID=SSP.ORDER_ID
@@ -63,6 +63,9 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 			</td>
 			<td>
 				<button type="button" class="btn btn-outline-dark" onclick="window.open('index.cfm?fuseaction=objects.popup_print_files&action=stock.form_add_fis&action_id=#SEPET_ID#&print_type=31','WOC')">Çeki Listesi</button>
+			</td>
+			<td>
+				<cfloop array="##"
 			</td>
 			<td>
 				<button <cfif FATURA_DURUM neq 1>onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"</cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
