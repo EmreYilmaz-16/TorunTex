@@ -166,6 +166,19 @@
        <CFSET MAIN_GROSS_TOTAL=MAIN_GROSS_TOTAL+GROSS_TOTAL>
        <CFSET MAIN_NET_TOTAL=MAIN_NET_TOTAL+GROSS_TOTAL>
        <CFSET MAIN_TAX_TOTAL=MAIN_TAX_TOTAL+TAX_TOTAL>
+
+       <div class="alert alert-success">
+        <b> Ürün Adı  : #PRODUCT_NAME#</b> <br>
+        Aktif ParaBirimi :  getCekiListesi.OTHER_MONEY <br>
+        Rate 1=#AKTIF_BIRIM[1].RATE1#<br>
+        Rate 2=#AKTIF_BIRIM[1].RATE2#<br>
+        HESAPLANAN TL FİYATI=#TL_FIYAT# <BR>
+        SİPARİŞTEN GELEN TL FİYATI=#PRICE#<br>
+        DİĞER FİYAT : #NumberFormat(evaluate('attributes.price_other#IX#'), '9.99')#<br>
+       Fiyat Kaynağı : <CFIF NERDEN_GELDIM EQ 1>Sipariş<cfelse>Fiyat Listesi</CFIF>
+     </div>
+
+
        <cfset IX=IX+1>
    </cfloop>
    <CFSET MAIN_OTHER_MONEY=AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
@@ -192,7 +205,7 @@
    <cfdump var="#attributes#">
    <cfdump var="#getCekiListesi#">
    
-   
+   <cfabort>
    <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
    <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
    <cflocation url="/index.cfm?fuseaction=invoice.form_add_bill&event=upd&iid=#first_invoice_id#">
