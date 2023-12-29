@@ -233,7 +233,9 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 
 <cfdump var="#getCekiListesi#">
 
-
+<cfquery name="UP" datasource="#DSN3#">
+    UPDATE w3Toruntex_1.ORDERS SET ORDER_STAGE=262 WHERE ORDER_ID=#getCekiListesi.ORDER_ID#
+</cfquery>
 
 <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
 <cfinclude template="/V16/stock/query/add_sale.cfm">
