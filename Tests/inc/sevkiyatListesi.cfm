@@ -19,7 +19,7 @@ LEFT JOIN #dsn3#.ORDERS AS O ON O.ORDER_ID=SSP.ORDER_ID
 LEFT JOIN #dsn#.COMPANY AS C ON C.COMPANY_ID=O.COMPANY_ID
 LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 </cfquery>
-<cfdump var="#getSepetler#">
+
 <cf_grid_list>
 	<thead>
 		<tr>
