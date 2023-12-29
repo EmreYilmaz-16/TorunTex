@@ -43,6 +43,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
  
 
 </cfquery>
+<cfparam name="GUNCEL_KUR" default="0">
+<CFIF GUNCEL_KUR EQ 1>
 <cfquery name="getMoney" datasource="#dsn#">
     SELECT 
  (SELECT RATE1 FROM #DSN#.MONEY_HISTORY WHERE MONEY_HISTORY_ID=(
@@ -54,6 +56,11 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
  UNION 
     SELECT 1 AS RATE1,1 AS RATE2,'TL' AS MONEY
  </cfquery>
+ <CFELSE>
+    <cfquery name="getMoney" datasource="#dsn3#">
+        SELECT MONEY_TYPE as MONEY,RATE2,RATE1 FROM w3Toruntex_1.ORDER_MONEY WHERE ACTION_ID=#getCekiListesi.ORDER_ID#
+    </cfquery>
+ </CFIF>
 <cfset MYARR=arrayNew(1)>
 <cfloop query="getMoney">
     <cfset PARA_={
