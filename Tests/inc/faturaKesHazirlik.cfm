@@ -160,7 +160,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <cfset AKTIF_BIRIM=arrayFilter(MYARR,function(item){
         return item.MONEY=="#getCekiListesi.OTHER_MONEY#"
     })>
-    <CFSET TL_FIYAT=PRICE*AKTIF_BIRIM[1].RATE2>    
+    <CFSET TL_FIYAT=PRICE>    
 
     <div class="alert-alert:success">
        <b> Ürün Adı  : #PRODUCT_NAME#</b> <br>
