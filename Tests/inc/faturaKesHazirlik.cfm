@@ -162,7 +162,11 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     })>
     <CFSET TL_FIYAT=PRICE*AKTIF_BIRIM[1].RATE2>    
 
-    <div style="color:red">
+    <div class="alert-alert:success">
+       <b> Ürün Adı  : #PRODUCT_NAME#</b> <br>
+       Aktif ParaBirimi :  getCekiListesi.OTHER_MONEY <br>
+       Rate 1=#AKTIF_BIRIM[1].RATE1#<br>
+       Rate 2=#AKTIF_BIRIM[1].RATE2#<br>
        HESAPLANAN TL FİYATI=#TL_FIYAT# <BR>
        SİPARİŞTEN GELEN TL FİYATI=#PRICE#
     </div>
