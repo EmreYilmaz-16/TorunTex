@@ -466,7 +466,9 @@ function Iptal() {
       var Depo = Obj.DEPARTMENT_ID + "-" + Obj.LOCATION_ID;
       var DEPARTMENT_ID = Obj.DEPARTMENT_ID;
       var LOCATION_ID = Obj.LOCATION_ID;
-
+      getOtherOrdersInfo(ActiveStockId);
+      //BILGI SIPARISLER YUKLENDI
+      getOrders(ActiveStockId);
       getOtherOrdersInfo(ActiveStockId);
       getProductionInfo(DEPARTMENT_ID, LOCATION_ID);
       getProductionCount();
