@@ -176,7 +176,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     
     <CFSET "attributes.PRICE#IX#"=TL_FIYAT>
     <CFSET "attributes.price_other#IX#"=TL_FIYAT/AKTIF_BIRIM[1].RATE2>
-
+    <CFSET "attributes.price_other#IX#"=NumberFormat(evaluate('attributes.price_other#IX#'), '9.99')>
     <div class="alert alert-success">
        <b> Ürün Adı  : #PRODUCT_NAME#</b> <br>
        Aktif ParaBirimi :  getCekiListesi.OTHER_MONEY <br>
