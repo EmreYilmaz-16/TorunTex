@@ -184,7 +184,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
        Rate 2=#AKTIF_BIRIM[1].RATE2#<br>
        HESAPLANAN TL FİYATI=#TL_FIYAT# <BR>
        SİPARİŞTEN GELEN TL FİYATI=#PRICE#<br>
-       DİĞER FİYAT : #evaluate('attributes.price_other#IX#')#><br>
+       DİĞER FİYAT : #NumberFormat(evaluate('attributes.price_other#IX#'), '9.99')#<br>
       Fiyat Kaynağı : <CFIF NERDEN_GELDIM EQ 1>Sipariş<cfelse>Fiyat Listesi</CFIF>
     </div>
     
