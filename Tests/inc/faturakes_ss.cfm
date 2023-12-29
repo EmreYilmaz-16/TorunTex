@@ -47,6 +47,8 @@
         ,SH.DELIVER_STORE_ID 
         ,SH.LOCATION
    </cfquery>
+   <cfparam name="GUNCEL_KUR" default="0">
+   <CFIF GUNCEL_KUR EQ 1>
    <cfquery name="getMoney" datasource="#dsn#">
        SELECT 
     (SELECT RATE1 FROM #DSN#.MONEY_HISTORY WHERE MONEY_HISTORY_ID=(
@@ -58,6 +60,10 @@
     UNION 
        SELECT 1 AS RATE1,1 AS RATE2,'TL' AS MONEY
     </cfquery>
+    <CFELSE><cfquery name="getMoney" datasource="#dsn#">
+        SELECT MONEY_TYPE,RATE2,RATE1 FROM w3Toruntex_2023_1.SHIP_MONEY WHERE ACTION_ID=#attributes.SHIP_ID#
+    </cfquery>
+    </CFIF>
    <cfset MYARR=arrayNew(1)>
    <cfloop query="getMoney">
        <cfset PARA_={
