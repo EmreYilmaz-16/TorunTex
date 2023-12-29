@@ -6,9 +6,14 @@
                 <div class="form-group">
                     <label>Giriş Depo</label>
                     <cfquery name="getDepo" datasource="#dsn3#">
-               SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Sipariş Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=14
-        UNION  ALL 
-        SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Genel Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=15
+           <!---    SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Sipariş Depo' AS SD FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=14---->
+           SELECT * FROM (
+ SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID ,'Sipariş Depo' AS SD
+,(SELECT COUNT(*) FROM w3Toruntex_1.ORDERS WHERE DELIVER_DEPT_ID=SL.DEPARTMENT_ID AND LOCATION_ID=SL.LOCATION_ID AND ORDER_STAGE=259) AS AKTIF
+UNION  ALL 
+        SELECT COMMENT,SL.DEPARTMENT_ID,SL.LOCATION_ID,'Genel Depo' AS SD ,1 AS AKTIF FROM #DSN#.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=15
+ FROM w3Toruntex.STOCKS_LOCATION AS SL WHERE SL.DEPARTMENT_ID=14) AS T WHERE AKTIF >0
+       
         
                     </cfquery>
                     <SELECT name="txtDepoAdi" id="txtDepoAdi" <!--- onchange="searchDepo_2(this)"---->>
