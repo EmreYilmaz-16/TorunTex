@@ -62,11 +62,12 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 				#COMMENT#
 			</td>
 			<td>
-				<button type="button" class="btn btn-outline-dark" onclick="window.open('index.cfm?fuseaction=objects.popup_print_files&action=stock.form_add_fis&action_id=#SEPET_ID#&print_type=31','WOC')">Çeki Listesi</button>
+				<cfloop array="#IRSALIYELER#" item="itt">
 			</td>
 			<td>
-				<cfloop array="##"
+				<button type="button" class="btn btn-outline-dark" onclick="window.open('index.cfm?fuseaction=objects.popup_print_files&action=stock.form_add_fis&action_id=#SEPET_ID#&print_type=31','WOC')">Çeki Listesi</button>
 			</td>
+			
 			<td>
 				<button <cfif FATURA_DURUM neq 1>onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"</cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
 					<cfif FATURA_DURUM eq 1>İrsaliye Kesildi<cfelse>İrsaliye Kes </cfif>
