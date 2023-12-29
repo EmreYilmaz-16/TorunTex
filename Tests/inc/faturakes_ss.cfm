@@ -21,7 +21,7 @@
         ,#session.EP.userid# AS EMPLOYEE_ID 
         ,CC.MONEY AS MUSTERI_PARA_BIRIMI
         ,'' LOT_NO
-        ,NERDEN_GELDIM=1>
+        ,1 AS NERDEN_GELDIM
     FROM w3Toruntex_2023_1.SHIP AS SH
     INNER JOIN w3Toruntex_2023_1.SHIP_ROW AS SR ON SR.SHIP_ID = SH.SHIP_ID
     INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID = SR.STOCK_ID
