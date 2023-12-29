@@ -137,6 +137,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <CFSET FORM.BASKET_MONEY =AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
 <CFSET attributes.KUR_SAY=getMoney.recordCount>
 <CFSET FORM.KUR_SAY=getMoney.recordCount>
+<cfoutput>
 <cfloop query="getCekiListesi">
 
     <cfset "attributes.PRODUCT_ID#IX#"=PRODUCT_ID>
@@ -160,6 +161,14 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
         return item.MONEY=="#getCekiListesi.OTHER_MONEY#"
     })>
     <CFSET TL_FIYAT=PRICE*AKTIF_BIRIM[1].RATE2>    
+
+    <div style="color:red">
+       HESAPLANAN TL FİYATI=#TL_FIYAT# <BR>
+       SİPARİŞTEN GELEN TL FİYATI=#PRICE#
+    </div>
+    
+
+
     <CFSET "attributes.PRICE#IX#"=TL_FIYAT>
     
     <CFSET NET_TOTAL=AMOUNT*TL_FIYAT>
@@ -183,6 +192,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET MAIN_TAX_TOTAL=MAIN_TAX_TOTAL+TAX_TOTAL>
     <cfset IX=IX+1>
 </cfloop>
+</cfoutput>
 <CFSET MAIN_OTHER_MONEY=AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
 <CFSET MAIN_OTHER_MONEY_VALUE=(MAIN_NET_TOTAL/AKTIF_MUSTERI_PARA_BIRIMI[1].RATE2)>
 
