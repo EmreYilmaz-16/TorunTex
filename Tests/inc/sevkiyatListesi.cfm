@@ -65,7 +65,7 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 			<td><cftry>
 				<CFSET IRS=deserializeJSON(IRSALIYELER)>
 				<cfloop array="#IRS#" item="itt">
-					<a>#itt.SHIP_NUMBER#</a>
+					<div>#itt.SHIP_NUMBER#</div>
 				</cfloop>
 				<cfcatch></cfcatch>
 			</cftry>
