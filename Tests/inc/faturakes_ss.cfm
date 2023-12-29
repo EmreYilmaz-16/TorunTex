@@ -195,7 +195,7 @@
    
    <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
    <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
-   
+   <cflocation url="/index.cfm?fuseaction=invoice.form_add_bill&event=upd&iid=#first_invoice_id#">
    <script>
     this.close();
    </script>
