@@ -233,7 +233,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 
 <cfdump var="#getCekiListesi#">
 
-<cfabort>
+
 
 <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
 <cfinclude template="/V16/stock/query/add_sale.cfm">
