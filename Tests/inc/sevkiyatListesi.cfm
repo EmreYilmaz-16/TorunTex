@@ -38,6 +38,7 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 			<th>
 				Depo
 			</th>
+			<th>İrsaliyler</th>
 			<th colspan="2">
 
 			</th>
