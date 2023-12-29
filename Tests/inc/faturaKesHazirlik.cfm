@@ -73,7 +73,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     </cfscript>
 </cfloop>
 <cfdump var="#getMoney#">
-<cfabort>
+
 <CFSET attributes.ROW_=getCekiListesi.recordCount>
 <CFSET attributes.rows_=getCekiListesi.recordCount>
 
