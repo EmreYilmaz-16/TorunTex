@@ -61,9 +61,11 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 			<td>
 				#COMMENT#
 			</td>
-			<td>
+			<td><cftry>
 				<CFSET IRS=deserializeJSON(IRSALIYELER)>
 				<cfloop array="#IRS#" item="itt"></cfloop>
+				<cfcatch></cfcatch>
+			</cftry>
 			</td>
 			<td>
 				<button type="button" class="btn btn-outline-dark" onclick="window.open('index.cfm?fuseaction=objects.popup_print_files&action=stock.form_add_fis&action_id=#SEPET_ID#&print_type=31','WOC')">Çeki Listesi</button>
