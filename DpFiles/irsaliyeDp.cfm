@@ -4,7 +4,7 @@ $(document).ready(function(){
     console.log(<cfoutput>#attributes.ship_id#</cfoutput>)
     var pt=$("#old_process_type").val()
     if(parseInt(pt)==88){
-        $("#tabMenu ul").prepend("<li class='dropdown'><a style='font-weight:bold' onclick='FaturaKesCanim(<cfoutput>#attributes.ship_id#</cfoutput>)'><i class='fa fa-check'></i>Fatura Kes - PBS</a></li>")
+        $("#tabMenu ul").prepend("<li class='dropdown'><a style='font-weight:bold;color: #fb6b5b !important' onclick='FaturaKesCanim(<cfoutput>#attributes.ship_id#</cfoutput>)'><i class='fa fa-check'></i>Fatura Kes - PBS</a></li>")
     }
 })
 function FaturaKesCanim(iid) {
