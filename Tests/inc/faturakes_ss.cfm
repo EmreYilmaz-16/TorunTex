@@ -107,6 +107,7 @@
    <cfset form.BASKET_DISCOUNT_TOTAL =0>
    <cfset DELIVER_GET ="Admin">
    <cfset ibnm=1>
+   
    <cfloop query="getMoney">
        <cfset "attributes.hidden_rd_money_#ibnm#"=MONEY>
        <cfset "attributes._txt_rate1_#ibnm#"=RATE1>
@@ -123,6 +124,7 @@
    <CFSET FORM.BASKET_MONEY =AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
    <CFSET attributes.KUR_SAY=getMoney.recordCount>
    <CFSET FORM.KUR_SAY=getMoney.recordCount>
+   <cfoutput>
    <cfloop query="getCekiListesi">
    
        <cfset "attributes.PRODUCT_ID#IX#"=PRODUCT_ID>
@@ -186,6 +188,7 @@
 
        <cfset IX=IX+1>
    </cfloop>
+</cfoutput>
    <CFSET MAIN_OTHER_MONEY=AKTIF_MUSTERI_PARA_BIRIMI[1].MONEY>
    <CFSET MAIN_OTHER_MONEY_VALUE=(MAIN_NET_TOTAL/AKTIF_MUSTERI_PARA_BIRIMI[1].RATE2)>
    
