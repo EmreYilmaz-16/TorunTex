@@ -4,6 +4,7 @@ var MainOrderRowID = 0;
 var CurrentStation = null;
 var ActiveStockId = 0;
 var ActiveOrderRowID = 0;
+
 //TAMAM EĞER SİPARİŞİ OLMAYAN ÜRÜN SEÇİLİRSE OTOMATİK OLARAK KLB,-X1 E ÜRETİM YAPIYOR 08/12/23
 $(document).ready(function () {
   document
@@ -384,6 +385,10 @@ function Yazdir() {
       if (Obj.STATUS_CODE >= 2) {
         alert(Obj.MESSAGE);
         if (Obj.STATUS_CODE == 4) {
+          $("#ActiveSiparisId").val("");
+          ActiveOrderRowID = 0;
+          MainOrderRowID = 0;
+
           getOtherOrdersInfo(ActiveStockId);
           //BILGI SIPARISLER YUKLENDI
           getOrders(ActiveStockId);
