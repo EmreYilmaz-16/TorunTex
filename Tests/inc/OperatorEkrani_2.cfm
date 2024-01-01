@@ -222,6 +222,7 @@
     var dsn="#dsn#";
     var dsn1="#dsn1#";
     var dsn2="#dsn2#";
+    var dsn2_ly="#dsn#_#year(now())-1#_1";
     var dsn3="#dsn3#";
 </script>
 </cfoutput>
