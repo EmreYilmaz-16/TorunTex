@@ -34,8 +34,9 @@
             SELECT * FROM STOCKS_ROW WHERE STORE=#listGetAt(attributes.OrderData,2,"|")# AND STORE_LOCATION=#listGetAt(attributes.OrderData,3,"|")#
             AND STOCK_ID=#getO.STOCK_ID# AND UNIT2='#UNIT2#'
         </cfquery>
+          <cfdump var="#GETR#">
         <CFIF GETR.recordCount>
-            <cfdump var="#GETR#">
+          
             <cfloop query="GETR">
                 
             </cfloop>
