@@ -58,7 +58,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
  </cfquery>
  <CFELSE>
     <cfquery name="getMoney" datasource="#dsn3#">
-        SELECT MONEY_TYPE as MONEY,RATE2,RATE1 FROM w3Toruntex_1.ORDER_MONEY WHERE ACTION_ID=#getCekiListesi.ORDER_ID#
+        SELECT MONEY_TYPE as MONEY,RATE2,RATE1 FROM #dsn3#.ORDER_MONEY WHERE ACTION_ID=#getCekiListesi.ORDER_ID#
     </cfquery>
  </CFIF>
 <cfset MYARR=arrayNew(1)>
@@ -235,7 +235,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <cfdump var="#getCekiListesi#">
 
 <cfquery name="UP" datasource="#DSN3#">
-    UPDATE w3Toruntex_1.ORDERS SET ORDER_STAGE=262 WHERE ORDER_ID=#getCekiListesi.ORDER_ID#
+    UPDATE #dsn3#.ORDERS SET ORDER_STAGE=262 WHERE ORDER_ID=#getCekiListesi.ORDER_ID#
 </cfquery>
 
 <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
