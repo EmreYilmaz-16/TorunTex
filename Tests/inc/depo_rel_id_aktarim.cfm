@@ -39,7 +39,7 @@
           
             <cfloop query="GETR">
                 <cfquery name="Up" datasource="#dsn2#">
-                    UPDATE STOCKS_ROW SET PBS_RELATION_ID='#getO.WRK_ROW_ID#' WHERE STOCKS_ROW_ID=#GETR.TOCKS_ROW_ID#
+                    UPDATE STOCKS_ROW SET PBS_RELATION_ID='#getO.WRK_ROW_ID#' WHERE STOCKS_ROW_ID=#GETR.STOCKS_ROW_ID#
                 </cfquery>
             </cfloop>
         </CFIF>
