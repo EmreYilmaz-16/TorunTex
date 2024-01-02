@@ -76,6 +76,7 @@ WHERE 1=1
     </cfif>
 ORDER BY PRIORITY  
 </cfquery>
+<cfdump var="#getOrder#">
 <cfset ORDER_ROW_ID_LIST=valueList(getOrder.ORDER_ROW_ID)>
 <cfif getOrder.recordCount eq 0>
     <cfquery name="GETS2" datasource="#DSN#">
