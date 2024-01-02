@@ -102,6 +102,7 @@
 	,STOCKS.PRODUCT_CODE
 	,ORDER_ROW.ORDER_ID
 	,O.ORDER_NUMBER
+    ,O.SA_PACKAGE_COLOR
 	,STOCKS.PRODUCT_DETAIL
 	,STOCKS.PRODUCT_DETAIL AA2
 	,STOCKS.PRODUCT_DETAIL2 AA3
@@ -147,6 +148,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
      
      where ORDER_ROW.ORDER_ID=#GETDATA.ORDER_ID#
  </cfquery>
+ 
  <CFSET ALL_ROWS=arrayNew(1)>
  <cfloop query="GETDATA2">
     <CFSET ITEM={
@@ -176,7 +178,11 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
     </cfscript>
  </cfloop>
 <cfloop query="GETDATA">
-    
+    <cfquery name="getRWX" datasource="#dsn#">
+        SELECT OPTION_SETTINGS FROM w3Toruntex.EXTENDED_FIELDS WHERE CONTROLLER_NAME='WBO/controller/saleOrderController.cfm' AND FIELD_ID='SA_PACKAGE_COLOR' AND EVENT_LIST='add'
+    </cfquery>
+    <cfset AAA=deserializeJSON(getRWX.OPTION_SETTINGS)>
+    <cfset Vxx=arrayfind(AAA,p=>p.op_val==SA_PACKAGE_COLOR)>   
     <CFSET RETURN_ITEM={
         QUANTITY=QUANTITY,
         UNIT=UNIT,
@@ -190,7 +196,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
         PROPERTY2=PROPERTY2,
         PROPERTY3=PROPERTY3,
         PROPERTY4=PROPERTY4,
-        PROPERTY5=PROPERTY5,
+        PROPERTY5=Vxx[1].op_text,
         PROPERTY6=PROPERTY6,
         PRODUCT_NAME2=PRODUCT_NAME2,
         SA_PRODUCTION_NOTE=SA_PRODUCTION_NOTE,
