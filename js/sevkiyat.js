@@ -207,7 +207,8 @@ function islemYap(el, ev) {
           OSX.PRODUCT_NAME,
           OSX.Agirlik,
           "KG",
-          OSX.UNIT2
+          OSX.UNIT2,
+          GENERATEDKEY
         );
       } else {
         SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik, OSX.LotNo, "KG", OSX.UNIT2);
@@ -321,7 +322,7 @@ function SepeteEkle(
   }
 }
 //BILGI YALNIZCA HTML OLARAK SATIR EKLER
-function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT, SEPET_ROW_ID) {
+function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT,UNIT,UNIT2, SEPET_ROW_ID) {
   var tr = document.createElement("tr");
   tr.setAttribute("class", "bg-danger");
   tr.setAttribute("data-fromSiparis", 0);
