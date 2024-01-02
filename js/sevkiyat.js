@@ -40,6 +40,7 @@ document.addEventListener("click", function (event) {
 //INC WRK_QUERY,document.getElementByProductId,SepeteEkle,OkumaEkle,SatirEkle, SatirGuncelle
 function islemYap(el, ev) {
   if (ev.keyCode == 13) {
+    debugger;
     //console.log(el.value)
     var SEPET_DEPARTMAN_ID = document.getElementById("DEPARTMENT_ID").value;
     var SEPET_LOCATION_ID = document.getElementById("LOCATION_ID").value;
