@@ -183,7 +183,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
     </cfquery>
     <cfset AAA=deserializeJSON(getRWX.OPTION_SETTINGS)>
     <cfscript>
-        VVX = ArrayFilter(AAA, function(item) {
+        VXX  = ArrayFilter(AAA, function(item) {
         return item.op_val =='#GETDATA.SA_PACKAGE_COLOR#';
     });
     </cfscript>
