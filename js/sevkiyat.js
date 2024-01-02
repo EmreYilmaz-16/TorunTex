@@ -323,10 +323,18 @@ function SepeteEkle(
   }
 }
 //BILGI YALNIZCA HTML OLARAK SATIR EKLER
-function SatirEkle(PRODUCT_ID, PRODUCT_NAME, AMOUNT,UNIT,UNIT2, SEPET_ROW_ID) {
+function SatirEkle(
+  PRODUCT_ID,
+  PRODUCT_NAME,
+  AMOUNT,
+  UNIT,
+  UNIT2,
+  SEPET_ROW_ID
+) {
   var tr = document.createElement("tr");
   tr.setAttribute("class", "bg-danger");
   tr.setAttribute("data-fromSiparis", 0);
+  tr.setAttribute("id", "ROW_" + PRODUCT_ID);
   var td = document.createElement("td");
 
   td.innerText = AMOUNT + "/" + "0";
