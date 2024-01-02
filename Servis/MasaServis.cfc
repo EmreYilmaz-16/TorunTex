@@ -196,7 +196,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
         PROPERTY2=PROPERTY2,
         PROPERTY3=PROPERTY3,
         PROPERTY4=PROPERTY4,
-        PROPERTY5=Vxx[1].op_text,
+        
         PROPERTY6=PROPERTY6,
         PRODUCT_NAME2=PRODUCT_NAME2,
         SA_PRODUCTION_NOTE=SA_PRODUCTION_NOTE,
@@ -218,6 +218,11 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
         AA3=AA3
         
     }>
+    <cfif arrayLen(Vxx)>
+        <cfset RETURN_ITEM.PROPERTY5=Vxx[1].op_text>
+    <cfelse>
+        <cfset RETURN_ITEM.PROPERTY5="">
+    </cfif>
     <cfscript>
         
     </cfscript>
