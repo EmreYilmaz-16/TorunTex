@@ -182,7 +182,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
         SELECT OPTION_SETTINGS FROM w3Toruntex.EXTENDED_FIELDS WHERE CONTROLLER_NAME='WBO/controller/saleOrderController.cfm' AND FIELD_ID='SA_PACKAGE_COLOR' AND EVENT_LIST='add'
     </cfquery>
     <cfset AAA=deserializeJSON(getRWX.OPTION_SETTINGS)>
-    <cfset Vxx=arrayfind(AAA,p=>p.op_val==SA_PACKAGE_COLOR)>   
+    <cfset Vxx=arrayfind(AAA,p=>p.op_val==getdata.SA_PACKAGE_COLOR)>   
     <CFSET RETURN_ITEM={
         QUANTITY=QUANTITY,
         UNIT=UNIT,
