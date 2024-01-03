@@ -73,7 +73,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             <td>#UNIT2#<br>#UNIT#</td>
             <td>#PRODUCT_NAME#<br>#PRODUCT_DETAIL# Order Number:#listGetAt(SIPARIS,1,"|")#</td>
             <td>#PRICE_OTHER#</td>
-            <td><CFIF IR.TAX EQ 0>Tax Free<CFELSE>#TAX# %</CFIF></td>
+            <td><CFIF TAX EQ 0>Tax Free<CFELSE>#TAX# %</CFIF></td>
             <td>#TOTAL_MONEY#</td>
         </tr>
     </cfoutput>
