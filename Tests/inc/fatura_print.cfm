@@ -60,7 +60,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 <cfloop from="1" to="#SayfaSayisi#" index="i">
 <table style="width:100%">
     <tr style="border-bottom:solid;">
-        <td style="width:90%;font-size: 25pt;">
+        <td style="width:85%;font-size: 25pt;">
             INVOICE
         </td>
         <td style="text-align:right;">
