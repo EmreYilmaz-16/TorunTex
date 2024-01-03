@@ -108,18 +108,22 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 </tbody>
 <tfoot>
     <tr>
+        <th rowspan="3" colspan="4"></th>
         <th>
             Positions Total:
         </th>
         <th>
             <cfoutput>#tlformat(ToplamPara)#</cfoutput>
         </th>
+    </tr>
+    <tr>
         <th>
             Tax:
         </th>
         <th>
             
         </th>
+    </tr>
         <th>
             Grand Total: 
         </th>
