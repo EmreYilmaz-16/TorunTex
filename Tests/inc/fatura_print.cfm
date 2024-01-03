@@ -44,7 +44,14 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 <cfset SonBiSatir=SayfaSiniri>
 <cfset ToplamPara=0>
 <cfset ToplamVergi=0>
-
+<table style="width:100%">
+    <tr>
+        <td>
+            <img src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
+            <h3 style="color: #2c6d3e;">İNTRO TARIM VE HAYVANCILIK A.S.</h3>
+        </td>
+    </tr>
+</table>
 <cfloop from="1" to="#SayfaSayisi#" index="i">
 <cf_big_list>
     <thead>
