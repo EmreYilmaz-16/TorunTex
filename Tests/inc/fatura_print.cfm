@@ -93,8 +93,8 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
         <cfset Satirim=Satirim+1>
     </cfloop> 
     <cfset ToplamPara=ToplamPara+TotalSr>
-    <tfoot <cfif i lt SayfaSayisi>
-        <tr >
+    <cfif i lt SayfaSayisi> <tfoot >
+        <tr>
             <th colspan="4"></th>
             <th colspan="2">
                 Transfer
@@ -104,6 +104,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             </th>
         </tr>
     </tfoot>
+</cfif>
     </cfoutput>
 </tbody>
 <tfoot>
