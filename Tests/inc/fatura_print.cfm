@@ -124,6 +124,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             
         </th>
     </tr>
+    <tr>
         <th>
             Grand Total: 
         </th>
