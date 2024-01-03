@@ -46,26 +46,26 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 <cf_big_list>
     <thead>
     <tr>
-        <th>
+        <th style="text-align:center">
             Pos
         </th>
-        <th>
+        <th style="text-align:center">
             Quantity<br>
             Ord-Qty
         </th>
-        <th>
+        <th style="text-align:center">
             Unit<br> Ord-
         </th>
-        <th>
+        <th style="text-align:center">
             Product
         </th>
-        <th>
+        <th style="text-align:center">
             Price
         </th>
-        <th>
+        <th style="text-align:center">
             Tax
         </th>
-        <th>
+        <th style="text-align:center">
             Net Total
         </th>
     </tr>
