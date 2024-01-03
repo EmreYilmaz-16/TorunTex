@@ -26,7 +26,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 
 
 </cfquery>
-
+<cfdump var="#getData#">
 
 <cfset SayfaSiniri=25>
 <cfset KayitSayisi=getData.recordCount>
