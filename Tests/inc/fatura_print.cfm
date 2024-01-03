@@ -28,6 +28,7 @@
 ,C.OZEL_KOD
 ,C.OZEL_KOD_1
 ,C.OZEL_KOD_2
+,C.COMPANY_ID
 FROM w3Toruntex_2024_1.INVOICE_ROW AS IR
 INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID = IR.STOCK_ID
 INNER JOIN INVOICE AS I ON I.INVOICE_ID=IR.INVOICE_ID
@@ -65,6 +66,16 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
 	<cfelseif isDefined("SESSION.PP.COMPANY")>	
 	    COMP_ID = #session.pp.company_id#
 	</cfif> 
+</cfquery>
+<cfquery name="CHECK2" datasource="#DSN#">
+SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
+        '' TEL2,
+		'' TEL3,
+		'' TEL4,
+		'' FAX,
+        '#getData.SHIP_ADDRESS#' ADDRESS
+        FULLNAME,TAXNO TAX_NO,TAXOFFICE TAX_OFFICE FROM COMPANY WHERE COMPANY_ID=#getData.COMPANY_ID#
+	
 </cfquery>
 
 <cfset SayfaSiniri=20>
@@ -104,6 +115,25 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
                     <td style="width:10mm;">&nbsp;</td>
                     <td valign="top">
                     <cfoutput query="CHECK">
+                        <strong style="font-size:14px;">#company_name#</strong><br/>
+                        #address#<br/>
+                        <b><cf_get_lang_main no='87.Telefon'>: </b> (#tel_code#) - #tel#  #tel2#  #tel3# #tel4# <br/>
+                        <b><cf_get_lang_main no='76.Fax'>: </b> #fax# <br/>
+                        <b><cf_get_lang_main no='1350.Vergi Dairesi'> : </b> #TAX_OFFICE# <b><cf_get_lang_main no='340.No'> : </b> #TAX_NO#<br/>
+                        <!---#web# - #email#---->
+                    </cfoutput>
+                    </td>
+                </tr>
+                <tr><td colspan="3"><hr></td></tr>
+             </table><br/>
+        </td>
+        <td>
+            <table style="width:100%" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                   
+                    <td style="width:10mm;">&nbsp;</td>
+                    <td valign="top">
+                    <cfoutput query="CHECK2">
                         <strong style="font-size:14px;">#company_name#</strong><br/>
                         #address#<br/>
                         <b><cf_get_lang_main no='87.Telefon'>: </b> (#tel_code#) - #tel#  #tel2#  #tel3# #tel4# <br/>
