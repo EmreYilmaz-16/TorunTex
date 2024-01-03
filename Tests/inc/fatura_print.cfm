@@ -119,7 +119,7 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
     </tr>
 </table>
 <cfloop from="1" to="#SayfaSayisi#" index="i">
-    <table style="width:100%">
+    <cfif i neq 1><table style="width:100%" >
         <tr>
             <td colspan="2">
                 <div style="display: flex;align-content: stretch;align-items: center;">
@@ -128,7 +128,7 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
                  </div>
             </td>
         </tr>
-    </table>
+    </table></cfif>
 <table style="width:100%">
     <tr style="border-bottom:solid;">
         <td style="width:85%;font-size: 25pt;">
