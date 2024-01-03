@@ -43,7 +43,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 <cfset Satirim=1>
 <cfset SonBiSatir=SayfaSiniri>
 <cfloop from="1" to="#SayfaSayisi#" index="i">
-<cf_grid_list>
+<cf_ajax_list>
     <thead>
     <tr>
         <th>
@@ -73,9 +73,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     <tbody>
         <cfset SonBSatir=SayfaSiniri*i>
     <cfoutput>
-        <cfloop from="#Satirim#" to="#SonBSatir#" index="j">
-
-        
+        <cfloop from="#Satirim#" to="#SonBSatir#" index="j">        
         <tr>
             <td>#Satirim#</td>
             <td>#getData.AMOUNT2[j]#<br>#getData.AMOUNT[j]#</td>
@@ -89,5 +87,5 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     </cfloop> 
     </cfoutput>
 </tbody>
-</cf_grid_list>
+</cf_ajax_list>
 </cfloop>
