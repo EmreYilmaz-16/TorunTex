@@ -29,7 +29,31 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 <cfquery name="getINV" datasource="#dsn2#">
     SELECT * FROM INVOICE WHERE INVOICE_ID =#attributes.INVOICE_ID#
 </cfquery>
-
+<cfquery name="CHECK" datasource="#DSN#">
+	SELECT
+	    COMPANY_NAME,
+		TEL_CODE,
+		TEL,
+		TEL2,
+		TEL3,
+		TEL4,
+		FAX,
+		ADDRESS,
+		WEB,
+		EMAIL,
+		'' ASSET_FILE_NAME3,
+		'' ASSET_FILE_NAME3_SERVER_ID,
+		TAX_OFFICE,
+		TAX_NO
+	FROM
+	   OUR_COMPANY
+	WHERE
+	<cfif isDefined("SESSION.EP.COMPANY_ID")>
+	    COMP_ID = #SESSION.EP.COMPANY_ID#
+	<cfelseif isDefined("SESSION.PP.COMPANY")>	
+	    COMP_ID = #session.pp.company_id#
+	</cfif> 
+</cfquery>
 
 <cfset SayfaSiniri=25>
 <cfset KayitSayisi=getData.recordCount>
@@ -49,11 +73,36 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 <cfset ToplamVergi=0>
 <table style="width:100%">
     <tr>
-        <td>
+        <td colspan="2">
             <div style="display: flex;align-content: stretch;align-items: center;">
                     <img style="width: 150px;" src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
                     <h3 style="color: #2c6d3e;font-size: 33pt;">INTRO TARIM VE HAYVANCILIK A.S.</h3>
              </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="650" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                    <cfif len(CHECK.asset_file_name3)>
+                    <td style="text-align:right;">
+                        <cfoutput><cf_get_server_file output_file="settings/#CHECK.asset_file_name3#" output_server="#CHECK.asset_file_name3_server_id#" output_type="5"></cfoutput>
+                    </td>
+                    </cfif>
+                    <td style="width:10mm;">&nbsp;</td>
+                    <td valign="top">
+                    <cfoutput query="CHECK">
+                        <strong style="font-size:14px;">#company_name#</strong><br/>
+                        #address#<br/>
+                        <b><cf_get_lang_main no='87.Telefon'>: </b> (#tel_code#) - #tel#  #tel2#  #tel3# #tel4# <br/>
+                        <b><cf_get_lang_main no='76.Fax'>: </b> #fax# <br/>
+                        <b><cf_get_lang_main no='1350.Vergi Dairesi'> : </b> #TAX_OFFICE# <b><cf_get_lang_main no='340.No'> : </b> #TAX_NO#<br/>
+                        #web# - #email#
+                    </cfoutput>
+                    </td>
+                </tr>
+                <tr><td colspan="3"><hr></td></tr>
+             </table><br/>
         </td>
     </tr>
 </table>
