@@ -26,6 +26,9 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 
 
 </cfquery>
+<cfquery name="getINV" datasource="#dsn2#">
+    SELECT * FROM INVOICE WHERE INVOICE_ID =#attributes.INVOICE_ID#
+</cfquery>
 
 
 <cfset SayfaSiniri=25>
@@ -55,6 +58,21 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     </tr>
 </table>
 <cfloop from="1" to="#SayfaSayisi#" index="i">
+<table style="width:100%">
+    <tr>
+        <td>
+            INVOICE
+        </td>
+        <td>
+            Date :
+        </td>
+        <td>
+            <cfoutput>
+                #DateFormat(getINV.INVOICE_DATE,"dd.mmm.yyyy")#
+            </cfoutput>
+        </td>
+    </tr>
+</table>
 <cf_big_list>
     <thead>
     <tr>
@@ -149,5 +167,5 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 
 
 </cf_big_list>
-<div style="page-break-after: always"></div>
+<cfif i lt SayfaSayisi><div style="page-break-after: always"></div></cfif>
 </cfloop>
