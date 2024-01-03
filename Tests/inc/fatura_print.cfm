@@ -71,7 +71,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     </tr>
 </thead>
     <tbody>
-        <cfset SonBSatir=SonBSatir*i>
+        <cfset SonBSatir=SayfaSiniri*i>
     <cfoutput>
         <cfloop from="#Satirim#" to="#SonBSatir#" index="j">
 
