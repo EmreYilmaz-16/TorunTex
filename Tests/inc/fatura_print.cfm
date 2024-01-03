@@ -139,7 +139,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
                         <b><cf_get_lang_main no='87.Telefon'>: </b> (#tel_code#) - #tel#  #tel2#  #tel3# #tel4# <br/>
                         <b><cf_get_lang_main no='76.Fax'>: </b> #fax# <br/>
                         <b><cf_get_lang_main no='1350.Vergi Dairesi'> : </b> #TAX_OFFICE# <b><cf_get_lang_main no='340.No'> : </b> #TAX_NO#<br/>
-                        #web# - #email#
+                         <!---#web# - #email#---->
                     </cfoutput>
                     </td>
                 </tr>
