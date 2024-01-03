@@ -82,7 +82,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     </tr>
     <tr>
         <td>
-            <table width="650" border="0" cellspacing="0" cellpadding="0">
+            <table style="width:100%" border="0" cellspacing="0" cellpadding="0">
                 <tr> 
                     <cfif len(CHECK.asset_file_name3)>
                     <td style="text-align:right;">
