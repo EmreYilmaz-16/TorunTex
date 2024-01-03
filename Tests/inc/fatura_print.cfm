@@ -150,6 +150,12 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
         <td>
         #getData.Gewicht#
         </td>
+        <td>
+            Phone
+        </td>
+        <td>
+        
+        </td>
     </tr>
     <tr>
         <td>
@@ -163,6 +169,28 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
         </td>
         <td>
         #getData.Ballen#
+        </td>
+        <td>
+            Email
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>
+            Container- Siegel No.
+        </td>
+        <td>
+        
+        </td>
+        <td>
+            VAT ID
+        </td>
+        <td>
+        
         </td>
     </tr>
 </table>
