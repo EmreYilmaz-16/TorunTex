@@ -59,14 +59,14 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 </table>
 <cfloop from="1" to="#SayfaSayisi#" index="i">
 <table style="width:100%">
-    <tr>
-        <td>
+    <tr style="border-bottom:solid;">
+        <td style="width:90%">
             INVOICE
         </td>
-        <td>
+        <td style="text-align:right;">
             Date :
         </td>
-        <td>
+        <td style="text-align:right;">
             <cfoutput>
                 #DateFormat(getINV.INVOICE_DATE,"dd.mmm.yyyy")#
             </cfoutput>
