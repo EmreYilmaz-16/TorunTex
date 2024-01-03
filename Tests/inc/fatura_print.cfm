@@ -80,7 +80,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             <td>#Satirim#</td>
             <td>#getData.AMOUNT2[j]#<br>#getData.AMOUNT[j]#</td>
             <td>Pc<br>#getData.UNIT[j]#</td>            
-            <td>#getData.PRODUCT_NAME[j]#<br>#getData.PRODUCT_DETAIL[j]# Order Number:#listGetAt(getData.SIPARIS,1,"|") [j]#</td>
+            <td>#getData.PRODUCT_NAME[j]#<br>#getData.PRODUCT_DETAIL[j]# Order Number:#listGetAt(getData.SIPARIS[j],1,"|") #</td>
             <td>#getData.PRICE_OTHER[j]#</td>
             <td><CFIF getData.TAX[j] EQ 0>Tax Free<CFELSE>#getData.TAX[j]# %</CFIF></td>
             <td>#tlformat(getData.TOTAL_MONEY[j])# #getData.OTHER_MONEY[j]#</td>
