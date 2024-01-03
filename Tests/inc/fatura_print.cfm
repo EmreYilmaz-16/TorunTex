@@ -159,7 +159,7 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
             Gewicht
         </td>
         <td>
-        #getData.Gewicht#
+        #tlformat(getData.Gewicht)# KG
         </td>
         <td>
             Phone
@@ -176,10 +176,10 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
         #getData.OZEL_KOD_1#
         </td>
         <td>
-            Gewicht
+            Ballen
         </td>
         <td>
-        #getData.Ballen#
+        #tlformat(getData.Ballen)#
         </td>
         <td>
             Email
