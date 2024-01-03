@@ -37,7 +37,7 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
 
 
 </cfquery>
-<cfdump var="#getData#">
+
 <cfquery name="getINV" datasource="#dsn2#">
     SELECT * FROM INVOICE WHERE INVOICE_ID =#attributes.INVOICE_ID#
 </cfquery>
