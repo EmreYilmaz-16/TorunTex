@@ -40,6 +40,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     #SayfaSayisi#
 </cfoutput>
 <cfset SonBSatir=1>
+<cfset Satirim=1>
 <cfset SonBiSatir=SayfaSiniri>
 <cfloop from="1" to="#SayfaSayisi#" index="i">
 <cf_grid_list>
@@ -72,7 +73,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     <tbody>
     <cfoutput query="getData" startrow="#SonBSatir#" maxrows="#SayfaSiniri#">
         <tr>
-            <td>#currentrow#</td>
+            <td>#Satirim#</td>
             <td>#AMOUNT2#<br>#AMOUNT#</td>
             <td>Pc<br>#UNIT#</td>            
             <td>#PRODUCT_NAME#<br>#PRODUCT_DETAIL# Order Number:#listGetAt(SIPARIS,1,"|")#</td>
@@ -80,6 +81,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             <td><CFIF TAX EQ 0>Tax Free<CFELSE>#TAX# %</CFIF></td>
             <td>#tlformat(TOTAL_MONEY)# #OTHER_MONEY#</td>
         </tr>
+        <cfset Satirim=Satirim+1>
     </cfoutput>
 </tbody>
 </cf_grid_list>
