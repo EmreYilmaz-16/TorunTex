@@ -72,18 +72,21 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 </thead>
     <tbody>
         <cfset SonBSatir=SonBSatir*i>
-    <cfoutput query="getData" startrow="#SonBSatir#" maxrows="#SayfaSiniri#">
+    <cfoutput>
+        <cfloop from="#Satirim#" to="#SonBSatir#" index="j">
+
+        
         <tr>
             <td>#Satirim#</td>
-            <td>#AMOUNT2#<br>#AMOUNT#</td>
-            <td>Pc<br>#UNIT#</td>            
-            <td>#PRODUCT_NAME#<br>#PRODUCT_DETAIL# Order Number:#listGetAt(SIPARIS,1,"|")#</td>
-            <td>#PRICE_OTHER#</td>
-            <td><CFIF TAX EQ 0>Tax Free<CFELSE>#TAX# %</CFIF></td>
-            <td>#tlformat(TOTAL_MONEY)# #OTHER_MONEY#</td>
+            <td>#getData.AMOUNT2[j]#<br>#getData.AMOUNT[j]#</td>
+            <td>Pc<br>#getData.UNIT[j]#</td>            
+            <td>#getData.PRODUCT_NAME[j]#<br>#getData.PRODUCT_DETAIL[j]# Order Number:#listGetAt(getData.SIPARIS,1,"|") [j]#</td>
+            <td>#getData.PRICE_OTHER[j]#</td>
+            <td><CFIF TAX EQ 0>Tax Free<CFELSE>#getData.TAX[j]# %</CFIF></td>
+            <td>#tlformat(getData.TOTAL_MONEY[j])# #getData.OTHER_MONEY[j]#</td>
         </tr>
         <cfset Satirim=Satirim+1>
-        
+    </cfloop> 
     </cfoutput>
 </tbody>
 </cf_grid_list>
