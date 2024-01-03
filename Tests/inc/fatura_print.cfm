@@ -108,7 +108,9 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
 <cfelse>
     <tfoot>
         <tr>
-            <th rowspan="3" colspan="4"></th>
+            <th rowspan="3" colspan="4">
+                Leistung ist in Deutschland nicht steuerbar.
+            </th>
             <th colspan="2">
                 Positions Total:
             </th>
