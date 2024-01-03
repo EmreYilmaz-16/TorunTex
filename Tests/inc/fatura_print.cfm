@@ -10,6 +10,8 @@
 		WHERE IIIS.INVOICE_ID = IR.INVOICE_ID
 		) ,'0|0')AS SIPARIS
 	,S.PRODUCT_NAME
+    ,(SELECT SUM(AMOUNT) FROM INVOICE_ROW WHERE INVOICE_ID=#attributes.INVOICE_ID#) AS Gewicht
+    ,(SELECT SUM(AMOUNT2) FROM INVOICE_ROW WHERE INVOICE_ID=#attributes.INVOICE_ID#) AS Ballen
 	,S.PRODUCT_CODE_2
 	,S.PRODUCT_DETAIL
 	,IR.PRICE_OTHER
@@ -133,13 +135,38 @@ WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
         </td>
     </tr>
 </table>
+<cfoutput>
 <table style="width:100%">
     <tr>
         <td>
             Invoice No.
         </td>
+        <td>
+        #getData.INVOICE_NUMBER#
+        </td>
+        <td>
+            Gewicht
+        </td>
+        <td>
+        #getData.Gewicht#
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Invoice No.
+        </td>
+        <td>
+        #getData.OZEL_KOD_1#
+        </td>
+        <td>
+            Gewicht
+        </td>
+        <td>
+        #getData.Ballen#
+        </td>
     </tr>
 </table>
+</cfoutput>
 <cf_big_list>
     <thead>
     <tr>
