@@ -74,7 +74,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
         <cfset SonBSatir=SayfaSiniri*i>
     <cfoutput>
         <cfloop from="#Satirim#" to="#SonBSatir#" index="j">        
-            <cfif Satirim lte KayitSayisi> >  <tr 
+            <cfif Satirim lte KayitSayisi>   <tr>
             <td>#Satirim#</td>
             <td>#getData.AMOUNT2[j]#<br>#getData.AMOUNT[j]#</td>
             <td>Pc<br>#getData.UNIT[j]#</td>            
