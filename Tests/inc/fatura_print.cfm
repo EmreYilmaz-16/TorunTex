@@ -52,6 +52,9 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             Ord-Qty
         </th>
         <th>
+            Unit<br> Ord-
+        </th>
+        <th>
             Product
         </th>
         <th>
@@ -69,8 +72,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
         <tr>
             <td>#currentrow#</td>
             <td>#AMOUNT2#<br>#AMOUNT#</td>
-            <td>#UNIT2#<br>#UNIT#</td>
-            <td>#UNIT2#<br>#UNIT#</td>
+            <td>Pc<br>#UNIT#</td>            
             <td>#PRODUCT_NAME#<br>#PRODUCT_DETAIL# Order Number:#listGetAt(SIPARIS,1,"|")#</td>
             <td>#PRICE_OTHER#</td>
             <td><CFIF TAX EQ 0>Tax Free<CFELSE>#TAX# %</CFIF></td>
