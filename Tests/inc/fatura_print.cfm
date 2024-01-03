@@ -109,7 +109,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     <tfoot>
         <tr>
             <th rowspan="3" colspan="4"></th>
-            <th>
+            <th colspan="2">
                 Positions Total:
             </th>
             <th>
@@ -117,7 +117,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             </th>
         </tr>
         <tr>
-            <th>
+            <th colspan="2">
                 Tax:
             </th>
             <th>
@@ -125,7 +125,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             </th>
         </tr>
         <tr>
-            <th>
+            <th colspan="2">
                 Grand Total: 
             </th>
             <th>
