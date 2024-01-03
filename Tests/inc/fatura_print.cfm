@@ -92,6 +92,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
         </tr></cfif>
         <cfset Satirim=Satirim+1>
     </cfloop> 
+</tbody>
     <cfset ToplamPara=ToplamPara+TotalSr>
     <cfif i lt SayfaSayisi> <tfoot >
         <tr>
@@ -104,35 +105,37 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             </th>
         </tr>
     </tfoot>
+<cfelse>
+    <tfoot>
+        <tr>
+            <th rowspan="3" colspan="4"></th>
+            <th>
+                Positions Total:
+            </th>
+            <th>
+                #tlformat(ToplamPara)#
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Tax:
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Grand Total: 
+            </th>
+            <th>
+                #tlformat(ToplamPara)#
+            </th>
+        </tr>
+    </tfoot>
 </cfif>
     </cfoutput>
-</tbody>
-<tfoot>
-    <tr>
-        <th rowspan="3" colspan="4"></th>
-        <th>
-            Positions Total:
-        </th>
-        <th>
-            <cfoutput>#tlformat(ToplamPara)#</cfoutput>
-        </th>
-    </tr>
-    <tr>
-        <th>
-            Tax:
-        </th>
-        <th>
-            
-        </th>
-    </tr>
-    <tr>
-        <th>
-            Grand Total: 
-        </th>
-        <th>
-            <cfoutput>#tlformat(ToplamPara)#</cfoutput>
-        </th>
-    </tr>
-</tfoot>
+
+
 </cf_big_list>
 </cfloop>
