@@ -19,13 +19,23 @@
 	,IR.UNIT, IR.UNIT2
 ,IR.PRICE_OTHER*IR.AMOUNT AS TOTAL_MONEY
 ,IR.OTHER_MONEY
+,I.INVOICE_NUMBER
+,I.SHIP_ADDRESS
+,C.NICKNAME
+,C.MEMBER_CODE
+,C.OZEL_KOD
+,C.OZEL_KOD_1
+,C.OZEL_KOD_2
 FROM w3Toruntex_2024_1.INVOICE_ROW AS IR
 INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID = IR.STOCK_ID
+INNER JOIN INVOICE AS I ON I.INVOICE_ID=IR.INVOICE_ID
+INNER JOIN #DSN#.COMPANY AS C ON C.COMPANY_ID=I.COMPANY_ID
 
 WHERE INVOICE_ID = #attributes.INVOICE_ID#
 
 
 </cfquery>
+<cfdump var="#getData#">
 <cfquery name="getINV" datasource="#dsn2#">
     SELECT * FROM INVOICE WHERE INVOICE_ID =#attributes.INVOICE_ID#
 </cfquery>
@@ -111,6 +121,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     <tr style="border-bottom:solid;">
         <td style="width:85%;font-size: 25pt;">
             INVOICE
+            <br>
         </td>
         <td style="text-align:right;">
             Date :
@@ -122,7 +133,13 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
         </td>
     </tr>
 </table>
-<br>
+<table style="width:100%">
+    <tr>
+        <td>
+            Invoice No.
+        </td>
+    </tr>
+</table>
 <cf_big_list>
     <thead>
     <tr>
