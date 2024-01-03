@@ -71,6 +71,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     </tr>
 </thead>
     <tbody>
+        <cfset SonBSatir=SonBSatir*i>
     <cfoutput query="getData" startrow="#SonBSatir#" maxrows="#SayfaSiniri#">
         <tr>
             <td>#Satirim#</td>
@@ -82,6 +83,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             <td>#tlformat(TOTAL_MONEY)# #OTHER_MONEY#</td>
         </tr>
         <cfset Satirim=Satirim+1>
+        
     </cfoutput>
 </tbody>
 </cf_grid_list>
