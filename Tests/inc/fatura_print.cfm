@@ -1,14 +1,14 @@
 <cfparam name="attributes.invoice_id" default="2">
 
 <cfquery name="getData" datasource="#dsn2#">
-    SELECT (
+    SELECT ISNULL((
 		SELECT O.ORDER_NUMBER + '|' + O.ORDER_HEAD
 		FROM w3Toruntex_2024_1.INVOICE_SHIPS AS IIIS
 		LEFT JOIN w3Toruntex_1.ORDERS_SHIP AS OS ON OS.SHIP_ID = IIIS.SHIP_ID
 			AND OS.PERIOD_ID = IIIS.SHIP_PERIOD_ID
 		INNER JOIN w3Toruntex_1.ORDERS AS O ON O.ORDER_ID = OS.ORDER_ID
 		WHERE IIIS.INVOICE_ID = IR.INVOICE_ID
-		) AS SIPARIS
+		) ,' | ')AS SIPARIS
 	,S.PRODUCT_NAME
 	,S.PRODUCT_CODE_2
 	,S.PRODUCT_DETAIL
