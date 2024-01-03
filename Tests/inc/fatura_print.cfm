@@ -51,7 +51,7 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
     <tr>
         <td>
             <div style="display: flex;align-content: stretch;align-items: center;">
-                    <img src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
+                    <img style="width: 150px;" src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
                     <h3 style="color: #2c6d3e;font-size: 33pt;">INTRO TARIM VE HAYVANCILIK A.S.</h3>
              </div>
         </td>
