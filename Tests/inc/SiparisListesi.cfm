@@ -362,7 +362,7 @@ CASE
 WHERE 1 = 1
     --AND ORDER_ID = 55
     <cfif len(attributes.keyword)>
-        AND (ORDER_HEAD LIKE '%#attributes.keyword#%' OR ORDER_NUMBER LIKE '%#attributes.keyword#%')
+        AND (ORDER_HEAD LIKE '%#attributes.keyword#%' OR ORDER_NUMBER LIKE '%#attributes.keyword#%' )
     </cfif>
     <cfif len(attributes.currency_id)>
         AND ORDER_ROW_CURRENCY=#attributes.currency_id#
@@ -379,9 +379,7 @@ WHERE 1 = 1
     <cfif len(attributes.prod_cat)>
         AND PRODUCT_CODE LIKE '#attributes.prod_cat#%'
     </cfif>
-    <cfif len(attributes.prod_cat)>
-        AND PRODUCT_CODE LIKE '#attributes.prod_cat#%'
-    </cfif>
+ 
     <cfif len(attributes.product_name) AND len(attributes.product_id)>
         AND PRODUCT_ID=#attributes.product_id#
     </cfif>
@@ -397,10 +395,13 @@ ORDER BY ORDER_ID
             <th>Depo</th>
             <th>Öncelik</th>
             <th>Tamanlanma</th>
-            <th>Müşteri</th>
+            <th>Müşteri</th>         
             <th>Ülke</th>
+            <th>Ürün K</th>
+            <th>Ürün </th>
+
             <th>Ad</th>
-            <th>Depo Ad</th>
+            <th>Depo Ad</th>        
             <th>Kg</th>
             <th>Depo Kg</th>
             <th>Belge No</th>
@@ -422,6 +423,8 @@ ORDER BY ORDER_ID
         <td>#tlformat(TAMAMLANMA)#</td>
         <td>#NICKNAME#</td>
         <td>#COUNTRY_NAME#</td>
+        <td>#PRODUCT_CODE_2#</td>
+        <td>#PRODUCT_NAME#</td>
         <td>#tlformat(AMOUNT2)#</td>
         <td>#tlformat(URETILEN_MIKTAR2)#</td>
         <td>#tlformat(QUANTITY)#</td>
