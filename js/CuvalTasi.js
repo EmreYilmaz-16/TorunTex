@@ -45,8 +45,6 @@ function SearchBarcode(el, ev) {
       var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
       if (t == false) $("#btnKayit").hide();
       if (t == false) return false;
-      Kaydet()
-      
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
       $("#FROM_STOCK_ID").val(QueryResult_1.STOCK_ID[0]);
@@ -58,6 +56,9 @@ function SearchBarcode(el, ev) {
       $("#TO_LOT_NO").val(LotNo);
       $("#exitr").show(500);
       $("#txtDepoAdi").focus();
+      Kaydet()
+      
+    
       
     } else {
       el.setAttribute("style", InValidStyle);
