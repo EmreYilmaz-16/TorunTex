@@ -196,8 +196,7 @@
                     </div>
                 </div>
             </td>
-        </tr>
-        <tr>
+      
             <td>
                 <div class="form-group" id="item-sales_departments">
                     <label ><cf_get_lang dictionary_id='41184.Depo- Lokasyon'></label>			
