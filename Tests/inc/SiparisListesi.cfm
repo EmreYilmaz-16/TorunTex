@@ -295,6 +295,7 @@ SELECT
 	,COUNTRY_NAME
 	,COMPANY_ID
 	,NICKNAME
+    ,OTHER_MONEY
 <cfelse>
  *
 </cfif>
@@ -440,6 +441,7 @@ WHERE 1 = 1
 	,COUNTRY_NAME
 	,COMPANY_ID
 	,NICKNAME
+    ,OTHER_MONEY
     </cfif>
 ORDER BY ORDER_ID
 </cfquery>
