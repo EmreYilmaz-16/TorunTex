@@ -345,25 +345,25 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
 </table>
 <table>
     <tr style="border-top:solid">
-        <td>
+        <td style="font-size: 7pt">
             NTRO TARIM VE HAYVANCILIK A.Ş.<br>
 GÜLLÜCE MAH. 4 NOLU CAD. NO:3/1 KAPI<br>
 NO:1 - 16500 - MUSTAFAKEMALPAŞA/BURSA - Turkey
         </td>
-        <td>
+        <td style="font-size: 7pt">
             BANK GARANTİ BANK BURSA BUTTIM BRANCH<br>
 SWIFT TGBATRIS<br>
 USD TR36 0006 2000 3540 0009 0789 58<br>
 EUR TR68 0006 2000 3540 0009 0801 28<br>
         </td>
-        <td>
+        <td style="font-size: 7pt">
             BANK HALKBANK BURSA MUSTAFAKEMALPAŞA BRANCH
 SWIFT TRHBTR2A<br>
 USD TR25 0001 2009 2810 0053 0006 04<br>
 EUR TR18 0001 2009 2810 0058 0002 07<br>
 RUB TR61 0001 2009 2810 0058 0002 09<br>
         </td>
-        <td>
+        <td style="font-size: 7pt">
             BANK ZİRAAT BANK LÜLEBURGAZ BRANCH<br>
             SWIFT TCZBTR2AFEX <br>
             EUR TR54 0001 0001 0396 9937 6150 02
