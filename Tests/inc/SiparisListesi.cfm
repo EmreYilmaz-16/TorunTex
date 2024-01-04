@@ -124,9 +124,9 @@
             </td>
             <td>
                 <div class="form-group" id="item-company_id">
-                    <label ><cf_get_lang dictionary_id='57519.Cari Hesap'></label>							
+                    						
                     <div >
-                        <div class="input-group">
+                        <div class="input-group" style="display:flex;flex-wrap: nowrap;">
                             <input type="hidden" name="consumer_id" id="consumer_id" value="<cfif isdefined("attributes.consumer_id")><cfoutput>#attributes.consumer_id#</cfoutput></cfif>">
                             <input type="hidden" name="company_id" id="company_id" value="<cfif isdefined("attributes.company_id")><cfoutput>#attributes.company_id#</cfoutput></cfif>">
                             <input type="hidden" name="member_type" id="member_type" value="<cfif isdefined("attributes.member_type")><cfoutput>#attributes.member_type#</cfoutput></cfif>">
