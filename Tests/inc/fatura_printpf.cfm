@@ -277,7 +277,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
     </tr>
 </thead>
     <tbody>
-        <cfset SonBSatir=SayfaSiniri*i>
+        <cfset SonBSatir=SonBiSatir+SayfaSiniri>
     <cfoutput>
         <cfset TotalSr=0>
         <cfset TotalSrTax=0>
