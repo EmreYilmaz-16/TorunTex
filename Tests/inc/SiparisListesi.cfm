@@ -138,13 +138,14 @@
                 </div>
             </td>
             <td>
-                <cf_wrk_search_button button_type="4" search_function='input_control()'>
-					<cf_workcube_file_action pdf='1' mail='1' doc='1' print='1'>
+                <button type="submit" class="btn btn-lg btn-success">
+                    Sorgula
+                </button>
+					
             </td>
         </tr>
     </table></cfoutput>
-</cf_box_search>
-<cf_box_search_detail>
+
     <table>
         <tr>
             <td>
@@ -257,7 +258,7 @@
             </td>
         </tr>
     </table>
-</cf_box_search_detail>
+</cf_box_search>
 </cfform>
 </cf_box>
     
