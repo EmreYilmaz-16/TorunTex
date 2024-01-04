@@ -343,6 +343,9 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
 
 
 </table>
+
+<cfif i lt SayfaSayisi><div style="page-break-after: always"></div></cfif>
+</cfloop>
 <table>
     <tr style="border-top:solid">
         <td style="font-size: 7pt">
@@ -370,5 +373,3 @@ RUB TR61 0001 2009 2810 0058 0002 09<br>
         </td>
     </tr>
 </table>
-<cfif i lt SayfaSayisi><div style="page-break-after: always"></div></cfif>
-</cfloop>
