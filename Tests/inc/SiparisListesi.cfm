@@ -263,7 +263,7 @@
 </cfform>
 </cf_box>
     
-    
+<cf_box title="Siparişler">
     
 <cfif isDefined("attributes.form_varmi")>
 <cfquery name="getData" datasource="#dsn#">
@@ -407,3 +407,4 @@ ORDER BY ORDER_ID
 </tbody>
 </cf_big_list>
 </cfif>
+</cf_box>
