@@ -83,7 +83,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
 	
 </cfquery>
 
-<cfset SayfaSiniri=20>
+<cfset SayfaSiniri=12>
 <cfset KayitSayisi=getData.recordCount>
 <cfset SayfaSayisi=0>
 <cfoutput>
