@@ -280,7 +280,7 @@ FROM (
             PP.PROJECT_NUMBER,
             SP.PRIORITY,
             C.NICKNAME,
-            C.COMPANY_ID
+            C.COMPANY_ID,
             SC.COUNTRY_NAME,
             S.PRODUCT_CODE,
             S.PRODUCT_NAME,
