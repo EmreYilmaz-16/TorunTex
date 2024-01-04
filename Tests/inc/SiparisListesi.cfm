@@ -270,8 +270,34 @@
 <cf_box title="Siparişler">
     
 <cfif isDefined("attributes.form_varmi")>
+    <cfif attributes.listing_type eq 2>
 <cfquery name="getData" datasource="#dsn#">
-SELECT *
+SELECT
+<CFIF attributes.listing_type EQ 1>
+    AVG(TAMAMLANMA) TAMAMLANMA
+	,SUM(TUTAR) TUTAR
+	,SUM(URETILEN_MIKTAR) URETILEN_MIKTAR
+	,SUM(URETILEN_MIKTAR2) URETILEN_MIKTAR2
+	,SUM(QUANTITY) QUANTITY
+	,SUM(AMOUNT2) AMOUNT2
+	,PRIORITY
+	,PRIORITY_ID
+	,ORDER_STATUS
+	,ORDER_STAGE
+	,STAGE
+	,ORDER_NUMBER
+	,ORDER_HEAD
+	,ORDER_ID
+	,COMMENT
+	,ORDER_DATE
+	,DELIVER_DEPT_ID
+	,LOCATION_ID
+	,COUNTRY_NAME
+	,COMPANY_ID
+	,NICKNAME
+<CFELSE>
+ *
+</CFIF>
 FROM (
         SELECT O.ORDER_NUMBER,
             O.ORDER_DATE,
@@ -398,8 +424,31 @@ WHERE 1 = 1
     <cfif len(attributes.location_name) AND len(attributes.department_id)>
         AND DELIVER_DEPT_ID=#attributes.department_id# AND LOCATION_ID=#attributes.location_id#
     </cfif>
+    <CFIF attributes.listing_type EQ 1>
+        GROUP BY PRIORITY
+	,PRIORITY_ID
+	,ORDER_STATUS
+	,ORDER_STAGE
+	,STAGE
+	,ORDER_NUMBER
+	,ORDER_HEAD
+	,ORDER_ID
+	,COMMENT
+	,ORDER_DATE
+	,DELIVER_DEPT_ID
+	,LOCATION_ID
+	,COUNTRY_NAME
+	,COMPANY_ID
+	,NICKNAME
+    </CFIF>
 ORDER BY ORDER_ID
 </cfquery>
+<cfelse>
+    <cfquery name="getData" datasource="#dsn#">
+
+    </cfquery>
+</cfif>
+
 <cf_big_list>
     <thead>
         <tr>
