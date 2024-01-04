@@ -280,6 +280,7 @@ FROM (
             PP.PROJECT_NUMBER,
             SP.PRIORITY,
             C.NICKNAME,
+            C.COMPANY_ID
             SC.COUNTRY_NAME,
             S.PRODUCT_CODE,
             S.PRODUCT_NAME,
@@ -357,6 +358,15 @@ WHERE 1 = 1
     --AND ORDER_ID = 55
     <cfif len(attributes.keyword)>
         AND (ORDER_HEAD LIKE '%#attributes.keyword#%' OR ORDER_NUMBER LIKE '%#attributes.keyword#%')
+    </cfif>
+    <cfif len(attributes.currency_id)>
+        AND ORDER_ROW_CURRENCY=#attributes.currency_id#
+    </cfif>
+    <cfif len(attributes.status)>
+        AND ORDER_STATUS=#attributes.status#
+    </cfif>
+    <cfif len(attributes.member_name) AND len(attributes.company_id)>
+        AND COMPANY_ID=#attributes.company_id#
     </cfif>
 ORDER BY ORDER_ID
 </cfquery>
