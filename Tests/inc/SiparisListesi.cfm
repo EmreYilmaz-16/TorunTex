@@ -1,4 +1,4 @@
-<cfparam name="attributes.product_name" default="">
+﻿<cfparam name="attributes.product_name" default="">
 <cfparam name="attributes.product_id" default="">
 <cfparam name="attributes.short_code_id" default="">
 <cfparam name="attributes.short_code_name" default="">
@@ -361,6 +361,27 @@ WHERE 1 = 1
 ORDER BY ORDER_ID
 </cfquery>
 <cf_big_list>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Depo</th>
+            <th>Öncelik</th>
+            <th>Tamanlanma</th>
+            <th>Müşteri</th>
+            <th>Ülke</th>
+            <th>Ad</th>
+            <th>Depo Ad</th>
+            <th>Kg</th>
+            <th>Depo Kg</th>
+            <th>Belge No</th>
+            <th>Sipariş Tarihi</th>
+            <th>Tutar</th>
+            <th>Aşama</th>
+            <th>F.Notu</th>
+            <th>Sevk Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
 <cfoutput query="getData">
     <tr>
         <td>
@@ -378,11 +399,11 @@ ORDER BY ORDER_ID
         <td>#ORDER_NUMBER#</td>
         <td>#dateFormat(ORDER_DATE,"dd/mm/yyyy")#</td>
         <td>#tlformat(TUTAR)# #OTHER_MONEY#</td>
-        <td>#ASAMA#</td>
-        <td>#ASAMA#</td>
+        <td>#ASAMA#</td>        
         <td>FATURA NOTU</td>
         <td>#dateFormat(SHIP_DATE,"dd/mm/yyyy")#</td>
     </tr>
 </cfoutput>
+</tbody>
 </cf_big_list>
 </cfif>
