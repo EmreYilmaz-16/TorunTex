@@ -70,7 +70,7 @@
 
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=43">
     <cf_box_search>
-        <cfoutput><table>
+        <cfoutput><table class="table">
         <tr>
             <td>
                 <input name="form_varmi" id="form_varmi" value="1" type="hidden">
@@ -136,6 +136,10 @@
                         </div>
                     </div>
                 </div>
+            </td>
+            <td>
+                <cf_wrk_search_button button_type="4" search_function='input_control()'>
+					<cf_workcube_file_action pdf='1' mail='1' doc='1' print='1'>
             </td>
         </tr>
     </table></cfoutput>
