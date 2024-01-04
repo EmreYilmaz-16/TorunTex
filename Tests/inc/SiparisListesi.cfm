@@ -52,7 +52,7 @@
 		PT.PROCESS_ID = PTR.PROCESS_ID AND
 		PT.PROCESS_ID = PTO.PROCESS_ID AND
 		PTO.OUR_COMPANY_ID = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.ep.company_id#"> AND
-		AND PT.PROCESS_ID=32
+		 PT.PROCESS_ID=32
 	ORDER BY
 		PT.PROCESS_NAME,
 		PTR.LINE_NUMBER
