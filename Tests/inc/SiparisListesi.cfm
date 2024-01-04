@@ -327,7 +327,7 @@ FROM (
             O.ORDER_STATUS,
             ORR.AMOUNT2,
             SL.COMMENT,
-            PTR.STAGE,
+            PTR.STAGE as ASAMA,
             O.ORDER_STAGE,
             (
                 100 * ISNULL(
