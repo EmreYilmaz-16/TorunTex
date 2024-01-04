@@ -90,7 +90,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
 	
 </cfquery>
 
-<cfset SayfaSiniri=12>
+<cfset SayfaSiniri=15>
 <cfset KayitSayisi=getData.recordCount>
 <cfset SayfaSayisi=0>
 <cfoutput>
@@ -110,8 +110,8 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
     <tr>
         <td colspan="2">
             <div style="display: flex;align-content: stretch;align-items: center;">
-                    <img style="width: 100px;" src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
-                    <h3 style="color: #2c6d3e;font-size: 24pt;">INTRO TARIM VE HAYVANCILIK A.S.</h3>
+                    <img style="width: 85px;" src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
+                    <h3 style="color: #2c6d3e;font-size: 24pt;margin: 1px 1px 1px 1px;">INTRO TARIM VE HAYVANCILIK A.S.</h3>
              </div>
         </td>
     </tr>
@@ -170,8 +170,8 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
         <tr>
             <td colspan="2">
                 <div style="display: flex;align-content: stretch;align-items: center;">
-                        <img style="width: 150px;" src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
-                        <h3 style="color: #2c6d3e;font-size: 33pt;">INTRO TARIM VE HAYVANCILIK A.S.</h3>
+                        <img style="width: 85px;" src="http://w3.toruntex.com/documents/settings/B7098D36-ED47-53DE-551A82910B12F8A1.ico" border="0" alt="">
+                        <h3 style="color: #2c6d3e;font-size: 24pt;margin: 1px 1px 1px 1px;">INTRO TARIM VE HAYVANCILIK A.S.</h3>
                  </div>
             </td>
         </tr>
