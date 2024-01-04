@@ -389,7 +389,7 @@ ORDER BY ORDER_ID
         </td>
         <td>#COMMENT#</td>
         <td>#PRIORITY#</td>
-        <td>#TAMAMLANMA#</td>
+        <td>#tlformat(TAMAMLANMA)#</td>
         <td>#NICKNAME#</td>
         <td>#COUNTRY_NAME#</td>
         <td>#tlformat(AMOUNT2)#</td>
