@@ -4,7 +4,7 @@
 <cfset i=1>
 <cfset attributes.ROWW="">
 <cfset qty=FormData.FROM_AMOUNT>
-<cfset "attributes.STOCK_ID#i#"=FormData.FROM_STOCK_ID>
+<cfset "attributes.STOCK_ID#i#"=FormData.TO_STOCK_ID>
 <cfset "attributes.amount_other#i#"="">
 <cfset "attributes.unit_other#i#"="">
 <cfset "attributes.lot_no#i#"="#FormData.FROM_LOT_NO#">
