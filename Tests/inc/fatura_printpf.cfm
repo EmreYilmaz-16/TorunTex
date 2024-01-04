@@ -111,7 +111,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
              </div>
         </td>
     </tr>
-    <tr>
+    <tr style="border-bottom:solid 1px">
         <td>
             <table style="width:100%" border="0" cellspacing="0" cellpadding="0">
                 <tr> 
@@ -132,7 +132,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
                     </cfoutput>
                     </td>
                 </tr>
-                <tr><td colspan="3"><hr></td></tr>
+                
              </table><br/>
         </td>
         <td>
@@ -156,7 +156,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
                     </cfoutput>
                     </td>
                 </tr>
-                <tr><td colspan="3"><hr></td></tr>
+                
              </table><br/>
         </td>
     </tr>
