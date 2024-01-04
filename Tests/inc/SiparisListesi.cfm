@@ -296,6 +296,8 @@ SELECT
 	,COMPANY_ID
 	,NICKNAME
     ,OTHER_MONEY
+    ,SHIP_DATE 
+
 <cfelse>
  *
 </cfif>
@@ -442,6 +444,7 @@ WHERE 1 = 1
 	,COMPANY_ID
 	,NICKNAME
     ,OTHER_MONEY
+    ,SHIP_DATE 
     </cfif>
 ORDER BY ORDER_ID
 </cfquery>
