@@ -285,6 +285,7 @@ FROM (
             S.PRODUCT_NAME,
             S.PRODUCT_CODE_2,
             ORR.QUANTITY,
+            ORR.PRICE_OTHER*ORR.QUANTITY AS TUTAR
             ORR.AMOUNT2,
             SL.COMMENT,
             PTR.STAGE,
@@ -373,6 +374,9 @@ ORDER BY ORDER_ID
         <td>#tlformat(URETILEN_MIKTAR2)#</td>
         <td>#tlformat(QUANTITY)#</td>
         <td>#tlformat(URETILEN_MIKTAR)#</td>
+        <td>#ORDER_NUMBER#</td>
+        <td>#dateFormat(ORDER_DATE,"dd/mm/yyyy")#</td>
+        <td>#tlformat(TUTAR)#</td>
     </tr>
 </cfoutput>
 </cf_big_list>
