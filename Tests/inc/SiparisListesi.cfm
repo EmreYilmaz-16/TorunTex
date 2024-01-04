@@ -139,6 +139,13 @@
                 </div>
             </td>
             <td>
+                <div class="form-group">
+					<cf_wrk_search_button button_type="4" search_function='input_control()'>
+					<cf_workcube_file_action pdf='1' mail='1' doc='1' print='1'>
+				</div>
+				<div class="form-group">
+					<a class="ui-btn ui-btn-gray2" href="javascript://" id="sepet_in_sepet" name="sepet_in_sepet" onclick="openmodal()"><i class="fa fa-shopping-basket"></i></a>
+				</div>
                 <button type="submit" class="btn btn-success">
                     Sorgula
                 </button>
@@ -146,7 +153,8 @@
             </td>
         </tr>
     </table></cfoutput>
-
+</cf_box_search>
+<cf_box_search_detail>
     <table>
         <tr>
             <td>
@@ -259,7 +267,8 @@
             </td>
         </tr>
     </table>
-</cf_box_search>
+</cf_box_search_detail>
+
 </cfform>
 </cf_box>
     
