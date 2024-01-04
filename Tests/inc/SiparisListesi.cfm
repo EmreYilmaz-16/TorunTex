@@ -458,13 +458,21 @@ ORDER BY ORDER_ID
             <th>Tamanlanma</th>
             <th>Müşteri</th>         
             <th>Ülke</th>
+            <CFIF attributes.listing_type EQ 2> 
             <th>Ürün K</th>
             <th>Ürün </th>
-
+            </cfif>
+            <CFIF attributes.listing_type EQ 2> 
             <th>Ad</th>
             <th>Depo Ad</th>        
             <th>Kg</th>
             <th>Depo Kg</th>
+            </cfelse>
+            <th>T.Sip.Ad</th>
+            <th>T.Depo Ad</th>        
+            <th>T.Sip Kg</th>
+            <th>T.Depo Kg</th>
+            </cfif>
             <th>Belge No</th>
             <th>Sipariş Tarihi</th>
             <th>Tutar</th>
@@ -484,8 +492,8 @@ ORDER BY ORDER_ID
         <td>#tlformat(TAMAMLANMA)#</td>
         <td>#NICKNAME#</td>
         <td>#COUNTRY_NAME#</td>
-        <td>#PRODUCT_CODE_2#</td>
-        <td>#PRODUCT_NAME#</td>
+        <CFIF attributes.listing_type EQ 2> <td>#PRODUCT_CODE_2#</td>
+        <td>#PRODUCT_NAME#</td></cfif>
         <td>#tlformat(AMOUNT2)#</td>
         <td>#tlformat(URETILEN_MIKTAR2)#</td>
         <td>#tlformat(QUANTITY)#</td>
