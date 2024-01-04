@@ -150,8 +150,8 @@
         <tr>
             <td>
                 <div class="form-group" id="item-order_stage">	
-                    <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='58859.Surec'></label>						
-                    <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
+                    <label ><cf_get_lang dictionary_id='58859.Surec'></label>						
+                    <div >
                         <select name="order_stage" id="order_stage">
                             <option value=""><cf_get_lang dictionary_id='57734.Seçiniz'></option>
                             <cfoutput query="get_process_type" group="process_id">
@@ -165,8 +165,8 @@
             </td>
             <td>
                 <div class="form-group" id="item-prod_cat">						
-                    <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='29401.Ürün Kategorileri'></label>
-                    <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
+                    <label ><cf_get_lang dictionary_id='29401.Ürün Kategorileri'></label>
+                    <div >
                         <cfinclude template="/V16/sales/query/get_product_cats.cfm">
                         <select name="prod_cat" id="prod_cat">
                             <option value=""><cf_get_lang dictionary_id='57734.Seçiniz'></option>
@@ -181,8 +181,8 @@
             </td>
             <td>
                 <div class="form-group" id="item-product_id">
-                    <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='57657.Ürün'></label>						
-                    <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
+                    <label ><cf_get_lang dictionary_id='57657.Ürün'></label>						
+                    <div >
                         <div class="input-group">
                             <input type="hidden" name="product_id" id="product_id" <cfif len(attributes.product_id) and len(attributes.product_name)>value="<cfoutput>#attributes.product_id#</cfoutput>"</cfif>>
                             <input name="product_name" type="text" id="product_name" placeholder="<cfoutput><cf_get_lang dictionary_id='57657.Ürün'></cfoutput>" onfocus="AutoComplete_Create('product_name','PRODUCT_NAME','PRODUCT_NAME','get_product','0','PRODUCT_ID','product_id','','3','100');" value="<cfif len(attributes.product_id) and len(attributes.product_name)><cfoutput>#attributes.product_name#</cfoutput></cfif>" autocomplete="off">
@@ -195,8 +195,8 @@
         <tr>
             <td>
                 <div class="form-group" id="item-sales_departments">
-                    <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='41184.Depo- Lokasyon'></label>			
-                    <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
+                    <label ><cf_get_lang dictionary_id='41184.Depo- Lokasyon'></label>			
+                    <div >
                         <cf_wrkdepartmentlocation 
                             returninputvalue="location_name,department_id,location_id"
                             returnqueryvalue="LOCATION_NAME,DEPARTMENT_ID,LOCATION_ID"
@@ -213,8 +213,8 @@
             </td>
             <td>
                 <div class="form-group" id="item-priority">	
-                    <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='57485.öncelik'></label>		
-                    <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
+                    <label ><cf_get_lang dictionary_id='57485.öncelik'></label>		
+                    <div >
                         <select name="priority" id="priority">
                             <option value=""><cf_get_lang dictionary_id='57734.seçiniz'></option>
                             <cfoutput query="get_priorities">
@@ -226,8 +226,8 @@
             </td>
             <td>
                 <div class="form-group" id="item-record_emp_id">
-                    <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='57899.Kaydeden'></label>	
-                    <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
+                    <label ><cf_get_lang dictionary_id='57899.Kaydeden'></label>	
+                    <div >
                         <div class="input-group">
                         <cfoutput>
                             <input type="hidden" name="record_emp_id" id="record_emp_id" value="#attributes.record_emp_id#">
@@ -244,10 +244,10 @@
         </tr>
         <tr>
             <td>
-                <div class="col col-3 col-md-8 col-sm-12" type="column" sort="true" index="4">
+                
                     <div class="form-group" id="item-project_id">	
-                        <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='57416.Proje'></label>					
-                        <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
+                        <label ><cf_get_lang dictionary_id='57416.Proje'></label>					
+                        <div >
                             <div class="input-group">
                                 <input type="hidden" name="project_id" id="project_id" value="<cfif isdefined("attributes.project_id") and len (attributes.project_head)><cfoutput>#attributes.project_id#</cfoutput></cfif>">
                                 <input type="text" name="project_head"  id="project_head" placeholder="<cfoutput><cf_get_lang dictionary_id='57416.Proje'></cfoutput>" value="<cfif Len(attributes.project_head)><cfoutput>#get_project_name(attributes.project_id)#</cfoutput></cfif>" onfocus="AutoComplete_Create('project_head','PROJECT_HEAD','PROJECT_HEAD','get_project','','PROJECT_ID','project_id','','3','200');" autocomplete="off">
