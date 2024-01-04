@@ -1,5 +1,9 @@
+<cfparam name="attributes.iid" default="">
 <cfparam name="attributes.invoice_id" default="2">
-
+<cfif len(attributes.iid)>
+    <cfset attributes.invoice_id=attributes.iid>
+</cfif>
+<
 <cfquery name="getData" datasource="#dsn2#">
     SELECT (
 		SELECT O.ORDER_NUMBER + '|' + O.ORDER_HEAD
@@ -37,10 +41,11 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
         <cfelse>
     <cfset SayfaSayisi=Int(KayitSayisi/SayfaSiniri)>
     </cfif>
-    #SayfaSayisi#
+    
 </cfoutput>
 <cfset SonBSatir=1>
 <cfset SonBiSatir=SayfaSiniri>
+<cftry>
 <cfloop from="1" to="#SayfaSayisi#" index="i">
 <cf_grid_list>
     <tr>
@@ -73,10 +78,14 @@ WHERE INVOICE_ID = #attributes.INVOICE_ID#
             <td>#UNIT2#<br>#UNIT#</td>
             <td>#PRODUCT_NAME#<br>#PRODUCT_DETAIL# Order Number:#listGetAt(SIPARIS,1,"|")#</td>
             <td>#PRICE_OTHER#</td>
-            <td><CFIF IR.TAX EQ 0>Tax Free<CFELSE>#TAX# %</CFIF></td>
+            <td><CFIF TAX EQ 0>Tax Free<CFELSE>#TAX# %</CFIF></td>
             <td>#TOTAL_MONEY#</td>
         </tr>
     </cfoutput>
 </tbody>
 </cf_grid_list>
 </cfloop>
+<cfcatch>
+    <cfdump var="#cfcatch#">
+</cfcatch>
+</cftry>
