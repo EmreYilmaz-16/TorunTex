@@ -270,10 +270,10 @@
 <cf_box title="Siparişler">
     
 <cfif isDefined("attributes.form_varmi")>
-    <cfif attributes.listing_type eq 2>
+    
 <cfquery name="getData" datasource="#dsn#">
 SELECT
-<CFIF attributes.listing_type EQ 1>
+<cfif attributes.listing_type EQ 1>
     AVG(TAMAMLANMA) TAMAMLANMA
 	,SUM(TUTAR) TUTAR
 	,SUM(URETILEN_MIKTAR) URETILEN_MIKTAR
@@ -295,9 +295,9 @@ SELECT
 	,COUNTRY_NAME
 	,COMPANY_ID
 	,NICKNAME
-<CFELSE>
+<cfelse>
  *
-</CFIF>
+</cfif>
 FROM (
         SELECT O.ORDER_NUMBER,
             O.ORDER_DATE,
@@ -424,7 +424,7 @@ WHERE 1 = 1
     <cfif len(attributes.location_name) AND len(attributes.department_id)>
         AND DELIVER_DEPT_ID=#attributes.department_id# AND LOCATION_ID=#attributes.location_id#
     </cfif>
-    <CFIF attributes.listing_type EQ 1>
+    <cfif attributes.listing_type EQ 1>
         GROUP BY PRIORITY
 	,PRIORITY_ID
 	,ORDER_STATUS
@@ -440,7 +440,7 @@ WHERE 1 = 1
 	,COUNTRY_NAME
 	,COMPANY_ID
 	,NICKNAME
-    </CFIF>
+    </cfif>
 ORDER BY ORDER_ID
 </cfquery>
 
@@ -488,8 +488,10 @@ ORDER BY ORDER_ID
         <td>#tlformat(TAMAMLANMA)#</td>
         <td>#NICKNAME#</td>
         <td>#COUNTRY_NAME#</td>
-        <CFIF attributes.listing_type EQ 2> <td>#PRODUCT_CODE_2#</td>
-        <td>#PRODUCT_NAME#</td></cfif>
+        <cfif attributes.listing_type EQ 2> 
+        <td>#PRODUCT_CODE_2#</td>
+        <td>#PRODUCT_NAME#</td>
+        </cfif>
         <td>#tlformat(AMOUNT2)#</td>
         <td>#tlformat(URETILEN_MIKTAR2)#</td>
         <td>#tlformat(QUANTITY)#</td>
