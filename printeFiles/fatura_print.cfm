@@ -3,7 +3,7 @@
 <cfif len(attributes.iid)>
     <cfset attributes.invoice_id=attributes.iid>
 </cfif>
-<
+
 <cfquery name="getData" datasource="#dsn2#">
     SELECT (
 		SELECT O.ORDER_NUMBER + '|' + O.ORDER_HEAD
