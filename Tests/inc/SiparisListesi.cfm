@@ -162,7 +162,7 @@
                 <div class="form-group" id="item-prod_cat">						
                     <label class="col col-12 col-md-12 col-sm-12 col-xs-12"><cf_get_lang dictionary_id='29401.Ürün Kategorileri'></label>
                     <div class="col col-12 col-md-12 col-sm-12 col-xs-12">
-                        <cfinclude template="../query/get_product_cats.cfm">
+                        <cfinclude template="/V16/query/get_product_cats.cfm">
                         <select name="prod_cat" id="prod_cat">
                             <option value=""><cf_get_lang dictionary_id='57734.Seçiniz'></option>
                             <cfoutput query="GET_PRODUCT_CATS">
