@@ -74,6 +74,7 @@
         <tr>
             <td>
                 <input name="form_varmi" id="form_varmi" value="1" type="hidden">
+                <input name="default_style" id="default_style" value="1" type="hidden">
                 
                 <div class="form-group">
                     <div class="input-group">
@@ -138,7 +139,7 @@
                 </div>
             </td>
             <td>
-                <button type="submit" class="btn btn-lg btn-success">
+                <button type="submit" class="btn btn-success">
                     Sorgula
                 </button>
 					
@@ -263,7 +264,8 @@
 </cf_box>
     
     
-    <cfabort>
+    
+<cfif isDefined("attributes.form_varmi")>
 <cfquery name="getData" datasource="#dsn#">
 SELECT *
 FROM (
@@ -350,6 +352,20 @@ CASE
         WHERE O.PURCHASE_SALES = 1
     ) AS TT
 WHERE 1 = 1
-    AND ORDER_ID = 55
+    --AND ORDER_ID = 55
+    <cfif len(attributes.keyword)>
+        AND (ORDER_HEAD LIKE '%#attributes.keyword#%' OR ORDER_NUMBER LIKE '%#attributes.keyword#%')
+    </cfif>
 ORDER BY ORDER_ID
 </cfquery>
+<cf_big_list>
+<cfoutput query="getData">
+    <tr>
+        <td>
+            #currentrow#
+        </td>
+        <td>#COMMENT#</td>
+    </tr>
+</cfoutput>
+</cf_big_list>
+</cfif>
