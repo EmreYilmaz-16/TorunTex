@@ -281,6 +281,11 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
     <cfoutput>
         <cfset TotalSr=0>
         <cfset TotalSrTax=0>
+        <cfif i eq 1>
+            <cfset SonBSatir=SonBSatir-3>
+        <cfelse>
+
+        </cfif>
         <cfloop from="#Satirim#" to="#SonBSatir#" index="j">        
             <cfif Satirim lte KayitSayisi>   <tr style="border-bottom:solid 1px">
             <td>#Satirim#</td>
@@ -346,7 +351,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
 
 <cfif i lt SayfaSayisi><div style="page-break-after: always"></div></cfif>
 </cfloop>
-<table>
+<table style="position:fixed;bottom:0">
     <tr style="border-top:solid">
         <td style="font-size: 7pt">
             NTRO TARIM VE HAYVANCILIK A.Ş.<br>
