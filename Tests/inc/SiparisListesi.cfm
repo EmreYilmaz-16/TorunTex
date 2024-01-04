@@ -285,7 +285,8 @@ FROM (
             S.PRODUCT_NAME,
             S.PRODUCT_CODE_2,
             ORR.QUANTITY,
-            ORR.PRICE_OTHER*ORR.QUANTITY AS TUTAR
+            ORR.PRICE_OTHER*ORR.QUANTITY AS TUTAR,
+            ORR.OTHER_MONEY,
             ORR.AMOUNT2,
             SL.COMMENT,
             PTR.STAGE,
