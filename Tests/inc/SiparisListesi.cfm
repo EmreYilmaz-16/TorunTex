@@ -283,7 +283,7 @@ SELECT
 	,PRIORITY
 	,PRIORITY_ID
 	,ORDER_STATUS
-	,ORDER_STAGE
+	,ORDER_STAGE as ASAMA
 	,STAGE
 	,ORDER_NUMBER
 	,ORDER_HEAD
@@ -327,7 +327,7 @@ FROM (
             O.ORDER_STATUS,
             ORR.AMOUNT2,
             SL.COMMENT,
-            PTR.STAGE as ASAMA,
+            PTR.STAGE ,
             O.ORDER_STAGE,
             (
                 100 * ISNULL(
