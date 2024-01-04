@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </td>
-            <td>
+            <td style="display:flex">
                 <div class="form-group">
 					<cf_wrk_search_button button_type="4" search_function='input_control()'>
 				
