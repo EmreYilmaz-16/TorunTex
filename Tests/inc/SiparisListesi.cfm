@@ -458,7 +458,7 @@ ORDER BY ORDER_ID
             <th>Ürün K</th>
             <th>Ürün </th>
             </cfif>
-            <CFIF attributes.listing_type EQ 2> 
+            <cfif attributes.listing_type EQ 2> 
             <th>Ad</th>
             <th>Depo Ad</th>        
             <th>Kg</th>
