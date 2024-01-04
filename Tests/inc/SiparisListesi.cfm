@@ -37,7 +37,15 @@
 <cfparam name="attributes.paymethod" default="">
 <cfparam name="attributes.irsaliye_fatura" default="">
 <cfparam name="attributes.use_efatura" default="">
+
+<cfscript>
+	if (isdefined("attributes.keyword")) url_str = "keyword=#attributes.keyword#"; else attributes.keyword = "";
+	if (isdefined("attributes.keyword_orderno")) url_str = "#url_str#&keyword_orderno=#attributes.keyword_orderno#"; else attributes.keyword_orderno = "";
+	if (isdefined("attributes.currency_id")) url_str = "#url_str#&currency_id=#attributes.currency_id#"; else attributes.currency_id = "";
+	if (isdefined("attributes.status"))	url_str = "#url_str#&status=#attributes.status#"; else attributes.status = 1;
+</cfscript>
 <cfquery name="get_process_type" datasource="#DSN#">
+
 	SELECT
 		PTR.STAGE,
 		PTR.PROCESS_ROW_ID,
