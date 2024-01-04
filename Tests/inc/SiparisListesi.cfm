@@ -371,7 +371,7 @@ ORDER BY ORDER_ID
         <td>#COUNTRY_NAME#</td>
         <td>#tlformat(AMOUNT2)#</td>
         <td>#tlformat(URETILEN_MIKTAR2)#</td>
-        <td>#tlformat(AMOUNT)#</td>
+        <td>#tlformat(QUANTITY)#</td>
         <td>#tlformat(URETILEN_MIKTAR)#</td>
     </tr>
 </cfoutput>
