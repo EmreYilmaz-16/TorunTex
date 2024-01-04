@@ -1,4 +1,5 @@
-﻿<cfparam name="attributes.iid" default="">
+﻿<cftry>
+<cfparam name="attributes.iid" default="">
 <cfparam name="attributes.invoice_id" default="2">
 <cfif len(attributes.iid)>
     <cfset attributes.invoice_id=attributes.iid>
@@ -36,12 +37,15 @@
 ,C.COMPANY_ID
 ,CB.COMPBRANCH__NAME
 ,CB.COMPBRANCH_ADDRESS
+,SC.COUNTRY_NAME AS ULKE
+,SC1.COUNTRY_NAME AS SUBE_ULKE
 FROM w3Toruntex_2024_1.INVOICE_ROW AS IR
 INNER JOIN w3Toruntex_1.STOCKS AS S ON S.STOCK_ID = IR.STOCK_ID
 INNER JOIN INVOICE AS I ON I.INVOICE_ID=IR.INVOICE_ID
 INNER JOIN #DSN#.COMPANY AS C ON C.COMPANY_ID=I.COMPANY_ID
 INNER JOIN #DSN#.COMPANY_BRANCH AS CB ON CB.COMPBRANCH_ID=I.SHIP_ADDRESS_ID
-
+LEFT JOIN  #DSN#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY_ID
+LEFT JOIN  #DSN#.SETUP_COUNTRY AS SC1 ON SC1.COUNTRY_ID=CB.COUNTRY_ID
 WHERE IR.INVOICE_ID = #attributes.INVOICE_ID#
 
 
@@ -86,7 +90,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
 	
 </cfquery>
 
-<cfset SayfaSiniri=15>
+<cfset SayfaSiniri=12>
 <cfset KayitSayisi=getData.recordCount>
 <cfset SayfaSayisi=0>
 <cfoutput>
@@ -143,7 +147,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
                     <td valign="top">
                     <cfoutput query="CHECK2">
                         <strong style="font-size:14px;">#company_name#</strong><br/>
-                        #getData.COMPANY_ADDRESS#<br/>
+                        #getData.COMPANY_ADDRESS# #getData.ULKE#<br/>
                         <b><cf_get_lang_main no='87.Telefon'>: </b> (#tel_code#) - #tel#  #tel2#  #tel3# #tel4# <br/>
                         <b><cf_get_lang_main no='76.Fax'>: </b> #fax# <br/>
                         <b><cf_get_lang_main no='1350.Vergi Dairesi'> : </b> #TAX_OFFICE# <b><cf_get_lang_main no='340.No'> : </b> #TAX_NO#<br/>
@@ -151,7 +155,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
                          <br>
                          <strong style="font-size:14px;">#GETDATA.COMPBRANCH__NAME#</strong><br/>
                          <BR>
-                         #GETDATA.COMPBRANCH_ADDRESS#<BR>
+                         #GETDATA.COMPBRANCH_ADDRESS# #getData.SUBE_ULKE#<BR>
 
                     </cfoutput>
                     </td>
@@ -277,15 +281,11 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
     </tr>
 </thead>
     <tbody>
-        <cfset SonBSatir=SonBiSatir+SayfaSiniri>
+        <cfset SonBSatir=SayfaSiniri*i>
     <cfoutput>
         <cfset TotalSr=0>
         <cfset TotalSrTax=0>
-        <cfif i eq 1>
-            <cfset SonBSatir=SonBSatir-3>
-        <cfelse>
-
-        </cfif>
+    
         <cfloop from="#Satirim#" to="#SonBSatir#" index="j">        
             <cfif Satirim lte KayitSayisi>   <tr style="border-bottom:solid 1px">
             <td>#Satirim#</td>
@@ -351,30 +351,34 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
 
 <cfif i lt SayfaSayisi><div style="page-break-after: always"></div></cfif>
 </cfloop>
-<table style="position:fixed;bottom:0">
+<table style="position:fixed;bottom:0;width:100%">
     <tr style="border-top:solid">
-        <td style="font-size: 7pt">
-            NTRO TARIM VE HAYVANCILIK A.Ş.<br>
+        <td style="font-size: 6pt;width:16%" >
+            İNTRO TARIM VE HAYVANCILIK A.Ş.<br>
 GÜLLÜCE MAH. 4 NOLU CAD. NO:3/1 KAPI<br>
 NO:1 - 16500 - MUSTAFAKEMALPAŞA/BURSA - Turkey
         </td>
-        <td style="font-size: 7pt">
+        <td style="font-size: 6pt;width:28%">
             BANK GARANTİ BANK BURSA BUTTIM BRANCH<br>
 SWIFT TGBATRIS<br>
 USD TR36 0006 2000 3540 0009 0789 58<br>
 EUR TR68 0006 2000 3540 0009 0801 28<br>
         </td>
-        <td style="font-size: 7pt">
+        <td style="font-size: 6pt;width:28%">
             BANK HALKBANK BURSA MUSTAFAKEMALPAŞA BRANCH<br>
 SWIFT TRHBTR2A<br>
 USD TR25 0001 2009 2810 0053 0006 04<br>
 EUR TR18 0001 2009 2810 0058 0002 07<br>
 RUB TR61 0001 2009 2810 0058 0002 09<br>
         </td>
-        <td style="font-size: 7pt">
+        <td style="font-size: 6pt;width:28%">
             BANK ZİRAAT BANK LÜLEBURGAZ BRANCH<br>
             SWIFT TCZBTR2AFEX <br>
             EUR TR54 0001 0001 0396 9937 6150 02
         </td>
     </tr>
 </table>
+<cfcatch>
+    <cfdump var="#cfcatch#">
+</cfcatch>
+</cftry>
