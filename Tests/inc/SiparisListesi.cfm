@@ -247,7 +247,7 @@
             </div>
             </td>
         </tr>
-        <tr>
+        <tr style="display:none">
             <td>
                 
                     <div class="form-group" id="item-project_id">	
@@ -281,9 +281,11 @@ FROM (
             O.DELIVER_DEPT_ID,
             O.SHIP_DATE,
             O.LOCATION_ID,
+            O.RECORD_EMP,
             PP.PROJECT_HEAD,
             PP.PROJECT_NUMBER,
             SP.PRIORITY,
+            SP.PRIORITY_ID,
             C.NICKNAME,
             C.COMPANY_ID,
             SC.COUNTRY_NAME,
@@ -381,12 +383,18 @@ WHERE 1 = 1
     <cfif len(attributes.order_stage)>
         AND ORDER_STAGE=#attributes.order_stage#
     </cfif>
+    <cfif len(attributes.priority)>
+        AND PRIORITY_ID=#attributes.priority#
+    </cfif>
     <cfif len(attributes.prod_cat)>
         AND PRODUCT_CODE LIKE '#attributes.prod_cat#%'
     </cfif>
  
     <cfif len(attributes.product_name) AND len(attributes.product_id)>
         AND PRODUCT_ID=#attributes.product_id#
+    </cfif>
+    <cfif len(attributes.record_name) AND len(attributes.record_emp_id)>
+        AND RECORD_EMP=#attributes.record_emp_id#
     </cfif>
     <cfif len(attributes.location_name) AND len(attributes.department_id)>
         AND DELIVER_DEPT_ID=#attributes.department_id# AND LOCATION_ID=#attributes.location_id#
