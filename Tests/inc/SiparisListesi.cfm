@@ -365,6 +365,14 @@ ORDER BY ORDER_ID
             #currentrow#
         </td>
         <td>#COMMENT#</td>
+        <td>#PRIORITY#</td>
+        <td>#TAMAMLANMA#</td>
+        <td>#NICKNAME#</td>
+        <td>#COUNTRY_NAME#</td>
+        <td>#tlformat(AMOUNT2)#</td>
+        <td>#tlformat(URETILEN_MIKTAR2)#</td>
+        <td>#tlformat(AMOUNT)#</td>
+        <td>#tlformat(URETILEN_MIKTAR)#</td>
     </tr>
 </cfoutput>
 </cf_big_list>
