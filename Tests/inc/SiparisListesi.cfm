@@ -288,6 +288,7 @@ FROM (
             ORR.QUANTITY,
             ORR.PRICE_OTHER*ORR.QUANTITY AS TUTAR,
             ORR.OTHER_MONEY,
+            ORR.ORDER_ROW_CURRENCY,
             ORR.AMOUNT2,
             SL.COMMENT,
             PTR.STAGE,
