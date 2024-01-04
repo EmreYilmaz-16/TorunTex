@@ -456,7 +456,7 @@ ORDER BY ORDER_ID
             <th></th>
             <th>Depo</th>
             <th>Öncelik</th>
-            <th>Tamanlanma</th>
+            <cfif attributes.listing_type EQ 2>  <th>Tamanlanma</th><cfelse><th>ORT.Tamanlanma</th></cfif>
             <th>Müşteri</th>         
             <th>Ülke</th>
             <cfif attributes.listing_type EQ 2> 
