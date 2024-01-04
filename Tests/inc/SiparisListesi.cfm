@@ -285,6 +285,8 @@ FROM (
             S.PRODUCT_CODE,
             S.PRODUCT_NAME,
             S.PRODUCT_CODE_2,
+            S.PRODUCT_ID,
+            S.STOCK_ID,
             ORR.QUANTITY,
             ORR.PRICE_OTHER*ORR.QUANTITY AS TUTAR,
             ORR.OTHER_MONEY,
@@ -293,6 +295,7 @@ FROM (
             ORR.AMOUNT2,
             SL.COMMENT,
             PTR.STAGE,
+            O.ORDER_STAGE,
             (
                 100 * ISNULL(
                     (
@@ -369,6 +372,21 @@ WHERE 1 = 1
     </cfif>
     <cfif len(attributes.member_name) AND len(attributes.company_id)>
         AND COMPANY_ID=#attributes.company_id#
+    </cfif>
+    <cfif len(attributes.order_stage)>
+        AND ORDER_STAGE=#attributes.order_stage#
+    </cfif>
+    <cfif len(attributes.prod_cat)>
+        AND PRODUCT_CODE LIKE '#attributes.prod_cat#%'
+    </cfif>
+    <cfif len(attributes.prod_cat)>
+        AND PRODUCT_CODE LIKE '#attributes.prod_cat#%'
+    </cfif>
+    <cfif len(attributes.product_name) AND len(attributes.product_id)>
+        AND PRODUCT_ID=#attributes.product_id#
+    </cfif>
+    <cfif len(attributes.location_name) AND len(attributes.department_id)>
+        AND DELIVER_DEPT_ID=#attributes.department_id# AND LOCATION_ID=#attributes.location_id#
     </cfif>
 ORDER BY ORDER_ID
 </cfquery>
