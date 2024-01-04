@@ -241,7 +241,7 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
     </tr>
 </table>
 </cfoutput>
-<cf_big_list>
+<cf_grid_list>
     <thead>
     <tr>
         <th style="text-align:center">
@@ -334,6 +334,6 @@ SELECT TOP 10 NICKNAME COMPANY_NAME,COMPANY_TELCODE TEL_CODE,COMPANY_TEL1 TEL,
     </cfoutput>
 
 
-</cf_big_list>
+</cf_grid_list>
 <cfif i lt SayfaSayisi><div style="page-break-after: always"></div></cfif>
 </cfloop>
