@@ -13,7 +13,7 @@
 <cfparam name="attributes.department_id" default="">
 <cfparam name="attributes.location_id" default="">
 <cfparam name="attributes.location_name" default="">
-<cfparam name="attributes.listing_type" default="">
+<cfparam name="attributes.listing_type" default="1">
 <cfparam name="attributes.quantity" default="">
 <cfparam name="attributes.unit" default="">
 <cfparam name="attributes.project_id" default="">
@@ -443,11 +443,7 @@ WHERE 1 = 1
     </CFIF>
 ORDER BY ORDER_ID
 </cfquery>
-<cfelse>
-    <cfquery name="getData" datasource="#dsn#">
 
-    </cfquery>
-</cfif>
 
 <cf_big_list>
     <thead>
@@ -458,7 +454,7 @@ ORDER BY ORDER_ID
             <th>Tamanlanma</th>
             <th>Müşteri</th>         
             <th>Ülke</th>
-            <CFIF attributes.listing_type EQ 2> 
+            <cfif attributes.listing_type EQ 2> 
             <th>Ürün K</th>
             <th>Ürün </th>
             </cfif>
