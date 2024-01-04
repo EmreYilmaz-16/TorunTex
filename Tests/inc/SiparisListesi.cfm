@@ -68,7 +68,7 @@
 <cfinclude template="/V16/sales/query/get_priorities.cfm">
 <cf_box>
 
-<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=43">
+<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=43" name="order_form">
     <cf_box_search>
         <cfoutput><table class="table">
         <tr>
