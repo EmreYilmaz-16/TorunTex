@@ -377,7 +377,11 @@ ORDER BY ORDER_ID
         <td>#tlformat(URETILEN_MIKTAR)#</td>
         <td>#ORDER_NUMBER#</td>
         <td>#dateFormat(ORDER_DATE,"dd/mm/yyyy")#</td>
-        <td>#tlformat(TUTAR)#</td>
+        <td>#tlformat(TUTAR)# #OTHER_MONEY#</td>
+        <td>#ASAMA#</td>
+        <td>#ASAMA#</td>
+        <td>FATURA NOTU</td>
+        <td>#dateFormat(SHIP_DATE,"dd/mm/yyyy")#</td>
     </tr>
 </cfoutput>
 </cf_big_list>
