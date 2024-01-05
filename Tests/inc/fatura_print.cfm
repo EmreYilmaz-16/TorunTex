@@ -356,7 +356,7 @@
             <td style="font-size: 6pt;width:16%" >
                 İNTRO TARIM VE HAYVANCILIK A.Ş.<br>
     GÜLLÜCE MAH. 4 NOLU CAD. NO:3/1 KAPI<br>
-    NO:1 - 16500 - MUSTAFAKEMALPAŞA/BURSA - Turkey
+    NO:1 <br> 16500 - MUSTAFAKEMALPAŞA/BURSA - Turkey
             </td>
             <td style="font-size: 6pt;width:28%">
                 BANK GARANTİ BANK BURSA BUTTIM BRANCH<br>
