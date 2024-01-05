@@ -253,7 +253,7 @@
         </tr>
     </table>
     </cfoutput>
-    <table style="width:100%">
+    <cf_big_list>
         <thead>
         <tr>
             <th style="text-align:center">
@@ -347,7 +347,7 @@
         </cfoutput>
     
     
-    </table>
+    </cf_big_list>
     
     <cfif i lt SayfaSayisi><div style="page-break-after: always"></div></cfif>
     </cfloop>
