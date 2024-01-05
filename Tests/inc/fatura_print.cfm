@@ -90,7 +90,7 @@
         
     </cfquery>
     
-    <cfset SayfaSiniri=15>
+    <cfset SayfaSiniri=20>
     <cfset KayitSayisi=getData.recordCount>
     <cfset SayfaSayisi=0>
     <cfoutput>
