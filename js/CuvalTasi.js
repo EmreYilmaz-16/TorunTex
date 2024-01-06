@@ -42,11 +42,11 @@ function SearchBarcode(el, ev) {
       $("#txtFromDeptLocation").val(
         QueryResult_2.DEPARTMENT_HEAD[0] + " " + QueryResult_2.COMMENT[0]
       );
-    debugger;
+      debugger;
       var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
       if (t == false) $("#btnKayit").hide();
       if (t == false) return false;
-    
+
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
       $("#FROM_STOCK_ID").val(QueryResult_1.STOCK_ID[0]);
@@ -58,10 +58,7 @@ function SearchBarcode(el, ev) {
       $("#TO_LOT_NO").val(LotNo);
       $("#exitr").show(500);
       $("#txtDepoAdi").focus();
-      Kaydet()
-      
-    
-      
+      Kaydet();
     } else {
       el.setAttribute("style", InValidStyle);
     }
@@ -236,7 +233,7 @@ function searchDepo_3(STOCK_ID, el, el2) {
       } else {
         $("#TO_WRK_ROW_ID").val("");
       }
-
+      return true;
       $("#btnKayit").show();
     } else {
       el.setAttribute("style", InValidStyle);
@@ -244,10 +241,12 @@ function searchDepo_3(STOCK_ID, el, el2) {
       document
         .getElementById("txtToDeptLocation")
         .setAttribute("style", InValidStyle);
+      return false;
     }
   } else {
     el.setAttribute("style", InValidStyle);
     el.setAttribute("style", InValidStyle);
+    return false;
   }
 }
 function Kaydet() {
@@ -297,7 +296,7 @@ function fokuslan() {
   document.getElementById("txtFromDeptLocation").removeAttribute("style");
   document.getElementById("txtFromDeptId").removeAttribute("style");
   document.getElementById("txtFromLocId").removeAttribute("style");
-  $("#btnKayit").hide()
+  $("#btnKayit").hide();
   //txtFromDeptLocation,txtFromDeptId,txtFromLocId
 }
 function sepeteEkle(
