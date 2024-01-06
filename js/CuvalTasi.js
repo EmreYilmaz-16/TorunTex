@@ -42,9 +42,11 @@ function SearchBarcode(el, ev) {
       $("#txtFromDeptLocation").val(
         QueryResult_2.DEPARTMENT_HEAD[0] + " " + QueryResult_2.COMMENT[0]
       );
+    debugger;
       var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
       if (t == false) $("#btnKayit").hide();
       if (t == false) return false;
+    
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
       $("#FROM_STOCK_ID").val(QueryResult_1.STOCK_ID[0]);
