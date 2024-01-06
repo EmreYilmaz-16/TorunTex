@@ -51,9 +51,9 @@
         <input type="hidden" name="TO_AMOUNT" id="TO_AMOUNT">
         <input type="hidden" name="FROM_LOT_NO" id="FROM_LOT_NO">
         <input type="hidden" name="TO_LOT_NO" id="TO_LOT_NO">
-        <input type="hidden" name="FROM_UNIT2" id="FROM_UNIT2">
-        
+        <input type="hidden" name="FROM_UNIT2" id="FROM_UNIT2">        
     </div>
+    <div id="LastBarcode"></div>
     </td>
     <td>
         <div class="form-group">
