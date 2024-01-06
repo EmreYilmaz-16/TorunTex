@@ -339,6 +339,7 @@ FROM (
                         WHERE PBS_RELATION_ID = ORR.WRK_ROW_ID
                             AND STORE = O.DELIVER_DEPT_ID
                             AND STORE_LOCATION = O.LOCATION_ID
+                            AND PROCESS_TYPE<>88
                     ),
                     0
                 ) / QUANTITY
