@@ -233,7 +233,7 @@ function searchDepo_3(STOCK_ID, el, el2) {
       } else {
         $("#TO_WRK_ROW_ID").val("");
       }
-      document.getElementById("LastBarcode").value = el.value;
+      document.getElementById("LastBarcode").text = el.value;
       document
         .getElementById("LastBarcode")
         .setAttribute("class", "text-success");
@@ -246,7 +246,7 @@ function searchDepo_3(STOCK_ID, el, el2) {
       document
         .getElementById("txtToDeptLocation")
         .setAttribute("style", InValidStyle);
-      document.getElementById("LastBarcode").value = el.value;
+      document.getElementById("LastBarcode").text = el.value;
       document
         .getElementById("LastBarcode")
         .setAttribute("class", "text-danger");
@@ -255,7 +255,7 @@ function searchDepo_3(STOCK_ID, el, el2) {
   } else {
     el.setAttribute("style", InValidStyle);
     el.setAttribute("style", InValidStyle);
-    document.getElementById("LastBarcode").value = el.value;
+    document.getElementById("LastBarcode").text = el.value;
     document.getElementById("LastBarcode").setAttribute("class", "text-danger");
     return false;
   }
