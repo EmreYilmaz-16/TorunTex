@@ -233,26 +233,30 @@ function searchDepo_3(STOCK_ID, el, el2) {
       } else {
         $("#TO_WRK_ROW_ID").val("");
       }
-      document.getElementById("LastBarcode").value=el2.value
-      document.getElementById("LastBarcode").setAttribute("class","text-success")
+      document.getElementById("LastBarcode").value = el.value;
+      document
+        .getElementById("LastBarcode")
+        .setAttribute("class", "text-success");
       return true;
       $("#btnKayit").show();
     } else {
       el.setAttribute("style", InValidStyle);
       el2.setAttribute("style", InValidStyle);
-      
+
       document
         .getElementById("txtToDeptLocation")
         .setAttribute("style", InValidStyle);
-        document.getElementById("LastBarcode").value=el2.value
-        document.getElementById("LastBarcode").setAttribute("class","text-danger")
+      document.getElementById("LastBarcode").value = el.value;
+      document
+        .getElementById("LastBarcode")
+        .setAttribute("class", "text-danger");
       return false;
     }
   } else {
     el.setAttribute("style", InValidStyle);
     el.setAttribute("style", InValidStyle);
-    document.getElementById("LastBarcode").value=el2.value
-    document.getElementById("LastBarcode").setAttribute("class","text-danger")
+    document.getElementById("LastBarcode").value = el.value;
+    document.getElementById("LastBarcode").setAttribute("class", "text-danger");
     return false;
   }
 }
