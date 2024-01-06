@@ -226,7 +226,10 @@ function searchDepo_3(STOCK_ID, el, el2) {
       $("#txtToDeptLocation").val(
         QueryResult_1.DEPARTMENT_HEAD[0] + "-" + QueryResult_1.COMMENT[0]
       );
-
+      document.getElementById("LastBarcode").text = el.value;
+      document
+        .getElementById("LastBarcode")
+        .setAttribute("class", "text-success");
       $("#TO_STOCK_ID").val(STOCK_ID);
       if (QueryResult_2.recordcount > 0) {
         $("#TO_WRK_ROW_ID").val(QueryResult_2.WRK_ROW_ID[0]);
