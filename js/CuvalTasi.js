@@ -329,7 +329,7 @@ function sepeteEkle(
 ) {
   console.table(arguments);
   var tr = document.createElement("tr");
-
+  tr.setAttribute("data-LotNo", LOT_NO);
   var td = document.createElement("td");
   td.innerText = LOT_NO;
   tr.appendChild(td);
