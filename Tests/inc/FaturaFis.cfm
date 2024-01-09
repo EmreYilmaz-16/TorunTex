@@ -100,7 +100,7 @@ GROUP BY PP.PROJECT_ID
         </div>
         </td>
         <td>
-            <button type="button" class="btn btn-success" onclick="Ekle(<cfoutput>#attributes.INVOICE_ID#,'#dsn2#',#session.ep.userid#</cfoutput>)">Ekle</button>
+            <button type="button" class="btn btn-success" onclick="Ekle(<cfoutput>#attributes.INVOICE_ID#,'#dsn2#',#session.ep.userid#,#session.ep.PERIOD_ID#</cfoutput>)">Ekle</button>
         </td>
     </tr>
 </table>
@@ -124,7 +124,7 @@ GROUP BY PP.PROJECT_ID
 		,SFR.LOT_NO AS KONTEYNER_NO
 		,PP.PROJECT_HEAD AS BEYANNAME_NO
 		,SFF.AMOUNT
-FROM #dsn2#.STOK_FIS_FATURA AS SFF
+FROM #dsn3#.STOK_FIS_FATURA AS SFF
 INNER JOIN #dsn2#.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID=SFF.FIS_ID AND SFR.STOCK_ID=SFF.STOCK_ID
 INNER JOIN #dsn2#.STOCK_FIS AS SF ON SF.FIS_ID=SFR.FIS_ID
 INNER JOIN #dsn#.PRO_PROJECTS AS PP ON PP.PROJECT_ID = SF.PROJECT_ID
@@ -145,7 +145,7 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
     
 
 
-    function Ekle(INVOICE_ID,DSN2,EMPLOYEE_ID) {
+    function Ekle(INVOICE_ID,DSN2,EMPLOYEE_ID,FAT_PERIOD_ID) {
         var B=document.getElementById("BEYAN").value;
         var FIS_ID=list_getat(B,1,"-")
         var STOCK_ID=list_getat(B,2,"-")
@@ -161,7 +161,8 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
                 DSN2:DSN2,
                 DSN3:dsn3,
                 EMPLOYEE_ID:EMPLOYEE_ID,
-                PERIOD_ID:PERIOD_ID
+                PERIOD_ID:PERIOD_ID,
+                FATURA_PERIOD_ID:FAT_PERIOD_ID
                 
             },
             success:function (returnData) {
