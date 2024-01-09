@@ -138,7 +138,7 @@ FROM (
 	FROM w3Toruntex_#PERIOD_YEAR#_#OUR_COMPANY_ID#.STOCK_FIS AS SF
 	INNER JOIN w3Toruntex_#PERIOD_YEAR#_#OUR_COMPANY_ID#.STOCK_FIS_ROW AS SFR ON SFR.FIS_ID = SF.FIS_ID
 	WHERE DEPARTMENT_OUT = 13
-	<cfif i lt GetPeriods.recordCount>
+	<cfif i lt GETGETPER.recordCount>
 	UNION ALL
     </cfif>
 </CFLOOP>
