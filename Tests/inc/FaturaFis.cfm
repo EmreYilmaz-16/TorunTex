@@ -158,7 +158,7 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
                 AMOUNT:AMOUNT,
                 INVOICE_ID:INVOICE_ID,
                 DSN2:DSN2,
-                DSN3:DSN3,
+                DSN3:dsn3,
                 EMPLOYEE_ID:EMPLOYEE_ID
             },
             success:function (returnData) {
