@@ -149,6 +149,7 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
         var B=document.getElementById("BEYAN").value;
         var FIS_ID=list_getat(B,1,"-")
         var STOCK_ID=list_getat(B,2,"-")
+        var PERIOD_ID=list_getat(B,3,"-")
         var AMOUNT=document.getElementById("KULLAN").value;
         $.ajax({
             url:"/AddOns/Partner/Servis/GeneralFunctions.cfc?method=SaveFatFis",
@@ -159,7 +160,9 @@ WHERE FATURA_ID=#attributes.INVOICE_ID#
                 INVOICE_ID:INVOICE_ID,
                 DSN2:DSN2,
                 DSN3:dsn3,
-                EMPLOYEE_ID:EMPLOYEE_ID
+                EMPLOYEE_ID:EMPLOYEE_ID,
+                PERIOD_ID:PERIOD_ID
+                
             },
             success:function (returnData) {
                 
