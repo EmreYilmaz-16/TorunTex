@@ -60,7 +60,7 @@ GROUP BY PP.PROJECT_ID
 ,T.BIRIM2 
 
 </cfquery>
-            </cfquery>
+            
             <cfset ReturnArr=arrayNew(1)>
             <cfloop query="getBeyans">
                 <cfscript>
