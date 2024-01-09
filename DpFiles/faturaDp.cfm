@@ -2,7 +2,7 @@
 $(document).on('ready',function(){
 var fatid=getParameterByName('iid');
 var elem=document.getElementsByClassName("detailHeadButton")
-$(elem[0].children).append("<li class='dropdown' id='transformation'><a style='color:#0489c7' title='Kullanılan Beyannameler' onclick='pencereac(1,"+fatid+")'><i class='icon-exchange'></i></a></li>")
+$(elem[0].children).prepend("<li class='dropdown' id='transformation'><a style='color:#0489c7' title='Kullanılan Beyannameler' onclick='pencereac(1,"+fatid+")'><i class='icon-exchange'></i></a></li>")
 
 })
 
