@@ -68,7 +68,8 @@ GROUP BY PP.PROJECT_ID
                 BEYANNAME_NO:"#BEYANNAME_NO#",
                 GECEN_SURE:#GECEN_SURE#,
                 KULLANILAN:#KULLANILAN#,
-                KALAN:#KALAN#
+                KALAN:#KALAN#,
+                PERIOD_ID:#PERIOD_ID#
             },
         </cfloop>
     ];
@@ -87,7 +88,7 @@ GROUP BY PP.PROJECT_ID
                 <label>Elleçleme Stok Girişi</label>
                 <select name="BEYAN" id="BEYAN">
                     <cfoutput query="getBeyans">
-                        <option value="#FIS_ID#-#STOCK_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# Gün - #KALAN# #BIRIM#</option>
+                        <option value="#FIS_ID#-#STOCK_ID#-#PERIOD_ID#">#BEYANNAME_NO#  - #KONTEYNER_NO# - #GECEN_SURE# Gün - #KALAN# #BIRIM#</option>
                     </cfoutput>
                 </select>
             </div>
