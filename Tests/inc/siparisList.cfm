@@ -65,7 +65,7 @@ WHERE 1=1
     </cfif>
 ORDER BY PRIORITY  
 </cfquery>
-<cfif session.ep.userid eq 144>
+<cfif session.ep.userid eq 1411114>
     <cfdump var="#getOrder#">
 </cfif>
 <cfset ORDER_ROW_ID_LIST=valueList(getOrder.ORDER_ROW_ID)>
