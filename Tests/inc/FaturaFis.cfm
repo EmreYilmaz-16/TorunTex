@@ -122,7 +122,7 @@ INNER JOIN w3Toruntex.SETUP_PERIOD as SP ON SP.PERIOD_ID=SFF.FIS_PERIOD_ID where
 </cfquery>
 <CFELSE>
     <cfquery name="GETGETPER" datasource="#DSN#">
-        select SP.PERIOD_YEAR,SP.OUR_COMPANY_ID,SP.PERIOD_ID from SETUP_PERIOD WHERE OUR_COMPANY_ID=#session.EP.COMPANY_ID#
+        select SP.PERIOD_YEAR,SP.OUR_COMPANY_ID,SP.PERIOD_ID from SETUP_PERIOD as SP WHERE OUR_COMPANY_ID=#session.EP.COMPANY_ID#
     
     </cfquery>   
 </CFIF>
