@@ -112,10 +112,21 @@ GROUP BY PP.PROJECT_ID
         <th>Miktar</th>
     </tr>
 </thead>
+<cfquery name="IH" datasource="#dsn3#">
+    SELECT * FROM STOK_FIS_FATURA  where FATURA_ID=#attributes.INVOICE_ID# AND FATURA_PERIOD_ID=#session.EP.PERIOD_ID#
+</cfquery>
+<CFIF IH.recordCount>
 <cfquery name="GETGETPER" datasource="#DSN3#">
     select SP.PERIOD_YEAR,SP.OUR_COMPANY_ID,SP.PERIOD_ID from w3Toruntex_1.STOK_FIS_FATURA AS SFF 
 INNER JOIN w3Toruntex.SETUP_PERIOD as SP ON SP.PERIOD_ID=SFF.FIS_PERIOD_ID where FATURA_ID=#attributes.INVOICE_ID# AND FATURA_PERIOD_ID=#session.EP.PERIOD_ID#
 </cfquery>
+<CFELSE>
+    <cfquery name="GETGETPER" datasource="#DSN#">
+        select SP.PERIOD_YEAR,SP.OUR_COMPANY_ID,SP.PERIOD_ID from SETUP_PERIOD WHERE OUR_COMPANY_ID=#session.EP.COMPANY_ID#
+    
+    </cfquery>   
+</CFIF>
+<cfdump var="#GETGETPER#">
 <CFSET i=0>
 <cfquery name="GETFISFAT" datasource="#DSN2#">
 
