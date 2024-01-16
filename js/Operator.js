@@ -614,7 +614,7 @@ function getProducts(STATION) {
     dsn3 +
     ".STOCKS AS S ON S.STOCK_ID =ORDER_ROW.STOCK_ID  WHERE UNIT2 LIKE '%" +
     STATION +
-    "%' AND ORDER_ROW_CURRENCY IN (-5) )  AS T";
+    "%' AND ORDER_ROW_CURRENCY IN (-5) )  AS T ORDER BY PRODUCT_NAME";
 
   var q = wrk_query(qstr, "dsn3");
   var Control = $sipSelect[0].selectize;
