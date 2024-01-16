@@ -1,4 +1,4 @@
-var ROW_COUNT=1;
+var ROW_COUNT = 1;
 function getShelves(el) {
   var DEPARTMENT_ID = list_getat(el.value, 1, "-");
   var LOCATION_ID = list_getat(el.value, 2, "-");
@@ -17,11 +17,11 @@ function getShelves(el) {
     opt.innerText = Res.SHELF_CODE[index];
     document.getElementById("SHELF").appendChild(opt);
   }
-  el.setAttribute("disabled","yes")
+  el.setAttribute("disabled", "yes");
 }
 function getShelfProducts(el) {
-    $("#SHELF_ID").val(el.value);
-    el.setAttribute("disabled","yes")
+  $("#SHELF_ID").val(el.value);
+  el.setAttribute("disabled", "yes");
   AjaxPageLoad(
     "index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=34&SHELF_NUMBER=" +
       el.value,
@@ -126,79 +126,77 @@ function hasapEt(el, ev) {
   var e = BirimCuvalAgirlik * parseInt(el.value);
   document.getElementById("A_" + RC).value = e;
 }
-function satirEkle(el, rc, STOCK_ID,PROJECT_ID,LOT_NO) {
+function satirEkle(el, rc, STOCK_ID, PROJECT_ID, LOT_NO) {
   var PRODUCT_NAME = document.getElementById("PRODUCT_NAME_" + rc).innerText;
   var PRODUCT_CODE = document.getElementById("PRODUCT_CODE_" + rc).innerText;
   var PROJECT_HEAD = document.getElementById("PROJECT_HEAD_" + rc).innerText;
-  var A=document.getElementById("A_"+rc).value;
-  var A2=document.getElementById("A2_"+rc).value;
-  var tr=document.createElement("tr");
-  
-  var td=document.createElement("td");
-  td.innerText=PRODUCT_CODE;
+  var A = document.getElementById("A_" + rc).value;
+  var A2 = document.getElementById("A2_" + rc).value;
+  var tr = document.createElement("tr");
+
+  var td = document.createElement("td");
+  td.innerText = PRODUCT_CODE;
   tr.appendChild(td);
 
-  var td=document.createElement("td");
-  td.innerText=PRODUCT_NAME;
+  var td = document.createElement("td");
+  td.innerText = PRODUCT_NAME;
   tr.appendChild(td);
 
-  var td=document.createElement("td");
-  td.innerText=PROJECT_HEAD;
+  var td = document.createElement("td");
+  td.innerText = PROJECT_HEAD;
   tr.appendChild(td);
 
-  var td=document.createElement("td");
-  td.innerText=LOT_NO;
+  var td = document.createElement("td");
+  td.innerText = LOT_NO;
   tr.appendChild(td);
 
-
-  var td=document.createElement("td");
-  var input=document.createElement("input");
-  input.setAttribute("name","MIKTAR2"+ROW_COUNT);
-  input.setAttribute("type","text");
-  input.setAttribute("readonly","yes");
-  input.value=A2;
+  var td = document.createElement("td");
+  var input = document.createElement("input");
+  input.setAttribute("name", "MIKTAR2" + ROW_COUNT);
+  input.setAttribute("type", "text");
+  input.setAttribute("readonly", "yes");
+  input.value = A2;
   td.appendChild(input);
   tr.appendChild(td);
 
-  var td=document.createElement("td");
-  var input=document.createElement("input");
-  input.setAttribute("type","text");
-  input.setAttribute("readonly","yes");
-  input.setAttribute("name","MIKTAR"+ROW_COUNT);
-  input.value=A;
+  var td = document.createElement("td");
+  var input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.setAttribute("readonly", "yes");
+  input.setAttribute("name", "MIKTAR" + ROW_COUNT);
+  input.value = A;
   td.appendChild(input);
   tr.appendChild(td);
 
-  var td=document.createElement("td");
-  var input=document.createElement("input");
-  input.setAttribute("type","hidden");
-  input.setAttribute("readonly","yes");
-  input.setAttribute("name","STOCK_ID"+ROW_COUNT);
-  input.value=STOCK_ID;
+  var td = document.createElement("td");
+  var input = document.createElement("input");
+  input.setAttribute("type", "hidden");
+  input.setAttribute("readonly", "yes");
+  input.setAttribute("name", "STOCK_ID" + ROW_COUNT);
+  input.value = STOCK_ID;
   td.appendChild(input);
-  var input=document.createElement("input");
-  input.setAttribute("type","hidden");
-  input.setAttribute("readonly","yes");
-  input.setAttribute("name","LOT_NO"+ROW_COUNT);
-  input.value=LOT_NO;
+  var input = document.createElement("input");
+  input.setAttribute("type", "hidden");
+  input.setAttribute("readonly", "yes");
+  input.setAttribute("name", "LOT_NO" + ROW_COUNT);
+  input.value = LOT_NO;
   td.appendChild(input);
-  var input=document.createElement("input");
-  input.setAttribute("type","hidden");
-  input.setAttribute("readonly","yes");
-  input.setAttribute("name","PROJECT_ID"+ROW_COUNT);
-  input.value=PROJECT_ID;
+  var input = document.createElement("input");
+  input.setAttribute("type", "hidden");
+  input.setAttribute("readonly", "yes");
+  input.setAttribute("name", "PROJECT_ID" + ROW_COUNT);
+  input.value = PROJECT_ID;
   td.appendChild(input);
   tr.appendChild(td);
   document.getElementById("Sepetim").appendChild(tr);
   $("#TSATIR").val(ROW_COUNT);
   ROW_COUNT++;
-  
 }
-function temzile(){
+function temzile() {
   window.location.reload();
 
- // document.getElementById("LOCATION").removeAttribute("disabled");
- // document.getElementById("SHELF").removeAttribute("disabled");
+  // document.getElementById("LOCATION").removeAttribute("disabled");
+  // document.getElementById("SHELF").removeAttribute("disabled");
 }
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
