@@ -13,6 +13,9 @@ SL.LOCATION_ID=O.LOCATION_ID
 LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=O.COUNTRY_ID
 WHERE STOCK_ID =#attributes.STOCK_ID#
 </cfquery>
+<cfif session.ep.userid eq 144>
+    <cfdump var="#gets#">
+</cfif>
 <cf_big_list id="digerSiparisTbl" class="table table-sm" SHOW_FS="0">
   <thead>
     <tr>
