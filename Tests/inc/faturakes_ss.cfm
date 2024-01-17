@@ -99,8 +99,9 @@
    <cfquery name="GETPER" datasource="#DSN3#">
     select SECURITIES_SALE_NO,SECURITIES_SALE_NUMBER+1 AS SECURITIES_SALE_NUMBER from w3Toruntex_1.GENERAL_PAPERS where SECURITIES_SALE_NO IS NOT NULL
    </cfquery>
-   <cfset form.serial_number= "#GETPER.SECURITIES_SALE_NO#">
+   <cfset form.serial_number="#GETPER.SECURITIES_SALE_NO#">
    <cfset form.serial_no="#GETPER.SECURITIES_SALE_NUMBER#">
+
    <cfset attributes.EMPLOYEE_ID=session.EP.userid>
    <cfset attributes.basket_id=2> <!----//UYARI BASKET ID DEĞERİ DEĞİŞEBİLİR KONTROL ET----->
    <cfset attributes.sale_product=1>
@@ -226,11 +227,12 @@
    
    <cfinclude template="/V16/objects/functions/add_company_related_action.cfm">
    <cfinclude template="/V16/invoice/query/add_invoice_sale_PBS.cfm">
-   <cflocation url="/index.cfm?fuseaction=invoice.form_add_bill&event=upd&iid=#first_invoice_id#">
    <cfquery name="GETPER" datasource="#DSN3#">
-   UPDATE w3Toruntex_1.GENERAL_PAPERS SET SECURITIES_SALE_NUMBER=SECURITIES_SALE_NUMBER+1 WHERE  SECURITIES_SALE_NO IS NOT NULL
-   
-   </cfquery>
+    UPDATE w3Toruntex_1.GENERAL_PAPERS SET SECURITIES_SALE_NUMBER=SECURITIES_SALE_NUMBER+1 WHERE  SECURITIES_SALE_NO IS NOT NULL
+    
+    </cfquery>
+   <cflocation url="/index.cfm?fuseaction=invoice.form_add_bill&event=upd&iid=#first_invoice_id#">
+
    <script>
     this.close();
    </script>
