@@ -64,6 +64,9 @@
 <cfif attributes.sayfa eq 41><cfinclude template="inc/depo_rel_id_aktarim.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 42><cfinclude template="inc/fatura_print.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 43><cfinclude template="inc/SiparisListesi.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 44><cfinclude template="inc/SearchSku.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 45><cfinclude template="inc/getLotDetay.cfm"><cfabort></cfif>
+
 <cfif not isDefined("attributes.default_style")>
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
 
