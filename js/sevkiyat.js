@@ -140,6 +140,7 @@ function islemYap(el, ev) {
         // BILGI Ürünün Siparişte Olmama Durumu
         var TasimaVeri = {
           FROM_STOCK_ID: OSX.STOCK_ID,
+          TO_STOCK_ID: OSX.STOCK_ID,
           FROM_LOT_NO: OSX.LotNo,
           FROM_AMOUNT: OSX.Agirlik,
           FROM_WRK_ROW_ID: OSX.PBS_RELATION_ID,
