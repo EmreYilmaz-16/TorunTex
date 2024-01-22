@@ -165,6 +165,7 @@ function islemYap(el, ev) {
         );*/
         console.table(TasimaVeri);
       } else {
+        console.log("Ürünün Siparişteyse Ve Deposu Farklıysa");
         // BILGI Ürünün Siparişteyse Ve Deposu Farklıysa
         if (OSX.TASIMA == 1) {
           var TasimaVeri = {
