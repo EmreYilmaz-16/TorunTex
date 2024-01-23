@@ -2,6 +2,7 @@ var ValidStyle = "color: green; font-weight: bold; background: #b5e8b573;";
 var InValidStyle = "color: red; font-weight: bold; background: #ff7a7a66;";
 var AktifSiparisSureci = 259;
 var OkutulanCuval=0;
+var OkutulanKg=0;
 function SearchBarcode(el, ev) {
   if (ev.keyCode == 13) {
     var UrunBarkodu = el.value;
@@ -366,7 +367,10 @@ function sepeteEkle(
   $("#Barcode").html("");
   $("#Barcode").focus();
   OkutulanCuval++;
+  OkutulanKg+=AMOUNT;
   $("#OkutulanCuval").text(OkutulanCuval);
+  $("#OkutulanKg").text(OkutulanCuval);
+  
 }
 
 function fis_sil(FIS_ID, el) {
