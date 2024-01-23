@@ -47,9 +47,7 @@ function SearchBarcode(el, ev) {
       var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
       if (t == false) $("#btnKayit").hide();
       if (t == false) return false;
-      var tt = $("tr[data-lotno='" + LotNo + "']").length;
-      if (tt > 0) $("#btnKayit").hide();
-      if (tt > 0) return false;
+     
 
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
@@ -191,6 +189,22 @@ function searchDepo_2(el, ev) {
   }
 }
 function searchDepo_3(STOCK_ID, el, el2) {
+  var UrunBarkodu = el.value;
+    UrunBarkodu = ReplaceAll(UrunBarkodu, "||", "|");
+    var UrunKodu = list_getat(UrunBarkodu, 1, "|");
+    var LotNo = list_getat(UrunBarkodu, 2, "|");
+    var Agirlik = list_getat(UrunBarkodu, 3, "|");
+  var tt = $("tr[data-lotno='" + LotNo + "']").length;
+      if (tt > 0){
+        $("#btnKayit").hide();
+        el.setAttribute("style", InValidStyle);
+        el.setAttribute("style", InValidStyle);
+        document.getElementById("LastBarcode").text = el.value;
+        document.getElementById("LastBarcode").setAttribute("class", "text-danger");
+        return false;
+      } 
+      
+ 
   var cmnt = document.getElementById("txtDepoAdi").value;
   //var STOCK_ID = $("#FROM_STOCK_ID").val();
   var Qstr1 =
