@@ -35,6 +35,11 @@
                     <input type="hidden"  name="txtToLocId" id="txtToLocId">
                 </div>
             </td>
+            <td style="vertical-align: middle;align-content: center;">
+        <div style="font-size: 25pt;width: 25%;border: solid 1px;text-align: center;margin-left: auto;margin-right: auto;" id="OkutulanCuval">
+            0
+        </div>
+    </td>
         </tr>
 <tr>
     <td>
