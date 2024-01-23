@@ -366,7 +366,7 @@ function sepeteEkle(
   $("#Barcode").html("");
   $("#Barcode").focus();
   OkutulanCuval++;
-  $("#OkutulanCuval").val(OkutulanCuval);
+  $("#OkutulanCuval").text(OkutulanCuval);
 }
 
 function fis_sil(FIS_ID, el) {
