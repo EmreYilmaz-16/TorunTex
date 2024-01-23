@@ -396,6 +396,10 @@ function fis_sil(FIS_ID, el,ad,kg) {
       FIS_ID,
     success: function (retDat) {
       console.log(retDat);
+      OkutulanKg-=kg;
+      OkutulanCuval--;
+      $("#OkutulanCuval").text(OkutulanCuval);
+      $("#OkutulanKg").text(OkutulanKg);
       el.parentElement.parentElement.remove();
     },
   });
