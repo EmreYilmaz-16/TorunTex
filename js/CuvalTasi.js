@@ -1,8 +1,8 @@
 var ValidStyle = "color: green; font-weight: bold; background: #b5e8b573;";
 var InValidStyle = "color: red; font-weight: bold; background: #ff7a7a66;";
 var AktifSiparisSureci = 259;
-var OkutulanCuval=0;
-var OkutulanKg=0;
+var OkutulanCuval = 0;
+var OkutulanKg = 0;
 function SearchBarcode(el, ev) {
   if (ev.keyCode == 13) {
     var UrunBarkodu = el.value;
@@ -47,9 +47,9 @@ function SearchBarcode(el, ev) {
       var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
       if (t == false) $("#btnKayit").hide();
       if (t == false) return false;
-      var tt=$("tr[data-lotno='1150919T']").length;
-      if(tt>0) $("#btnKayit").hide();
-      if(tt>0) return false;
+      var tt = $("tr[data-lotno='" + LotNo + "']").length;
+      if (tt > 0) $("#btnKayit").hide();
+      if (tt > 0) return false;
 
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
@@ -370,10 +370,9 @@ function sepeteEkle(
   $("#Barcode").html("");
   $("#Barcode").focus();
   OkutulanCuval++;
-  OkutulanKg+=AMOUNT;
+  OkutulanKg += AMOUNT;
   $("#OkutulanCuval").text(OkutulanCuval);
   $("#OkutulanKg").text(OkutulanKg);
-  
 }
 
 function fis_sil(FIS_ID, el) {
