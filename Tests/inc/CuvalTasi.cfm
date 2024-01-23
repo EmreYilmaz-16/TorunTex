@@ -36,9 +36,12 @@
                 </div>
             </td>
             <td style="vertical-align: middle;align-content: center;">
-        <div style="font-size: 25pt;width: 25%;border: solid 1px;text-align: center;margin-left: auto;margin-right: auto;" id="OkutulanCuval">
-            0
-        </div>
+                <div style="display:flex;justify-content: space-between;align-items: center;">
+                    <div><button class="btn btn-warning" onclick="window.location.reload()">Yeni Depo Seç</button></div>
+                        <div style="font-size: 25pt;width: 25%;border: solid 1px;text-align: center;margin-left: auto;margin-right: auto;" id="OkutulanCuval">
+                            0
+                        </div>
+                </div>
     </td>
         </tr>
 <tr>
