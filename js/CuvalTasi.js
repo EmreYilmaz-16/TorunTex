@@ -377,7 +377,7 @@ function sepeteEkle(
   var button = document.createElement("button");
   button.setAttribute("class", "btn btn-danger");
   button.innerText = "Sil";
-  button.setAttribute("onclick", "fis_sil(" + FIS_ID + ",this)");
+  button.setAttribute("onclick", "fis_sil(" + FIS_ID + ",this,"+AMOUNT2+","+AMOUNT+")");
   td.appendChild(button);
   tr.appendChild(td);
   document.getElementById("Sepetim").appendChild(tr);
@@ -389,7 +389,7 @@ function sepeteEkle(
   $("#OkutulanKg").text(OkutulanKg);
 }
 
-function fis_sil(FIS_ID, el) {
+function fis_sil(FIS_ID, el,ad,kg) {
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelectedFis&FIS_ID=" +
