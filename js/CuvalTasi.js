@@ -369,7 +369,7 @@ function sepeteEkle(
   OkutulanCuval++;
   OkutulanKg+=AMOUNT;
   $("#OkutulanCuval").text(OkutulanCuval);
-  $("#OkutulanKg").text(OkutulanCuval);
+  $("#OkutulanKg").text(OkutulanKg);
   
 }
 
