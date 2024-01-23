@@ -18,7 +18,7 @@
        
         
                     </cfquery>
-                    <SELECT name="txtDepoAdi" id="txtDepoAdi" <!--- onchange="searchDepo_2(this)"---->>
+                    <SELECT name="txtDepoAdi" id="txtDepoAdi" onchange="this.setAttribute('disabled','true')" <!--- onchange="searchDepo_2(this)"---->>
                         <option value="">Seçiniz</option>
                         
                         <cfoutput query="getDepo" group="DEPARTMENT_ID">
