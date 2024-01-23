@@ -47,6 +47,9 @@ function SearchBarcode(el, ev) {
       var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
       if (t == false) $("#btnKayit").hide();
       if (t == false) return false;
+      var tt=$("tr[data-lotno='1150919T']").length;
+      if(tt>0) $("#btnKayit").hide();
+      if(tt>0) return false;
 
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
