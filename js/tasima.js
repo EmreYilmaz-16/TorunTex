@@ -29,7 +29,6 @@ $(document).ready(function () {
   );
 });
 
-
 function getBarkode_1(el, ev) {
   if (ev.keyCode == 13) {
     var UrunBarkodu = el.value;
@@ -132,10 +131,7 @@ function satirEkle() {
   );
   var tr = document.createElement("tr");
   var td = document.createElement("td");
-  td.innerText=RC;
-  
-
-
+  td.innerText = RC;
 }
 
 function wrk_query(str_query, data_source, maxrows) {
@@ -203,3 +199,4 @@ function wrk_query(str_query, data_source, maxrows) {
 
   return new_query;
 }
+
