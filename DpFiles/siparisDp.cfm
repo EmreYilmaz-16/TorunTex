@@ -1,4 +1,5 @@
 <script>
+var Dsn3="<cfoutput>#attributes.dsn3#</cfoutput>";
     $(document).on('ready',function(){
     var fatid=getParameterByName('order_id');
     var btn=document.createElement("span")
@@ -19,6 +20,46 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
+    function AyniUrunKontrol() {
+        var Arr = new Array();
+        //window.basket.items
+        var Hata = false;
+        for (let index = 0; index < window.basket.items.length; index++) {
+            var BasketItem = window.basket.items[index];
+            var Pid = BasketItem.PRODUCT_ID;
+        // console.log(BasketItem.PRODUCT_ID);
+            //console.log(Arr.find((p) => p == Pid));
+            if (Arr.find((p) => p == Pid)) {
+            Hata = true;
+            } else {
+            Arr.push(Pid);
+            }
+        }
+        if (Hata) {
+            alert("Sepette Aynı Olan Ürünler Var");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function SatirFiyatGetir() {
+        var cid = document.getElementById("company_id").value; 
+        for (let index = 0; index < window.basket.items.length; index++) {
+            var BasketItem = window.basket.items[index];
+            var Pid = BasketItem.PRODUCT_ID;
+            var QueryResult = wrk_safe_query(
+            "getCompanyRisk",
+            "dsn",
+            1,
+            cid + "*" + Pid + "*w3Toruntex_1"
+            );
+            if (QueryResult.recordcount > 0) {
+            window.basket.items[index].PRICE_OTHER = QueryResult.PRICE[0];
+            window.basket.items[index].OTHER_MONEY = QueryResult.MONEY[0];
+            hesapla("price_other", index);
+            }
+        }
+    }    
     function pencereac(tip,idd){
         if(tip==2){
         windowopen('index.cfm?fuseaction=sales.emptypopup_add_sevk_talep&ACTION_ID='+idd,'wide');}else if(tip==1){
