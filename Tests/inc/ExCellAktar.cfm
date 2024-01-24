@@ -1,3 +1,4 @@
+<!---
 <cfquery name="Sq" datasource="#DSN#">
     select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='w3Toruntex_2024_2'
 </cfquery>
@@ -12,7 +13,7 @@
 </cfoutput>
 
 <cfabort>
-
+---->
 <cfform method="post"  enctype="multipart/form-data" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=ex">
     <input type="file" name="file_11" id="file_11">
     <input type="hidden"  name="FileName" id="FileName">
