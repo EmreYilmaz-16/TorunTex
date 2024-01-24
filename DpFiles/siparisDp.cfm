@@ -1,5 +1,5 @@
 <script>
-var Dsn3="<cfoutput>#attributes.dsn3#</cfoutput>";
+var Dsn3="<cfoutput>#dsn3#</cfoutput>";
     $(document).on('ready',function(){
     var fatid=getParameterByName('order_id');
     var btn=document.createElement("span")
