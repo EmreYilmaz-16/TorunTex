@@ -51,7 +51,7 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
             "getCompanyRisk",
             "dsn",
             1,
-            cid + "*" + Pid + "*w3Toruntex_1"
+            cid + "*" + Pid + "*"+Dsn3
             );
             if (QueryResult.recordcount > 0) {
             window.basket.items[index].PRICE_OTHER = QueryResult.PRICE[0];
