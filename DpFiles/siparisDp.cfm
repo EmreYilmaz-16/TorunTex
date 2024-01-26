@@ -135,8 +135,10 @@ Btn.appendChild(Span)
 Btn.setAttribute("onclick","PaketAgirlikGetir()")
 Btn.setAttribute("title","Paket Ağirliklarını Getir")
 Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-red")
+Btn.setAttribute("type","button")
 Div.appendChild(Btn)
 var Btn=document.createElement("Button")
+Btn.setAttribute("type","button")
 //Btn.innerText="TıklaBeni 2"
 var Span=document.createElement("span")
 Span.setAttribute("class","icn-md icon-link");
@@ -146,6 +148,7 @@ Btn.setAttribute("title","Satir Ağirliklarını Hesapla")
 Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-extra")
 Div.appendChild(Btn)
 var Btn=document.createElement("Button")
+Btn.setAttribute("type","button")
 //Btn.innerText="TıklaBeni 3"
 var Span=document.createElement("span")
 Span.setAttribute("class","icn-md icon-money");
