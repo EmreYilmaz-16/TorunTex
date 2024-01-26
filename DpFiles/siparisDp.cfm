@@ -9,7 +9,7 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
     btn.setAttribute("onclick","pencereac(1,"+fatid+")")
     $($(document.getElementById("item-deliver_dept_name")).find(".input-group").find("span")).remove();
     $(document.getElementById("item-deliver_dept_name")).find(".input-group")[0].appendChild(btn)
-   
+    SayfayaButonEkle();
     })
     
     function getParameterByName(name, url) {
@@ -124,6 +124,43 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
         }else if(tip==4){
             windowopen('index.cfm?fuseaction=objects.popup_rekactions_prt&action=ORDER&action_id='+idd,'wide');
         }
+    }
+    function SayfayaButonEkle(){
+        var Div=document.createElement("div")
+var Btn=document.createElement("Button")
+//Btn.innerText="Paket"
+var Span=document.createElement("span")
+Span.setAttribute("class","icn-md icon-filter");
+Btn.appendChild(Span)
+Btn.setAttribute("onclick","PaketAgirlikGetir()")
+Btn.setAttribute("title","Paket Ağirliklarını Getir")
+Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-red")
+Div.appendChild(Btn)
+var Btn=document.createElement("Button")
+//Btn.innerText="TıklaBeni 2"
+var Span=document.createElement("span")
+Span.setAttribute("class","icn-md icon-link");
+Btn.appendChild(Span)
+Btn.setAttribute("onclick","SatirAgirliklariniYaz()")
+Btn.setAttribute("title","Satir Ağirliklarını Hesapla")
+Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-extra")
+Div.appendChild(Btn)
+var Btn=document.createElement("Button")
+//Btn.innerText="TıklaBeni 3"
+var Span=document.createElement("span")
+Span.setAttribute("class","icn-md icon-money");
+Btn.appendChild(Span)
+Btn.setAttribute("onclick","SatirFiyatGetir()")
+Btn.setAttribute("title","Satir Fiyatlarını Getir")
+Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-warning")
+Div.appendChild(Btn)
+Div.setAttribute("style","display: flex;justify-content: flex-end;");
+
+document.getElementById("detail_inv_menu").prepend(Div)
+
+//SatirAgirliklariniYaz && PaketAgirlikGetir && SatirFiyatGetir
+//icn-md icon-link
+//icn-md icon-money
     }
     ///objects.popup_rekactions_prt
     </script>
