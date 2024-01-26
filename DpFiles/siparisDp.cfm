@@ -9,7 +9,14 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
     btn.setAttribute("onclick","pencereac(1,"+fatid+")")
     $($(document.getElementById("item-deliver_dept_name")).find(".input-group").find("span")).remove();
     $(document.getElementById("item-deliver_dept_name")).find(".input-group")[0].appendChild(btn)
+    try{
+        basketManager.getBasketJSON();
+    var Div=document.createElement("div")
+document.getElementById("detail_inv_menu").prepend(Div)
+}catch{
     SayfayaButonEkle();
+}
+    
     })
     
     function getParameterByName(name, url) {
@@ -158,7 +165,7 @@ Btn.setAttribute("title","Satir Fiyatlarını Getir")
 Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-warning")
 Div.appendChild(Btn)
 Div.setAttribute("style","display: flex;justify-content: flex-end;");
-
+//var Div=document.createElement("div")
 document.getElementById("detail_inv_menu").prepend(Div)
 
 //SatirAgirliklariniYaz && PaketAgirlikGetir && SatirFiyatGetir
