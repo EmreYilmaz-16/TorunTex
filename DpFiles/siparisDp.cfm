@@ -12,6 +12,7 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
     try{
         basketManager.getBasketJSON();
     var Div=document.createElement("div")
+    Div.innerHtml="<span style='color:red'>Basket Versiyon 2'de Butonlar Çalışmaz !</span>"
 document.getElementById("detail_inv_menu").prepend(Div)
 }catch{
     SayfayaButonEkle();
