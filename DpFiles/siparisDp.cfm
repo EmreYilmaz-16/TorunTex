@@ -88,8 +88,10 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
       1,
       QueryResult.PROPERTY3[0]
     );
+    
     document.getElementsByName("basket_extra_info")[index].value =
       QueryResult_2.BASKET_INFO_TYPE_ID[0];
+      window.basket.items[index].BASKET_EXTRA_INFO=QueryResult_2.BASKET_INFO_TYPE_ID[0];
       <cfif attributes.agirlikHesapla eq 1>SatirAgirliklariniYaz(index);</cfif>
   }
  
