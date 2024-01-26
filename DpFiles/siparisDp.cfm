@@ -1,3 +1,4 @@
+<cfset attributes.agirlikHesapla=0>
 <script>
 var Dsn3="<cfoutput>#dsn3#</cfoutput>";
     $(document).on('ready',function(){
@@ -42,7 +43,23 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
             return true;
         }
     }
-    function SatirAgirliklariniYaz() {
+    function SatirAgirliklariniYaz(satir_id="") {
+        if(satir_id != ""){
+            var index=satir_id
+            var BasketItem = window.basket.items[index];
+            console.log(BasketItem);
+            var Sel = document.createElement("select");
+            $(Sel).html(BasketItem.BASKET_EXTRA_INFO_);
+            console.log(Sel);
+            $(Sel).val(BasketItem.BASKET_EXTRA_INFO);
+            var PKG_ = Sel.options[Sel.selectedIndex].innerText;
+            var PKG = parseInt(PKG_);
+            console.log(PKG);
+            var Res = PKG * BasketItem.AMOUNT_OTHER;
+            console.log(Res);
+            window.basket.items[index].AMOUNT = Res;
+            hesapla("Amount", index);
+        }else{
         for (let index = 0; index < window.basket.items.length; index++) {
             var BasketItem = window.basket.items[index];
             console.log(BasketItem);
@@ -57,9 +74,27 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
             console.log(Res);
             window.basket.items[index].AMOUNT = Res;
             hesapla("Amount", index);
-        }
+        }}
     }
-    
+    function PaketAgirlikGetir() {
+  for (let index = 0; index < window.basket.items.length; index++) {
+    var BasketItem = window.basket.items[index];
+    var Pid = BasketItem.PRODUCT_ID;
+    var QueryResult = wrk_safe_query("getProductPackegeWeight", "dsn3", 1, Pid);
+    console.log(QueryResult);
+    var QueryResult_2 = wrk_safe_query(
+      "getBasketInfoId",
+      "dsn3",
+      1,
+      QueryResult.PROPERTY3[0]
+    );
+    document.getElementsByName("basket_extra_info")[index].value =
+      QueryResult_2.BASKET_INFO_TYPE_ID[0];
+      <cfif attributes.agirlikHesapla eq 1>SatirAgirliklariniYaz(index);</cfif>
+  }
+ 
+}
+
     function SatirFiyatGetir() {
         var cid = document.getElementById("company_id").value; 
         for (let index = 0; index < window.basket.items.length; index++) {
