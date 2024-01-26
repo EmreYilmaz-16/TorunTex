@@ -42,6 +42,24 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
             return true;
         }
     }
+    function SatirAgirliklariniYaz() {
+        for (let index = 0; index < window.basket.items.length; index++) {
+            var BasketItem = window.basket.items[index];
+            console.log(BasketItem);
+            var Sel = document.createElement("select");
+            $(Sel).html(BasketItem.BASKET_EXTRA_INFO_);
+            console.log(Sel);
+            $(Sel).val(BasketItem.BASKET_EXTRA_INFO);
+            var PKG_ = Sel.options[Sel.selectedIndex].innerText;
+            var PKG = parseInt(PKG_);
+            console.log(PKG);
+            var Res = PKG * BasketItem.AMOUNT_OTHER;
+            console.log(Res);
+            window.basket.items[index].AMOUNT = Res;
+            hesapla("Amount", index);
+        }
+    }
+    
     function SatirFiyatGetir() {
         var cid = document.getElementById("company_id").value; 
         for (let index = 0; index < window.basket.items.length; index++) {
