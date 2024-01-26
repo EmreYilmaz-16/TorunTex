@@ -11,12 +11,13 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
     $(document.getElementById("item-deliver_dept_name")).find(".input-group")[0].appendChild(btn)
     try{
         basketManager.getBasketJSON();
-    var Div=document.createElement("div")
-    Div.innerHtml="<span style='color:red'>Basket Versiyon 2'de Butonlar Çalışmaz !</span>"
-document.getElementById("detail_inv_menu").prepend(Div)
-}catch{
-    SayfayaButonEkle();
-}
+        var Div=document.createElement("div")
+        Div.setAttribute("style","display:flex;justify-content: flex-end;")
+        $(Div).html("<code style='color:red'>Basket Versiyon 2'de Butonlar Çalışmaz !</code>")
+        document.getElementById("detail_inv_menu").prepend(Div)
+    }catch{
+        SayfayaButonEkle();
+    }
     
     })
     
