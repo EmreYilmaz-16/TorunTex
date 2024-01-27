@@ -1,3 +1,31 @@
+<style>
+.RESAB{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+}
+.RESAS {
+    font-size: 25pt;
+    width: 25%;
+    border: solid 1px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+  }
+    @media only screen and (max-width: 600px) {
+  .RESAS {
+    width:100%;
+  }
+  .RESAB{
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+</style>
 <cf_box title="Çuval Taşı">
 
     <table class="table" >
