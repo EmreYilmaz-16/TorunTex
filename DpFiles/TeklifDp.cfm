@@ -169,7 +169,7 @@ Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-warning")
 Div.appendChild(Btn)
 Div.setAttribute("style","display: flex;justify-content: flex-end;");
 //var Div=document.createElement("div")
-document.getElementById("add_offer_main_div").prepend(Div)
+document.getElementById("form_basket").prepend(Div)
 
 //SatirAgirliklariniYaz && PaketAgirlikGetir && SatirFiyatGetir
 //icn-md icon-link
