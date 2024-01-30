@@ -120,6 +120,7 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
             if (QueryResult.recordcount > 0) {
             window.basket.items[index].PRICE_OTHER = QueryResult.PRICE[0];
             window.basket.items[index].OTHER_MONEY = QueryResult.MONEY[0];
+            document.getElementsByName("other_money")[index].value=QueryResult.MONEY[0];
             hesapla("price_other", index);
             }
         }
