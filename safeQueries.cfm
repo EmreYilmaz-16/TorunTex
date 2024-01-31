@@ -1,5 +1,5 @@
 <cfswitch expression="#attributes.str_code#">
-	<!--- process --->
+	<!--- process type--->
 	<cfcase value="getCompanyRisk">
 		<cfset param_1 = listgetat(attributes.ext_params,1,"*")> 	
         <cfset param_2 = listgetat(attributes.ext_params,2,"*")> 	
