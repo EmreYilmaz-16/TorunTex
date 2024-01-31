@@ -1,6 +1,6 @@
 var ValidStyle = "color: green; font-weight: bold; background: #b5e8b573;";
 var InValidStyle = "color: red; font-weight: bold; background: #ff7a7a66;";
-var AktifSiparisSureci = 259;
+/*var AktifSiparisSureci = 259;*/
 var OkutulanCuval = 0;
 var OkutulanKg = 0;
 function SearchBarcode(el, ev) {
@@ -85,9 +85,7 @@ function searchDepo(el, ev) {
       Qstr2 +=
         " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
       Qstr2 +=
-        " WHERE O.ORDER_STAGE=" +
-        AktifSiparisSureci +
-        " AND O.DELIVER_DEPT_ID=" +
+        " WHERE O.DELIVER_DEPT_ID=" +
         QueryResult_1.DEPARTMENT_ID[0] +
         " AND O.LOCATION_ID=" +
         QueryResult_1.LOCATION_ID[0] +
@@ -149,9 +147,7 @@ function searchDepo_2(el, ev) {
     Qstr2 +=
       " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
     Qstr2 +=
-      " WHERE O.ORDER_STAGE=" +
-      AktifSiparisSureci +
-      " AND O.DELIVER_DEPT_ID=" +
+      " WHERE O.DELIVER_DEPT_ID=" +
       QueryResult_1.DEPARTMENT_ID[0] +
       " AND O.LOCATION_ID=" +
       QueryResult_1.LOCATION_ID[0] +
@@ -223,9 +219,7 @@ function searchDepo_3(STOCK_ID, el, el2) {
     Qstr2 +=
       " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
     Qstr2 +=
-      " WHERE O.ORDER_STAGE=" +
-      AktifSiparisSureci +
-      " AND O.DELIVER_DEPT_ID=" +
+      " WHERE O.DELIVER_DEPT_ID=" +
       QueryResult_1.DEPARTMENT_ID[0] +
       " AND O.LOCATION_ID=" +
       QueryResult_1.LOCATION_ID[0] +
