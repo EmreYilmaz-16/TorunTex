@@ -91,15 +91,15 @@
         new Chart(ctx3, {
 					type: 'bar',
 					data: {
-						labels: PRODUCT_CAT,
+						labels: Vq3.PRODUCT_CAT,
 						datasets: [{
 							label: 'Toplam Satış Miktarı',
-							data: Miktarlar,
+							data: Vq3.AMOUNT,
 							borderWidth: 1
 						},
                         {
 							label: 'Toplam Satış Tutarı',
-							data: Fiyatlar,
+							data: Vq3.AMOUNT,
 							borderWidth: 1
 						}
                     ]
