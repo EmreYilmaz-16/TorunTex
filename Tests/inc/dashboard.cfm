@@ -24,8 +24,8 @@
                                 
             }else{
                 Gunler.push(i);
-                Miktarlar.push(Vq2.AMOUNT[Gun]);
-                Fiyatlar.push(Vq2.T[Gun]);
+                Miktarlar.push(parseFloat(Vq2.AMOUNT[Gun]));
+                Fiyatlar.push(parseFloat(Vq2.T[Gun]));
             }
         }
         console.table(Gunler);
@@ -61,15 +61,15 @@
         new Chart(ctx2, {
 					type: 'bar',
 					data: {
-						labels: Vq2.GUN,
+						labels: Gunler,
 						datasets: [{
 							label: 'Toplam Satış Miktarı',
-							data: Vq2.AMOUNT,
+							data: Miktarlar,
 							borderWidth: 1
 						},
                         {
 							label: 'Toplam Satış Tutarı',
-							data: Vq2.T,
+							data: Fiyatlar,
 							borderWidth: 1
 						}
                     ]
