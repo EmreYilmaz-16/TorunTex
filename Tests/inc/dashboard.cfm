@@ -4,16 +4,44 @@
     <div >
         <canvas id="CompanyTotalSales"></canvas>
     </div>
-
+    <div >
+        <canvas id="DailyTotalSales"></canvas>
+    </div>
 <script>
     $(document).ready(function(){
         var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
+        var Vq2=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,GUN FROM MY_TEMP_TABLE WHERE YIL=2024 AND AY=1 GROUP BY GUN ORDER BY AMOUNT")
        console.log(Vq);
        var ctx=document.getElementById("CompanyTotalSales");
         new Chart(ctx, {
 					type: 'bar',
 					data: {
 						labels: Vq.NICKNAME,
+						datasets: [{
+							label: 'Toplam Satış Miktarı',
+							data: Vq.AMOUNT,
+							borderWidth: 1
+						},
+                        {
+							label: 'Toplam Satış Tutarı',
+							data: Vq.T,
+							borderWidth: 1
+						}
+                    ]
+					},
+					options: {
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						}
+					}
+				});
+                var ctx2=document.getElementById("DailyTotalSales");
+        new Chart(ctx2, {
+					type: 'bar',
+					data: {
+						labels: Vq.GUN,
 						datasets: [{
 							label: 'Toplam Satış Miktarı',
 							data: Vq.AMOUNT,
