@@ -1,10 +1,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div style="display:flex">
+
     <div >
         <canvas id="CompanyTotalSales"></canvas>
     </div>
-</div>
 
 <script>
     $(document).ready(function(){
