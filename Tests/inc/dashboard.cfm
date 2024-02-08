@@ -11,7 +11,7 @@
        console.log(Vq);
        var ctx=document.getElementById("CompanyTotalSales");
         new Chart(ctx, {
-					type: 'line',
+					type: 'bar',
 					data: {
 						labels: Vq.NICKNAME,
 						datasets: [{
