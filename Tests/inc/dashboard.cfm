@@ -7,10 +7,15 @@
     <div >
         <canvas id="DailyTotalSales"></canvas>
     </div>
+    <div >
+        <canvas id="ProductCatTotalSales"></canvas>
+    </div>
 <script>
     $(document).ready(function(){
         var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
         var Vq2=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,GUN FROM MY_TEMP_TABLE WHERE YIL=2024 AND AY=1 GROUP BY GUN ORDER BY GUN")
+        var Vq3=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT ,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,PRODUCT_CAT FROM MY_TEMP_TABLE GROUP BY PRODUCT_CAT ORDER BY AMOUNT ")
+        //
         var Gunler=[];
         var Miktarlar=[];
         var Fiyatlar=[];
@@ -62,6 +67,31 @@
 					type: 'bar',
 					data: {
 						labels: Gunler,
+						datasets: [{
+							label: 'Toplam Satış Miktarı',
+							data: Miktarlar,
+							borderWidth: 1
+						},
+                        {
+							label: 'Toplam Satış Tutarı',
+							data: Fiyatlar,
+							borderWidth: 1
+						}
+                    ]
+					},
+					options: {
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						}
+					}
+				});
+                var ctx3=document.getElementById("ProductCatTotalSales");
+        new Chart(ctx3, {
+					type: 'bar',
+					data: {
+						labels: PRODUCT_CAT,
 						datasets: [{
 							label: 'Toplam Satış Miktarı',
 							data: Miktarlar,
