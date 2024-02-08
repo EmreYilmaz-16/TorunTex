@@ -8,17 +8,24 @@
 
 <script>
     $(document).ready(function(){
-        var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM ##MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
+        var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM #MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
        console.log(Vq);
-        /*new Chart(ctx, {
+       var ctx=document.getElementById("CompanyTotalSales");
+        new Chart(ctx, {
 					type: 'line',
 					data: {
-						labels: Musteriler,
+						labels: Vq.NICKNAME,
 						datasets: [{
 							label: 'Toplam Satış Miktarı',
-							data: Degerler,
+							data: Vq.AMOUNT,
 							borderWidth: 1
-						}]
+						},
+                        {
+							label: 'Toplam Satış Tutarı',
+							data: Vq.T,
+							borderWidth: 1
+						}
+                    ]
 					},
 					options: {
 						scales: {
@@ -27,7 +34,7 @@
 							}
 						}
 					}
-				});*/
+				});
     })
 
 
