@@ -99,7 +99,7 @@
 						},
                         {
 							label: 'Toplam Satış Tutarı',
-							data: Vq3.AMOUNT,
+							data: Vq3.T,
 							borderWidth: 1
 						}
                     ]
