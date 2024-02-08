@@ -41,15 +41,15 @@
         new Chart(ctx2, {
 					type: 'bar',
 					data: {
-						labels: Vq.GUN,
+						labels: Vq2.GUN,
 						datasets: [{
 							label: 'Toplam Satış Miktarı',
-							data: Vq.AMOUNT,
+							data: Vq2.AMOUNT,
 							borderWidth: 1
 						},
                         {
 							label: 'Toplam Satış Tutarı',
-							data: Vq.T,
+							data: Vq2.T,
 							borderWidth: 1
 						}
                     ]
