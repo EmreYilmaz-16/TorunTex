@@ -22,7 +22,7 @@
 <body>
 
 Merhaba Dünya
-
+<div id="chart"></div>
 
 <script src="/AddOns/Partner/js/dashboard.js"></script>
 </body>
