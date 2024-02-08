@@ -7,7 +7,7 @@
 </div>
 
 <script>
-    document.ready(function(){
+    $(document).ready(function(){
         var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM ##MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
        console.log(Vq);
         /*new Chart(ctx, {
