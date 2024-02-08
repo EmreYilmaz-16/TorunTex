@@ -11,6 +11,26 @@
     $(document).ready(function(){
         var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
         var Vq2=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,GUN FROM MY_TEMP_TABLE WHERE YIL=2024 AND AY=1 GROUP BY GUN ORDER BY GUN")
+        var Gunler=[];
+        var Miktarlar=[];
+        var Fiyatlar=[];
+        for(let i=0;i<31;i++){
+            var Gun=Vq2.GUN.findIndex(p=>p==i);
+            var O=new Object();
+            if(Gun==-1){
+                Gunler.push(i);
+                Miktarlar.push(0);
+                Fiyatlar.push(0);
+                                
+            }else{
+                Gunler.push(i);
+                Miktarlar.push(Vq2.AMOUNT[Gun]);
+                Fiyatlar.push(Vq2.T[Gun]);
+            }
+        }
+        console.table(Gunler);
+        console.table(Miktarlar);
+        console.table(Fiyatlar);
        console.log(Vq);
        var ctx=document.getElementById("CompanyTotalSales");
         new Chart(ctx, {
