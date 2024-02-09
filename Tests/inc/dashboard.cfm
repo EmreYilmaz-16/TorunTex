@@ -3,19 +3,19 @@
 
 <div style="display:flex;flex-wrap: wrap;">
     <div style="width:50%">
-      <h4>Müşteri Satışları</h4>
+      
         <canvas style="width:100%" id="CompanyTotalSales"></canvas>
     </div>
     <div style="width:50%">
-      <h4>Günlük Satışlar</h4>
+      
         <canvas style="width:100%" id="DailyTotalSales"></canvas>
     </div>
     <div style="width:50%">
-      <h4>Ürün Kategori Bazlı Satışlar</h4>
+      
         <canvas style="width:100%" id="ProductCatTotalSales"></canvas>
     </div>
     <div style="width:50%">
-      <h4>Ülkeye Göre Satışlar</h4>
+      
         <canvas style="width:100%" id="CountryTotalSales"></canvas>
     </div>
 </div>
@@ -74,7 +74,7 @@
             plugins: {
             title: {
                 display: true,
-                text: 'Custom Chart Title',
+                text: 'Müşteri Satışları',
                 padding: {
                     top: 10,
                     bottom: 30
@@ -106,7 +106,18 @@
 							y: {
 								beginAtZero: true
 							}
-						}
+						},
+            plugins: {
+            title: {
+                display: true,
+                text: 'Günlük Satışları',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            }
+        }
+            
 					}
 				});
                 //CountryTotalSales
@@ -132,7 +143,17 @@
 							y: {
 								beginAtZero: true
 							}
-						}
+						},
+            plugins: {
+            title: {
+                display: true,
+                text: 'Ürün Kategori Satışları',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            }
+        }
 					}
 				});
                 var ctx4=document.getElementById("CountryTotalSales");
@@ -157,7 +178,18 @@
 							y: {
 								beginAtZero: true
 							}
-						}
+						},
+            plugins: {
+            title: {
+                display: true,
+                text: 'Ülkeye Göre Satışları',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            }
+        }
+            
 					}
 				});
     })
