@@ -386,11 +386,21 @@ function getDataWithCompany(company) {
     CountryTotalSales.update();
 
     var CrData=[];
-    CrData.push(Vq5.YUZDE)
-    CrData.push(Vq5.YUZDE_A)
-    var CnData=[];
-    CnData.push(Vq5.NICKNAME)
-    CnData.push("Diğerleri")
+    // var CnData=[];
+    for (let index = 0; index < Vq5.NICKNAME.length; index++) {
+      var y=Vq5.YUZDE[index];
+      var n=Vq5.NICKNAME[index];
+      CrData.push(y);
+      CnData.push(n);
+      
+    }
+    // CrData.push(Vq5.YUZDE)
+    
+    // CrData.push(Vq5.YUZDE_A)
+    
+    
+    // CnData.push(Vq5.NICKNAME)
+    // CnData.push("Diğerleri")
     CompanySalesPerctange.data.datasets[0].data =CrData;
     CompanySalesPerctange.data.labels =CnData;
     CompanySalesPerctange.update();
