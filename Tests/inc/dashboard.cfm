@@ -1,16 +1,21 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
 <div style="display:flex;flex-wrap: wrap;">
     <div style="width:50%">
+      <h4>Müşteri Satışları</h4>
         <canvas style="width:100%" id="CompanyTotalSales"></canvas>
     </div>
     <div style="width:50%">
+      <h4>Günlük Satışlar</h4>
         <canvas style="width:100%" id="DailyTotalSales"></canvas>
     </div>
     <div style="width:50%">
+      <h4>Ürün Kategori Bazlı Satışlar</h4>
         <canvas style="width:100%" id="ProductCatTotalSales"></canvas>
     </div>
     <div style="width:50%">
+      <h4>Ülkeye Göre Satışlar</h4>
         <canvas style="width:100%" id="CountryTotalSales"></canvas>
     </div>
 </div>
