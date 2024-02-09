@@ -386,7 +386,7 @@ function getDataWithCompany(company) {
     CountryTotalSales.update();
 
     var CrData=[];
-    // var CnData=[];
+    var CnData=[];
     for (let index = 0; index < Vq5.NICKNAME.length; index++) {
       var y=Vq5.YUZDE[index];
       var n=Vq5.NICKNAME[index];
