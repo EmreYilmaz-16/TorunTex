@@ -253,7 +253,7 @@ function CreateCharts() {
       labels: Vq5.COUNTRY_NAME,
       datasets: [
         {
-          label: "Toplam Satış Miktarı",
+          label: "Toplam Satış %",
           data: Vq5.YUZDE,
           borderWidth: 1,
         }
