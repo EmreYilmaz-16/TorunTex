@@ -274,7 +274,7 @@ function CreateCharts() {
       plugins: {
         title: {
           display: true,
-          text: "Satış Yüzdeleri",
+          text: "Müşteri Satış Yüzdeleri",
           padding: {
             top: 10,
             bottom: 30,
@@ -304,7 +304,7 @@ function CreateCharts() {
       plugins: {
         title: {
           display: true,
-          text: "Satış Yüzdeleri",
+          text: "Ülke Satış Yüzdeleri",
           padding: {
             top: 10,
             bottom: 30,
