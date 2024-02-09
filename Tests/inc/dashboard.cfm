@@ -70,7 +70,18 @@
 							y: {
 								beginAtZero: true
 							}
-						}
+						},
+            plugins: {
+            title: {
+                display: true,
+                text: 'Custom Chart Title',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            }
+        }
+
 					}
 				});
                 var ctx2=document.getElementById("DailyTotalSales");
