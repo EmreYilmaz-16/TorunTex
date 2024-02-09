@@ -19,6 +19,8 @@
           <option value="#PRODUCT_CAT#">#PRODUCT_CAT#</option>
         </cfoutput>
       </select>
+      
+      <input type="date" name="tarih" id="tarih" onchange="getDataWithDate(this.value)">
 </div>
 
 <div style="display:flex;flex-wrap: wrap;">
