@@ -250,7 +250,7 @@ function CreateCharts() {
   CompanySalesPerctange = new Chart(ctx5, {
     type: "pie",
     data: {
-      labels: Vq5.COUNTRY_NAME,
+      labels: Vq5.NICKNAME,
       datasets: [
         {
           label: "Toplam Satış %",
