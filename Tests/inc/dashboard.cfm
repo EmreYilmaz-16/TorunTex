@@ -2,16 +2,16 @@
 
 <div style="display:flex;flex-wrap: wrap;">
     <div style="width:50%">
-        <canvas id="CompanyTotalSales"></canvas>
+        <canvas style="width:100%" id="CompanyTotalSales"></canvas>
     </div>
     <div style="width:50%">
-        <canvas id="DailyTotalSales"></canvas>
+        <canvas style="width:100%" id="DailyTotalSales"></canvas>
     </div>
     <div style="width:50%">
-        <canvas id="ProductCatTotalSales"></canvas>
+        <canvas style="width:100%" id="ProductCatTotalSales"></canvas>
     </div>
     <div style="width:50%">
-        <canvas id="CountryTotalSales"></canvas>
+        <canvas style="width:100%" id="CountryTotalSales"></canvas>
     </div>
 </div>
 <script>
