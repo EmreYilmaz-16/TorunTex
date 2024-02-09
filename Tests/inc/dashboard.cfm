@@ -4,9 +4,9 @@
         SELECT DISTINCT NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE
     </cfquery>
     <select name="Company" id="Company">
-      <option="">Müşteri</option>
+      <option value="">Müşteri</option>
       <cfoutput query="getCompanies">
-        <option="#COMPANY_ID#">#NICKNAME#</option>
+        <option value="#COMPANY_ID#">#NICKNAME#</option>
       </cfoutput>
     </select>
 </div>
