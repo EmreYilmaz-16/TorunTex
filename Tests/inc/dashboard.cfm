@@ -41,7 +41,11 @@ var ProductCatTotalSales="";
 var CountryTotalSales="";
     $(document).ready(function(){
       document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
-        var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
+      LoadDefault();
+    })
+
+    function LoadDefault(){
+      var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
         var Vq2=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,GUN FROM MY_TEMP_TABLE WHERE YIL=2024 AND AY=1 GROUP BY GUN ORDER BY GUN")
         var Vq3=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT ,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,PRODUCT_CAT FROM MY_TEMP_TABLE GROUP BY PRODUCT_CAT ORDER BY AMOUNT ")
         var Vq4=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT ,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,COUNTRY_NAME FROM MY_TEMP_TABLE GROUP BY COUNTRY_NAME ORDER BY AMOUNT ")
@@ -211,8 +215,7 @@ var CountryTotalSales="";
             
 					}
 				});
-    })
-
+    }
     function getDataWithCompany(company) {
       var COMPANY_ID=company.value;
       var sl=company.selectedIndex
@@ -268,6 +271,8 @@ var CountryTotalSales="";
 
 
 */
+      }else {
+        LoadDefault();
       }
     }
 
