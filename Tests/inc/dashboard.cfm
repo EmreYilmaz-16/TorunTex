@@ -4,12 +4,21 @@
     <cfquery name="getCompanies" datasource="#dsn#">
         SELECT DISTINCT NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE
     </cfquery>
+    <cfquery name="ProductCats" datasource="#dsn#">
+        SELECT DISTINCT PRODUCT_CAT FROM MY_TEMP_TABLE
+    </cfquery>
     <select name="Company" id="Company" onchange="getDataWithCompany(this)">
       <option value="">Müşteri</option>
       <cfoutput query="getCompanies">
         <option value="#COMPANY_ID#">#NICKNAME#</option>
       </cfoutput>
     </select>
+    <select name="ProductCat" id="ProductCat" onchange="getDataWithProductCat(this)">
+        <option value="">Kategori</option>
+        <cfoutput query="ProductCats">
+          <option value="#PRODUCT_CAT#">#PRODUCT_CAT#</option>
+        </cfoutput>
+      </select>
 </div>
 
 <div style="display:flex;flex-wrap: wrap;">
