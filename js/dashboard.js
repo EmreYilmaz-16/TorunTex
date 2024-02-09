@@ -51,7 +51,7 @@ function LoadDefault() {
 
   CompanyTotalSales.data.datasets[0].data = Vq.AMOUNT;
   CompanyTotalSales.data.datasets[1].data = Vq.T;
-  CompanyTotalSales.data.labels = cname;
+  CompanyTotalSales.data.labels = Vq.NICKNAME;
   CompanyTotalSales.update();
 
   ProductCatTotalSales.data.datasets[0].data = Vq3.AMOUNT;
