@@ -251,7 +251,15 @@ var CountryTotalSales="";
         CompanyTotalSales.data.labels=cname
         CompanyTotalSales.update();
         
+        ProductCatTotalSales.data.datasets[0].data=Vq3.AMOUNT;
+        ProductCatTotalSales.data.datasets[1].data=Vq3.T;
+        ProductCatTotalSales.data.labels=Vq3.PRODUCT_CAT
+        ProductCatTotalSales.update();
       
+        CountryTotalSales.data.datasets[0].data=Vq4.AMOUNT;
+        CountryTotalSales.data.datasets[1].data=Vq4.T;
+        ProductCatTotalSales.data.labels=Vq4.COUNTRY_NAME;
+        CountryTotalSales.update();
 /*
 var CompanyTotalSales="";
 var DailyTotalSales="";
