@@ -215,6 +215,9 @@ var CountryTotalSales="";
 
     function getDataWithCompany(company) {
       var COMPANY_ID=company.value;
+      var sl=company.selectedIndex
+      var cname=[company.options[sl].innerText];
+      
       if(COMPANY_ID.length>0){
         var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE WHERE COMPANY_ID="+COMPANY_ID+" GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
         var Vq2=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,GUN FROM MY_TEMP_TABLE WHERE YIL=2024 AND AY=1 AND COMPANY_ID="+COMPANY_ID+" GROUP BY GUN ORDER BY GUN")
@@ -240,8 +243,14 @@ var CountryTotalSales="";
         }
         DailyTotalSales.data.datasets[0].data=Miktarlar;
         DailyTotalSales.data.datasets[1].data=Fiyatlar;
-        DailyTotalSales.data.datasets[1].labels=Gunler;
+        DailyTotalSales.data.labels[0]=Gunler;
         DailyTotalSales.update();
+
+        CompanyTotalSales.data.datasets[0].data=Vq.AMOUNT;
+        CompanyTotalSales.data.datasets[1].data=Vq.T;
+        CompanyTotalSales.data.labels=cname
+        CompanyTotalSales.update();
+        
       
 /*
 var CompanyTotalSales="";
