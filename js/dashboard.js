@@ -3,12 +3,14 @@ var ctx2 = document.getElementById("DailyTotalSales");
 var ctx3 = document.getElementById("ProductCatTotalSales");
 var ctx4 = document.getElementById("CountryTotalSales");
 var ctx5 = document.getElementById("CompanySalesPerctange");
+var ctx6 = document.getElementById("CountrySalesPerctange");
 
 var CompanyTotalSales = "";
 var DailyTotalSales = "";
 var ProductCatTotalSales = "";
 var CountryTotalSales = "";
 var CompanySalesPerctange="";
+var CountrySalesPerctange="";
 $(document).ready(function () {
   document
     .getElementById("wrk_main_layout")
@@ -29,7 +31,9 @@ function LoadDefault() {
   var Vq4 = wrk_query(
     "SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT ,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,COUNTRY_NAME FROM MY_TEMP_TABLE GROUP BY COUNTRY_NAME ORDER BY AMOUNT "
   );
-  var Vq5="WITH CTE1 AS(SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ),CTE2 AS (SELECT CTE1.*,(SELECT SUM(AMOUNT) FROM CTE1) AS TOPLAM_MIKTAR FROM CTE1) SELECT CTE2.*,CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE FROM CTE2"
+  var Vq5=wrk_query("WITH CTE1 AS(SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ),CTE2 AS (SELECT CTE1.*,(SELECT SUM(AMOUNT) FROM CTE1) AS TOPLAM_MIKTAR FROM CTE1) SELECT CTE2.*,CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE FROM CTE2")
+  
+  var Vq6=wrk_query("WITH CTE1 AS(SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,COUNTRY_NAME FROM MY_TEMP_TABLE GROUP BY COUNTRY_NAME ),CTE2 AS (SELECT CTE1.*,(SELECT SUM(AMOUNT) FROM CTE1) AS TOPLAM_MIKTAR FROM CTE1) SELECT CTE2.*,CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE FROM CTE2")
   //
   var Gunler = [];
   var Miktarlar = [];
@@ -81,6 +85,8 @@ function CreateCharts() {
     "SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT ,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,COUNTRY_NAME FROM MY_TEMP_TABLE GROUP BY COUNTRY_NAME ORDER BY AMOUNT "
   );
   var Vq5=wrk_query("WITH CTE1 AS(SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ),CTE2 AS (SELECT CTE1.*,(SELECT SUM(AMOUNT) FROM CTE1) AS TOPLAM_MIKTAR FROM CTE1) SELECT CTE2.*,CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE FROM CTE2")
+  
+  var Vq6=wrk_query("WITH CTE1 AS(SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,COUNTRY_NAME FROM MY_TEMP_TABLE GROUP BY COUNTRY_NAME ),CTE2 AS (SELECT CTE1.*,(SELECT SUM(AMOUNT) FROM CTE1) AS TOPLAM_MIKTAR FROM CTE1) SELECT CTE2.*,CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE FROM CTE2")
   //
   var Gunler = [];
   var Miktarlar = [];
@@ -277,7 +283,37 @@ function CreateCharts() {
       },
     },
   });
-  //CompanySalesPerctange
+  CountrySalesPerctange = new Chart(ctx6, {
+    type: "pie",
+    data: {
+      labels: Vq6.COUNTRY_NAME,
+      datasets: [
+        {
+          label: "Toplam Satış %",
+          data: Vq6.YUZDE,
+          borderWidth: 1,
+        }
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: "Satış Yüzdeleri",
+          padding: {
+            top: 10,
+            bottom: 30,
+          },
+        },
+      },
+    },
+  });
+  //CountrySalesPerctange
 }
 function getDataWithCompany(company) {
   var COMPANY_ID = company.value;
