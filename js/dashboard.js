@@ -70,6 +70,12 @@ function LoadDefault() {
   CountryTotalSales.data.datasets[1].data = Vq4.T;
   CountryTotalSales.data.labels = Vq4.COUNTRY_NAME;
   CountryTotalSales.update();
+
+  CompanySalesPerctange.data.datasets[0].data =Vq5.YUZDE;
+  CompanySalesPerctange.data.labels =Vq5.NICKNAME;
+  CompanySalesPerctange.update();
+
+  
 }
 function CreateCharts() {
   var Vq = wrk_query(
