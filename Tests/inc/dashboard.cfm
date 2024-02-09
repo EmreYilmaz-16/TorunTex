@@ -1,18 +1,19 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
-    <div >
+<div style="display:flex;flex-wrap: wrap;">
+    <div style="width:50%">
         <canvas id="CompanyTotalSales"></canvas>
     </div>
-    <div >
+    <div style="width:50%">
         <canvas id="DailyTotalSales"></canvas>
     </div>
-    <div >
+    <div style="width:50%">
         <canvas id="ProductCatTotalSales"></canvas>
     </div>
-    <div >
+    <div style="width:50%">
         <canvas id="CountryTotalSales"></canvas>
     </div>
+</div>
 <script>
     $(document).ready(function(){
         var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
