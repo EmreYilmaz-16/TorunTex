@@ -13,7 +13,7 @@
         <option value="#COMPANY_ID#">#NICKNAME#</option>
       </cfoutput>
     </select>
-    <select name="ProductCat" id="ProductCat" onchange="getDataWithProductCat(this)">
+    <select name="ProductCat" id="ProductCat" onchange="getDataWithProductCat(this.value)">
         <option value="">Kategori</option>
         <cfoutput query="ProductCats">
           <option value="#PRODUCT_CAT#">#PRODUCT_CAT#</option>
