@@ -408,6 +408,89 @@ var CountrySalesPerctange="";
     LoadDefault();
   }
 }
+function getDataWithProductCat(p_Cat){
+  if (p_Cat.length > 0) {
+    var Vq = wrk_query(
+      "SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE WHERE PRODUCT_CAT='" +
+      p_Cat +
+        "' GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT"
+    );
+    var Vq2 = wrk_query(
+      "SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,GUN FROM MY_TEMP_TABLE WHERE YIL=2024 AND AY=1 AND PRODUCT_CAT='" +
+      p_Cat +
+        "' GROUP BY GUN ORDER BY GUN"
+    );
+    var Vq3 = wrk_query(
+      "SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT ,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,PRODUCT_CAT FROM MY_TEMP_TABLE WHERE PRODUCT_CAT='" +
+        p_Cat +
+        "' GROUP BY PRODUCT_CAT ORDER BY AMOUNT "
+    );
+    var Vq4 = wrk_query(
+      "SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT ,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,COUNTRY_NAME FROM MY_TEMP_TABLE WHERE PRODUCT_CAT='" +
+        p_Cat +
+        " GROUP BY COUNTRY_NAME ORDER BY AMOUNT "
+    );
+
+    var Vq5=wrk_query("WITH CTE1 AS(SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE WHERE PRODUCT_CAT='"+p_Cat+"' GROUP BY NICKNAME,COMPANY_ID ),CTE2 AS (SELECT CTE1.*,(SELECT SUM(AMOUNT) FROM CTE1) AS TOPLAM_MIKTAR FROM CTE1) SELECT CTE2.*,CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE,100-CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE_A FROM CTE2");
+    var Gunler = [];
+    var Miktarlar = [];
+    var Fiyatlar = [];
+    for (let i = 0; i < 31; i++) {
+      var Gun = Vq2.GUN.findIndex((p) => p == i);
+      var O = new Object();
+      if (Gun == -1) {
+        Gunler.push(i);
+        Miktarlar.push(0);
+        Fiyatlar.push(0);
+      } else {
+        Gunler.push(i);
+        Miktarlar.push(parseFloat(Vq2.AMOUNT[Gun]));
+        Fiyatlar.push(parseFloat(Vq2.T[Gun]));
+      }
+    }
+    DailyTotalSales.data.datasets[0].data = Miktarlar;
+    DailyTotalSales.data.datasets[1].data = Fiyatlar;
+    DailyTotalSales.data.labels = Gunler;
+    DailyTotalSales.update();
+
+    CompanyTotalSales.data.datasets[0].data = Vq.AMOUNT;
+    CompanyTotalSales.data.datasets[1].data = Vq.T;
+    CompanyTotalSales.data.labels = cname;
+    CompanyTotalSales.update();
+
+    ProductCatTotalSales.data.datasets[0].data = Vq3.AMOUNT;
+    ProductCatTotalSales.data.datasets[1].data = Vq3.T;
+    ProductCatTotalSales.data.labels = Vq3.PRODUCT_CAT;
+    ProductCatTotalSales.update();
+
+    CountryTotalSales.data.datasets[0].data = Vq4.AMOUNT;
+    CountryTotalSales.data.datasets[1].data = Vq4.T;
+    CountryTotalSales.data.labels = Vq4.COUNTRY_NAME;
+    CountryTotalSales.update();
+
+    var CrData=[];
+    CrData.push(Vq5.YUZDE)
+    CrData.push(Vq5.YUZDE_A)
+    var CnData=[];
+    CnData.push(Vq5.NICKNAME)
+    CnData.push("Diğerleri")
+    CompanySalesPerctange.data.datasets[0].data =CrData;
+    CompanySalesPerctange.data.labels =CnData;
+    CompanySalesPerctange.update();
+    /*
+var CompanyTotalSales = "";
+var DailyTotalSales = "";
+var ProductCatTotalSales = "";
+var CountryTotalSales = "";
+var CompanySalesPerctange="";
+var CountrySalesPerctange="";
+
+
+*/
+  } else {
+    LoadDefault();
+  }
+}
 
 function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
