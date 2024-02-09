@@ -258,7 +258,7 @@ var CountryTotalSales="";
       
         CountryTotalSales.data.datasets[0].data=Vq4.AMOUNT;
         CountryTotalSales.data.datasets[1].data=Vq4.T;
-        ProductCatTotalSales.data.labels=Vq4.COUNTRY_NAME;
+        CountryTotalSales.data.labels=Vq4.COUNTRY_NAME;
         CountryTotalSales.update();
 /*
 var CompanyTotalSales="";
