@@ -1,4 +1,5 @@
 ﻿<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<CF_BOX>
 <div>
     <cfquery name="getCompanies" datasource="#dsn#">
         SELECT DISTINCT NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE
@@ -12,29 +13,36 @@
 </div>
 
 <div style="display:flex;flex-wrap: wrap;">
-    <div style="width:50%">
-      
+    <div style="width:25%">
+      <cf_box >
         <canvas style="width:100%" id="CompanyTotalSales"></canvas>
+    </cf_box>
     </div>
-    <div style="width:50%">
-      
+    <div style="width:25%">
+        <cf_box >
         <canvas style="width:100%" id="DailyTotalSales"></canvas>
+    </cf_box>
     </div>
-    <div style="width:50%">
-      
+    <div style="width:25%">
+        <cf_box >
         <canvas style="width:100%" id="ProductCatTotalSales"></canvas>
+    </cf_box>
     </div>
-    <div style="width:50%">
-      
+    <div style="width:25%">
+        <cf_box >
         <canvas style="width:100%" id="CountryTotalSales"></canvas>
+    </cf_box>
     </div>
-    <div style="width:50%">
-      
+    <div style="width:25%">
+        <cf_box >
       <canvas style="width:100%" id="CompanySalesPerctange"></canvas>
+    </cf_box>
   </div>
-  <div style="width:50%">
-      
+  <div style="width:25%">
+    <cf_box >
     <canvas style="width:100%" id="CountrySalesPerctange"></canvas>
+</cf_box>
 </div>
 </div>
+</CF_BOX>A
 <script src="/AddOns/Partner/js/dashboard.js"></script>
