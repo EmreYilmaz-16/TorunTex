@@ -3,7 +3,7 @@
     <cfquery name="getCompanies" datasource="#dsn#">
         SELECT DISTINCT NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE
     </cfquery>
-    <select name="Company" id="Company">
+    <select name="Company" id="Company" onchange="getDataWithCompany(this)">
       <option value="">Müşteri</option>
       <cfoutput query="getCompanies">
         <option value="#COMPANY_ID#">#NICKNAME#</option>
@@ -30,6 +30,15 @@
     </div>
 </div>
 <script>
+var ctx=document.getElementById("CompanyTotalSales");
+var ctx2=document.getElementById("DailyTotalSales");
+var ctx3=document.getElementById("ProductCatTotalSales");
+var ctx4=document.getElementById("CountryTotalSales");
+
+var CompanyTotalSales="";
+var DailyTotalSales="";
+var ProductCatTotalSales="";
+var CountryTotalSales="";
     $(document).ready(function(){
       document.getElementById("wrk_main_layout").setAttribute("class","container-fluid");
         var Vq=wrk_query("SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ORDER BY AMOUNT")
@@ -58,8 +67,8 @@
         console.table(Miktarlar);
         console.table(Fiyatlar);
        console.log(Vq);
-       var ctx=document.getElementById("CompanyTotalSales");
-        new Chart(ctx, {
+       
+       CompanyTotalSales=new Chart(ctx, {
 					type: 'bar',
 					data: {
 						labels: Vq.NICKNAME,
@@ -94,8 +103,8 @@
 
 					}
 				});
-                var ctx2=document.getElementById("DailyTotalSales");
-        new Chart(ctx2, {
+                
+        DailyTotalSales=  new Chart(ctx2, {
 					type: 'bar',
 					data: {
 						labels: Gunler,
@@ -131,8 +140,8 @@
 					}
 				});
                 //CountryTotalSales
-                var ctx3=document.getElementById("ProductCatTotalSales");
-        new Chart(ctx3, {
+                
+                ProductCatTotalSales= new Chart(ctx3, {
 					type: 'bar',
 					data: {
 						labels: Vq3.PRODUCT_CAT,
@@ -166,8 +175,8 @@
         }
 					}
 				});
-                var ctx4=document.getElementById("CountryTotalSales");
-        new Chart(ctx4, {
+                
+        CountryTotalSales= new Chart(ctx4, {
 					type: 'bar',
 					data: {
 						labels: Vq4.COUNTRY_NAME,
@@ -204,6 +213,12 @@
 				});
     })
 
+    function getDataWithCompany(company) {
+      var COMPANY_ID=company.value;
+      if(COMPANY_ID.length>0){
+
+      }
+    }
 
     function wrk_query(str_query, data_source, maxrows) {
   var new_query = new Object();
