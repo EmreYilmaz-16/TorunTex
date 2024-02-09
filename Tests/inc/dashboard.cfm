@@ -243,7 +243,7 @@ var CountryTotalSales="";
         }
         DailyTotalSales.data.datasets[0].data=Miktarlar;
         DailyTotalSales.data.datasets[1].data=Fiyatlar;
-        DailyTotalSales.data.labels[0]=Gunler;
+        DailyTotalSales.data.labels=Gunler;
         DailyTotalSales.update();
 
         CompanyTotalSales.data.datasets[0].data=Vq.AMOUNT;
