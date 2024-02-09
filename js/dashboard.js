@@ -342,6 +342,7 @@ function getDataWithCompany(company) {
         " GROUP BY COUNTRY_NAME ORDER BY AMOUNT "
     );
 
+    var Vq5=wrk_query("WITH CTE1 AS(SELECT SUM(CONVERT(DECIMAL(18,2),AMOUNT))  AS AMOUNT,CONVERT(DECIMAL(18,4),SUM(PRICE_OTHER*AMOUNT)) AS T,NICKNAME,COMPANY_ID FROM MY_TEMP_TABLE GROUP BY NICKNAME,COMPANY_ID ),CTE2 AS (SELECT CTE1.*,(SELECT SUM(AMOUNT) FROM CTE1) AS TOPLAM_MIKTAR FROM CTE1) SELECT CTE2.*,CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE,100-CONVERT(DECIMAL(18,2),(AMOUNT*100)/CTE2.TOPLAM_MIKTAR) AS YUZDE_A FROM CTE2 WHERE COMPANY_ID="+COMPANY_ID);
     var Gunler = [];
     var Miktarlar = [];
     var Fiyatlar = [];
@@ -377,11 +378,23 @@ function getDataWithCompany(company) {
     CountryTotalSales.data.datasets[1].data = Vq4.T;
     CountryTotalSales.data.labels = Vq4.COUNTRY_NAME;
     CountryTotalSales.update();
+
+    var CrData=[];
+    CrData.push(Vq5.YUZDE)
+    CrData.push(Vq5.YUZDE_A)
+    var CnData=[];
+    CnData.push(Vq5.NICKNAME)
+    CnData.push("Diğerleri")
+    CompanySalesPerctange.data.datasets[0].data =CrData;
+    CompanySalesPerctange.data.labels =CnData;
+    CompanySalesPerctange.update();
     /*
-var CompanyTotalSales="";
-var DailyTotalSales="";
-var ProductCatTotalSales="";
-var CountryTotalSales="";
+var CompanyTotalSales = "";
+var DailyTotalSales = "";
+var ProductCatTotalSales = "";
+var CountryTotalSales = "";
+var CompanySalesPerctange="";
+var CountrySalesPerctange="";
 
 
 */
