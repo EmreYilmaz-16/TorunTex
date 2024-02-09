@@ -1,4 +1,4 @@
-var ctx = document.getElementById("CompanyTotalSales");
+﻿var ctx = document.getElementById("CompanyTotalSales");
 var ctx2 = document.getElementById("DailyTotalSales");
 var ctx3 = document.getElementById("ProductCatTotalSales");
 var ctx4 = document.getElementById("CountryTotalSales");
