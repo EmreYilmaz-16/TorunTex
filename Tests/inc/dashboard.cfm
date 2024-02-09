@@ -32,5 +32,9 @@
       
       <canvas style="width:100%" id="CompanySalesPerctange"></canvas>
   </div>
+  <div style="width:50%">
+      
+    <canvas style="width:100%" id="CountrySalesPerctange"></canvas>
+</div>
 </div>
 <script src="/AddOns/Partner/js/dashboard.js"></script>
