@@ -85,7 +85,7 @@ function searchDepo(el, ev) {
       Qstr2 +=
         " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
       Qstr2 +=
-        " WHERE O.DELIVER_DEPT_ID=" +
+        " WHERE ORDER_STATUS=1 AND O.DELIVER_DEPT_ID=" +
         QueryResult_1.DEPARTMENT_ID[0] +
         " AND O.LOCATION_ID=" +
         QueryResult_1.LOCATION_ID[0] +
@@ -147,7 +147,7 @@ function searchDepo_2(el, ev) {
     Qstr2 +=
       " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
     Qstr2 +=
-      " WHERE O.DELIVER_DEPT_ID=" +
+      " WHERE ORDER_STATUS=1 AND O.DELIVER_DEPT_ID=" +
       QueryResult_1.DEPARTMENT_ID[0] +
       " AND O.LOCATION_ID=" +
       QueryResult_1.LOCATION_ID[0] +
@@ -219,7 +219,7 @@ function searchDepo_3(STOCK_ID, el, el2) {
     Qstr2 +=
       " INNER JOIN " + dsn3 + ".ORDER_ROW AS ORR ON ORR.ORDER_ID=O.ORDER_ID ";
     Qstr2 +=
-      " WHERE O.DELIVER_DEPT_ID=" +
+      " WHERE ORDER_STATUS=1 AND O.DELIVER_DEPT_ID=" +
       QueryResult_1.DEPARTMENT_ID[0] +
       " AND O.LOCATION_ID=" +
       QueryResult_1.LOCATION_ID[0] +
