@@ -22,6 +22,12 @@
 <cfset SEPET_ID=listGetAt(attributes.SELECT1,3,"*")>
 <cfdump var="#attributes#">
 
+<cfquery name="ishv" datasource="#DSN3#">
+    SELECT * FROM SEVKIYAT_SEPET_PBS WHERE ORDER_ID=#ORDER_ID#
+</cfquery>
+<CFIF ishv.recordCount>
+    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#ishv.SEPET_ID#"> 
+</CFIF>
 <CFIF SEPET_ID neq 0>
     
     <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#attributes.select1#">
