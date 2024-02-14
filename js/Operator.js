@@ -211,11 +211,11 @@ function getProductionCount() {
   if (localStorage.getItem("ACTIVE_STATION") != null) {
     var Obj = JSON.parse(localStorage.getItem("ACTIVE_STATION"));
     var Qstr =
-      "SELECT COUNT(*) as FF FROM STOCK_FIS AS SF where DEPARTMENT_IN=" +
-      Obj.DEPARTMENT_ID +
-      " AND LOCATION_IN=" +
-      Obj.LOCATION_ID +
-      " AND DAY(FIS_DATE)=DAY(GETDATE()) AND MONTH(FIS_DATE)=MONTH(FIS_DATE)";
+    "SELECT COUNT(*) as FF FROM STOCK_FIS AS SF LEFT JOIN [w3Toruntex].[w3Toruntex].[USER_GROUP_EMPLOYEE] AS UG ON SF.RECORD_EMP=UG.EMPLOYEE_ID where DEPARTMENT_IN=" +
+    Obj.DEPARTMENT_ID +
+    " AND LOCATION_IN=" +
+    Obj.LOCATION_ID +
+    " AND DAY(FIS_DATE)=DAY(GETDATE()) AND MONTH(FIS_DATE)=MONTH(GETDATE()) AND UG.USER_GROUP_ID=28"; /*Operator kullanıcı grubuna göre filtrelendi*/
     var r = wrk_query(Qstr, "dsn2");
     $("#uretimCount").text(r.FF[0]);
   }
