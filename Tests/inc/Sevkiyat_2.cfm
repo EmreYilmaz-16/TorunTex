@@ -25,8 +25,9 @@
 <cfquery name="ishv" datasource="#DSN3#">
     SELECT * FROM SEVKIYAT_SEPET_PBS WHERE ORDER_ID=#ORDER_ID#
 </cfquery>
+<cfset Select1="#ishv.DEPARTMENT_ID#-#ishv.LOCATION_ID#*#ishv.ORDER_ID#*#ishv.SEPET_ID#">
 <CFIF ishv.recordCount>
-    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#ishv.SEPET_ID#"> 
+    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#Select1#"> 
 </CFIF>
 <CFIF SEPET_ID neq 0>
     
