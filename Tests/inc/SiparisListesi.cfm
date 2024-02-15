@@ -507,11 +507,11 @@
             <td value="#ASAMA#">#COMMENT#</td>
             <td value="#ASAMA#" style="text-align: right">#PRIORITY#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(TAMAMLANMA)#</td>
-            <td value="#ASAMA#">#NICKNAME#</td>
+            <td value="#ASAMA#"><a href="index.cfm?fuseaction=objects.popup_com_det&company_id=#COMPANY_ID#" target="_blank">#NICKNAME#</a></td>
             <td value="#ASAMA#">#COUNTRY_NAME#</td>
             <cfif attributes.listing_type EQ 2> 
             <td value="#ASAMA#">#PRODUCT_CODE_2#</td>
-            <td value="#ASAMA#">#PRODUCT_NAME#</td>
+            <td value="#ASAMA#"><a href="index.cfm?fuseaction=product.list_product&event=det&pid=#PRODUCT_ID#" target="_blank">#PRODUCT_NAME#</a></td>
             </cfif>
             <td value="#ASAMA#" style="text-align: right">#tlformat(AMOUNT2)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(URETILEN_MIKTAR2)#</td>
