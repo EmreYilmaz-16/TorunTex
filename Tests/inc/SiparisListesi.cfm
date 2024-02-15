@@ -479,6 +479,7 @@
                 <th>ÜLKE</th>
                 <cfif attributes.listing_type EQ 2> 
                 <th>ÖZEL KOD</th>
+                <th>ÜRETİM</th>
                 <th>ÜRÜN</th>
                 </cfif>
                 <cfif attributes.listing_type EQ 2> 
@@ -511,13 +512,14 @@
             <td value="#ASAMA#">#COUNTRY_NAME#</td>
             <cfif attributes.listing_type EQ 2> 
             <td value="#ASAMA#">#PRODUCT_CODE_2#</td>
+            <td style="text-align: right">#PTR.STAGE#</td>  
             <td value="#ASAMA#"><a href="index.cfm?fuseaction=product.list_product&event=det&pid=#PRODUCT_ID#" target="_blank">#PRODUCT_NAME#</a></td>
             </cfif>
             <td value="#ASAMA#" style="text-align: right">#tlformat(AMOUNT2)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(URETILEN_MIKTAR2)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(QUANTITY)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(URETILEN_MIKTAR)#</td>
-            <td value="#ASAMA#"><a href="index.cfm?fuseaction=sales.list_order&amp;event=upd&amp;order_id=#ORDER_ID#" target="_blank">#ORDER_NUMBER#</a></td> 
+            <td style="font-weight:bold"><a href="index.cfm?fuseaction=sales.list_order&amp;event=upd&amp;order_id=#ORDER_ID#" target="_blank">#ORDER_NUMBER#</a></td> 
             <td value="#ASAMA#">#dateFormat(ORDER_DATE,"dd/mm/yyyy")#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(TUTAR)# #OTHER_MONEY#</td>
             <td value="#ASAMA#" style="text-align: right">#STAGE#</td>        
