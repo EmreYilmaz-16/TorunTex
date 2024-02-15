@@ -517,7 +517,7 @@
             <td value="#ASAMA#" style="text-align: right">#tlformat(URETILEN_MIKTAR2)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(QUANTITY)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(URETILEN_MIKTAR)#</td>
-            <td value="#ASAMA#"><a href="index.cfm?fuseaction=sales.list_order&amp;event=upd&amp;order_id=#ORDER_ID#">#ORDER_NUMBER#</a></td> 
+            <td value="#ASAMA#"><a href="index.cfm?fuseaction=sales.list_order&amp;event=upd&amp;order_id=#ORDER_ID#" target="_blank">#ORDER_NUMBER#</a></td> 
             <td value="#ASAMA#">#dateFormat(ORDER_DATE,"dd/mm/yyyy")#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(TUTAR)# #OTHER_MONEY#</td>
             <td value="#ASAMA#" style="text-align: right">#STAGE#</td>        
