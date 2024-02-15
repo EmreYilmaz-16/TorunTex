@@ -313,6 +313,7 @@
         ,NICKNAME
         ,OTHER_MONEY
         ,SHIP_DATE 
+
     
     <cfelse>
      *
@@ -512,7 +513,7 @@
             <td value="#ASAMA#">#COUNTRY_NAME#</td>
             <cfif attributes.listing_type EQ 2> 
             <td value="#ASAMA#">#PRODUCT_CODE_2#</td>
-            <td style="text-align: right">#PTR.STAGE#</td>  
+            <td >#ASAMA#</td>  
             <td value="#ASAMA#"><a href="index.cfm?fuseaction=product.list_product&event=det&pid=#PRODUCT_ID#" target="_blank">#PRODUCT_NAME#</a></td>
             </cfif>
             <td value="#ASAMA#" style="text-align: right">#tlformat(AMOUNT2)#</td>
