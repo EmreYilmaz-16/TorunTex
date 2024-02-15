@@ -464,7 +464,7 @@
         ,OTHER_MONEY
         ,SHIP_DATE 
         </cfif>
-    ORDER BY ORDER_ID
+    ORDER BY PRIORITY, ORDER_ID
     </cfquery>
     
     
