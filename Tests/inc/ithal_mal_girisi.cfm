@@ -10,7 +10,7 @@
                     <SELECT class="form-control form-select" name="FaturaNo" id="FaturaNo" onchange="getFatura(this,event)">
                         <option value="">Seçiniz</option>
                         <cfoutput query="GETF">
-                            <option value="#INVOICE_ID#">#INVOICE_NUMBER#</option>
+                            <option value="#INVOICE_ID#">#INVOICE_NUMBER#-#PROJECT_HEAD#</option>
                         </cfoutput>
                     </SELECT>
                     <!---<input type="text" name="FaturaNo" id="FaturaNo" onkeyup="getFatura(this,event)">---->
@@ -84,13 +84,14 @@
         SELECT DISTINCT INVOICE_ID
             ,INVOICE_NUMBER
             ,PROCESS_STAGE
-            
+            ,PROJECT_HEAD
         FROM (
             SELECT INVOICE_NUMBER
                 ,I.INVOICE_ID
                 ,IR.AMOUNT
                 ,IR.AMOUNT2
                 ,I.PROCESS_STAGE
+                ,PPR.PROJECT_HEAD AS PROJECT_HEAD
                 ,(
                     SELECT SUM(AMOUNT)
                     FROM #dsn2#.SHIP_ROW AS SR
@@ -109,6 +110,7 @@
                     ) AS AC2
             FROM #dsn2#.INVOICE AS I
             INNER JOIN #dsn2#.INVOICE_ROW AS IR ON IR.INVOICE_ID = I.INVOICE_ID
+            LEFT JOIN #dsn#.PRO_PROJECTS AS PPR ON PPR.PROJECT_ID = I.PROJECT_ID
             WHERE INVOICE_CAT = 591
             --    AND ISNULL(I.PROCESS_STAGE, 0) <> 258
             ) AS IRRS
