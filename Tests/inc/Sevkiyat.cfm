@@ -1,4 +1,4 @@
-﻿
+﻿<!---Sevkiyat İşlemleri--->
 <cfparam name="attributes.ALL" default="0">
 <cf_box title="Sevkiyat İşlemleri">
 <cfquery name="getDoluDepolar" datasource="#DSN3#">
@@ -63,7 +63,7 @@ WHERE IS_TYPE=2
 ) AS SSSR ON SSSR.SHIP_ID=O.ORDER_ID
 WHERE O.DELIVER_DEPT_ID = #DEPARTMENT_ID#
 	AND O.LOCATION_ID = #LOCATION_ID#
-	AND ORDER_STAGE not IN(262,259)
+	AND ORDER_STAGE IN(260)
             </cfquery>
 			<cfloop query="getOrder">
             <option value="#getDoluDepolar.DEPARTMENT_ID#-#getDoluDepolar.LOCATION_ID#*#getOrder.ORDER_ID#*#getOrder.SEPET_ID#"> #dateformat(getOrder.DELIVERDATE,"dd/mm/yyyy")# - #getDoluDepolar.COMMENT# #getOrder.NICKNAME# #getOrder.COUNTRY_NAME# #getOrder.PLATE# #getOrder.NOTE# </option>
