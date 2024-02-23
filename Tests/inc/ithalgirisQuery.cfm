@@ -109,15 +109,16 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 <cfquery name="GETSHIP_ROW" datasource="#DSN2#">
   SELECT * FROM SHIP_ROW WHERE SHIP_ID=#GETMAXID.MXIDD#
 </cfquery>
+<cfdump var="#GETSHIP_ROW#">
 <CFLOOP query="GETSHIP_ROW" >
 <cfquery name="getProductInfo" datasource="#dsn3#">
 SELECT TOP 10 s.PRODUCT_NAME,S.STOCK_ID,S.PRODUCT_ID,PU.MAIN_UNIT,PU.PRODUCT_UNIT_ID,PRODUCT_CODE_2 FROM STOCKS AS S INNER JOIN PRODUCT_UNIT AS PU ON PU.PRODUCT_ID=S.PRODUCT_ID AND IS_MAIN=1
 WHERE S.PRODUCT_ID=#PRODUCT_ID#
 </cfquery>
-<cfquery name="INS3" datasource="#DSN2#">
-INSERT INTO STOCKS_ROW (STOCK_ID,PRODUCT_ID,UPD_ID,PROCESS_TYPE,STOCK_IN,STORE,STORE_LOCATION,LOT_NO,PROCESS_DATE,PROCESS_TIME) VALUES(#getProductInfo.STOCK_ID#,#getProductInfo.PRODUCT_ID#,#SHIP_ID#,#PROCESS__IN_TYPE#,1,#DELIVER_IN_DEPT#,#DELIVER__IN_LOC#,'#LOT_NO#',CONVERT(DATE,GETDATE()),GETDATE())
+<cfquery name="INS3" datasource="#DSN2#" result="RES11">
+    INSERT INTO STOCKS_ROW (STOCK_ID,PRODUCT_ID,UPD_ID,PROCESS_TYPE,STOCK_IN,STORE,STORE_LOCATION,LOT_NO,PROCESS_DATE,PROCESS_TIME) VALUES(#getProductInfo.STOCK_ID#,#getProductInfo.PRODUCT_ID#,#SHIP_ID#,#PROCESS__IN_TYPE#,1,#DELIVER_IN_DEPT#,#DELIVER__IN_LOC#,'#LOT_NO#',CONVERT(DATE,GETDATE()),GETDATE())
 </cfquery>
-
+<cfdump var="#RES11#">
 </CFLOOP> 
 
 <cfquery name="UP" datasource="#DSN2#">
@@ -128,6 +129,6 @@ INSERT INTO STOCKS_ROW (STOCK_ID,PRODUCT_ID,UPD_ID,PROCESS_TYPE,STOCK_IN,STORE,S
             UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
         </cfquery>
 <script>
-  window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
+  //window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
 </script>
 </cfif>
