@@ -17,7 +17,7 @@ SELECT * FROM (SELECT C.NICKNAME
 		100 * ISNULL((
 				SELECT sum(STOCK_IN - STOCK_OUT) STOCK_IN
 				FROM #dsn2#.STOCKS_ROW
-				WHERE PRODUCT_ID = #attributes.PRODUCT_ID#
+				WHERE PRODUCT_ID = #attributes.PRODUCT_ID# <!---- //SOR Enes Abi Eski Siparişten vb ürün kalırsa burası hatalı sonuç üretmez mi ----->
 					AND STORE = O.DELIVER_DEPT_ID
 					AND STORE_LOCATION = O.LOCATION_ID
 				), 0) / QUANTITY
