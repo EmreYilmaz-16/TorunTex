@@ -313,6 +313,7 @@
         ,NICKNAME
         ,OTHER_MONEY
         ,SHIP_DATE 
+
     
     <cfelse>
      *
@@ -464,7 +465,7 @@
         ,OTHER_MONEY
         ,SHIP_DATE 
         </cfif>
-    ORDER BY ORDER_ID
+    ORDER BY PRIORITY, ORDER_ID
     </cfquery>
     
     
@@ -479,6 +480,7 @@
                 <th>ÜLKE</th>
                 <cfif attributes.listing_type EQ 2> 
                 <th>ÖZEL KOD</th>
+                <th>ÜRETİM</th>
                 <th>ÜRÜN</th>
                 </cfif>
                 <cfif attributes.listing_type EQ 2> 
@@ -507,17 +509,18 @@
             <td value="#ASAMA#">#COMMENT#</td>
             <td value="#ASAMA#" style="text-align: right">#PRIORITY#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(TAMAMLANMA)#</td>
-            <td value="#ASAMA#">#NICKNAME#</td>
+            <td value="#ASAMA#"><a href="index.cfm?fuseaction=objects.popup_com_det&company_id=#COMPANY_ID#" target="_blank">#NICKNAME#</a></td>
             <td value="#ASAMA#">#COUNTRY_NAME#</td>
             <cfif attributes.listing_type EQ 2> 
             <td value="#ASAMA#">#PRODUCT_CODE_2#</td>
-            <td value="#ASAMA#">#PRODUCT_NAME#</td>
+            <td >#ASAMA#</td>  
+            <td value="#ASAMA#"><a href="index.cfm?fuseaction=product.list_product&event=det&pid=#PRODUCT_ID#" target="_blank">#PRODUCT_NAME#</a></td>
             </cfif>
             <td value="#ASAMA#" style="text-align: right">#tlformat(AMOUNT2)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(URETILEN_MIKTAR2)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(QUANTITY)#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(URETILEN_MIKTAR)#</td>
-            <td value="#ASAMA#"><a href="index.cfm?fuseaction=sales.list_order&amp;event=upd&amp;order_id=#ORDER_ID#">#ORDER_NUMBER#</a></td> 
+            <td style="font-weight:bold"><a href="index.cfm?fuseaction=sales.list_order&amp;event=upd&amp;order_id=#ORDER_ID#" target="_blank">#ORDER_NUMBER#</a></td> 
             <td value="#ASAMA#">#dateFormat(ORDER_DATE,"dd/mm/yyyy")#</td>
             <td value="#ASAMA#" style="text-align: right">#tlformat(TUTAR)# #OTHER_MONEY#</td>
             <td value="#ASAMA#" style="text-align: right">#STAGE#</td>        
