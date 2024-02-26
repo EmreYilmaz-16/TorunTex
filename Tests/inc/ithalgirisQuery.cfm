@@ -102,7 +102,12 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 <cfquery name="GETMAXID" datasource="#DSN2#">
     SELECT MAX(SHIP_ID) AS MXIDD FROM SHIP
 </cfquery>
+<cfset is_delivered=1>
+<cfset attributes.upd_id=GETMAXID.MXIDD>
+<cfinclude template="/V16/stock/query/upd_stock_in_from_customs_pbs">
 
+
+<!------
 <cfset DELIVER_IN_DEPT=1>
 <cfset DELIVER__IN_LOC=2>
 <cfset PROCESS__IN_TYPE=811>
@@ -128,7 +133,7 @@ WHERE S.PRODUCT_ID=#PRODUCT_ID#
 
         <cfquery name="UP" datasource="#DSN2#">
             UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
-        </cfquery>
+        </cfquery>------>
 <script>
   window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
 </script>
