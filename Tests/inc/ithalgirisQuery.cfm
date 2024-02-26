@@ -130,6 +130,6 @@ WHERE S.PRODUCT_ID=#PRODUCT_ID#
             UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
         </cfquery>
 <script>
-  //window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
+  window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
 </script>
 </cfif>
