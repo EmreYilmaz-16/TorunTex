@@ -110,6 +110,7 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
             UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
         </cfquery>
 <cfset is_delivered=1>
+<cfset attributes.is_delivered=1>
 <cfset attributes.upd_id=GETMAXID.MXIDD>
 <cfset attributes.deliver_get="Admin">
 <cfset attributes.deliver_get_id="1">
@@ -124,7 +125,7 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 
 
 <!------
-<cfset DELIVER_IN_DEPT=1>
+<cfset DELIVER_IN_DEPT=1>is_delivered
 <cfset DELIVER__IN_LOC=2>
 <cfset PROCESS__IN_TYPE=811>
 <cfquery name="GETSHIP_ROW" datasource="#DSN2#">
