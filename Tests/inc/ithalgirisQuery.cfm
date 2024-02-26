@@ -104,6 +104,10 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 </cfquery>
 <cfset is_delivered=1>
 <cfset attributes.upd_id=GETMAXID.MXIDD>
+<cfset attributes.deliver_get="Admin">
+<cfset attributes.deliver_get_id="1">
+
+
 <cfinclude template="/V16/stock/query/upd_stock_in_from_customs_pbs">
 
 
