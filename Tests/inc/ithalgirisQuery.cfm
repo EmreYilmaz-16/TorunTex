@@ -111,6 +111,8 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 <cfset attributes.TYPE_ID =811>
 <cfset attributes.OLD_PROCESS_TYPE =811>
 <cfset form.OLD_PROCESS_TYPE =811>
+<cfset attributes.LOCATION_IN_ID=2>
+<cfset attributes.LOCATION_IN_ID=1>
 <cfinclude template="/V16/stock/query/upd_stock_in_from_customs_pbs.cfm">
 
 
