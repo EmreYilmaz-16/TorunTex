@@ -102,6 +102,13 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 <cfquery name="GETMAXID" datasource="#DSN2#">
     SELECT MAX(SHIP_ID) AS MXIDD FROM SHIP
 </cfquery>
+<cfquery name="UP" datasource="#DSN2#">
+    UPDATE SHIP_ROW SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID#  WHERE SHIP_ID=#GETMAXID.MXIDD#
+</cfquery>
+
+        <cfquery name="UP" datasource="#DSN2#">
+            UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
+        </cfquery>
 <cfset is_delivered=1>
 <cfset attributes.upd_id=GETMAXID.MXIDD>
 <cfset attributes.deliver_get="Admin">
