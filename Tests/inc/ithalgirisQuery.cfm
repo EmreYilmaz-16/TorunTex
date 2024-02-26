@@ -122,9 +122,10 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 
 
 
+<cfdump var="#attributes#">
 
+<cfset attributes.DEPARTMENT_IN_ID=listGetAt(attributes.DEP_LOC,1,"-")>
 <cfset attributes.LOCATION_IN_ID=listGetAt(attributes.DEP_LOC,2,"-")>
-<cfset attributes.department_in_id=listGetAt(attributes.DEP_LOC,1,"-")>
 <cfinclude template="/V16/stock/query/upd_stock_in_from_customs_pbs.cfm">
 
 
