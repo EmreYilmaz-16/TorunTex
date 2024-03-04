@@ -276,7 +276,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
             <cfreturn replace(serializeJSON(O),"//","")>
         </cfif>
     <cfelseif arguments.ISTASYON EQ "SCK">
-        <cfif (getORDER.BAK+MIKTARIM) GT getOI.QUANTITY>
+        <cfif (getORDER.BAK) GT getOI.QUANTITY>
             <CFSET MESSAGE="ÜRETİM TAMAMLANMIŞTIR VEYA ÜRETİLEN MİKTAR İLE BİRLİKTE SİPARİŞ MİKTARI AŞILMAKTADIR">
             <cfset O.MESSAGE=MESSAGE>
             <cfset O.STATUS=0>
