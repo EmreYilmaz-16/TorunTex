@@ -264,7 +264,7 @@ WHERE ORDER_ROW.ORDER_ROW_ID = #arguments.ORDER_ROW_ID#
     FROM    #dsn2#.STOCKS_ROW 
     WHERE   STORE=#listGetAt(arguments.SIP_DEPO,1,"-")# 
         AND STORE_LOCATION=#listGetAt(arguments.SIP_DEPO,2,"-")# 
-        AND PBS_RELATION_ID='#arguments.WRK_ROW_ID#'        
+        AND PRODUCT_ID='#arguments.PRODUCT_ID#'       
     </cfquery>
     <CFIF arguments.ISTASYON EQ "KLB">
         <cfif (getORDER.BAK2+1) GT getOI.AMOUNT2>
