@@ -67,6 +67,7 @@
 <cfif attributes.sayfa eq 44><cfinclude template="inc/SearchSku.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 45><cfinclude template="inc/getLotDetay.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 46><cfinclude template="inc/dashboard.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 47><cfinclude template="inc/urun_etiket.cfm"><cfabort></cfif>
 
 <cfif not isDefined("attributes.default_style")>
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
