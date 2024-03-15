@@ -128,7 +128,13 @@ SELECT 'TL' AS MONEY,1 AS RATE1,1 AS RATE2
 <cfset attributes.LOCATION_IN_ID=listGetAt(attributes.DEP_LOC,2,"-")>
 <cfinclude template="/V16/stock/query/upd_stock_in_from_customs_pbs.cfm">
 
+<cfquery name="UP" datasource="#DSN2#">
+    UPDATE SHIP_ROW SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID#  WHERE SHIP_ID=#GETMAXID.MXIDD#
+</cfquery>
 
+        <cfquery name="UP" datasource="#DSN2#">
+            UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
+        </cfquery>
 <!------
 <cfset DELIVER_IN_DEPT=1>is_delivered
 <cfset DELIVER__IN_LOC=2>
@@ -149,14 +155,8 @@ WHERE S.PRODUCT_ID=#PRODUCT_ID#
 <cfdump var="#RES11#">
 </CFLOOP> 
 
-<cfquery name="UP" datasource="#DSN2#">
-    UPDATE SHIP_ROW SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID#  WHERE SHIP_ID=#GETMAXID.MXIDD#
-</cfquery>
-
-        <cfquery name="UP" datasource="#DSN2#">
-            UPDATE INVOICE_SHIPS SET IMPORT_INVOICE_ID=#attributes.INVOICE_ID#,IMPORT_PERIOD_ID=#getper.PERIOD_ID# WHERE SHIP_ID=#GETMAXID.MXIDD#
-        </cfquery>------>
+------>
 <script>
- // window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
+  window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
 </script>
 </cfif>
