@@ -131,3 +131,4 @@
 <cfset arguments.LOT_NUMARASI=attributes.LOT>
 <cfset attributes.ROWW=" ,">
 <cfdump var="#listLen(attributes.ROWW)#">
+.
