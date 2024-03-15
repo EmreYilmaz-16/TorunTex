@@ -19,6 +19,9 @@
 
 </cfloop>
 <cfdump var="#attributes#">
+<CFSET attributes.PROJECT_ID_LIST= listRemoveDuplicates(attributes.PROJECT_ID_LIST)>
+<cfdump var="#attributes#">
+
 <cfset attributes.BELGELER=arrayNew(1)>
 <cfloop list="#attributes.PROJECT_ID_LIST#" item="it">
     <cfset OOO=structNew()>
