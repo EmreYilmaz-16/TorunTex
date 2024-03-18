@@ -21,7 +21,6 @@
 <cfdump var="#attributes#">
 <CFSET attributes.PROJECT_ID_LIST= listRemoveDuplicates(attributes.PROJECT_ID_LIST)>
 <cfdump var="#attributes#">
-
 <cfset attributes.BELGELER=arrayNew(1)>
 <cfloop list="#attributes.PROJECT_ID_LIST#" item="it">
     <cfset OOO=structNew()>
@@ -50,6 +49,7 @@
 </cfscript>
 </cfloop>
 <cfdump var="#attributes.BELGELER#">
+
 <cfloop array="#attributes.BELGELER#" item="it">
     <cfset attributes.LOCATION_IN=    3>
     <cfset attributes.department_in = 7>
@@ -74,14 +74,16 @@
         <CFSET "attributes.PRODUCT_ID#i#"=getStockInfo.PRODUCT_ID>
         <cfset "attributes.lot_no#i#"=it2.LOT_NO>
         <cfset "attributes.QUANTITY#i#"=it2.MIKTAR>
-        <cfset amount_other=it2.MIKTAR2>
+        <cfset "attributes.amount_other#i#"=it2.MIKTAR2>
         <cfset unit_other="Cuval">
         <cfset "attributes.RAF_KODU_CIKIS"=it2.SHELF_ID>
         <cfset "attributes.RAF_ID_CIKIS"=it2.SHELF_ID>       
     </cfloop>
     <cfset ROW_COUNT=ROWC>
+    <cfdump var="#attributes#">
     <cfinclude template="stokfisQueryY.cfm">
 </cfloop>
+
 <script>
     window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=33";
 </script>

@@ -33,6 +33,7 @@
   <cfset attributes.rows_=attributes.rows_+1>
     <cfset STOCK_ID=evaluate("attributes.STOCK_ID#ix#")>
     <cfset AMOUNT=evaluate("attributes.QUANTITY#ix#")>
+    <cfset amount_other=evaluate("attributes.amount_other#ix#")>
    
     <cfquery name="getSinfo" datasource="#dsn3#">                            
       select PRODUCT_UNIT.MAIN_UNIT,STOCKS.PRODUCT_UNIT_ID,STOCKS.TAX,STOCKS.PRODUCT_ID,STOCKS.IS_INVENTORY from #dsn3#.STOCKS 
