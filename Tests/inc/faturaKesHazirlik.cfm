@@ -243,7 +243,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 
 <cfdump var="#getCekiListesi#">
 <cfdump var="#attributes#">
-<cfabort>
+
 <cfquery name="UP" datasource="#DSN3#">
     UPDATE #dsn3#.ORDERS SET ORDER_STAGE=262 WHERE ORDER_ID=#getCekiListesi.ORDER_ID#
 </cfquery>
