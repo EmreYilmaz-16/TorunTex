@@ -13,6 +13,7 @@
 	,ORR.ORDER_ROW_ID
 	,ISNULL(ISNULL(ORR.PRICE,P.PRICE) ,0)AS PRICE
     ,CASE WHEN ORR.PRICE IS NOT NULL THEN 1 WHEN P.PRICE IS NOT NULL THEN 2 ELSE 3 END AS NERDEN_GELDIM
+    ,ORR.PRICE AS FIYAT_SIP
 	,ISNULL(ISNULL(ORR.OTHER_MONEY,P.MONEY),'TL') AS OTHER_MONEY
     ,ISNULL(ISNULL(ORR.TAX,0),0) AS TAX
 	,C.COMPANY_ID
@@ -178,6 +179,7 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
     <CFSET "attributes.PRICE#IX#"=TL_FIYAT>
     <CFSET "attributes.price_other#IX#"=TL_FIYAT/AKTIF_BIRIM[1].RATE2>
     <CFSET "attributes.price_other#IX#"=NumberFormat(evaluate('attributes.price_other#IX#'), '9.99')>
+    
     <div class="alert alert-success">
        <b> Ürün Adı  : #PRODUCT_NAME#</b> <br>
        Aktif ParaBirimi :  getCekiListesi.OTHER_MONEY <br>
@@ -187,6 +189,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
        SİPARİŞTEN GELEN TL FİYATI=#PRICE#<br>
        DİĞER FİYAT : #NumberFormat(evaluate('attributes.price_other#IX#'), '9.99')#<br>
       Fiyat Kaynağı : <CFIF NERDEN_GELDIM EQ 1>Sipariş<cfelse>Fiyat Listesi</CFIF>
+        <br>
+        FIYAT_SIP:#FIYAT_SIP#
     </div>
     
 
@@ -238,7 +242,8 @@ WHERE SR.SEPET_ID = #attributes.SEPET_ID#  AND SSR.LOT_NO IS NOT NULL ORDER BY S
 <CFSET attributes.order_id_listesi=getCekiListesi.ORDER_ID>
 
 <cfdump var="#getCekiListesi#">
-
+<cfdump var="#attributes#">
+<cfabort>
 <cfquery name="UP" datasource="#DSN3#">
     UPDATE #dsn3#.ORDERS SET ORDER_STAGE=262 WHERE ORDER_ID=#getCekiListesi.ORDER_ID#
 </cfquery>
