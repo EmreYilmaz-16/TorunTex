@@ -40,7 +40,7 @@ FROM (
         <li <cfif (BAKIYE EQ 0 AND SIP_DURUM EQ 0) or attributes.all eq 1>  onclick="send_value_1('#LOCATION_ID#█#DEPARTMENT_HEAD# - #COMMENT#█#DEPARTMENT_ID#█#BRANCH_ID#');"<CFELSE>style="color:red" </cfif>>
             <a href="javascript://">
                 <div class="ui-list-left">
-                    #DEPARTMENT_HEAD#-#COMMENT# <cfif (BAKIYE EQ 0 AND SIP_DURUM EQ 0) or attributes.all eq 1><cfelse>&nbsp;&nbsp; <span style="color:red">DOLU</span></cfif>
+                    #DEPARTMENT_HEAD#-#COMMENT# <cfif (BAKIYE EQ 0 AND SIP_DURUM EQ 0) or attributes.all eq 1><cfelse>&nbsp;&nbsp; <span style="color:red">DOLU - #COMPANY#</span></cfif>
                 </div>
             </a>
                 
