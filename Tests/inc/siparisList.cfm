@@ -59,11 +59,11 @@ WHERE ORR.PRODUCT_ID = #attributes.PRODUCT_ID#
     
 WHERE 1=1 
     <cfif attributes.STATION eq 'KLB'>
-        AND QUANTITY >R_AMOUNT <!---Artık burası da kg kontrolü olmalı--->
+        AND QUANTITY >R_AMOUNT+CAST(A2 AS INTEGER)-1 <!---Artık burası da kg kontrolü olmalı--->
         <!---AND DIGER_MIKTAR >URETILEN_MIKTAR2--->
     </cfif>
     <cfif attributes.STATION eq 'SCK'>
-        AND QUANTITY >R_AMOUNT
+        AND QUANTITY >R_AMOUNT+CAST(A2 AS INTEGER)-1
     </cfif>
 ORDER BY PRIORITY  
 </cfquery>
