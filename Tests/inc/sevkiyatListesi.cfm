@@ -76,7 +76,7 @@ ORDER BY SEPET_ID DESC
 			</td>
 			
 			<td>
-				<button <cfif FATURA_DURUM neq 1>onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"</cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
+				<button <cfif FATURA_DURUM neq 1><!---onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"--->onclick="irsaliyeKes(#SEPET_ID#)"</cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
 					<cfif FATURA_DURUM eq 1>İrsaliye Kesildi<cfelse>İrsaliye Kes </cfif>
 				</button>
 			</td>
@@ -85,3 +85,14 @@ ORDER BY SEPET_ID DESC
 	</tbody>
 </cf_grid_list>
 
+<script>
+	function irsaliyeKes(SEPET_ID) {
+		$.ajax({
+			url:"/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=27&SEPET_ID=211"+SEPET_ID,
+			success:function (params) {
+				alert("İrsaliye Kesildi");
+				window.location.reload();
+			}
+		})
+	}
+</script>
