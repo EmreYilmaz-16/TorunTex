@@ -66,7 +66,7 @@ ORDER BY SEPET_ID DESC
 			<td><cftry>
 				<CFSET IRS=deserializeJSON(IRSALIYELER)>
 				<cfloop array="#IRS#" item="itt">
-					<div><a onclick="windowopen('index.cfm?fuseaction=stock.form_add_sale&event=upd&ship_id=#it.SHIP_ID#')">#itt.SHIP_NUMBER#</a></div>
+					<div><a onclick="windowopen('index.cfm?fuseaction=stock.form_add_sale&event=upd&ship_id=#itt.SHIP_ID#')">#itt.SHIP_NUMBER#</a></div>
 				</cfloop>
 				<cfcatch></cfcatch>
 			</cftry>
