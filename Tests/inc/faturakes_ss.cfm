@@ -12,6 +12,7 @@
         ,C.COMPANY_ID
         ,C.NICKNAME
         ,SH.SHIP_ADDRESS_ID
+        ,SH.ADDRESS
         ,CC.PRICE_CAT
         ,SR.PRICE
         ,SR.OTHER_MONEY
@@ -114,11 +115,12 @@
    <CFSET attributes.department_id=getCekiListesi.DELIVER_DEPT_ID>
    <CFSET attributes.location_id=getCekiListesi.LOCATION_ID>
    <cfset attributes.note="">
+   <cfset attributes.adres=getCekiListesi.ADDRESS>
    <cfset form.BASKET_DISCOUNT_TOTAL =0>
    <cfset DELIVER_GET ="Admin">
    <cfset ibnm=1>
-   <cfdump var="#attributes#">
-   <cfabort>
+   
+   
    <cfloop query="getMoney">
        <cfset "attributes.hidden_rd_money_#ibnm#"=MONEY>
        <cfset "attributes._txt_rate1_#ibnm#"=RATE1>
