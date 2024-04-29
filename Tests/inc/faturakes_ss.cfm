@@ -40,6 +40,7 @@
         ,C.COMPANY_ID
         ,C.NICKNAME
         ,SH.SHIP_ADDRESS_ID
+        ,SH.ADDRESS
         ,CC.PRICE_CAT
         ,SR.PRICE
         ,SR.OTHER_MONEY
