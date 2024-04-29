@@ -91,7 +91,7 @@ ORDER BY SEPET_ID DESC
 			url:"/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=27&SEPET_ID=211"+SEPET_ID,
 			success:function (params) {
 				alert("İrsaliye Kesildi");
-				window.location.reload();
+				//window.location.reload();
 			}
 		})
 	}
