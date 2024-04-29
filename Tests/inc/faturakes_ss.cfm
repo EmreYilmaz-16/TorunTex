@@ -117,7 +117,8 @@
    <cfset form.BASKET_DISCOUNT_TOTAL =0>
    <cfset DELIVER_GET ="Admin">
    <cfset ibnm=1>
-   
+   <cfdump var="#attributes#">
+   <cfabort>
    <cfloop query="getMoney">
        <cfset "attributes.hidden_rd_money_#ibnm#"=MONEY>
        <cfset "attributes._txt_rate1_#ibnm#"=RATE1>
