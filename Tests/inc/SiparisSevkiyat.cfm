@@ -56,7 +56,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
     <script>
         $(function() {
             $(".datepicker").datepicker({
-                dateFormat: "yy-mm-dd"
+                dateFormat: "dd-mm-yy"
             });
         });
     </script>
