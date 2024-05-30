@@ -87,7 +87,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
                     <tr>
                         <td>#orders.SIP_NO#</td>
                         <td>#orders.ONCELIK#</td>
-                        <td><input type="text" class="datepicker" name="SEVK_TARIHI_#orders.ORDER_ID#" value="#dateFormat(orders.SEVK_TARIHI, 'dd-mm-yyyy')#"></td>
+                        <td><input type="text" class="datepicker" name="SEVK_TARIHI_#orders.ORDER_ID#" value="#dateFormat(orders.SEVK_TARIHI, 'yyy-mm-dd')#"></td>
                         <td>#orders.MUSTERI#</td>
                         <td>#orders.ASAMA#</td>
                         <td>#orders.DEPO#</td>
