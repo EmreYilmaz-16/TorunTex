@@ -33,7 +33,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
             UPDATE w3toruntex_1.orders
             SET 
 
-                SEVK_TARIHI = <cfqueryparam value="#form['SEVK_TARIHI_' & orders.ORDER_ID]#" cfsqltype="cf_sql_date">
+                DELIVERDATE = <cfqueryparam value="#form['SEVK_TARIHI_' & orders.ORDER_ID]#" cfsqltype="cf_sql_date">
                 
             WHERE ORDER_ID = <cfqueryparam value="#orders.ORDER_ID#" cfsqltype="cf_sql_integer">
         </cfquery>
