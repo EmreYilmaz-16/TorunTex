@@ -11,7 +11,7 @@ ORDER_ID
 ,SUM(SIPARIS_KG) AS SIPARIS_KG
 ,SUM(URETILEN_KG) AS URETILEN_KG
     
-    FROM DBO.A_ORDERS --WHERE ORDER_ID >= 512 AND ORDER_ID < 514
+    FROM DBO.A_ORDERS 
     GROUP BY 
 ORDER_ID
 ,SIP_NO
@@ -33,7 +33,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
             UPDATE w3toruntex_1.orders
             SET 
 
-                SEVK_TARIHI = <cfqueryparam value="#form['SEVK_TARIHI_' & orders.ORDER_ID]#" cfsqltype="cf_sql_date">,
+                SEVK_TARIHI = <cfqueryparam value="#form['SEVK_TARIHI_' & orders.ORDER_ID]#" cfsqltype="cf_sql_date">
                 
             WHERE ORDER_ID = <cfqueryparam value="#orders.ORDER_ID#" cfsqltype="cf_sql_integer">
         </cfquery>
