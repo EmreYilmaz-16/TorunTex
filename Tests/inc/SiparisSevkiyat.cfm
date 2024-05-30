@@ -1,29 +1,25 @@
 <!--- Siparişleri Listeleme --->
 <cfquery name="orders" datasource="#DSN2#">
     SELECT 
-ORDER_ID
-,SIP_NO
-,ONCELIK
-,SEVK_TARIHI
-,MUSTERI
-,ASAMA
-,DEPO
-,SUM(SIPARIS_KG) AS SIPARIS_KG
-,SUM(URETILEN_KG) AS URETILEN_KG
-    
+        ORDER_ID,
+        SIP_NO,
+        ONCELIK,
+        SEVK_TARIHI,
+        MUSTERI,
+        ASAMA,
+        DEPO,
+        SUM(SIPARIS_KG) AS SIPARIS_KG,
+        SUM(URETILEN_KG) AS URETILEN_KG
     FROM DBO.A_ORDERS 
     GROUP BY 
-ORDER_ID
-,SIP_NO
-,ONCELIK
-,SEVK_TARIHI
-,MUSTERI
-,ASAMA
-,DEPO
-
-
-ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
-
+        ORDER_ID,
+        SIP_NO,
+        ONCELIK,
+        SEVK_TARIHI,
+        MUSTERI,
+        ASAMA,
+        DEPO
+    ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
 </cfquery>
 
 <!--- Form Gönderildiğinde Güncelleme İşlemi --->
@@ -32,9 +28,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
         <cfquery datasource="#DSN2#">
             UPDATE w3toruntex_1.orders
             SET 
-
                 DELIVERDATE = <cfqueryparam value="#form['SEVK_TARIHI_' & orders.ORDER_ID]#" cfsqltype="cf_sql_date">
-                
             WHERE ORDER_ID = <cfqueryparam value="#orders.ORDER_ID#" cfsqltype="cf_sql_integer">
         </cfquery>
     </cfloop>
@@ -56,7 +50,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
     <script>
         $(function() {
             $(".datepicker").datepicker({
-                dateFormat: "yy-mm-dd"
+                dateFormat: "dd-mm-yy"
             });
         });
     </script>
@@ -77,7 +71,6 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
                 <th>Depo</th>
                 <th>Sipariş Kg</th>
                 <th>Üretilen Kg</th>
-
             </tr>
         </thead>
         
@@ -87,20 +80,16 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
                     <tr>
                         <td>#orders.SIP_NO#</td>
                         <td>#orders.ONCELIK#</td>
-                        <td><input type="text" class="datepicker" name="SEVK_TARIHI_#orders.ORDER_ID#" value="#dateFormat(orders.SEVK_TARIHI, 'yyy-mm-dd')#"></td>
+                        <td><input type="text" class="datepicker" name="SEVK_TARIHI_#orders.ORDER_ID#" value="#dateFormat(orders.SEVK_TARIHI, 'dd-mm-yyyy')#"></td>
                         <td>#orders.MUSTERI#</td>
                         <td>#orders.ASAMA#</td>
                         <td>#orders.DEPO#</td>
                         <td>#orders.SIPARIS_KG#</td>
                         <td>#orders.URETILEN_KG#</td>
-
-
-
-
                     </tr>
                 </cfoutput>
                 <tr>
-                    <td colspan="5" style="text-align: center;">
+                    <td colspan="8" style="text-align: center;">
                         <input type="submit" name="updateAll" value="Tümünü Güncelle">
                     </td>
                 </tr>
