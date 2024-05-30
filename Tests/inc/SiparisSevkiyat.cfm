@@ -32,9 +32,9 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
         <cfquery datasource="#DSN2#">
             UPDATE w3toruntex_1.orders
             SET 
-                COMPANY_ID = <cfqueryparam value="#form['COMPANY_ID_' & orders.ORDER_ID]#" cfsqltype="cf_sql_varchar">,
-                SHIP_DATE = <cfqueryparam value="#form['SHIP_DATE_' & orders.ORDER_ID]#" cfsqltype="cf_sql_date">,
-                ORDER_NUMBER = <cfqueryparam value="#form['ORDER_NUMBER_' & orders.ORDER_ID]#" cfsqltype="cf_sql_varchar">
+
+                SEVK_TARIHI = <cfqueryparam value="#form['SEVK_TARIHI_' & orders.ORDER_ID]#" cfsqltype="cf_sql_date">,
+                
             WHERE ORDER_ID = <cfqueryparam value="#orders.ORDER_ID#" cfsqltype="cf_sql_integer">
         </cfquery>
     </cfloop>
@@ -87,8 +87,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
                     <tr>
                         <td>#orders.SIP_NO#</td>
                         <td>#orders.ONCELIK#</td>
-                        <td><input type="text" class="datepicker" name="SEVK_TARIHI_#orders.ORDER_ID#" value="#dateFormat(orders.SEVK_TARIHI, 'yyyy-mm-dd')#"></td>
-
+                        <td><input type="text" class="datepicker" name="SEVK_TARIHI_#orders.ORDER_ID#" value="#dateFormat(orders.SEVK_TARIHI, 'dd-mm-yyyy')#"></td>
                         <td>#orders.MUSTERI#</td>
                         <td>#orders.ASAMA#</td>
                         <td>#orders.DEPO#</td>
