@@ -42,7 +42,7 @@ ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
 </cfif>
 
 <head>
-    <title>Siparişler</title>
+    <title>YÜKLEME TAKİBİ</title>
 
     <!-- jQuery Kütüphanesi -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
