@@ -19,7 +19,7 @@
             SEVK_TARIHI as SHIP_DATE,
             CASE WHEN SEVK_TARIHI IS NOT NULL THEN 1 ELSE 0 END AS SEVK,
             MUSTERI,
-            RENK,
+            CASE WHEN RENK LIKE 'BEYAZ-BEYAZ' THEN '' ELSE RENK END AS RENK,
             ASAMA,
             DEPO,
             SUM(ISNULL(SIPARIS_KG,0)) AS SIPARIS_KG,
