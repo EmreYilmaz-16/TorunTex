@@ -3,6 +3,9 @@
     .guncelle-butonu {
         font-weight: bold; 
     }
+    .highlight-row {
+        background-color: #ffdddd;
+    }
     </style>
     <cfquery name="orders" datasource="#DSN2#">
         SELECT 
@@ -10,6 +13,7 @@
             SIP_NO as ORDER_NUMBER,
             ONCELIK,
             SEVK_TARIHI as SHIP_DATE,
+            CASE WHEN SEVK_TARIHI IS NOT NULL THEN 1 ELSE 0 END AS SEVK,
             MUSTERI,
             RENK,
             ASAMA,
@@ -28,7 +32,7 @@
             RENK,
             ASAMA,
             DEPO
-        ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
+        ORDER BY SEVK DESC, SEVK_TARIHI , ONCELIK, MUSTERI
     </cfquery>
     
     
@@ -78,7 +82,7 @@
             <tbody>
                 <form method="post">
                     <cfoutput query="orders">
-                        <tr>
+                        <tr class="<cfif NOT isNull(orders.SHIP_DATE) AND len(trim(orders.SHIP_DATE)) GT 0>highlight-row</cfif>">
                             <td>#orders.ORDER_NUMBER#</td>
                             <td>#orders.ONCELIK#</td>
                             <td><input type="date"  name="SHIP_DATE_#orders.ORDER_ID#" value="#dateFormat(orders.SHIP_DATE, 'yyyy-mm-dd')#"></td>
