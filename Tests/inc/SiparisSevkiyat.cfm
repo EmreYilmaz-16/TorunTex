@@ -11,6 +11,7 @@
             ONCELIK,
             SEVK_TARIHI as SHIP_DATE,
             MUSTERI,
+            RENK,
             ASAMA,
             DEPO,
             SUM(ISNULL(SIPARIS_KG,0)) AS SIPARIS_KG,
@@ -24,6 +25,7 @@
             ONCELIK,
             SEVK_TARIHI,
             MUSTERI,
+            RENK,
             ASAMA,
             DEPO
         ORDER BY SEVK_TARIHI DESC, ONCELIK, MUSTERI
@@ -63,6 +65,7 @@
                         <th>Yükleme Tarihi</th>
                         <th>Doluluk Oranı</th>
                         <th>Müşteri</th>
+                        <th>Renk</th>
                         <th>Aşama</th>
                         <th>Depo</th>
                         <th>Sipariş Kg</th>
@@ -81,6 +84,7 @@
                             <td><input type="date"  name="SHIP_DATE_#orders.ORDER_ID#" value="#dateFormat(orders.SHIP_DATE, 'yyyy-mm-dd')#"></td>
                             <td style="text-align: right">#orders.DOLULUK# %</td>
                             <td>#orders.MUSTERI#</td>
+                            <td>#orders.RENK#</td>
                             <td>#orders.ASAMA#</td>
                             <td>#orders.DEPO#</td>
                             <td>#orders.SIPARIS_KG#</td>
