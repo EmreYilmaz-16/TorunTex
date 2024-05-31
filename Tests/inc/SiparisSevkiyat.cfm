@@ -95,8 +95,8 @@
                             <td>#orders.RENK#</td>
                             <td>#orders.ASAMA#</td>
                             <td>#orders.DEPO#</td>
-                            <td>#orders.SIPARIS_KG#</td>
-                            <td>#orders.URETILEN_KG#</td>
+                            <td style="text-align: right">#orders.SIPARIS_KG#</td>
+                            <td style="text-align: right">#orders.URETILEN_KG#</td>
                             <td>-</td>
                             <td>-</td>
                         </tr>
