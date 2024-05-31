@@ -3,10 +3,14 @@
     .guncelle-butonu {
         font-weight: bold; 
     }
-    .highlight-row {
-        background-color: #ffdddd;
+    tr.highlight-row td {
+        background-color: #b1ff9e;
+        font-weight:bold;
     }
-    </style>
+
+   
+    
+</style>
     <cfquery name="orders" datasource="#DSN2#">
         SELECT 
             ORDER_ID,
