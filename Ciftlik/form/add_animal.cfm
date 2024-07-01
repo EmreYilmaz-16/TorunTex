@@ -30,19 +30,19 @@
             <label>
                 Kimlik Numarası
             </label>
-            <input type="text" name="KIMLIK_NO">
+            <input class="form-control"  type="text" name="KIMLIK_NO">
         </div>
         <div class="form-group">
             <label>
                 Ülke
             </label>
-            <input type="text" name="ULKE">
+            <input class="form-control" type="text" name="ULKE">
         </div>
         <div class="form-group">
             <label>
                 Cins
             </label>
-            <select name="CINS">
+            <select class="form-control form-select" name="CINS">
                 <cfloop array="#AnimalTypes#" item="it">
                     <optgroup label="<cfoutput>#it.PRODUCT_NAME#</cfoutput>">
                         <cfloop array="#it.TYPES#" item="it2">
