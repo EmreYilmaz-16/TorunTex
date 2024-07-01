@@ -43,6 +43,7 @@
             <label>
                 Cinsiyet
             </label>
+        <div class="input-group">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="CINSIYET" value="1" id="CINSIYET1">
                 <label class="form-check-label" for="CINSIYET1">
@@ -55,6 +56,7 @@
                   Dişi
                 </label>
               </div>
+            </div>
         </div>
         <div class="form-group">
             <label>
