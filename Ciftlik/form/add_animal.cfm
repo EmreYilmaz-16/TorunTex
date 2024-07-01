@@ -40,8 +40,18 @@
             <label>
                 Cinsiyet
             </label>
-            <label><input type="radio" name="CINSIYET" value="1"> Erkek</label>
-            <label><input type="radio" name="CINSIYET" value="0"> Dişi</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="CINSIYET" id="CINSIYET1">
+                <label class="form-check-label" for="CINSIYET1">
+                  Erkek
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="CINSIYET" id="CINSIYET2">
+                <label class="form-check-label" for="CINSIYET2">
+                  Dişi
+                </label>
+              </div>
         </div>
         <div class="form-group">
             <label>
