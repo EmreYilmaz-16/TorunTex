@@ -86,6 +86,24 @@
             </label>
             <input class="form-control" type="text" name="SUT_KG">
         </div>
+        <div class="form-group">
+            <label>
+                Laktasyon Günü
+            </label>
+            <input class="form-control" type="text" name="LAKTASYON_GUNU">
+        </div>
+        <div class="form-group">
+            <label>
+                Son Durum
+            </label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="GEBE_DURUM" value="1" id="GEBE_DURUM">
+                <label class="form-check-label" for="GEBE_DURUM">
+                  Gebe
+                </label>
+              </div>
+              
+        </div>
     </div>
     <div class="col col-6">
         <div class="form-group">
@@ -154,6 +172,12 @@
                     </cfloop>
                 </select>
             </div>
+        </div>
+        <div class="form-group">
+            <label>
+                Laktasyon Sayısı
+            </label>
+            <input class="form-control" type="text" name="LAKTASYON_SAYI">
         </div>
     </div>
     
