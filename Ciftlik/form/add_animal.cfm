@@ -106,6 +106,12 @@
               </div>
               
         </div>
+        <div class="form-group">
+            <label>
+                Son Tohumlama Tarihi
+            </label>
+            <input class="form-control" type="date" name="SON_TOHUM">
+        </div>
     </div>
     <div class="col col-6">
         <div class="form-group">
@@ -182,7 +188,13 @@
             <input class="form-control" type="text" name="LAKTASYON_SAYI">
         </div>
     </div>
-    
+    <div class="form-group"></div>
+    <div class="form-group">
+        <label>
+            Son Buzağlama Tarihi
+        </label>
+        <input class="form-control" type="date" name="SON_BUZAGI">
+    </div>
 </div>
 
 
