@@ -46,7 +46,7 @@
                 <cfloop array="#AnimalTypes#" item="it">
                     <optgroup label="<cfoutput>#it.PRODUCT_NAME#</cfoutput>">
                         <cfloop array="#it.TYPES#" item="it2">
-                            <option value="<cfoutput>#it2.STOCK_ID#</cfoutput>"><cfoutput>#it2.PROPERTY#</cfoutput></option>
+                        <cfif len(it2.PROPERTY) gt 0>   <option value="<cfoutput>#it2.STOCK_ID#</cfoutput>"><cfoutput>#it2.PROPERTY#</cfoutput></option></cfif>
                         </cfloop>
                     </optgroup>
                 </cfloop>
