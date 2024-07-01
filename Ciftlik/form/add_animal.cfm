@@ -19,10 +19,12 @@
 }
 </style>
 <cfset AnimalService = createObject("component","AddOns.Partner.Ciftlik.cfc.animal")>
-    <cfset Ciflikler=AnimalService.GetCiftliks()>
-    <cfset Padoklar=AnimalService.getPadok()>
+    <cfset _Ciflikler=AnimalService.GetCiftliks()>
+    <cfset _Padoklar=AnimalService.getPadok()>
     <cfset _AnimalTypes=AnimalService.getHayvanTip()>
 <cfset AnimalTypes=deserializeJSON(_AnimalTypes)>
+<cfset Ciflikler=deserializeJSON(_Ciflikler)>
+<cfset Padoklar=deserializeJSON(_Padoklar)>
 <div class="row">
     <div class="col col-6">
         <div class="form-group">
@@ -58,13 +60,31 @@
             <label>
                 Sahibi
             </label>
-            <input class="form-control" type="date" name="SAHIBI">
+            <input class="form-control" type="text" name="SAHIBI">
         </div>
         <div class="form-group">
             <label>
                 Baba Kulak No
             </label>
             <input class="form-control" type="text" name="BABA_KULAK">
+        </div>
+        <div class="form-group">
+            <label>
+                Nevi
+            </label>
+            <input class="form-control" type="text" name="NEVI">
+        </div>
+        <div class="form-group">
+            <label>
+                Tasma ID
+            </label>
+            <input class="form-control" type="text" name="TASMA_ID">
+        </div>
+        <div class="form-group">
+            <label>
+                Ortalama Süt
+            </label>
+            <input class="form-control" type="text" name="SUT_KG">
         </div>
     </div>
     <div class="col col-6">
@@ -106,7 +126,37 @@
             </label>
             <input class="form-control" type="text" name="ANNE_KULAK">
         </div>
+        <div class="form-group">
+            <label>
+                Agirlik
+            </label>
+            <input class="form-control" type="text" name="AGIRLIK">
+        </div>
+        <div class="form-group">
+            <label>
+                Tasma Etiket
+            </label>
+            <input class="form-control" type="text" name="TASMA_ETIKET">
+        </div>
+        <div class="form-group">
+            <label>
+                Çiftlik / Padok
+            </label>
+            <div class="input-group">
+                <select name="CIFTLIK">
+                    <cfloop array="#Ciflikler#" item="it">
+                        <option value="<cfoutput>#CIFTLIK_ID#</cfoutput>"><cfoutput>#CIFTLIK_TUR# / #CIFTLIK#</cfoutput></option>
+                    </cfloop>
+                </select>
+                <select name="PADOK">
+                    <cfloop array="#Padoklar#" item="it">
+                        <option value="<cfoutput>#PADOK_ID#</cfoutput>"><cfoutput>#PADOK#</cfoutput></option>
+                    </cfloop>
+                </select>
+            </div>
+        </div>
     </div>
+    
 </div>
 
 
