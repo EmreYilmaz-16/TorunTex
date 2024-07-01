@@ -59,7 +59,7 @@ w3Toruntex_product.CIFTLIK_CIFTLIKLER AS CCF
             <cfscript>
             O={
                 PRODUCT_NAME=PRODUCT_NAME,
-                TYPES=arrayNew(1),
+                TYPES=arrayNew(1)
                 
             };
         
