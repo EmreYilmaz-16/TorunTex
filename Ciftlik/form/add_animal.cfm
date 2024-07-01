@@ -15,7 +15,7 @@
             <label>
                 Doğum Tarihi
             </label>
-            <input type="date" name="DOGUM_TARIHI">
+            <input class="form-control" type="date" name="DOGUM_TARIHI">
         </div>
         <div class="form-group">
             <label>
