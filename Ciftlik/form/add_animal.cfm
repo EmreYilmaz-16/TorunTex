@@ -1,3 +1,22 @@
+<style>
+.form-control {
+    display: block;
+    width: 100% !important;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem !important;
+    font-size: 1rem !important;
+    font-weight: 400;
+    line-height: 1.5 !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    background-clip: padding-box;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem !important;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
+
+    
+}
+</style>
 <cfset AnimalService = createObject("component","AddOns.Partner.Ciftlik.cfc.animal")>
     <cfset Ciflikler=AnimalService.GetCiftliks()>
     <cfset Padoklar=AnimalService.getPadok()>
