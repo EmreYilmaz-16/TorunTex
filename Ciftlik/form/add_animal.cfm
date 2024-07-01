@@ -145,12 +145,12 @@
             <div class="input-group">
                 <select name="CIFTLIK">
                     <cfloop array="#Ciflikler#" item="it">
-                        <option value="<cfoutput>#CIFTLIK_ID#</cfoutput>"><cfoutput>#CIFTLIK_TUR# / #CIFTLIK#</cfoutput></option>
+                        <option value="<cfoutput>#it.CIFTLIK_ID#</cfoutput>"><cfoutput>#it.CIFTLIK_TUR# / #it.CIFTLIK#</cfoutput></option>
                     </cfloop>
                 </select>
                 <select name="PADOK">
                     <cfloop array="#Padoklar#" item="it">
-                        <option value="<cfoutput>#PADOK_ID#</cfoutput>"><cfoutput>#PADOK#</cfoutput></option>
+                        <option value="<cfoutput>#it.PADOK_ID#</cfoutput>"><cfoutput>#it.PADOK#</cfoutput></option>
                     </cfloop>
                 </select>
             </div>
