@@ -41,6 +41,8 @@
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=fis_sil','_blank')">Fişlerin Tamamını Sil</button>
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=28','_blank')">FTEST</button>
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=44','_blank')">Stok Detay</button>
+
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=48','_blank')">Hayvan Ekle</button>
     </cfif>
 </div>
 </cf_box>
