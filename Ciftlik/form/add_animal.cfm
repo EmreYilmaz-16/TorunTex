@@ -41,13 +41,13 @@
                 Cinsiyet
             </label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CINSIYET" id="CINSIYET1">
+                <input class="form-check-input" type="radio" name="CINSIYET" value="1" id="CINSIYET1">
                 <label class="form-check-label" for="CINSIYET1">
                   Erkek
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="CINSIYET" id="CINSIYET2">
+                <input class="form-check-input" type="radio" name="CINSIYET" value="0" id="CINSIYET2">
                 <label class="form-check-label" for="CINSIYET2">
                   Dişi
                 </label>
