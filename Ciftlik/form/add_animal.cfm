@@ -1,3 +1,4 @@
+<cfdump var="#attributes#">
 <style>
 .form-control {
     display: block;
