@@ -187,14 +187,15 @@
             </label>
             <input class="form-control" type="text" name="LAKTASYON_SAYI">
         </div>
+        <div class="form-group"></div>
+        <div class="form-group">
+            <label>
+                Son Buzağlama Tarihi
+            </label>
+            <input class="form-control" type="date" name="SON_BUZAGI">
+        </div>
     </div>
-    <div class="form-group"></div>
-    <div class="form-group">
-        <label>
-            Son Buzağlama Tarihi
-        </label>
-        <input class="form-control" type="date" name="SON_BUZAGI">
-    </div>
+   
 </div>
 
 
