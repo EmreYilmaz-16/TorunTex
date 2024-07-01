@@ -14,7 +14,7 @@
     border-radius: .25rem !important;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
 
-    
+
 }
 </style>
 <cfset AnimalService = createObject("component","AddOns.Partner.Ciftlik.cfc.animal")>
@@ -43,6 +43,18 @@
             <label><input type="radio" name="CINSIYET" value="1"> Erkek</label>
             <label><input type="radio" name="CINSIYET" value="0"> Dişi</label>
         </div>
+        <div class="form-group">
+            <label>
+                Sahibi
+            </label>
+            <input class="form-control" type="date" name="SAHIBI">
+        </div>
+        <div class="form-group">
+            <label>
+                Baba Kulak No
+            </label>
+            <input class="form-control" type="text" name="BABA_KULAK">
+        </div>
     </div>
     <div class="col col-6">
         <div class="form-group">
@@ -70,6 +82,18 @@
                     </optgroup>
                 </cfloop>
             </select>
+        </div>
+        <div class="form-group">
+            <label>
+                Tip
+            </label>
+            <input class="form-control" type="text" name="TIP">
+        </div>
+        <div class="form-group">
+            <label>
+                Anne Kulak No
+            </label>
+            <input class="form-control" type="text" name="ANNE_KULAK">
         </div>
     </div>
 </div>
