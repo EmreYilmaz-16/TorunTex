@@ -143,12 +143,12 @@
                 Çiftlik / Padok
             </label>
             <div class="input-group">
-                <select name="CIFTLIK">
+                <select class="form-control form-select"  name="CIFTLIK">
                     <cfloop array="#Ciflikler#" item="it">
                         <option value="<cfoutput>#it.CIFTLIK_ID#</cfoutput>"><cfoutput>#it.CIFTLIK_TUR# / #it.CIFTLIK#</cfoutput></option>
                     </cfloop>
                 </select>
-                <select name="PADOK">
+                <select class="form-control form-select"  name="PADOK">
                     <cfloop array="#Padoklar#" item="it">
                         <option value="<cfoutput>#it.PADOK_ID#</cfoutput>"><cfoutput>#it.PADOK#</cfoutput></option>
                     </cfloop>
