@@ -44,7 +44,7 @@
             </label>
             <select name="CINS">
                 <cfloop array="#AnimalTypes#" item="it">
-                    <optgroup label="<cfoutput>#PRODUCT_NAME#</cfoutput>">
+                    <optgroup label="<cfoutput>#it.PRODUCT_NAME#</cfoutput>">
                         <cfloop array="#it.TYPES#" item="it2">
                             <option value="<cfoutput>#STOCK_ID#</cfoutput>"><cfoutput>#PROPERTY#</cfoutput></option>
                         </cfloop>
