@@ -1,4 +1,5 @@
 <cfcomponent>
+<cfset dsn1="w3Toruntex_product">
     <cffunction name="GetCiftliks" access="remote" httpMethod="Post" returntype="any" returnFormat="json">
         <cfquery name="getc" datasource="#dsn1#">
          SELECT CIFTLIK,CIFTLIK_KOD,CIFTLIK_ID,CCT.CIFTLIK_TUR,CIFTLIK_TUR_ID  FROM 
