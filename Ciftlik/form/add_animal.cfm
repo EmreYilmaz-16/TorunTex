@@ -9,7 +9,7 @@
             <label>
                 Kulak Küpe Numarası
             </label>
-            <input type="text" name="LOT_NO">
+            <input class="form-control" type="text" name="LOT_NO">
         </div>
         <div class="form-group">
             <label>
