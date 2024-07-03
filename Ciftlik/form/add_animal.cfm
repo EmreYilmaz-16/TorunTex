@@ -189,6 +189,16 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col col-12">
+                <div class="form-group">
+                    <label>
+                        Son Tedavi Tarihi
+                    </label>
+                    <input class="form-control" type="date" name="TEDAVI_TARIH">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col col-6">
         <div class="row">
@@ -337,11 +347,17 @@
         </div>
         <div class="row">
             <div class="col col-12">
+                <div class="form-group"><label>&nbsp;</label></div>
+            </div>
+        </div>
+        <div class
+        <div class="row">
+            <div class="col col-12">
                 <div class="form-group">
                     <label>
-                        Son Tedavi Tarihi
+                        Son Tedavi 
                     </label>
-                    <input class="form-control" type="date" name="TEDAVI_TARIH">
+                    <input class="form-control" type="text" name="TEDAVI">
                 </div>
             </div>
         </div>
