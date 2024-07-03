@@ -347,7 +347,8 @@
         </div>
         <div class="row">
             <div class="col col-12">
-                <div class="form-group"><label>&nbsp;</label></div>
+                <div class="form-group"><label>&nbsp;</label>
+                &nbsp;</div>
             </div>
         </div>
         <div class
