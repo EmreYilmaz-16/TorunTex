@@ -80,7 +80,7 @@
 <script>
     function acbenibeni(){
         var IV_DATE=document.getElementById("IV_DATE").value;
-        var INVOICE_ID=document.getElementById("INVOICE_ID").value;
+        var INVOICE_ID=document.getElementById("FaturaNo").value;
         windowopen('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=50&INVOICE_ID='+INVOICE_ID+'&IV_DATE='+IV_DATE);
 
     }

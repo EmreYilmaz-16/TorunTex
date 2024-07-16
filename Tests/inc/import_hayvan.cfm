@@ -3,7 +3,7 @@
         <input type="file" name="file_11" id="file_11">
         <input type="hidden"  name="FileName" id="FileName"> 
         <input type="hidden" name="INVOICE_ID" value="<cfoutput>#attributes.INVOICE_ID#</cfoutput>">
-        <input type="hidden" name="IV_DATE" value="<cfoutput>#attributes.IV_DATE#</cfoutput>">
+        
         
     </div>
   
@@ -22,14 +22,21 @@
     <cfquery name = "get_invoice_no" dbtype = "query" result="ressa">
         SELECT * FROM res     
     </cfquery>   
-<cfparam name="attributes.INVOICE_ID" default="683">
+  <cfquery name="GETSKIN" datasource="#DSN3#">
+    select YEAR(INVOICE_DATE) AS IV_DATE from w3Toruntex_2024_1.INVOICE WHERE  INVOICE_ID=#attributes.INVOICE_ID#
+</cfquery>
+<script>
+    window.opener.document.getElementById("IV_DATE").value='<cfoutput>#GETSKIN.IV_DATE#</cfoutput>'
+    window.opener.document.getElementById("INVOICE_ID").value='<cfoutput>#attributes.INVOICE_ID#</cfoutput>'
+</script>
 <cfoutput query="get_invoice_no">
     <cfquery name="GETSK" datasource="#DSN3#">
         select * from w3Toruntex_1.STOCKS WHERE STOCK_CODE='#col_1#'
     </cfquery>
       <cfquery name="GETSKI" datasource="#DSN3#">
-        select * from w3Toruntex_2024_1.INVOICE_ROW WHERE STOCK_ID=#GETSK.STOCK_ID# AND INVOICE_ID=683
+        select * from w3Toruntex_2024_1.INVOICE_ROW WHERE STOCK_ID=#GETSK.STOCK_ID# AND INVOICE_ID=#attributes.INVOICE_ID#
     </cfquery>
+    
     <script>
         window.opener.Ekle(#GETSK.PRODUCT_ID#,#GETSK.STOCK_ID#,'#GETSKI.WRK_ROW_ID#','#GETSK.PRODUCT_NAME#','#col_1#','#col_2#',1,1)
     </script>
