@@ -53,7 +53,7 @@
     <input type="hidden" name="DEP_LOC" id="DEP_LOC">        
     <input type="hidden" name="IV_DATE" id="IV_DATE">
     <input type="hidden" name="INVOICE_ID" id="INVOICE_ID">
-    <button type="button" onclick="windowopen('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=50')">İmport</button>
+    <button type="button" onclick="acbenibeni()">İmport</button>
    <cf_big_list>
     <thead>
         <tr>
