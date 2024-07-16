@@ -48,7 +48,7 @@
             </td>
         </tr>
     </table>
-    <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=38&is_submit=1" id="form1">
+    <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=51&is_submit=1" id="form1">
     <input type="hidden" name="row_count" id="row_count">
     <input type="hidden" name="DEP_LOC" id="DEP_LOC">        
     <input type="hidden" name="IV_DATE" id="IV_DATE">
