@@ -70,7 +70,7 @@
 <cfif attributes.sayfa eq 47><cfinclude template="inc/urun_etiket.cfm"><cfabort></cfif>
 
 <cfif attributes.sayfa eq 48><cfinclude template="../Ciftlik/Form/add_animal.cfm"><cfabort></cfif>
-
+<cfif attributes.sayfa eq 49><cfinclude template="inc/canli_hayvan_ithal_mal_girisi.cfm"><cfabort></cfif>
 <cfif not isDefined("attributes.default_style")>
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
 

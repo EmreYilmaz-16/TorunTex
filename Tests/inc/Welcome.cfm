@@ -43,6 +43,7 @@
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=44','_blank')">Stok Detay</button>
 
     <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=48','_blank')">Hayvan Ekle</button>
+    <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=49','_blank')">Canlı Hayvan İthal Mal Girişi</button>
     </cfif>
 </div>
 </cf_box>
