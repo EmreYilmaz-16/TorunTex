@@ -22,7 +22,7 @@
     <cfquery name = "get_invoice_no" dbtype = "query" result="ressa">
         SELECT * FROM res     
     </cfquery>   
-
+<cfparam name="attributes.INVOICE_ID" default="683">
 <cfoutput query="get_invoice_no">
     <cfquery name="GETSK" datasource="#DSN3#">
         select * from w3Toruntex_1.STOCKS WHERE STOCK_CODE='#col_1#'
@@ -31,7 +31,7 @@
         select * from w3Toruntex_2024_1.INVOICE_ROW WHERE STOCK_ID=#GETSK.STOCK_ID# AND INVOICE_ID=#attributes.INVOICE_ID#
     </cfquery>
     <script>
-        window.opener.SatirEkle(#attributes.INVOICE_ID#,#GETSK.STOCK_ID#,#GETSK.PRODUCT_ID#,'#GETSKI.WRK_ROW_ID#',1,1,0,'#GETSK.PRODUCT_NAME#','#col_1#','#col_2#','#attributes.IV_DATE#')
+        window.opener.Ekle(#GETSK.PRODUCT_ID#,#GETSK.STOCK_ID#,'#GETSKI.WRK_ROW_ID#','#GETSK.PRODUCT_NAME#','#col_1#','#col_2#',1,1)
     </script>
 
 </cfoutput>
@@ -56,7 +56,16 @@ PRODUCT_NAME,
 PRODUCT_CODE,
 LOT_NO,
 IV_DATE
-
+function Ekle(
+  PRODUCT_ID,
+  STOCK_ID,
+  WRK_ROW_ID,
+  PRODUCT_NAME,
+  PRODUCT_CODE,
+  LOT_NO,
+  MIKTAR,
+  MIKTAR2
+)
 function SatirEkle(
   INVOICE_ID,
   STOCK_ID,
