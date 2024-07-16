@@ -85,12 +85,6 @@
 
     }
 </script>
-<script>    
-    $('#file_11').change(function(e){
-    var fileName = e. target. files[0]. name;
-    $("#FileName").val(fileName)
-    });
-    </script>
 
 
 <cffunction name="getFatura">
