@@ -1,6 +1,6 @@
 ﻿<cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
-<cfabort>    
+
     <cfquery name="GETMAXID" datasource="#DSN2#">
         SELECT MAX(SHIP_ID) AS MXIDD FROM SHIP
     </cfquery>
@@ -50,7 +50,7 @@
     <cfset 'attributes.deliver_date#i#'=now()>
 <cfquery name="getProductInfo" datasource="#dsn3#">
     SELECT TOP 10 s.PRODUCT_NAME,S.STOCK_ID,PU.MAIN_UNIT,PU.PRODUCT_UNIT_ID,PRODUCT_CODE_2,S.PRODUCT_ID FROM STOCKS AS S INNER JOIN PRODUCT_UNIT AS PU ON PU.PRODUCT_ID=S.PRODUCT_ID AND IS_MAIN=1
- WHERE S.PRODUCT_ID=#evaluate("attributes.PRODUCT_ID_#i#")#
+ WHERE S.STOCK_ID=#evaluate("attributes.STOCK_ID_#i#")#
 </cfquery>
 <!----
 <cfif isdefined('attributes.to_shelf_number#i#') and len(evaluate('attributes.to_shelf_number#i#')) and isdefined('attributes.to_shelf_number_txt#i#') and len(evaluate('attributes.to_shelf_number_txt#i#'))>#evaluate('attributes.to_shelf_number#i#')#<cfelse>NULL</cfif>,
@@ -157,6 +157,6 @@ WHERE S.PRODUCT_ID=#PRODUCT_ID#
 
 ------>
 <script>
-  window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=36";
+  window.location.href="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=49";
 </script>
 </cfif>
