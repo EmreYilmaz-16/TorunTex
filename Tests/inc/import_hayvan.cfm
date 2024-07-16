@@ -28,7 +28,7 @@
         select * from w3Toruntex_1.STOCKS WHERE STOCK_CODE='#col_1#'
     </cfquery>
       <cfquery name="GETSKI" datasource="#DSN3#">
-        select * from w3Toruntex_2024_1.INVOICE_ROW WHERE STOCK_ID=#GETSK.STOCK_ID# AND INVOICE_ID=#attributes.INVOICE_ID#
+        select * from w3Toruntex_2024_1.INVOICE_ROW WHERE STOCK_ID=#GETSK.STOCK_ID# AND INVOICE_ID=683
     </cfquery>
     <script>
         window.opener.Ekle(#GETSK.PRODUCT_ID#,#GETSK.STOCK_ID#,'#GETSKI.WRK_ROW_ID#','#GETSK.PRODUCT_NAME#','#col_1#','#col_2#',1,1)
