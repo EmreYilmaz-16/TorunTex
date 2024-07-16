@@ -53,7 +53,7 @@
     <input type="hidden" name="DEP_LOC" id="DEP_LOC">        
     <input type="hidden" name="IV_DATE" id="IV_DATE">
     <input type="hidden" name="INVOICE_ID" id="INVOICE_ID">
-    
+    <button type="button" onclick="windowopen('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=50')">İmport</button>
    <cf_big_list>
     <thead>
         <tr>
@@ -66,6 +66,7 @@
             <th>Raf No</th>
             <th>Ürün Kodu</th>
             <th>Ürün</th>
+            <th>Lot No</th>
         </tr>
     </thead>
     <tbody id="SEPETIM">
@@ -76,6 +77,7 @@
 </cf_box>
 
 <script src="/AddOns/Partner/js/ithalatFatura.js"></script>
+
 
 
 
