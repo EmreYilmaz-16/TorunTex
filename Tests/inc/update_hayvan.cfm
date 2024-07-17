@@ -56,13 +56,13 @@
                     <td>
                         <div class="form-group">
                             <label>Tohumlama Tarihi</label>
-                            <input type="text" name="B_KULAK_NO">
+                            <input type="text" name="TOHUMLAMA_DATE">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
                             <label>Tohumlama Sayısı</label>
-                            <input type="text" name="B_KULAK_NO">
+                            <input type="text" name="T_ADET">
                         </div>
                     </td>
                 </tr>            
@@ -84,13 +84,13 @@
                     <td>
                         <div class="form-group">
                             <label>Gebelik Tarihi</label>
-                            <input type="text" name="B_KULAK_NO">
+                            <input type="text" name="GEBELIK_DATE">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
                             <label>Gebelik Durumu</label>
-                                <select>
+                                <select name="G_IS_ACTIVE">
                                     <option value="0">Seçiniz</option>
                                     <option value="1">Gebe</option>
                                 </select>
@@ -121,13 +121,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Kayıt Tarihi</label>
-                                <input type="text" name="B_KULAK_NO">
+                                <input type="text" name="RECORD_DATE">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Süt KG</label>
-                                <input type="text" name="B_KULAK_NO">
+                                <input type="text" name="SUT_KG">
                             </div>
                         </td>
                     </tr>            
@@ -345,6 +345,20 @@
                             <div class="form-group">
                                 <label>Son Buzağlama Tarihi</label>
                                 <input type="text" name="LAST_BUZAGLAMA_DATE">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Beklenen Hamilelik</label>
+                                <input type="text" name="BEKLENEN_HAMILELIK">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Son Kuru Tarih</label>
+                                <input type="text" name="SON_KURU_TARIH">
                             </div>
                         </td>
                     </tr>
