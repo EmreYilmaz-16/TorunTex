@@ -255,7 +255,102 @@
         </div>
         </div>
         <div id="unique_sayfa_7" class="ui-info-text uniqueBox">
-
+            <div class="pbscfl">
+                <cf_grid_list>
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                Diğer Bilgileri
+                            </th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Günlük Beslenme</label>
+                                <input type="text" name="GUNLUK_BESLENME">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Günlük Dinlenme</label>
+                                <input type="text" name="GUNLUK_DINLENME">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Günlük Geviş Süresi</label>
+                                <input type="text" name="GUNLUK_GEVIS_SURE">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Günlük Hareket</label>
+                                <input type="text" name="GUNLUK_HAREKET">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Tasma Id</label>
+                                <input type="text" name="TASMA_ID">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Tasma Etiket</label>
+                                <input type="text" name="TASMA_ETIKET">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Laktasyon Günü</label>
+                                <input type="text" name="LAKTASYON_GUNU">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Laktasyon Sayısı</label>
+                                <input type="text" name="LAKTASYON_SAYI">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Sağlık Oranı</label>
+                                <input type="text" name="SAGLIK_ORANI">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Kızgınlık İndexi</label>
+                                <input type="text" name="KIZGINLIK_INDEXI">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Son Kızgınlık Tarihi</label>
+                                <input type="text" name="SON_KIZGINLIK_TARIHI">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Son Buzağlama Tarihi</label>
+                                <input type="text" name="LAST_BUZAGLAMA_DATE">
+                            </div>
+                        </td>
+                    </tr>
+                </cf_grid_list>
+                    
+            </div>
         </div>
     </cf_tab>
     
