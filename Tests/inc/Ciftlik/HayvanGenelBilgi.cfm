@@ -1,4 +1,11 @@
-<cf_big_list>
+<cf_grid_list>
+    <thead>
+        <tr>
+            <th colspan="3">
+                Genel Bilgiler
+            </th>
+        </tr>
+    </thead>
     <tr>
         <td>
             <div class="form-group">
@@ -57,4 +64,4 @@
             </div>
         </td>
     </tr>
-</cf_big_list>
+</cf_grid_list>
