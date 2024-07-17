@@ -64,41 +64,39 @@
     </cfquery> 
 
 
-<cfloop query="get_invoice_no">
-<cfquery name="LookAnimal" datasource="#dsn1#">
-    SELECT * FROM CIFTLIK_HAYVANLAR WHERE LOT_NO='#col_1#'
-</cfquery>
-<cfif LookAnimal.recordCount>
-    <div class="alert alert-danger">
-    <cfoutput>#col_1#</cfoutput> Küpe Numaralı Hayvan Daha Önce İmport Edilmiş
-    </div>
-<cfelse>
-<cfquery name="AddAnimal_1" datasource="#dsn1#" result="resb">
-    INSERT INTO CIFTLIK_HAYVANLAR (LOT_NO,BIRTH_DATE,COUNTRY,GENDER,F_KIMLIK_NO,A_KIMLIK_NO,B_KIMLIK_NO)
-    VALUES (
-        '#col_1#',
-        '#col_3#',
-        'İTHAL',
-        <cfif col_2 eq "Dişi">0<cfelse>1</cfif>,
-        '#col_6#',
-        '#col_7#',
-        '#col_5#'
-    )
-    </cfquery>
+    <cfloop query="get_invoice_no">
+        <cfquery name="LookAnimal" datasource="#dsn1#">
+            SELECT * FROM CIFTLIK_HAYVANLAR WHERE LOT_NO='#col_1#'
+        </cfquery>
+        <cfif LookAnimal.recordCount>
+            <div class="alert alert-danger">
+            <cfoutput>#col_1#</cfoutput> Küpe Numaralı Hayvan Daha Önce İmport Edilmiş
+            </div>
+        <cfelse>
+            <cfquery name="AddAnimal_1" datasource="#dsn1#" result="resb">
+                INSERT INTO CIFTLIK_HAYVANLAR (LOT_NO,BIRTH_DATE,COUNTRY,GENDER,F_KIMLIK_NO,A_KIMLIK_NO,B_KIMLIK_NO)
+                VALUES (
+                    '#col_1#',
+                    '#col_3#',
+                    'İTHAL',
+                    <cfif col_2 eq "Dişi">0<cfelse>1</cfif>,
+                    '#col_6#',
+                    '#col_7#',
+                    '#col_5#'
+                )
+            </cfquery>
+            <cfquery name="AddAnimal_2" datasource="#dsn1#">
+                INSERT INTO CIFTLIK_TOHUMLAMA (HAYVAN_ID,TOHUMLAMA_DATE,T_ADET) VALUES(#resb.GENERATEDKEY#,'#col_4#',1)
+            </cfquery>
+        </cfif>
 
-<cfquery name="AddAnimal_2" datasource="#dsn1#">
-    INSERT INTO CIFTLIK_TOHUMLAMA (HAYVAN_ID,TOHUMLAMA_DATE,T_ADET) VALUES(#resb.GENERATEDKEY#,'#col_4#',1)
-</cfquery>
-
-</cfif>
-
-</cfloop>
+    </cfloop>
 
 
 </cfif>
 
 
-</cfif>
+
 
 <script>    
     $('#file_11').change(function(e){
