@@ -86,14 +86,14 @@
                     '#col_5#'
                 )
             </cfquery>
-            <cfquery name="AddAnimal_2" datasource="#dsn1#">
+            <cfquery name="AddAnimal_2" datasource="#dsn3#">
                 INSERT INTO CIFTLIK_TOHUMLAMA (HAYVAN_ID,TOHUMLAMA_DATE,T_ADET) VALUES(#resb.GENERATEDKEY#,'#dateformat(col_4,"yyyy-mm-dd")#',1)
             </cfquery>
         </cfif>
         <cfcatch>
             <div class="alert alert-danger">   
                 <cfoutput>#cfcatch.message#
-                    <cfdump var="#cfcatch#">
+                    
                 </cfoutput>            
                 <cfoutput>#col_1#</cfoutput> Küpe Numaralı Hayvan İmport Edilemedi
                 </div>
