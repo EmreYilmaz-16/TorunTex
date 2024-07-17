@@ -16,7 +16,7 @@
         <td>
             <div class="form-group">
                 <label>Boğa Küpe No</label>
-                <input type="text" value="<cfoutput>#GetHayvan.B_KIMLIK_NO#</cfoutput>">
+                <input type="text" name="B_KIMLIK_NO" value="<cfoutput>#GetHayvan.B_KIMLIK_NO#</cfoutput>">
             </div>
         </td>
         <td rowspan=""></td>
