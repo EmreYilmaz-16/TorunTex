@@ -78,7 +78,7 @@
                 INSERT INTO CIFTLIK_HAYVANLAR (LOT_NO,BIRTH_DATE,COUNTRY,GENDER,F_KIMLIK_NO,A_KIMLIK_NO,B_KIMLIK_NO)
                 VALUES (
                     '#col_1#',
-                    '#col_3#',
+                    '#dateformat(col_3,"yyyy-mm-dd")#',
                     'İTHAL',
                     <cfif col_2 eq "Dişi">0<cfelse>1</cfif>,
                     '#col_6#',
@@ -87,7 +87,7 @@
                 )
             </cfquery>
             <cfquery name="AddAnimal_2" datasource="#dsn1#">
-                INSERT INTO CIFTLIK_TOHUMLAMA (HAYVAN_ID,TOHUMLAMA_DATE,T_ADET) VALUES(#resb.GENERATEDKEY#,'#col_4#',1)
+                INSERT INTO CIFTLIK_TOHUMLAMA (HAYVAN_ID,TOHUMLAMA_DATE,T_ADET) VALUES(#resb.GENERATEDKEY#,'#dateformat(col_4,"yyyy-mm-dd")#',1)
             </cfquery>
         </cfif>
         <cfcatch>
