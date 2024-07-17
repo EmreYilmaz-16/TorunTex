@@ -158,9 +158,9 @@
         <cfprocparam cfsqltype="cf_sql_integer" value="NULL" null="yes">
     </cfif>
     <cfif len(attributes.RECORD_DATE)>    
-        <cfprocparam cfsqltype="cf_sql_integer" value="#attributes.RECORD_DATE#">
+        <cfprocparam cfsqltype="cf_sql_timestamp" value="#attributes.RECORD_DATE#">
     <cfelse>
-        <cfprocparam cfsqltype="cf_sql_integer" value="NULL" null="yes">
+        <cfprocparam cfsqltype="cf_sql_timestamp" value="NULL" null="yes">
     </cfif>
     <cfif len(attributes.SUT_KG)>    
         <cfprocparam cfsqltype="cf_sql_float" value="#attributes.SUT_KG#">
