@@ -34,6 +34,21 @@
                 <input type="text" name="F_KIMLIK_NO" value="<cfoutput>#GetHayvan.F_KIMLIK_NO#</cfoutput>">
             </div>
         </td>
+        <td>
+            <div class="form-group">
+                <label>Cins</label>
+                <select name="TIP">
+                    <option value="">Seçiniz</option>
+                    <cfoutput query="GetAnimalTypes" group="PRODUCT_ID">
+                        <optgroup label="#PRODUCT_NAME#">
+                        <cfoutput>
+                                <option <cfif GetHayvan.GIRIS_STOK_ID eq STOCK_ID>selected</cfif> value="#STOCK_ID#-#PRODUCT_ID#">#PROPERTY#</option>
+                        </cfoutput>
+                        </optgroup>
+                    </cfoutput>
+                </select>
+            </div>
+        </td>
     </tr>
     <tr>
         <td>
@@ -53,7 +68,7 @@
         </td>
         <td>
             <div class="form-group">
-                <label>Cins</label>
+                <label>Tip</label>
                 <select name="TIP">
                     <option value="">Seçiniz</option>
                     <cfoutput query="Hayvan_Tip" >
