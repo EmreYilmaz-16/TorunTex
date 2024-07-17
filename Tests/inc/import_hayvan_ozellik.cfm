@@ -65,11 +65,12 @@
 
 
     <cfloop query="get_invoice_no">
-        <cfquery name="LookAnimal" datasource="#dsn1#">
+<cftry>
+<cfquery name="LookAnimal" datasource="#dsn1#">
             SELECT * FROM CIFTLIK_HAYVANLAR WHERE LOT_NO='#col_1#'
         </cfquery>
         <cfif LookAnimal.recordCount>
-            <div class="alert alert-danger">
+            <div class="alert alert-warning">
             <cfoutput>#col_1#</cfoutput> Küpe Numaralı Hayvan Daha Önce İmport Edilmiş
             </div>
         <cfelse>
@@ -89,7 +90,12 @@
                 INSERT INTO CIFTLIK_TOHUMLAMA (HAYVAN_ID,TOHUMLAMA_DATE,T_ADET) VALUES(#resb.GENERATEDKEY#,'#col_4#',1)
             </cfquery>
         </cfif>
-
+        <cfcatch>
+            <div class="alert alert-warning">
+                <cfoutput>#col_1#</cfoutput> Küpe Numaralı Hayvan İmport Edilemedi
+                </div>
+        </cfcatch>
+    </cftry>
     </cfloop>
 
 
