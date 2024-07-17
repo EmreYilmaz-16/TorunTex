@@ -16,7 +16,7 @@
         <td>
             <div class="form-group">
                 <label>Boğa Küpe No</label>
-                <input type="text" name="B_KULAK_NO">
+                <input type="text" value="<cfoutput>#GetHayvan.B_KIMLIK_NO#</cfoutput>">
             </div>
         </td>
         <td rowspan="2"></td>
@@ -25,13 +25,13 @@
         <td>
             <div class="form-group">
                 <label>Anne Küpe No</label>
-                <input type="text" name="A_KULAK_NO">
+                <input type="text" name="A_KIMLIK_NO" value="<cfoutput>#GetHayvan.A_KIMLIK_NO#</cfoutput>">
             </div>
         </td>
         <td>
             <div class="form-group">
                 <label>Baba Küpe No</label>
-                <input type="text" name="F_KULAK_NO">
+                <input type="text" name="F_KIMLIK_NO" value="<cfoutput>#GetHayvan.F_KIMLIK_NO#</cfoutput>">
             </div>
         </td>
     </tr>
