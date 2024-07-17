@@ -1,26 +1,27 @@
 <cfstoredproc procedure="HAYVAN_ISLEM" datasource="#dsn3#">
     <cfprocparam cfsqltype="cf_sql_integer" value="#attributes.HAYVAN_ID#">
+    
     <cfif len(attributes.GEBELIK_DATE)>    
         <cfprocparam cfsqltype="cf_sql_timestamp" value="#attributes.GEBELIK_DATE#">
     <cfelse>
         <cfprocparam cfsqltype="cf_sql_timestamp" value="NULL" null="yes">
     </cfif>
+
     <cfprocparam cfsqltype="cf_sql_bit" value="#attributes.G_IS_ACTIVE#">
+    
     <cfif len(attributes.AGIRLIK_DATE)>    
         <cfprocparam cfsqltype="cf_sql_timestamp" value="#attributes.AGIRLIK_DATE#">
     <cfelse>
         <cfprocparam cfsqltype="cf_sql_timestamp" value="NULL" null="yes">
     </cfif>
+
     <cfif len(attributes.AGIRLIK)>    
         <cfprocparam cfsqltype="cf_sql_float" value="#attributes.AGIRLIK#">
     <cfelse>
         <cfprocparam cfsqltype="cf_sql_float" value="NULL" null="yes">
     </cfif>
-    <cfif len(attributes.AGIRLIK)>    
-        <cfprocparam cfsqltype="cf_sql_float" value="#attributes.AGIRLIK#">
-    <cfelse>
-        <cfprocparam cfsqltype="cf_sql_float" value="NULL" null="yes">
-    </cfif>
+
+  
     <cfif len(attributes.KONTROL_DATE)>    
         <cfprocparam cfsqltype="cf_sql_timestamp" value="#attributes.KONTROL_DATE#">
     <cfelse>
@@ -158,3 +159,39 @@
     </cfif>
 
 </cfstoredproc>
+@HAYVAN_ID INT
+, @GEBELIK_DATE DATETIME
+, @G_IS_ACTIVE BIT
+, @HA_RECORD_DATE DATETIME
+, @AGIRLIK FLOAT
+, @KONTROL_DATE DATETIME
+, @KONTROL NVARCHAR(150)
+, @TEDAVI_DATE DATETIME
+, @TEDAVI NVARCHAR(150)
+
+, @TOHUMLAMA_DATE DATETIME
+
+, @T_ADET INT
+, @BIRTH_DATE DATETIME
+, @COUNTRY NVARCHAR(150)
+, @GENDER BIT
+--, @SAHIP NVARCHAR(150)
+, @F_KIMLIK_NO NVARCHAR(150)
+, @A_KIMLIK_NO NVARCHAR(150)
+, @B_KIMLIK_NO NVARCHAR(150)
+, @TIP INT
+, @SURU_AGIRLIK FLOAT
+, @TASMA_ID NVARCHAR(150)
+, @TASMA_ETIKET NVARCHAR(150)
+, @BEKLENEN_HAMILELIK NVARCHAR(150)
+, @LAKTASYON_GUNU NVARCHAR(150)
+, @LAKTASYON_SAYI INT
+, @SON_KURU_TARIH DATETIME
+
+, @GUNLUK_HAREKET INT
+, @GUNLUK_DINLENME INT
+, @GUNLUK_BESLENME INT
+, @GUNLUK_GEVIS_SURE INT
+, @SAGLIK_ORANI FLOAT
+, @KIZGINLIK_INDEXI INT
+, @SON_KIZGINLIK_TARIHI DATETIME
