@@ -73,6 +73,8 @@
 <cfif attributes.sayfa eq 49><cfinclude template="inc/canli_hayvan_ithal_mal_girisi.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 50><cfinclude template="inc/import_hayvan.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 51><cfinclude template="inc/ithalHayvangirisQuery.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 52><cfinclude template="inc/import_hayvan_ozellik.cfm"><cfabort></cfif>
+
 <cfif not isDefined("attributes.default_style")>
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
 
