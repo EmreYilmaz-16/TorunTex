@@ -19,11 +19,13 @@
         </div>
         <div id="unique_sayfa_2" class="ui-info-text uniqueBox">
             <cf_grid_list>
+            <thead>
                 <tr>
-                    <th>
+                    <th colspan="2">
                         Tohumlama Bilgileri
                     </th>
                 </tr>
+            </thead>
                 <tr>
                     <td colspan="2">
                         Son Tohumlama 
@@ -45,11 +47,13 @@
                 </tr>            
             </cf_grid_list>
             <cf_grid_list>
+                <thead>
                 <tr>
-                    <th>
+                    <th colspan="2">
                         Gebelik Bilgileri
                     </th>
                 </tr>
+            </thead>
                 <tr>
                     <td colspan="2">
                         Son Gebelik Tarihi 
