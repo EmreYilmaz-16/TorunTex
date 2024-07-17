@@ -91,9 +91,8 @@
             </cfquery>
         </cfif>
         <cfcatch>
-            <div class="alert alert-danger">
-                <cfoutput>#cfcatch.message#</cfoutput>
-                <cfdump var="#cfcatch#">
+            <div class="alert alert-danger">   
+                <cfoutput>#cfcatch.message#</cfoutput>            
                 <cfoutput>#col_1#</cfoutput> Küpe Numaralı Hayvan İmport Edilemedi
                 </div>
         </cfcatch>
