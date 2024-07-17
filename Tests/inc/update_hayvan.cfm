@@ -13,7 +13,7 @@
 <cfdump var="#attributes#">
 <cfform>
 <input type="hidden" name="HAYVAN_ID" value="<cfoutput>#attributes.iid#</cfoutput>">
-    <cf_tab defaultOpen="sayfa_1" divId="sayfa_1,sayfa_2,sayfa_3,sayfa_6,sayfa_5,sayfa_4" divLang="Genel Bilgiler;Tohumlama- Gebelik;Süt Verim;Ağırlık Bilgileri;Kontrol;Tedavi">
+    <cf_tab defaultOpen="sayfa_1" divId="sayfa_1,sayfa_2,sayfa_3,sayfa_6,sayfa_5,sayfa_4" divLang="Genel Bilgiler;Tohumlama- Gebelik;Süt Verim;Ağırlık Bilgileri;Tedavi;Kontrol">
         <div id="unique_sayfa_1" class="ui-info-text uniqueBox">
             <cfinclude template="Ciftlik/HayvanGenelBilgi.cfm">
         </div>
