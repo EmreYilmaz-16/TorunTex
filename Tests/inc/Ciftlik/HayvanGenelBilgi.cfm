@@ -19,7 +19,7 @@
                 <input type="text" value="<cfoutput>#GetHayvan.B_KIMLIK_NO#</cfoutput>">
             </div>
         </td>
-        <td rowspan="2"></td>
+        <td rowspan=""></td>
     </tr>
     <tr>
         <td>
