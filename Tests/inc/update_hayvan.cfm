@@ -29,17 +29,42 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <label>Tartim Tarihi</label>
+                                        <label>Tohumlama Tarihi</label>
                                         <input type="text" name="B_KULAK_NO">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
-                                        <label>Tartim KG</label>
+                                        <label>Tohumlama Adet</label>
                                         <input type="text" name="AGIRLIK">
                                     </div>
                                 </td>
                             </tr>
+                            <tr>                   
+                                <td>
+                                    <div>
+                                        Son Gebelik Tarihi
+                                        <cfoutput>#GetHayvan.GEBELIK_DATE#</cfoutput>
+                                    </div>
+                                    <cf_grid_list>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label>Gebelik Tarihi</label>
+                                                    <input type="text" name="B_KULAK_NO">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label>Gebelik Durumu</label>
+                                                    <select name="GebelikDurum">
+                                                        <option value="0">Seçiniz</option>
+                                                        <option value="1">Gebe</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
                         </cf_big_list>
         </div>
         <div id="unique_sayfa_3" class="ui-info-text uniqueBox">
