@@ -7,6 +7,9 @@
   FROM CIFTLIK_HAYVAN_TIP
 
 </cfquery>
+<cfquery name="GetHayvan" datasource="#DSN3#">
+     SELECT * FROM CIFTLIK_HAYVANLARIM2 WHERE HAYVAN_ID=#attributes.iid#;
+</cfquery>
 <cfdump var="#attributes#">
 <cfform>
 <input type="hidden" name="HAYVAN_ID" value="<cfoutput>#attributes.iid#</cfoutput>">
@@ -100,6 +103,7 @@
                     <td>
                         <div>
                             Son Ağırlık
+                            <cfoutput>#GetHayvan.AGIRLIK_DATE# - #GetHayvan.AGIRLIK#</cfoutput>
                         </div>
                         <cf_grid_list>
                             <tr>
