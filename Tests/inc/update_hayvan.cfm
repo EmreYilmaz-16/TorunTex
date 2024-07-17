@@ -12,7 +12,7 @@
 <input type="hidden" name="HAYVAN_ID" value="<cfoutput>#attributes.iid#</cfoutput>">
     <cf_tab defaultOpen="sayfa_1" divId="sayfa_1,sayfa_2,sayfa_3,sayfa_6,sayfa_5,sayfa_4" divLang="Genel Bilgiler;Tohumlama- Gebelik;Süt Verim;Ağırlık Bilgileri;Kontrol;Tedavi">
         <div id="unique_sayfa_1" class="ui-info-text uniqueBox">
-            <table>
+            <cf_grid_list>
                 <tr>
                     <td>
                         <div class="form-group">
@@ -70,7 +70,7 @@
                         </div>
                     </td>
                 </tr>
-            </table>
+            </cf_grid_list>
         </div>
         <div id="unique_sayfa_2" class="ui-info-text uniqueBox">
             <h1>Lorem Ipsum 2</h1>
@@ -89,7 +89,7 @@
             <p>Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960 larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>
         </div>
            <div id="unique_sayfa_6" class="ui-info-text uniqueBox">
-            <table>
+            <cf_grid_list>
                 <tr>
                     <td>
                         <div class="form-group">
@@ -101,12 +101,12 @@
                         <div>
                             Son Ağırlık
                         </div>
-                        <table>
+                        <cf_grid_list>
                             <tr>
                                 <td>
                                     <div class="form-group">
                                         <label>Tartim Tarihi</label>
-                                        <input type="text" name="TARTIM_DATE">
+                                        <input type="text" name="B_KULAK_NO">
                                     </div>
                                 </td>
                                 <td>
@@ -116,11 +116,11 @@
                                     </div>
                                 </td>
                             </tr>
-                        </table>
+                        </cf_grid_list>
                      
                     </td>
                 </tr>
-            </table>
+            </cf_grid_list>
         </div>
     </cf_tab>
 
