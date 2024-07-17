@@ -39,15 +39,15 @@
         <td>
             <div class="form-group">
                 <label>Ülke</label>
-                <input type="text" name="COUNTRY">
+                <input type="text" name="COUNTRY" value="<cfoutput>#GetHayvan.COUNTRY#</cfoutput>">
             </div>
         </td>
         <td>
             <div class="form-group">
                 <label>Cinsiyeet</label>
                 <select name="GENDER">
-                    <option value="0">Dişi</option>
-                    <option value="1">Erkek</option>
+                    <option <cfif GetHayvan.GENDER eq 0>selected</cfif> value="0">Dişi</option>
+                    <option <cfif GetHayvan.GENDER eq 1>selected</cfif> value="1">Erkek</option>
                 </select>
             </div>
         </td>
@@ -55,9 +55,10 @@
             <div class="form-group">
                 <label>Cins</label>
                 <select name="TIP">
+                    <option value="">Seçiniz</option>
                     <cfoutput query="Hayvan_Tip" >
                   
-                                <option value="#HTIP_ID#">#TIP#</option>
+                                <option <cfif GetHayvan.HTIP eq HTIP_ID>selected</cfif> value="#HTIP_ID#">#TIP#</option>
                            
                     </cfoutput>
                 </select>
