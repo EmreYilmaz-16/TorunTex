@@ -28,7 +28,7 @@
             </thead>
                 <tr>
                     <td colspan="2">
-                        Son Tohumlama 
+                        Son Tohumlama Tarihi : <cfoutput>#dateFormat(GetHayvan.TOHUMLAMA_DATE,"dd/mm/yyyy")#</cfoutput>
                     </td>
                 </tr>
                 <tr>
@@ -56,7 +56,7 @@
             </thead>
                 <tr>
                     <td colspan="2">
-                        Son Gebelik Tarihi 
+                        Son Gebelik Tarihi   : <cfoutput>#dateFormat(GetHayvan.GEBELIK_DATE,"dd/mm/yyyy")#</cfoutput>
                     </td>
                 </tr>
                 <tr>
