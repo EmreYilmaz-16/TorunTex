@@ -75,7 +75,7 @@
 <cfif attributes.sayfa eq 51><cfinclude template="inc/ithalHayvangirisQuery.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 52><cfinclude template="inc/import_hayvan_ozellik.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 53><cfinclude template="inc/list_hayvan.cfm"><cfabort></cfif>
-
+<cfif attributes.sayfa eq 54><cfinclude template="inc/update_hayvan.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "CiftlikWelcome"><cfinclude template="inc/Ciftlik_welcome.cfm"><cfabort></cfif>
 
 <cfif not isDefined("attributes.default_style")>
