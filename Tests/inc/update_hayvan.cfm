@@ -28,6 +28,7 @@
         <div id="unique_sayfa_1" class="ui-info-text uniqueBox">
            <div  class="pbscfl">
             <cfinclude template="Ciftlik/HayvanGenelBilgi.cfm">
+            <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
         </div>
         </div>
         <div id="unique_sayfa_2" class="ui-info-text uniqueBox">
@@ -91,6 +92,7 @@
                     </td>
                 </tr>            
             </cf_grid_list>
+            <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
         </div>
         </div>
         <div id="unique_sayfa_3" class="ui-info-text uniqueBox">
@@ -124,6 +126,7 @@
                         </td>
                     </tr>            
                 </cf_grid_list>
+                <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
             </div>
         </div>
         <div id="unique_sayfa_4" class="ui-info-text uniqueBox">
@@ -156,6 +159,7 @@
                     </td>
                 </tr>            
             </cf_grid_list>
+            <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
         </div>
         </div>
         <div id="unique_sayfa_5" class="ui-info-text uniqueBox">
@@ -189,6 +193,7 @@
                     </td>
                 </tr>            
             </cf_grid_list>
+            <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
         </div>
         </div>
            <div id="unique_sayfa_6" class="ui-info-text uniqueBox">
@@ -240,9 +245,10 @@
                     </td>
                 </tr>
             </cf_grid_list>
+            <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
         </div>
         </div>
     </cf_tab>
-<input type="submit" value="Güncelle">
+    
 
 </cfform>
