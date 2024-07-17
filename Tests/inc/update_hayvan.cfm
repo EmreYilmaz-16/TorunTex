@@ -21,6 +21,7 @@
 <cfquery name="GetHayvan" datasource="#DSN3#">
      SELECT * FROM CIFTLIK_HAYVANLARIM2 WHERE HAYVAN_ID=#attributes.iid#;
 </cfquery>
+<cfdump var="#GetHayvan#">
 <cfdump var="#attributes#">
 <cfform>
 <input type="hidden" name="HAYVAN_ID" value="<cfoutput>#attributes.iid#</cfoutput>">
