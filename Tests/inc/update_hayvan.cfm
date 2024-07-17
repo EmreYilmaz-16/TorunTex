@@ -91,7 +91,14 @@
             <p>Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960 larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>
         </div>
            <div id="unique_sayfa_6" class="ui-info-text uniqueBox">
-            <cf_big_list>
+            <cf_grid_list>
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Ağırlık Bilgileri
+                        </th>
+                    </tr>
+                </thead>
                 <tr>
                     <td>
                         <div class="form-group">
@@ -100,11 +107,18 @@
                         </div>
                     </td>
                     <td>
-                        <div>
-                            Son Ağırlık
-                            <cfoutput>#GetHayvan.AGIRLIK_DATE# - #GetHayvan.AGIRLIK#</cfoutput>
-                        </div>
-                        <cf_big_list>
+                        
+                           
+                        
+                        <cf_grid_list>
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        Son Ağırlık<br>
+                                        <cfoutput>#GetHayvan.AGIRLIK_DATE# - #GetHayvan.AGIRLIK#</cfoutput>
+                                    </th>
+                                </tr>
+                            </thead>
                             <tr>
                                 <td>
                                     <div class="form-group">
@@ -119,11 +133,11 @@
                                     </div>
                                 </td>
                             </tr>
-                        </cf_big_list>
+                        </cf_grid_list>
                      
                     </td>
                 </tr>
-            </cf_big_list>
+            </cf_grid_list>
         </div>
     </cf_tab>
 
