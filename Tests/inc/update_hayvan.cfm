@@ -7,7 +7,17 @@
     border: solid 1px #bbb;
     border-top: none;
 }
-    }
+.ui-form input:not(.ui-wrk-btn), .ui-form select, .ui-form textarea {
+    background-color: transparent !important;
+    font-family: 'Roboto';
+    color: #555;
+    font-size: 12px !important;
+    height: auto !important;
+    box-shadow: none !important;
+    padding: 0 5px !important;
+    border: gainsboro;
+}
+
 </style>
 <cfquery name="GetAnimalTypes" datasource="#dsn3#">
     select STOCK_ID,PRODUCT_NAME,PRODUCT_ID,PROPERTY from w3Toruntex_1.STOCKS WHERE PRODUCT_CODE LIKE '01H.%' AND PROPERTY <>''
@@ -26,7 +36,7 @@
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=54">
 <input type="hidden" name="HAYVAN_ID" value="<cfoutput>#attributes.iid#</cfoutput>">
 <input type="hidden" name="iid" value="<cfoutput>#attributes.iid#</cfoutput>">
-    <cf_tab defaultOpen="sayfa_1" divId="sayfa_1,sayfa_2,sayfa_3,sayfa_6,sayfa_5,sayfa_4" divLang="Genel Bilgiler;Tohumlama- Gebelik;Süt Verim;Ağırlık Bilgileri;Tedavi;Kontrol">
+    <cf_tab defaultOpen="sayfa_1" divId="sayfa_1,sayfa_2,sayfa_3,sayfa_6,sayfa_5,sayfa_4,sayfa_7" divLang="Genel Bilgiler;Tohumlama- Gebelik;Süt Verim;Ağırlık Bilgileri;Tedavi;Kontrol;Diğer Bilgiler">
         <div id="unique_sayfa_1" class="ui-info-text uniqueBox">
            <div  class="pbscfl">
             <cfinclude template="Ciftlik/HayvanGenelBilgi.cfm">
@@ -249,6 +259,9 @@
             </cf_grid_list>
             <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
         </div>
+        </div>
+        <div id="unique_sayfa_7" class="ui-info-text uniqueBox">
+
         </div>
     </cf_tab>
     
