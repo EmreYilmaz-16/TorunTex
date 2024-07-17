@@ -79,8 +79,35 @@
             </cf_grid_list>
         </div>
         <div id="unique_sayfa_3" class="ui-info-text uniqueBox">
-            <h1>Lorem Ipsum 3</h1>
-            <p>Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960 larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>
+            <cf_grid_list>
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Süt Verim Bilgileri
+                        </th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td colspan="2">
+                            Ortalama Süt Verimi<br>
+                            <b>555 KG</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>Kayıt Tarihi</label>
+                                <input type="text" name="B_KULAK_NO">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label>Süt KG</label>
+                                <input type="text" name="B_KULAK_NO">
+                            </div>
+                        </td>
+                    </tr>            
+                </cf_grid_list>
         </div>
         <div id="unique_sayfa_4" class="ui-info-text uniqueBox">
             <h1>Lorem Ipsum 4</h1>
