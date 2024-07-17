@@ -1,3 +1,6 @@
+<cfif isDefined("attributes.is_submit")>
+    <cfinclude template="Ciftlik/HayvanIslemQuery.cfm">
+</cfif>
 <style>
     .ui-scroll{
         margin:0px !important
@@ -371,6 +374,3 @@
 <input type="hidden" name="is_submit">
 </cfform>
 
-<cfif isDefined("attributes.is_submit")>
-    <cfdump var="#attributes#">
-</cfif>

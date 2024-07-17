@@ -19,7 +19,12 @@
                 <input type="text" name="B_KIMLIK_NO" value="<cfoutput>#GetHayvan.B_KIMLIK_NO#</cfoutput>">
             </div>
         </td>
-        <td rowspan=""></td>
+        <td>
+            <div class="form-group">
+                <label>Doğum Tarihi</label>
+                <input type="text" name="BIRTH_DATE" value="<cfoutput>#GetHayvan.BIRTH_DATE#</cfoutput>">
+            </div>
+        </td>
     </tr>
     <tr>
         <td>
