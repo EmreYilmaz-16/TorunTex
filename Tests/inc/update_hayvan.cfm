@@ -1,3 +1,14 @@
+<style>
+    .ui-scroll{
+        margin:0px !important
+    }
+    .pbscfl{
+        height: 40vh;
+    border: solid 1px #bbb;
+    border-top: none;
+}
+    }
+</style>
 <cfquery name="GetAnimalTypes" datasource="#dsn3#">
     select STOCK_ID,PRODUCT_NAME,PRODUCT_ID,PROPERTY from w3Toruntex_1.STOCKS WHERE PRODUCT_CODE LIKE '01H.%' AND PROPERTY <>''
 </cfquery>
@@ -15,12 +26,12 @@
 <input type="hidden" name="HAYVAN_ID" value="<cfoutput>#attributes.iid#</cfoutput>">
     <cf_tab defaultOpen="sayfa_1" divId="sayfa_1,sayfa_2,sayfa_3,sayfa_6,sayfa_5,sayfa_4" divLang="Genel Bilgiler;Tohumlama- Gebelik;Süt Verim;Ağırlık Bilgileri;Tedavi;Kontrol">
         <div id="unique_sayfa_1" class="ui-info-text uniqueBox">
-           <div style="height:40vh">
+           <div  class="pbscfl">
             <cfinclude template="Ciftlik/HayvanGenelBilgi.cfm">
         </div>
         </div>
         <div id="unique_sayfa_2" class="ui-info-text uniqueBox">
-            <div style="height:40vh">
+            <div class="pbscfl">
             <cf_grid_list>
             <thead>
                 <tr>
@@ -83,7 +94,7 @@
         </div>
         </div>
         <div id="unique_sayfa_3" class="ui-info-text uniqueBox">
-            <div style="height:40vh">
+            <div class="pbscfl">
             <cf_grid_list>
                 <thead>
                     <tr>
@@ -116,7 +127,7 @@
             </div>
         </div>
         <div id="unique_sayfa_4" class="ui-info-text uniqueBox">
-            <div style="height:40vh">
+            <div class="pbscfl">
             <cf_grid_list>
                 <thead>
                 <tr>
@@ -148,7 +159,7 @@
         </div>
         </div>
         <div id="unique_sayfa_5" class="ui-info-text uniqueBox">
-            <div style="height:40vh">
+            <div class="pbscfl">
             <cf_grid_list>
                 <thead>
                 <tr>
@@ -181,7 +192,7 @@
         </div>
         </div>
            <div id="unique_sayfa_6" class="ui-info-text uniqueBox">
-            <div style="height:40vh">
+            <div class="pbscfl">
             <cf_grid_list>
                 <thead>
                     <tr>
