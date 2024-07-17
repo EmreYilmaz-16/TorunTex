@@ -254,6 +254,6 @@
 <input type="hidden" name="is_submit">
 </cfform>
 
-<cfif isDefined(attributes.is_submit)>
+<cfif isDefined("attributes.is_submit")>
     <cfdump var="#attributes#">
 </cfif>
