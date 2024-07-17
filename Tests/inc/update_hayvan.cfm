@@ -110,12 +110,65 @@
                 </cf_grid_list>
         </div>
         <div id="unique_sayfa_4" class="ui-info-text uniqueBox">
-            <h1>Lorem Ipsum 4</h1>
-            <p>Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960 larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>
+            <cf_grid_list>
+                <thead>
+                <tr>
+                    <th colspan="2">
+                        Kontrol Bilgileri
+                    </th>
+                </tr>
+            </thead>
+                <tr>
+                    <td colspan="2">
+                        Son Kontrol Tarihi   : <cfoutput>#dateFormat(GetHayvan.GEBELIK_DATE,"dd/mm/yyyy")#</cfoutput>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label>Kontrol Tarihi</label>
+                            <input type="text" name="B_KULAK_NO">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label>Kontrol Durumu</label>
+                              <input type="text">
+                        </div>
+                    </td>
+                </tr>            
+            </cf_grid_list>
         </div>
         <div id="unique_sayfa_5" class="ui-info-text uniqueBox">
-            <h1>Lorem Ipsum 5</h1>
-            <p>Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960 larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>
+            <cf_grid_list>
+                <thead>
+                <tr>
+                    <th colspan="2">
+                        Son Tedavi Bilgileri
+                    </th>
+                </tr>
+            </thead>
+                <tr>
+                    <td colspan="2">
+                        Son Tedavi Tarihi    : <cfoutput>#dateFormat(GetHayvan.GEBELIK_DATE,"dd/mm/yyyy")#</cfoutput><br>
+                        Sun Uygulanan Tedavi : <cfoutput>#dateFormat(GetHayvan.GEBELIK_DATE,"dd/mm/yyyy")#</cfoutput>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label>Tedavi Tarihi</label>
+                            <input type="text" name="B_KULAK_NO">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label>Uygulanan Tedavi</label>
+                              <input type="text">
+                        </div>
+                    </td>
+                </tr>            
+            </cf_grid_list>
         </div>
            <div id="unique_sayfa_6" class="ui-info-text uniqueBox">
             <cf_grid_list>
