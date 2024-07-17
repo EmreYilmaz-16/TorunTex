@@ -8,14 +8,8 @@
     border-top: none;
 }
 .ui-form input:not(.ui-wrk-btn), .ui-form select, .ui-form textarea {
-    background-color: transparent !important;
-    font-family: 'Roboto';
-    color: #555;
-    font-size: 12px !important;
-    height: auto !important;
-    box-shadow: none !important;
-    padding: 0 5px !important;
-    border: gainsboro;
+    border: solid 0.5px #ccc !important;
+
 }
 
 </style>
