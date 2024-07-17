@@ -109,7 +109,7 @@
                     <tr>
                         <td colspan="2">
                             Ortalama Süt Verimi<br>
-                            <b>555 KG</b>
+                            <b><cfoutput>#GetHayvan.ORTALAMA_SUT#</cfoutput> KG</b>
                         </td>
                     </tr>
                     <tr>
@@ -142,20 +142,20 @@
             </thead>
                 <tr>
                     <td colspan="2">
-                        Son Kontrol Tarihi   : <cfoutput>#dateFormat(GetHayvan.GEBELIK_DATE,"dd/mm/yyyy")#</cfoutput>
+                        Son Kontrol Tarihi   : <cfoutput>#dateFormat(GetHayvan.KONTROL_DATE,"dd/mm/yyyy")#</cfoutput>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="form-group">
                             <label>Kontrol Tarihi</label>
-                            <input type="text" name="B_KULAK_NO">
+                            <input type="text" name="KONTROL_DATE">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
                             <label>Kontrol Durumu</label>
-                              <input type="text">
+                              <input type="text" name="KONTROL">
                         </div>
                     </td>
                 </tr>            
@@ -175,21 +175,21 @@
             </thead>
                 <tr>
                     <td colspan="2">
-                        Son Tedavi Tarihi    : <cfoutput>#dateFormat(GetHayvan.GEBELIK_DATE,"dd/mm/yyyy")#</cfoutput><br>
-                        Sun Uygulanan Tedavi : <cfoutput>#dateFormat(GetHayvan.GEBELIK_DATE,"dd/mm/yyyy")#</cfoutput>
+                        Son Tedavi Tarihi    : <cfoutput>#dateFormat(GetHayvan.TEDAVI_DATE,"dd/mm/yyyy")#</cfoutput><br>
+                        Sun Uygulanan Tedavi : <cfoutput>#dateFormat(GetHayvan.TEDAVI,"dd/mm/yyyy")#</cfoutput>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="form-group">
                             <label>Tedavi Tarihi</label>
-                            <input type="text" name="B_KULAK_NO">
+                            <input type="text" name="TEDAVI_DATE">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
                             <label>Uygulanan Tedavi</label>
-                              <input type="text">
+                              <input type="text" name="TEDAVI">
                         </div>
                     </td>
                 </tr>            
@@ -211,7 +211,7 @@
                     <td>
                         <div class="form-group">
                             <label>Sürü Katılım Ağırlığı</label>
-                            <input type="text" name="SURU_AGIRLIK">
+                            <input type="text" name="SURU_AGIRLIK" value="<cfoutput>#GetHayvan.SURU_AGIRLIK#</cfoutput>">
                         </div>
                     </td>
                     <td>
@@ -231,7 +231,7 @@
                                 <td>
                                     <div class="form-group">
                                         <label>Tartim Tarihi</label>
-                                        <input type="text" name="B_KULAK_NO">
+                                        <input type="text" name="AGIRLIK_DATE">
                                     </div>
                                 </td>
                                 <td>
@@ -251,5 +251,9 @@
         </div>
     </cf_tab>
     
-
+<input type="hidden" name="is_submit">
 </cfform>
+
+<cfif isDefined(attributes.is_submit)>
+    <cfdump var="#attributes#">
+</cfif>

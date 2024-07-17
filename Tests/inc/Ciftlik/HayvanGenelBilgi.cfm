@@ -37,7 +37,7 @@
         <td>
             <div class="form-group">
                 <label>Cins</label>
-                <select name="TIP">
+                <select name="GIRIS_STOK_ID">
                     <option value="">Seçiniz</option>
                     <cfoutput query="GetAnimalTypes" group="PRODUCT_ID">
                         <optgroup label="#PRODUCT_NAME#">
@@ -69,7 +69,7 @@
         <td>
             <div class="form-group">
                 <label>Tip</label>
-                <select name="TIP">
+                <select name="HTIP">
                     <option value="">Seçiniz</option>
                     <cfoutput query="Hayvan_Tip" >
                   
