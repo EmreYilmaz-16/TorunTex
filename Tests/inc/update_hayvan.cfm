@@ -18,7 +18,7 @@
             <cfinclude template="Ciftlik/HayvanGenelBilgi.cfm">
         </div>
         <div id="unique_sayfa_2" class="ui-info-text uniqueBox">
-            <cf_big_list>
+            <cf_grid_list>
                 <tr>                   
                     <td>
                         <div>
@@ -40,6 +40,8 @@
                                     </div>
                                 </td>
                             </tr>
+                        </cf_grid_list>
+                        <cf_grid_list>
                             <tr>                   
                                 <td>
                                     <div>
@@ -65,7 +67,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                        </cf_big_list>
+                        </cf_grid_list>
         </div>
         <div id="unique_sayfa_3" class="ui-info-text uniqueBox">
             <h1>Lorem Ipsum 3</h1>
