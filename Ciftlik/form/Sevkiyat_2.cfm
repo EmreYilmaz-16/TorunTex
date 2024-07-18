@@ -27,11 +27,11 @@
 </cfquery>
 <cfset Select1="#ishv.DEPARTMENT_ID#-#ishv.LOCATION_ID#*#ishv.ORDER_ID#*#ishv.SEPET_ID#">
 <CFIF ishv.recordCount>
-    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#Select1#"> 
+    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=58&SELECT1=#Select1#"> 
 </CFIF>
 <CFIF SEPET_ID neq 0>
     
-    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=24&SELECT1=#attributes.select1#">
+    <cflocation url="/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=58&SELECT1=#attributes.select1#">
     </script>
 </CFIF>
 <cfquery name="GETmX" datasource="#DSN3#">
