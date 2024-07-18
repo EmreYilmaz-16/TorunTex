@@ -6,7 +6,7 @@
         margin:0px !important
     }
     .pbscfl{
-        height: 40vh;
+        height: 80vh;
     border: solid 1px #bbb;
     border-top: none;
 }
@@ -262,7 +262,7 @@
                 <cf_grid_list>
                     <thead>
                         <tr>
-                            <th colspan="2">
+                            <th colspan="4">
                                 Diğer Bilgileri
                             </th>
                         </tr>
