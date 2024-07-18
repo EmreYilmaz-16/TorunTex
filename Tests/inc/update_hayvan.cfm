@@ -280,8 +280,7 @@
                                 <input type="text" name="GUNLUK_DINLENME" value="<cfoutput>#GetHayvan.GUNLUK_DINLENME#</cfoutput>">
                             </div>
                         </td>
-                    </tr>
-                    <tr>
+                    
                         <td>
                             <div class="form-group">
                                 <label>Günlük Geviş Süresi</label>
@@ -308,8 +307,7 @@
                                 <input type="text" name="TASMA_ETIKET" value="<cfoutput>#GetHayvan.TASMA_ETIKET#</cfoutput>">
                             </div>
                         </td>
-                    </tr>
-                    <tr>
+                   
                         <td>
                             <div class="form-group">
                                 <label>Laktasyon Günü</label>
@@ -336,8 +334,7 @@
                                 <input type="text" name="KIZGINLIK_INDEXI" value="<cfoutput>#GetHayvan.KIZGINLIK_INDEXI#</cfoutput>">
                             </div>
                         </td>
-                    </tr>
-                    <tr>
+                   
                         <td>
                             <div class="form-group">
                                 <label>Son Kızgınlık Tarihi</label>
@@ -352,13 +349,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <div class="form-group">
                                 <label>Beklenen Hamilelik</label>
                                 <input type="text" name="BEKLENEN_HAMILELIK" value="<cfoutput>#GetHayvan.BEKLENEN_HAMILELIK#</cfoutput>">
                             </div>
                         </td>
-                        <td>
+                        <td colspan="2">
                             <div class="form-group">
                                 <label>Son Kuru Tarih</label>
                                 <input type="text" name="SON_KURU_TARIH" value="<cfoutput>#GetHayvan.SON_KURU_TARIH#</cfoutput>">
