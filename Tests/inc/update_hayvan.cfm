@@ -29,8 +29,7 @@
      SELECT * FROM CIFTLIK_HAYVANLARIM2 WHERE HAYVAN_ID=#attributes.iid#;
 </cfquery>
 
-<cfdump var="#GetHayvan#">
-<cfdump var="#attributes#">
+
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=54">
 <input type="hidden" name="HAYVAN_ID" value="<cfoutput>#attributes.iid#</cfoutput>">
 <input type="hidden" name="iid" value="<cfoutput>#attributes.iid#</cfoutput>">
@@ -367,7 +366,7 @@
                         </td>
                     </tr>
                 </cf_grid_list>
-                    
+                <input type="submit" value="Güncelle" style="bottom: 0;position: absolute;right: 0;margin: 10px;">
             </div>
         </div>
     </cf_tab>
