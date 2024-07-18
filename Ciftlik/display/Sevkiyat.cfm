@@ -29,7 +29,7 @@ FROM (
   --  WHERE TT.BAKIYE <> 0
 	AND TT.SIP_DURUM <> 0
 </cfquery>
-<cfform method="post" action="#request.self#?fuseaction=settings.emptypopup_partner_test_page&sayfa=29" id="frm_1">
+<cfform method="post" action="#request.self#?fuseaction=settings.emptypopup_partner_test_page&sayfa=56" id="frm_1">
 <div class="form-group">
     <label>Depo</label>
     <div class="input-group" style="flex-wrap:nowrap">
