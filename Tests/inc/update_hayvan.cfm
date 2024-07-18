@@ -28,6 +28,7 @@
 <cfquery name="GetHayvan" datasource="#DSN3#">
      SELECT * FROM CIFTLIK_HAYVANLARIM2 WHERE HAYVAN_ID=#attributes.iid#;
 </cfquery>
+
 <cfdump var="#GetHayvan#">
 <cfdump var="#attributes#">
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=54">
@@ -271,13 +272,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Günlük Beslenme</label>
-                                <input type="text" name="GUNLUK_BESLENME">
+                                <input type="text" name="GUNLUK_BESLENME" value="<cfoutput>#GetHayvan.GUNLUK_BESLENME#</cfoutput>">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Günlük Dinlenme</label>
-                                <input type="text" name="GUNLUK_DINLENME">
+                                <input type="text" name="GUNLUK_DINLENME" value="<cfoutput>#GetHayvan.GUNLUK_DINLENME#</cfoutput>">
                             </div>
                         </td>
                     </tr>
@@ -285,13 +286,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Günlük Geviş Süresi</label>
-                                <input type="text" name="GUNLUK_GEVIS_SURE">
+                                <input type="text" name="GUNLUK_GEVIS_SURE" value="<cfoutput>#GetHayvan.GUNLUK_GEVIS_SURE#</cfoutput>">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Günlük Hareket</label>
-                                <input type="text" name="GUNLUK_HAREKET">
+                                <input type="text" name="GUNLUK_HAREKET" value="<cfoutput>#GetHayvan.GUNLUK_HAREKET#</cfoutput>">
                             </div>
                         </td>
                     </tr>
@@ -299,13 +300,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Tasma Id</label>
-                                <input type="text" name="TASMA_ID">
+                                <input type="text" name="TASMA_ID" value="<cfoutput>#GetHayvan.TASMA_ID#</cfoutput>">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Tasma Etiket</label>
-                                <input type="text" name="TASMA_ETIKET">
+                                <input type="text" name="TASMA_ETIKET" value="<cfoutput>#GetHayvan.TASMA_ETIKET#</cfoutput>">
                             </div>
                         </td>
                     </tr>
@@ -313,13 +314,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Laktasyon Günü</label>
-                                <input type="text" name="LAKTASYON_GUNU">
+                                <input type="text" name="LAKTASYON_GUNU" value="<cfoutput>#GetHayvan.LAKTASYON_GUNU#</cfoutput>">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Laktasyon Sayısı</label>
-                                <input type="text" name="LAKTASYON_SAYI">
+                                <input type="text" name="LAKTASYON_SAYI" value="<cfoutput>#GetHayvan.LAKTASYON_SAYI#</cfoutput>">
                             </div>
                         </td>
                     </tr>
@@ -327,13 +328,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Sağlık Oranı</label>
-                                <input type="text" name="SAGLIK_ORANI">
+                                <input type="text" name="SAGLIK_ORANI" value="<cfoutput>#GetHayvan.SAGLIK_ORANI#</cfoutput>">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Kızgınlık İndexi</label>
-                                <input type="text" name="KIZGINLIK_INDEXI">
+                                <input type="text" name="KIZGINLIK_INDEXI" value="<cfoutput>#GetHayvan.KIZGINLIK_INDEXI#</cfoutput>">
                             </div>
                         </td>
                     </tr>
@@ -341,13 +342,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Son Kızgınlık Tarihi</label>
-                                <input type="text" name="SON_KIZGINLIK_TARIHI">
+                                <input type="text" name="SON_KIZGINLIK_TARIHI" value="<cfoutput>#GetHayvan.SON_KIZGINLIK_TARIHI#</cfoutput>">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Son Buzağlama Tarihi</label>
-                                <input type="text" name="LAST_BUZAGLAMA_DATE">
+                                <input type="text" name="LAST_BUZAGLAMA_DATE" value="<cfoutput>#GetHayvan.LAST_BUZAGLAMA_DATE#</cfoutput>">
                             </div>
                         </td>
                     </tr>
@@ -355,13 +356,13 @@
                         <td>
                             <div class="form-group">
                                 <label>Beklenen Hamilelik</label>
-                                <input type="text" name="BEKLENEN_HAMILELIK">
+                                <input type="text" name="BEKLENEN_HAMILELIK" value="<cfoutput>#GetHayvan.BEKLENEN_HAMILELIK#</cfoutput>">
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <label>Son Kuru Tarih</label>
-                                <input type="text" name="SON_KURU_TARIH">
+                                <input type="text" name="SON_KURU_TARIH" value="<cfoutput>#GetHayvan.SON_KURU_TARIH#</cfoutput>">
                             </div>
                         </td>
                     </tr>
