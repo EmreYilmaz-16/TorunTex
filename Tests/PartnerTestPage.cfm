@@ -77,7 +77,10 @@
 <cfif attributes.sayfa eq 53><cfinclude template="inc/list_hayvan.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 54><cfinclude template="inc/update_hayvan.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 55><cfinclude template="../Ciftlik/Display/Sevkiyat.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 56><cfinclude template="../Ciftlik/Display/sevkMain.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 57><cfinclude template="../Ciftlik/Form/Sevkiyat_2.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "CiftlikWelcome"><cfinclude template="inc/Ciftlik_welcome.cfm"><cfabort></cfif>
+
 
 <cfif not isDefined("attributes.default_style")>
 <cfif not isDefined("attributes.isAjax") or attributes.isAjax neq 1>
