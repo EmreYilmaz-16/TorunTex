@@ -140,4 +140,4 @@
             var dsn3="#dsn3#"
         </cfoutput>
     </script>
-    <script src="/AddOns/Partner/js/sevkiyat.js"></script>
+    <script src="/AddOns/Partner/js/sevkiyat_hayvan.js"></script>
