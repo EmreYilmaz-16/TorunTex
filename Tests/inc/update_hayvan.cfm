@@ -158,7 +158,7 @@
                     <td>
                         <div class="form-group">
                             <label>Kontrol Tarihi</label>
-                            <input type="text" name="KONTROL_DATE">
+                            <input type="text" name="KONTROL_DT">
                         </div>
                     </td>
                     <td>

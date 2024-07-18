@@ -22,8 +22,8 @@
     </cfif>
 
   
-    <cfif len(attributes.KONTROL_DATE)>    
-        <cfprocparam cfsqltype="cf_sql_timestamp" value="#attributes.KONTROL_DATE#">
+    <cfif len(attributes.KONTROL_DT)>    
+        <cfprocparam cfsqltype="cf_sql_timestamp" value="#attributes.KONTROL_DT#">
     <cfelse>
         <cfprocparam cfsqltype="cf_sql_timestamp" value="NULL" null="yes">
     </cfif>
