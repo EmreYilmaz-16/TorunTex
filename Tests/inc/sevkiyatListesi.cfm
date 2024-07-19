@@ -1,3 +1,4 @@
+<title>Sevkiyat Listesi</title>
 <cfquery name="getSepetler" datasource="#dsn3#">
     SELECT SEPET_ID
 	,SEVK_NO
