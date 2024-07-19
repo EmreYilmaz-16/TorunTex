@@ -1,3 +1,4 @@
+<title>Canlı Hayvan Listesi</title>
 <cfquery name="getAnimals" datasource="#dsn3#">
     SELECT * FROM CIFTLIK_HAYVANLARIM2
 </cfquery>
