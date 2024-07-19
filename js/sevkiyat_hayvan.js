@@ -79,7 +79,7 @@ function islemYap(el, ev) {
         dsn3 +
         ".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
         LotNo +
-        "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME,SR.UNIT2 ) AS TTTS WHERE SSSR<>0";
+        "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME,SR.UNIT2 ) AS TTTS WHERE SSSR>0";
       var Res2 = wrk_query(QueryString, "dsn2");
       if (Res2.recordcount == 0) {
         $("#LastRead").text(
