@@ -260,6 +260,227 @@ function islemYap(el, ev) {
     <span class="input-group-text" ><span id="AdK"></span>Ad</span>*/
   }
 }
+function islemYap_LOT(LOT_NO) {
+  debugger;
+  //console.log(el.value)
+  var SEPET_DEPARTMAN_ID = document.getElementById("DEPARTMENT_ID").value;
+  var SEPET_LOCATION_ID = document.getElementById("LOCATION_ID").value;
+  var SEPET_ORDER_ID = document.getElementById("ORDER_ID").value;
+  var SEPET_ID = document.getElementById("SEPET_ID").value;
+  var UrunBarkodu = LOT_NO
+  UrunBarkodu = ReplaceAll(UrunBarkodu, "||", "|");
+  var UrunKodu = "";
+  var LotNo = UrunBarkodu;
+  var Agirlik = 1;
+  var OSX = {
+    UrunKodu: UrunKodu,
+    LotNo: LotNo,
+    Agirlik: Agirlik,
+    SEPET_DEPARTMAN_ID: SEPET_DEPARTMAN_ID,
+    SEPET_LOCATION_ID: SEPET_LOCATION_ID,
+    SEPET_ORDER_ID: SEPET_ORDER_ID,
+    SEPET_ID: SEPET_ID,
+  };
+  //BILGI LOT NO DAHA ÖNCESİNDE OKUTULMUŞ MU KONTROLÜ
+  var Res1 = wrk_query(
+    "SELECT * FROM SEVKIYAT_SEPET_ROW_READ_PBS WHERE LOT_NO='" + LotNo + "'",
+    "dsn3"
+  );
+  console.log(Res1);
+  if (Res1.recordcount == 0) {
+    //BILGI LOT_NO DAN STOK VERİSİNE ULAŞMAK İÇİN BURASI VAR
+    var QueryString =
+      "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.UNIT2 FROM " +
+      dsn2 +
+      ".STOCKS_ROW AS SR";
+    QueryString +=
+      " INNER JOIN " +
+      dsn +
+      ".STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID=SR.STORE  INNER JOIN " +
+      dsn3 +
+      ".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
+      LotNo +
+      "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME,SR.UNIT2 ) AS TTTS WHERE SSSR>0";
+    var Res2 = wrk_query(QueryString, "dsn2");
+    if (Res2.recordcount == 0) {
+      $("#LastRead").text(
+        OSX.LotNo + " - " + UrunKodu + " - " + OSX.Agirlik + "Kg."
+      );
+
+      document.getElementById("LastRead").setAttribute("class", "text-dark");
+      document
+        .getElementById("LastRead")
+        .setAttribute("style", "text-decoration: line-through;");
+      $("#BARKOD").val("");
+      $("#BARKOD").focus();
+      alert("Lot Numarası Bulunamadı !");
+      return false;
+    }
+    console.log(Res2);
+    OSX.STOCK_LOCATION_ID = Res2.STORE_LOCATION[0];
+    OSX.STOCK_DEPARTMENT_ID = Res2.STORE[0];
+    OSX.PRODUCT_ID = Res2.PRODUCT_ID[0];
+    OSX.UNIT2 = Res2.UNIT2[0];
+    OSX.STOCK_ID = Res2.STOCK_ID[0];
+    OSX.PBS_RELATION_ID = Res2.PBS_RELATION_ID[0];
+    OSX.PRODUCT_NAME = Res2.PRODUCT_NAME[0];
+    var SL_1 = OSX.SEPET_DEPARTMAN_ID + "-" + OSX.SEPET_LOCATION_ID;
+    var SL_2 = OSX.STOCK_DEPARTMENT_ID + "-" + OSX.STOCK_LOCATION_ID;
+    if (SL_1 == SL_2) {
+      OSX.TASIMA = 0;
+    } else {
+      OSX.TASIMA = 1;
+    }
+    //BILGI SATIRDA VARMI
+    var Satirim = document.getElementByProductId(OSX.PRODUCT_ID);
+    if (Satirim != undefined) {
+      OSX.SATIRDA = 1;
+    } else {
+      OSX.SATIRDA = 0;
+    }
+    //BILGI SİPARİŞTE BU ÜRÜN VARMI KONTROLÜ
+    var QueryString =
+      "SELECT * FROM ORDER_ROW WHERE ORDER_ID=" +
+      SEPET_ORDER_ID +
+      " AND PRODUCT_ID=" +
+      OSX.PRODUCT_ID;
+    var Res3 = wrk_query(QueryString, "dsn3");
+    console.log(Res3);
+
+    if (Res3.recordcount) {
+      OSX.EXTRA_PRODUCT = 0;
+      OSX.HAVE_SIPARIS = 1;
+    } else {
+      OSX.EXTRA_PRODUCT = 1;
+      OSX.HAVE_SIPARIS = 0;
+    }
+
+    // BILGI Burada Taşıma İşlemleri Yapılıyor
+
+    if (OSX.EXTRA_PRODUCT == 1) {
+      // BILGI Ürünün Siparişte Olmama Durumu
+      var TasimaVeri = {
+        FROM_STOCK_ID: OSX.STOCK_ID,
+        TO_STOCK_ID: OSX.STOCK_ID,
+        FROM_LOT_NO: OSX.LotNo,
+        FROM_AMOUNT: OSX.Agirlik,
+        FROM_WRK_ROW_ID: OSX.PBS_RELATION_ID,
+        TO_DEPARTMENT_ID: OSX.SEPET_DEPARTMAN_ID,
+        TO_LOCATION_ID: OSX.SEPET_LOCATION_ID,
+        FROM_DEPARTMENT_ID: OSX.STOCK_DEPARTMENT_ID,
+        FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
+        FROM_UNIT2: OSX.UNIT2,
+        TO_WRK_ROW_ID: "",
+        SEPET_ID: OSX.SEPET_ID,
+      };
+      var str = JSON.stringify(TasimaVeri);
+      $.get(
+        "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14&data=" +
+          str
+      ); /**/
+      /*SepeteEkle(
+          OSX.SEPET_ID,
+          TasimaVeri.TO_WRK_ROW_ID,
+          OSX.PRODUCT_ID,
+          0,
+          0
+        );*/
+      console.table(TasimaVeri);
+    } else {
+      console.log("Ürünün Siparişteyse Ve Deposu Farklıysa");
+      // BILGI Ürünün Siparişteyse Ve Deposu Farklıysa
+      if (OSX.TASIMA == 1) {
+        var TasimaVeri = {
+          FROM_STOCK_ID: OSX.STOCK_ID,
+          TO_STOCK_ID: OSX.STOCK_ID,
+          FROM_LOT_NO: OSX.LotNo,
+          FROM_AMOUNT: OSX.Agirlik,
+          FROM_WRK_ROW_ID: OSX.PBS_RELATION_ID,
+          TO_DEPARTMENT_ID: OSX.SEPET_DEPARTMAN_ID,
+          TO_LOCATION_ID: OSX.SEPET_LOCATION_ID,
+          FROM_DEPARTMENT_ID: OSX.STOCK_DEPARTMENT_ID,
+          FROM_LOCATION_ID: OSX.STOCK_LOCATION_ID,
+          FROM_UNIT2: OSX.UNIT2,
+          TO_WRK_ROW_ID: Res3.WRK_ROW_ID[0],
+          SEPET_ID: OSX.SEPET_ID,
+        };
+        var str = JSON.stringify(TasimaVeri);
+        $.get(
+          "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14&data=" +
+            str
+        ); /**/
+        console.table(TasimaVeri);
+      }
+    }
+    //TAMAM TAŞIMA SONRASI SEPET_ROW'A KAYIT EKLE
+    //TAMAM
+    //TAMAM SEPET_ROW_READINGS'E KAYIT EKLE
+    //TAMAM
+    if (OSX.SATIRDA != 1) {
+      var GENERATEDKEY = SepeteEkle(
+        OSX.SEPET_ID,
+        "",
+        OSX.PRODUCT_ID,
+        OSX.Agirlik,
+        1,
+        "KG",
+        OSX.UNIT2
+      );
+      OkumaEkle(OSX.Agirlik, 1, OSX.LotNo, GENERATEDKEY, "KG", OSX.UNIT2);
+      SatirEkle(
+        OSX.PRODUCT_ID,
+        OSX.PRODUCT_NAME,
+        OSX.Agirlik,
+        "KG",
+        OSX.UNIT2,
+        GENERATEDKEY
+      );
+    } else {
+      SatirGuncelle(OSX.PRODUCT_ID, OSX.Agirlik, OSX.LotNo, "KG", OSX.UNIT2);
+    }
+
+    console.table(OSX);
+    var x = document.getElementById("myAudio");
+    x.play();
+
+    var Ads = parseFloat(document.getElementById("AdS").innerText);
+    Ads += parseFloat(OSX.Agirlik);
+    document.getElementById("AdS").innerText = Ads;
+    var AdK = parseFloat(document.getElementById("AdK").innerText);
+    AdK += 1;
+    document.getElementById("AdK").innerText = AdK;
+    $("#LastRead").text(
+      OSX.LotNo + " - " + OSX.PRODUCT_NAME + " - " + OSX.Agirlik + "Kg."
+    );
+    document.getElementById("LastRead").setAttribute("class", "text-success");
+  } else {
+    var QueryString =
+      "SELECT * FROM ( SELECT SUM(SR.STOCK_IN-SR.STOCK_OUT) AS SSSR,SR.PRODUCT_ID,SR.STOCK_ID,S.PRODUCT_NAME,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT FROM " +
+      dsn2 +
+      ".STOCKS_ROW AS SR";
+    QueryString +=
+      " INNER JOIN " +
+      dsn +
+      ".STOCKS_LOCATION AS SL ON SL.LOCATION_ID=SR.STORE_LOCATION AND SL.DEPARTMENT_ID=SR.STORE  INNER JOIN " +
+      dsn3 +
+      ".STOCKS AS S ON S.STOCK_ID=SR.STOCK_ID WHERE LOT_NO='" +
+      LotNo +
+      "' GROUP BY SR.PRODUCT_ID,SR.STORE,SR.STORE_LOCATION ,SR.PBS_RELATION_ID,SL.COMMENT,SR.STOCK_ID,S.PRODUCT_NAME ) AS TTTS WHERE SSSR<>0";
+    var Res2 = wrk_query(QueryString, "dsn2");
+    alert("Bu Lot Numarası Daha Önce Okutulmuş");
+
+    $("#LastRead").text(
+      OSX.LotNo + " - " + Res2.PRODUCT_NAME[0] + " - " + OSX.Agirlik + "Kg."
+    );
+    document.getElementById("LastRead").setAttribute("class", "text-danger");
+  }
+  $("#BARKOD").val("");
+  $("#BARKOD").focus();
+  /*
+    <span class="input-group-text" ><span id="AdS"></span>KG</span> 
+    <span class="input-group-text" ><span id="AdK"></span>Ad</span>*/
+}
+
 //BILGI URUN ID'SI VERİLEN SATIRI BULMAK İÇİN KULLANILIR
 document.getElementByProductId = function (idb) {
   var str = idb.toString();

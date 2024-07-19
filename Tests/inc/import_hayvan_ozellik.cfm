@@ -63,7 +63,7 @@
         SELECT * FROM res     
     </cfquery> 
 
-<cfdump var="#get_invoice_no#">
+
     <cfloop query="get_invoice_no">
 <cftry>
 <cfquery name="LookAnimal" datasource="#dsn1#">
