@@ -96,6 +96,7 @@
             <input type="text" class="form-control" name="BARKOD" id="BARKOD" placeholder="Barkod Okutunuz" onkeyup="islemYap(this,event)">
             <span class="input-group-text" ><span id="AdS">0</span>&nbsp;Kg.</span> 
             <span class="input-group-text" ><span id="AdK">0</span>&nbsp;Ad.</span>
+            <span class="input-group-text" onclick="windowopen('/index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>&sayfa=59')">İmport</span>
         </div>
         <label id="LastRead"></label>
     </div>
