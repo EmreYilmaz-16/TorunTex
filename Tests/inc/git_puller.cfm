@@ -1,3 +1,4 @@
+<title>Git Pull</title>
 <cfexecute name = "C:\PBS\gite.bat"  
 timeout = "1000"
 variable="local.out"
