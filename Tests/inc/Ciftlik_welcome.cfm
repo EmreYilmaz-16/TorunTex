@@ -1,10 +1,10 @@
 <title>Çiftlik Welcome</title>
 
 
-<cf_box title="PDA Welcome">
+<cf_box title="Çiftlik Welcome">
     <div style="display: flex;flex-direction: column;">
   
-        <cfif session.ep.userid eq 144>
+       
     
     
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=53','_blank')">Canlı Hayvan Listesi</button>
@@ -12,7 +12,7 @@
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=49','_blank')">Canlı Hayvan İthal Mal Girişi</button>
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="windowopen('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=52','wide')">Canlı Hayvan Özellik İmport</button>
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="windowopen('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=55','wide')">Canlı Hayvan Sevkiyat</button>
-        </cfif>
+       
     </div>
     </cf_box>
     <!----
