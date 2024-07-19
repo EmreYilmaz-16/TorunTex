@@ -32,7 +32,7 @@
         <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=41','_blank')">Depo Rel_ID Aktarım</button>
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=git','_blank')">Git Pull</button>
 
-        <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=CiftlikWelcome','_blank')">Çiftlik Welcome</button>
+        <button style="margin-top:5px"  class="btn btn-outline-success" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=CiftlikWelcome','_blank')">Çiftlik Welcome</button>
     </cfif>
     <cfif session.ep.userid eq 144>
 
