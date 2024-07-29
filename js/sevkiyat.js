@@ -51,6 +51,11 @@ function islemYap(el, ev) {
     var UrunKodu = list_getat(UrunBarkodu, 1, "|");
     var LotNo = list_getat(UrunBarkodu, 2, "|");
     var Agirlik = list_getat(UrunBarkodu, 3, "|");
+    if(Agirlik.length>4){
+      alert("Ürün Agirliği Hatalı");
+      return false;
+    }
+
     var OSX = {
       UrunKodu: UrunKodu,
       LotNo: LotNo,
