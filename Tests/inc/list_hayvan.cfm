@@ -11,8 +11,12 @@
         <th>
             Cins
         </th>
+        
         <th>
-            Sürü Ekleme Tarihi
+            Fatura Tarihi
+        </th>
+        <th>
+            Giriş Tarihi
         </th>
         <th>
             Son Tohumlama Tarihi
@@ -30,6 +34,7 @@
             <td>#LOT_NO#</td>
             <td>#PROPERTY#</td>
             <td>#dateformat(SURU_GIRIS_DATE,"dd/mm/yyyy")#</td>
+            <td>#dateformat(ENTRY_DATE,"dd/mm/yyyy")#</td>
             <td>#dateformat(TOHUMLAMA_DATE,"dd/mm/yyyy")#</td>
             <td>#TAHMINI_GEBELIK_SURESI#</td>
             <td>#CIFTLIK_T# / #PADOK_T#</td>
