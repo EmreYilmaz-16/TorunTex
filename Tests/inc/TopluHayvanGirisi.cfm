@@ -17,7 +17,8 @@
 </div>
 
 <div class="form-group">
-    <button type="button">Giriş Yap</button>
+    <button class="btn btn-outline-success" type="button">Giriş Yap</button>
+    <button class="btn btn-outline-danger" onclick="closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')" type="button">Giriş Yap</button>
 </div>
 
 </cf_box>
