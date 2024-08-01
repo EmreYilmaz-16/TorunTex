@@ -17,7 +17,7 @@ LEFT JOIN w3Toruntex_2024_1.SHIP AS SH ON SH.SHIP_ID=INV_SH.SHIP_ID
         </cfquery>
         <cfif IHV.recordCount>
             <cfquery name="UPD" datasource="#DSN1#">
-                UPDATE CIFTLIK_HAYVANLAR SET ENTRY_DATE=#attributes.gir_d# WHERE LOT_NO='#LOT_NO#'
+                UPDATE CIFTLIK_HAYVANLAR SET ENTRY_DATE='#attributes.gir_d#' WHERE LOT_NO='#LOT_NO#'
             </cfquery>
         
         </cfif>
