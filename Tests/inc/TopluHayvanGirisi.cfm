@@ -1,5 +1,9 @@
 <cfif isDefined("attributes.girici") and attributes.girici eq 1>
     <cfdump var="#attributes#">
+    <cfquery name="get_hlot" datasource="#dsn2#">
+        SELECT * FROM INVOICE_ROW WHERE INVOICE_ID=#attributes.inv_id#
+    </cfquery>
+    <cfdump var="#get_hlot#">
     <cfabort>
 </cfif>
 <cf_box title="Toplu Hayvan Girişi">
