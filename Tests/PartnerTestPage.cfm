@@ -81,6 +81,7 @@
 <cfif attributes.sayfa eq 57><cfinclude template="../Ciftlik/Form/Sevkiyat_2.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 58><cfinclude template="../Ciftlik/Form/Sevkiyat_2_UPD.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 59><cfinclude template="inc/import_hayvan_sevkiyat.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 60><cfinclude template="inc/TopluHayvanGirisi.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "CiftlikWelcome"><cfinclude template="inc/Ciftlik_welcome.cfm"><cfabort></cfif>
 
 
