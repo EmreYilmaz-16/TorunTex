@@ -17,18 +17,18 @@ LEFT JOIN w3Toruntex_2024_1.SHIP AS SH ON SH.SHIP_ID=INV_SH.SHIP_ID
         </cfquery>
         <cfif IHV.recordCount>
             <cfquery name="UPD" datasource="#DSN1#">
-                UPDATE CIFTLIK_HAYVANLAR SET ENTRY_DATE='#attributes.gir_d#' WHERE LOT_NO='#LOT_NO#'
+                UPDATE CIFTLIK_HAYVANLAR SET MILLI_DATE='#attributes.gir_d#' WHERE LOT_NO='#LOT_NO#'
             </cfquery>
         
         </cfif>
     </cfloop>
     <cfquery name="UPD" datasource="#DSN2#">
-        UPDATE INVOICE SET HAYVAN_GIRISI_YAPILDI=1 WHERE INVOICE_ID=#attributes.inv_id#
+        UPDATE INVOICE SET HAYVAN_MILLI_YAPILDI=1 WHERE INVOICE_ID=#attributes.inv_id#
     </cfquery>
     <cfabort>
 </cfif>
 
-<cf_box title="Toplu Hayvan Girişi">
+<cf_box title="Toplu Hayvan Millileştirme">
 
 <cfset GETF=getFatura()>
 <div class="form-group">
@@ -70,7 +70,7 @@ LEFT JOIN w3Toruntex_2024_1.SHIP AS SH ON SH.SHIP_ID=INV_SH.SHIP_ID
             INNER JOIN #dsn2#.INVOICE_ROW AS IR ON IR.INVOICE_ID = I.INVOICE_ID
             LEFT JOIN #dsn#.PRO_PROJECTS AS PPR ON PPR.PROJECT_ID = I.PROJECT_ID
             WHERE INVOICE_CAT = 591 AND PPR.BRANCH_ID=5
-            AND ISNULL(HAYVAN_GIRISI_YAPILDI,0)=0
+            AND ISNULL(HAYVAN_MILLI_YAPILDI,0)=0
             --    AND ISNULL(I.PROCESS_STAGE, 0) <> 258
             ) AS IRRS
         
@@ -98,7 +98,7 @@ LEFT JOIN w3Toruntex_2024_1.SHIP AS SH ON SH.SHIP_ID=INV_SH.SHIP_ID
             return false;
         }
         $.ajax({
-            url:"/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=60&girici=1",
+            url:"/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=61&girici=1",
             data:{
                 inv_id:inv_id,
                 gir_d:gir_d
