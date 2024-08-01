@@ -17,8 +17,8 @@
 </div>
 
 <div class="form-group">
-    <button class="btn btn-outline-success" type="button">Giriş Yap</button>
-    <button class="btn btn-outline-danger" onclick="closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')" type="button">Giriş Yap</button>
+    <button onclick="GirCanim('<cfoutput>#attributes.modal_id#</cfoutput>')" class="btn btn-outline-success" type="button">Giriş Yap</button>
+    <button class="btn btn-outline-danger" onclick="closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')" type="button">Kapat</button>
 </div>
 
 </cf_box>
@@ -53,3 +53,27 @@
     </cfquery>
     <cfreturn getl>
 </cffunction>
+
+<script>
+    function GirCanim(params) {
+        var inv_id=document.getElementsByName("INVO")[0].value;
+        var gir_d=document.getElementsByName("ENTRY_DATE")[0].value;
+        if(inv_id.length==0){
+            alert("Fatura Seçmediniz");
+            return false;
+        }
+        if(gir_d.length==0){
+            alert("Tarih Seçmediniz");
+            return false;
+        }
+        $.ajax({
+            url:"/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=60&girici=1",
+            data:{
+                inv_id:inv_id,
+                gir_d:gir_d
+            }
+        }).done(function (params) {
+            closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')
+        })
+    }
+</script>
