@@ -1,12 +1,33 @@
 <cfif isDefined("attributes.girici") and attributes.girici eq 1>
     <cfdump var="#attributes#">
     <cfquery name="get_hlot" datasource="#dsn2#">
-        SELECT * FROM INVOICE_ROW WHERE INVOICE_ID=#attributes.inv_id#
+        SELECT LOT_NO FROM w3Toruntex_2024_1.SHIP_ROW WHERE SHIP_ID IN (
+SELECT SH.SHIP_ID FROM w3Toruntex_2024_1.INVOICE_SHIPS AS INV_SH
+LEFT JOIN w3Toruntex_2024_1.SHIP AS SH ON SH.SHIP_ID=INV_SH.SHIP_ID
+  WHERE
+  1=1 
+  AND IMPORT_INVOICE_ID=#attributes.inv_id# 
+  AND SH.SHIP_TYPE=811)
+        
+        
     </cfquery>
-    <cfdump var="#get_hlot#">
+    <cfloop query="get_hlot">
+        <cfquery name="IHV" datasource="#DSN1#">
+              SELECT * FROM w3Toruntex_product.CIFTLIK_HAYVANLAR WHERE LOT_NO='#LOT_NO#'
+        </cfquery>
+        <cfif IHV.recordCount>
+            <cfquery name="UPD" datasource="#DSN1#">
+                UPDATE CIFTLIK_HAYVANLAR SET ENTRY_DATE=#attributes.gir_d# WHERE LOT_NO='#LOT_NO#'
+            </cfquery>
+        
+        </cfif>
+    </cfloop>
+    
     <cfabort>
 </cfif>
+
 <cf_box title="Toplu Hayvan Girişi">
+
 <cfset GETF=getFatura()>
 <div class="form-group">
     <label>Fatura No</label>
