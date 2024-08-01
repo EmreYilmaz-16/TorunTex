@@ -1,3 +1,7 @@
+<cfif isDefined("attributes.girici") and attributes.girici eq 1>
+    <cfdump var="#attributes#">
+    <cfabort>
+</cfif>
 <cf_box title="Toplu Hayvan Girişi">
 <cfset GETF=getFatura()>
 <div class="form-group">
