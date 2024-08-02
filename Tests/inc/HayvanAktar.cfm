@@ -60,6 +60,7 @@
         <cfset "attributes.amount_other#ix#"=1>
         <cfset "attributes.unit_other#ix#"="Adet">
         <cfset "attributes.lot_no#ix#"=LOT_NO>
+        <cfset ix=ix+1>
     </cfloop>
     <cfset attributes.wodate=1>
     <cfif isDefined("attributes.wodate")>
