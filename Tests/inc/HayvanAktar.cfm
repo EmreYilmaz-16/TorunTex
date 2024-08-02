@@ -171,6 +171,10 @@
     })
     function GetLocationIn(el) {
         $("#LOCATION_IN").html("");
+        var Opt=document.createElement("option");
+            Opt.value="";
+            Opt.innerText="Seç";
+            document.getElementById("LOCATION_IN").appendChild(Opt)
         if(el.value.length>0){
         var Ox=LocationArr.filter(p=>p.DEPARTMENT_LOCATION != el.value)
        
