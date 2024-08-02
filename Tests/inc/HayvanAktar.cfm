@@ -150,7 +150,8 @@
     </tr>
 <tr>
     <td>
-        <button onclick="TransferEt()">Transfer Et</button>
+        <button class="btn btn-outline-success" onclick="TransferEt()">Transfer Et</button>
+        <button class="btn btn-outline-danger" onclick="closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')" type="button">Kapat</button>
     </td>
 </tr>
 </cf_grid_list>
