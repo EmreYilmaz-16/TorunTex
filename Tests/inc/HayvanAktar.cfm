@@ -1,3 +1,5 @@
+<div style="padding:10px">
+<cf_box title="Canlı Hayvan Transfer">
 <cfquery name="getDep" datasource="#dsn3#">
     SELECT DEPARTMENT_LOCATION,COMMENT FROM w3Toruntex.STOCKS_LOCATION WHERE DEPARTMENT_ID=18
 </cfquery>
@@ -31,6 +33,9 @@
 
 </table>
 
+
+</cf_box>
+
 <script>
     $(document).ready(function (params) {
         for (let index = 0; index < LocationArr.length; index++) {
@@ -41,7 +46,16 @@
             document.getElementById("LOCATION_OUT").appendChild(Opt)
         }
     })
-    function GetLocationIn(params) {
-        
+    function GetLocationIn(el) {
+        var Ox=LocationArr.filter(p=>p.DEPARTMENT_LOCATION != el.value)
+       $("#LOCATION_IN").html("");
+        for (let index = 0; index < Ox.length; index++) {
+            const element = Ox[index];
+            var Opt=document.createElement("option");
+            Opt.value=element.DEPARTMENT_LOCATION;
+            Opt.innerText=element.COMMENT;
+            document.getElementById("LOCATION_IN").appendChild(Opt)
+        }
     }
 </script>
+</div>
