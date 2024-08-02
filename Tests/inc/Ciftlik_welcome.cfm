@@ -14,6 +14,7 @@
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="windowopen('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=55','wide')">Canlı Hayvan Sevkiyat</button>
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=60','wide')">Canlı Hayvan Toplu Giriş</button>
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=61','wide')">Canlı Hayvan Toplu Millileştirme</button>
+        <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=62','wide')">Canlı Hayvan Toplu Transfer</button>
        
     </div>
     </cf_box>
