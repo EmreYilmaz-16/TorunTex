@@ -40,7 +40,7 @@
 <cfset ATTRIBUTES.XML_MULTIPLE_COUNTING_FIS =1>
 <cfset ATTRIBUTES.FIS_DATE_H  ="00">
 <cfset ATTRIBUTES.FIS_DATE_M  ="0">
-<cfset attributes.rows_=getSinfo.recordCount>
+<cfset attributes.rows_=getLOTS.recordCount>
     <cfset ix=1>
     <cfloop query="getLOTS">
         <cfquery name="getSinfo" datasource="#dsn3#">                            
