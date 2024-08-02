@@ -56,7 +56,7 @@
         <cfset 'attributes.product_id#ix#' = getSinfo.PRODUCT_ID>
         <cfset 'attributes.is_inventory#ix#' = getSinfo.IS_INVENTORY>
         <cfset 'attributes.WRK_ROW_ID#ix#' = "#round(rand()*65)##dateformat(now(),'YYYYMMDD')##timeformat(now(),'HHmmssL')##session.ep.userid##round(rand()*100)#">
-        <cfset 'attributes.row_unique_relation_id#ix#'=ROW_UNIQ_RELATION>
+        <cfset 'attributes.row_unique_relation_id#ix#'="">
         <cfset "attributes.amount_other#ix#"=1>
         <cfset "attributes.unit_other#ix#"="Adet">
         <cfset "attributes.lot_no#ix#"=LOT_NO>
