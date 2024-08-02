@@ -1,9 +1,13 @@
 <cfif isDefined("attributes.tasima")>
     <cfquery name="getLOTS" datasource="#dsn2#">
-        SELECT SUM(STOCK_IN-STOCK_OUT),LOT_NO,SHELF_NUMBER FROM w3Toruntex_2024_1.STOCKS_ROW WHERE STORE=18 AND STORE_LOCATION=#listGetAt(attributes.LOC_OUT,2,"-")# AND SHELF_NUMBER IS NOT NULL GROUP BY LOT_NO,SHELF_NUMBER HAVING SUM(STOCK_IN-STOCK_OUT)>0
+        SELECT SUM(STOCK_IN-STOCK_OUT),LOT_NO,STOCK_ID,PRODUCT_ID,SHELF_NUMBER FROM w3Toruntex_2024_1.STOCKS_ROW WHERE STORE=18 AND STORE_LOCATION=#listGetAt(attributes.LOC_OUT,2,"-")# AND SHELF_NUMBER IS NOT NULL GROUP BY LOT_NO,SHELF_NUMBER,STOCK_ID,PRODUCT_ID HAVING SUM(STOCK_IN-STOCK_OUT)>0
     </cfquery>
     <cfdump var="#getLOTS#">
+    
+    
+    
     <cfabort>
+
     <!----
     <cfset attributes.ROWW="">
 <cfset qty=FormData.FROM_AMOUNT>
