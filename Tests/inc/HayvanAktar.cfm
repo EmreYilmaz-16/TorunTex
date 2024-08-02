@@ -134,7 +134,9 @@
         <td>    
             <div class="form-group">
                 <label>Çıkış Lokasyonu</label>
-                <select name="LOCATION_OUT" id="LOCATION_OUT" onchange="GetLocationIn(this)"></select>
+                <select name="LOCATION_OUT" id="LOCATION_OUT" onchange="GetLocationIn(this)">
+                    <option value="">Seç</option>
+                </select>
             </div>
         </td>
     </tr>
@@ -167,19 +169,22 @@
         }
     })
     function GetLocationIn(el) {
+        $("#LOCATION_IN").html("");
+        if(el.value.length>0){
         var Ox=LocationArr.filter(p=>p.DEPARTMENT_LOCATION != el.value)
-       $("#LOCATION_IN").html("");
+       
         for (let index = 0; index < Ox.length; index++) {
             const element = Ox[index];
             var Opt=document.createElement("option");
             Opt.value=element.DEPARTMENT_LOCATION;
             Opt.innerText=element.COMMENT;
             document.getElementById("LOCATION_IN").appendChild(Opt)
-        }
+        }}
     }
     function TransferEt() {
         var LOC_IN=$("#LOCATION_IN").val();
         var LOC_OUT=$("#LOCATION_OUT").val();
+        if(LOC_IN.length>0 && LOC_OUT.length>0){
         $.ajax({
             url:"/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=62&tasima=1",
             data:{
@@ -190,6 +195,9 @@
             alert("Taşıma Başarılı");
             closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')
         })
+    }else{
+        alert("Seçilmemiş Depolar Var")
+    }
     }
 </script>
 </div>
