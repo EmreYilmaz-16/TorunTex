@@ -31,10 +31,10 @@
 
 <cfset attributes.PROD_ORDER = ''>  
 <cfset attributes.PROD_ORDER_NUMBER = ''>  
-<cfset attributes.PROJECT_HEAD = PROJECT_HEAD> 
-<cfset attributes.PROJECT_HEAD_IN = PROJECT_HEAD_IN>  
-<cfset attributes.PROJECT_ID = PROJECT_ID>  
-<cfset attributes.PROJECT_ID_IN = PROJECT_ID_IN> 
+<cfset attributes.PROJECT_HEAD = ""> 
+<cfset attributes.PROJECT_HEAD_IN = "">  
+<cfset attributes.PROJECT_ID = "">  
+<cfset attributes.PROJECT_ID_IN = ""> 
 <cfset attributes.member_type='' >
 <cfset attributes.member_name='' >
 <cfset ATTRIBUTES.XML_MULTIPLE_COUNTING_FIS =1>
