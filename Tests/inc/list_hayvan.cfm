@@ -26,8 +26,11 @@
             TGS
         </th>
         <th>
-            Çiftlik / Padok
+           Giriş Çiftlik / Padok
         </th>
+        <th>
+            Aktif Çiftlik / Padok
+         </th>
         <th></th>
     </tr>
     <cfoutput query="getAnimals">
@@ -40,6 +43,7 @@
             <td>#dateformat(TOHUMLAMA_DATE,"dd/mm/yyyy")#</td>
             <td>#TAHMINI_GEBELIK_SURESI#</td>
             <td>#CIFTLIK_T# / #PADOK_T#</td>
+            <td>#AKTIF_YER#</td>
             <td><a href="javascript://" onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=54&iid=#HAYVAN_ID#','wide')"><i class="fa fa-edit"></i></a></td>
         </tr>
     </cfoutput>
