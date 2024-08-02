@@ -186,6 +186,9 @@
                 LOC_IN:LOC_IN,
                 LOC_OUT:LOC_OUT
             }
+        }).done(function (params) {
+            alert("Taşıma Başarılı");
+            closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')
         })
     }
 </script>
