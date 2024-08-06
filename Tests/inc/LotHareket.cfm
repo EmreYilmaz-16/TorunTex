@@ -12,8 +12,9 @@
     </tr>
    </table>
     
-<cfdump var="#attributes#">
+
 </cfform>
+
 
 <cfif isDefined("attributes.is_submit")>
     <CFSET URUN_BARKODU="#attributes.Barkod#">
@@ -132,4 +133,8 @@ WHERE S1.LOT_NO='#LOT_NO#'
     </CFOUTPUT>
 
 </cfif>
+<cfif isDefined("attributes.modal_id")>
+    <button class="btn btn-outline-red" onclick="closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')">Kapat</button>
+</cfif>
 </cf_box>
+
