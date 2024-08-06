@@ -12,7 +12,7 @@
     </tr>
    </table>
     
-   
+<cfdump var="#attributes#">
 </cfform>
 
 <cfif isDefined("attributes.is_submit")>

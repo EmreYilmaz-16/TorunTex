@@ -19,7 +19,7 @@ LEFT JOIN w3Toruntex_2024_1.STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID
             #LNO#
         </td>
         <td>
-            <a href="javascript://">#NEW_LOT_BARCODE#</a>
+            <a href="javascript://" onclick='openBoxDraggable("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=15&Barkod=#NEW_LOT_BARCODE#&is_submit=1")'>#NEW_LOT_BARCODE#</a>
         </td>
         <td>#PRODUCT_CODE#</td>
         <td>#PRODUCT_NAME#</td>
