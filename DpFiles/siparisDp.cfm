@@ -16,7 +16,7 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
         $(Div).html("<code style='color:red'>Basket Versiyon 2'de Butonlar Çalışmaz !</code>")
         document.getElementById("detail_inv_menu").prepend(Div)
     }catch{
-        SayfayaButonEkle();
+        SayfayaButonEkle(fatid);
     }
     
     })
@@ -133,9 +133,11 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
              windowopen('index.cfm?fuseaction=objects.popup_print_files_old&action=sales.list_order&action_id='+idd+'&print_type=73','wide');
         }else if(tip==4){
             windowopen('index.cfm?fuseaction=objects.popup_rekactions_prt&action=ORDER&action_id='+idd,'wide');
+        }else if(tip==111){
+            windowopen("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=63&order_id="+idd)
         }
     }
-    function SayfayaButonEkle(){
+    function SayfayaButonEkle(fatid){
         var Div=document.createElement("div")
 var Btn=document.createElement("Button")
 //Btn.innerText="Paket"
@@ -157,6 +159,7 @@ Btn.setAttribute("onclick","SatirAgirliklariniYaz()")
 Btn.setAttribute("title","Satir Ağirliklarını Hesapla")
 Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-extra")
 Div.appendChild(Btn)
+
 var Btn=document.createElement("Button")
 Btn.setAttribute("type","button")
 //Btn.innerText="TıklaBeni 3"
@@ -167,6 +170,20 @@ Btn.setAttribute("onclick","SatirFiyatGetir()")
 Btn.setAttribute("title","Satir Fiyatlarını Getir")
 Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-warning")
 Div.appendChild(Btn)
+
+
+var Btn=document.createElement("Button")
+Btn.setAttribute("type","button")
+//Btn.innerText="TıklaBeni 3"
+var Span=document.createElement("span")
+Span.setAttribute("class","icn-md catalyst-magnifier");
+Btn.appendChild(Span)
+Btn.setAttribute("onclick","pencereac(111,"+fatid+")")
+Btn.setAttribute("title","Sipariş Lot Detayı")
+Btn.setAttribute("class"," ui-wrk-btn ui-wrk-btn-success")
+Div.appendChild(Btn)
+
+
 Div.setAttribute("style","display: flex;justify-content: flex-end;");
 //var Div=document.createElement("div")
 document.getElementById("form_basket").prepend(Div)

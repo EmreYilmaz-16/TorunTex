@@ -274,7 +274,7 @@ document.getElementByProductId = function (idb) {
 
 function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2 = "") {
   var str =
-    "INSERT INTO SEVKIYAT_SEPET_ROW_READ_PBS (SEPET_ROW_ID,LOT_NO,AMOUNT,AMOUNT2,UNIT,UNIT2) VALUES (" +
+    "INSERT INTO SEVKIYAT_SEPET_ROW_READ_PBS (SEPET_ROW_ID,LOT_NO,AMOUNT,AMOUNT2,UNIT,UNIT2,RECORD_EMP) VALUES (" +
     SEPET_ROW_ID +
     ",'" +
     LOT_NO +
@@ -288,6 +288,7 @@ function OkumaEkle(AMOUNT, AMOUNT2, LOT_NO, SEPET_ROW_ID, UNIT, UNIT2 = "") {
   } else {
     str = str + ",NULL";
   }
+  str=str+","+UserId;
   str = str + ")";
 
   var QueryResult = GetAjaxQuery(str, "dsn3");
