@@ -42,7 +42,7 @@ LEFT JOIN w3Toruntex_2024_1.STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID
         <td>#STOCK_IN#</td>
         <td>#FIS_NUMBER#</td>
         <td>#COMMENT#</td>
-        <td>#dateformat(RECORD_DATE,"dd/mm/yyyy")#</td>
+        <td>#dateformat(RECORD_DATE,"dd/mm/yyyy")# #timeFormat(RECORD_DATE,"hh:mm")#</td>
         <td>#REMP#</td>
     </tr>
 </cfoutput>
