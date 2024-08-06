@@ -134,7 +134,7 @@ var Dsn3="<cfoutput>#dsn3#</cfoutput>";
         }else if(tip==4){
             windowopen('index.cfm?fuseaction=objects.popup_rekactions_prt&action=ORDER&action_id='+idd,'wide');
         }else if(tip==111){
-            windowopen("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=63&order_id="+idd)
+            windowopen("index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=63&order_id="+idd,'wide')
         }
     }
     function SayfayaButonEkle(fatid){
