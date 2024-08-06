@@ -13,6 +13,19 @@ LEFT JOIN w3Toruntex_2024_1.STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID
  WHERE ORDER_ID=#attributes.ORDER_ID# ORDER BY SS.STOCK_ID
 </cfquery>
 <cf_big_list>
+    <thead>
+        <tr>
+            <th>Lot No</th>
+            <th>Barko</th>
+        <th>Ü.Kodu</th>
+        <th>Ürün</th>
+        <th>Miktar</th>
+        <th>Üretim Fiş No</th>
+        <th>İstasyon</th>
+        </tr>
+        
+    </thead>
+    <tbody>
 <cfoutput query="getld">
     <tr>
         <td>
@@ -28,4 +41,5 @@ LEFT JOIN w3Toruntex_2024_1.STOCK_FIS AS SF ON SF.FIS_ID=SR.UPD_ID
         <td>#COMMENT#</td>
     </tr>
 </cfoutput>
+</tbody>
 </cf_big_list>
