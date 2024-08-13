@@ -1,3 +1,4 @@
+<cfparam name="attributes.MODAL_ID" default="0">
 <cfif isDefined("attributes.tasima")>
     <cfparam name="attributes.clot" default="0">
     <cfset attributes.department_in =listGetAt(attributes.LOC_IN,1,"-")>
