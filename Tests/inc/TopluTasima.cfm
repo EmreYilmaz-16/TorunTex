@@ -172,7 +172,7 @@ ORDER BY COMMENT
         var FromLocationId=$("#FromLocationId").val();
         var ToLocationId=$("#ToLocationId").val();
         var LOC_IN=ToLocationId
-        var LOC_OUT=ToLocationId
+        var LOC_OUT=FromLocationId
         if(LOC_IN.length>0 && LOC_OUT.length>0){
         $.ajax({
             url:"/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=64&tasima=1",
