@@ -37,7 +37,7 @@ ORDER BY COMMENT
             <div class="form-group">
                 <select name="ToLocationId" id="ToLocationId">
                     <option value="">Seçiniz</option>
-                    <cfoutput query="getDoluDepolar">
+                    <cfoutput query="getTDepolar">
                         <option <CFIF STORE_LOCATION NEQ 15>disabled</CFIF> value="#STORE#-#STORE_LOCATION#">#COMMENT#</option>
                     </cfoutput>
                 </select>
