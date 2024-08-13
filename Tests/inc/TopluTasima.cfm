@@ -38,13 +38,22 @@ ORDER BY COMMENT
                 <select name="ToLocationId" id="ToLocationId">
                     <option value="">Seçiniz</option>
                     <cfoutput query="getTDepolar">
-                        <option <CFIF STORE_LOCATION NEQ 15>disabled</CFIF> value="#STORE#-#STORE_LOCATION#">#COMMENT#</option>
+                        <option <CFIF STORE_LOCATION NEQ 15> style="color:red" disabled</CFIF> value="#STORE#-#STORE_LOCATION#">#COMMENT#</option>
                     </cfoutput>
                 </select>
             </div>
         </td>
         <td>
-
+            <button onclick="Tasi()">Taşıma Yap</button>
         </td>
     </tr>
 </table>
+
+<script>
+    function Tasi(params) {
+        var FromLocationId=$("#FromLocationId").val();
+        var ToLocationId=$("#ToLocationId").val();
+
+
+    }
+</script>
