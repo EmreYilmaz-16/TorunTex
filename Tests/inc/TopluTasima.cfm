@@ -1,4 +1,4 @@
-<cfquery name="getDoluDepolar">
+<cfquery name="getDoluDepolar" datasource="#dsn#">
     select STORE_LOCATION,STORE,COMMENT,COUNT(*) from (
 SELECT T.*,SL.COMMENT FROM (
 select SUM(STOCK_IN-STOCK_OUT) VB,LOT_NO,STORE,STORE_LOCATION from #dsn2#.STOCKS_ROW WHERE STORE=14 GROUP BY LOT_NO,STORE,STORE_LOCATION
@@ -17,7 +17,7 @@ WHERE VB>0
 ORDER BY COMMENT
 </cfquery>
 
-<cfquery name="getTDepolar">
+<cfquery name="getTDepolar" datasource="#dsn#">
     select COMMENT,DEPARTMENT_ID as STORE,LOCATION_ID AS STORE_LOCATION from w3Toruntex.STOCKS_LOCATION where DEPARTMENT_ID IN (15)
 </cfquery>
 
