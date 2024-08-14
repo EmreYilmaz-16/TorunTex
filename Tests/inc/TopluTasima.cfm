@@ -163,7 +163,9 @@ ORDER BY COMMENT
             </div>
         </td>
         <td>
-            <button onclick="Tasi()">Taşıma Yap</button>
+            <button onclick="Tasi('<cfoutput>#attributes.modal_id#</cfoutput>')" class="btn btn-outline-success" type="button">Taşıma Yap</button>
+            <button class="btn btn-outline-danger" onclick="closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')" type="button">Kapat</button>
+            
         </td>
     </tr>
 </table>
