@@ -1,3 +1,4 @@
+<cf_box title="Toplu Taşıma">
 <cfparam name="attributes.MODAL_ID" default="0">
 <cfif isDefined("attributes.tasima")>
     <cfparam name="attributes.clot" default="0">
@@ -194,3 +195,4 @@ ORDER BY COMMENT
 </script>
 
 
+</cf_box>
