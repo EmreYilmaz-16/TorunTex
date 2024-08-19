@@ -138,6 +138,7 @@
             var dsn1="#dsn1#"
             var dsn2="#dsn2#"
             var dsn3="#dsn3#"
+            var UserId=#session.ep.userid#
         </cfoutput>
     </script>
     <script src="/AddOns/Partner/js/sevkiyat.js"></script>
