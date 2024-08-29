@@ -143,6 +143,12 @@ function islemYap(el, ev) {
 
       if (OSX.EXTRA_PRODUCT == 1) {
         // BILGI Ürünün Siparişte Olmama Durumu
+      alert("Ürün Siparişte Bulunmamaktadır")
+      $("#LastRead").text(
+        OSX.LotNo + " - " + Res2.PRODUCT_NAME[0] + " - " + OSX.Agirlik + "Kg."
+      );
+      document.getElementById("LastRead").setAttribute("class", "text-danger");
+      return false;
         var TasimaVeri = {
           FROM_STOCK_ID: OSX.STOCK_ID,
           TO_STOCK_ID: OSX.STOCK_ID,
