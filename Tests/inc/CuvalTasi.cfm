@@ -157,6 +157,11 @@
 
 </script>
 
+<audio id="myAudio">
+    <source src="/AddOns/Partner/content/beep.mp3" type="audio/mpeg">
+    <source src="/AddOns/Partner/content/beep.ogg" type="audio/ogg">
+</audio>
+
 <script src="/AddOns/Partner/js/CuvalTasi.js"></script>
 <!----
 

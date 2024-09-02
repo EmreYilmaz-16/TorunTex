@@ -47,7 +47,6 @@ function SearchBarcode(el, ev) {
       var t = searchDepo_3(QueryResult_1.STOCK_ID[0], el, exxx);
       if (t == false) $("#btnKayit").hide();
       if (t == false) return false;
-     
 
       $("#txtFromDeptId").val(QueryResult_2.DEPARTMENT_ID[0]);
       $("#txtFromLocId").val(QueryResult_2.LOCATION_ID[0]);
@@ -186,21 +185,20 @@ function searchDepo_2(el, ev) {
 }
 function searchDepo_3(STOCK_ID, el, el2) {
   var UrunBarkodu = el.value;
-    UrunBarkodu = ReplaceAll(UrunBarkodu, "||", "|");
-    var UrunKodu = list_getat(UrunBarkodu, 1, "|");
-    var LotNo = list_getat(UrunBarkodu, 2, "|");
-    var Agirlik = list_getat(UrunBarkodu, 3, "|");
+  UrunBarkodu = ReplaceAll(UrunBarkodu, "||", "|");
+  var UrunKodu = list_getat(UrunBarkodu, 1, "|");
+  var LotNo = list_getat(UrunBarkodu, 2, "|");
+  var Agirlik = list_getat(UrunBarkodu, 3, "|");
   var tt = $("tr[data-lotno='" + LotNo + "']").length;
-      if (tt > 0){
-        $("#btnKayit").hide();
-        el.setAttribute("style", InValidStyle);
-        el.setAttribute("style", InValidStyle);
-        document.getElementById("LastBarcode").text = el.value;
-        document.getElementById("LastBarcode").setAttribute("class", "text-danger");
-        return false;
-      } 
-      
- 
+  if (tt > 0) {
+    $("#btnKayit").hide();
+    el.setAttribute("style", InValidStyle);
+    el.setAttribute("style", InValidStyle);
+    document.getElementById("LastBarcode").text = el.value;
+    document.getElementById("LastBarcode").setAttribute("class", "text-danger");
+    return false;
+  }
+
   var cmnt = document.getElementById("txtDepoAdi").value;
   //var STOCK_ID = $("#FROM_STOCK_ID").val();
   var Qstr1 =
@@ -306,6 +304,8 @@ function Kaydet() {
     FROM_UNIT2: FROM_UNIT2,
   };
   console.log(FormDatam);
+  var x = document.getElementById("myAudio");
+  x.play();
   SendFormData(
     "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=14",
     FormDatam
@@ -371,7 +371,10 @@ function sepeteEkle(
   var button = document.createElement("button");
   button.setAttribute("class", "btn btn-danger");
   button.innerText = "Sil";
-  button.setAttribute("onclick", "fis_sil(" + FIS_ID + ",this,"+AMOUNT2+","+AMOUNT+")");
+  button.setAttribute(
+    "onclick",
+    "fis_sil(" + FIS_ID + ",this," + AMOUNT2 + "," + AMOUNT + ")"
+  );
   td.appendChild(button);
   tr.appendChild(td);
   document.getElementById("Sepetim").appendChild(tr);
@@ -383,14 +386,14 @@ function sepeteEkle(
   $("#OkutulanKg").text(OkutulanKg);
 }
 
-function fis_sil(FIS_ID, el,ad,kg) {
+function fis_sil(FIS_ID, el, ad, kg) {
   $.ajax({
     url:
       "/AddOns/Partner/Servis/MasaServis.cfc?method=deleteSelectedFis&FIS_ID=" +
       FIS_ID,
     success: function (retDat) {
       console.log(retDat);
-      OkutulanKg-=kg;
+      OkutulanKg -= kg;
       OkutulanCuval--;
       $("#OkutulanCuval").text(OkutulanCuval);
       $("#OkutulanKg").text(OkutulanKg);
