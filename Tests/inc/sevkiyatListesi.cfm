@@ -96,7 +96,7 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 ) AS SEPETIM
  WHERE 1=1 
  <CFIF LEN(attributes.keyword)>
-	AND SEVK_NO LIKE '%#attributes.keyword#%'
+	AND  (SEVK_NO LIKE '%#attributes.keyword#%' OR ORDER_NUMBER LIKE '%#attributes.keyword#%')
  </CFIF>
  <CFIF LEN(attributes.irsaliye)>
 	AND FATURA_DURUM =#attributes.irsaliye#
