@@ -73,6 +73,10 @@ SELECT * FROM (
 	,SC.COUNTRY_NAME
 	,C.COMPANY_ID
 	,ISNULL(SSP.IS_CLOSED,0) IS_CLOSED
+	,(
+SELECT COUNT(*) FROM w3Toruntex_2024_1.INVOICE_SHIPS WHERE SHIP_ID IN (
+    SELECT SHIP_ID FROM w3Toruntex_1.ORDERS_SHIP WHERE ORDER_ID=O.ORDER_ID
+)) FF_DURUM
 	,(SELECT COUNT(*) FROM #dsn3#.ORDERS_SHIP WHERE ORDER_ID=O.ORDER_ID) AS FATURA_DURUM
 	,(SELECT SH.SHIP_ID,SH.SHIP_NUMBER FROM #dsn3#.ORDERS_SHIP AS OS INNER JOIN #dsn2#.SHIP AS SH ON SH.SHIP_ID=OS.SHIP_ID  WHERE OS.ORDER_ID=O.ORDER_ID FOR JSON PATH) AS IRSALIYELER
 FROM #dsn3#.SEVKIYAT_SEPET_PBS SSP
@@ -154,6 +158,12 @@ ORDER BY SEPET_ID DESC
 				<button type="button" class="btn btn-outline-dark" onclick="window.open('index.cfm?fuseaction=objects.popup_print_files&action=stock.form_add_fis&action_id=#SEPET_ID#&print_type=31','WOC')">Çeki Listesi</button>
 			</td>
 			
+			<td>
+				<button class="btn btn-sm <cfif FF_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
+					<cfif FF_DURUM eq 1>Fatura Kesildi<cfelse>Fatura Kes </cfif>
+				</button>
+				
+			</td>
 			<td>
 				<button <cfif FATURA_DURUM neq 1><!---onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"---><cfif IS_CLOSED eq 1> onclick="irsaliyeKes(#SEPET_ID#)" </cfif></cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
 					<cfif FATURA_DURUM eq 1>İrsaliye Kesildi<cfelse>İrsaliye Kes </cfif>
