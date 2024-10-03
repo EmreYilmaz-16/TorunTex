@@ -160,7 +160,7 @@ ORDER BY SEPET_ID DESC
 			
 			<td>
 				<button class="btn btn-sm <cfif FF_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
-					<cfif FF_DURUM eq 1>Fatura Kesildi<cfelse>Fatura Kes </cfif>
+					<cfif FF_DURUM eq 1>Fatura Kesildi<cfelse>Fatura Kesilecek </cfif>
 				</button>
 				
 			</td>
