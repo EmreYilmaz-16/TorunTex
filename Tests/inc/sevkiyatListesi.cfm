@@ -1,12 +1,25 @@
 <cfparam name="attributes.keyword" default="">
 <cfparam name="attributes.svklock" default="">
 <cfparam name="attributes.irsaliye" default="">
+<cfparam name="attributes.locationid" default="">
 <title>Sevkiyat Listesi</title>
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
 <div style="display:flex">
 	<div class="form-group">
 		<label>Keyword</label>
 		<input type="text" name="keyword" id="keyword" value="<cfoutput>#attributes.keyword#</cfoutput>">
+	</div>
+	<div class="form-group">
+		<label>Depo</label>
+		<select name="locationid">
+			<option value="">Depo</option>
+			<cfquery name="getd" datasource="#dsn#">
+				SELECT * FROM STOCKS_LOCATION WHERE DEPARTMENT_ID=14
+			</cfquery>
+			<cfoutput query="getd">
+				<option <cfif attributes.locationid eq LOCATION_ID>selected</cfif> value="#LOCATION_ID#">#COMMENT#ş</option>
+			</cfoutput>
+		</select>
 	</div>
 	<div class="form-group">
 		<label>Sevkiyat Kilidi</label>
@@ -42,6 +55,7 @@ SELECT * FROM (
 	,O.ORDER_NUMBER
 	,C.NICKNAME
 	,SC.COUNTRY_NAME
+	,SL.LOCATION_ID
 	,ISNULL(SSP.IS_CLOSED,0) IS_CLOSED
 	,(SELECT COUNT(*) FROM #dsn3#.ORDERS_SHIP WHERE ORDER_ID=O.ORDER_ID) AS FATURA_DURUM
 	,(SELECT SH.SHIP_ID,SH.SHIP_NUMBER FROM #dsn3#.ORDERS_SHIP AS OS INNER JOIN #dsn2#.SHIP AS SH ON SH.SHIP_ID=OS.SHIP_ID  WHERE OS.ORDER_ID=O.ORDER_ID FOR JSON PATH) AS IRSALIYELER
