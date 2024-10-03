@@ -2,6 +2,7 @@
 <cfparam name="attributes.svklock" default="">
 <cfparam name="attributes.irsaliye" default="">
 <cfparam name="attributes.locationid" default="">
+<cfparam name="attributes.ffdurum" default="">
 <cfparam name="attributes.comp_id" default="">
 <title>Sevkiyat Listesi</title>
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
@@ -54,6 +55,14 @@
 		</select>
 	</div>
 	<div class="form-group">
+		<label>Fatura</label>
+		<select name="ffdurum">
+			<option value="">Fatura Durumu</option>
+			<option <cfif attributes.ffdurum eq 1>selected</cfif> value="1">Fatura Kesilmiş</option>
+			<option <cfif attributes.ffdurum eq 0>selected</cfif> value="0">Fatura Kesilecek</option>
+		</select>
+	</div>
+	<div class="form-group">
 		<input type="submit">
 	</div>
 </div>
@@ -100,6 +109,9 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
  </CFIF>
  <CFIF LEN(attributes.comp_id)>
 	AND COMPANY_ID =#attributes.comp_id#
+ </CFIF>
+ <CFIF LEN(attributes.ffdurum)>
+	AND FF_DURUM =#attributes.ffdurum#
  </CFIF>
 ORDER BY SEPET_ID DESC
 </cfquery>
