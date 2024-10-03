@@ -68,7 +68,7 @@
 </div>
 </cfform>
 <cfquery name="getSepetler" datasource="#dsn3#">
-SELECT * FROM (
+SELECT DISTINCT * FROM (
     SELECT SEPET_ID
 	,SEVK_NO
 	,SSP.DEPARTMENT_ID
