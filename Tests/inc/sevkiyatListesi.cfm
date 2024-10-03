@@ -80,6 +80,7 @@ ORDER BY SEPET_ID DESC
 				<button <cfif FATURA_DURUM neq 1><!---onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"---><cfif IS_CLOSED eq 1> onclick="irsaliyeKes(#SEPET_ID#)" </cfif></cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
 					<cfif FATURA_DURUM eq 1>İrsaliye Kesildi<cfelse>İrsaliye Kes </cfif>
 				</button>
+				#IS_CLOSED#
 			</td>
 		</tr>
 	</cfoutput>
