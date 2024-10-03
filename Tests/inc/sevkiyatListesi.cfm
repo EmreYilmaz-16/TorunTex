@@ -2,12 +2,28 @@
 <cfparam name="attributes.svklock" default="">
 <cfparam name="attributes.irsaliye" default="">
 <cfparam name="attributes.locationid" default="">
+<cfparam name="attributes.comp_id" default="">
 <title>Sevkiyat Listesi</title>
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
 <div style="display:flex">
 	<div class="form-group">
 		<label>Keyword</label>
 		<input type="text" name="keyword" id="keyword" value="<cfoutput>#attributes.keyword#</cfoutput>">
+	</div>
+	<div class="form-group">
+		<label>Müşteri</label>
+		<select name="comp_id">
+			<option value="">Müşteri</option>
+			<cfquery name="getd" datasource="#dsn#">
+				SELECT DISTINCT C.COMPANY_ID,NICKNAME FROM w3Toruntex_1.ORDERS LEFT JOIN w3Toruntex.COMPANY AS C ON C.COMPANY_ID=ORDERS.COMPANY_ID WHERE ORDER_ID IN(
+    SELECT ORDER_ID FROM w3Toruntex_1.SEVKIYAT_SEPET_PBS
+) ORDER BY NICKNAME
+
+			</cfquery>
+			<cfoutput query="getd">
+				<option <cfif attributes.comp_id eq COMPANY_ID>selected</cfif> value="#COMPANY_ID#">#NICKNAME#</option>
+			</cfoutput>
+		</select>
 	</div>
 	<div class="form-group">
 		<label>Depo</label>
@@ -55,7 +71,7 @@ SELECT * FROM (
 	,O.ORDER_NUMBER
 	,C.NICKNAME
 	,SC.COUNTRY_NAME
-	
+	,C.COMPANY_ID
 	,ISNULL(SSP.IS_CLOSED,0) IS_CLOSED
 	,(SELECT COUNT(*) FROM #dsn3#.ORDERS_SHIP WHERE ORDER_ID=O.ORDER_ID) AS FATURA_DURUM
 	,(SELECT SH.SHIP_ID,SH.SHIP_NUMBER FROM #dsn3#.ORDERS_SHIP AS OS INNER JOIN #dsn2#.SHIP AS SH ON SH.SHIP_ID=OS.SHIP_ID  WHERE OS.ORDER_ID=O.ORDER_ID FOR JSON PATH) AS IRSALIYELER
@@ -77,6 +93,9 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
  </CFIF>
  <CFIF LEN(attributes.locationid)>
 	AND LOCATION_ID =#attributes.locationid#
+ </CFIF>
+ <CFIF LEN(attributes.comp_id)>
+	AND COMPANY_ID =#attributes.comp_id#
  </CFIF>
 ORDER BY SEPET_ID DESC
 </cfquery>
