@@ -75,6 +75,9 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
  <CFIF LEN(attributes.svklock)>
 	AND IS_CLOSED =#attributes.svklock#
  </CFIF>
+ <CFIF LEN(attributes.locationid)>
+	AND LOCATION_ID =#attributes.locationid#
+ </CFIF>
 ORDER BY SEPET_ID DESC
 </cfquery>
 
