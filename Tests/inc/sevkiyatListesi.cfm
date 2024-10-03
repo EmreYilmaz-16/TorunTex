@@ -158,15 +158,16 @@ ORDER BY SEPET_ID DESC
 				<button type="button" class="btn btn-outline-dark" onclick="window.open('index.cfm?fuseaction=objects.popup_print_files&action=stock.form_add_fis&action_id=#SEPET_ID#&print_type=31','WOC')">Çeki Listesi</button>
 			</td>
 			
+			
 			<td>
-				<button class="btn btn-sm <cfif FF_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
-					<cfif FF_DURUM eq 1>Fatura Kesildi<cfelse>Fatura Kesilecek </cfif>
+				<button <cfif FATURA_DURUM neq 1><!---onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"---><cfif IS_CLOSED eq 1> onclick="irsaliyeKes(#SEPET_ID#)" </cfif></cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
+					<cfif FATURA_DURUM eq 1>İrsaliye Kesildi<cfelse>İrsaliye Kes </cfif>
 				</button>
 				
 			</td>
 			<td>
-				<button <cfif FATURA_DURUM neq 1><!---onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"---><cfif IS_CLOSED eq 1> onclick="irsaliyeKes(#SEPET_ID#)" </cfif></cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
-					<cfif FATURA_DURUM eq 1>İrsaliye Kesildi<cfelse>İrsaliye Kes </cfif>
+				<button class="btn btn-sm <cfif FF_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
+					<cfif FF_DURUM eq 1>Fatura Kesildi<cfelse>Fatura Kesilecek </cfif>
 				</button>
 				
 			</td>
