@@ -17,7 +17,7 @@
 				SELECT * FROM STOCKS_LOCATION WHERE DEPARTMENT_ID=14
 			</cfquery>
 			<cfoutput query="getd">
-				<option <cfif attributes.locationid eq LOCATION_ID>selected</cfif> value="#LOCATION_ID#">#COMMENT#ş</option>
+				<option <cfif attributes.locationid eq LOCATION_ID>selected</cfif> value="#LOCATION_ID#">#COMMENT#</option>
 			</cfoutput>
 		</select>
 	</div>
