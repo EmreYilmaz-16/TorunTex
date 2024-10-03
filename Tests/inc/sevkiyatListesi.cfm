@@ -1,5 +1,36 @@
+<cfparam name="keyword" default="">
+<cfparam name="svklock" default="">
+<cfparam name="irsaliye" default="">
 <title>Sevkiyat Listesi</title>
+<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
+<div style="display:flex">
+	<div class="form-group">
+		<label>Keyword</label>
+		<input type="text" name="keyword" id="keyword" value="<cfoutput>#attributes.keyword#</cfoutput>">
+	</div>
+	<div class="form-group">
+		<label>Sevkiyat Kilidi</label>
+		<select name="svklock">
+			<option value="">Sevkiyat Kilidi</option>
+			<option <cfif attributes.svklock eq 1>selected</cfif> value="1">Kilitli</option>
+			<option <cfif attributes.svklock eq 0>selected</cfif> value="0">Açık</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>İrsaliye</label>
+		<select name="irsaliye">
+			<option value="">İrsaliye Durumu</option>
+			<option <cfif attributes.irsaliye eq 1>selected</cfif> value="1">İrsaliye Kesilmiş</option>
+			<option <cfif attributes.irsaliye eq 0>selected</cfif> value="0">İrsaliye Kesilecek</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<input type="submit">
+	</div>
+</div>
+</cfform>
 <cfquery name="getSepetler" datasource="#dsn3#">
+SELECT * FROM (
     SELECT SEPET_ID
 	,SEVK_NO
 	,SSP.DEPARTMENT_ID
@@ -19,6 +50,17 @@ LEFT JOIN #dsn#.STOCKS_LOCATION AS SL ON SL.DEPARTMENT_ID=SSP.DEPARTMENT_ID AND 
 LEFT JOIN #dsn3#.ORDERS AS O ON O.ORDER_ID=SSP.ORDER_ID
 LEFT JOIN #dsn#.COMPANY AS C ON C.COMPANY_ID=O.COMPANY_ID
 LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
+) AS SEPETIM
+ WHERE 1=1 
+ <CFIF LEN(attributes.keyword)>
+	SEVK_NO LIKE '%#attributes.keyword#%'
+ </CFIF>
+ <CFIF LEN(attributes.irsaliye)>
+	FATURA_DURUM =#attributes.irsaliye#
+ </CFIF>
+ <CFIF LEN(attributes.svklock)>
+	IS_CLOSED =#attributes.svklock#
+ </CFIF>
 ORDER BY SEPET_ID DESC
 </cfquery>
 
@@ -80,7 +122,7 @@ ORDER BY SEPET_ID DESC
 				<button <cfif FATURA_DURUM neq 1><!---onclick="windowopen('/index.cfm?fuseaction=#attributes.fuseaction#&sayfa=27&SEPET_ID=#SEPET_ID#')"---><cfif IS_CLOSED eq 1> onclick="irsaliyeKes(#SEPET_ID#)" </cfif></cfif> class="btn btn-sm <cfif FATURA_DURUM eq 1>btn-success<cfelse>btn-danger</cfif>">
 					<cfif FATURA_DURUM eq 1>İrsaliye Kesildi<cfelse>İrsaliye Kes </cfif>
 				</button>
-				#IS_CLOSED#
+				
 			</td>
 		</tr>
 	</cfoutput>
