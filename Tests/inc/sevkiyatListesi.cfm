@@ -53,13 +53,13 @@ LEFT JOIN #dsn#.SETUP_COUNTRY AS SC ON SC.COUNTRY_ID=C.COUNTRY
 ) AS SEPETIM
  WHERE 1=1 
  <CFIF LEN(attributes.keyword)>
-	SEVK_NO LIKE '%#attributes.keyword#%'
+	AND SEVK_NO LIKE '%#attributes.keyword#%'
  </CFIF>
  <CFIF LEN(attributes.irsaliye)>
-	FATURA_DURUM =#attributes.irsaliye#
+	AND FATURA_DURUM =#attributes.irsaliye#
  </CFIF>
  <CFIF LEN(attributes.svklock)>
-	IS_CLOSED =#attributes.svklock#
+	AND IS_CLOSED =#attributes.svklock#
  </CFIF>
 ORDER BY SEPET_ID DESC
 </cfquery>
