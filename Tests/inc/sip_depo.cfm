@@ -43,6 +43,7 @@ FROM (
                 <div class="ui-list-left">
                     #DEPARTMENT_HEAD#-#COMMENT# <cfif (BAKIYE EQ 0 AND SIP_DURUM EQ 0) or attributes.all eq 1><cfelse>&nbsp;&nbsp; <span style="color:red">DOLU - #COMPANY#</span></cfif>
                 </div>
+				#BAKIYE#
             </a>
                 
         </li> 
