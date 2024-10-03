@@ -1,6 +1,6 @@
-<cfparam name="keyword" default="">
-<cfparam name="svklock" default="">
-<cfparam name="irsaliye" default="">
+<cfparam name="attributes.keyword" default="">
+<cfparam name="attributes.svklock" default="">
+<cfparam name="attributes.irsaliye" default="">
 <title>Sevkiyat Listesi</title>
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
 <div style="display:flex">
