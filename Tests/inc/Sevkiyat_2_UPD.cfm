@@ -49,6 +49,7 @@
                 ,SS.LOCATION_ID
                 ,SS.ORDER_ID
                 ,O.ORDER_NUMBER
+                ,O.ORDER_HEAD
                 ,C.NICKNAME
                 ,SC.COUNTRY_NAME
                 ,SL.COMMENT
@@ -73,6 +74,14 @@
                     <td>#getSepet.PLAKA#</td>
                     <td>#getSepet.KONTEYNER#</td>
                     <td>#getSepet.SEVK_NO#</td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Sipariş No :</b>#getSepet.ORDER_NUMBER#
+                    </td>
+                    <td>
+                        <b>Sipariş  :</b>#getSepet.ORDER_HEAD#
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="6">
