@@ -68,12 +68,12 @@
         <cf_box><cfoutput>
             <table class="table table-sm table-bordered">
                 <tr>
-                    <td>#getSepet.DEPARTMENT_HEAD# - #getSepet.COMMENT#</td>                    
-                    <td>#getSepet.NICKNAME#</td>
-                    <td>#getSepet.COUNTRY_NAME#</td>
-                    <td>#getSepet.PLAKA#</td>
-                    <td>#getSepet.KONTEYNER#</td>
-                    <td>#getSepet.SEVK_NO#</td>
+                    <td><b>Depo :</b>#getSepet.DEPARTMENT_HEAD# - #getSepet.COMMENT#</td>                    
+                    <td><b>Müşteri :</b>#getSepet.NICKNAME#</td>
+                    <td><b>Ülke :</b>#getSepet.COUNTRY_NAME#</td>
+                    <td><b>Plaka :</b>#getSepet.PLAKA#</td>
+                    <td><b>Konteyner :</b>#getSepet.KONTEYNER#</td>
+                    <td><b>Sevk No :</b>#getSepet.SEVK_NO#</td>
                 </tr>
                 <tr>
                     <td>
