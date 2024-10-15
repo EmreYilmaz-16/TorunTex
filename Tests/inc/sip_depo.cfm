@@ -33,7 +33,7 @@ FROM (
 </cfquery>
 
 <cf_box title="Depo - Lokasyon" scroll="1" collapsable="1" resize="1" popup_box="1">
-	<cfdump var="#gets#">
+	
     <div class="form-group">
     <input type="text" name="e" onkeyup="searchSiparis(this,event)" placeholder="Ara">
 </div>
