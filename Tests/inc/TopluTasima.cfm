@@ -1,4 +1,4 @@
-<cfset alowed_list="593,146,144">
+<cfset alowed_list="593,146,144,145">
 <cfif not listFind(alowed_list,session.ep.userid)>
     <cf_box title="Toplu Taşıma">
     <div class="alert alert-danger">
