@@ -1,5 +1,5 @@
 <cfset alowed_list="593,146,144">
-<cfif not arra(alowed_list,session.ep.userid)>
+<cfif not listFind(alowed_list,session.ep.userid)>
     <div class="alert alert-danger">
         Bu Sayfayı Görüntülemeye Yetkili Değilsiniz !
     </div>
