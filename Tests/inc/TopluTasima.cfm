@@ -1,3 +1,9 @@
+<cfset alowed_list="593,146,144">
+<cfif not arra(alowed_list,session.ep.userid)>
+    <div class="alert alert-danger">
+        Bu Sayfayı Görüntülemeye Yetkili Değilsiniz !
+    </div>
+</cfif>
 <cf_box title="Toplu Taşıma">
 <cfparam name="attributes.MODAL_ID" default="0">
 <cfif isDefined("attributes.tasima")>
