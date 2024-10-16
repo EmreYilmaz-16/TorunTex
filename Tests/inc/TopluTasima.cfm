@@ -1,8 +1,12 @@
 <cfset alowed_list="593,146,144">
 <cfif not listFind(alowed_list,session.ep.userid)>
+    <cf_box title="Toplu Taşıma">
     <div class="alert alert-danger">
         Bu Sayfayı Görüntülemeye Yetkili Değilsiniz !
     </div>
+    <button class="btn btn-outline-danger" onclick="closeBoxDraggable('<cfoutput>#attributes.modal_id#</cfoutput>')" type="button">Kapat</button>
+</cf_box>
+    <cfabort>
 </cfif>
 <cf_box title="Toplu Taşıma">
 <cfparam name="attributes.MODAL_ID" default="0">
