@@ -30,7 +30,7 @@
 						<tr>
 							<td>
 								<a class="tableyazi" href="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#a#">
-									<img src="/img/foldero.png" width="25" height="25" />
+									<img src="/img/foldero.png" width="30" height="30" />
 									Ust Klasor 
 								</a>
 							</td>
@@ -47,17 +47,17 @@
                                     <cfset ace = "">
                                     <cfif type neq "Dir">
                                         <cfset ace=listLast(Name,".")>
-										<a href="/#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#attributes.DosyaAd#&download_file=#replace(replace(f_info.path,"#expandPath(".")#",""),"//","//")#" > <span class="kopkop"><img src="/img/#ace#.png" width="25" height="35" />#Name# </span></a>
+										<a href="/#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#attributes.DosyaAd#&download_file=#replace(replace(f_info.path,"#expandPath(".")#",""),"//","//")#" > <span class="kopkop"><img src="/img/#ace#.png" width="30" height="30" />#Name# </span></a>
                                     <cfelse>
-                                    <a class="tableyazi" href="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#attributes.DosyaAd#/#Name#"><img src="/img/folder.png" width="25" height="25" />#Name#</a>
+                                    <a class="tableyazi" href="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#attributes.DosyaAd#/#Name#"><img src="/img/folder.png" width="30" height="30" />#Name#</a>
                                     </cfif>																
 								<cfelse>									
                                     <cfif type neq "Dir">
 											<cfset ace=listLast(Name, ".")>
 
-										<a href="#replace(replace(f_info.path,"#expandPath(".")#",""),"//","//")#" download>	<span class="kopkop"><img src="/img/#ace#.png" width="25" height="25" />#Name#</span></a>
+										<a href="#replace(replace(f_info.path,"#expandPath(".")#",""),"//","//")#" download>	<span class="kopkop"><img src="/img/#ace#.png" width="30" height="30" />#Name#</span></a>
 										<cfelse>
-                                        <a href="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#Name#"><img src="/img/folder.png" width="25" height="25" />#Name#</a>
+                                        <a href="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=fe&DosyaAd=#Name#"><img src="/img/folder.png" width="30" height="30" />#Name#</a>
 										</cfif>							
 								</cfif>
 						</td>
