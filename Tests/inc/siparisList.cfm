@@ -65,6 +65,9 @@ WHERE 1=1
     <cfif attributes.STATION eq 'SCK'>
         AND QUANTITY >R_AMOUNT+CAST(A2 AS INTEGER)-1
     </cfif>
+    <cfif attributes.STATION eq 'GRB'>
+        AND DIGER_MIKTAR >URETILEN_MIKTAR2
+    </cfif>
 ORDER BY PRIORITY  
 </cfquery>
 <cfif session.ep.userid eq 144>
