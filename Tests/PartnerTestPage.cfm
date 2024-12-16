@@ -51,7 +51,7 @@
 <cfif attributes.sayfa eq 28><cfinclude template="inc/addRelatedProjectInvoice.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 29><cfinclude template="inc/sevkMain.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 30><cfinclude template="inc/sevkCikar.cfm"><cfabort></cfif>
-<cfif attributes.sayfa eq 31><cfinclude template="inc/tasimaYeni.cfm"><cfabort></cfif>
+<!---<cfif attributes.sayfa eq 31><cfinclude template="inc/tasimaYeni.cfm"><cfabort></cfif>--->
 <cfif attributes.sayfa eq 32><cfinclude template="inc/FaturaFis.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 33><cfinclude template="inc/RafToElle_yeni.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 34><cfinclude template="inc/antrepo_urun_sec.cfm"><cfabort></cfif>

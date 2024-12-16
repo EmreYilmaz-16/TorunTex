@@ -16,7 +16,7 @@
     <cfset attributes.LOCATION_IN=listGetAt(attributes.LOC_IN,2,"-")>
     <cfset attributes.department_out=listGetAt(attributes.LOC_OUT,1,"-")>
     <cfset attributes.LOCATION_OUT =listGetAt(attributes.LOC_OUT,2,"-")>
-    <cfset form.process_cat=294>
+    <cfset form.process_cat=303>
     <cfset attributes.process_cat = form.process_cat>
 
     <cfset attributes.ACTIVE_PERIOD =session.ep.period_id>
