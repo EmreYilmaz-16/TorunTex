@@ -28,7 +28,7 @@
     <cfinclude template="/v16/stock/query/get_process_cat.cfm">  
     
    <cfquery name="getLOTS" datasource="#dsn2#">
-        SELECT SUM(STOCK_IN-STOCK_OUT),LOT_NO,STOCK_ID,PRODUCT_ID FROM w3Toruntex_2024_1.STOCKS_ROW WHERE STORE=#listGetAt(attributes.LOC_OUT,1,"-")# AND STORE_LOCATION=#listGetAt(attributes.LOC_OUT,2,"-")#  GROUP BY LOT_NO,STOCK_ID,PRODUCT_ID HAVING SUM(STOCK_IN-STOCK_OUT)>0
+        SELECT SUM(STOCK_IN-STOCK_OUT) BAKIYE,LOT_NO,STOCK_ID,PRODUCT_ID FROM w3Toruntex_2024_1.STOCKS_ROW WHERE STORE=#listGetAt(attributes.LOC_OUT,1,"-")# AND STORE_LOCATION=#listGetAt(attributes.LOC_OUT,2,"-")#  GROUP BY LOT_NO,STOCK_ID,PRODUCT_ID HAVING SUM(STOCK_IN-STOCK_OUT)>0
     </cfquery>
     <cfdump var="#getLOTS#">
 
@@ -61,7 +61,7 @@
             where STOCK_ID=#STOCK_ID#
         </cfquery>
         <cfset 'attributes.stock_id#ix#' = STOCK_ID>
-        <cfset 'attributes.amount#ix#' = 1>
+        <cfset 'attributes.amount#ix#' = BAKIYE>
         <cfset 'attributes.unit#ix#' = getSinfo.MAIN_UNIT>
         <cfset 'attributes.unit_id#ix#' = getSinfo.PRODUCT_UNIT_ID>
         <cfset 'attributes.tax#ix#' = getSinfo.TAX>
