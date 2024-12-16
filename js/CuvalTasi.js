@@ -27,6 +27,9 @@ function SearchBarcode(el, ev) {
       ".STOCKS_ROW WHERE  LOT_NO='" +
       LotNo +
       "' ORDER BY PROCESS_DATE DESC,UPD_ID DESC";
+
+    var Qstr1="SELECT SUM(STOCK_IN-STOCK_OUT),STORE,STORE_LOCATION FROM "+dsn2+".STOCKS_ROW WHERE  LOT_NO='"+LotNo+"' GROUP BY STORE,STORE_LOCATION HAVING SUM(STOCK_IN-STOCK_OUT)>0"
+
     var QueryResult_1 = wrk_query(Qstr1);
     if (QueryResult_1.recordcount > 0) {
       el.setAttribute("style", ValidStyle);
