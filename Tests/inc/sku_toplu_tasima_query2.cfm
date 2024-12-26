@@ -1,3 +1,6 @@
+<cfinclude template="/v16/stock/query/check_our_period.cfm"> 
+<cfinclude template="/v16/stock/query/get_process_cat.cfm">
+
 <cfparam name="attributes.clot" default="0">
 <cfset attributes.department_in =listGetAt(attributes.IN_STORE,1,"-")>
 <cfset attributes.LOCATION_IN=listGetAt(attributes.IN_STORE,2,"-")>
