@@ -71,6 +71,10 @@
         <input type="submit" value="Taşıma Yap" />
         <input type="hidden" name="is_submit" value="1" />
         <input type="hidden" name="fromForm" value="2" />
+        <cfoutput>
+        <input type="hidden" name="OUT_STORE" value="#form.OUT_STORE#" />
+        <input type="hidden" name="IN_STORE" value="#form.IN_STORE#" />
+    </cfoutput>
         <cf_grid_list>
             <thead>
                 <tr>
@@ -112,6 +116,10 @@
     </cfif>
     <cfif attributes.fromForm eq 2>
         <cfdump var="#form#" />
+        <cfloop list="#attributes.ROW#" item="i">
+            <cfset 'lot_no#i#' = form['lot_no_' & i]>
+            <cfset 'bakiye#i#' = form['bakiye_' & i]>
+        </cfloop>
     </cfif>
 </cfif>
 
