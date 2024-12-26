@@ -1,9 +1,10 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     function checkAll(e) {
         if($(e).is(":checked")) {
-            $("input[name=row]").prop("checked", true);
+            $("input[name='row']").prop("checked", true);
         } else {
-            $("input[name=row]").prop("checked", false);
+            $("input[name='row']").prop("checked", false);
         }
     }
 </script>
