@@ -54,11 +54,13 @@
                     </select>
                 </div>
             </td>
-        </tr>
-    </table>
+      <td>
     <input type="submit" value="Ara" />
     <input type="hidden" name="is_submit" value="1" />
     <input type="hidden" name="fromForm" value="1" />
+</td>
+</tr>
+</table>
 </cfform>
 
 <cfif isDefined("form.is_submit")>
