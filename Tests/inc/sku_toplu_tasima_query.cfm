@@ -15,7 +15,7 @@ WHERE BAKIYE>0
 AND S.STOCK_ID=#GETSKU.STOCK_ID#
 ORDER BY STOCK_ID
 </cfquery>
-<cfdump var="#getStocks#">
+
 
 <cfelse>
 <CFSET getStocks.recordCount=0>

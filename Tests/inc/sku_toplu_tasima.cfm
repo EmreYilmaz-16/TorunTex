@@ -66,13 +66,13 @@
 <cfif isDefined("form.is_submit")>
     <cfif form.fromForm eq 1>
         <cfinclude template="sku_toplu_tasima_query.cfm">
-        <table>
+        <cf_grid_list>
             <thead>
                 <tr>
                     <th>Ürün</th>
                     <th>Lot No</th>
                     <th>Miktar (KG)</th>
-                    <th><input type="checkbox" id="checkAll" /></th>
+                    <th><input type="checkbox" id="checkAll" onclick="checkAll(this)" /></th>
                 </tr>
             </thead>
             <tbody>
@@ -101,6 +101,16 @@
                     </cfif>
                 </cfif>         
             </tbody>
-        </table>
+        </cf_grid_list>
     </cfif>
 </cfif>
+
+<script>
+    function checkAll(e) {
+        if($(e).is(":checked")) {
+            $("input[name=row]").prop("checked", true);
+        } else {
+            $("input[name=row]").prop("checked", false);
+        }
+    }
+</script>
