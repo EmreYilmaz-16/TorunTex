@@ -20,7 +20,7 @@
     from w3Toruntex.STOCKS_LOCATION 
     where DEPARTMENT_ID IN (15)
 </cfquery>
-
+<cfif not isDefined("form.fromForm")>
 <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
     <table>
         <tr>
@@ -62,10 +62,15 @@
 </tr>
 </table>
 </cfform>
+</cfif>
 
 <cfif isDefined("form.is_submit")>
     <cfif form.fromForm eq 1>
         <cfinclude template="sku_toplu_tasima_query.cfm">
+       <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
+        <input type="submit" value="Taşıma Yap" />
+        <input type="hidden" name="is_submit" value="1" />
+        <input type="hidden" name="fromForm" value="2" />
         <cf_grid_list>
             <thead>
                 <tr>
@@ -102,6 +107,11 @@
                 </cfif>         
             </tbody>
         </cf_grid_list>
+
+    </cfform>
+    </cfif>
+    <cfif attributes.fromForm eq 2>
+        <cfdump var="#form#" />
     </cfif>
 </cfif>
 
