@@ -65,7 +65,7 @@
 
 <cfif isDefined("form.is_submit")>
     <cfif form.fromForm eq 1>
-        <cfinclude template="inc/sku_toplu_tasima_query.cfm">
+        <cfinclude template="sku_toplu_tasima_query.cfm">
         <table>
             <thead>
                 <tr>
