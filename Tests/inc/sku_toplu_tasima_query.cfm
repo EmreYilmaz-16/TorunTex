@@ -2,7 +2,7 @@
     SELECT * FROM #dsn3#.STOCKS WHERE PRODUCT_CODE_2 = '#attributes.SKU_CODE#'
 </cfquery>
 
-    <CFIF GETSKU.RECORDCOUNT EQ 0>
+    <CFIF GETSKU.RECORDCOUNT gt 0>
 <cfquery name="getStocks" datasource="#dsn2#">
     
 SELECT T.*,S.PRODUCT_NAME FROM (
