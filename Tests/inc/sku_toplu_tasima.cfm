@@ -74,8 +74,9 @@
 </table>
 </cfform>
 </cfif>
-
+<div id="result"></div>
 <cfif isDefined("form.is_submit")>
+
     <cfif form.fromForm eq 1>
         <cfinclude template="sku_toplu_tasima_query.cfm">
        <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
