@@ -26,7 +26,7 @@
         <button style="margin-top:5px"  class="btn btn-outline-danger" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=47','_blank')">Ürün Etiketi Yazdır</button>
         <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=20','_blank')">Yazıcı Ekle</button>
         <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=64','_blank')">Toplu Taşıma</button>
-        <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="openBoxDraggable('index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=65','_blank')">Lot Bazlı Taşıma</button>
+        <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=65','_blank')">Lot Bazlı Taşıma</button>
     </cfif>
     <cfif listfind("1,2,144,145,146",session.ep.userid)>
         <button style="margin-top:5px"  class="btn btn-outline-warning" onclick="window.open('/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=26','_blank')">Sayım</button>
