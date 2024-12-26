@@ -1,3 +1,14 @@
+<cfset alowed_list="593,146,144,145">
+<cfif not listFind(alowed_list,session.ep.userid)>
+    <cf_box title="Toplu Taşıma">
+    <div class="alert alert-danger">
+        Bu Sayfayı Görüntülemeye Yetkili Değilsiniz !
+    </div>
+    
+</cf_box>
+    <cfabort>
+</cfif>
+
 <cfquery name="getDoluDepolar" datasource="#dsn#">
     select STORE_LOCATION,STORE,COMMENT,COUNT(*) from (
         SELECT T.*,SL.COMMENT FROM (
@@ -118,7 +129,12 @@
     <cfif attributes.fromForm eq 2>
         
       <cfinclude template="sku_toplu_tasima_query2.cfm">
-        
+      
+      <script>
+        alert("Taşıma Başarılı");
+        window.location.href = "/index.cfm?fuseaction=settings.emptypopup_partner_test_page&sayfa=65";
+      </script>
+
     </cfif>
 </cfif>
 
