@@ -97,6 +97,7 @@
                                 <td>#LOT_NO#</td>
                                 <td>#BAKIYE#</td>
                                 <td>
+                                    <input type="hidden" name="stock_id_#currentrow#" value="#STOCK_ID#" />
                                     <input type="hidden" name="lot_no_#currentrow#" value="#LOT_NO#" />
                                     <input type="hidden" name="bakiye_#currentrow#" value="#BAKIYE#" />
                                     <input type="checkbox" name="row" value="#currentrow#" />
@@ -115,11 +116,9 @@
     </cfform>
     </cfif>
     <cfif attributes.fromForm eq 2>
-        <cfdump var="#form#" />
-        <cfloop list="#attributes.ROW#" item="i">
-            <cfset 'lot_no#i#' = form['lot_no_' & i]>
-            <cfset 'bakiye#i#' = form['bakiye_' & i]>
-        </cfloop>
+        
+      <cfinclude template="sku_toplu_tasima_query2.cfm">
+        
     </cfif>
 </cfif>
 
