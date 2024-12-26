@@ -1,7 +1,7 @@
 <cfquery name="GETSKU" datasource="#dsn#">
     SELECT * FROM #dsn3#.STOCKS WHERE PRODUCT_CODE_2 = '#attributes.SKU_CODE#'
 </cfquery>
-
+<cfdump var="#GETSKU#">
     <CFIF GETSKU.RECORDCOUNT EQ 0>
 <cfquery name="getStocks" datasource="#dsn2#">
     
