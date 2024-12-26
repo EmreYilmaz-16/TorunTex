@@ -32,7 +32,7 @@
     where DEPARTMENT_ID IN (15)
 </cfquery>
 <cfif not isDefined("form.fromForm")>
-<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
+<cfform name="form" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
     <table>
         <tr>
             <td>
@@ -66,7 +66,7 @@
                 </div>
             </td>
       <td>
-    <input type="submit" value="Ara" />
+    <button type="button" onclick="(AjaxFormSubmit('form'))" class="btn btn-outline-success">Ara</button>
     <input type="hidden" name="is_submit" value="1" />
     <input type="hidden" name="fromForm" value="1" />
 </td>
