@@ -35,16 +35,14 @@
                     </select>
                 </div>
             </td>
-        </tr>
-        <tr>
+       
             <td>
                 <div class="form-group">                
                     <label>Ürün Kodu</label>
                     <input type="text" name="SKU_CODE" />
                 </div>
             </td>
-        </tr>
-        <tr>
+        
             <td>
                 <div class="form-group">                
                     <label>Giriş Depo</label>
