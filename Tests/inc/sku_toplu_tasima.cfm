@@ -8,7 +8,7 @@
 </cf_box>
     <cfabort>
 </cfif>
-
+<cf_box title="Toplu Taşıma">
 <cfquery name="getDoluDepolar" datasource="#dsn#">
     select STORE_LOCATION,STORE,COMMENT,COUNT(*) from (
         SELECT T.*,SL.COMMENT FROM (
@@ -147,3 +147,4 @@
         }
     }
 </script>
+</cf_box>
