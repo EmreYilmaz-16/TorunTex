@@ -86,7 +86,7 @@
         <input type="hidden" name="OUT_STORE" value="#form.OUT_STORE#" />
         <input type="hidden" name="IN_STORE" value="#form.IN_STORE#" />
     </cfoutput>
-        <cf_grid_list>
+        <cf_big_list>
             <thead>
                 <tr>
                     <th>Ürün</th>
@@ -122,7 +122,7 @@
                     </cfif>
                 </cfif>         
             </tbody>
-        </cf_grid_list>
+        </cf_big_list>
 
     </cfform>
     </cfif>
