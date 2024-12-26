@@ -1,14 +1,3 @@
-
-<script>
-    function checkAll(e) {
-        if($(e).is(":checked")) {
-            $("input[name='row']").prop("checked", true);
-        } else {
-            $("input[name='row']").prop("checked", false);
-        }
-    }
-</script>
-
 <cfquery name="getDoluDepolar" datasource="#dsn#">
     select STORE_LOCATION,STORE,COMMENT,COUNT(*) from (
         SELECT T.*,SL.COMMENT FROM (
@@ -86,7 +75,7 @@
         <input type="hidden" name="OUT_STORE" value="#form.OUT_STORE#" />
         <input type="hidden" name="IN_STORE" value="#form.IN_STORE#" />
     </cfoutput>
-        <cf_big_list>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Ürün</th>
@@ -122,7 +111,7 @@
                     </cfif>
                 </cfif>         
             </tbody>
-        </cf_big_list>
+        </table>
 
     </cfform>
     </cfif>
@@ -138,3 +127,14 @@
     </cfif>
 </cfif>
 
+
+
+<script>
+    function checkAll(e) {
+        if($(e).is(":checked")) {
+            $("input[name='row']").prop("checked", true);
+        } else {
+            $("input[name='row']").prop("checked", false);
+        }
+    }
+</script>
