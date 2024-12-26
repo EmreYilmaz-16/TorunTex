@@ -8,6 +8,15 @@
 </cf_box>
     <cfabort>
 </cfif>
+<script>
+    function checkAll(e) {
+        if($(e).is(":checked")) {
+            $("input[name=row]").prop("checked", true);
+        } else {
+            $("input[name=row]").prop("checked", false);
+        }
+    }
+</script>
 
 <cfquery name="getDoluDepolar" datasource="#dsn#">
     select STORE_LOCATION,STORE,COMMENT,COUNT(*) from (
@@ -138,12 +147,3 @@
     </cfif>
 </cfif>
 
-<script>
-    function checkAll(e) {
-        if($(e).is(":checked")) {
-            $("input[name=row]").prop("checked", true);
-        } else {
-            $("input[name=row]").prop("checked", false);
-        }
-    }
-</script>
