@@ -86,6 +86,7 @@
 <cfif attributes.sayfa eq 62><cfinclude template="inc/HayvanAktar.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 63><cfinclude template="inc/SiparisLotDetay.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq 64><cfinclude template="inc/TopluTasima.cfm"><cfabort></cfif>
+<cfif attributes.sayfa eq 65><cfinclude template="inc/sku_toplu_tasima.cfm"><cfabort></cfif>
 <cfif attributes.sayfa eq "CiftlikWelcome"><cfinclude template="inc/Ciftlik_welcome.cfm"><cfabort></cfif>
 
 
