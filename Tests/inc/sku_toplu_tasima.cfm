@@ -1,13 +1,3 @@
-<cfset alowed_list="593,146,144,145">
-<cfif not listFind(alowed_list,session.ep.userid)>
-    <cf_box title="Toplu Taşıma">
-    <div class="alert alert-danger">
-        Bu Sayfayı Görüntülemeye Yetkili Değilsiniz !
-    </div>
-    
-</cf_box>
-    <cfabort>
-</cfif>
 <script>
     function checkAll(e) {
         if($(e).is(":checked")) {
