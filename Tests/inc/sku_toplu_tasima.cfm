@@ -32,7 +32,7 @@
     where DEPARTMENT_ID IN (15)
 </cfquery>
 <cfif not isDefined("form.fromForm")>
-<cfform name="form" method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
+<cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
     <table>
         <tr>
             <td>
@@ -66,7 +66,7 @@
                 </div>
             </td>
       <td>
-    <button type="button" onclick="(AjaxFormSubmit('form'))" class="btn btn-outline-success">Ara</button>
+    <input type="submit" value="Ara" />
     <input type="hidden" name="is_submit" value="1" />
     <input type="hidden" name="fromForm" value="1" />
 </td>
@@ -74,11 +74,8 @@
 </table>
 </cfform>
 </cfif>
-<div id="mgbox" style="color:red"></div>
-<div id="result"></div>
 
 <cfif isDefined("form.is_submit")>
-
     <cfif form.fromForm eq 1>
         <cfinclude template="sku_toplu_tasima_query.cfm">
        <cfform method="post" action="#request.self#?fuseaction=#attributes.fuseaction#&sayfa=#attributes.sayfa#">
