@@ -36,10 +36,10 @@
 <cfset ATTRIBUTES.FIS_DATE_M  ="0">
 <cfset attributes.rows_=listLen(attributes.row)>
 
-<cfloop list="#attributes.row#" item="i">
-    <cfset STOCK_ID = evaluate("form.stock_id_" & i)>
-    <cfset LOT_NO = evaluate("form.lot_no_" & i)>
-    <cfset BAKIYE = evaluate("form.bakiye_" & i)>
+<cfloop list="#attributes.row#" item="ix">
+    <cfset STOCK_ID = evaluate("form.stock_id_" & ix)>
+    <cfset LOT_NO = evaluate("form.lot_no_" & ix)>
+    <cfset BAKIYE = evaluate("form.bakiye_" & ix)>
 
     <cfquery name="getSinfo" datasource="#dsn3#">                            
         select PRODUCT_UNIT.MAIN_UNIT,STOCKS.PRODUCT_UNIT_ID,STOCKS.TAX,STOCKS.PRODUCT_ID,STOCKS.IS_INVENTORY from #dsn3#.STOCKS 
