@@ -81,7 +81,7 @@
                     <th>Ürün</th>
                     <th>Lot No</th>
                     <th>Miktar (KG)</th>
-                    <th><input type="checkbox" id="checkAll" onclick="checkAll(this)" /></th>
+                    <th><input type="checkbox" id="checkAll" onclick="tumunuSec(this)" /></th>
                 </tr>
             </thead>
             <tbody>
@@ -130,7 +130,7 @@
 
 
 <script>
-    function checkAll(e) {
+    function tumunuSec(e) {
         if($(e).is(":checked")) {
             $("input[name='row']").prop("checked", true);
         } else {
