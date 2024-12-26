@@ -1,5 +1,3 @@
-<cfinclude template="/v16/stock/query/check_our_period.cfm"> 
-<cfinclude template="/v16/stock/query/get_process_cat.cfm">
 
 <cfparam name="attributes.clot" default="0">
 <cfset attributes.department_in =listGetAt(attributes.IN_STORE,1,"-")>
@@ -15,6 +13,8 @@
     select STOCK_FIS_NO,STOCK_FIS_NUMBER from GENERAL_PAPERS
 </cfquery>
 
+<cfinclude template="/v16/stock/query/check_our_period.cfm"> 
+<cfinclude template="/v16/stock/query/get_process_cat.cfm">
 
 <cfset attributes.fis_type = get_process_type.PROCESS_TYPE>
 
