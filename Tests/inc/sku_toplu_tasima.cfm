@@ -74,7 +74,9 @@
 </table>
 </cfform>
 </cfif>
+<div id="mgbox" style="color:red"></div>
 <div id="result"></div>
+
 <cfif isDefined("form.is_submit")>
 
     <cfif form.fromForm eq 1>
