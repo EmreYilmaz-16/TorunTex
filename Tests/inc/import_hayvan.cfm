@@ -23,7 +23,7 @@
         SELECT * FROM res     
     </cfquery>   
   <cfquery name="GETSKIN" datasource="#DSN3#">
-    select YEAR(INVOICE_DATE) AS IV_DATE from w3Toruntex_2024_1.INVOICE WHERE  INVOICE_ID=#attributes.INVOICE_ID#
+    select YEAR(INVOICE_DATE) AS IV_DATE from #dsn2#.INVOICE WHERE  INVOICE_ID=#attributes.INVOICE_ID#
 </cfquery>
 <script>
     window.opener.document.getElementById("IV_DATE").value='<cfoutput>#GETSKIN.IV_DATE#</cfoutput>'
@@ -34,7 +34,7 @@
         select * from w3Toruntex_1.STOCKS WHERE STOCK_CODE='#col_1#'
     </cfquery>
       <cfquery name="GETSKI" datasource="#DSN3#">
-        select * from w3Toruntex_2024_1.INVOICE_ROW WHERE STOCK_ID=#GETSK.STOCK_ID# AND INVOICE_ID=#attributes.INVOICE_ID#
+        select * from #dsn2#.INVOICE_ROW WHERE STOCK_ID=#GETSK.STOCK_ID# AND INVOICE_ID=#attributes.INVOICE_ID#
     </cfquery>
     
     <script>

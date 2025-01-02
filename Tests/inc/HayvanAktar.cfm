@@ -16,7 +16,7 @@
     <cfinclude template="/v16/stock/query/get_process_cat.cfm">  
     
    <cfquery name="getLOTS" datasource="#dsn2#">
-        SELECT SUM(STOCK_IN-STOCK_OUT),LOT_NO,STOCK_ID,PRODUCT_ID FROM w3Toruntex_2024_1.STOCKS_ROW WHERE STORE=18 AND STORE_LOCATION=#listGetAt(attributes.LOC_OUT,2,"-")#  GROUP BY LOT_NO,STOCK_ID,PRODUCT_ID HAVING SUM(STOCK_IN-STOCK_OUT)>0
+        SELECT SUM(STOCK_IN-STOCK_OUT),LOT_NO,STOCK_ID,PRODUCT_ID FROM #dsn2#.STOCKS_ROW WHERE STORE=18 AND STORE_LOCATION=#listGetAt(attributes.LOC_OUT,2,"-")#  GROUP BY LOT_NO,STOCK_ID,PRODUCT_ID HAVING SUM(STOCK_IN-STOCK_OUT)>0
     </cfquery>
     <cfdump var="#getLOTS#">
 

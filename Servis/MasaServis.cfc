@@ -2,8 +2,8 @@
     <cfset dsn3="w3Toruntex_1">
     <cfset dsn="w3Toruntex">
     <cfset dsn3_alias="w3Toruntex_1">
-    <cfset dsn2="w3Toruntex_2024_1">
-    <cfset dsn2_alias="w3Toruntex_2024_1">
+    <cfset dsn2="w3Toruntex_#year(now())#_1">
+    <cfset dsn2_alias="w3Toruntex_#year(now())#_1">
     <cfset DSN1="w3Toruntex_product">
     <!----
         //BILGI MASALARA ÜRÜNÜ GÖNDERMEK İÇİN KULLANILIR

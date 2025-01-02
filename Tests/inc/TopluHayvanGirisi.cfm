@@ -1,9 +1,9 @@
 <cfif isDefined("attributes.girici") and attributes.girici eq 1>
     <cfdump var="#attributes#">
     <cfquery name="get_hlot" datasource="#dsn2#">
-        SELECT LOT_NO FROM w3Toruntex_2024_1.SHIP_ROW WHERE SHIP_ID IN (
-SELECT SH.SHIP_ID FROM w3Toruntex_2024_1.INVOICE_SHIPS AS INV_SH
-LEFT JOIN w3Toruntex_2024_1.SHIP AS SH ON SH.SHIP_ID=INV_SH.SHIP_ID
+        SELECT LOT_NO FROM #dsn2#.SHIP_ROW WHERE SHIP_ID IN (
+SELECT SH.SHIP_ID FROM #dsn2#.INVOICE_SHIPS AS INV_SH
+LEFT JOIN #dsn2#.SHIP AS SH ON SH.SHIP_ID=INV_SH.SHIP_ID
   WHERE
   1=1 
   AND IMPORT_INVOICE_ID=#attributes.inv_id# 

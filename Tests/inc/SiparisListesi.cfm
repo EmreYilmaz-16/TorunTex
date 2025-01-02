@@ -352,7 +352,7 @@
                     100 * ISNULL(
                         (
                             SELECT sum(STOCK_IN - STOCK_OUT) STOCK_IN
-                            FROM w3Toruntex_2024_1.STOCKS_ROW
+                            FROM #dsn2#.STOCKS_ROW
                             WHERE PBS_RELATION_ID = ORR.WRK_ROW_ID
                                 AND STORE = O.DELIVER_DEPT_ID
                                 AND STORE_LOCATION = O.LOCATION_ID
@@ -364,7 +364,7 @@
                 ISNULL(
                     (
                         SELECT sum(STOCK_IN - STOCK_OUT) STOCK_IN
-                        FROM w3Toruntex_2024_1.STOCKS_ROW
+                        FROM #dsn2#.STOCKS_ROW
                         WHERE PBS_RELATION_ID = ORR.WRK_ROW_ID
                             AND STORE = O.DELIVER_DEPT_ID
                             AND STORE_LOCATION = O.LOCATION_ID
@@ -379,7 +379,7 @@
                                     ELSE 1
                                 END
                             )
-                        FROM w3Toruntex_2024_1.STOCKS_ROW
+                        FROM #dsn2#.STOCKS_ROW
                         WHERE STORE = O.DELIVER_DEPT_ID
                             AND PBS_RELATION_ID = ORR.WRK_ROW_ID
                             AND STORE_LOCATION = O.LOCATION_ID
