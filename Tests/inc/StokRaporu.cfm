@@ -84,6 +84,36 @@ function compenentInputValueEmptyinglocation_1(object_)
     }
 }
 </script>
+<script type="text/javascript">
+	
+    function send_value_1(values){
+        var value_length = list_len(values,'█');
+        for(vli=1;vli<=value_length;vli++){
+            var value=list_getat(values,vli,'█');
+            var inputObject = list_getat('location_name,department_id,location_id,branch_id',vli,',');
+            if(document.getElementById(inputObject))
+                document.getElementById(inputObject).value = value;
+        }
+        closeBoxDraggable( '114793627219148' );
+    }
+    function send_value2_1(values)
+    {
+            var value2=list_getat(values,2,',');
+            var value1=list_getat(values,1,',');
+            var inputObject = list_getat('location_name,department_id,location_id,branch_id',2,',');
+            var inputObject2 = list_getat('location_name,department_id,location_id,branch_id',3,',');
+            var inputObject3 = list_getat('location_name,department_id,location_id,branch_id',1,',');
+            if(document.getElementById(inputObject))
+                document.getElementById(inputObject).value = value2;
+            if(document.getElementById(inputObject2))
+                document.getElementById(inputObject2).value = value1;
+            if(document.getElementById(inputObject3))
+                document.getElementById(inputObject3).value = '';
+        
+    }
+
+
+</script>
                 </div>
             </td>
             <td>
