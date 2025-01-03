@@ -93,7 +93,7 @@ function compenentInputValueEmptyinglocation_1(object_)
     </table>
 </cfform>
 <cfif isDefined("attributes.is_submit")>
-    <cfdumpvar var="#form#">
+    <cfdump  var="#form#">
 </cfif>
 
 </cf_box>
